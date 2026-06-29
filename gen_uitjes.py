@@ -58,6 +58,7 @@ SRC = {
     'doornroosje':         ('Doornroosje',     '🌹', '#880e4f'),
     'ahoy':                ('Rotterdam Ahoy',  '⚓', '#1565c0'),
     'paard':               ('Het Paard',        '🐴', '#c62828'),
+    'hedon':               ('Hedon Zwolle',     '🎵', '#6a1b9a'),
 }
 
 VENUE_LOC = {
@@ -94,6 +95,7 @@ VENUE_LOC = {
     'ontdekpoort':          (53.0328, 5.6603, 'Friesland'),
     'koornbeurs':           (53.1858, 5.5422, 'Friesland'),
     'bostheater':           (52.5146, 6.4198, 'Overijssel'),
+    'hedon':               (52.5038, 6.0975, 'Overijssel'),
     # Landelijke podia
     'tivolivredenburg':    (52.0927, 5.1116, 'Utrecht'),
     'melkweg':             (52.3651, 4.8839, 'Noord-Holland'),
@@ -108,7 +110,7 @@ VENUE_LOC = {
 
 MUSIC_VENUES  = {'vera','simplon','em2groningen','spotgroningen.nl','grandcafe_zuidlaren',
                  'kielzog','machinefabriek','usva','detamboer','neushoorn',
-                 'tivolivredenburg','melkweg','paradiso','013','ziggodome','effenaar','doornroosje','ahoy','paard'}
+                 'tivolivredenburg','melkweg','paradiso','013','ziggodome','effenaar','doornroosje','ahoy','paard','hedon'}
 THEATER_VENUES= {'lawei','atlastheater','denieuwekolk.nl','vanberesteyn','theaterroden','geertteis',
                  'grandtheatregroningen','martiniplaza','dorpshuisannen','podiumnienoordleek',
                  'zummerbuhne','posthuistheater','ontdekpoort','koornbeurs'}
@@ -502,8 +504,4 @@ main{{padding:0 16px 32px;}}
 <div id="stats">Toont alle {total} events</div>
 <main>{main_html}</main>
 <script>{js}</script>
-</body></html>'''
-
-with open(HTML_OUT,'w',encoding='utf-8') as f:
-    f.write(html)
-print(f"HTML: {len(html):,} bytes | {total} events")
+<
