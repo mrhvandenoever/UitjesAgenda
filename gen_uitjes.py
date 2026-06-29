@@ -59,6 +59,11 @@ SRC = {
     'ahoy':                ('Rotterdam Ahoy',  '⚓', '#1565c0'),
     'paard':               ('Het Paard',        '🐴', '#c62828'),
     'hedon':               ('Hedon Zwolle',     '🎵', '#6a1b9a'),
+    'afaslive':            ('AFAS Live',        '🏛️', '#0d47a1'),
+    'rotown':              ('Rotown',           '🎸', '#bf360c'),
+    'dedoelen':            ('De Doelen',        '🎻', '#1b5e20'),
+    'gelredome':           ('GelreDome',        '🏟️', '#f57f17'),
+    'concertgebouw':       ('Concertgebouw',    '🎼', '#880e4f'),
 }
 
 VENUE_LOC = {
@@ -106,11 +111,17 @@ VENUE_LOC = {
     'doornroosje':         (51.8455, 5.8629, 'Gelderland'),
     'ahoy':                (51.8897, 4.4864, 'Zuid-Holland'),
     'paard':               (52.0753, 4.3024, 'Zuid-Holland'),
+    'afaslive':            (52.3571, 4.9428, 'Noord-Holland'),
+    'rotown':              (51.9197, 4.4786, 'Zuid-Holland'),
+    'dedoelen':            (51.9197, 4.4786, 'Zuid-Holland'),
+    'gelredome':           (51.9819, 5.8987, 'Gelderland'),
+    'concertgebouw':       (52.3564, 4.8797, 'Noord-Holland'),
 }
 
 MUSIC_VENUES  = {'vera','simplon','em2groningen','spotgroningen.nl','grandcafe_zuidlaren',
                  'kielzog','machinefabriek','usva','detamboer','neushoorn',
-                 'tivolivredenburg','melkweg','paradiso','013','ziggodome','effenaar','doornroosje','ahoy','paard','hedon'}
+                 'tivolivredenburg','melkweg','paradiso','013','ziggodome','effenaar','doornroosje','ahoy','paard','hedon',
+                 'afaslive','rotown','dedoelen','gelredome','concertgebouw'}
 THEATER_VENUES= {'lawei','atlastheater','denieuwekolk.nl','vanberesteyn','theaterroden','geertteis',
                  'grandtheatregroningen','martiniplaza','dorpshuisannen','podiumnienoordleek',
                  'zummerbuhne','posthuistheater','ontdekpoort','koornbeurs'}
@@ -487,21 +498,3 @@ main{{padding:0 16px 32px;}}
   <button class="btn" data-genre="theater">🎭 Theater</button>
   <button class="btn" data-genre="cabaret">🎪 Cabaret</button>
   <button class="btn" data-genre="musical">🎼 Musical</button>
-  <button class="btn" data-genre="klassiek">🎻 Klassiek</button>
-  <button class="btn" data-genre="pop">🎸 Pop / Rock</button>
-  <button class="btn" data-genre="jazz">🎷 Jazz</button>
-  <button class="btn" data-genre="dans">💃 Dans</button>
-  <button class="btn" data-genre="expo">🖼️ Expo</button>
-  <button class="btn" data-genre="actief">🥾 Actief</button>
-  <button class="btn" data-genre="kinderen">🎈 Kinderen</button>
-  <button class="btn" data-genre="overig">• Overig</button>
-</div>
-<div class="filters">
-  <div class="filters-label">Bron</div>
-  {src_buttons}
-</div>
-<div class="month-nav">{month_nav}</div>
-<div id="stats">Toont alle {total} events</div>
-<main>{main_html}</main>
-<script>{js}</script>
-<
