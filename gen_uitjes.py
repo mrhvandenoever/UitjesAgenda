@@ -515,8 +515,5 @@ main{{padding:0 16px 32px;}}
 <div id="stats">Toont alle {total} events</div>
 <main>{main_html}</main>
 <script>{js}</script>
-</body></html>'''
-
-with open(HTML_OUT,'w',encoding='utf-8') as f:
-    f.write(html)
-print(f"HTML: {len(html):,} bytes | {total} events")
+<footer style="margin-top:32px;padding:16px;font-size:0.72rem;color:#aaa;border-top:1px solid #e0e0e0;line-height:1.6;">
+  Uitjes Agenda 
