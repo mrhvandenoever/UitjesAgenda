@@ -516,4 +516,10 @@ main{{padding:0 16px 32px;}}
 <main>{main_html}</main>
 <script>{js}</script>
 <footer style="margin-top:32px;padding:16px;font-size:0.72rem;color:#aaa;border-top:1px solid #e0e0e0;line-height:1.6;">
-  Uitjes Agenda 
+  Uitjes Agenda is een onafhankelijke verzamelagenda. We tonen alleen beperkte feitelijke informatie zoals titel, datum, locatie en bron, met een link naar de oorspronkelijke aanbieder. Voor actuele informatie, tickets, wijzigingen en voorwaarden verwijzen we altijd naar de officiële website van de organisator of locatie. Bent u rechthebbende of organisator en wilt u een event of bron laten aanpassen of verwijderen? Neem contact op via <a href="mailto:chielemans@hotmail.com" style="color:#aaa;">chielemans@hotmail.com</a>
+</footer>
+</body></html>'''
+
+with open(HTML_OUT,'w',encoding='utf-8') as f:
+    f.write(html)
+print(f"HTML: {len(html):,} bytes | {total} events")
