@@ -100,7 +100,6 @@ VENUE_LOC = {
     'ontdekpoort':          (53.0328, 5.6603, 'Friesland'),
     'koornbeurs':           (53.1858, 5.5422, 'Friesland'),
     'bostheater':           (52.5146, 6.4198, 'Overijssel'),
-    'hedon':               (52.5038, 6.0975, 'Overijssel'),
     # Landelijke podia
     'tivolivredenburg':    (52.0927, 5.1116, 'Utrecht'),
     'melkweg':             (52.3651, 4.8839, 'Noord-Holland'),
@@ -111,6 +110,7 @@ VENUE_LOC = {
     'doornroosje':         (51.8455, 5.8629, 'Gelderland'),
     'ahoy':                (51.8897, 4.4864, 'Zuid-Holland'),
     'paard':               (52.0753, 4.3024, 'Zuid-Holland'),
+    'hedon':               (52.5038, 6.0975, 'Overijssel'),
     'afaslive':            (52.3571, 4.9428, 'Noord-Holland'),
     'rotown':              (51.9197, 4.4786, 'Zuid-Holland'),
     'dedoelen':            (51.9197, 4.4786, 'Zuid-Holland'),
@@ -498,3 +498,25 @@ main{{padding:0 16px 32px;}}
   <button class="btn" data-genre="theater">🎭 Theater</button>
   <button class="btn" data-genre="cabaret">🎪 Cabaret</button>
   <button class="btn" data-genre="musical">🎼 Musical</button>
+  <button class="btn" data-genre="klassiek">🎻 Klassiek</button>
+  <button class="btn" data-genre="pop">🎸 Pop / Rock</button>
+  <button class="btn" data-genre="jazz">🎷 Jazz</button>
+  <button class="btn" data-genre="dans">💃 Dans</button>
+  <button class="btn" data-genre="expo">🖼️ Expo</button>
+  <button class="btn" data-genre="actief">🥾 Actief</button>
+  <button class="btn" data-genre="kinderen">🎈 Kinderen</button>
+  <button class="btn" data-genre="overig">• Overig</button>
+</div>
+<div class="filters">
+  <div class="filters-label">Bron</div>
+  {src_buttons}
+</div>
+<div class="month-nav">{month_nav}</div>
+<div id="stats">Toont alle {total} events</div>
+<main>{main_html}</main>
+<script>{js}</script>
+</body></html>'''
+
+with open(HTML_OUT,'w',encoding='utf-8') as f:
+    f.write(html)
+print(f"HTML: {len(html):,} bytes | {total} events")
