@@ -286,12 +286,28 @@ prov_colors = {
 prov_buttons = '<button class="btn active" data-prov="all">Alle provincies</button>\n'
 for p in provs:
     c = prov_colors[p]
-    prov_buttons += f'  <button class="btn" data-prov="{p}" style="border-color:{c};color:{c};">{p}</button>\n'
+    prov_buttons += f'  <button class="btn" data-prov="{p}">{p}</button>\n'
 prov_css = '\n'.join(
+    f'.btn[data-prov="{p}"]:hover{{border-color:{prov_colors[p]};color:{prov_colors[p]};background:#fff;}}'
     f'.btn[data-prov="{p}"].active{{background:{prov_colors[p]};color:#fff;border-color:{prov_colors[p]};}}'
     for p in provs)
 
 import json as _json
+SPORT_COLORS = {
+    'voetbal':   '#00a651',
+    'basketbal': '#e07000',
+    'volleybal': '#1565c0',
+    'ijshockey': '#37474f',
+    'handbal':   '#c62828',
+}
+sport_css = '\n'.join(
+    f'.btn[data-sport="{s}"]:hover{{border-color:{c};color:{c};}}'
+    f'.btn[data-sport="{s}"].active{{background:{c};color:#fff;border-color:{c};}}'
+    for s,c in SPORT_COLORS.items())
+club_css = '\n'.join(
+    f'.btn[data-club="{k}"]:hover{{border-color:{SRC[k][2]};color:{SRC[k][2]};}}'
+    f'.btn[data-club="{k}"].active{{background:{SRC[k][2]};color:{"#212121" if SRC[k][2]=="#ffcc00" else "#fff"};border-color:{SRC[k][2]};}}'
+    for k in SPORT_SRCS if k in SRC)
 landelijk_json = _json.dumps(sorted(LANDELIJK))
 
 js = f'''
@@ -486,6 +502,8 @@ header h1{{font-size:1.2rem;font-weight:700;margin-bottom:2px;}}
 .btn:hover{{opacity:.8;}}
 .btn[data-src="all"].active,.btn[data-genre="all"].active,.btn[data-prov="all"].active{{background:#555;color:#fff;border-color:#555;}}
 .btn[data-sport="all"].active,.btn[data-club="all"].active{{background:#555;color:#fff;border-color:#555;}}
+{sport_css}
+{club_css}
 .mode-toggle{{background:#fff;padding:8px 16px;display:flex;gap:8px;border-bottom:2px solid var(--border);}}
 .mode-btn{{padding:5px 18px;border-radius:20px;border:2px solid #ccc;background:#fff;cursor:pointer;font-weight:700;font-size:0.88rem;}}
 .mode-btn.active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
