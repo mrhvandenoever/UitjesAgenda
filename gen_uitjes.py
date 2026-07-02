@@ -288,7 +288,6 @@ for p in provs:
     c = prov_colors[p]
     prov_buttons += f'  <button class="btn" data-prov="{p}">{p}</button>\n'
 prov_css = '\n'.join(
-    f'.btn[data-prov="{p}"]:hover{{border-color:{prov_colors[p]};color:{prov_colors[p]};background:#fff;}}'
     f'.btn[data-prov="{p}"].active{{background:{prov_colors[p]};color:#fff;border-color:{prov_colors[p]};}}'
     for p in provs)
 
@@ -316,6 +315,11 @@ let selSrc=new Set(), selGenre=new Set(), selProv=new Set(), maxDist=9999;
 let currentMode='uitjes', selSport=new Set(), selClub=new Set();
 const SPORT_SRCS=new Set(['fcgroningen','fcemmen','donar','lycurgus','grizzlys','hurryup']);
 const SPORT_BY_SRC={{fcgroningen:'voetbal',fcemmen:'voetbal',donar:'basketbal',lycurgus:'volleybal',grizzlys:'ijshockey',hurryup:'handbal'}};
+const SPORT_COLOR_MAP={{voetbal:'#00a651',basketbal:'#e07000',volleybal:'#1565c0',ijshockey:'#37474f',handbal:'#c62828'}};
+const CLUB_COLOR_MAP={{fcgroningen:'#00a651',fcemmen:'#003087',donar:'#e2001a',lycurgus:'#ffcc00',grizzlys:'#6699cc',hurryup:'#ff6600'}};
+const PROV_COLOR_MAP={{Groningen:'#1565c0',Drenthe:'#2e7d32',Friesland:'#6a1b9a',Overijssel:'#e65100',Utrecht:'#6a1b9a','Noord-Holland':'#b71c1c','Zuid-Holland':'#00695c','Noord-Brabant':'#f57f17',Gelderland:'#4e342e'}};
+function actBtn(el,c){{el.style.background=c;el.style.color=c==='#ffcc00'?'#212121':'#fff';el.style.borderColor=c;}}
+function deactBtn(el){{el.style.background='';el.style.color='';el.style.borderColor='';}}
 let centerLat=53.034, centerLon=6.735;
 
 function haversine(lat1,lon1,lat2,lon2){{
@@ -358,7 +362,8 @@ function apply(){{
     document.querySelector('.btn[data-src="all"]')?.classList.toggle('active',selSrc.size===0);
     document.querySelector('.btn[data-genre="all"]')?.classList.toggle('active',selGenre.size===0);
   }}
-  document.querySelector('.btn[data-prov="all"]').classList.toggle('active',selProv.size===0);
+  const apb=document.querySelector('.btn[data-prov="all"]'),apa=selProv.size===0;
+  apb.classList.toggle('active',apa);if(apa)actBtn(apb,'#555');else deactBtn(apb);
   document.getElementById('dist-label').textContent=maxDist>=9999?'Alle afstanden':'≤ '+maxDist+' km';
 }}
 
@@ -441,7 +446,12 @@ document.querySelectorAll('.btn[data-prov]').forEach(b=>b.addEventListener('clic
   const v=b.dataset.prov;
   if(v==='all')selProv.clear();
   else{{if(selProv.has(v))selProv.delete(v);else selProv.add(v);}}
-  document.querySelectorAll('.btn[data-prov]:not([data-prov="all"])').forEach(x=>x.classList.toggle('active',selProv.has(x.dataset.prov)));
+  document.querySelectorAll('.btn[data-prov]:not([data-prov="all"])').forEach(x=>{{
+    const a=selProv.has(x.dataset.prov);x.classList.toggle('active',a);
+    if(a)actBtn(x,PROV_COLOR_MAP[x.dataset.prov]||'#555');else deactBtn(x);
+  }});
+  const pb=document.querySelector('.btn[data-prov="all"]'),pa=selProv.size===0;
+  pb.classList.toggle('active',pa);if(pa)actBtn(pb,'#555');else deactBtn(pb);
   apply();
 }}));
 
@@ -455,29 +465,42 @@ function setMode(m){{
     if(el) el.style.display=m==='uitjes'?'':'none';
   }});
   selSport.clear();selClub.clear();selSrc.clear();selGenre.clear();
+  document.querySelectorAll('.btn[data-sport],.btn[data-club]').forEach(x=>deactBtn(x));
+  const smSA=document.querySelector('.btn[data-sport="all"]'),smCA=document.querySelector('.btn[data-club="all"]');
+  smSA.classList.add('active');actBtn(smSA,'#555');
+  smCA.classList.add('active');actBtn(smCA,'#555');
   apply();
 }}
 document.querySelectorAll('.btn[data-sport]').forEach(b=>b.addEventListener('click',()=>{{
   const v=b.dataset.sport;
   if(v==='all'){{selSport.clear();}}
   else{{if(selSport.has(v))selSport.delete(v);else selSport.add(v);}}
-  document.querySelectorAll('.btn[data-sport]:not([data-sport="all"])').forEach(x=>x.classList.toggle('active',selSport.has(x.dataset.sport)));
-  document.querySelector('.btn[data-sport="all"]').classList.toggle('active',selSport.size===0);
+  document.querySelectorAll('.btn[data-sport]:not([data-sport="all"])').forEach(x=>{{
+    const a=selSport.has(x.dataset.sport);x.classList.toggle('active',a);
+    if(a)actBtn(x,SPORT_COLOR_MAP[x.dataset.sport]||'#555');else deactBtn(x);
+  }});
+  const sb=document.querySelector('.btn[data-sport="all"]'),sa=selSport.size===0;
+  sb.classList.toggle('active',sa);if(sa)actBtn(sb,'#555');else deactBtn(sb);
   // Toon/verberg clubknoppen op basis van geselecteerde sport
   document.querySelectorAll('[data-club]:not([data-club="all"])').forEach(x=>{{
     x.style.display=(selSport.size===0||selSport.has(x.dataset.sportType))?'':'none';
   }});
   selClub.clear();
-  document.querySelectorAll('[data-club]:not([data-club="all"])').forEach(x=>x.classList.remove('active'));
-  document.querySelector('.btn[data-club="all"]').classList.toggle('active',true);
+  document.querySelectorAll('[data-club]:not([data-club="all"])').forEach(x=>{{x.classList.remove('active');deactBtn(x);}});
+  const cb=document.querySelector('.btn[data-club="all"]');
+  cb.classList.add('active');actBtn(cb,'#555');
   apply();
 }}));
 document.querySelectorAll('.btn[data-club]').forEach(b=>b.addEventListener('click',()=>{{
   const v=b.dataset.club;
   if(v==='all')selClub.clear();
   else{{if(selClub.has(v))selClub.delete(v);else selClub.add(v);}}
-  document.querySelectorAll('.btn[data-club]:not([data-club="all"])').forEach(x=>x.classList.toggle('active',selClub.has(x.dataset.club)));
-  document.querySelector('.btn[data-club="all"]').classList.toggle('active',selClub.size===0);
+  document.querySelectorAll('.btn[data-club]:not([data-club="all"])').forEach(x=>{{
+    const a=selClub.has(x.dataset.club);x.classList.toggle('active',a);
+    if(a)actBtn(x,CLUB_COLOR_MAP[x.dataset.club]||'#555');else deactBtn(x);
+  }});
+  const cb2=document.querySelector('.btn[data-club="all"]'),ca=selClub.size===0;
+  cb2.classList.toggle('active',ca);if(ca)actBtn(cb2,'#555');else deactBtn(cb2);
   apply();
 }}));
 // Init: zet afstanden vanuit standaard centrum (Annen)
