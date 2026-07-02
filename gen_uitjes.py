@@ -64,6 +64,13 @@ SRC = {
     'dedoelen':            ('De Doelen',        '🎻', '#1b5e20'),
     'gelredome':           ('GelreDome',        '🏟️', '#f57f17'),
     'concertgebouw':       ('Concertgebouw',    '🎼', '#880e4f'),
+    # Sport clubs (Noord-Nederland)
+    'fcgroningen':         ('FC Groningen',     '⚽', '#00a651'),
+    'fcemmen':             ('FC Emmen',         '⚽', '#003087'),
+    'donar':               ('Donar',            '🏀', '#e2001a'),
+    'lycurgus':            ('Lycurgus',         '🏐', '#ffcc00'),
+    'grizzlys':            ("Grizzly's",       '🏒', '#6699cc'),
+    'hurryup':             ('Hurry-Up',         '🤾', '#ff6600'),
 }
 
 VENUE_LOC = {
@@ -116,12 +123,27 @@ VENUE_LOC = {
     'dedoelen':            (51.9197, 4.4786, 'Zuid-Holland'),
     'gelredome':           (51.9819, 5.8987, 'Gelderland'),
     'concertgebouw':       (52.3564, 4.8797, 'Noord-Holland'),
+    'fcgroningen':         (53.2027, 6.5678, 'Groningen'),
+    'fcemmen':             (52.7693, 6.8891, 'Drenthe'),
+    'donar':               (53.2265, 6.5683, 'Groningen'),
+    'lycurgus':            (53.2265, 6.5300, 'Groningen'),
+    'grizzlys':            (53.2265, 6.5300, 'Groningen'),
+    'hurryup':             (52.7800, 6.8900, 'Drenthe'),
 }
 
 MUSIC_VENUES  = {'vera','simplon','em2groningen','spotgroningen.nl','grandcafe_zuidlaren',
                  'kielzog','machinefabriek','usva','detamboer','neushoorn',
                  'tivolivredenburg','melkweg','paradiso','013','ziggodome','effenaar','doornroosje','ahoy','paard','hedon',
                  'afaslive','rotown','dedoelen','gelredome','concertgebouw'}
+SPORT_CLUBS = {
+    'voetbal':    ['fcgroningen', 'fcemmen'],
+    'basketbal':  ['donar'],
+    'volleybal':  ['lycurgus'],
+    'ijshockey':  ['grizzlys'],
+    'handbal':    ['hurryup'],
+}
+SPORT_SRCS = {s for clubs in SPORT_CLUBS.values() for s in clubs}
+
 THEATER_VENUES= {'lawei','atlastheater','denieuwekolk.nl','vanberesteyn','theaterroden','geertteis',
                  'grandtheatregroningen','martiniplaza','dorpshuisannen','podiumnienoordleek',
                  'zummerbuhne','posthuistheater','ontdekpoort','koornbeurs'}
@@ -207,6 +229,7 @@ LANDELIJK = {'tivolivredenburg','melkweg','paradiso','013','ziggodome','effenaar
 src_buttons = '<button class="btn active" data-src="all">Alle bronnen</button>\n'
 src_buttons += '  <button class="btn" data-src-group="landelijk" style="border-color:#c62828;color:#c62828;">🗺️ Landelijk</button>\n'
 for key in active_sources:
+    if key in SPORT_SRCS: continue  # sport clubs apart
     label,emoji,_ = SRC.get(key,(key,'•','#999'))
     src_buttons += f'  <button class="btn" data-src="{key}">{emoji} {esc(label)}</button>\n'
 
@@ -274,6 +297,9 @@ landelijk_json = _json.dumps(sorted(LANDELIJK))
 js = f'''
 const TOTAL={total};
 let selSrc=new Set(), selGenre=new Set(), selProv=new Set(), maxDist=9999;
+let currentMode='uitjes', selSport=new Set(), selClub=new Set();
+const SPORT_SRCS=new Set(['fcgroningen','fcemmen','donar','lycurgus','grizzlys','hurryup']);
+const SPORT_BY_SRC={{fcgroningen:'voetbal',fcemmen:'voetbal',donar:'basketbal',lycurgus:'volleybal',grizzlys:'ijshockey',hurryup:'handbal'}};
 let centerLat=53.034, centerLon=6.735;
 
 function haversine(lat1,lon1,lat2,lon2){{
@@ -297,24 +323,27 @@ function updateDistances(){{
 function apply(){{
   let v=0;
   document.querySelectorAll('.event').forEach(ev=>{{
-    const dist=parseInt(ev.dataset.dist||9999);
-    const ok=
-      (selSrc.size===0  || selSrc.has(ev.dataset.src))  &&
-      (selGenre.size===0|| selGenre.has(ev.dataset.genre)) &&
-      (selProv.size===0 || selProv.has(ev.dataset.prov)) &&
-      dist<=maxDist;
-    ev.classList.toggle('hidden',!ok); if(ok)v++;
+    const src=ev.dataset.src, dist=parseInt(ev.dataset.dist||9999);
+    const isSport=SPORT_SRCS.has(src);
+    let ok;
+    if(currentMode==='uitjes'){{
+      ok=!isSport&&(selSrc.size===0||selSrc.has(src))&&(selGenre.size===0||selGenre.has(ev.dataset.genre))&&(selProv.size===0||selProv.has(ev.dataset.prov))&&dist<=maxDist;
+    }}else{{
+      const sp=SPORT_BY_SRC[src];
+      ok=isSport&&(selSport.size===0||selSport.has(sp))&&(selClub.size===0||selClub.has(src))&&(selProv.size===0||selProv.has(ev.dataset.prov))&&dist<=maxDist;
+    }}
+    ev.classList.toggle('hidden',!ok);if(ok)v++;
   }});
   document.querySelectorAll('.month-section').forEach(s=>{{
     s.classList.toggle('hidden',s.querySelectorAll('.event:not(.hidden)').length===0);
   }});
-  document.getElementById('stats').textContent=
-    v===TOTAL?'Toont alle '+TOTAL+' events':'Toont '+v+' van '+TOTAL+' events';
-  document.querySelector('.btn[data-src="all"]').classList.toggle('active',selSrc.size===0);
-  document.querySelector('.btn[data-genre="all"]').classList.toggle('active',selGenre.size===0);
+  document.getElementById('stats').textContent=v===TOTAL?'Toont alle '+TOTAL+' events':'Toont '+v+' van '+TOTAL+' events';
+  if(currentMode==='uitjes'){{
+    document.querySelector('.btn[data-src="all"]')?.classList.toggle('active',selSrc.size===0);
+    document.querySelector('.btn[data-genre="all"]')?.classList.toggle('active',selGenre.size===0);
+  }}
   document.querySelector('.btn[data-prov="all"]').classList.toggle('active',selProv.size===0);
-  const lbl=maxDist>=9999?'Alle afstanden':'≤ '+maxDist+' km';
-  document.getElementById('dist-label').textContent=lbl;
+  document.getElementById('dist-label').textContent=maxDist>=9999?'Alle afstanden':'≤ '+maxDist+' km';
 }}
 
 async function geocode(addr){{
@@ -400,6 +429,41 @@ document.querySelectorAll('.btn[data-prov]').forEach(b=>b.addEventListener('clic
   apply();
 }}));
 
+function setMode(m){{
+  currentMode=m;
+  document.getElementById('btn-uitjes').classList.toggle('active',m==='uitjes');
+  document.getElementById('btn-sport').classList.toggle('active',m==='sport');
+  document.getElementById('sport-filters').style.display=m==='sport'?'block':'none';
+  ['uitjes-genre','uitjes-src'].forEach(id=>{{
+    const el=document.getElementById(id);
+    if(el) el.style.display=m==='uitjes'?'':'none';
+  }});
+  selSport.clear();selClub.clear();selSrc.clear();selGenre.clear();
+  apply();
+}}
+document.querySelectorAll('.btn[data-sport]').forEach(b=>b.addEventListener('click',()=>{{
+  const v=b.dataset.sport;
+  if(v==='all'){{selSport.clear();}}
+  else{{if(selSport.has(v))selSport.delete(v);else selSport.add(v);}}
+  document.querySelectorAll('.btn[data-sport]:not([data-sport="all"])').forEach(x=>x.classList.toggle('active',selSport.has(x.dataset.sport)));
+  document.querySelector('.btn[data-sport="all"]').classList.toggle('active',selSport.size===0);
+  // Toon/verberg clubknoppen op basis van geselecteerde sport
+  document.querySelectorAll('[data-club]:not([data-club="all"])').forEach(x=>{{
+    x.style.display=(selSport.size===0||selSport.has(x.dataset.sportType))?'':'none';
+  }});
+  selClub.clear();
+  document.querySelectorAll('[data-club]:not([data-club="all"])').forEach(x=>x.classList.remove('active'));
+  document.querySelector('.btn[data-club="all"]').classList.toggle('active',true);
+  apply();
+}}));
+document.querySelectorAll('.btn[data-club]').forEach(b=>b.addEventListener('click',()=>{{
+  const v=b.dataset.club;
+  if(v==='all')selClub.clear();
+  else{{if(selClub.has(v))selClub.delete(v);else selClub.add(v);}}
+  document.querySelectorAll('.btn[data-club]:not([data-club="all"])').forEach(x=>x.classList.toggle('active',selClub.has(x.dataset.club)));
+  document.querySelector('.btn[data-club="all"]').classList.toggle('active',selClub.size===0);
+  apply();
+}}));
 // Init: zet afstanden vanuit standaard centrum (Annen)
 updateDistances();
 '''
@@ -421,6 +485,10 @@ header h1{{font-size:1.2rem;font-weight:700;margin-bottom:2px;}}
 .btn{{padding:4px 10px;border-radius:20px;border:1.5px solid #ccc;background:#fff;cursor:pointer;font-size:0.78rem;color:#555;transition:all .15s;white-space:nowrap;}}
 .btn:hover{{opacity:.8;}}
 .btn[data-src="all"].active,.btn[data-genre="all"].active,.btn[data-prov="all"].active{{background:#555;color:#fff;border-color:#555;}}
+.btn[data-sport="all"].active,.btn[data-club="all"].active{{background:#555;color:#fff;border-color:#555;}}
+.mode-toggle{{background:#fff;padding:8px 16px;display:flex;gap:8px;border-bottom:2px solid var(--border);}}
+.mode-btn{{padding:5px 18px;border-radius:20px;border:2px solid #ccc;background:#fff;cursor:pointer;font-weight:700;font-size:0.88rem;}}
+.mode-btn.active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
 {src_css_all}
 {prov_css}
 .btn[data-genre="theater"].active{{background:#880e4f;color:#fff;border-color:#880e4f;}}
@@ -472,6 +540,31 @@ main{{padding:0 16px 32px;}}
   .event-badges{{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;justify-content:flex-start;}}
 }}
 </style></head><body>
+<div class="mode-toggle">
+  <button class="mode-btn active" id="btn-uitjes" onclick="setMode('uitjes')">🗓️ Uitjes</button>
+  <button class="mode-btn" id="btn-sport" onclick="setMode('sport')">⚽ Sport</button>
+</div>
+<div id="sport-filters" style="display:none">
+<div class="filters">
+  <div class="filters-label">Sport</div>
+  <button class="btn active" data-sport="all">Alle sporten</button>
+  <button class="btn" data-sport="voetbal">⚽ Voetbal</button>
+  <button class="btn" data-sport="basketbal">🏀 Basketbal</button>
+  <button class="btn" data-sport="volleybal">🏐 Volleybal</button>
+  <button class="btn" data-sport="ijshockey">🏒 IJshockey</button>
+  <button class="btn" data-sport="handbal">🤾 Handbal</button>
+</div>
+<div class="filters">
+  <div class="filters-label">Club</div>
+  <button class="btn active" data-club="all">Alle clubs</button>
+  <button class="btn" data-club="fcgroningen" data-sport-type="voetbal">⚽ FC Groningen</button>
+  <button class="btn" data-club="fcemmen" data-sport-type="voetbal">⚽ FC Emmen</button>
+  <button class="btn" data-club="donar" data-sport-type="basketbal">🏀 Donar</button>
+  <button class="btn" data-club="lycurgus" data-sport-type="volleybal">🏐 Lycurgus</button>
+  <button class="btn" data-club="grizzlys" data-sport-type="ijshockey">🏒 Grizzly's</button>
+  <button class="btn" data-club="hurryup" data-sport-type="handbal">🤾 Hurry-Up</button>
+</div>
+</div>
 <header>
   <h1>🗓️ Uitjes Agenda</h1>
   <div class="meta">Bijgewerkt: {today_str} &nbsp;·&nbsp; {total} events &nbsp;·&nbsp; {len(active_sources)} bronnen</div>
@@ -492,7 +585,7 @@ main{{padding:0 16px 32px;}}
     <span id="addr-status">standaard: Annen</span>
   </div>
 </div>
-<div class="filters">
+<div class="filters" id="uitjes-genre">
   <div class="filters-label">Genre</div>
   <button class="btn active" data-genre="all">Alle genres</button>
   <button class="btn" data-genre="theater">🎭 Theater</button>
@@ -507,7 +600,7 @@ main{{padding:0 16px 32px;}}
   <button class="btn" data-genre="kinderen">🎈 Kinderen</button>
   <button class="btn" data-genre="overig">• Overig</button>
 </div>
-<div class="filters">
+<div class="filters" id="uitjes-src">
   <div class="filters-label">Bron</div>
   {src_buttons}
 </div>
