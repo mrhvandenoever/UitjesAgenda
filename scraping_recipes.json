@@ -607,10 +607,11 @@
   "lycurgus": {
     "display_name": "Lycurgus",
     "agenda_url": "https://www.volleybal.nl/competitie/vereniging/cmj3g4f/heren/1",
-    "render_type": "client_js",
-    "scrape_code": "",
-    "notes": "Nevobo Volleybal.nl SPA - statische fetch geeft alleen site-shell. Chrome-navigatie naar volleybal.nl was BLOCKED in de 2026-07-05 sandbox-sessie.",
-    "sample_event_url": "",
+    "render_type": "static",
+    "rss_url": "https://api.nevobo.nl/export/team/cmj3g4f/heren/1/programma.rss",
+    "scrape_code": "import urllib.request, json, re\nfrom email.utils import parsedate_to_datetime\nfrom xml.etree.ElementTree import fromstring\n\nurl = 'https://api.nevobo.nl/export/team/cmj3g4f/heren/1/programma.rss'\nwith urllib.request.urlopen(url) as r:\n    data = r.read().decode('utf-8')\ndata = data.replace('<![CDATA[', '').replace(']]>', '')\nroot = fromstring(data)\nevents = []\nfor item in root.findall('.//item'):\n    title = item.findtext('title', '').strip()\n    link  = item.findtext('link', '').strip()\n    pub   = item.findtext('pubDate', '').strip()\n    m = re.match(r'.+?:\\s+(.+?)\\s+-\\s+(.+)', title)\n    if not m: continue\n    home, away = m.group(1).strip(), m.group(2).strip()\n    if 'Lycurgus' not in home: continue  # alleen thuiswedstrijden\n    dt = parsedate_to_datetime(pub)\n    events.append({\n        'title': f'Lycurgus - {away}',\n        'date': dt.strftime('%Y-%m-%d'),\n        'venue': 'Topsportcentrum Alfacollege, Groningen',\n        'url': link,\n        'source': 'lycurgus',\n        'genre': 'sport',\n        'sport': 'volleybal',\n        'gender': 'heren'\n    })",
+    "notes": "Nevobo biedt een officieel RSS-programma-feed per team. URL-structuur: https://api.nevobo.nl/export/team/{teamcode}/{dames|heren}/{volgnummer}/programma.rss (volgnummer = 1 voor eerste team, 2 voor tweede team, etc.). Thuiswedstrijd = clubnaam staat als eerste in de titel. Seizoen 2026-2027: 7 thuiswedstrijden. Lycurgus teamcode: cmj3g4f (heren/1).",
+    "sample_event_url": "https://api.nevobo.nl/permalink/wedstrijd/1964161",
     "last_verified": "2026-07-05"
   },
   "grizzlys": {
@@ -647,6 +648,125 @@
     "scrape_code": "urllib + regex op event-links: <a href=\"...\">DDmmm DDmmmTitel DD-MM-YYYY Plaats</a> - klein en onregelmatig (vergader/teambuilding-locatie met incidentele publieke activiteiten, geen volle agenda).",
     "notes": "Toegevoegd 2026-07-05 op verzoek van Michiel. Op moment van toevoegen maar 1 events zichtbaar (yoga-activiteit 25 aug 2026) - dit is een vergaderlocatie/teambuilding-plek met soms publieke activiteiten, geen theater/podium. Coordinaten (53.0310, 6.7460) zijn een schatting o.b.v. Annerstreek 5, Annen - niet exact geverifieerd.",
     "sample_event_url": "https://denoorderbron.nl/evenement/yoga-summer-yoga-proeflessen/",
+    "last_verified": "2026-07-05"
+  },
+  "friso": {
+    "display_name": "Friso Sneek",
+    "agenda_url": "https://www.volleybal.nl/competitie/vereniging/ckl6l98/dames/1",
+    "render_type": "static",
+    "rss_url": "https://api.nevobo.nl/export/team/ckl6l98/dames/1/programma.rss",
+    "scrape_code": "import urllib.request, json, re\nfrom email.utils import parsedate_to_datetime\nfrom xml.etree.ElementTree import fromstring\n\ndef scrape_nevobo(teamcode, geslacht, volgnr, club_name, source_key, gender):\n    url = f'https://api.nevobo.nl/export/team/{teamcode}/{geslacht}/{volgnr}/programma.rss'\n    with urllib.request.urlopen(url) as r:\n        data = r.read().decode('utf-8')\n    data = data.replace('<![CDATA[', '').replace(']]>', '')\n    root = fromstring(data)\n    events = []\n    for item in root.findall('.//item'):\n        title = item.findtext('title', '').strip()\n        link  = item.findtext('link', '').strip()\n        pub   = item.findtext('pubDate', '').strip()\n        desc  = item.findtext('description', '').strip()\n        m = re.match(r'.+?:\\s+(.+?)\\s+-\\s+(.+)', title)\n        if not m: continue\n        home, away = m.group(1).strip(), m.group(2).strip()\n        if club_name not in home: continue\n        dt = parsedate_to_datetime(pub)\n        venue_m = re.search(r'Speellocatie:\\s*(.+)', desc)\n        venue = venue_m.group(1).strip() if venue_m else f'Thuishal {club_name}'\n        events.append({'title': f'{club_name} - {away}', 'date': dt.strftime('%Y-%m-%d'),\n            'venue': venue, 'url': link, 'source': source_key,\n            'genre': 'sport', 'sport': 'volleybal', 'gender': gender})\n    return events\n\nevents = scrape_nevobo('ckl6l98', 'dames', 1, 'Friso Sneek', 'friso', 'dames')",
+    "notes": "Damesteam Eredivisie. Teamcode: ckl6l98 (dames/1). Zie lycurgus voor URL-structuur.",
+    "sample_event_url": "",
+    "last_verified": "2026-07-05"
+  },
+  "sudosa": {
+    "display_name": "CRAFT Sudosa",
+    "agenda_url": "https://www.volleybal.nl/competitie/vereniging/cpx7m7h/dames/1",
+    "render_type": "static",
+    "rss_url": "https://api.nevobo.nl/export/team/cpx7m7h/dames/1/programma.rss",
+    "scrape_code": "import urllib.request, json, re\nfrom email.utils import parsedate_to_datetime\nfrom xml.etree.ElementTree import fromstring\n\ndef scrape_nevobo(teamcode, geslacht, volgnr, club_name, source_key, gender):\n    url = f'https://api.nevobo.nl/export/team/{teamcode}/{geslacht}/{volgnr}/programma.rss'\n    with urllib.request.urlopen(url) as r:\n        data = r.read().decode('utf-8')\n    data = data.replace('<![CDATA[', '').replace(']]>', '')\n    root = fromstring(data)\n    events = []\n    for item in root.findall('.//item'):\n        title = item.findtext('title', '').strip()\n        link  = item.findtext('link', '').strip()\n        pub   = item.findtext('pubDate', '').strip()\n        desc  = item.findtext('description', '').strip()\n        m = re.match(r'.+?:\\s+(.+?)\\s+-\\s+(.+)', title)\n        if not m: continue\n        home, away = m.group(1).strip(), m.group(2).strip()\n        if club_name not in home: continue\n        dt = parsedate_to_datetime(pub)\n        venue_m = re.search(r'Speellocatie:\\s*(.+)', desc)\n        venue = venue_m.group(1).strip() if venue_m else f'Thuishal {club_name}'\n        events.append({'title': f'{club_name} - {away}', 'date': dt.strftime('%Y-%m-%d'),\n            'venue': venue, 'url': link, 'source': source_key,\n            'genre': 'sport', 'sport': 'volleybal', 'gender': gender})\n    return events\n\nevents = scrape_nevobo('cpx7m7h', 'dames', 1, 'Sudosa', 'sudosa', 'dames')",
+    "notes": "Damesteam Eredivisie (volledige naam: Jumbo Virena Autogroep Sudosa). Teamcode: cpx7m7h (dames/1). Zie lycurgus voor URL-structuur.",
+    "sample_event_url": "",
+    "last_verified": "2026-07-05"
+  },
+  "heerenveen": {
+    "display_name": "SC Heerenveen",
+    "agenda_url": "https://www.sc-heerenveen.nl/wedstrijden",
+    "render_type": "static",
+    "scrape_code": "import urllib.request, re, json as _json\n\nreq = urllib.request.Request(\n    'https://www.sc-heerenveen.nl/wedstrijden',\n    headers={'User-Agent': 'Mozilla/5.0'}\n)\nwith urllib.request.urlopen(req) as r:\n    html = r.read().decode('utf-8')\n# JSON embedded in HTML - find the matches block\nm = re.search(r'\"matches\":\\s*(\\[.*?\\])', html, re.S)\nif m:\n    matches = _json.loads(m.group(1))\n    events = []\n    for match in matches:\n        if not match.get('isHome', False): continue\n        date_played = match.get('datePlayed', '')[:10]\n        opponent = match.get('opponent', {}).get('name', 'Onbekend')\n        events.append({\n            'title': f'SC Heerenveen - {opponent}',\n            'date': date_played,\n            'venue': 'Abe Lenstra Stadion, Heerenveen',\n            'url': 'https://www.sc-heerenveen.nl/wedstrijden',\n            'source': 'heerenveen', 'genre': 'sport',\n            'sport': 'voetbal', 'gender': 'heren'\n        })",
+    "notes": "Statische HTML met embedded JSON. Zoek op 'datePlayed' keys. isHome:true filtert thuiswedstrijden. 25 thuiswedstrijden seizoen 2025-26. LET OP: niet te verwarren met ESPN - eigen site werkt statisch.",
+    "sample_event_url": "https://www.sc-heerenveen.nl/wedstrijden",
+    "last_verified": "2026-07-05"
+  },
+  "fctwente": {
+    "display_name": "FC Twente",
+    "agenda_url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/152/fc-twente",
+    "render_type": "static",
+    "scrape_code": "import urllib.request, re\n\ndef scrape_espn(espn_url, club_name, venue, source_key):\n    req = urllib.request.Request(espn_url, headers={'User-Agent': 'Mozilla/5.0'})\n    with urllib.request.urlopen(req) as r:\n        html = r.read().decode('utf-8')\n    pattern = (\n        r'\"displayName\":\"([^\"]+)\"[^}]{0,300}\"isHome\":true\\}'\n        r'.{0,600}'\n        r'\"displayName\":\"([^\"]+)\"[^}]{0,300}\"isHome\":false\\}'\n        r'.{0,200}\"date\":\"(202[67]-\\\\d{2}-\\\\d{2})'\n    )\n    events = []\n    for m in re.finditer(pattern, html, re.S):\n        home, away, date_iso = m.group(1), m.group(2), m.group(3)\n        if club_name.lower() not in home.lower():\n            continue\n        events.append({\n            'title': f'{club_name} - {away}',\n            'date': date_iso, 'venue': venue, 'url': espn_url,\n            'source': source_key, 'genre': 'sport',\n            'sport': 'voetbal', 'gender': 'heren'\n        })\n    return events\n\n# Gebruik per club:\n# scrape_espn('https://www.espn.nl/voetbal/team/speelkalender/_/id/152/fc-twente', 'FC Twente', 'De Grolsch Veste, Enschede', 'fctwente')\n# scrape_espn('https://www.espn.nl/voetbal/team/speelkalender/_/id/3706/ned.go_ahead_eagles', 'Go Ahead Eagles', 'De Adelaarshorst, Deventer', 'goahead')\n# scrape_espn('https://www.espn.nl/voetbal/team/speelkalender/_/id/2565/ned.fc_zwolle', 'PEC Zwolle', 'MAC3PARK Stadion, Zwolle', 'peczwolle')\n# scrape_espn('https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden', 'SC Cambuur', 'Cambuurstadion, Leeuwarden', 'cambuur')",
+    "notes": "ESPN.nl - statische HTML met embedded JSON. Patroon: isHome:true/false flags. Nederlandse clubs gebruiken 'ned.' prefix in slug. ID=152 voor FC Twente. 17 thuiswedstrijden. Zelfde scrape_espn()-functie voor alle ESPN-clubs.",
+    "sample_event_url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/152/fc-twente",
+    "last_verified": "2026-07-05"
+  },
+  "goahead": {
+    "display_name": "Go Ahead Eagles",
+    "agenda_url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3706/ned.go_ahead_eagles",
+    "render_type": "static",
+    "scrape_code": "Zie fctwente scrape_code voor de generieke scrape_espn() functie.",
+    "notes": "ESPN.nl. ID=3706, slug=ned.go_ahead_eagles. 17 thuiswedstrijden. LET OP: eerdere sessie gebruikte fout ID 3769, correct is 3706 (door Michiel gecorrigeerd).",
+    "sample_event_url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3706/ned.go_ahead_eagles",
+    "last_verified": "2026-07-05"
+  },
+  "peczwolle": {
+    "display_name": "PEC Zwolle",
+    "agenda_url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/2565/ned.fc_zwolle",
+    "render_type": "static",
+    "scrape_code": "Zie fctwente scrape_code voor de generieke scrape_espn() functie.",
+    "notes": "ESPN.nl. ID=2565, slug=ned.fc_zwolle (niet ned.pec_zwolle). 17 thuiswedstrijden.",
+    "sample_event_url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/2565/ned.fc_zwolle",
+    "last_verified": "2026-07-05"
+  },
+  "cambuur": {
+    "display_name": "SC Cambuur",
+    "agenda_url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "render_type": "static",
+    "scrape_code": "Zie fctwente scrape_code voor de generieke scrape_espn() functie.",
+    "notes": "ESPN.nl. ID=3736, slug=ned.cambuur_leeuwarden. 17 thuiswedstrijden.",
+    "sample_event_url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "last_verified": "2026-07-05"
+  },
+  "flyers": {
+    "display_name": "UNIS Flyers",
+    "agenda_url": "https://www.unisflyers.nl/wedstrijden/",
+    "render_type": "unresolved",
+    "scrape_code": "",
+    "notes": "PERIODIEK CHECKEN. Schema 2026-2027 nog niet gepubliceerd (geconstateerd 2026-07-05). Gelijktijdig checken met ijshockey.nl/competities/2026-2027 voor GIJS Groningen.",
+    "sample_event_url": "",
+    "last_verified": "2026-07-05"
+  },
+  "ogcapitals": {
+    "display_name": "OG Capitals",
+    "agenda_url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "render_type": "unresolved",
+    "scrape_code": "",
+    "notes": "PERIODIEK CHECKEN. Schema 2026-2027 nog niet gepubliceerd (geconstateerd 2026-07-05, pagina volledig leeg na JS-analyse). Site is waarschijnlijk client-side rendered - Chrome MCP vereist zodra data beschikbaar.",
+    "sample_event_url": "",
+    "last_verified": "2026-07-05"
+  },
+  "eoemmen": {
+    "display_name": "E&O Emmen",
+    "agenda_url": "https://www.eenohandbal.nl/senioren/wedstrijdprogramma/",
+    "render_type": "unresolved",
+    "scrape_code": "",
+    "notes": "PERIODIEK CHECKEN. Pagina toont op 2026-07-05 nog het oude seizoensprogramma. Handbal Eredivisie. Zodra 2026-2027 schema verschijnt, is de site statisch te scrapen (standaard NL-handbal agenda layout).",
+    "sample_event_url": "",
+    "last_verified": "2026-07-05"
+  },
+  "ldodk": {
+    "display_name": "LDODK",
+    "agenda_url": "https://www.ldodk.nl/korfbal-league/",
+    "render_type": "unresolved",
+    "scrape_code": "",
+    "notes": "PERIODIEK CHECKEN. Schema 2026-2027 nog niet gepubliceerd (door Michiel bevestigd 2026-07-05). Korfbal League (gemengd). Alternatief: check mijn.korfbal.nl voor feed zodra beschikbaar.",
+    "sample_event_url": "",
+    "last_verified": "2026-07-05"
+  },
+  "dos46": {
+    "display_name": "DOS '46",
+    "agenda_url": "https://mijn.korfbal.nl/clubs/details/NCX09J8/programma",
+    "render_type": "unresolved",
+    "scrape_code": "",
+    "notes": "PERIODIEK CHECKEN. mijn.korfbal.nl toont lege programma-pagina (geconstateerd 2026-07-05, JS-analyse uitgevoerd: geen wedstrijden). Korfbal League (gemengd). Pagina heeft datum-filter (Datum vanaf / Datum tot) - probeer bij volgende check een datumrange in te stellen.",
+    "sample_event_url": "",
+    "last_verified": "2026-07-05"
+  },
+  "landstede": {
+    "display_name": "Landstede Hammers",
+    "agenda_url": "https://www.landstedebasketball.nl/",
+    "render_type": "unverified",
+    "scrape_code": "",
+    "notes": "PERIODIEK CHECKEN. Nog niet geprobeerd te scrapen (2026-07-05). Basketball Eredivisie Zwolle.",
+    "sample_event_url": "",
     "last_verified": "2026-07-05"
   }
 }
