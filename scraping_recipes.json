@@ -3,88 +3,154 @@
     "purpose": "Per-bron scrape-instructies zodat een goedkope/simpele LLM zelfstandig nieuwe events kan ophalen voor uitjesagenda. Los bestand van events_categorized.json om het event-schema niet te breken.",
     "fields": {
       "display_name": "Naam zoals getoond in de UI (SRC dict in gen_uitjes.py)",
-      "agenda_url": "URL van de pagina/API met de volledige lijst voor deze bron",
-      "render_type": "static (server-side HTML/JSON, te scrapen met urllib) | client_js (vereist JS-executie via Chrome MCP) | manual (geen recurring scrape, handmatig toevoegen) | unresolved (bekend probleem, nog geen werkende methode) | unverified (nog niet getest)",
-      "scrape_method": "Concrete aanpak: endpoint/parameters, welke library, hoe te parsen, class-namen/selectors",
+      "agenda_url": "URL/API van de pagina met de volledige lijst voor deze bron",
+      "render_type": "static (server-side HTML/JSON, urllib/requests volstaat) | client_js (vereist Chrome MCP) | manual (geen recurring scrape) | unresolved (bekend probleem, nog geen werkende methode) | unverified (nog niet getest)",
+      "scrape_code": "Kant-en-klare Python of JavaScript code (working code uit eerdere sessies, 2026-06) - regex/selectors exact zoals eerder gebruikt",
       "notes": "Bijzonderheden, valkuilen, verwachte aantallen, alternatieve bronnen",
       "sample_event_url": "Voorbeeld van een individuele event-URL uit deze bron uit events_categorized.json",
-      "last_verified": "Datum waarop render_type/scrape_method voor het laatst geverifieerd is (null = nooit geverifieerd)"
+      "last_verified": "Datum waarop dit voor het laatst geverifieerd/teruggevonden is (null = nooit)"
     },
-    "genre_classifier_keywords": {
-      "theater": [
-        "\\btoneel\\b",
-        "\\btheater\\b",
-        "\\bdrama\\b",
-        "\\bvoorstelling\\b"
+    "genre_classifier": {
+      "kinderen_pattern": "kinderen|kindershow|kindertheat|kindervoor|familie|familieshow|familievoor|voor kinderen|peuter|kleuter|baby|basisschool|\\\\(\\\\d\\\\+\\\\)",
+      "music_venues": [
+        "vera",
+        "simplon",
+        "em2groningen",
+        "spotgroningen.nl",
+        "grandcafe_zuidlaren",
+        "kielzog",
+        "machinefabriek",
+        "usva",
+        "detamboer"
       ],
-      "cabaret": [
-        "\\bcabaret\\b",
-        "\\bcomedy\\b",
-        "\\bstandup\\b",
-        "\\bhumor\\b"
+      "theater_venues": [
+        "lawei",
+        "atlastheater",
+        "denieuwekolk.nl",
+        "vanberesteyn",
+        "theaterroden",
+        "geertteis",
+        "grandtheatregroningen",
+        "martiniplaza",
+        "dorpshuisannen",
+        "podiumnienoordleek",
+        "zummerbuhne",
+        "posthuistheater",
+        "ontdekpoort"
       ],
-      "musical": [
-        "\\bmusical\\b",
-        "\\bopera\\b",
-        "\\boperette\\b"
+      "keyword_order": [
+        [
+          "musical",
+          [
+            "musical"
+          ]
+        ],
+        [
+          "cabaret",
+          [
+            "cabaret",
+            "comedy",
+            "stand-up",
+            "humor"
+          ]
+        ],
+        [
+          "dans",
+          [
+            "ballet",
+            "dans ",
+            "choreograf",
+            "dansavond"
+          ]
+        ],
+        [
+          "klassiek",
+          [
+            "orkest",
+            "symfon",
+            "opera",
+            "klassiek",
+            "kwartet",
+            "piano",
+            "viool",
+            "cello",
+            "strijk",
+            "filharmonisch",
+            "dirigent"
+          ]
+        ],
+        [
+          "jazz",
+          [
+            "jazz",
+            "blues",
+            "soul",
+            "swing",
+            "funk",
+            "bossa",
+            "reggae"
+          ]
+        ],
+        [
+          "expo",
+          [
+            "expositie",
+            "tentoonstelling",
+            "galerie"
+          ]
+        ],
+        [
+          "theater",
+          [
+            " theater",
+            " toneel",
+            "toneelstuk",
+            "voorstelling"
+          ]
+        ],
+        [
+          "pop",
+          [
+            "rock",
+            "indie",
+            "punk",
+            "metal",
+            "concert",
+            "band",
+            "tribute",
+            "singer",
+            "songwriter",
+            "coverband",
+            "festival"
+          ]
+        ],
+        [
+          "actief",
+          [
+            "wandeling",
+            "safari",
+            "natuur",
+            "strunen"
+          ]
+        ]
       ],
-      "pop": [
-        "\\bconcert\\b",
-        "\\bband\\b",
-        "\\brock\\b",
-        "\\bpop\\b",
-        "\\bindie\\b",
-        "\\bmetal\\b",
-        "\\bpunk\\b"
-      ],
-      "jazz": [
-        "\\bjazz\\b",
-        "\\bblues\\b",
-        "\\bsoul\\b",
-        "\\bfunk\\b"
-      ],
-      "klassiek": [
-        "\\bklassiek\\b",
-        "\\borkest\\b",
-        "\\bsymfonie\\b",
-        "\\bkoor\\b"
-      ],
-      "dans": [
-        "\\bdans\\b",
-        "\\bdance\\b",
-        "\\bballet\\b",
-        "\\bchoreograf"
-      ],
-      "expo": [
-        "\\bexpositie\\b",
-        "\\bkunst\\b",
-        "\\bgalerie\\b",
-        "\\btentoonstelling\\b",
-        "\\bmuseum\\b"
-      ],
-      "kinderen": [
-        "\\bfamilie\\b",
-        "\\bkinder\\b",
-        "\\bjeugd\\b",
-        "\\bpeuter\\b"
-      ],
-      "actief": [
-        "\\bfestival\\b",
-        "\\boutdoor\\b",
-        "\\bwandel\\b",
-        "\\bworkshop\\b"
-      ]
+      "fallback": "als geen keyword matcht: 'pop' voor music_venues, 'theater' voor theater_venues, anders 'overig'. Kinderen-check gebeurt EERST, voor alle andere regels."
     },
-    "genre_classifier_notes": "Regex keyword-matching op de titel (case-insensitive), eerste match wint per genre-groep. Volledige versie stond in merge_classify.py (vorige sessie) met meer synoniemen per genre - dit is een verkorte referentie.",
-    "status": "Bijgewerkt 2026-07-05 met teruggevonden scrape-methodes uit een eerdere sessie (map 'verwerken', nu verwerkt en verwijderd). Van de ~54 bronnen zijn er nu ~27 met een geverifieerde/gedocumenteerde methode; de rest (vnl. landelijke podia als 013/Ziggo Dome/Paradiso/Melkweg/etc.) staat nog op 'unverified'.",
-    "known_gaps": "lawei (~320 events, AJAX onopgelost) en vanberesteyn (~98 events, WP REST API 404) zijn de grootste bekende ontbrekende bronnen. visitgroningen.nl (~150 events) en denoorderbron.nl bestaan als werkende scrapers uit een vorige sessie maar zitten nog niet in gen_uitjes.py's SRC dict - moet je eerst bevestigen of je die als nieuwe bron wilt toevoegen."
+    "dead_ends": {
+      "De Harmonie Leeuwarden": "Volledig JS-rendered, geen WP API - Chrome MCP vereist, nog niet geprobeerd.",
+      "Theater de Molenberg Delfzijl": "DNS lookup faalt op alle bekende domeinen - waarschijnlijk gesloten.",
+      "VanSlag Borger": "Domein gehost door provider zonder eigen website.",
+      "Seynderslo": "DNS lookup faalt, geen website gevonden."
+    },
+    "status": "Herbouwd 2026-07-05 met exacte code teruggevonden uit een eerdere sessie ('uitjes-agenda-scraping-gids.md', 25 juni 2026) - dit is nu de primaire bron van waarheid voor scraping-methodes in dit project.",
+    "known_gaps": "lawei (~320 events, AJAX onopgelost) en vanberesteyn (~98 events, WP REST API 404) zijn de grootste bekende gaten. visitgroningen.nl (~150 events) en denoorderbron.nl hebben een werkende scraper uit een vorige sessie maar zitten nog niet in gen_uitjes.py's SRC dict."
   },
   "spotgroningen.nl": {
     "display_name": "Spot",
     "agenda_url": "https://www.spotgroningen.nl/programma/",
     "render_type": "static",
-    "scrape_method": "urllib + regex. Event cards: <a class=\"program__link\"> + <time datetime=\"YYYY-MM-DD\">. Fallback also seen: JSON-LD (application/ld+json, @type=Event) on some page variants.",
-    "notes": "~600 events historically. Confirmed working in prior session (parse_events.py + handoff-v2.md).",
+    "scrape_code": "import requests, re\nhtml = requests.get(\"https://www.spotgroningen.nl/programma/\").text\nfor m in re.finditer(r'<a href=\"(https://www\\.spotgroningen\\.nl/programma/[^\"]+)\" class=\"program__link\">(.*?)</a>', html, re.S):\n    link_url, inner = m.group(1), m.group(2)\n    dt = re.search(r'datetime=\"([\\d\\-T:+]+)\"', inner)\n    h2 = re.search(r'<h2[^>]*>(.*?)</h2>', inner, re.S)\n    if dt and h2:\n        date_iso = dt.group(1)[:10]\n        main = re.sub(r'<span>.*?</span>', '', h2.group(1), flags=re.S).strip()\n        sub = re.search(r'<span>(.*?)</span>', h2.group(1))\n        title = re.sub(r'<[^>]+>', '', f\"{main} — {sub.group(1)}\" if sub else main)",
+    "notes": "~612 events historically.",
     "sample_event_url": "https://www.spotgroningen.nl/programma/daniel-lohues-22/",
     "last_verified": "2026-07-05"
   },
@@ -92,8 +158,8 @@
     "display_name": "De Lawei",
     "agenda_url": "https://www.lawei.nl/agenda/",
     "render_type": "unresolved",
-    "scrape_method": "UNSOLVED as of 2026-06-25: events load via AJAX, not present in static HTML, and not confirmed working via Chrome either.",
-    "notes": "~320 events expected if solved - by far the largest known gap. Worth prioritizing if someone wants to invest scraper-dev time.",
+    "scrape_code": "",
+    "notes": "UNSOLVED: events laden via AJAX, niet in statische HTML. ~320 events verwacht - grootste bekende gat.",
     "sample_event_url": "https://www.lawei.nl/agenda/the-tasters-445f",
     "last_verified": "2026-07-05"
   },
@@ -101,8 +167,8 @@
     "display_name": "Atlas Emmen",
     "agenda_url": "https://www.atlastheater.nl/voorstellingen/",
     "render_type": "client_js",
-    "scrape_method": "Chrome MCP required - \"Laad meer\" button must be clicked repeatedly (up to ~10x) to load all events: loop { find(\"laad meer\") -> left_click -> wait 1.5s } until button disappears. Then extract with: Array.from(document.querySelectorAll('article, .event-item, [class*=\"agenda\"], [class*=\"event\"]')).map(el => ({date: el.querySelector(\"time\")?.getAttribute(\"datetime\"), title: el.querySelector(\"h2,h3,.title,[class*=title]\")?.textContent?.trim(), url: el.querySelector(\"a\")?.href})).filter(e => e.title && e.date)",
-    "notes": "~185 events expected. 2026-07-05 static fetch confirmed JS-required (only nav returned, no listing).",
+    "scrape_code": "// Na navigate: klik herhaaldelijk op \"Laad meer\" (max ~15x, 1.5s wachten tussen clicks)\nlet clicks = 0;\nwhile (clicks < 15) {\n  const btn = [...document.querySelectorAll('button,a')].find(el => /laad meer/i.test(el.textContent));\n  if (!btn) break;\n  btn.click();\n  await new Promise(r => setTimeout(r, 1500));\n  clicks++;\n}\n// Extraheer:\nJSON.stringify([...document.querySelectorAll('article, .program-item, [class*=\"agenda-item\"], [class*=\"event\"]')]\n  .map(el => ({date: el.querySelector('time')?.getAttribute('datetime') || '',\n               title: (el.querySelector('h2,h3,.title,[class*=\"title\"]')?.textContent || '').trim(),\n               url: el.querySelector('a')?.href || ''})).filter(e => e.title && e.date))",
+    "notes": "~185 events verwacht.",
     "sample_event_url": "https://www.atlastheater.nl/voorstellingen/",
     "last_verified": "2026-07-05"
   },
@@ -110,8 +176,8 @@
     "display_name": "Drenthe",
     "agenda_url": "https://www.drenthe.nl/evenementen-activiteiten/theater-agenda?page=1",
     "render_type": "static",
-    "scrape_method": "urllib + JSON-LD (application/ld+json, ItemList), use \"endDate\" field. Paginate with ?page=N.",
-    "notes": "~155 events historically.",
+    "scrape_code": "import requests, re, json\nfor page in range(1, 8):\n    html = requests.get(f\"https://www.drenthe.nl/evenementen-activiteiten/theater-agenda?page={page}\").text\n    for m in re.finditer(r'<script type=\"application/ld\\+json\">(.*?)</script>', html, re.S):\n        try:\n            data = json.loads(m.group(1))\n            if data.get('@type') == 'ItemList':\n                for item in data.get('itemListElement', []):\n                    ev = item.get('item', {})\n                    # {\"date\": ev['endDate'][:10], \"title\": ev['name'], \"url\": ev['url'], \"venue\": ev.get('location',{}).get('name','')}\n        except: pass",
+    "notes": "~153-155 events.",
     "sample_event_url": "https://www.drenthe.nl/evenementen-activiteiten/1805435742/we-will-rock-you-de-enige-echte-officiele-queen-musical",
     "last_verified": "2026-07-05"
   },
@@ -119,8 +185,8 @@
     "display_name": "Kielzog",
     "agenda_url": "https://www.kielzog.nl/api/v1/agenda?page=1",
     "render_type": "static",
-    "scrape_method": "Real JSON API (not HTML scraping!) - paginate with ?page=N. Date field is Dutch free text, e.g. \"Vr 29 mei t/m za 27 jun\" + separate \"year\" field - NOT ISO. Parse with: NL_MON={'jan':1,...,'dec':12}; m=re.search(r'(\\d{1,2})\\s+(\\w{3})', date_str.lower()); date(int(year), NL_MON[m.group(2)], int(m.group(1)))",
-    "notes": "~160 events historically. Nicest source to scrape - real API, no HTML parsing needed.",
+    "scrape_code": "import requests, re\nfrom datetime import date\nNL_MON = {'jan':1,'feb':2,'mrt':3,'apr':4,'mei':5,'jun':6,'jul':7,'aug':8,'sep':9,'okt':10,'nov':11,'dec':12}\nfor page in range(1, 8):\n    data = requests.get(f\"https://www.kielzog.nl/api/v1/agenda?page={page}\").json()\n    for item in data.get('data', []):\n        date_str, year = item.get('date',''), int(item.get('year', 2026))\n        m = re.search(r'(\\d{1,2})\\s+(\\w{3})', date_str.lower())\n        if m:\n            d = date(year, NL_MON[m.group(2)], int(m.group(1)))",
+    "notes": "~129-160 events. Echte JSON API, geen HTML parsing nodig. Datum is Dutch tekst, jaar apart veld - NIET ISO.",
     "sample_event_url": "https://www.kielzog.nl/evenementen/terrastheater-25-26-2?instance=yesplan-3939967489-1775814161",
     "last_verified": "2026-07-05"
   },
@@ -128,17 +194,17 @@
     "display_name": "Forum",
     "agenda_url": "https://forum.nl/nl/agenda?p=1",
     "render_type": "static",
-    "scrape_method": "urllib + regex/JSON-LD. Date via \"data-href\" attribute, or JSON-LD Event blocks. Paginate with ?p=N.",
-    "notes": "~55 events. SKIP items containing: leesclub, taalcafe, digihuis, spreekuur, breinbieb, spelochtend, and any /film/ URL - these are non-cultural-uitje noise (library/social programming, not events for this agenda).",
+    "scrape_code": "import requests, re\nSKIP = ['leesclub','taalcafe','digihuis','spreekuur','breinbieb','spelochtend','inloop','3d-print','/film/']\nfor page in range(1, 8):\n    html = requests.get(f\"https://forum.nl/nl/agenda?p={page}\").text\n    for m in re.finditer(r'data-href=\"(https://forum\\.nl/nl/agenda/([^?]+)\\?date=(\\d{2}-\\d{2}-\\d{4}))\"', html):\n        url, slug, date_str = m.group(1), m.group(2), m.group(3)\n        if any(s in url for s in SKIP): continue\n        d, mn, y = date_str.split('-')\n        date_iso = f\"{y}-{mn}-{d}\"\n        title = slug.replace('-',' ').title()",
+    "notes": "~55-99 events. SKIP-lijst is belangrijk: forum.nl mixt bibliotheek/sociale activiteiten door de agenda.",
     "sample_event_url": "https://forum.nl/nl/agenda/resurrection?date=11-06-2026",
     "last_verified": "2026-07-05"
   },
   "denieuwekolk.nl": {
     "display_name": "Nieuwe Kolk",
-    "agenda_url": "https://denieuwekolk.nl/theater/agenda",
+    "agenda_url": "https://denieuwekolk.nl/agenda?_dnk_fragment=agenda",
     "render_type": "static",
-    "scrape_method": "HTMX fragment endpoint: denieuwekolk.nl/agenda?_dnk_fragment=agenda&load_from=YYYY-MM (one request per month) with header \"HX-Request: true\". JSON-LD (application/ld+json) also present on the plain /theater/agenda page. IMPORTANT: domain is denieuwekolk.nl, NOT nieuwekolk.nl.",
-    "notes": "~400 events historically. Re-verified 2026-07-05 via plain fetch (works, but only returns first page without \"Meer laden\" - use the per-month fragment URL + HX-Request header for full range).",
+    "scrape_code": "import requests, re\nfrom datetime import date\nfrom dateutil.relativedelta import relativedelta\nheaders = {\"HX-Request\": \"true\", \"User-Agent\": \"Mozilla/5.0\"}\ncur = date.today().replace(day=1)\nfor _ in range(18):\n    url = f\"https://denieuwekolk.nl/agenda?_dnk_fragment=agenda&d=asc&load_from={cur.year}-{cur.month:02d}&sort=starts_at\"\n    html = requests.get(url, headers=headers).text\n    for day_m in re.finditer(r'id=\"day-(\\d{4}-\\d{2}-\\d{2})\"(.*?)(?=id=\"day-|$)', html, re.S):\n        dag, blok = day_m.group(1), day_m.group(2)\n        for t in re.finditer(r'aria-label=\"Meer info over ([^\"]+)\".*?href=\"([^\"]+)\"', blok, re.S):\n            pass  # -> {\"date\": dag, \"title\": t.group(1), \"url\": t.group(2)}\n    cur += relativedelta(months=1)",
+    "notes": "~99-400 events (varies by session). LET OP: domein is denieuwekolk.nl, NIET nieuwekolk.nl. Vereist header HX-Request: true.",
     "sample_event_url": "https://denieuwekolk.nl/theater/agenda",
     "last_verified": "2026-07-05"
   },
@@ -146,8 +212,8 @@
     "display_name": "Van Beresteyn",
     "agenda_url": "https://www.vanberesteyn.nl/programma/",
     "render_type": "unresolved",
-    "scrape_method": "UNSOLVED as of 2026-06-25: no <time> tags in HTML, WP REST API endpoint returns 404.",
-    "notes": "~98 events expected if solved.",
+    "scrape_code": "",
+    "notes": "UNSOLVED: geen <time> tags in HTML, WP REST API endpoint geeft 404. ~98 events verwacht.",
     "sample_event_url": "https://www.vanberesteyn.nl/programma/oet-7/",
     "last_verified": "2026-07-05"
   },
@@ -155,8 +221,8 @@
     "display_name": "Vera",
     "agenda_url": "https://www.vera-groningen.nl/programma/",
     "render_type": "client_js",
-    "scrape_method": "Chrome MCP required - infinite scroll: loop { javascript_tool(\"window.scrollTo(0, document.body.scrollHeight)\") -> wait 1s } up to ~10x, then use the same generic querySelectorAll extraction as ATLAS.",
-    "notes": "~60 events expected.",
+    "scrape_code": "// Na navigate: infinite scroll (max ~12x, 1s wachten)\nfor (let i = 0; i < 12; i++) { window.scrollTo(0, document.body.scrollHeight); await new Promise(r => setTimeout(r, 1000)); }\nJSON.stringify([...document.querySelectorAll('[class*=\"program\"], [class*=\"agenda\"], article')]\n  .map(el => ({date: el.querySelector('time')?.getAttribute('datetime') || '',\n               title: (el.querySelector('h2,h3')?.textContent || '').trim(),\n               url: el.querySelector('a')?.href || ''})).filter(e => e.title))",
+    "notes": "~60 events verwacht.",
     "sample_event_url": "https://www.vera-groningen.nl/programma/",
     "last_verified": "2026-07-05"
   },
@@ -164,17 +230,17 @@
     "display_name": "Simplon",
     "agenda_url": "https://simplon.nl/programma/",
     "render_type": "client_js",
-    "scrape_method": "Chrome MCP required - \"Laad meer\" button, same click-loop pattern as ATLAS Theater.",
-    "notes": "~47 events expected.",
+    "scrape_code": "Zelfde \"Laad meer\"-click-loop + extractie als ATLAS Theater (zie hierboven).",
+    "notes": "~47 events verwacht.",
     "sample_event_url": "https://simplon.nl/programma/",
     "last_verified": "2026-07-05"
   },
   "martiniplaza": {
     "display_name": "Martiniplaza",
-    "agenda_url": "https://www.martiniplaza.nl/agenda?start=2026-08-01",
+    "agenda_url": "https://www.theater.nl/groningen/martini-plaza-groningen",
     "render_type": "static",
-    "scrape_method": "urllib + regex, paginate per month via ?start=YYYY-MM-01. Dutch date text parsed from HTML (no structured data tag).",
-    "notes": "~6 events historically. Low volume.",
+    "scrape_code": "import requests, re\nNL = {'jan':'01','feb':'02','mrt':'03','apr':'04','mei':'05','jun':'06','jul':'07','aug':'08','sep':'09','okt':'10','nov':'11','dec':'12'}\nfor month_num in range(1, 13):\n    for start in [0, 6, 12]:\n        url = f\"https://www.theater.nl/groningen/martini-plaza-groningen/?date={month_num}&start={start}\"\n        html = requests.get(url).text\n        for m in re.finditer(\n            r'(maandag|dinsdag|woensdag|donderdag|vrijdag|zaterdag|zondag)\\s+(\\d{1,2})\\s+(jan|feb|mrt|apr|mei|jun|jul|aug|sep|okt|nov|dec)\\s+(\\d{4})'\n            r'.*?<h3[^>]*>\\s*<a[^>]*href=\"([^\"]*)\"[^>]*>(.*?)</a>', html, re.S | re.I):\n            day, month, year, url_ev, title = m.group(2), m.group(3), m.group(4), m.group(5), m.group(6)\n            date_iso = f\"{year}-{NL[month.lower()]}-{int(day):02d}\"",
+    "notes": "~6-57 events. NB: wordt gescraped via de theater.nl aggregator, niet martiniplaza.nl direct.",
     "sample_event_url": "https://www.theater.nl/groningen/martini-plaza-groningen",
     "last_verified": "2026-07-05"
   },
@@ -182,44 +248,44 @@
     "display_name": "Grand Theatre",
     "agenda_url": "https://www.grandtheatregroningen.nl/nl/programma",
     "render_type": "client_js",
-    "scrape_method": "Chrome MCP required - fully JS-rendered, no button/scroll pattern documented yet, use generic querySelectorAll extraction after page load.",
-    "notes": "~25 events expected.",
+    "scrape_code": "// Datums in innerText als \"VR 12 JUN /20:00\", titel staat er 1-6 regels boven\nconst lines = document.body.innerText.split('\\n').filter(l => l.trim().length > 2);\nconst dateRe = /^(MA|DI|WO|DO|VR|ZA|ZO)\\s+\\d{1,2}\\s+(JAN|FEB|MRT|APR|MEI|JUN|JUL|AUG|SEP|OKT|NOV|DEC)/i;\nconst events = [];\nfor (let i = 2; i < lines.length; i++) {\n  if (dateRe.test(lines[i].trim())) {\n    for (let j = i-1; j >= Math.max(0, i-6); j--) {\n      const c = lines[j].trim();\n      if (c.length > 4 && !dateRe.test(c) && c !== 'TICKETS' && !/^[\\u20ac\\d]/.test(c) && !/UITVERKOCHT|GEANNULEERD|BESTELLEN/i.test(c)) {\n        events.push({title: c, date_raw: lines[i].trim()}); break;\n      }\n    }\n  }\n}\nJSON.stringify(events);",
+    "notes": "~25 events verwacht. innerText-parsing i.p.v. DOM-selectors omdat de site geen bruikbare class-namen heeft.",
     "sample_event_url": "https://www.grandtheatregroningen.nl/nl/programma",
     "last_verified": "2026-07-05"
   },
   "theaterroden": {
     "display_name": "Winsinghhof",
     "agenda_url": "https://theaterroden.nl/voorstellingen",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "client_js",
+    "scrape_code": "// Datums: \"Vr 12 jun 2026 - 20.15\", titel op de regel erboven\nconst lines = document.body.innerText.split('\\n').filter(l => l.trim().length > 0);\nconst events = [];\nfor (let i = 1; i < lines.length; i++) {\n  if (/\\b(ma|di|wo|do|vr|za|zo)\\s+\\d{1,2}\\s+(jan|feb|mrt|apr|mei|jun|jul|aug|sep|okt|nov|dec)\\s+20\\d\\d/i.test(lines[i])) {\n    const title = lines[i-1].trim();\n    if (title && !/GEANNULEERD/i.test(lines[i])) events.push({title, date_raw: lines[i].trim()});\n  }\n}\nJSON.stringify(events);",
+    "notes": "~71 events verwacht.",
     "sample_event_url": "https://theaterroden.nl/voorstellingen",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "em2groningen": {
     "display_name": "EM2",
     "agenda_url": "https://em2groningen.nl/agenda/",
     "render_type": "client_js",
-    "scrape_method": "Chrome MCP required - fully JS-rendered, use generic querySelectorAll extraction after page load.",
-    "notes": "~21 events expected.",
+    "scrape_code": "// Datums als \"14/06\", titel op de volgende regel\nconst lines = document.body.innerText.split('\\n').filter(l => l.trim().length > 0);\nconst events = [];\nfor (let i = 0; i < lines.length - 1; i++) {\n  if (/^\\d{2}\\/\\d{2}$/.test(lines[i].trim())) events.push({date_raw: lines[i].trim(), title: lines[i+1].trim()});\n}\n// date_raw \"14/06\" -> jaar-logica: als maand < huidige maand -> volgend jaar\nJSON.stringify(events);",
+    "notes": "~21 events verwacht.",
     "sample_event_url": "https://em2groningen.nl/agenda/",
     "last_verified": "2026-07-05"
   },
   "zummerbuhne": {
     "display_name": "Zummerbühne",
     "agenda_url": "https://www.zummerbuhne.nl/ticketverkoop",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "static",
+    "scrape_code": "import requests, re\nfrom datetime import date\nNL_MON = {'januari':1,'februari':2,'maart':3,'april':4,'mei':5,'juni':6,'juli':7,'augustus':8,'september':9,'oktober':10,'november':11,'december':12}\nhtml = requests.get(\"https://www.zummerbuhne.nl/ticketverkoop\").text\nfor m in re.finditer(r'##\\s+\\w+\\s+(\\d{1,2})\\s+(\\w+)\\s+(\\d{4})', html):\n    day, month_str, year = int(m.group(1)), m.group(2).lower(), int(m.group(3))\n    if month_str in NL_MON:\n        d = date(year, NL_MON[month_str], day)",
+    "notes": "~25 events (1 vaste voorstelling \"De Graanrepubliek\", meerdere data). Ticketpagina, geen echte agenda.",
     "sample_event_url": "https://www.zummerbuhne.nl/ticketverkoop",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "usva": {
     "display_name": "USVA",
     "agenda_url": "https://www.usva.nl/programma/",
     "render_type": "static",
-    "scrape_method": "urllib + regex (see parse_simplon_usva.py from prior session).",
-    "notes": "Confirmed working.",
+    "scrape_code": "(zie parse_simplon_usva.py, urllib + regex)",
+    "notes": "~10 events.",
     "sample_event_url": "https://www.usva.nl/programma/",
     "last_verified": "2026-07-05"
   },
@@ -227,35 +293,35 @@
     "display_name": "Geert Teis",
     "agenda_url": "https://www.theatergeertteis.nl/voorstellingen",
     "render_type": "static",
-    "scrape_method": "urllib + regex on itemprop=\"startDate\" content=\"YYYY-MM-DDTHH:MM\" - NOT a <time datetime> tag, uses schema.org itemprop instead.",
-    "notes": "~12 events historically. Small venue, low volume.",
+    "scrape_code": "import requests, re\nhtml = requests.get(\"https://www.theatergeertteis.nl/voorstellingen\").text\nfor m in re.finditer(r'itemprop=\"startDate\"\\s+content=\"([\\d\\-T:]+)\".*?itemprop=\"name\"\\s+content=\"([^\"]+)\"', html, re.S):\n    date_iso, title = m.group(1)[:10], m.group(2)",
+    "notes": "~10-12 events. Gebruikt schema.org itemprop attributen, geen <time> tag.",
     "sample_event_url": "https://www.theatergeertteis.nl/voorstellingen/dansschool-feel-the-move",
     "last_verified": "2026-07-05"
   },
   "podiumnienoordleek": {
     "display_name": "Nienoord",
     "agenda_url": "https://www.podiumnienoordleek.nl/agenda",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "static",
+    "scrape_code": "import requests, re\nfrom datetime import date\nNL_MON = {'januari':1,'februari':2,'maart':3,'april':4,'mei':5,'juni':6,'juli':7,'augustus':8,'september':9,'oktober':10,'november':11,'december':12}\nhtml = requests.get(\"https://www.podiumnienoordleek.nl/agenda\").text\nfor m in re.finditer(r'(maandag|dinsdag|woensdag|donderdag|vrijdag|zaterdag|zondag)\\s+(\\d{1,2})\\s+(\\w+).*?<h2[^>]*>(.*?)</h2>', html, re.S | re.I):\n    day, month_str, title = int(m.group(2)), m.group(3).lower(), m.group(4).strip()\n    if month_str in NL_MON:\n        d = date(2026, NL_MON[month_str], day)",
+    "notes": "~9 events. Pagina toont \"dag maand\" zonder jaartal - jaar moet hard gecodeerd/afgeleid worden.",
     "sample_event_url": "https://www.podiumnienoordleek.nl/agenda",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "grandcafe_zuidlaren": {
     "display_name": "GC Zuidlaren",
     "agenda_url": "https://grandcafezuidlaren.nl/agenda/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "static",
+    "scrape_code": "urllib + regex, statisch HTML.",
+    "notes": "~6 events.",
     "sample_event_url": "https://grandcafezuidlaren.nl/agenda/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "gekehoogstins.nl": {
     "display_name": "Geke Hoogstins",
     "agenda_url": "https://gekehoogstins.nl/exposities-evenementen/exposities/",
     "render_type": "static",
-    "scrape_method": "urllib + regex on <strong> tags containing full Dutch dates. 3 separate pages: exposities, concerten-natuurtuin-en-galerie, themadagen-workshops (+ colorful-silence-podia-in-natuur).",
-    "notes": "~2-10 events. Confirmed in parse_events.py.",
+    "scrape_code": "urllib + regex op <strong> tags met volledige NL-datums. 3 pagina's: exposities, concerten-natuurtuin-en-galerie, themadagen-workshops.",
+    "notes": "~2 events.",
     "sample_event_url": "https://gekehoogstins.nl/exposities-evenementen/exposities/",
     "last_verified": "2026-07-05"
   },
@@ -263,17 +329,17 @@
     "display_name": "Machinefabriek",
     "agenda_url": "https://www.podiuminfo.nl/podium/5631/concerten/Theater-de-Machinefabriek/Groningen/",
     "render_type": "static",
-    "scrape_method": "NOT scraped from the venue's own site - scraped via the podiuminfo.nl aggregator listing for this venue.",
-    "notes": "Confirmed working via parse_events.py / build_agenda.py.",
+    "scrape_code": "NIET via eigen site - via de podiuminfo.nl aggregator-listing voor deze zaal.",
+    "notes": "~2 events.",
     "sample_event_url": "https://www.podiuminfo.nl/podium/5631/concerten/Theater-de-Machinefabriek/Groningen/",
     "last_verified": "2026-07-05"
   },
   "be-wonder.com": {
     "display_name": "Be-Wonder",
-    "agenda_url": "https://www.be-wonder.com/jebenthiermijnliefste",
+    "agenda_url": "https://www.be-wonder.com/",
     "render_type": "manual",
-    "scrape_method": "NOT auto-scraped historically - single event manually added each time (small local theatre-maker site, home page has no structured agenda).",
-    "notes": "Confirmed 2026-07-05: homepage fetch shows only nav, no listing. Treat as manual/occasional addition, not a recurring scrape target.",
+    "scrape_code": "Geen recurring scrape - handmatig 1 event toevoegen per productie (kleine lokale theatermaker-site zonder agenda-structuur).",
+    "notes": "~1 event.",
     "sample_event_url": "https://www.be-wonder.com/jebenthiermijnliefste",
     "last_verified": "2026-07-05"
   },
@@ -281,106 +347,106 @@
     "display_name": "Dorpshuis Annen",
     "agenda_url": "https://www.dorpshuisannen.nl/voorstellingen",
     "render_type": "static",
-    "scrape_method": "urllib + regex on <article>/<div> blocks with class containing event/show/voorstelling/product/post, <h2-4> title, Dutch date regex nearby.",
-    "notes": "Confirmed working in parse_events.py (source key there was \"dorpshuisannen.nl\" - matches gen_uitjes.py key \"dorpshuisannen\").",
+    "scrape_code": "urllib + regex op <article>/<div> blokken (class bevat event/show/voorstelling/product/post), <h2-4> titel, NL-datum regex in de buurt.",
+    "notes": "~6 events.",
     "sample_event_url": "https://www.dorpshuisannen.nl/voorstellingen",
     "last_verified": "2026-07-05"
   },
   "detamboer": {
     "display_name": "De Tamboer",
-    "agenda_url": "https://detamboer.nl/programma",
+    "agenda_url": "https://www.detamboer.nl/programma",
     "render_type": "static",
-    "scrape_method": "urllib + BeautifulSoup - full listing with dates/times/links, paginated via \"Bekijk meer\".",
-    "notes": "Verified 2026-07-05.",
+    "scrape_code": "import requests, re, json\nr = requests.get(\"https://www.detamboer.nl/programma\", verify=False)\ndata = json.loads(re.search(r'<script type=\"application/ld\\+json\">(.*?)</script>', r.text, re.S).group(1))\nfor item in data:\n    if 'Event' in item.get('@type',''):\n        title, date_iso = item['name'], item['startDate'][:10]",
+    "notes": "~15 events via JSON-LD. Re-getest 2026-07-05: werkt ook via gewone urllib fetch (BeautifulSoup variant, meer events zichtbaar dan alleen JSON-LD-array).",
     "sample_event_url": "https://detamboer.nl/programma/tribute-to-the-cats-band-2026/bestel/695631712138",
     "last_verified": "2026-07-05"
   },
   "posthuistheater": {
     "display_name": "Posthuis",
-    "agenda_url": "https://www.posthuistheater.nl/agenda",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://www.posthuistheater.nl/agenda/",
+    "render_type": "static",
+    "scrape_code": "import requests, re\nfrom datetime import datetime\nfor pg in range(1, 10):\n    url = f\"https://www.posthuistheater.nl/agenda/?page={pg}\" if pg > 1 else \"https://www.posthuistheater.nl/agenda/\"\n    r = requests.get(url)\n    pairs = re.findall(r'data-production-title=\"([^\"]+)\"[^>]*data-event-start=\"([^\"]+)\"', r.text)\n    pairs += [(t,d) for d,t in re.findall(r'data-event-start=\"([^\"]+)\"[^>]*data-production-title=\"([^\"]+)\"', r.text)]\n    for title, dt_str in pairs:\n        try: dt = datetime.fromisoformat(dt_str).date().isoformat()\n        except: pass\n    if not pairs: break",
+    "notes": "~77 events, paginering via ?page=N.",
     "sample_event_url": "https://www.posthuistheater.nl/agenda",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "ontdekpoort": {
     "display_name": "OntdekPoort",
-    "agenda_url": "https://ontdekpoort.nl/programma/8043/doek/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://ontdekpoort.nl/wp-json/wp/v2/event?per_page=100&page=1",
+    "render_type": "static",
+    "scrape_code": "import requests, re, html\ndef parse_dd_mm_yyyy(s):\n    m = re.match(r'(\\d{2})-(\\d{2})-(\\d{4})\\s*:', s.strip())\n    if m:\n        from datetime import date\n        return date(int(m.group(3)), int(m.group(2)), int(m.group(1))).isoformat(), re.sub(r'^\\d{2}-\\d{2}-\\d{4}\\s*:\\s*','',s).strip()\n    return None, s.strip()\nfor pg in range(1, 10):\n    r = requests.get(f\"https://ontdekpoort.nl/wp-json/wp/v2/event?per_page=100&page={pg}&_fields=title,link\")\n    if r.status_code != 200: break\n    for item in r.json():\n        raw = html.unescape(item['title']['rendered'])\n        dt, title = parse_dd_mm_yyyy(raw)",
+    "notes": "~216 events (Theater Sneek + Het Bolwerk, gedeelde WP REST API). Datum zit IN de titel: \"DD-MM-YYYY : Naam\", niet in een apart veld.",
     "sample_event_url": "https://ontdekpoort.nl/programma/8043/doek/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "bostheater": {
     "display_name": "Bostheater",
-    "agenda_url": "https://bostheater.nl/events/lp-2026/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "Fetch returned empty body 2026-07-05 - may be JS or blocked, needs re-test with different tooling.",
+    "agenda_url": "https://bostheater.nl/programma",
+    "render_type": "static",
+    "scrape_code": "import requests, re\nr = requests.get(\"https://bostheater.nl/programma\")\nfor art in re.findall(r'<article[^>]*>(.*?)</article>', r.text, re.S):\n    h = re.search(r'<h[234][^>]*>(.*?)</h[234]>', art, re.S)\n    dt = re.search(r'datetime=\"(\\d{4}-\\d{2}-\\d{2})', art)\n    if h and dt:\n        title, date_iso = re.sub(r'<[^>]+>','',h.group(1)).strip(), dt.group(1)",
+    "notes": "~6 events (zomerseizoen). LET OP: URL is /programma, NIET /events zoals eerder aangenomen - de /events/ fetch van 2026-07-05 gaf leeg resultaat, dit is waarschijnlijk de reden.",
     "sample_event_url": "https://bostheater.nl/events/lp-2026/",
     "last_verified": "2026-07-05"
   },
   "neushoorn": {
     "display_name": "Neushoorn",
     "agenda_url": "https://neushoorn.nl/programma",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "client_js",
+    "scrape_code": "",
+    "notes": "Confirmed JS-rendered / SPA, Chrome MCP vereist maar nog geen geteste extractiecode.",
     "sample_event_url": "https://neushoorn.nl/programma",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "groningermuseum": {
     "display_name": "Groninger Museum",
-    "agenda_url": "https://www.groningermuseum.nl/kunst/tentoonstellingen/the-architect-and-the-housewife",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://www.groningermuseum.nl/kunst/tentoonstellingen",
+    "render_type": "client_js",
+    "scrape_code": "",
+    "notes": "Confirmed JS-rendered / SPA, Chrome MCP vereist maar nog geen geteste extractiecode.",
     "sample_event_url": "https://www.groningermuseum.nl/kunst/tentoonstellingen/the-architect-and-the-housewife",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "drentsmuseum": {
     "display_name": "Drents Museum",
-    "agenda_url": "https://drentsmuseum.nl/tentoonstellingen/amrita-sher-gil-europa-is-van-picasso-india-is-van-mij",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://drentsmuseum.nl/tentoonstellingen",
+    "render_type": "client_js",
+    "scrape_code": "",
+    "notes": "Confirmed JS-rendered / SPA, Chrome MCP vereist maar nog geen geteste extractiecode.",
     "sample_event_url": "https://drentsmuseum.nl/tentoonstellingen/amrita-sher-gil-europa-is-van-picasso-india-is-van-mij",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "podiumzuidhaege": {
     "display_name": "Zuidhaege Assen",
     "agenda_url": "https://podiumzuidhaege.nl/programma/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "client_js",
+    "scrape_code": "",
+    "notes": "Confirmed JS-rendered / SPA, Chrome MCP vereist maar nog geen geteste extractiecode.",
     "sample_event_url": "https://podiumzuidhaege.nl/programma/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "hunebedcentrum": {
     "display_name": "Hunebedcentrum",
-    "agenda_url": "https://www.hunebedcentrum.eu/events/expositie-oerbotanie-botanische-kunst/?occurrence=2026-06-25",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://www.hunebedcentrum.eu/events/",
+    "render_type": "static",
+    "scrape_code": "urllib, statisch.",
+    "notes": "LET OP: domein is hunebedcentrum.eu, NIET .nl (DNS op .nl faalde in juni-sessie) - .eu werkt en is bevestigd via events_categorized.json sample-URL.",
     "sample_event_url": "https://www.hunebedcentrum.eu/events/expositie-oerbotanie-botanische-kunst/?occurrence=2026-06-25",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "koornbeurs": {
     "display_name": "Koornbeurs",
     "agenda_url": "https://www.theaterdekoornbeurs.nl/programma",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "client_js",
+    "scrape_code": "",
+    "notes": "Confirmed JS-rendered / SPA, Chrome MCP vereist maar nog geen geteste extractiecode.",
     "sample_event_url": "https://www.theaterdekoornbeurs.nl/programma",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "tivolivredenburg": {
     "display_name": "TivoliVredenburg",
     "agenda_url": "unknown",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
+    "scrape_code": "",
     "notes": "",
     "sample_event_url": "",
     "last_verified": null
@@ -389,7 +455,7 @@
     "display_name": "Melkweg",
     "agenda_url": "unknown",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
+    "scrape_code": "",
     "notes": "",
     "sample_event_url": "",
     "last_verified": null
@@ -398,7 +464,7 @@
     "display_name": "Paradiso",
     "agenda_url": "unknown",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
+    "scrape_code": "",
     "notes": "",
     "sample_event_url": "",
     "last_verified": null
@@ -407,7 +473,7 @@
     "display_name": "013 Tilburg",
     "agenda_url": "unknown",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
+    "scrape_code": "",
     "notes": "",
     "sample_event_url": "",
     "last_verified": null
@@ -416,7 +482,7 @@
     "display_name": "Ziggo Dome",
     "agenda_url": "unknown",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
+    "scrape_code": "",
     "notes": "",
     "sample_event_url": "",
     "last_verified": null
@@ -425,7 +491,7 @@
     "display_name": "Effenaar",
     "agenda_url": "unknown",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
+    "scrape_code": "",
     "notes": "",
     "sample_event_url": "",
     "last_verified": null
@@ -434,7 +500,7 @@
     "display_name": "Doornroosje",
     "agenda_url": "unknown",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
+    "scrape_code": "",
     "notes": "",
     "sample_event_url": "",
     "last_verified": null
@@ -443,7 +509,7 @@
     "display_name": "Rotterdam Ahoy",
     "agenda_url": "unknown",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
+    "scrape_code": "",
     "notes": "",
     "sample_event_url": "",
     "last_verified": null
@@ -452,7 +518,7 @@
     "display_name": "Het Paard",
     "agenda_url": "https://www.paard.nl/en/event/paardcafe-club-pony-75/",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
+    "scrape_code": "",
     "notes": "",
     "sample_event_url": "https://www.paard.nl/en/event/paardcafe-club-pony-75/",
     "last_verified": null
@@ -461,7 +527,7 @@
     "display_name": "Hedon Zwolle",
     "agenda_url": "https://hedon-zwolle.nl/programma/32985",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
+    "scrape_code": "",
     "notes": "",
     "sample_event_url": "https://hedon-zwolle.nl/programma/32985",
     "last_verified": null
@@ -470,8 +536,8 @@
     "display_name": "AFAS Live",
     "agenda_url": "https://www.afaslive.nl/agenda",
     "render_type": "static",
-    "scrape_method": "urllib + BeautifulSoup - full event list with dates/links in plain HTML.",
-    "notes": "Verified 2026-07-05.",
+    "scrape_code": "urllib + BeautifulSoup, volledige lijst in platte HTML.",
+    "notes": "Geverifieerd 2026-07-05.",
     "sample_event_url": "https://www.afaslive.nl/agenda/ali-wong",
     "last_verified": "2026-07-05"
   },
@@ -479,7 +545,7 @@
     "display_name": "Rotown",
     "agenda_url": "https://www.rotown.nl/agenda/kabeaushe/",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
+    "scrape_code": "",
     "notes": "",
     "sample_event_url": "https://www.rotown.nl/agenda/kabeaushe/",
     "last_verified": null
@@ -488,16 +554,16 @@
     "display_name": "De Doelen",
     "agenda_url": "https://dedoelen.nl/nl/agenda/60-jaar-in-posters-1cdz",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "Fetch returned empty body 2026-07-05 - may be JS or blocked, needs re-test.",
+    "scrape_code": "",
+    "notes": "",
     "sample_event_url": "https://dedoelen.nl/nl/agenda/60-jaar-in-posters-1cdz",
-    "last_verified": "2026-07-05"
+    "last_verified": null
   },
   "gelredome": {
     "display_name": "GelreDome",
     "agenda_url": "https://www.gelredome.nl/evenement/helene-fischer-47s3r",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
+    "scrape_code": "",
     "notes": "",
     "sample_event_url": "https://www.gelredome.nl/evenement/helene-fischer-47s3r",
     "last_verified": null
@@ -506,16 +572,16 @@
     "display_name": "Concertgebouw",
     "agenda_url": "https://www.concertgebouw.nl/concerten/40359353-racoon",
     "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "Fetch returned empty body 2026-07-05 - may be JS or blocked, needs re-test.",
+    "scrape_code": "",
+    "notes": "",
     "sample_event_url": "https://www.concertgebouw.nl/concerten/40359353-racoon",
-    "last_verified": "2026-07-05"
+    "last_verified": null
   },
   "fcgroningen": {
     "display_name": "FC Groningen",
     "agenda_url": "https://fcgroningen.nl/wedstrijden",
     "render_type": "client_js",
-    "scrape_method": "Chrome MCP (navigate + javascript_tool) - React SPA, static fetch returns no fixtures.",
+    "scrape_code": "Chrome MCP (navigate + javascript_tool) - React SPA.",
     "notes": "",
     "sample_event_url": "https://tickets.fcgroningen.nl/",
     "last_verified": "2026-07-05"
@@ -524,8 +590,8 @@
     "display_name": "FC Emmen",
     "agenda_url": "https://fcemmen.nl/wedstrijdschema/",
     "render_type": "static",
-    "scrape_method": "urllib/web_fetch + parse markdown table (RONDE|DAG|DATUM|TIJD|THUIS|UIT). Home matches = rows where THUIS column is \"FC Emmen\".",
-    "notes": "Verified 2026-07-05. Tickets: https://tickets.fcemmen.nl/dashboard",
+    "scrape_code": "urllib/web_fetch + parse markdown-achtige tabel (RONDE|DAG|DATUM|TIJD|THUIS|UIT). Thuiswedstrijden = rijen waar THUIS-kolom \"FC Emmen\" is.",
+    "notes": "Geverifieerd 2026-07-05. Tickets: https://tickets.fcemmen.nl/dashboard",
     "sample_event_url": "https://tickets.fcemmen.nl/dashboard",
     "last_verified": "2026-07-05"
   },
@@ -533,7 +599,7 @@
     "display_name": "Donar",
     "agenda_url": "https://www.donar.nl/wedstrijden",
     "render_type": "static",
-    "scrape_method": "urllib + BeautifulSoup.",
+    "scrape_code": "urllib + BeautifulSoup.",
     "notes": "",
     "sample_event_url": "https://www.donar.nl/wedstrijden",
     "last_verified": "2026-07-05"
@@ -542,8 +608,8 @@
     "display_name": "Lycurgus",
     "agenda_url": "https://www.volleybal.nl/competitie/vereniging/cmj3g4f/heren/1",
     "render_type": "client_js",
-    "scrape_method": "Needs JS rendering (Nevobo Volleybal.nl SPA) - static fetch only returns site shell.",
-    "notes": "Chrome MCP navigation to volleybal.nl was BLOCKED in the 2026-07-05 sandbox session (\"Navigation to this domain is not allowed\"). Needs retry in a session where that domain isn't blocked, or an alternative source.",
+    "scrape_code": "",
+    "notes": "Nevobo Volleybal.nl SPA - statische fetch geeft alleen site-shell. Chrome-navigatie naar volleybal.nl was BLOCKED in de 2026-07-05 sandbox-sessie.",
     "sample_event_url": "",
     "last_verified": "2026-07-05"
   },
@@ -551,8 +617,8 @@
     "display_name": "GIJS Groningen",
     "agenda_url": "https://gijsgroningen.nl/gijs-eredivisie/",
     "render_type": "client_js",
-    "scrape_method": "Needs JS rendering - \"Schema\" section on team page loads via JS.",
-    "notes": "Display name corrected 2026-07-05: \"GIJS Groningen\", not \"Grizzly's\". The article page /wedstrijdschema-eredivisie/ is STALE (shows 2022/23 season) - do not use. Chrome navigation to gijsgroningen.nl was BLOCKED in the 2026-07-05 sandbox session.",
+    "scrape_code": "",
+    "notes": "Naam gecorrigeerd 2026-07-05: \"GIJS Groningen\", niet \"Grizzly's\". Het artikel /wedstrijdschema-eredivisie/ is VEROUDERD (toont 2022/23-seizoen) - niet gebruiken. Chrome-navigatie naar gijsgroningen.nl was BLOCKED in de 2026-07-05 sandbox-sessie.",
     "sample_event_url": "",
     "last_verified": "2026-07-05"
   },
@@ -560,27 +626,27 @@
     "display_name": "Hurry-Up",
     "agenda_url": "unknown",
     "render_type": "unresolved",
-    "scrape_method": "unknown",
-    "notes": "Per handoff: website gives 404, new URL not yet found.",
+    "scrape_code": "",
+    "notes": "Website geeft 404, nieuwe URL nog niet gevonden.",
     "sample_event_url": "",
     "last_verified": "2026-07-05"
   },
   "visitgroningen.nl": {
-    "display_name": "VisitGroningen (NOT YET in gen_uitjes.py SRC dict)",
+    "display_name": "VisitGroningen (NOG NIET in gen_uitjes.py SRC dict)",
     "agenda_url": "https://www.visitgroningen.nl/nl/doen/uitgaan?page=1",
     "render_type": "static",
-    "scrape_method": "urllib + JSON-LD (application/ld+json, ItemList), use \"endDate\" field. Paginate with ?page=N.",
-    "notes": "~150 events historically per handoff-v2.md (2026-06-25). Not currently wired into gen_uitjes.py (no SRC/VENUE_LOC entry) - flag to Michiel before adding, to confirm whether this should be a new source.",
+    "code": "import requests, re, json\nfor page in range(1, 9):\n    html = requests.get(f\"https://www.visitgroningen.nl/nl/doen/uitgaan?page={page}\").text\n    for m in re.finditer(r'<script type=\"application/ld\\+json\">(.*?)</script>', html, re.S):\n        try:\n            data = json.loads(m.group(1))\n            if data.get('@type') == 'ItemList':\n                for item in data.get('itemListElement', []):\n                    ev = item.get('item', {})\n        except: pass",
+    "notes": "~150 events. Niet aangesloten op gen_uitjes.py - eerst bevestigen met Michiel voor toevoegen.",
     "sample_event_url": "",
-    "last_verified": "2026-07-05 (recovered from prior session notes, not re-tested)"
+    "last_verified": "2026-07-05 (teruggevonden, niet herverifieerd)"
   },
   "denoorderbron.nl": {
-    "display_name": "De Noorderbron Annen (NOT YET in gen_uitjes.py SRC dict)",
+    "display_name": "De Noorderbron Annen (NOG NIET in gen_uitjes.py SRC dict)",
     "agenda_url": "https://denoorderbron.nl/agenda/",
     "render_type": "static",
-    "scrape_method": "urllib + regex on <article>/<div>/<li> blocks with class containing event/agenda/activiteit/post/item.",
-    "notes": "Small local venue in Annen. Not currently wired into gen_uitjes.py - flag to Michiel before adding.",
+    "code": "urllib + regex op <article>/<div>/<li> blokken (class bevat event/agenda/activiteit/post/item).",
+    "notes": "Klein lokaal podium in Annen. Niet aangesloten op gen_uitjes.py - eerst bevestigen met Michiel.",
     "sample_event_url": "",
-    "last_verified": "2026-07-05 (recovered from prior session notes, not re-tested)"
+    "last_verified": "2026-07-05 (teruggevonden, niet herverifieerd)"
   }
 }
