@@ -143,7 +143,7 @@
       "Seynderslo": "DNS lookup faalt, geen website gevonden."
     },
     "status": "Herbouwd 2026-07-05 met exacte code teruggevonden uit een eerdere sessie ('uitjes-agenda-scraping-gids.md', 25 juni 2026) - dit is nu de primaire bron van waarheid voor scraping-methodes in dit project.",
-    "known_gaps": "lawei (~320 events, AJAX onopgelost) en vanberesteyn (~98 events, WP REST API 404) zijn de grootste bekende gaten. visitgroningen.nl (~150 events) en denoorderbron.nl hebben een werkende scraper uit een vorige sessie maar zitten nog niet in gen_uitjes.py's SRC dict."
+    "known_gaps": "lawei en vanberesteyn zijn OPGELOST (zie hierboven, 2026-07-05). visitgroningen.nl is bewust NIET toegevoegd (duplicaat-risico, zie dedup-notitie). denoorderbron.nl is toegevoegd (1 event)."
   },
   "spotgroningen.nl": {
     "display_name": "Spot",
@@ -157,9 +157,9 @@
   "lawei": {
     "display_name": "De Lawei",
     "agenda_url": "https://www.lawei.nl/agenda/",
-    "render_type": "unresolved",
+    "render_type": "resolved_locally",
     "scrape_code": "",
-    "notes": "UNSOLVED: events laden via AJAX, niet in statische HTML. ~320 events verwacht - grootste bekende gat.",
+    "notes": "OPGELOST (2026-07-05, bevestigd door Michiel): 320 events staan al in events_categorized.json. AJAX-probleem uit juni is verholpen via lokale scraping op Michiels PC, deels met Claude-in-Chrome-extensie-overname wanneer statische fetch niet werkte. Exacte huidige methode niet in deze sessie gereconstrueerd (scraping gebeurt buiten dit environment).",
     "sample_event_url": "https://www.lawei.nl/agenda/the-tasters-445f",
     "last_verified": "2026-07-05"
   },
@@ -211,9 +211,9 @@
   "vanberesteyn": {
     "display_name": "Van Beresteyn",
     "agenda_url": "https://www.vanberesteyn.nl/programma/",
-    "render_type": "unresolved",
+    "render_type": "resolved_locally",
     "scrape_code": "",
-    "notes": "UNSOLVED: geen <time> tags in HTML, WP REST API endpoint geeft 404. ~98 events verwacht.",
+    "notes": "OPGELOST (2026-07-05, bevestigd door Michiel): 98 events staan al in events_categorized.json. WP REST 404-probleem uit juni is verholpen, zelfde werkwijze als Lawei (lokaal, evt. Chrome-extensie).",
     "sample_event_url": "https://www.vanberesteyn.nl/programma/oet-7/",
     "last_verified": "2026-07-05"
   },
@@ -634,19 +634,19 @@
   "visitgroningen.nl": {
     "display_name": "VisitGroningen (NOG NIET in gen_uitjes.py SRC dict)",
     "agenda_url": "https://www.visitgroningen.nl/nl/doen/uitgaan?page=1",
-    "render_type": "static",
+    "render_type": "duplicate_skip",
     "code": "import requests, re, json\nfor page in range(1, 9):\n    html = requests.get(f\"https://www.visitgroningen.nl/nl/doen/uitgaan?page={page}\").text\n    for m in re.finditer(r'<script type=\"application/ld\\+json\">(.*?)</script>', html, re.S):\n        try:\n            data = json.loads(m.group(1))\n            if data.get('@type') == 'ItemList':\n                for item in data.get('itemListElement', []):\n                    ev = item.get('item', {})\n        except: pass",
-    "notes": "~150 events. Niet aangesloten op gen_uitjes.py - eerst bevestigen met Michiel voor toevoegen.",
+    "notes": "Michiel bevestigde 2026-07-05: VisitGroningen events overlappen met events die al via andere directe bronnen (drenthe.nl e.a.) binnenkomen. NIET toevoegen zonder eerst een dedup-strategie (bv. matchen op titel+datum, of venue-naam-matching tegen bekende VENUE_LOC-namen) - anders komen events dubbel op de site.",
     "sample_event_url": "",
-    "last_verified": "2026-07-05 (teruggevonden, niet herverifieerd)"
+    "last_verified": "2026-07-05"
   },
   "denoorderbron.nl": {
-    "display_name": "De Noorderbron Annen (NOG NIET in gen_uitjes.py SRC dict)",
+    "display_name": "Noorderbron",
     "agenda_url": "https://denoorderbron.nl/agenda/",
     "render_type": "static",
-    "code": "urllib + regex op <article>/<div>/<li> blokken (class bevat event/agenda/activiteit/post/item).",
-    "notes": "Klein lokaal podium in Annen. Niet aangesloten op gen_uitjes.py - eerst bevestigen met Michiel.",
-    "sample_event_url": "",
-    "last_verified": "2026-07-05 (teruggevonden, niet herverifieerd)"
+    "scrape_code": "urllib + regex op event-links: <a href=\"...\">DDmmm DDmmmTitel DD-MM-YYYY Plaats</a> - klein en onregelmatig (vergader/teambuilding-locatie met incidentele publieke activiteiten, geen volle agenda).",
+    "notes": "Toegevoegd 2026-07-05 op verzoek van Michiel. Op moment van toevoegen maar 1 events zichtbaar (yoga-activiteit 25 aug 2026) - dit is een vergaderlocatie/teambuilding-plek met soms publieke activiteiten, geen theater/podium. Coordinaten (53.0310, 6.7460) zijn een schatting o.b.v. Annerstreek 5, Annen - niet exact geverifieerd.",
+    "sample_event_url": "https://denoorderbron.nl/evenement/yoga-summer-yoga-proeflessen/",
+    "last_verified": "2026-07-05"
   }
 }
