@@ -68,10 +68,23 @@ SRC = {
     # Sport clubs (Noord-Nederland)
     'fcgroningen':         ('FC Groningen',     '⚽', '#00a651'),
     'fcemmen':             ('FC Emmen',         '⚽', '#003087'),
+    'heerenveen':          ('SC Heerenveen',    '⚽', '#0052a5'),
+    'cambuur':             ('SC Cambuur',       '⚽', '#ffd700'),
+    'fctwente':            ('FC Twente',        '⚽', '#cc0000'),
+    'goahead':             ('Go Ahead Eagles',  '⚽', '#f5a623'),
+    'peczwolle':           ('PEC Zwolle',       '⚽', '#0033a0'),
     'donar':               ('Donar',            '🏀', '#e2001a'),
+    'landstede':           ('Landstede Hammers','🏀', '#ff6b00'),
     'lycurgus':            ('Lycurgus',         '🏐', '#ffcc00'),
+    'sudosa':              ('CRAFT Sudosa',     '🏐', '#2e7d32'),
+    'friso':               ('Friso Sneek',      '🏐', '#d32f2f'),
     'grizzlys':            ('GIJS Groningen',   '🏒', '#6699cc'),
+    'flyers':              ('Flyers Heerenveen','🏒', '#003087'),
+    'ogcapitals':          ('OG Capitals',      '🏒', '#e65100'),
     'hurryup':             ('Hurry-Up',         '🤾', '#ff6600'),
+    'eoemmen':             ("E&O Emmen",        '🤾', '#c62828'),
+    'ldodk':               ('LDODK',            '🎯', '#f57c00'),
+    'dos46':               ("DOS '46",          '🎯', '#1565c0'),
 }
 
 VENUE_LOC = {
@@ -127,10 +140,23 @@ VENUE_LOC = {
     'concertgebouw':       (52.3564, 4.8797, 'Noord-Holland'),
     'fcgroningen':         (53.2027, 6.5678, 'Groningen'),
     'fcemmen':             (52.7693, 6.8891, 'Drenthe'),
+    'heerenveen':          (52.9556, 5.9167, 'Friesland'),
+    'cambuur':             (53.2013, 5.8099, 'Friesland'),
+    'fctwente':            (52.2356, 6.8575, 'Overijssel'),
+    'goahead':             (52.2541, 6.1695, 'Overijssel'),
+    'peczwolle':           (52.4854, 6.0746, 'Overijssel'),
     'donar':               (53.2265, 6.5683, 'Groningen'),
+    'landstede':           (52.5024, 6.0968, 'Overijssel'),
     'lycurgus':            (53.2265, 6.5300, 'Groningen'),
+    'sudosa':              (52.9875, 6.5575, 'Drenthe'),
+    'friso':               (53.0350, 5.6600, 'Friesland'),
     'grizzlys':            (53.2265, 6.5300, 'Groningen'),
+    'flyers':              (52.9506, 5.9233, 'Friesland'),
+    'ogcapitals':          (53.2012, 5.7999, 'Friesland'),
     'hurryup':             (52.7800, 6.8900, 'Drenthe'),
+    'eoemmen':             (52.7850, 6.8950, 'Drenthe'),
+    'ldodk':               (52.9983, 6.0767, 'Friesland'),
+    'dos46':               (52.7483, 6.2667, 'Drenthe'),
 }
 
 MUSIC_VENUES  = {'vera','simplon','em2groningen','spotgroningen.nl','grandcafe_zuidlaren',
@@ -138,11 +164,12 @@ MUSIC_VENUES  = {'vera','simplon','em2groningen','spotgroningen.nl','grandcafe_z
                  'tivolivredenburg','melkweg','paradiso','013','ziggodome','effenaar','doornroosje','ahoy','paard','hedon',
                  'afaslive','rotown','dedoelen','gelredome','concertgebouw'}
 SPORT_CLUBS = {
-    'voetbal':    ['fcgroningen', 'fcemmen'],
-    'basketbal':  ['donar'],
-    'volleybal':  ['lycurgus'],
-    'ijshockey':  ['grizzlys'],
-    'handbal':    ['hurryup'],
+    'voetbal':    ['fcgroningen', 'fcemmen', 'heerenveen', 'cambuur', 'fctwente', 'goahead', 'peczwolle'],
+    'basketbal':  ['donar', 'landstede'],
+    'volleybal':  ['lycurgus', 'sudosa', 'friso'],
+    'ijshockey':  ['grizzlys', 'flyers', 'ogcapitals'],
+    'handbal':    ['hurryup', 'eoemmen'],
+    'korfbal':    ['ldodk', 'dos46'],
 }
 SPORT_SRCS = {s for clubs in SPORT_CLUBS.values() for s in clubs}
 
@@ -242,6 +269,7 @@ month_nav = '\n'.join(
 def event_html(e):
     src = e.get('source',''); sk = safe_key(src)
     genre = classify(e.get('title',''), e.get('cats',[]), src)
+    gender = e.get('gender', '') if src in SPORT_SRCS else ''
     icon_map = {'theater':'🎭','cabaret':'🎪','musical':'🎼','klassiek':'🎻','pop':'🎸',
                 'jazz':'🎷','dans':'💃','expo':'🖼️','actief':'🥾','kinderen':'🎈','overig':'•'}
     glabel_map = {'theater':'Theater / Toneel','cabaret':'Cabaret / Comedy','musical':'Musical',
@@ -255,7 +283,7 @@ def event_html(e):
     prov = loc[2] if loc else 'Onbekend'
     lat_lon = f'{loc[0]},{loc[1]}' if loc else ''
     return (f'<div class="event {sk}" data-src="{src}" data-genre="{genre}" '
-            f'data-prov="{prov}" data-latlon="{lat_lon}">'
+            f'data-prov="{prov}" data-latlon="{lat_lon}" data-gender="{gender}">'
             f'<div class="event-date">{fmt_date(e.get("date",""))}</div>'
             f'<div class="event-main"><div class="event-title">{title_html}</div>'
             f'<div class="event-venue">{esc(e.get("venue",""))} '
@@ -300,6 +328,7 @@ SPORT_COLORS = {
     'volleybal': '#1565c0',
     'ijshockey': '#37474f',
     'handbal':   '#c62828',
+    'korfbal':   '#f57c00',
 }
 sport_css = '\n'.join(
     f'.btn[data-sport="{s}"]:hover{{border-color:{c};color:{c};}}'
@@ -307,20 +336,23 @@ sport_css = '\n'.join(
     for s,c in SPORT_COLORS.items())
 club_css = '\n'.join(
     f'.btn[data-club="{k}"]:hover{{border-color:{SRC[k][2]};color:{SRC[k][2]};}}'
-    f'.btn[data-club="{k}"].active{{background:{SRC[k][2]};color:{"#212121" if SRC[k][2]=="#ffcc00" else "#fff"};border-color:{SRC[k][2]};}}'
+    f'.btn[data-club="{k}"].active{{background:{SRC[k][2]};color:{"#212121" if SRC[k][2] in ("#ffcc00","#ffd700") else "#fff"};border-color:{SRC[k][2]};}}'
     for k in SPORT_SRCS if k in SRC)
+gender_css = ('.btn[data-gender="all"].active{background:#555;color:#fff;border-color:#555;}'
+              '.btn[data-gender="heren"].active{background:#1565c0;color:#fff;border-color:#1565c0;}'
+              '.btn[data-gender="dames"].active{background:#c2185b;color:#fff;border-color:#c2185b;}')
 landelijk_json = _json.dumps(sorted(LANDELIJK))
 
 js = f'''
 const TOTAL={total};
 let selSrc=new Set(), selGenre=new Set(), selProv=new Set(), maxDist=9999;
-let currentMode='uitjes', selSport=new Set(), selClub=new Set();
-const SPORT_SRCS=new Set(['fcgroningen','fcemmen','donar','lycurgus','grizzlys','hurryup']);
-const SPORT_BY_SRC={{fcgroningen:'voetbal',fcemmen:'voetbal',donar:'basketbal',lycurgus:'volleybal',grizzlys:'ijshockey',hurryup:'handbal'}};
-const SPORT_COLOR_MAP={{voetbal:'#00a651',basketbal:'#e07000',volleybal:'#1565c0',ijshockey:'#37474f',handbal:'#c62828'}};
-const CLUB_COLOR_MAP={{fcgroningen:'#00a651',fcemmen:'#003087',donar:'#e2001a',lycurgus:'#ffcc00',grizzlys:'#6699cc',hurryup:'#ff6600'}};
+let currentMode='uitjes', selSport=new Set(), selClub=new Set(), selGender='all';
+const SPORT_SRCS=new Set(['fcgroningen','fcemmen','heerenveen','cambuur','fctwente','goahead','peczwolle','donar','landstede','lycurgus','sudosa','friso','grizzlys','flyers','ogcapitals','hurryup','eoemmen','ldodk','dos46']);
+const SPORT_BY_SRC={{fcgroningen:'voetbal',fcemmen:'voetbal',heerenveen:'voetbal',cambuur:'voetbal',fctwente:'voetbal',goahead:'voetbal',peczwolle:'voetbal',donar:'basketbal',landstede:'basketbal',lycurgus:'volleybal',sudosa:'volleybal',friso:'volleybal',grizzlys:'ijshockey',flyers:'ijshockey',ogcapitals:'ijshockey',hurryup:'handbal',eoemmen:'handbal',ldodk:'korfbal',dos46:'korfbal'}};
+const SPORT_COLOR_MAP={{voetbal:'#00a651',basketbal:'#e07000',volleybal:'#1565c0',ijshockey:'#37474f',handbal:'#c62828',korfbal:'#f57c00'}};
+const CLUB_COLOR_MAP={{fcgroningen:'#00a651',fcemmen:'#003087',heerenveen:'#0052a5',cambuur:'#ffd700',fctwente:'#cc0000',goahead:'#f5a623',peczwolle:'#0033a0',donar:'#e2001a',landstede:'#ff6b00',lycurgus:'#ffcc00',sudosa:'#2e7d32',friso:'#d32f2f',grizzlys:'#6699cc',flyers:'#003087',ogcapitals:'#e65100',hurryup:'#ff6600',eoemmen:'#c62828',ldodk:'#f57c00',dos46:'#1565c0'}};
 const PROV_COLOR_MAP={{Groningen:'#1565c0',Drenthe:'#2e7d32',Friesland:'#6a1b9a',Overijssel:'#e65100',Utrecht:'#6a1b9a','Noord-Holland':'#b71c1c','Zuid-Holland':'#00695c','Noord-Brabant':'#f57f17',Gelderland:'#4e342e'}};
-function actBtn(el,c){{el.style.background=c;el.style.color=c==='#ffcc00'?'#212121':'#fff';el.style.borderColor=c;}}
+function actBtn(el,c){{el.style.background=c;el.style.color=(c==='#ffcc00'||c==='#ffd700')?'#212121':'#fff';el.style.borderColor=c;}}
 function deactBtn(el){{el.style.background='';el.style.color='';el.style.borderColor='';}}
 let centerLat=53.034, centerLon=6.735;
 
@@ -352,7 +384,8 @@ function apply(){{
       ok=!isSport&&(selSrc.size===0||selSrc.has(src))&&(selGenre.size===0||selGenre.has(ev.dataset.genre))&&(selProv.size===0||selProv.has(ev.dataset.prov))&&dist<=maxDist;
     }}else{{
       const sp=SPORT_BY_SRC[src];
-      ok=isSport&&(selSport.size===0||selSport.has(sp))&&(selClub.size===0||selClub.has(src))&&(selProv.size===0||selProv.has(ev.dataset.prov))&&dist<=maxDist;
+      const evGender=ev.dataset.gender||'heren';
+      ok=isSport&&(selSport.size===0||selSport.has(sp))&&(selClub.size===0||selClub.has(src))&&(selGender==='all'||evGender===selGender||evGender==='gemengd')&&(selProv.size===0||selProv.has(ev.dataset.prov))&&dist<=maxDist;
     }}
     ev.classList.toggle('hidden',!ok);if(ok)v++;
   }});
@@ -466,8 +499,9 @@ function setMode(m){{
     const el=document.getElementById(id);
     if(el) el.style.display=m==='uitjes'?'':'none';
   }});
-  selSport.clear();selClub.clear();selSrc.clear();selGenre.clear();
+  selSport.clear();selClub.clear();selSrc.clear();selGenre.clear();selGender='all';
   document.querySelectorAll('.btn[data-sport],.btn[data-club]').forEach(x=>deactBtn(x));
+  document.querySelectorAll('.btn[data-gender]').forEach(x=>x.classList.toggle('active',x.dataset.gender==='all'));
   const smSA=document.querySelector('.btn[data-sport="all"]'),smCA=document.querySelector('.btn[data-club="all"]');
   smSA.classList.add('active');actBtn(smSA,'#555');
   smCA.classList.add('active');actBtn(smCA,'#555');
@@ -505,6 +539,11 @@ document.querySelectorAll('.btn[data-club]').forEach(b=>b.addEventListener('clic
   cb2.classList.toggle('active',ca);if(ca)actBtn(cb2,'#555');else deactBtn(cb2);
   apply();
 }}));
+document.querySelectorAll('.btn[data-gender]').forEach(b=>b.addEventListener('click',()=>{{
+  selGender=b.dataset.gender;
+  document.querySelectorAll('.btn[data-gender]').forEach(x=>x.classList.toggle('active',x.dataset.gender===selGender));
+  apply();
+}}));
 // Init: zet afstanden vanuit standaard centrum (Annen)
 updateDistances();
 '''
@@ -529,6 +568,7 @@ header h1{{font-size:1.2rem;font-weight:700;margin-bottom:2px;}}
 .btn[data-sport="all"].active,.btn[data-club="all"].active{{background:#555;color:#fff;border-color:#555;}}
 {sport_css}
 {club_css}
+{gender_css}
 .mode-toggle{{background:#fff;padding:8px 16px;display:flex;gap:8px;border-bottom:2px solid var(--border);}}
 .mode-btn{{padding:5px 18px;border-radius:20px;border:2px solid #ccc;background:#fff;cursor:pointer;font-weight:700;font-size:0.88rem;}}
 .mode-btn.active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
@@ -596,16 +636,36 @@ main{{padding:0 16px 32px;}}
   <button class="btn" data-sport="volleybal">🏐 Volleybal</button>
   <button class="btn" data-sport="ijshockey">🏒 IJshockey</button>
   <button class="btn" data-sport="handbal">🤾 Handbal</button>
+  <button class="btn" data-sport="korfbal">🎯 Korfbal</button>
+</div>
+<div class="filters">
+  <div class="filters-label">Geslacht</div>
+  <button class="btn active" data-gender="all">Beide</button>
+  <button class="btn" data-gender="heren">♂ Heren</button>
+  <button class="btn" data-gender="dames">♀ Dames</button>
 </div>
 <div class="filters">
   <div class="filters-label">Club</div>
   <button class="btn active" data-club="all">Alle clubs</button>
   <button class="btn" data-club="fcgroningen" data-sport-type="voetbal">⚽ FC Groningen</button>
   <button class="btn" data-club="fcemmen" data-sport-type="voetbal">⚽ FC Emmen</button>
+  <button class="btn" data-club="heerenveen" data-sport-type="voetbal">⚽ SC Heerenveen</button>
+  <button class="btn" data-club="cambuur" data-sport-type="voetbal">⚽ SC Cambuur</button>
+  <button class="btn" data-club="fctwente" data-sport-type="voetbal">⚽ FC Twente</button>
+  <button class="btn" data-club="goahead" data-sport-type="voetbal">⚽ Go Ahead Eagles</button>
+  <button class="btn" data-club="peczwolle" data-sport-type="voetbal">⚽ PEC Zwolle</button>
   <button class="btn" data-club="donar" data-sport-type="basketbal">🏀 Donar</button>
+  <button class="btn" data-club="landstede" data-sport-type="basketbal">🏀 Landstede</button>
   <button class="btn" data-club="lycurgus" data-sport-type="volleybal">🏐 Lycurgus</button>
+  <button class="btn" data-club="sudosa" data-sport-type="volleybal">🏐 CRAFT Sudosa</button>
+  <button class="btn" data-club="friso" data-sport-type="volleybal">🏐 Friso Sneek</button>
   <button class="btn" data-club="grizzlys" data-sport-type="ijshockey">🏒 GIJS</button>
+  <button class="btn" data-club="flyers" data-sport-type="ijshockey">🏒 Flyers</button>
+  <button class="btn" data-club="ogcapitals" data-sport-type="ijshockey">🏒 OG Capitals</button>
   <button class="btn" data-club="hurryup" data-sport-type="handbal">🤾 Hurry-Up</button>
+  <button class="btn" data-club="eoemmen" data-sport-type="handbal">🤾 E&amp;O Emmen</button>
+  <button class="btn" data-club="ldodk" data-sport-type="korfbal">🎯 LDODK</button>
+  <button class="btn" data-club="dos46" data-sport-type="korfbal">🎯 DOS '46</button>
 </div>
 </div>
 <header>
