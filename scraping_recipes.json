@@ -1,0 +1,501 @@
+{
+  "_meta": {
+    "purpose": "Per-bron scrape-instructies zodat een goedkope/simpele LLM zelfstandig nieuwe events kan ophalen voor uitjesagenda. Los bestand van events_categorized.json om het event-schema niet te breken.",
+    "fields": {
+      "display_name": "Naam zoals getoond in de UI (SRC dict in gen_uitjes.py)",
+      "agenda_url": "URL van de pagina met de volledige lijst/agenda voor deze bron",
+      "render_type": "static (server-side HTML, te scrapen met urllib+BeautifulSoup) | client_js (vereist JS-executie, bv. Chrome MCP) | unverified (nog niet getest)",
+      "scrape_method": "Concrete aanpak: welke tool/library en hoe de data te parsen",
+      "notes": "Bijzonderheden, valkuilen, alternatieve bronnen",
+      "sample_event_url": "Voorbeeld van een individuele event-URL uit deze bron, ter referentie",
+      "last_verified": "Datum waarop render_type/scrape_method voor het laatst geverifieerd is (null = nooit geverifieerd)"
+    },
+    "status": "WORK IN PROGRESS (gestart 2026-07-05) - van de ~51 bronnen zijn er tot nu toe circa 10 geverifieerd; de rest staat op 'unverified' en moet nog stuk voor stuk getest worden."
+  },
+  "spotgroningen.nl": {
+    "display_name": "Spot",
+    "agenda_url": "https://www.spotgroningen.nl/programma/daniel-lohues-22/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.spotgroningen.nl/programma/daniel-lohues-22/",
+    "last_verified": null
+  },
+  "lawei": {
+    "display_name": "De Lawei",
+    "agenda_url": "https://www.lawei.nl/agenda/the-tasters-445f",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.lawei.nl/agenda/the-tasters-445f",
+    "last_verified": null
+  },
+  "atlastheater": {
+    "display_name": "Atlas Emmen",
+    "agenda_url": "https://www.atlastheater.nl/voorstellingen/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - first test 2026-07-05 returned only nav/footer, no event listing (may be JS-loaded or needs different URL/params)",
+    "notes": "Needs re-test.",
+    "sample_event_url": "https://www.atlastheater.nl/voorstellingen/",
+    "last_verified": null
+  },
+  "drenthe.nl": {
+    "display_name": "Drenthe",
+    "agenda_url": "https://www.drenthe.nl/evenementen-activiteiten/1805435742/we-will-rock-you-de-enige-echte-officiele-queen-musical",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.drenthe.nl/evenementen-activiteiten/1805435742/we-will-rock-you-de-enige-echte-officiele-queen-musical",
+    "last_verified": null
+  },
+  "kielzog": {
+    "display_name": "Kielzog",
+    "agenda_url": "https://www.kielzog.nl/evenementen/terrastheater-25-26-2?instance=yesplan-3939967489-1775814161",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.kielzog.nl/evenementen/terrastheater-25-26-2?instance=yesplan-3939967489-1775814161",
+    "last_verified": null
+  },
+  "forum.nl": {
+    "display_name": "Forum",
+    "agenda_url": "https://forum.nl/nl/agenda/resurrection?date=11-06-2026",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://forum.nl/nl/agenda/resurrection?date=11-06-2026",
+    "last_verified": null
+  },
+  "denieuwekolk.nl": {
+    "display_name": "Nieuwe Kolk",
+    "agenda_url": "https://denieuwekolk.nl/theater/agenda",
+    "render_type": "static",
+    "scrape_method": "urllib + BeautifulSoup - htmx-based site, full listing renders server-side, paginated via \"Meer laden\"",
+    "notes": "Verified 2026-07-05.",
+    "sample_event_url": "https://denieuwekolk.nl/theater/agenda",
+    "last_verified": "2026-07-05"
+  },
+  "vanberesteyn": {
+    "display_name": "Van Beresteyn",
+    "agenda_url": "https://www.vanberesteyn.nl/programma/oet-7/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.vanberesteyn.nl/programma/oet-7/",
+    "last_verified": null
+  },
+  "vera": {
+    "display_name": "Vera",
+    "agenda_url": "https://www.vera-groningen.nl/programma/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.vera-groningen.nl/programma/",
+    "last_verified": null
+  },
+  "simplon": {
+    "display_name": "Simplon",
+    "agenda_url": "https://simplon.nl/programma/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://simplon.nl/programma/",
+    "last_verified": null
+  },
+  "martiniplaza": {
+    "display_name": "Martiniplaza",
+    "agenda_url": "https://www.theater.nl/groningen/martini-plaza-groningen",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.theater.nl/groningen/martini-plaza-groningen",
+    "last_verified": null
+  },
+  "grandtheatregroningen": {
+    "display_name": "Grand Theatre",
+    "agenda_url": "https://www.grandtheatregroningen.nl/nl/programma",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.grandtheatregroningen.nl/nl/programma",
+    "last_verified": null
+  },
+  "theaterroden": {
+    "display_name": "Winsinghhof",
+    "agenda_url": "https://theaterroden.nl/voorstellingen",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://theaterroden.nl/voorstellingen",
+    "last_verified": null
+  },
+  "em2groningen": {
+    "display_name": "EM2",
+    "agenda_url": "https://em2groningen.nl/agenda/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://em2groningen.nl/agenda/",
+    "last_verified": null
+  },
+  "zummerbuhne": {
+    "display_name": "Zummerbühne",
+    "agenda_url": "https://www.zummerbuhne.nl/ticketverkoop",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.zummerbuhne.nl/ticketverkoop",
+    "last_verified": null
+  },
+  "usva": {
+    "display_name": "USVA",
+    "agenda_url": "https://www.usva.nl/programma/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.usva.nl/programma/",
+    "last_verified": null
+  },
+  "geertteis": {
+    "display_name": "Geert Teis",
+    "agenda_url": "https://www.theatergeertteis.nl/voorstellingen/dansschool-feel-the-move",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.theatergeertteis.nl/voorstellingen/dansschool-feel-the-move",
+    "last_verified": null
+  },
+  "podiumnienoordleek": {
+    "display_name": "Nienoord",
+    "agenda_url": "https://www.podiumnienoordleek.nl/agenda",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.podiumnienoordleek.nl/agenda",
+    "last_verified": null
+  },
+  "grandcafe_zuidlaren": {
+    "display_name": "GC Zuidlaren",
+    "agenda_url": "https://grandcafezuidlaren.nl/agenda/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://grandcafezuidlaren.nl/agenda/",
+    "last_verified": null
+  },
+  "gekehoogstins.nl": {
+    "display_name": "Geke Hoogstins",
+    "agenda_url": "https://gekehoogstins.nl/exposities-evenementen/exposities/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://gekehoogstins.nl/exposities-evenementen/exposities/",
+    "last_verified": null
+  },
+  "machinefabriek": {
+    "display_name": "Machinefabriek",
+    "agenda_url": "https://www.podiuminfo.nl/podium/5631/concerten/Theater-de-Machinefabriek/Groningen/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.podiuminfo.nl/podium/5631/concerten/Theater-de-Machinefabriek/Groningen/",
+    "last_verified": null
+  },
+  "be-wonder.com": {
+    "display_name": "Be-Wonder",
+    "agenda_url": "https://www.be-wonder.com/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - homepage returned only nav, no event listing",
+    "notes": "Needs correct agenda URL.",
+    "sample_event_url": "https://www.be-wonder.com/jebenthiermijnliefste",
+    "last_verified": null
+  },
+  "dorpshuisannen": {
+    "display_name": "Dorpshuis Annen",
+    "agenda_url": "https://www.dorpshuisannen.nl/voorstellingen",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.dorpshuisannen.nl/voorstellingen",
+    "last_verified": null
+  },
+  "detamboer": {
+    "display_name": "De Tamboer",
+    "agenda_url": "https://detamboer.nl/programma",
+    "render_type": "static",
+    "scrape_method": "urllib + BeautifulSoup - full listing with dates/times/links in plain HTML, paginated via \"Bekijk meer\"",
+    "notes": "Verified 2026-07-05.",
+    "sample_event_url": "https://detamboer.nl/programma/tribute-to-the-cats-band-2026/bestel/695631712138",
+    "last_verified": "2026-07-05"
+  },
+  "posthuistheater": {
+    "display_name": "Posthuis",
+    "agenda_url": "https://www.posthuistheater.nl/agenda",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.posthuistheater.nl/agenda",
+    "last_verified": null
+  },
+  "ontdekpoort": {
+    "display_name": "OntdekPoort",
+    "agenda_url": "https://ontdekpoort.nl/programma/8043/doek/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://ontdekpoort.nl/programma/8043/doek/",
+    "last_verified": null
+  },
+  "bostheater": {
+    "display_name": "Bostheater",
+    "agenda_url": "https://bostheater.nl/events/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - fetch returned empty body",
+    "notes": "Needs re-test, may be JS or blocked.",
+    "sample_event_url": "https://bostheater.nl/events/lp-2026/",
+    "last_verified": null
+  },
+  "neushoorn": {
+    "display_name": "Neushoorn",
+    "agenda_url": "https://neushoorn.nl/programma",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://neushoorn.nl/programma",
+    "last_verified": null
+  },
+  "groningermuseum": {
+    "display_name": "Groninger Museum",
+    "agenda_url": "https://www.groningermuseum.nl/kunst/tentoonstellingen/the-architect-and-the-housewife",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.groningermuseum.nl/kunst/tentoonstellingen/the-architect-and-the-housewife",
+    "last_verified": null
+  },
+  "drentsmuseum": {
+    "display_name": "Drents Museum",
+    "agenda_url": "https://drentsmuseum.nl/tentoonstellingen/amrita-sher-gil-europa-is-van-picasso-india-is-van-mij",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://drentsmuseum.nl/tentoonstellingen/amrita-sher-gil-europa-is-van-picasso-india-is-van-mij",
+    "last_verified": null
+  },
+  "podiumzuidhaege": {
+    "display_name": "Zuidhaege Assen",
+    "agenda_url": "https://podiumzuidhaege.nl/programma/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://podiumzuidhaege.nl/programma/",
+    "last_verified": null
+  },
+  "hunebedcentrum": {
+    "display_name": "Hunebedcentrum",
+    "agenda_url": "https://www.hunebedcentrum.eu/events/expositie-oerbotanie-botanische-kunst/?occurrence=2026-06-25",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.hunebedcentrum.eu/events/expositie-oerbotanie-botanische-kunst/?occurrence=2026-06-25",
+    "last_verified": null
+  },
+  "koornbeurs": {
+    "display_name": "Koornbeurs",
+    "agenda_url": "https://www.theaterdekoornbeurs.nl/programma",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.theaterdekoornbeurs.nl/programma",
+    "last_verified": null
+  },
+  "tivolivredenburg": {
+    "display_name": "TivoliVredenburg",
+    "agenda_url": "unknown",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "",
+    "last_verified": null
+  },
+  "melkweg": {
+    "display_name": "Melkweg",
+    "agenda_url": "unknown",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "",
+    "last_verified": null
+  },
+  "paradiso": {
+    "display_name": "Paradiso",
+    "agenda_url": "unknown",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "",
+    "last_verified": null
+  },
+  "013": {
+    "display_name": "013 Tilburg",
+    "agenda_url": "unknown",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "",
+    "last_verified": null
+  },
+  "ziggodome": {
+    "display_name": "Ziggo Dome",
+    "agenda_url": "unknown",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "",
+    "last_verified": null
+  },
+  "effenaar": {
+    "display_name": "Effenaar",
+    "agenda_url": "unknown",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "",
+    "last_verified": null
+  },
+  "doornroosje": {
+    "display_name": "Doornroosje",
+    "agenda_url": "unknown",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "",
+    "last_verified": null
+  },
+  "ahoy": {
+    "display_name": "Rotterdam Ahoy",
+    "agenda_url": "unknown",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "",
+    "last_verified": null
+  },
+  "paard": {
+    "display_name": "Het Paard",
+    "agenda_url": "https://www.paard.nl/en/event/paardcafe-club-pony-75/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.paard.nl/en/event/paardcafe-club-pony-75/",
+    "last_verified": null
+  },
+  "hedon": {
+    "display_name": "Hedon Zwolle",
+    "agenda_url": "https://hedon-zwolle.nl/programma/32985",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://hedon-zwolle.nl/programma/32985",
+    "last_verified": null
+  },
+  "afaslive": {
+    "display_name": "AFAS Live",
+    "agenda_url": "https://www.afaslive.nl/agenda",
+    "render_type": "static",
+    "scrape_method": "urllib + BeautifulSoup - full event list with dates/links in plain HTML",
+    "notes": "Verified 2026-07-05.",
+    "sample_event_url": "https://www.afaslive.nl/agenda/ali-wong",
+    "last_verified": "2026-07-05"
+  },
+  "rotown": {
+    "display_name": "Rotown",
+    "agenda_url": "https://www.rotown.nl/agenda/kabeaushe/",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.rotown.nl/agenda/kabeaushe/",
+    "last_verified": null
+  },
+  "dedoelen": {
+    "display_name": "De Doelen",
+    "agenda_url": "https://dedoelen.nl/nl/agenda",
+    "render_type": "unverified",
+    "scrape_method": "unknown - fetch returned empty body",
+    "notes": "Needs re-test, may be JS or blocked.",
+    "sample_event_url": "https://dedoelen.nl/nl/agenda/60-jaar-in-posters-1cdz",
+    "last_verified": null
+  },
+  "gelredome": {
+    "display_name": "GelreDome",
+    "agenda_url": "https://www.gelredome.nl/evenement/helene-fischer-47s3r",
+    "render_type": "unverified",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "",
+    "sample_event_url": "https://www.gelredome.nl/evenement/helene-fischer-47s3r",
+    "last_verified": null
+  },
+  "concertgebouw": {
+    "display_name": "Concertgebouw",
+    "agenda_url": "https://www.concertgebouw.nl/concerten",
+    "render_type": "unverified",
+    "scrape_method": "unknown - fetch returned empty body",
+    "notes": "Needs re-test, may be JS or blocked.",
+    "sample_event_url": "https://www.concertgebouw.nl/concerten/40359353-racoon",
+    "last_verified": null
+  },
+  "fcgroningen": {
+    "display_name": "FC Groningen",
+    "agenda_url": "https://fcgroningen.nl/wedstrijden",
+    "render_type": "client_js",
+    "scrape_method": "Chrome MCP (navigate + javascript_tool) - React SPA, static fetch returns no fixtures",
+    "notes": "Confirmed in original handoff.",
+    "sample_event_url": "https://tickets.fcgroningen.nl/",
+    "last_verified": "2026-07-05"
+  },
+  "fcemmen": {
+    "display_name": "FC Emmen",
+    "agenda_url": "https://fcemmen.nl/wedstrijdschema/",
+    "render_type": "static",
+    "scrape_method": "urllib/web_fetch + parse markdown table (RONDE|DAG|DATUM|TIJD|THUIS|UIT)",
+    "notes": "Verified 2026-07-05. Home matches = rows where THUIS column is bold \"FC Emmen\". Tickets: https://tickets.fcemmen.nl/dashboard",
+    "sample_event_url": "https://tickets.fcemmen.nl/dashboard",
+    "last_verified": "2026-07-05"
+  },
+  "donar": {
+    "display_name": "Donar",
+    "agenda_url": "https://www.donar.nl/wedstrijden",
+    "render_type": "static",
+    "scrape_method": "urllib + BeautifulSoup",
+    "notes": "Confirmed in original handoff.",
+    "sample_event_url": "https://www.donar.nl/wedstrijden",
+    "last_verified": "2026-07-05"
+  },
+  "lycurgus": {
+    "display_name": "Lycurgus",
+    "agenda_url": "https://www.volleybal.nl/competitie/vereniging/cmj3g4f/heren/1",
+    "render_type": "client_js",
+    "scrape_method": "Needs JS rendering (Nevobo Volleybal.nl SPA) - static fetch only returns site shell, no fixtures",
+    "notes": "Chrome MCP navigation to volleybal.nl was BLOCKED in this sandbox session (2026-07-05) - domain not allowed. Needs retry or alternative source (e.g. Nevobo API).",
+    "sample_event_url": "",
+    "last_verified": "2026-07-05"
+  },
+  "grizzlys": {
+    "display_name": "GIJS Groningen",
+    "agenda_url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "render_type": "client_js",
+    "scrape_method": "Needs JS rendering - \"Schema\" section on team page loads via JS, static fetch returns empty section. The wedstrijdschema article page (https://gijsgroningen.nl/wedstrijdschema-eredivisie/) is STALE (dated 2022 season) - do not use as source of truth.",
+    "notes": "Club corrected 2026-07-05: display name is \"GIJS Groningen\", NOT \"Grizzly's\". Chrome MCP navigation to gijsgroningen.nl was BLOCKED in this sandbox session - needs retry or alternative source (ijshockeynederland.nl?).",
+    "sample_event_url": "",
+    "last_verified": "2026-07-05"
+  },
+  "hurryup": {
+    "display_name": "Hurry-Up",
+    "agenda_url": "unknown",
+    "render_type": "unverified",
+    "scrape_method": "unknown",
+    "notes": "Per handoff: website gives 404, new URL not yet found.",
+    "sample_event_url": "",
+    "last_verified": null
+  }
+}
