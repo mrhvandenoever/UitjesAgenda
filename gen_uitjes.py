@@ -213,6 +213,10 @@ def classify(title, cats, source=''):
     if any(w in t for w in ['expositie','tentoonstelling','galerie','biënnale','biennale',
                              'storyworld','strip','marilyn']): return 'expo'
     if any(w in t for w in [' theater',' toneel','toneelstuk','voorstelling']): return 'theater'
+    if any(w in t for w in ['festival','feest','kermis','volksfeest','volksvermaak',
+                             'sneekweek','lemsterwike','ballonfeesten','koningsdag',
+                             'bevrijdingsdag','havenfeest','straatfestival',
+                             'carnaval','folklorisch']): return 'festival'
     if any(w in t for w in ['rock','indie','punk','metal','concert','band','tribute',
                              'singer','songwriter','coverband','techno','house',
                              'hiphop','rap','hardrock','hardcore']): return 'pop'
@@ -274,9 +278,9 @@ def event_html(e):
     src = e.get('source',''); sk = safe_key(src)
     genre = classify(e.get('title',''), e.get('cats',[]), src)
     gender = e.get('gender', '') if src in SPORT_SRCS else ''
-    icon_map = {'theater':'🎭','cabaret':'🎪','musical':'🎼','klassiek':'🎻','pop':'🎸',
+    icon_map = {'festival':'🎉','theater':'🎭','cabaret':'🎪','musical':'🎼','klassiek':'🎻','pop':'🎸',
                 'jazz':'🎷','dans':'💃','expo':'🖼️','actief':'🥾','kinderen':'🎈','overig':'•'}
-    glabel_map = {'theater':'Theater / Toneel','cabaret':'Cabaret / Comedy','musical':'Musical',
+    glabel_map = {'festival':'Festival / Evenement','theater':'Theater / Toneel','cabaret':'Cabaret / Comedy','musical':'Musical',
                   'klassiek':'Klassiek / Opera','pop':'Pop / Rock','jazz':'Jazz / Blues',
                   'dans':'Dans / Ballet','expo':'Expo / Kunst','actief':'Actief / Natuur',
                   'kinderen':'Kinderen / Familie','overig':'Overig'}
@@ -290,7 +294,7 @@ def event_html(e):
             f'data-prov="{prov}" data-latlon="{lat_lon}" data-gender="{gender}">'
             f'<div class="event-date">{fmt_date(e.get("date",""))}</div>'
             f'<div class="event-main"><div class="event-title">{title_html}</div>'
-            f'<div class="event-venue">{esc(e.get("venue",""))} '
+            f'<div class="event-venue">{esc(e.get("venue","") or e.get("city",""))} '
             f'<span class="dist-badge"></span></div></div>'
             f'<div class="event-badges">'
             f'<span class="badge badge-genre g-{genre}">{icon} {glabel}</span>'
@@ -578,6 +582,7 @@ header h1{{font-size:1.2rem;font-weight:700;margin-bottom:2px;}}
 .mode-btn.active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
 {src_css_all}
 {prov_css}
+.btn[data-genre="festival"].active{{background:#e91e63;color:#fff;border-color:#e91e63;}}
 .btn[data-genre="theater"].active{{background:#880e4f;color:#fff;border-color:#880e4f;}}
 .btn[data-genre="cabaret"].active{{background:#e65100;color:#fff;border-color:#e65100;}}
 .btn[data-genre="musical"].active{{background:#6a1b9a;color:#fff;border-color:#6a1b9a;}}
@@ -695,6 +700,7 @@ main{{padding:0 16px 32px;}}
 <div class="filters" id="uitjes-genre">
   <div class="filters-label">Genre</div>
   <button class="btn active" data-genre="all">Alle genres</button>
+  <button class="btn" data-genre="festival">🎉 Festival</button>
   <button class="btn" data-genre="theater">🎭 Theater</button>
   <button class="btn" data-genre="cabaret">🎪 Cabaret</button>
   <button class="btn" data-genre="musical">🎼 Musical</button>
