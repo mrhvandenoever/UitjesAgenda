@@ -11,7 +11,7 @@ from datetime import date
 TODAY = date.today().isoformat()
 from collections import defaultdict
 
-with open(EVENTS_JSON) as f:
+with open(EVENTS_JSON, encoding="utf-8") as f:
     events = json.load(f)
 
 SRC = {
@@ -299,7 +299,7 @@ main_html = ''.join(
     + '</div>\n'
     for m in months_sorted)
 
-today_str = date.today().strftime('%-d %B %Y')
+today_str = date.today().strftime('%d %B %Y').lstrip('0')
 
 provs = ['Groningen','Drenthe','Friesland','Overijssel','Utrecht','Noord-Holland','Zuid-Holland','Noord-Brabant','Gelderland']
 prov_colors = {
