@@ -610,7 +610,7 @@
     "render_type": "static",
     "rss_url": "https://api.nevobo.nl/export/team/cmj3g4f/heren/1/programma.rss",
     "scrape_code": "import urllib.request, json, re\nfrom email.utils import parsedate_to_datetime\nfrom xml.etree.ElementTree import fromstring\n\nurl = 'https://api.nevobo.nl/export/team/cmj3g4f/heren/1/programma.rss'\nwith urllib.request.urlopen(url) as r:\n    data = r.read().decode('utf-8')\ndata = data.replace('<![CDATA[', '').replace(']]>', '')\nroot = fromstring(data)\nevents = []\nfor item in root.findall('.//item'):\n    title = item.findtext('title', '').strip()\n    link  = item.findtext('link', '').strip()\n    pub   = item.findtext('pubDate', '').strip()\n    m = re.match(r'.+?:\\s+(.+?)\\s+-\\s+(.+)', title)\n    if not m: continue\n    home, away = m.group(1).strip(), m.group(2).strip()\n    if 'Lycurgus' not in home: continue  # alleen thuiswedstrijden\n    dt = parsedate_to_datetime(pub)\n    events.append({\n        'title': f'Lycurgus - {away}',\n        'date': dt.strftime('%Y-%m-%d'),\n        'venue': 'Topsportcentrum Alfacollege, Groningen',\n        'url': link,\n        'source': 'lycurgus',\n        'genre': 'sport',\n        'sport': 'volleybal',\n        'gender': 'heren'\n    })",
-    "notes": "Nevobo biedt een officieel RSS-programma-feed per team aan. Thuis-/uitwedstrijden onderscheiden: thuiswedstrijd = 'Lycurgus' staat als eerste team in de titel. Feed bevat alle wedstrijden (ook concept-status). Seizoen 2026-2027: 7 thuiswedstrijden gescraped op 2026-07-05. Patroon RSS-URL: https://api.nevobo.nl/export/team/{team_id}/{geslacht}/{teamnummer}/programma.rss",
+    "notes": "Nevobo biedt een officieel RSS-programma-feed per team. URL-structuur: https://api.nevobo.nl/export/team/{teamcode}/{dames|heren}/{volgnummer}/programma.rss (volgnummer = 1 voor eerste team, 2 voor tweede team, etc.). Thuiswedstrijd = clubnaam staat als eerste in de titel. Seizoen 2026-2027: 7 thuiswedstrijden. Lycurgus teamcode: cmj3g4f (heren/1).",
     "sample_event_url": "https://api.nevobo.nl/permalink/wedstrijd/1964161",
     "last_verified": "2026-07-05"
   },
@@ -648,6 +648,26 @@
     "scrape_code": "urllib + regex op event-links: <a href=\"...\">DDmmm DDmmmTitel DD-MM-YYYY Plaats</a> - klein en onregelmatig (vergader/teambuilding-locatie met incidentele publieke activiteiten, geen volle agenda).",
     "notes": "Toegevoegd 2026-07-05 op verzoek van Michiel. Op moment van toevoegen maar 1 events zichtbaar (yoga-activiteit 25 aug 2026) - dit is een vergaderlocatie/teambuilding-plek met soms publieke activiteiten, geen theater/podium. Coordinaten (53.0310, 6.7460) zijn een schatting o.b.v. Annerstreek 5, Annen - niet exact geverifieerd.",
     "sample_event_url": "https://denoorderbron.nl/evenement/yoga-summer-yoga-proeflessen/",
+    "last_verified": "2026-07-05"
+  },
+  "friso": {
+    "display_name": "Friso Sneek",
+    "agenda_url": "https://www.volleybal.nl/competitie/vereniging/ckl6l98/dames/1",
+    "render_type": "static",
+    "rss_url": "https://api.nevobo.nl/export/team/ckl6l98/dames/1/programma.rss",
+    "scrape_code": "import urllib.request, json, re\nfrom email.utils import parsedate_to_datetime\nfrom xml.etree.ElementTree import fromstring\n\ndef scrape_nevobo(teamcode, geslacht, volgnr, club_name, source_key, gender):\n    url = f'https://api.nevobo.nl/export/team/{teamcode}/{geslacht}/{volgnr}/programma.rss'\n    with urllib.request.urlopen(url) as r:\n        data = r.read().decode('utf-8')\n    data = data.replace('<![CDATA[', '').replace(']]>', '')\n    root = fromstring(data)\n    events = []\n    for item in root.findall('.//item'):\n        title = item.findtext('title', '').strip()\n        link  = item.findtext('link', '').strip()\n        pub   = item.findtext('pubDate', '').strip()\n        desc  = item.findtext('description', '').strip()\n        m = re.match(r'.+?:\\s+(.+?)\\s+-\\s+(.+)', title)\n        if not m: continue\n        home, away = m.group(1).strip(), m.group(2).strip()\n        if club_name not in home: continue\n        dt = parsedate_to_datetime(pub)\n        venue_m = re.search(r'Speellocatie:\\s*(.+)', desc)\n        venue = venue_m.group(1).strip() if venue_m else f'Thuishal {club_name}'\n        events.append({'title': f'{club_name} - {away}', 'date': dt.strftime('%Y-%m-%d'),\n            'venue': venue, 'url': link, 'source': source_key,\n            'genre': 'sport', 'sport': 'volleybal', 'gender': gender})\n    return events\n\nevents = scrape_nevobo('ckl6l98', 'dames', 1, 'Friso Sneek', 'friso', 'dames')",
+    "notes": "Damesteam Eredivisie. Teamcode: ckl6l98 (dames/1). Zie lycurgus voor URL-structuur.",
+    "sample_event_url": "",
+    "last_verified": "2026-07-05"
+  },
+  "sudosa": {
+    "display_name": "CRAFT Sudosa",
+    "agenda_url": "https://www.volleybal.nl/competitie/vereniging/cpx7m7h/dames/1",
+    "render_type": "static",
+    "rss_url": "https://api.nevobo.nl/export/team/cpx7m7h/dames/1/programma.rss",
+    "scrape_code": "import urllib.request, json, re\nfrom email.utils import parsedate_to_datetime\nfrom xml.etree.ElementTree import fromstring\n\ndef scrape_nevobo(teamcode, geslacht, volgnr, club_name, source_key, gender):\n    url = f'https://api.nevobo.nl/export/team/{teamcode}/{geslacht}/{volgnr}/programma.rss'\n    with urllib.request.urlopen(url) as r:\n        data = r.read().decode('utf-8')\n    data = data.replace('<![CDATA[', '').replace(']]>', '')\n    root = fromstring(data)\n    events = []\n    for item in root.findall('.//item'):\n        title = item.findtext('title', '').strip()\n        link  = item.findtext('link', '').strip()\n        pub   = item.findtext('pubDate', '').strip()\n        desc  = item.findtext('description', '').strip()\n        m = re.match(r'.+?:\\s+(.+?)\\s+-\\s+(.+)', title)\n        if not m: continue\n        home, away = m.group(1).strip(), m.group(2).strip()\n        if club_name not in home: continue\n        dt = parsedate_to_datetime(pub)\n        venue_m = re.search(r'Speellocatie:\\s*(.+)', desc)\n        venue = venue_m.group(1).strip() if venue_m else f'Thuishal {club_name}'\n        events.append({'title': f'{club_name} - {away}', 'date': dt.strftime('%Y-%m-%d'),\n            'venue': venue, 'url': link, 'source': source_key,\n            'genre': 'sport', 'sport': 'volleybal', 'gender': gender})\n    return events\n\nevents = scrape_nevobo('cpx7m7h', 'dames', 1, 'Sudosa', 'sudosa', 'dames')",
+    "notes": "Damesteam Eredivisie (volledige naam: Jumbo Virena Autogroep Sudosa). Teamcode: cpx7m7h (dames/1). Zie lycurgus voor URL-structuur.",
+    "sample_event_url": "",
     "last_verified": "2026-07-05"
   }
 }
