@@ -69,7 +69,7 @@ SRC = {
     'fcemmen':             ('FC Emmen',         '⚽', '#003087'),
     'donar':               ('Donar',            '🏀', '#e2001a'),
     'lycurgus':            ('Lycurgus',         '🏐', '#ffcc00'),
-    'grizzlys':            ("Grizzly's",       '🏒', '#6699cc'),
+    'grizzlys':            ('GIJS Groningen',   '🏒', '#6699cc'),
     'hurryup':             ('Hurry-Up',         '🤾', '#ff6600'),
 }
 
@@ -602,7 +602,7 @@ main{{padding:0 16px 32px;}}
   <button class="btn" data-club="fcemmen" data-sport-type="voetbal">⚽ FC Emmen</button>
   <button class="btn" data-club="donar" data-sport-type="basketbal">🏀 Donar</button>
   <button class="btn" data-club="lycurgus" data-sport-type="volleybal">🏐 Lycurgus</button>
-  <button class="btn" data-club="grizzlys" data-sport-type="ijshockey">🏒 Grizzly's</button>
+  <button class="btn" data-club="grizzlys" data-sport-type="ijshockey">🏒 GIJS</button>
   <button class="btn" data-club="hurryup" data-sport-type="handbal">🤾 Hurry-Up</button>
 </div>
 </div>
