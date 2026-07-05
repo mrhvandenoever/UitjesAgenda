@@ -3,122 +3,189 @@
     "purpose": "Per-bron scrape-instructies zodat een goedkope/simpele LLM zelfstandig nieuwe events kan ophalen voor uitjesagenda. Los bestand van events_categorized.json om het event-schema niet te breken.",
     "fields": {
       "display_name": "Naam zoals getoond in de UI (SRC dict in gen_uitjes.py)",
-      "agenda_url": "URL van de pagina met de volledige lijst/agenda voor deze bron",
-      "render_type": "static (server-side HTML, te scrapen met urllib+BeautifulSoup) | client_js (vereist JS-executie, bv. Chrome MCP) | unverified (nog niet getest)",
-      "scrape_method": "Concrete aanpak: welke tool/library en hoe de data te parsen",
-      "notes": "Bijzonderheden, valkuilen, alternatieve bronnen",
-      "sample_event_url": "Voorbeeld van een individuele event-URL uit deze bron, ter referentie",
+      "agenda_url": "URL van de pagina/API met de volledige lijst voor deze bron",
+      "render_type": "static (server-side HTML/JSON, te scrapen met urllib) | client_js (vereist JS-executie via Chrome MCP) | manual (geen recurring scrape, handmatig toevoegen) | unresolved (bekend probleem, nog geen werkende methode) | unverified (nog niet getest)",
+      "scrape_method": "Concrete aanpak: endpoint/parameters, welke library, hoe te parsen, class-namen/selectors",
+      "notes": "Bijzonderheden, valkuilen, verwachte aantallen, alternatieve bronnen",
+      "sample_event_url": "Voorbeeld van een individuele event-URL uit deze bron uit events_categorized.json",
       "last_verified": "Datum waarop render_type/scrape_method voor het laatst geverifieerd is (null = nooit geverifieerd)"
     },
-    "status": "WORK IN PROGRESS (gestart 2026-07-05) - van de ~51 bronnen zijn er tot nu toe circa 10 geverifieerd; de rest staat op 'unverified' en moet nog stuk voor stuk getest worden."
+    "genre_classifier_keywords": {
+      "theater": [
+        "\\btoneel\\b",
+        "\\btheater\\b",
+        "\\bdrama\\b",
+        "\\bvoorstelling\\b"
+      ],
+      "cabaret": [
+        "\\bcabaret\\b",
+        "\\bcomedy\\b",
+        "\\bstandup\\b",
+        "\\bhumor\\b"
+      ],
+      "musical": [
+        "\\bmusical\\b",
+        "\\bopera\\b",
+        "\\boperette\\b"
+      ],
+      "pop": [
+        "\\bconcert\\b",
+        "\\bband\\b",
+        "\\brock\\b",
+        "\\bpop\\b",
+        "\\bindie\\b",
+        "\\bmetal\\b",
+        "\\bpunk\\b"
+      ],
+      "jazz": [
+        "\\bjazz\\b",
+        "\\bblues\\b",
+        "\\bsoul\\b",
+        "\\bfunk\\b"
+      ],
+      "klassiek": [
+        "\\bklassiek\\b",
+        "\\borkest\\b",
+        "\\bsymfonie\\b",
+        "\\bkoor\\b"
+      ],
+      "dans": [
+        "\\bdans\\b",
+        "\\bdance\\b",
+        "\\bballet\\b",
+        "\\bchoreograf"
+      ],
+      "expo": [
+        "\\bexpositie\\b",
+        "\\bkunst\\b",
+        "\\bgalerie\\b",
+        "\\btentoonstelling\\b",
+        "\\bmuseum\\b"
+      ],
+      "kinderen": [
+        "\\bfamilie\\b",
+        "\\bkinder\\b",
+        "\\bjeugd\\b",
+        "\\bpeuter\\b"
+      ],
+      "actief": [
+        "\\bfestival\\b",
+        "\\boutdoor\\b",
+        "\\bwandel\\b",
+        "\\bworkshop\\b"
+      ]
+    },
+    "genre_classifier_notes": "Regex keyword-matching op de titel (case-insensitive), eerste match wint per genre-groep. Volledige versie stond in merge_classify.py (vorige sessie) met meer synoniemen per genre - dit is een verkorte referentie.",
+    "status": "Bijgewerkt 2026-07-05 met teruggevonden scrape-methodes uit een eerdere sessie (map 'verwerken', nu verwerkt en verwijderd). Van de ~54 bronnen zijn er nu ~27 met een geverifieerde/gedocumenteerde methode; de rest (vnl. landelijke podia als 013/Ziggo Dome/Paradiso/Melkweg/etc.) staat nog op 'unverified'.",
+    "known_gaps": "lawei (~320 events, AJAX onopgelost) en vanberesteyn (~98 events, WP REST API 404) zijn de grootste bekende ontbrekende bronnen. visitgroningen.nl (~150 events) en denoorderbron.nl bestaan als werkende scrapers uit een vorige sessie maar zitten nog niet in gen_uitjes.py's SRC dict - moet je eerst bevestigen of je die als nieuwe bron wilt toevoegen."
   },
   "spotgroningen.nl": {
     "display_name": "Spot",
-    "agenda_url": "https://www.spotgroningen.nl/programma/daniel-lohues-22/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://www.spotgroningen.nl/programma/",
+    "render_type": "static",
+    "scrape_method": "urllib + regex. Event cards: <a class=\"program__link\"> + <time datetime=\"YYYY-MM-DD\">. Fallback also seen: JSON-LD (application/ld+json, @type=Event) on some page variants.",
+    "notes": "~600 events historically. Confirmed working in prior session (parse_events.py + handoff-v2.md).",
     "sample_event_url": "https://www.spotgroningen.nl/programma/daniel-lohues-22/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "lawei": {
     "display_name": "De Lawei",
-    "agenda_url": "https://www.lawei.nl/agenda/the-tasters-445f",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://www.lawei.nl/agenda/",
+    "render_type": "unresolved",
+    "scrape_method": "UNSOLVED as of 2026-06-25: events load via AJAX, not present in static HTML, and not confirmed working via Chrome either.",
+    "notes": "~320 events expected if solved - by far the largest known gap. Worth prioritizing if someone wants to invest scraper-dev time.",
     "sample_event_url": "https://www.lawei.nl/agenda/the-tasters-445f",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "atlastheater": {
     "display_name": "Atlas Emmen",
     "agenda_url": "https://www.atlastheater.nl/voorstellingen/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - first test 2026-07-05 returned only nav/footer, no event listing (may be JS-loaded or needs different URL/params)",
-    "notes": "Needs re-test.",
+    "render_type": "client_js",
+    "scrape_method": "Chrome MCP required - \"Laad meer\" button must be clicked repeatedly (up to ~10x) to load all events: loop { find(\"laad meer\") -> left_click -> wait 1.5s } until button disappears. Then extract with: Array.from(document.querySelectorAll('article, .event-item, [class*=\"agenda\"], [class*=\"event\"]')).map(el => ({date: el.querySelector(\"time\")?.getAttribute(\"datetime\"), title: el.querySelector(\"h2,h3,.title,[class*=title]\")?.textContent?.trim(), url: el.querySelector(\"a\")?.href})).filter(e => e.title && e.date)",
+    "notes": "~185 events expected. 2026-07-05 static fetch confirmed JS-required (only nav returned, no listing).",
     "sample_event_url": "https://www.atlastheater.nl/voorstellingen/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "drenthe.nl": {
     "display_name": "Drenthe",
-    "agenda_url": "https://www.drenthe.nl/evenementen-activiteiten/1805435742/we-will-rock-you-de-enige-echte-officiele-queen-musical",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://www.drenthe.nl/evenementen-activiteiten/theater-agenda?page=1",
+    "render_type": "static",
+    "scrape_method": "urllib + JSON-LD (application/ld+json, ItemList), use \"endDate\" field. Paginate with ?page=N.",
+    "notes": "~155 events historically.",
     "sample_event_url": "https://www.drenthe.nl/evenementen-activiteiten/1805435742/we-will-rock-you-de-enige-echte-officiele-queen-musical",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "kielzog": {
     "display_name": "Kielzog",
-    "agenda_url": "https://www.kielzog.nl/evenementen/terrastheater-25-26-2?instance=yesplan-3939967489-1775814161",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://www.kielzog.nl/api/v1/agenda?page=1",
+    "render_type": "static",
+    "scrape_method": "Real JSON API (not HTML scraping!) - paginate with ?page=N. Date field is Dutch free text, e.g. \"Vr 29 mei t/m za 27 jun\" + separate \"year\" field - NOT ISO. Parse with: NL_MON={'jan':1,...,'dec':12}; m=re.search(r'(\\d{1,2})\\s+(\\w{3})', date_str.lower()); date(int(year), NL_MON[m.group(2)], int(m.group(1)))",
+    "notes": "~160 events historically. Nicest source to scrape - real API, no HTML parsing needed.",
     "sample_event_url": "https://www.kielzog.nl/evenementen/terrastheater-25-26-2?instance=yesplan-3939967489-1775814161",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "forum.nl": {
     "display_name": "Forum",
-    "agenda_url": "https://forum.nl/nl/agenda/resurrection?date=11-06-2026",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://forum.nl/nl/agenda?p=1",
+    "render_type": "static",
+    "scrape_method": "urllib + regex/JSON-LD. Date via \"data-href\" attribute, or JSON-LD Event blocks. Paginate with ?p=N.",
+    "notes": "~55 events. SKIP items containing: leesclub, taalcafe, digihuis, spreekuur, breinbieb, spelochtend, and any /film/ URL - these are non-cultural-uitje noise (library/social programming, not events for this agenda).",
     "sample_event_url": "https://forum.nl/nl/agenda/resurrection?date=11-06-2026",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "denieuwekolk.nl": {
     "display_name": "Nieuwe Kolk",
     "agenda_url": "https://denieuwekolk.nl/theater/agenda",
     "render_type": "static",
-    "scrape_method": "urllib + BeautifulSoup - htmx-based site, full listing renders server-side, paginated via \"Meer laden\"",
-    "notes": "Verified 2026-07-05.",
+    "scrape_method": "HTMX fragment endpoint: denieuwekolk.nl/agenda?_dnk_fragment=agenda&load_from=YYYY-MM (one request per month) with header \"HX-Request: true\". JSON-LD (application/ld+json) also present on the plain /theater/agenda page. IMPORTANT: domain is denieuwekolk.nl, NOT nieuwekolk.nl.",
+    "notes": "~400 events historically. Re-verified 2026-07-05 via plain fetch (works, but only returns first page without \"Meer laden\" - use the per-month fragment URL + HX-Request header for full range).",
     "sample_event_url": "https://denieuwekolk.nl/theater/agenda",
     "last_verified": "2026-07-05"
   },
   "vanberesteyn": {
     "display_name": "Van Beresteyn",
-    "agenda_url": "https://www.vanberesteyn.nl/programma/oet-7/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://www.vanberesteyn.nl/programma/",
+    "render_type": "unresolved",
+    "scrape_method": "UNSOLVED as of 2026-06-25: no <time> tags in HTML, WP REST API endpoint returns 404.",
+    "notes": "~98 events expected if solved.",
     "sample_event_url": "https://www.vanberesteyn.nl/programma/oet-7/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "vera": {
     "display_name": "Vera",
     "agenda_url": "https://www.vera-groningen.nl/programma/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "client_js",
+    "scrape_method": "Chrome MCP required - infinite scroll: loop { javascript_tool(\"window.scrollTo(0, document.body.scrollHeight)\") -> wait 1s } up to ~10x, then use the same generic querySelectorAll extraction as ATLAS.",
+    "notes": "~60 events expected.",
     "sample_event_url": "https://www.vera-groningen.nl/programma/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "simplon": {
     "display_name": "Simplon",
     "agenda_url": "https://simplon.nl/programma/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "client_js",
+    "scrape_method": "Chrome MCP required - \"Laad meer\" button, same click-loop pattern as ATLAS Theater.",
+    "notes": "~47 events expected.",
     "sample_event_url": "https://simplon.nl/programma/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "martiniplaza": {
     "display_name": "Martiniplaza",
-    "agenda_url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://www.martiniplaza.nl/agenda?start=2026-08-01",
+    "render_type": "static",
+    "scrape_method": "urllib + regex, paginate per month via ?start=YYYY-MM-01. Dutch date text parsed from HTML (no structured data tag).",
+    "notes": "~6 events historically. Low volume.",
     "sample_event_url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "grandtheatregroningen": {
     "display_name": "Grand Theatre",
     "agenda_url": "https://www.grandtheatregroningen.nl/nl/programma",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "client_js",
+    "scrape_method": "Chrome MCP required - fully JS-rendered, no button/scroll pattern documented yet, use generic querySelectorAll extraction after page load.",
+    "notes": "~25 events expected.",
     "sample_event_url": "https://www.grandtheatregroningen.nl/nl/programma",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "theaterroden": {
     "display_name": "Winsinghhof",
@@ -132,11 +199,11 @@
   "em2groningen": {
     "display_name": "EM2",
     "agenda_url": "https://em2groningen.nl/agenda/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "client_js",
+    "scrape_method": "Chrome MCP required - fully JS-rendered, use generic querySelectorAll extraction after page load.",
+    "notes": "~21 events expected.",
     "sample_event_url": "https://em2groningen.nl/agenda/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "zummerbuhne": {
     "display_name": "Zummerbühne",
@@ -150,20 +217,20 @@
   "usva": {
     "display_name": "USVA",
     "agenda_url": "https://www.usva.nl/programma/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "static",
+    "scrape_method": "urllib + regex (see parse_simplon_usva.py from prior session).",
+    "notes": "Confirmed working.",
     "sample_event_url": "https://www.usva.nl/programma/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "geertteis": {
     "display_name": "Geert Teis",
-    "agenda_url": "https://www.theatergeertteis.nl/voorstellingen/dansschool-feel-the-move",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "agenda_url": "https://www.theatergeertteis.nl/voorstellingen",
+    "render_type": "static",
+    "scrape_method": "urllib + regex on itemprop=\"startDate\" content=\"YYYY-MM-DDTHH:MM\" - NOT a <time datetime> tag, uses schema.org itemprop instead.",
+    "notes": "~12 events historically. Small venue, low volume.",
     "sample_event_url": "https://www.theatergeertteis.nl/voorstellingen/dansschool-feel-the-move",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "podiumnienoordleek": {
     "display_name": "Nienoord",
@@ -186,44 +253,44 @@
   "gekehoogstins.nl": {
     "display_name": "Geke Hoogstins",
     "agenda_url": "https://gekehoogstins.nl/exposities-evenementen/exposities/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "static",
+    "scrape_method": "urllib + regex on <strong> tags containing full Dutch dates. 3 separate pages: exposities, concerten-natuurtuin-en-galerie, themadagen-workshops (+ colorful-silence-podia-in-natuur).",
+    "notes": "~2-10 events. Confirmed in parse_events.py.",
     "sample_event_url": "https://gekehoogstins.nl/exposities-evenementen/exposities/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "machinefabriek": {
     "display_name": "Machinefabriek",
     "agenda_url": "https://www.podiuminfo.nl/podium/5631/concerten/Theater-de-Machinefabriek/Groningen/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "static",
+    "scrape_method": "NOT scraped from the venue's own site - scraped via the podiuminfo.nl aggregator listing for this venue.",
+    "notes": "Confirmed working via parse_events.py / build_agenda.py.",
     "sample_event_url": "https://www.podiuminfo.nl/podium/5631/concerten/Theater-de-Machinefabriek/Groningen/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "be-wonder.com": {
     "display_name": "Be-Wonder",
-    "agenda_url": "https://www.be-wonder.com/",
-    "render_type": "unverified",
-    "scrape_method": "unknown - homepage returned only nav, no event listing",
-    "notes": "Needs correct agenda URL.",
+    "agenda_url": "https://www.be-wonder.com/jebenthiermijnliefste",
+    "render_type": "manual",
+    "scrape_method": "NOT auto-scraped historically - single event manually added each time (small local theatre-maker site, home page has no structured agenda).",
+    "notes": "Confirmed 2026-07-05: homepage fetch shows only nav, no listing. Treat as manual/occasional addition, not a recurring scrape target.",
     "sample_event_url": "https://www.be-wonder.com/jebenthiermijnliefste",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "dorpshuisannen": {
     "display_name": "Dorpshuis Annen",
     "agenda_url": "https://www.dorpshuisannen.nl/voorstellingen",
-    "render_type": "unverified",
-    "scrape_method": "unknown - not yet tested",
-    "notes": "",
+    "render_type": "static",
+    "scrape_method": "urllib + regex on <article>/<div> blocks with class containing event/show/voorstelling/product/post, <h2-4> title, Dutch date regex nearby.",
+    "notes": "Confirmed working in parse_events.py (source key there was \"dorpshuisannen.nl\" - matches gen_uitjes.py key \"dorpshuisannen\").",
     "sample_event_url": "https://www.dorpshuisannen.nl/voorstellingen",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "detamboer": {
     "display_name": "De Tamboer",
     "agenda_url": "https://detamboer.nl/programma",
     "render_type": "static",
-    "scrape_method": "urllib + BeautifulSoup - full listing with dates/times/links in plain HTML, paginated via \"Bekijk meer\"",
+    "scrape_method": "urllib + BeautifulSoup - full listing with dates/times/links, paginated via \"Bekijk meer\".",
     "notes": "Verified 2026-07-05.",
     "sample_event_url": "https://detamboer.nl/programma/tribute-to-the-cats-band-2026/bestel/695631712138",
     "last_verified": "2026-07-05"
@@ -248,12 +315,12 @@
   },
   "bostheater": {
     "display_name": "Bostheater",
-    "agenda_url": "https://bostheater.nl/events/",
+    "agenda_url": "https://bostheater.nl/events/lp-2026/",
     "render_type": "unverified",
-    "scrape_method": "unknown - fetch returned empty body",
-    "notes": "Needs re-test, may be JS or blocked.",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "Fetch returned empty body 2026-07-05 - may be JS or blocked, needs re-test with different tooling.",
     "sample_event_url": "https://bostheater.nl/events/lp-2026/",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "neushoorn": {
     "display_name": "Neushoorn",
@@ -403,7 +470,7 @@
     "display_name": "AFAS Live",
     "agenda_url": "https://www.afaslive.nl/agenda",
     "render_type": "static",
-    "scrape_method": "urllib + BeautifulSoup - full event list with dates/links in plain HTML",
+    "scrape_method": "urllib + BeautifulSoup - full event list with dates/links in plain HTML.",
     "notes": "Verified 2026-07-05.",
     "sample_event_url": "https://www.afaslive.nl/agenda/ali-wong",
     "last_verified": "2026-07-05"
@@ -419,12 +486,12 @@
   },
   "dedoelen": {
     "display_name": "De Doelen",
-    "agenda_url": "https://dedoelen.nl/nl/agenda",
+    "agenda_url": "https://dedoelen.nl/nl/agenda/60-jaar-in-posters-1cdz",
     "render_type": "unverified",
-    "scrape_method": "unknown - fetch returned empty body",
-    "notes": "Needs re-test, may be JS or blocked.",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "Fetch returned empty body 2026-07-05 - may be JS or blocked, needs re-test.",
     "sample_event_url": "https://dedoelen.nl/nl/agenda/60-jaar-in-posters-1cdz",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "gelredome": {
     "display_name": "GelreDome",
@@ -437,19 +504,19 @@
   },
   "concertgebouw": {
     "display_name": "Concertgebouw",
-    "agenda_url": "https://www.concertgebouw.nl/concerten",
+    "agenda_url": "https://www.concertgebouw.nl/concerten/40359353-racoon",
     "render_type": "unverified",
-    "scrape_method": "unknown - fetch returned empty body",
-    "notes": "Needs re-test, may be JS or blocked.",
+    "scrape_method": "unknown - not yet tested",
+    "notes": "Fetch returned empty body 2026-07-05 - may be JS or blocked, needs re-test.",
     "sample_event_url": "https://www.concertgebouw.nl/concerten/40359353-racoon",
-    "last_verified": null
+    "last_verified": "2026-07-05"
   },
   "fcgroningen": {
     "display_name": "FC Groningen",
     "agenda_url": "https://fcgroningen.nl/wedstrijden",
     "render_type": "client_js",
-    "scrape_method": "Chrome MCP (navigate + javascript_tool) - React SPA, static fetch returns no fixtures",
-    "notes": "Confirmed in original handoff.",
+    "scrape_method": "Chrome MCP (navigate + javascript_tool) - React SPA, static fetch returns no fixtures.",
+    "notes": "",
     "sample_event_url": "https://tickets.fcgroningen.nl/",
     "last_verified": "2026-07-05"
   },
@@ -457,8 +524,8 @@
     "display_name": "FC Emmen",
     "agenda_url": "https://fcemmen.nl/wedstrijdschema/",
     "render_type": "static",
-    "scrape_method": "urllib/web_fetch + parse markdown table (RONDE|DAG|DATUM|TIJD|THUIS|UIT)",
-    "notes": "Verified 2026-07-05. Home matches = rows where THUIS column is bold \"FC Emmen\". Tickets: https://tickets.fcemmen.nl/dashboard",
+    "scrape_method": "urllib/web_fetch + parse markdown table (RONDE|DAG|DATUM|TIJD|THUIS|UIT). Home matches = rows where THUIS column is \"FC Emmen\".",
+    "notes": "Verified 2026-07-05. Tickets: https://tickets.fcemmen.nl/dashboard",
     "sample_event_url": "https://tickets.fcemmen.nl/dashboard",
     "last_verified": "2026-07-05"
   },
@@ -466,8 +533,8 @@
     "display_name": "Donar",
     "agenda_url": "https://www.donar.nl/wedstrijden",
     "render_type": "static",
-    "scrape_method": "urllib + BeautifulSoup",
-    "notes": "Confirmed in original handoff.",
+    "scrape_method": "urllib + BeautifulSoup.",
+    "notes": "",
     "sample_event_url": "https://www.donar.nl/wedstrijden",
     "last_verified": "2026-07-05"
   },
@@ -475,8 +542,8 @@
     "display_name": "Lycurgus",
     "agenda_url": "https://www.volleybal.nl/competitie/vereniging/cmj3g4f/heren/1",
     "render_type": "client_js",
-    "scrape_method": "Needs JS rendering (Nevobo Volleybal.nl SPA) - static fetch only returns site shell, no fixtures",
-    "notes": "Chrome MCP navigation to volleybal.nl was BLOCKED in this sandbox session (2026-07-05) - domain not allowed. Needs retry or alternative source (e.g. Nevobo API).",
+    "scrape_method": "Needs JS rendering (Nevobo Volleybal.nl SPA) - static fetch only returns site shell.",
+    "notes": "Chrome MCP navigation to volleybal.nl was BLOCKED in the 2026-07-05 sandbox session (\"Navigation to this domain is not allowed\"). Needs retry in a session where that domain isn't blocked, or an alternative source.",
     "sample_event_url": "",
     "last_verified": "2026-07-05"
   },
@@ -484,18 +551,36 @@
     "display_name": "GIJS Groningen",
     "agenda_url": "https://gijsgroningen.nl/gijs-eredivisie/",
     "render_type": "client_js",
-    "scrape_method": "Needs JS rendering - \"Schema\" section on team page loads via JS, static fetch returns empty section. The wedstrijdschema article page (https://gijsgroningen.nl/wedstrijdschema-eredivisie/) is STALE (dated 2022 season) - do not use as source of truth.",
-    "notes": "Club corrected 2026-07-05: display name is \"GIJS Groningen\", NOT \"Grizzly's\". Chrome MCP navigation to gijsgroningen.nl was BLOCKED in this sandbox session - needs retry or alternative source (ijshockeynederland.nl?).",
+    "scrape_method": "Needs JS rendering - \"Schema\" section on team page loads via JS.",
+    "notes": "Display name corrected 2026-07-05: \"GIJS Groningen\", not \"Grizzly's\". The article page /wedstrijdschema-eredivisie/ is STALE (shows 2022/23 season) - do not use. Chrome navigation to gijsgroningen.nl was BLOCKED in the 2026-07-05 sandbox session.",
     "sample_event_url": "",
     "last_verified": "2026-07-05"
   },
   "hurryup": {
     "display_name": "Hurry-Up",
     "agenda_url": "unknown",
-    "render_type": "unverified",
+    "render_type": "unresolved",
     "scrape_method": "unknown",
     "notes": "Per handoff: website gives 404, new URL not yet found.",
     "sample_event_url": "",
-    "last_verified": null
+    "last_verified": "2026-07-05"
+  },
+  "visitgroningen.nl": {
+    "display_name": "VisitGroningen (NOT YET in gen_uitjes.py SRC dict)",
+    "agenda_url": "https://www.visitgroningen.nl/nl/doen/uitgaan?page=1",
+    "render_type": "static",
+    "scrape_method": "urllib + JSON-LD (application/ld+json, ItemList), use \"endDate\" field. Paginate with ?page=N.",
+    "notes": "~150 events historically per handoff-v2.md (2026-06-25). Not currently wired into gen_uitjes.py (no SRC/VENUE_LOC entry) - flag to Michiel before adding, to confirm whether this should be a new source.",
+    "sample_event_url": "",
+    "last_verified": "2026-07-05 (recovered from prior session notes, not re-tested)"
+  },
+  "denoorderbron.nl": {
+    "display_name": "De Noorderbron Annen (NOT YET in gen_uitjes.py SRC dict)",
+    "agenda_url": "https://denoorderbron.nl/agenda/",
+    "render_type": "static",
+    "scrape_method": "urllib + regex on <article>/<div>/<li> blocks with class containing event/agenda/activiteit/post/item.",
+    "notes": "Small local venue in Annen. Not currently wired into gen_uitjes.py - flag to Michiel before adding.",
+    "sample_event_url": "",
+    "last_verified": "2026-07-05 (recovered from prior session notes, not re-tested)"
   }
 }
