@@ -1,0 +1,14 @@
+# Lokale database — nooit committen
+events.db
+events.db-wal
+events.db-shm
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# OS
+.DS_Store
+Thumbs.db
