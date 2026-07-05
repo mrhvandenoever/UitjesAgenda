@@ -19,6 +19,8 @@ SRC = {
     'lawei':               ('De Lawei',        '🎶', '#6d4c41'),
     'atlastheater':        ('Atlas Emmen',     '🟡', '#f57f17'),
     'drenthe.nl':          ('Drenthe',         '🟢', '#2e7d32'),
+    'visitgroningen':      ('Visitgroningen',  '🟣', '#6a1b9a'),
+    'friesland.nl':        ('Friesland',       '🔵', '#0277bd'),
     'kielzog':             ('Kielzog',         '🎵', '#0277bd'),
     'forum.nl':            ('Forum',           '🟠', '#e65100'),
     'denieuwekolk.nl':     ('Nieuwe Kolk',     '🩵', '#00838f'),
@@ -104,6 +106,8 @@ VENUE_LOC = {
     'grandcafe_zuidlaren':  (53.0140, 6.6849, 'Groningen'),
     'atlastheater':         (52.7789, 6.9052, 'Drenthe'),
     'drenthe.nl':           (52.9953, 6.5625, 'Drenthe'),
+    'visitgroningen':       (53.2194, 6.5665, 'Groningen'),
+    'friesland.nl':         (53.2012, 5.8036, 'Friesland'),
     'kielzog':              (52.7235, 6.4754, 'Drenthe'),
     'denieuwekolk.nl':      (52.9953, 6.5625, 'Drenthe'),
     'detamboer':            (52.7235, 6.4754, 'Drenthe'),
@@ -210,7 +214,7 @@ def classify(title, cats, source=''):
                              'storyworld','strip','marilyn']): return 'expo'
     if any(w in t for w in [' theater',' toneel','toneelstuk','voorstelling']): return 'theater'
     if any(w in t for w in ['rock','indie','punk','metal','concert','band','tribute',
-                             'singer','songwriter','coverband','festival','techno','house',
+                             'singer','songwriter','coverband','techno','house',
                              'hiphop','rap','hardrock','hardcore']): return 'pop'
     if any(w in t for w in ['wandeling','safari','natuur','strunen','stenen zoeken']): return 'actief'
     if source in MUSIC_VENUES:   return 'pop'
