@@ -46411,5 +46411,75 @@
     "lat": 53.2265,
     "lon": 6.5683,
     "gender": "heren"
+  },
+  {
+    "title": "Lycurgus - Prima Donna Kaas Huizen HS 1",
+    "date": "2026-10-25",
+    "venue": "Topsportcentrum Alfacollege, Groningen",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964161",
+    "source": "lycurgus",
+    "genre": "sport",
+    "sport": "volleybal",
+    "gender": "heren"
+  },
+  {
+    "title": "Lycurgus - Numidia VC Limax HS 1",
+    "date": "2026-11-15",
+    "venue": "Topsportcentrum Alfacollege, Groningen",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964163",
+    "source": "lycurgus",
+    "genre": "sport",
+    "sport": "volleybal",
+    "gender": "heren"
+  },
+  {
+    "title": "Lycurgus - Scherp in Packaging ZVH HS 1",
+    "date": "2026-11-29",
+    "venue": "Topsportcentrum Alfacollege, Groningen",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964162",
+    "source": "lycurgus",
+    "genre": "sport",
+    "sport": "volleybal",
+    "gender": "heren"
+  },
+  {
+    "title": "Lycurgus - Simplex SSS HS 1",
+    "date": "2026-12-13",
+    "venue": "Topsportcentrum Alfacollege, Groningen",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964164",
+    "source": "lycurgus",
+    "genre": "sport",
+    "sport": "volleybal",
+    "gender": "heren"
+  },
+  {
+    "title": "Lycurgus - Orion Stars HS 1",
+    "date": "2026-12-17",
+    "venue": "Topsportcentrum Alfacollege, Groningen",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964167",
+    "source": "lycurgus",
+    "genre": "sport",
+    "sport": "volleybal",
+    "gender": "heren"
+  },
+  {
+    "title": "Lycurgus - Sliedrecht Sport HS 1",
+    "date": "2027-01-10",
+    "venue": "Topsportcentrum Alfacollege, Groningen",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964166",
+    "source": "lycurgus",
+    "genre": "sport",
+    "sport": "volleybal",
+    "gender": "heren"
+  },
+  {
+    "title": "Lycurgus - Draisma Dynamo HS 1",
+    "date": "2027-01-31",
+    "venue": "Topsportcentrum Alfacollege, Groningen",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964165",
+    "source": "lycurgus",
+    "genre": "sport",
+    "sport": "volleybal",
+    "gender": "heren"
   }
 ]
