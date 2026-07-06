@@ -34,8 +34,8 @@ def build_events(year: int) -> list[dict]:
 
     # ── GRONINGEN STAD ────────────────────────────────────────────────────────
 
-    # Bommen Berend — 10 augustus, kermis in Groningen (herdenking slag om Groningen 1672)
-    bommen = date(year, 8, 10)
+    # Bommen Berend — 28 augustus, kermis in Groningen (herdenking ontzet stad 1672)
+    bommen = date(year, 8, 28)
     events.append({
         'title':    'Bommen Berend – Kermis Groningen',
         'date':     bommen.isoformat(),
