@@ -181,15 +181,56 @@ Het `_meta`-veld bevat de genre-classifier-definitie en `dead_ends` (bronnen die
 
 ## Deployment
 
+### Volledige flow (data + site)
+
 ```
-git push origin main
-    → Cloudflare Pages detecteert push
-    → Build: python3 gen_uitjes.py
-    → Output dir: /  (index.html)
-    → Live: uitjesagenda.pages.dev (~30–60 seconden)
+1. Scrapers draaien lokaal op de PC (zie §Wekelijkse refresh)
+       ↓
+2. events_categorized.json bijgewerkt (SQLite → export_json())
+       ↓
+3. git push origin main
+       ↓
+4. Cloudflare Pages detecteert push
+       → Build: python3 gen_uitjes.py
+       → Output dir: /  (index.html)
+       → Live: uitjesagenda.pages.dev (~30–60 seconden)
 ```
 
+**Belangrijk:** Cloudflare draait alleen `gen_uitjes.py` — géén scrapers.  
+De scraping en deduplicatie vinden altijd lokaal op de PC plaats.
+
 `requirements.txt` is leeg — Cloudflare gebruikt Python stdlib.
+
+---
+
+### Wekelijkse refresh (Cowork scheduled task)
+
+Elke maandag om 08:04 draait de Cowork scheduled task "uitjes-agenda-refresh".  
+Die opent PowerShell op de PC en voert uit:
+
+```powershell
+cd C:\dev\uitjesagenda
+python scrape_drenthe.py
+python scrape_visitgroningen.py
+python scrape_friesland.py
+python scrape_handmatig.py
+python scrape_naarzuidlaren.py
+python events_db.py export
+python gen_uitjes.py
+git add -A
+git commit -m "auto refresh"
+git push
+```
+
+SQLite werkt alleen lokaal — niet vanuit de Cowork sandbox (FUSE-mount beperking).
+
+---
+
+### build.py
+
+`build.py` staat in de repo maar wordt **niet** door Cloudflare aangeroepen.  
+Het is een alternatief voor als je de scrapers eenmalig handmatig wil draaien  
+zonder lokale Python-omgeving (bijv. in CI). Niet onderdeel van de standaard flow.
 
 ---
 
