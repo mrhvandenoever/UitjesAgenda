@@ -93,6 +93,12 @@ def build_events(year: int) -> list[dict]:
 
     # Berend Botje Festival → wordt gescraped via scrape_naarzuidlaren.py (dynamische datum)
 
+    # Hurry-Up en E&O (handbal) → verplaatst naar scrape_handbal.py: echte
+    # data via de handbal.nl/Sportlink-API (zie scraping_recipes.json). De
+    # eerdere handmatige Hurry-Up-entries hier (uit een nieuwsartikel, met
+    # geraden venue "Emmen") waren onnauwkeurig — echte venue is
+    # "De Eendracht, Zwartemeer" — en zijn vervangen door de scraper.
+
 # ── VOEG HIER NIEUWE EVENTS TOE ──────────────────────────────────────────
     # Patroon:
     # events.append({

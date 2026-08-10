@@ -619,18 +619,18 @@
     "agenda_url": "https://gijsgroningen.nl/gijs-eredivisie/",
     "render_type": "client_js",
     "scrape_code": "",
-    "notes": "Naam gecorrigeerd 2026-07-05: \"GIJS Groningen\", niet \"Grizzly's\". Het artikel /wedstrijdschema-eredivisie/ is VEROUDERD (toont 2022/23-seizoen) - niet gebruiken. Chrome-navigatie naar gijsgroningen.nl was BLOCKED in de 2026-07-05 sandbox-sessie.",
+    "notes": "Naam: GIJS Groningen (ijshockey), niet 'Grizzly's'. Herchecked 2026-08-10: https://gijsgroningen.nl/gijs-eredivisie/ laadt (200 OK) maar toont nog content voor seizoen 2025-2026 ('tickets & seizoenskaarten 2025 - 2026') — 2026-2027-schema nog niet live. Client-rendered (Shift4Shop-achtige builder), vereist waarschijnlijk Chrome MCP zodra data er wel staat.",
     "sample_event_url": "",
-    "last_verified": "2026-07-05"
+    "last_verified": "2026-08-10"
   },
   "hurryup": {
     "display_name": "Hurry-Up",
-    "agenda_url": "unknown",
-    "render_type": "unresolved",
-    "scrape_code": "",
-    "notes": "Website geeft 404, nieuwe URL nog niet gevonden.",
-    "sample_event_url": "",
-    "last_verified": "2026-07-05"
+    "agenda_url": "https://api.handbal.nl/general/api/competition/clubs/ZQ052WS/program",
+    "render_type": "static",
+    "scrape_code": "import urllib.request, json\nurl = ('https://api.handbal.nl/general/api/competition/clubs/{club}/program'\n       '?dt=1&teamDetails=true&facility=true&officials=true&pool=&team='\n       '&start=0&length=300&filters%5Bdate%5D={van}%3E%3C{tot}')\nreq = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})\nwith urllib.request.urlopen(req, timeout=20) as r:\n    data = json.loads(r.read().decode('utf-8'))\n# filter op homeTeam.clubRefId == club-code en teamName eindigend op HS1/DS1\n# (senioren 1e team; sluit jeugdteams als F1/DB1/HB1 uit)\n# zie scrape_handbal.py voor de volledige implementatie",
+    "notes": "OPGELOST 2026-08-10, zelfde methode als eoemmen (zie aldaar). Lost ook het oude 404-probleem van de eigen clubsite structureel op. Club-code Hurry-Up: ZQ052WS. Levert 63 wedstrijden op voor het hele seizoen, 14 thuiswedstrijden senioren (JD Techniek/Hurry-up HS1 + Hurry-Up DS1) na filteren op HS1/DS1-teamsuffix. Venue: De Eendracht, Zwartemeer. Zie scrape_handbal.py.",
+    "sample_event_url": "https://handbal.nl/competitie-vereniging/?club=ZQ052WS",
+    "last_verified": "2026-08-10"
   },
   "visitgroningen.nl": {
     "display_name": "VisitGroningen (NOG NIET in gen_uitjes.py SRC dict)",
@@ -720,53 +720,53 @@
     "agenda_url": "https://www.unisflyers.nl/wedstrijden/",
     "render_type": "unresolved",
     "scrape_code": "",
-    "notes": "PERIODIEK CHECKEN. Schema 2026-2027 nog niet gepubliceerd (geconstateerd 2026-07-05). Gelijktijdig checken met ijshockey.nl/competities/2026-2027 voor GIJS Groningen.",
+    "notes": "PERIODIEK CHECKEN. Herchecked 2026-08-10: https://www.unisflyers.nl/wedstrijden/ laadt (200 OK, 67KB) maar geen herkenbare wedstrijddata in de HTML — schema 2026-2027 lijkt nog niet gepubliceerd. Gelijktijdig checken met ijshockey.nl/competities/2026-2027.",
     "sample_event_url": "",
-    "last_verified": "2026-07-05"
+    "last_verified": "2026-08-10"
   },
   "ogcapitals": {
     "display_name": "OG Capitals",
     "agenda_url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
     "render_type": "unresolved",
     "scrape_code": "",
-    "notes": "PERIODIEK CHECKEN. Schema 2026-2027 nog niet gepubliceerd (geconstateerd 2026-07-05, pagina volledig leeg na JS-analyse). Site is waarschijnlijk client-side rendered - Chrome MCP vereist zodra data beschikbaar.",
+    "notes": "PERIODIEK CHECKEN. Herchecked 2026-08-10: https://www.capitalsleeuwarden.com/wedstrijdschema geeft een redirect-loop (HTTP 302 in oneindige lus) — mogelijk cookie/bot-check. Nog niet gelukt te bereiken zonder browser. Chrome MCP proberen zodra tijd is.",
     "sample_event_url": "",
-    "last_verified": "2026-07-05"
+    "last_verified": "2026-08-10"
   },
   "eoemmen": {
     "display_name": "E&O Emmen",
-    "agenda_url": "https://www.eenohandbal.nl/senioren/wedstrijdprogramma/",
-    "render_type": "unresolved",
-    "scrape_code": "",
-    "notes": "PERIODIEK CHECKEN. Pagina toont op 2026-07-05 nog het oude seizoensprogramma. Handbal Eredivisie. Zodra 2026-2027 schema verschijnt, is de site statisch te scrapen (standaard NL-handbal agenda layout).",
-    "sample_event_url": "",
-    "last_verified": "2026-07-05"
+    "agenda_url": "https://api.handbal.nl/general/api/competition/clubs/ZQ052JF/program",
+    "render_type": "static",
+    "scrape_code": "import urllib.request, json\nurl = ('https://api.handbal.nl/general/api/competition/clubs/{club}/program'\n       '?dt=1&teamDetails=true&facility=true&officials=true&pool=&team='\n       '&start=0&length=300&filters%5Bdate%5D={van}%3E%3C{tot}')\nreq = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})\nwith urllib.request.urlopen(req, timeout=20) as r:\n    data = json.loads(r.read().decode('utf-8'))\n# filter op homeTeam.clubRefId == club-code en teamName eindigend op HS1/DS1\n# (senioren 1e team; sluit jeugdteams als F1/DB1/HB1 uit)\n# zie scrape_handbal.py voor de volledige implementatie",
+    "notes": "OPGELOST 2026-08-10 (Michiel wees erop dat de standaard datumfilter op de handbal.nl-clubpagina maar 2 weken vooruit toont, wat ten onrechte de indruk gaf dat er niks gepubliceerd was). Echte data zit in een DataTables-endpoint op api.handbal.nl, gevonden via Chrome MCP (DataTables-instantie uitgelezen: settings.ajax.url + dt.ajax.params() gaf de filters[date]=VAN><TOT-syntax). Club-code E&O: ZQ052JF. Levert 136 wedstrijden op voor het hele seizoen, 26 thuiswedstrijden senioren (Oosting/E&O HS1 + Misker/E&O DS1) na filteren op HS1/DS1-teamsuffix. Venue+adres zit in facility.name/facility.address. Zie scrape_handbal.py voor de volledige, geteste implementatie (plain requests, geen browser nodig).",
+    "sample_event_url": "https://handbal.nl/competitie-vereniging/?club=ZQ052JF",
+    "last_verified": "2026-08-10"
   },
   "ldodk": {
     "display_name": "LDODK",
     "agenda_url": "https://www.ldodk.nl/korfbal-league/",
     "render_type": "unresolved",
     "scrape_code": "",
-    "notes": "PERIODIEK CHECKEN. Schema 2026-2027 nog niet gepubliceerd (door Michiel bevestigd 2026-07-05). Korfbal League (gemengd). Alternatief: check mijn.korfbal.nl voor feed zodra beschikbaar.",
+    "notes": "Herchecked 2026-08-10, incl. specifieke team-URL van Michiel: https://www.ldodk.nl/teams/ldodk-1/?tab=programma . Site is een Nuxt.js-app (server-rendered): programma-data zou embedded staan in een <script id=\"__NUXT_DATA__\"> blok (devalue-formaat, geen JSON.parse) i.p.v. een losse API-call (geen enkele api.*-request gezien in netwerkverkeer). Nu nog leeg: site zelf zegt 'Er is op dit moment geen programma bekend.', en de officiele competitie-organisatie league.korfbal.nl/programma/ bevestigt expliciet: 'Het programma voor de Korfbal League 2026-2027 wordt binnenkort bekend. Het seizoen start in het weekend van 6, 7 en 8 november [2026].' Dus geen scraper-probleem, gewoon nog niet gepubliceerd — pas na begin november opnieuw proberen. Zodra data er is: __NUXT_DATA__ parsen (devalue-decoder) of alternatief checken of er dan alsnog een API-call verschijnt.",
     "sample_event_url": "",
-    "last_verified": "2026-07-05"
+    "last_verified": "2026-08-10"
   },
   "dos46": {
     "display_name": "DOS '46",
     "agenda_url": "https://mijn.korfbal.nl/clubs/details/NCX09J8/programma",
     "render_type": "unresolved",
     "scrape_code": "",
-    "notes": "PERIODIEK CHECKEN. mijn.korfbal.nl toont lege programma-pagina (geconstateerd 2026-07-05, JS-analyse uitgevoerd: geen wedstrijden). Korfbal League (gemengd). Pagina heeft datum-filter (Datum vanaf / Datum tot) - probeer bij volgende check een datumrange in te stellen.",
+    "notes": "Herchecked 2026-08-10. mijn.korfbal.nl draait op het 'Dotlab'-platform (portal ontwikkeld door dotlab.net), een Angular-app — geen jQuery/DataTables zoals bij handbal.nl, dus die aanpak is hier niet direct herbruikbaar. Datumfilter (Datum vanaf/tot + Filter-knop) geprobeerd met een heel seizoen (2026-08-10 t/m 2027-08-09): nog altijd 0 rijen, zelfs geen 'geen resultaten'-tabel — echt leeg, geen scraper-probleem. Regio: DOS'46 speelt in de reguliere KNKV-competitie (niet de Korfbal League zoals ldodk). Zodra er wel data is: opnieuw met browser her-inspecteren welke API dotlab.net aanroept (nog niet gevonden — geen zichtbare API-call in netwerkverkeer bij dit bezoek).",
     "sample_event_url": "",
-    "last_verified": "2026-07-05"
+    "last_verified": "2026-08-10"
   },
   "landstede": {
     "display_name": "Landstede Hammers",
     "agenda_url": "https://www.landstedebasketball.nl/",
     "render_type": "unverified",
     "scrape_code": "",
-    "notes": "PERIODIEK CHECKEN. Nog niet geprobeerd te scrapen (2026-07-05). Basketball Eredivisie Zwolle.",
+    "notes": "PERIODIEK CHECKEN. Herchecked 2026-08-10: https://www.landstedebasketball.nl/ geeft DNS-fout (host bestaat niet meer of domein is gewijzigd). Nog niet opnieuw uitgezocht wat de juiste URL is. Basketball Eredivisie Zwolle.",
     "sample_event_url": "",
-    "last_verified": "2026-07-05"
+    "last_verified": "2026-08-10"
   }
 }
