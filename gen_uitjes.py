@@ -177,6 +177,15 @@ SPORT_CLUBS = {
 }
 SPORT_SRCS = {s for clubs in SPORT_CLUBS.values() for s in clubs}
 
+SPORT_ICONS = {
+    'voetbal': '⚽', 'basketbal': '🏀', 'volleybal': '🏐',
+    'ijshockey': '🏒', 'handbal': '🤾', 'korfbal': '🧺',
+}
+SPORT_LABELS = {
+    'voetbal': 'Voetbal', 'basketbal': 'Basketbal', 'volleybal': 'Volleybal',
+    'ijshockey': 'IJshockey', 'handbal': 'Handbal', 'korfbal': 'Korfbal',
+}
+
 THEATER_VENUES= {'lawei','atlastheater','denieuwekolk.nl','vanberesteyn','theaterroden','geertteis',
                  'grandtheatregroningen','martiniplaza','dorpshuisannen','podiumnienoordleek',
                  'zummerbuhne','posthuistheater','ontdekpoort','koornbeurs'}
@@ -276,15 +285,21 @@ month_nav = '\n'.join(
 
 def event_html(e):
     src = e.get('source',''); sk = safe_key(src)
-    genre = classify(e.get('title',''), e.get('cats',[]), src)
-    gender = e.get('gender', '') if src in SPORT_SRCS else ''
+    is_sport = src in SPORT_SRCS
+    genre = 'sport' if is_sport else classify(e.get('title',''), e.get('cats',[]), src)
+    gender = e.get('gender', '') if is_sport else ''
     icon_map = {'festival':'🎉','theater':'🎭','cabaret':'🎪','musical':'🎼','klassiek':'🎻','pop':'🎸',
                 'jazz':'🎷','dans':'💃','expo':'🖼️','actief':'🥾','kinderen':'🎈','overig':'•'}
     glabel_map = {'festival':'Festival / Evenement','theater':'Theater / Toneel','cabaret':'Cabaret / Comedy','musical':'Musical',
                   'klassiek':'Klassiek / Opera','pop':'Pop / Rock','jazz':'Jazz / Blues',
                   'dans':'Dans / Ballet','expo':'Expo / Kunst','actief':'Actief / Natuur',
                   'kinderen':'Kinderen / Familie','overig':'Overig'}
-    icon = icon_map.get(genre,'•'); glabel = glabel_map.get(genre,'Overig')
+    if is_sport:
+        sport_type = e.get('sport', '')
+        icon = SPORT_ICONS.get(sport_type, '🏆')
+        glabel = SPORT_LABELS.get(sport_type, 'Sport')
+    else:
+        icon = icon_map.get(genre,'•'); glabel = glabel_map.get(genre,'Overig')
     title_html = (f'<a href="{esc(e.get("url",""))}" target="_blank">{esc(e.get("title",""))}</a>'
                   if e.get('url') else esc(e.get('title','')))
     loc = VENUE_LOC.get(src)
