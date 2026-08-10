@@ -34,7 +34,13 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - Sportclubs linken vaak bewust naar een algemene wedstrijdkalender — mogelijk acceptabel, geen per-wedstrijd pagina nodig?
 - Keuze nodig: prioritering — alle 26 is een grote klus. Welke eerst (denieuwekolk.nl / Vera / de grote landelijke podia)? Sportclubs meenemen of bewust laten staan?
 
-### 5. Landelijke uitbreiding
+### 5. Nationale sportteams toevoegen
+- Idee van Michiel: naast clubs ook de nationale selecties meenemen (bv. Oranje Dames volleybal — https://www.volleybal.nl/volleybal/oranje-dames/programma). Concreet aanleiding: ze oefenen komend weekend in Groningen (Martiniplaza).
+- Te bepalen: alleen wedstrijden die daadwerkelijk in Noord-Nederland/landelijke podia gespeeld worden (zoals dit Martiniplaza-voorbeeld), of alle interlands/toernooien ongeacht locatie? Dat laatste past minder bij de regionale insteek van de tool.
+- Welke bonden/sporten: alleen volleybal, of ook handbal/korfbal/basketbal/hockey nationale teams als ze in de regio spelen?
+- Nevobo (volleybal) gebruikt dezelfde API-structuur als de clubteams (api.nevobo.nl RSS) — waarschijnlijk ook bruikbaar voor het nationale team, even checken.
+
+### 6. Landelijke uitbreiding
 - Ambitie: de tool op termijn landelijk maken (nu vooral Noord-Nederland + een aantal landelijke podia).
 - Nader te bepalen: schaal (hoeveel bronnen/pagina's erbij), of de huidige scraper-architectuur dat aankan, prioritering t.o.v. de andere open items.
 
