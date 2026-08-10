@@ -6,7 +6,8 @@ Gebruik:
     python events_db.py import        # importeer events_categorized.json → DB
     python events_db.py export        # exporteer DB → events_categorized.json
     python events_db.py stats         # toon statistieken per source
-    python events_db.py dupes         # toon potentiële duplicaten
+    python events_db.py dupes         # toon potentiële duplicaten (exacte titel+datum)
+    python events_db.py cross-dupes   # toon aggregator-vs-venue duplicaten (fuzzy titel)
 """
 
 import sqlite3
@@ -14,11 +15,18 @@ import re
 import json
 import os
 import sys
+import collections
+import itertools
 from datetime import datetime
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH    = os.path.join(SCRIPT_DIR, 'events.db')
 JSON_PATH  = os.path.join(SCRIPT_DIR, 'events_categorized.json')
+
+# Regionale agenda's die events herlisten die al rechtstreeks van de venue-site
+# gescraped zijn (vaak met net iets andere titel: support-act, subtitel, landcode).
+AGGREGATOR_SOURCES = {'visitgroningen', 'drenthe.nl', 'friesland.nl'}
+CROSS_DUPE_MIN_CORE_LEN = 10  # kortere titels zijn te generiek om veilig te matchen
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS events (
@@ -186,6 +194,63 @@ def import_json(json_path: str = None) -> tuple[int, int]:
 
 
 # ---------------------------------------------------------------------------
+# Cross-source dedup (aggregator herlist een event dat al direct gescraped is)
+# ---------------------------------------------------------------------------
+
+def _cross_dupe_norm(title: str) -> str:
+    t = title.lower()
+    t = re.sub(r'\(.*?\)', '', t)
+    t = re.sub(r'[^a-z0-9 ]', '', t)
+    return re.sub(r'\s+', ' ', t).strip()
+
+
+def find_cross_source_duplicates(rows) -> set:
+    """
+    Vind db-ids van aggregator-events (visitgroningen/drenthe.nl/friesland.nl)
+    die een event herlisten dat al rechtstreeks van de venue-site komt.
+    De directe venue-bron heeft voorrang (preciezere venue/url) — deze functie
+    geeft de te verwijderen aggregator-ids terug.
+
+    Veiligheid: als een titel te generiek is om betrouwbaar te matchen (bv.
+    'Theaterweekend', 'Kerstconcert' — matcht dan met meerdere, inhoudelijk
+    verschillende events), wordt die niet gededupliceerd maar overgeslagen.
+    """
+    by_date = collections.defaultdict(list)
+    for r in rows:
+        by_date[r['date']].append(r)
+
+    pairs = []  # (direct_id, agg_id, agg_title)
+    for date, evs in by_date.items():
+        for a, b in itertools.combinations(evs, 2):
+            agg_a = a['source'] in AGGREGATOR_SOURCES
+            agg_b = b['source'] in AGGREGATOR_SOURCES
+            if agg_a == agg_b:
+                continue
+            agg_ev, direct_ev = (a, b) if agg_a else (b, a)
+            na, nd = _cross_dupe_norm(agg_ev['title']), _cross_dupe_norm(direct_ev['title'])
+            core = min(na, nd, key=len)
+            if len(core.replace(' ', '')) < CROSS_DUPE_MIN_CORE_LEN:
+                continue
+            if na == nd or na in nd or nd in na:
+                pairs.append((direct_ev['id'], agg_ev['id'], na))
+
+    agg_to_dirs = collections.defaultdict(set)
+    for id_dir, id_agg, _ in pairs:
+        agg_to_dirs[id_agg].add(id_dir)
+    ambiguous_agg = {i for i, dirs in agg_to_dirs.items() if len(dirs) > 1}
+
+    dir_to_agg_cores = collections.defaultdict(set)
+    for id_dir, id_agg, na in pairs:
+        dir_to_agg_cores[id_dir].add(na)
+    ambiguous_dir = {i for i, cores in dir_to_agg_cores.items() if len(cores) > 1}
+
+    return {
+        id_agg for id_dir, id_agg, _ in pairs
+        if id_agg not in ambiguous_agg and id_dir not in ambiguous_dir
+    }
+
+
+# ---------------------------------------------------------------------------
 # Exporteren naar JSON
 # ---------------------------------------------------------------------------
 
@@ -204,6 +269,11 @@ def export_json(json_path: str = None, min_date: str = None) -> int:
         ORDER BY date, title
     """, (min_date,)).fetchall()
     conn.close()
+
+    dupe_ids = find_cross_source_duplicates(rows)
+    if dupe_ids:
+        print(f"  Cross-source dedup: {len(dupe_ids)} aggregator-events overgeslagen (al aanwezig via directe venue-bron)")
+    rows = [r for r in rows if r['id'] not in dupe_ids]
 
     out = []
     for r in rows:
@@ -292,6 +362,19 @@ def dupes():
             print(f"  [{r['date']}] {r['title_norm'][:50]} ({r['srcs']})")
 
 
+def cross_dupes():
+    """Preview van find_cross_source_duplicates() zonder te exporteren."""
+    conn = get_conn()
+    rows = conn.execute("SELECT * FROM events WHERE date >= date('now')").fetchall()
+    conn.close()
+    dupe_ids = find_cross_source_duplicates(rows)
+    by_id = {r['id']: r for r in rows}
+    print(f"{len(dupe_ids)} aggregator-events te verwijderen bij export:")
+    for i in sorted(dupe_ids, key=lambda i: by_id[i]['date']):
+        r = by_id[i]
+        print(f"  [{r['date']}] {r['source']:15s} {r['title'][:60]}")
+
+
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
@@ -310,5 +393,7 @@ if __name__ == '__main__':
         stats()
     elif cmd == 'dupes':
         dupes()
+    elif cmd == 'cross-dupes':
+        cross_dupes()
     else:
         print(__doc__)
