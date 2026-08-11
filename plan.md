@@ -30,6 +30,22 @@ Van de 19 geconfigureerde clubs in `gen_uitjes.py` (`SPORT_CLUBS`):
   - [ ] `ldodk` (korfbal) — site zegt expliciet "geen programma bekend"
   - [ ] `dos46` (korfbal) — mijn.korfbal.nl laadt leeg (JS-shell)
 
+## Bug: afstandsberekening klopt niet voor aggregator-bronnen (gevonden 2026-08-11)
+- **Symptoom** (gemeld door Michiel): filter op 15km vanaf een locatie tussen Annen en Zuidlaren toont Ruinen, Diever, Nieuw-Dordrecht, Vledder, Alteveer, Meppel etc. — allemaal met exact "~13km", terwijl deze plaatsen in werkelijkheid zeer verschillende, deels veel grotere afstanden hebben.
+- **Oorzaak bevestigd**: `VENUE_LOC` in `gen_uitjes.py` heeft voor de 3 grote regionale aggregators (`drenthe.nl`, `visitgroningen`, `friesland.nl`) maar **één vast coördinaat per bron**, niet per stad — ongeacht of het event in Ruinen, Meppel of Nieuw-Dordrecht is. Alle events van zo'n bron krijgen dus dezelfde (onjuiste) afstand tot de gebruiker.
+- **Impact**: 2777 van de ~6800 events (bijna 40%) bij deze 3 bronnen, verspreid over 254 verschillende plaatsen.
+- **Voorstel fix**: bouw een city→lat/lon-lookuptabel voor deze 254 plaatsen (eenmalig geocoden via Nominatim, net als de bestaande adres-zoekfunctie al gebruikt; daarna cachen — coördinaten van dorpen/steden veranderen niet). Gebruik in `event_html()`/de afstandsberekening per event de eigen stad-coördinaten i.p.v. de vaste bron-coördinaten, met de huidige `VENUE_LOC`-waarde alleen nog als fallback voor events zonder herkenbare `city`.
+- [ ] Lookuptabel bouwen (254 plaatsen, eenmalige geocode-actie)
+- [ ] `gen_uitjes.py` aanpassen: per-event coördinaten i.p.v. per-bron
+- [ ] Verifiëren met het Annen/Zuidlaren-voorbeeld van Michiel
+
+## SPOT-scraper achterhaald + genre-classificatie te ambigu (gevonden 2026-08-11)
+- **SPOT-data verouderd**: live heeft spotgroningen.nl/programma/ nu 621 events, onze opgeslagen data maar 325 — SPOT zat niet bij de 5 wekelijkse scrapers. Bestaande regex in `scraping_recipes.json` werkt nog prima (621 matches op de live pagina), gewoon niet recent gedraaid.
+- **Bonus-vondst**: SPOT's HTML bevat `data-description`/`data-title`-attributen met een genre-signaal (bv. "...rockit-jazz-kwartet", "absolute-top-uit-de-hedendaagse-jazzscene" bij Peter Bernstein Quartet) dat de huidige scraper niet meepakt — alleen de `<h2>`-titel wordt gebruikt.
+- **Genre-bug**: `classify()` in `gen_uitjes.py` heeft 'quartet'/'kwartet'/'trio'/'ensemble' in de klassiek-keywordlijst — genre-ambigu, want jazz gebruikt dezelfde woorden. Peter Bernstein Quartet (jazz) kreeg daardoor 🎻 Klassiek / Opera.
+- [ ] Nieuwe `scrape_spotgroningen.py` bouwen die ook `data-description` meepakt
+- [ ] `classify()`: 'quartet'/'kwartet'/'trio'/'ensemble' weghalen uit de klassiek-lijst; waar beschikbaar `data-description` gebruiken voor jazz- vs klassiek-onderscheid
+
 ## Later / open items (uit ARCHITECTURE.md)
 - [ ] Ticketmaster Discovery API (gratis tier, 5.000 req/dag) — key aanvragen op developer.ticketmaster.com
 - [ ] Lycurgus — seizoen nog niet gestart, later toevoegen
