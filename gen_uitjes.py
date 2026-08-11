@@ -472,6 +472,15 @@ document.getElementById('dist-slider').addEventListener('input',function(){{
   apply();
 }});
 
+document.getElementById('dist-label').addEventListener('click',function(){{
+  const cur=maxDist>=9999?'':String(maxDist);
+  const val=prompt('Afstand in km (leeg = alle afstanden):',cur);
+  if(val===null)return;
+  const n=parseInt(val,10);
+  maxDist=(val.trim()===''||isNaN(n)||n<=0)?9999:n;
+  apply();
+}});
+
 const LANDELIJK=new Set({landelijk_json});
 document.querySelector('.btn[data-src-group="landelijk"]').addEventListener('click',function(){{
   const isActive=this.classList.contains('active');
@@ -707,7 +716,7 @@ main{{padding:0 16px 32px;}}
     <button class="icon-btn" id="loc-btn" title="Gebruik mijn locatie">📍 Locatie</button>
     <div class="dist-slider-wrap">
       <input type="range" id="dist-slider" min="0" max="4" step="1" value="4">
-      <span id="dist-label">Alle afstanden</span>
+      <span id="dist-label" title="Klik om een eigen afstand in km in te voeren" style="cursor:pointer;text-decoration:underline dotted;">Alle afstanden</span>
     </div>
     <span id="addr-status">standaard: Annen</span>
   </div>
