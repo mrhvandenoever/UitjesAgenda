@@ -16,17 +16,22 @@
 
 | Bestand | Rol |
 |---|---|
-| `gen_uitjes.py` | Python generator (~661 regels). Leest JSON, schrijft index.html. |
+| `gen_uitjes.py` | Python generator. Leest JSON, schrijft index.html. |
+| `events_db.py` | SQLite-laag: import/export/dedup. Zie ook §Cross-source dedup. |
 | `events_categorized.json` | Brondata — alle events. Single source of truth. |
 | `scraping_recipes.json` | Per-bron scrape-instructies (render_type, code, agenda_url). |
 | `index.html` | Gegenereerde output. **Nooit handmatig aanpassen.** |
 | `requirements.txt` | Intentioneel leeg — alleen Python stdlib nodig. |
+| `scrape_<bron>.py` | Eén los scraper-script per bron/venue (zie §Scrapers-conventie). Huidige scripts: `scrape_drenthe.py`, `scrape_friesland.py`, `scrape_visitgroningen.py`, `scrape_spotgroningen.py`, `scrape_handbal.py` (E&O + Hurry-Up), `scrape_naarzuidlaren.py`, `scrape_handmatig.py` (vaste jaarevents). |
+| `SCRAPERS.md` | Status per bron: geautomatiseerd / kan zonder AI (recipe klaar) / AI-Chrome nodig / nog niet geprobeerd. |
+| `CLAUDE.md` | Werkwijze voor Claude in deze repo (wanneer welk .md-bestand lezen/bijwerken). |
+| `onboarding.md` / `overleg.md` / `plan.md` / `decisions.md` | Voor beheerders: resp. hoe-neem-ik-dit-over, open discussiepunten, to-do, genomen beslissingen. |
 
 ---
 
 ## gen_uitjes.py — structuur
 
-### Bovenaan: data-definities (regels 17–153)
+### Bovenaan: data-definities
 
 #### `SRC` dict — bronregistratie
 ```python
@@ -52,14 +57,17 @@ Gebruikt als fallback in `classify()` als er geen keyword-match is in de titel.
 #### `SPORT_CLUBS` dict — sport-indeling
 ```python
 SPORT_CLUBS = {
-    'voetbal':   ['fcgroningen', 'fcemmen'],
-    'basketbal': ['donar'],
-    'volleybal': ['lycurgus'],
-    'ijshockey': ['grizzlys'],
-    'handbal':   ['hurryup'],
+    'voetbal':    ['fcgroningen', 'fcemmen', 'heerenveen', 'cambuur', 'fctwente', 'goahead', 'peczwolle'],
+    'basketbal':  ['donar', 'landstede'],
+    'volleybal':  ['lycurgus', 'sudosa', 'friso'],
+    'ijshockey':  ['grizzlys', 'flyers', 'ogcapitals'],
+    'handbal':    ['hurryup', 'eoemmen'],
+    'korfbal':    ['ldodk', 'dos46'],
 }
 ```
-`SPORT_SRCS` is de afgeleide set van alle sport-sleutelwoorden. Sport-events worden gefilterd uit de uitjes-modus; alleen zichtbaar in sport-modus.
+`SPORT_SRCS` is de afgeleide set van alle sport-sleutelwoorden. Sport-events worden gefilterd uit de uitjes-modus; alleen zichtbaar in sport-modus. Zie `SCRAPERS.md`/`plan.md` voor welke clubs daadwerkelijk data hebben — sommige staan al in deze dict maar hebben (nog) 0 events omdat het seizoensschema nog niet gepubliceerd is.
+
+`SPORT_ICONS`/`SPORT_LABELS` (bij `SPORT_COLORS`, zie hieronder) geven per sporttype het icoon/label voor de genre-badge — `event_html()` gebruikt deze rechtstreeks voor sport-events, in plaats van via `classify()` te gokken op de titel (zie §classify()).
 
 #### `LANDELIJK` set
 ```python
@@ -77,13 +85,17 @@ Kleur per sporttype (voetbal, basketbal, etc.) voor de knopstatus.
 
 ### `classify(title, cats, source)` — genre-classifier
 
-Bepaalt het genre van een event. Volgorde van prioriteit:
+**Sport-events slaan `classify()` volledig over** — `event_html()` checkt eerst `src in SPORT_SRCS` en gebruikt dan direct het `sport`-veld uit de JSON (via `SPORT_ICONS`/`SPORT_LABELS`). Reden: titels als "FC Twente - PEC Zwolle" matchen geen enkel keyword en vielen voorheen terug op `overig`.
+
+Voor niet-sport-events, volgorde van prioriteit:
 
 1. **Kinderen-check** (regex) — altijd eerst, overschrijft alles
-2. **`cats`-veld** uit JSON (als aanwezig en herkenbaar)
+2. **`cats`-veld** uit JSON (als aanwezig en herkenbaar — `cat_map` bevat o.a. `theater`, `cabaret`, `musical`, `klassiek`, `opera`, `dans`, `kinderen`, `jazz`, `pop`)
 3. **Expo-venues** (groningermuseum, drentsmuseum, hunebedcentrum) → `expo`
-4. **Titelkeywords** — musical, cabaret, dans, klassiek, jazz, expo, theater, pop, actief
+4. **Titelkeywords** — **jazz/blues eerst**, dán klassiek, musical, cabaret, dans, expo, theater, festival, pop, actief
 5. **Venue-fallback** — music_venues → `pop`, theater_venues → `theater`, anders → `overig`
+
+**Let op — genre-ambiguïteit**: woorden als "quartet"/"kwartet"/"trio"/"ensemble"/"kamer" duiden **niet** betrouwbaar op klassieke muziek — jazz-combo's heten net zo vaak "Quartet". Deze woorden staan daarom bewust *niet* in de klassiek-keywordlijst (stonden er eerder wel in, gaf verkeerde classificatie bij bv. "Peter Bernstein Quartet"). Bronnen die zelf een genre-signaal geven (zoals SPOT's `data-subgenres`, zie `scrape_spotgroningen.py`) zijn betrouwbaarder dan titel-keywords — geef die door via het `cats`-veld.
 
 ---
 
@@ -170,14 +182,65 @@ Per bron:
 
 `render_type` bepaalt de scraping-aanpak:
 - `static` → urllib/requests volstaat
-- `client_js` → Chrome MCP vereist (JavaScript wordt uitgevoerd in de browser)
-- `manual` → geen automatische scraping (eenmalig handmatig)
+- `client_js` → Chrome MCP vereist (JavaScript wordt uitgevoerd in de browser) — tenzij alsnog een verborgen API gevonden wordt (gebeurde bij SPOT en handbal.nl, die zagen er eerst uit als `client_js` maar bleken toch `static`)
+- `manual` → geen automatische scraping (eenmalig handmatig, of vast jaarlijks event zoals in `scrape_handmatig.py`)
+- `resolved_locally` → data staat er, ooit eenmalig lokaal/via Chrome opgelost, maar geen herhaalbaar script
+- `duplicate_skip` → bewust niet los toegevoegd, events komen al via een andere bron binnen
 - `unresolved` → bekend probleem, nog geen werkende methode
 - `unverified` → niet getest
 
-Het `_meta`-veld bevat de genre-classifier-definitie en `dead_ends` (bronnen die zijn opgegeven).
+Het `_meta`-veld bevat de genre-classifier-definitie en `dead_ends` (bronnen die zijn opgegeven). Zie `SCRAPERS.md` voor de actuele status per bron in tabelvorm.
 
 ---
+
+## Scrapers-conventie: één bestand per bron
+
+Elke bron krijgt een eigen, klein `scrape_<naam>.py`-bestand (zie `SCRAPERS.md` voor
+de volledige lijst) — bewust geen gedeeld/groot scraper-bestand, ook niet als dat
+duplicatie tussen scripts oplevert (bv. meerdere venues op hetzelfde
+ticketing-platform). Redenen: kleinere bestanden zijn veiliger te editen (zelfde
+risico als de KRITIEKE REGEL hieronder voor `gen_uitjes.py`, alleen dan preventief),
+en een foutmelding uit één scraper wijst meteen naar precies het juiste bestand.
+
+Elk scraper-script volgt hetzelfde patroon (zie `scrape_spotgroningen.py` of
+`scrape_handbal.py` als recent voorbeeld):
+- CLI met `--dry-run` (toont events zonder op te slaan)
+- `insert_event()` uit `events_db.py` voor het opslaan
+- `log_scrape()` aan het eind voor de scrape-historie
+- Docstring bovenaan met de gebruikte methode/URL/eventuele bijzonderheden
+
+Einddoel: de wekelijkse refresh volledig automatisch zonder AI. AI (Chrome MCP)
+wordt alleen eenmalig ingezet om de scrape-methode van een bron te *ontdekken*
+(netwerkverkeer/DOM uitlezen) — niet structureel bij elke run. Voortgang staat in
+`SCRAPERS.md`.
+
+---
+
+## Cross-source dedup & insert-prioriteit
+
+Regionale aggregators (`drenthe.nl`, `visitgroningen`, `friesland.nl`, samen
+`AGGREGATOR_SOURCES` in `events_db.py`) herlisten vaak events die al rechtstreeks
+van de venue-site gescraped zijn, met een net iets andere titel (support-act,
+subtitel, landcode). Twee mechanismen in `events_db.py` werken samen om dit op te
+lossen:
+
+1. **Bij het invoegen** (`insert_event()`): de database heeft `UNIQUE(title_norm, date)`.
+   Bij een botsing wint niet zomaar de eerst-ingevoegde rij — als de **bestaande**
+   rij van een aggregator komt en de **nieuwe** rij van een directe venue-bron, wordt
+   de bestaande rij overschreven. Zonder deze regel zou de scrape-volgorde bepalen
+   welke bron wint, in plaats van welke bron beter is (dat gebeurde ook echt —
+   zie `decisions.md`, 2026-08-11).
+2. **Bij het exporteren** (`export_json()` → `find_cross_source_duplicates()`): een
+   fuzzy titel-match op dezelfde datum tussen een aggregator- en een directe-bron-rij
+   (die dus ALLEBEI de invoeg-stap overleefd hebben, bv. omdat ze in dezelfde run
+   zijn binnengekomen) — de aggregator-rij wordt dan bij export overgeslagen.
+   Titels die te generiek zijn om betrouwbaar te matchen (bv. "Theaterweekend",
+   "Kerstconcert" — matchen dan met meerdere, inhoudelijk verschillende events)
+   worden bewust *niet* gededupliceerd. Preview: `python events_db.py cross-dupes`.
+
+Praktisch gevolg: fix #1 werkt alleen met terugwerkende kracht zodra een bron
+**opnieuw** gescraped wordt — bestaande data van een bron die nooit opnieuw
+gedraaid is, kan nog steeds een niet-opgemerkte aggregator-dubbel bevatten.
 
 ## Deployment
 
@@ -215,6 +278,8 @@ python scrape_visitgroningen.py
 python scrape_friesland.py
 python scrape_handmatig.py
 python scrape_naarzuidlaren.py
+python scrape_spotgroningen.py
+python scrape_handbal.py
 python events_db.py export
 python gen_uitjes.py
 git add -A
@@ -222,7 +287,16 @@ git commit -m "auto refresh"
 git push
 ```
 
+Deze lijst moet je handmatig bijwerken als er een nieuw `scrape_<naam>.py`-bestand
+bijkomt (zie §Scrapers-conventie) — nog niet omgezet naar een automatische
+`for f in scrape_*.py`-loop, staat als bespreekpunt in `overleg.md`.
+
 SQLite werkt alleen lokaal — niet vanuit de Cowork sandbox (FUSE-mount beperking).
+
+**Let op — waar dit vanavond (2026-08-10/11) daadwerkelijk draaide**: de PC met
+deze scheduled task was kapot, dus de refresh is die sessie handmatig vanaf een
+andere laptop gedraaid (`C:\dev\uitjesagenda` op die machine). Nog niet besloten
+of dat de nieuwe standaardplek wordt — zie `overleg.md`.
 
 ---
 
@@ -256,7 +330,7 @@ Bovenstaande stappen, plus:
 
 ## KRITIEKE REGEL: gen_uitjes.py aanpassen
 
-**Gebruik NOOIT de Cowork Edit-tool op `gen_uitjes.py`.** Die kapt bestanden af bij ~500 regels. Het bestand is ~661 regels.
+**Gebruik NOOIT de Cowork Edit-tool op `gen_uitjes.py`.** Die kapt bestanden af bij ~500 regels. Het bestand is ~757 regels (groeit mee — check zelf even met een regel-telling voor je begint, dit getal veroudert).
 
 **Altijd via:**
 ```python
@@ -287,25 +361,17 @@ De FUSE-mount die `C:\dev\uitjesagenda` koppelt kan eigenaardigheden hebben:
 
 ---
 
-## Huidige bronnen-status (juli 2026)
+## Huidige bronnen-status
 
-**Noord-Nederland (actief):** Spot, De Lawei, Atlas Emmen, Drenthe.nl, Kielzog, Forum, Nieuwe Kolk, Van Beresteyn, Vera, Simplon, Martiniplaza, Grand Theatre, Winsinghhof, EM2, Zummerbühne, USVA, Geert Teis, Nienoord, GC Zuidlaren, Geke Hoogstins, Machinefabriek, Be-Wonder, Dorpshuis Annen, Noorderbron, De Tamboer, Posthuis, OntdekPoort, Bostheater, Neushoorn, Groninger Museum, Drents Museum, Zuidhaege Assen, Hunebedcentrum, Koornbeurs
+Verplaatst naar `SCRAPERS.md` (per-bron tabel: geautomatiseerd / kan zonder AI /
+AI-Chrome nodig / geblokkeerd / nog niet geprobeerd) — dat wordt actief
+bijgehouden; deze sectie hier raakte snel verouderd doordat het op twee plekken
+stond.
 
-**Landelijk (actief):** TivoliVredenburg, Melkweg, Paradiso, 013 Tilburg, Ziggo Dome, Effenaar, Doornroosje, Rotterdam Ahoy, Het Paard, Hedon Zwolle, AFAS Live, Rotown, De Doelen, GelreDome, Concertgebouw
-
-**Sport (actief):** FC Groningen (18 thuiswedstrijden), FC Emmen (19), Donar (14)
-
-**Sport (inactief / pending):** Lycurgus (seizoen niet gestart), GIJS Groningen (URL onbekend), Hurry-Up (website 404)
-
-**Dead ends:** Theater de Molenberg Delfzijl (DNS), VanSlag Borger (geen site), Seynderslo (DNS), De Harmonie Leeuwarden (JS-only, niet geprobeerd)
+**Dead ends (blijven hier, veranderen zelden):** Theater de Molenberg Delfzijl (DNS), VanSlag Borger (geen site), Seynderslo (DNS), De Harmonie Leeuwarden (JS-only, niet geprobeerd)
 
 ---
 
 ## Open items
 
-- [ ] Ticketmaster Discovery API (gratis tier, 5.000 req/dag) — key aanvragen op developer.ticketmaster.com
-- [ ] Lycurgus — seizoen starten afwachten
-- [ ] GIJS Groningen — website URL achterhalen
-- [ ] Hurry-Up — werkende URL vinden
-- [ ] Stadspark Groningen (Summer Stage, Hullaballoo) — revisit zomer 2027
-- [ ] 14/57 scraping-recipes nog zonder werkende methode
+Verplaatst naar `plan.md` (levend to-do-document, met datering per gevonden issue).

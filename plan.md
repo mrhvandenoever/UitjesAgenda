@@ -2,15 +2,21 @@
 
 Levend document. Vink af / verplaats naar "Later" zodra iets besproken of gedaan is.
 
-## Nu (deze sessie — dry run refresh)
+## Sessie 2026-08-10/11 — afgerond
 - [x] GitHub-toegang gecheckt
 - [x] Cloudflare-account/project gecheckt (Chielemans@hotma…, project `uitjesagenda`)
 - [x] Python geïnstalleerd op deze laptop
 - [x] Repo gecloned naar `C:\dev\uitjesagenda`
-- [ ] 5 scrapers gedraaid (drenthe, visitgroningen, friesland, handmatig, naarzuidlaren)
-- [ ] `events_db.py export` + `gen_uitjes.py`
-- [ ] `git diff` bekijken met Michiel
-- [ ] Akkoord voor commit + push
+- [x] 5 scrapers gedraaid (drenthe, visitgroningen, friesland, handmatig, naarzuidlaren)
+- [x] `events_db.py export` + `gen_uitjes.py`
+- [x] Cross-source dedup gebouwd en toegepast
+- [x] Sport-audit: 19 clubs gecheckt, handbal (E&O + Hurry-Up) opgelost
+- [x] Sport-genre-badge-bug gefixt ("Overig" → juiste sporticoon/label)
+- [x] Afstand-handmatig-invoeren hersteld
+- [x] SPOT herbouwd (verse data + venue-split + genre-signaal)
+- [x] Kritieke insert-prioriteit-bug gefixt in `events_db.py`
+- [x] `SCRAPERS.md` toegevoegd (status per bron: automatisch / kan zonder AI / AI-Chrome nodig)
+- [x] Alles gecommit + gepusht (meerdere commits, telkens na review)
 
 ## Binnenkort — te overleggen (zie overleg.md)
 - [ ] Waar draait de wekelijkse refresh voortaan: deze laptop, andere pc (na reparatie), of iets anders?
@@ -39,17 +45,23 @@ Van de 19 geconfigureerde clubs in `gen_uitjes.py` (`SPORT_CLUBS`):
 - [ ] `gen_uitjes.py` aanpassen: per-event coördinaten i.p.v. per-bron
 - [ ] Verifiëren met het Annen/Zuidlaren-voorbeeld van Michiel
 
-## SPOT-scraper achterhaald + genre-classificatie te ambigu (gevonden 2026-08-11)
-- **SPOT-data verouderd**: live heeft spotgroningen.nl/programma/ nu 621 events, onze opgeslagen data maar 325 — SPOT zat niet bij de 5 wekelijkse scrapers. Bestaande regex in `scraping_recipes.json` werkt nog prima (621 matches op de live pagina), gewoon niet recent gedraaid.
-- **Bonus-vondst**: SPOT's HTML bevat `data-description`/`data-title`-attributen met een genre-signaal (bv. "...rockit-jazz-kwartet", "absolute-top-uit-de-hedendaagse-jazzscene" bij Peter Bernstein Quartet) dat de huidige scraper niet meepakt — alleen de `<h2>`-titel wordt gebruikt.
-- **Genre-bug**: `classify()` in `gen_uitjes.py` heeft 'quartet'/'kwartet'/'trio'/'ensemble' in de klassiek-keywordlijst — genre-ambigu, want jazz gebruikt dezelfde woorden. Peter Bernstein Quartet (jazz) kreeg daardoor 🎻 Klassiek / Opera.
-- [ ] Nieuwe `scrape_spotgroningen.py` bouwen die ook `data-description` meepakt
-- [ ] `classify()`: 'quartet'/'kwartet'/'trio'/'ensemble' weghalen uit de klassiek-lijst; waar beschikbaar `data-description` gebruiken voor jazz- vs klassiek-onderscheid
+## SPOT-scraper achterhaald + genre-classificatie te ambigu — OPGELOST 2026-08-11
+- SPOT-data was verouderd (621 live vs 325 opgeslagen) — nieuwe `scrape_spotgroningen.py` gebouwd, leest ook `data-location` (Oosterpoort vs Stadsschouwburg) en `data-genres`/`data-subgenres` (echt genre-signaal, bv. "jazz") uit SPOT's eigen HTML.
+- `classify()` in `gen_uitjes.py`: 'quartet'/'kwartet'/'trio'/'ensemble'/'kamer' weggehaald uit de klassiek-keywordlijst (genre-ambigu — jazz gebruikt dezelfde woorden); `jazz`/`pop` toegevoegd aan `cat_map` zodat SPOT's cats ze kunnen sturen. Peter Bernstein Quartet toont nu correct 🎷 Jazz / Blues.
+- **Onderweg ontdekt en meteen gefixt**: de eigenlijke reden dat SPOT's herscrapete data eerst niet doorkwam was een dieper insert-prioriteit-probleem in `events_db.py` (zie `decisions.md`) — generiek gefixt, niet SPOT-specifiek.
+- [ ] Overwegen: `cross-over`-subgenre (SPOT) bleek te dubbelzinnig om te mappen (zowel klassieke talentavonden als een punkoperette) — nu bewust ongemapt, kan later verfijnd worden als er een patroon in zit.
+
+## Scrapers uitbreiden richting volledig automatisch (zie SCRAPERS.md)
+Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat in
+`SCRAPERS.md`; twee sporen om verder te automatiseren:
+- [ ] **29 bronnen "kan zonder AI"**: recipe/scrape-code staat al klaar in `scraping_recipes.json`, alleen nog geen los `scrape_<naam>.py`-bestand — grootste, meest kansrijke o.a. Kielzog, Forum, Nieuwe Kolk, OntdekPoort (~216 events), Posthuis, de ESPN-gescrapete voetbalclubs, Nevobo-volleybalclubs.
+- [ ] **13 bronnen "AI/Chrome nodig"**: bevestigd client-rendered — de moeite waard om (net als bij SPOT/handbal.nl) te checken of er alsnog een verborgen API is voor plain-requests-scraping, voor er met Chrome MCP gewerkt wordt. O.a. Vera, Atlas Emmen, Simplon, Grand Theatre, Neushoorn, Groninger Museum.
+- [ ] **15 bronnen nog nooit geprobeerd**: TivoliVredenburg, Melkweg, Paradiso, 013, Ziggo Dome, Effenaar, Doornroosje, Ahoy, Het Paard, Hedon Zwolle, Rotown, De Doelen, GelreDome, Concertgebouw, Landstede.
+- [ ] Weekelijkse-refresh-commandolijst in `ARCHITECTURE.md` mee laten groeien (of omzetten naar `for f in scrape_*.py`, zie overleg.md).
 
 ## Later / open items (uit ARCHITECTURE.md)
 - [ ] Ticketmaster Discovery API (gratis tier, 5.000 req/dag) — key aanvragen op developer.ticketmaster.com
-- [ ] Lycurgus — seizoen nog niet gestart, later toevoegen
-- [ ] GIJS Groningen — URL onbekend
-- [ ] Hurry-Up — website geeft 404
+- [ ] Lycurgus/Sudosa/Friso — 2e seizoenshelft volleybal nog niet gepubliceerd door de bond, later herscrapen
+- [ ] GIJS Groningen — URL is nu wel bekend (gijsgroningen.nl/gijs-eredivisie/), maar toont nog seizoen 2025-2026; herchecken zodra 2026-2027 live is
 - [ ] Stadspark Groningen (Summer Stage, Hullaballoo) — revisit zomer 2027
-- [ ] 14/57 scraping-recipes nog zonder werkende methode — nalopen
+- [ ] Overige scraping-recipes zonder werkende methode — zie `SCRAPERS.md` voor de actuele, volledige stand

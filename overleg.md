@@ -22,11 +22,8 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
   - **Parallelle requests** — waarschijnlijk de grootste tijdswinst als de bottleneck vooral het aantal sequentiële HTTP-requests is (lijkt hier het geval).
   - Voorstel: hash-caching + parallelisatie combineren, geen early-stop.
 
-### 3. SPOT Groningen — Oosterpoort vs Stadsschouwburg
-- Nu: alle SPOT-events tonen alleen "Spot Groningen", zonder te specificeren welk gebouw (Oosterpoort of Stadsschouwburg).
-- Het specifieke gebouw staat wel op elke individuele event-pagina, maar de huidige scraper haalt alleen titel+datum van de programma-lijst — geen locatie.
-- Fix vereist een extra HTTP-request per event (~325+ stuks) om de detailpagina te lezen. Afweging: is de extra scrape-tijd/load het waard?
-- Keuze nodig: wel/niet doen, en zo ja hoe vaak (elke run, of eenmalig + alleen nieuwe events)?
+### 3. SPOT Groningen — Oosterpoort vs Stadsschouwburg — OPGELOST 2026-08-11
+- Bleek geen extra request per event nodig: SPOT's eigen programma-pagina heeft de locatie al in een `data-location`-attribuut per event (plus een genre-signaal via `data-genres`/`data-subgenres`). Nieuwe `scrape_spotgroningen.py` gebouwd, zie `decisions.md`.
 
 ### 4. Generieke/kapotte event-links (26 van ~50 bronnen)
 - Audit: 26 bronnen linken alle events naar dezelfde generieke agenda-URL i.p.v. een specifieke event-pagina. O.a. TivoliVredenburg (406 events → 1 link), Melkweg (175), Atlastheater (165), Doornroosje, 013, Effenaar, Ahoy, Koornbeurs, Vera (35), Posthuistheater, Martiniplaza, Neushoorn, Ziggo Dome, Paradiso, denieuwekolk.nl (86), en alle 8 sportclubs.
@@ -44,20 +41,15 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - Ambitie: de tool op termijn landelijk maken (nu vooral Noord-Nederland + een aantal landelijke podia).
 - Nader te bepalen: schaal (hoeveel bronnen/pagina's erbij), of de huidige scraper-architectuur dat aankan, prioritering t.o.v. de andere open items.
 
-### 4. Overig (uit ARCHITECTURE.md — openstaand)
-- Ticketmaster Discovery API (gratis tier) — key aanvragen?
-- Lycurgus — seizoen nog niet gestart
-- GIJS Groningen — URL onbekend
-- Hurry-Up — website 404
-- Stadspark Groningen (Summer Stage, Hullaballoo) — revisit zomer 2027
-- 14/57 scraping-recipes nog zonder werkende methode
+### 7. Weekelijkse-refresh-script laten meegroeien
+- Nu (in `ARCHITECTURE.md`): elke scraper apart bij naam genoemd in de Cowork-scheduled-task-commandolijst. Bij 40+ losse `scrape_<naam>.py`-bestanden (zie punt 8 / `SCRAPERS.md`) wordt dat een lange, makkelijk-te-vergeten-lijst.
+- Idee: omzetten naar `for f in scrape_*.py: python $f` (met evt. een expliciete uitzonderingslijst voor scripts die niet standaard wekelijks moeten draaien). Nog niet besloten/gebouwd.
 
-## Status huidige sessie (dry run)
-- [x] Toegang GitHub gecheckt (repo: mrhvandenoever/UitjesAgenda)
-- [x] Toegang Cloudflare gecheckt (account Chielemans@hotma…, project `uitjesagenda`)
-- [x] Python geïnstalleerd op deze laptop
-- [x] Repo gecloned naar `C:\dev\uitjesagenda`
-- [ ] Scrapers gedraaid (drenthe, visitgroningen, friesland, handmatig, naarzuidlaren) — loopt op de achtergrond
-- [ ] `events_db.py export` + `gen_uitjes.py`
-- [ ] `git diff` bekijken
-- [ ] Akkoord voor commit + push
+### 8. Scraper-architectuur: één bestand per venue — AFGESPROKEN 2026-08-11
+- Michiel's voorstel: voor elke venue een eigen, klein `scrape_<naam>.py`-bestand, ook als dat duplicatie tussen scripts betekent — makkelijker te debuggen (fout = precies dat ene bestand) en veiliger te editen dan één groot gedeeld scraper-bestand.
+- Akkoord, sluit aan bij de KRITIEKE REGEL over `gen_uitjes.py`-truncatie in ARCHITECTURE.md. Vastgelegd in `decisions.md`.
+- `SCRAPERS.md` toegevoegd: overzicht per bron of er al een script is, of het zonder AI kan (recipe klaar), of het AI/Chrome vereist (client-rendered site), of nog nooit geprobeerd.
+- Einddoel: wekelijkse refresh volledig zonder AI — AI alleen eenmalig gebruiken om een scrape-methode te ontdekken (zoals bij SPOT/handbal.nl gebeurde), niet structureel bij elke run.
+
+## Status
+Sessie 2026-08-10/11 afgerond — zie `plan.md` voor het volledige overzicht van wat gedaan is. Volgende sessie: verder met de scraper-uitbreiding (zie `plan.md` en `SCRAPERS.md`) en de nog openstaande discussiepunten hierboven (1, 2, 4, 5, 6, 7).
