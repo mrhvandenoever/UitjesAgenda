@@ -103,8 +103,15 @@ def init_db():
 
 def insert_event(event: dict) -> bool:
     """
-    Voeg event in. Retourneert True als nieuw, False als duplicaat.
-    Accepteert alle bekende velden; onbekende velden worden genegeerd.
+    Voeg event in. Retourneert True als nieuw (of geupgraded), False als
+    ongewijzigd duplicaat.
+
+    UNIQUE(title_norm, date) betekent dat twee bronnen die hetzelfde event
+    melden botsen op de insert. Zonder verdere logica wint dan simpelweg wie
+    het eerst gescraped is — niet per se de beste bron. Daarom: bij zo een
+    botsing, als de AL BESTAANDE rij van een aggregator komt (AGGREGATOR_SOURCES)
+    en de NIEUWE rij van een directe venue-bron, overschrijf de bestaande rij
+    dan met de nieuwe (preciezere venue/url/cats). Anders: negeer zoals voorheen.
     """
     title = (event.get('title') or '').strip()
     date  = (event.get('date')  or '').strip()
@@ -112,6 +119,7 @@ def insert_event(event: dict) -> bool:
         return False
 
     title_norm = normalize_title(title)
+    new_source = event.get('source', 'onbekend')
 
     conn = get_conn()
     try:
@@ -154,7 +162,40 @@ def insert_event(event: dict) -> bool:
         conn.commit()
         return True
     except sqlite3.IntegrityError:
-        return False  # duplicaat
+        existing = conn.execute(
+            'SELECT source FROM events WHERE title_norm = ? AND date = ?',
+            (title_norm, date)
+        ).fetchone()
+        existing_source = existing['source'] if existing else None
+        if existing_source in AGGREGATOR_SOURCES and new_source not in AGGREGATOR_SOURCES:
+            conn.execute("""
+                UPDATE events SET
+                    title=:title, date_end=:date_end, time=:time, location=:location,
+                    venue=:venue, city=:city, province=:province, lat=:lat, lon=:lon,
+                    genre=:genre, genres=:genres, category=:category, cats=:cats,
+                    source=:source, url=:url, image=:image, price=:price,
+                    subtitle=:subtitle, gender=:gender, sport=:sport, type=:type
+                WHERE title_norm=:title_norm AND date=:date
+            """, {
+                'title': title, 'title_norm': title_norm, 'date': date,
+                'date_end': event.get('date_end'), 'time': event.get('time'),
+                'location': event.get('location'), 'venue': event.get('venue'),
+                'city': event.get('city'), 'province': event.get('province'),
+                'lat': event.get('lat'), 'lon': event.get('lon'),
+                'genre': event.get('genre', 'overig'),
+                'genres': json.dumps(event['genres'], ensure_ascii=False)
+                           if isinstance(event.get('genres'), list) else event.get('genres'),
+                'category': event.get('category'),
+                'cats': json.dumps(event['cats'], ensure_ascii=False)
+                         if isinstance(event.get('cats'), list) else event.get('cats'),
+                'source': new_source, 'url': event.get('url'), 'image': event.get('image'),
+                'price': event.get('price'), 'subtitle': event.get('subtitle'),
+                'gender': event.get('gender'), 'sport': event.get('sport'),
+                'type': event.get('type'),
+            })
+            conn.commit()
+            return True
+        return False  # duplicaat, bestaande rij is al even goed of beter
     finally:
         conn.close()
 

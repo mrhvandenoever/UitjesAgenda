@@ -202,7 +202,7 @@ def classify(title, cats, source=''):
     if _kinderen_pat.search(t): return 'kinderen'
     cat_map = {'toneel':'theater','theater':'theater','cabaret':'cabaret','musical':'musical',
                'klassiek':'klassiek','opera':'klassiek','dans':'dans','ballet':'dans',
-               'familie':'kinderen','kinderen':'kinderen'}
+               'familie':'kinderen','kinderen':'kinderen','jazz':'jazz','pop':'pop'}
     for c in cats:
         if c == 'expositie':
             if any(w in t for w in ['expositie','tentoonstelling','galerie','expo','schilderij',
@@ -215,10 +215,12 @@ def classify(title, cats, source=''):
     if 'musical' in t: return 'musical'
     if any(w in t for w in ['cabaret','comedy','stand-up','humor']): return 'cabaret'
     if any(w in t for w in ['ballet','dans ','choreograf','dansavond']): return 'dans'
-    if any(w in t for w in ['orkest','symfon','opera','klassiek','kwartet','quartet',
-                             'piano','viool','cello','strijk','filharmonisch','dirigent',
-                             'ensemble','trio','kamer','recital']): return 'klassiek'
+    # jazz eerst: 'quartet'/'trio'/'ensemble' zijn genre-ambigu en horen niet
+    # exclusief bij klassiek (bv. 'Peter Bernstein Quartet' is jazz, geen klassiek)
     if any(w in t for w in ['jazz','blues','soul','swing','funk','bossa','reggae']): return 'jazz'
+    if any(w in t for w in ['orkest','symfon','opera','klassiek',
+                             'piano','viool','cello','strijk','filharmonisch','dirigent',
+                             'recital']): return 'klassiek'
     if any(w in t for w in ['expositie','tentoonstelling','galerie','biënnale','biennale',
                              'storyworld','strip','marilyn']): return 'expo'
     if any(w in t for w in [' theater',' toneel','toneelstuk','voorstelling']): return 'theater'
