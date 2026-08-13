@@ -73,8 +73,13 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
 - [x] Nienoord (oude regex was stuk door site-wijziging, herbouwd — kleiner dan verwacht: 3 i.p.v. ~9)
 - 6986 → 7031 events na deze batch
 
+### Sessie 2026-08-13 vervolg 2 — laatste 3 "kan zonder AI"-bronnen
+- [x] Machinefabriek (via podiuminfo.nl), Noorderbron (WP Event Manager), AFAS Live (92 events)
+- [x] Geke Hoogstins bewust NIET gebouwd — zijn doorlopende maandenlange exposities, geen losse datums, past niet in ons datamodel
+- 7031 → 7067 events na deze batch
+- **"Kan zonder AI"-lijst is nu leeg.** Resterende sporen: AI/Chrome nodig (16 bronnen) en nog nooit geprobeerd (15 bronnen), zie SCRAPERS.md.
+
 ### Resterende sporen (zie SCRAPERS.md voor details)
-- [ ] **4 bronnen "kan zonder AI"**: Geke Hoogstins (rommelige tekststructuur), Machinefabriek (via podiuminfo.nl), Noorderbron, AFAS Live.
 - [ ] **16 bronnen "AI/Chrome nodig"**: Vera, Atlas Emmen, Simplon, Grand Theatre, Winsinghhof, EM2, Neushoorn, Groninger Museum, Drents Museum, Zuidhaege Assen, Koornbeurs, Zummerbühne, OntdekPoort, Hunebedcentrum, FC Groningen, GIJS Groningen.
 - [ ] **15 bronnen nog nooit geprobeerd**: TivoliVredenburg, Melkweg, Paradiso, 013, Ziggo Dome, Effenaar, Doornroosje, Ahoy, Het Paard, Hedon Zwolle, Rotown, De Doelen, GelreDome, Concertgebouw, Landstede.
 - [ ] Weekelijkse-refresh-commandolijst in `ARCHITECTURE.md` mee laten groeien (of omzetten naar `for f in scrape_*.py`, zie overleg.md) — inmiddels 21 losse scripts, lijst wordt onhandig lang.
