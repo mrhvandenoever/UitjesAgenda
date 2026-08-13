@@ -14,6 +14,13 @@ from collections import defaultdict
 with open(EVENTS_JSON, encoding="utf-8") as f:
     events = json.load(f)
 
+CITY_COORDS_PATH = os.path.join(SCRIPT_DIR, 'city_coords.json')
+try:
+    with open(CITY_COORDS_PATH, encoding='utf-8') as f:
+        CITY_COORDS = json.load(f)
+except FileNotFoundError:
+    CITY_COORDS = {}
+
 SRC = {
     'spotgroningen.nl':    ('Spot',            '🔴', '#e53935'),
     'lawei':               ('De Lawei',        '🎶', '#6d4c41'),
@@ -305,8 +312,14 @@ def event_html(e):
     title_html = (f'<a href="{esc(e.get("url",""))}" target="_blank">{esc(e.get("title",""))}</a>'
                   if e.get('url') else esc(e.get('title','')))
     loc = VENUE_LOC.get(src)
-    prov = loc[2] if loc else 'Onbekend'
-    lat_lon = f'{loc[0]},{loc[1]}' if loc else ''
+    prov = loc[2] if loc else e.get('province', 'Onbekend')
+    city_loc = CITY_COORDS.get((e.get('city') or '').strip())
+    if city_loc:
+        lat_lon = f'{city_loc[0]},{city_loc[1]}'
+    elif loc:
+        lat_lon = f'{loc[0]},{loc[1]}'
+    else:
+        lat_lon = ''
     return (f'<div class="event {sk}" data-src="{src}" data-genre="{genre}" '
             f'data-prov="{prov}" data-latlon="{lat_lon}" data-gender="{gender}">'
             f'<div class="event-date">{fmt_date(e.get("date",""))}</div>'
