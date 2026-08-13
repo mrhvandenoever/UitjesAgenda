@@ -51,5 +51,14 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - `SCRAPERS.md` toegevoegd: overzicht per bron of er al een script is, of het zonder AI kan (recipe klaar), of het AI/Chrome vereist (client-rendered site), of nog nooit geprobeerd.
 - Einddoel: wekelijkse refresh volledig zonder AI — AI alleen eenmalig gebruiken om een scrape-methode te ontdekken (zoals bij SPOT/handbal.nl gebeurde), niet structureel bij elke run.
 
+### 9. Favorieten: volg een specifieke act/team
+- Idee van Michiel: een sportteam, band, theatergezelschap, cabaretier of andere act kunnen selecteren als "favoriet", en dan zien waar en wanneer die optreedt — over alle bronnen/venues heen.
+- Interessante ontwerpvragen:
+  - Hoe herken je "dezelfde act" over verschillende bronnen heen als de titeltekst steeds anders is (bv. "Peter Bernstein Quartet" bij SPOT vs. een net iets andere titel bij een aggregator)? Zelfde soort matching-probleem als bij de cross-source dedup, maar dan voor identiteit i.p.v. duplicaten.
+  - UI: een simpele naam-zoekfunctie/autocomplete over alle titels, of een echte "favorieten"-lijst die lokaal (browser) wordt opgeslagen?
+  - Notificatie erbij (bv. "nieuw optreden toegevoegd voor favoriet X"), of alleen een filter/overzicht?
+  - Sport past hier natuurlijk al goed bij (club-filter bestaat al) — dit zou het generaliseren naar willekeurige artiesten/gezelschappen ook buiten sport.
+- Nog niet uitgewerkt, puur een ideeschets.
+
 ## Status
 Sessie 2026-08-10/11 afgerond — zie `plan.md` voor het volledige overzicht van wat gedaan is. Volgende sessie: verder met de scraper-uitbreiding (zie `plan.md` en `SCRAPERS.md`) en de nog openstaande discussiepunten hierboven (1, 2, 4, 5, 6, 7).
