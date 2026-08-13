@@ -1,0 +1,108 @@
+"""
+scrape_nienoord.py — Podium Nienoord (Leek)
+
+Gebruik:
+    python scrape_nienoord.py              # scrape, sla op in DB
+    python scrape_nienoord.py --dry-run    # toon events zonder op te slaan
+
+<article class="agendaItem">-blokken met een NL-datum zonder jaartal (jaar
+wordt afgeleid) en een <h1>-titel. Handig extraatje: de URL-slug bevat vaak
+zelf ook al de ISO-datum (bv. /agenda/soul-at-the-park-2026-09-05/) — die
+gebruiken we als eerste keus, met de tekst-datum als fallback.
+"""
+
+import urllib.request
+import re
+import argparse
+from datetime import date
+from events_db import insert_event, log_scrape, init_db
+
+SOURCE   = 'podiumnienoordleek'
+BASE_URL = 'https://www.podiumnienoordleek.nl/agenda'
+DOMAIN   = 'https://www.podiumnienoordleek.nl'
+VENUE    = 'Nienoord, Leek'
+UA       = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+            '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+
+NL_MONTHS = {
+    'januari': 1, 'februari': 2, 'maart': 3, 'april': 4, 'mei': 5, 'juni': 6,
+    'juli': 7, 'augustus': 8, 'september': 9, 'oktober': 10, 'november': 11, 'december': 12,
+}
+PATTERN = re.compile(
+    r'<article class="agendaItem[^"]*">\s*<a href="([^"]+)">.*?'
+    r'(maandag|dinsdag|woensdag|donderdag|vrijdag|zaterdag|zondag)\s+(\d{1,2})\s+(\w+).*?'
+    r'<h1>(.*?)</h1>', re.S | re.I
+)
+
+
+def fetch(url: str) -> str:
+    req = urllib.request.Request(url, headers={'User-Agent': UA})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return r.read().decode('utf-8', errors='replace')
+
+
+def date_from_slug(href: str) -> str | None:
+    m = re.search(r'(\d{4}-\d{2}-\d{2})', href)
+    return m.group(1) if m else None
+
+
+def date_from_text(day: int, month_str: str) -> str | None:
+    month = NL_MONTHS.get(month_str.lower())
+    if not month:
+        return None
+    today = date.today()
+    try:
+        d = date(today.year, month, day)
+    except ValueError:
+        return None
+    if d < today:
+        try:
+            d = date(today.year + 1, month, day)
+        except ValueError:
+            return None
+    return d.isoformat()
+
+
+def scrape(dry_run: bool = False) -> tuple[int, int]:
+    init_db()
+    try:
+        html = fetch(BASE_URL)
+    except Exception as e:
+        print(f"  FOUT: {e}")
+        return 0, 0
+
+    found = added = 0
+    for href, _dag, day, month_str, title in PATTERN.findall(html):
+        iso_date = date_from_slug(href) or date_from_text(int(day), month_str)
+        if not iso_date:
+            continue
+        found += 1
+        ev = {
+            'title':  re.sub(r'<[^>]+>', '', title).strip(),
+            'date':   iso_date,
+            'venue':  VENUE,
+            'url':    DOMAIN + href,
+            'source': SOURCE,
+        }
+        if dry_run:
+            print(f"    [{ev['date']}] {ev['title']}")
+        else:
+            if insert_event(ev):
+                added += 1
+
+    if not dry_run:
+        log_scrape(SOURCE, found, added)
+        print(f"✓ Klaar: {found} gevonden, {added} nieuw in DB")
+    else:
+        print(f"\nDry-run: {found} events gevonden (niets opgeslagen)")
+
+    return found, added
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--dry-run', action='store_true')
+    args = parser.parse_args()
+
+    print(f"Scraping Nienoord [{'dry-run' if args.dry_run else 'live'}]...")
+    scrape(dry_run=args.dry_run)

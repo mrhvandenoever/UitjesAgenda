@@ -66,8 +66,15 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
 - [ ] Donar (basketbal) — 3 platforms onderzocht, nog niet opgelost. Zie SCRAPERS.md voor de volledige stand (Foys-API, NBB-API met lege 2026-2027-data, livescore.com-tip van Michiel nog te proberen).
 - [ ] Zummerbühne, OntdekPoort, Hunebedcentrum — bleken bij nader inzien AI/Chrome nodig (ticketwidget resp. bot-bescherming), verplaatst in SCRAPERS.md.
 
+### Sessie 2026-08-13 vervolg — nog 6 scrapers erbij
+- [x] Nieuwe Kolk (denieuwekolk.nl) — eindelijk de per-event-URL opgelost, plus /bieb/-bibliotheekactiviteiten bewust uitgesloten (37 events)
+- [x] Lycurgus, Sudosa, Friso (Nevobo RSS, zelfde patroon als eerder)
+- [x] Dorpshuis Annen (Jimdo-site, tekst-pattern-matching)
+- [x] Nienoord (oude regex was stuk door site-wijziging, herbouwd — kleiner dan verwacht: 3 i.p.v. ~9)
+- 6986 → 7031 events na deze batch
+
 ### Resterende sporen (zie SCRAPERS.md voor details)
-- [ ] **8 bronnen "kan zonder AI"**: Nieuwe Kolk (denieuwekolk.nl, per-event-URL), Nienoord (regex verouderd), Geke Hoogstins, Machinefabriek, Dorpshuis Annen, Noorderbron, AFAS Live, Lycurgus/Sudosa/Friso (Nevobo RSS, zelfde patroon als eerdere Nevobo-scrapers).
+- [ ] **4 bronnen "kan zonder AI"**: Geke Hoogstins (rommelige tekststructuur), Machinefabriek (via podiuminfo.nl), Noorderbron, AFAS Live.
 - [ ] **16 bronnen "AI/Chrome nodig"**: Vera, Atlas Emmen, Simplon, Grand Theatre, Winsinghhof, EM2, Neushoorn, Groninger Museum, Drents Museum, Zuidhaege Assen, Koornbeurs, Zummerbühne, OntdekPoort, Hunebedcentrum, FC Groningen, GIJS Groningen.
 - [ ] **15 bronnen nog nooit geprobeerd**: TivoliVredenburg, Melkweg, Paradiso, 013, Ziggo Dome, Effenaar, Doornroosje, Ahoy, Het Paard, Hedon Zwolle, Rotown, De Doelen, GelreDome, Concertgebouw, Landstede.
 - [ ] Weekelijkse-refresh-commandolijst in `ARCHITECTURE.md` mee laten groeien (of omzetten naar `for f in scrape_*.py`, zie overleg.md) — inmiddels 21 losse scripts, lijst wordt onhandig lang.

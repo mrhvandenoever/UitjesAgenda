@@ -1542,12 +1542,10 @@
   {
     "title": "Sunday at the Park",
     "date": "2026-08-16",
-    "source": "visitgroningen",
-    "genre": "Muziek",
-    "city": "Leek",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3694116166/sunday-at-the-park-2",
-    "category": "Muziek overig"
+    "source": "podiumnienoordleek",
+    "genre": "overig",
+    "venue": "Nienoord, Leek",
+    "url": "https://www.podiumnienoordleek.nl/agenda/sunday-at-the-park-2026-08-16/"
   },
   {
     "title": "Talks Events/Dia Di Tula",
@@ -5290,6 +5288,14 @@
     "url": "https://www.paard.nl/en/event/gogol-bordello-2/"
   },
   {
+    "title": "Harry Potter and the Deathly Hallows - Part 1",
+    "date": "2026-09-01",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/harry-potter-and-the-deathly-hallows-part-1"
+  },
+  {
     "title": "Holy Wave",
     "date": "2026-09-01",
     "source": "paard",
@@ -5306,6 +5312,14 @@
     "city": "Piaam",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3266883736/kijk-achter-de-schermen-bij-eendenkooi-buismanskoai-bij-piaam"
+  },
+  {
+    "title": "Omaha",
+    "date": "2026-09-01",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/omaha"
   },
   {
     "title": "RYAN DAVIS & THE ROADHOUSE BAND",
@@ -5428,6 +5442,14 @@
     "cats": []
   },
   {
+    "title": "Harry Potter and the Deathly Hallows - Part 2",
+    "date": "2026-09-02",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/harry-potter-and-the-deathly-hallows-part-2"
+  },
+  {
     "title": "Holy Wave",
     "date": "2026-09-02",
     "source": "vera",
@@ -5468,6 +5490,14 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3775897683/klik-tik"
   },
   {
+    "title": "On the Road",
+    "date": "2026-09-02",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/on-the-road"
+  },
+  {
     "title": "Orgelconcert door Stephan van de Wijgert",
     "date": "2026-09-02",
     "source": "visitgroningen",
@@ -5480,11 +5510,10 @@
   {
     "title": "Prosecco Night: F*ck de Familie",
     "date": "2026-09-02",
-    "source": "drenthe.nl",
+    "source": "denieuwekolk.nl",
     "genre": "overig",
-    "city": "Assen",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/951904106/prosecco-night-f-ck-de-familie"
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/prosecco-night-f-ck-de-familie"
   },
   {
     "title": "Senior Café Heerenveen: Optreden muzikant Jan de Vries",
@@ -6239,6 +6268,14 @@
     "category": "Muziek overig"
   },
   {
+    "title": "Omaha",
+    "date": "2026-09-05",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/omaha"
+  },
+  {
     "title": "Orgelconcert Gertine Hoefnagel",
     "date": "2026-09-05",
     "source": "visitgroningen",
@@ -6312,14 +6349,12 @@
     "genre": "overig"
   },
   {
-    "title": "SHIRMA ROUSE SOUL IN THE PARK REGGAE EDITION",
+    "title": "SHIRMA ROUSE SOUL IN THE PARK Reggae Edition",
     "date": "2026-09-05",
-    "source": "visitgroningen",
-    "genre": "Muziek",
-    "city": "Leek",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1112221925/shirma-rouse-soul-in-the-park-reggae-edition",
-    "category": "Concert"
+    "source": "podiumnienoordleek",
+    "genre": "overig",
+    "venue": "Nienoord, Leek",
+    "url": "https://www.podiumnienoordleek.nl/agenda/soul-at-the-park-2026-09-05/"
   },
   {
     "title": "STRENGTH OF UNITY - 30 YEARS OF CENOBITE RECORDS & OUWE STIJL IS BOTERGEIL",
@@ -6750,6 +6785,14 @@
     "url": "https://www.concertgebouw.nl/concerten/37260183-noa-wildschut-in-saint-saens-vioolconcert-nr.-3-andrew-grams-dirigeert-carmen"
   },
   {
+    "title": "Omaha",
+    "date": "2026-09-06",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/omaha"
+  },
+  {
     "title": "Orgelconcert Zandeweer",
     "date": "2026-09-06",
     "source": "visitgroningen",
@@ -6948,10 +6991,26 @@
     "url": "https://dedoelen.nl/nl/agenda/the-best-of-tubular-bells-i-ii-iii-zht9"
   },
   {
+    "title": "The Christophers",
+    "date": "2026-09-07",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/the-christophers"
+  },
+  {
     "title": "The Dresden Dolls",
     "date": "2026-09-07",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "The Good Sister",
+    "date": "2026-09-07",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/the-good-sister"
   },
   {
     "title": "Verhalen van het Landschap | Emmen",
@@ -7028,6 +7087,22 @@
     "date": "2026-09-08",
     "source": "doornroosje",
     "genre": "overig"
+  },
+  {
+    "title": "The Christophers",
+    "date": "2026-09-08",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/the-christophers"
+  },
+  {
+    "title": "The Good Sister",
+    "date": "2026-09-08",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/the-good-sister"
   },
   {
     "title": "WITCHZ",
@@ -7171,6 +7246,22 @@
     "genre": "overig",
     "venue": "USVA, Groningen",
     "url": "https://www.usva.nl/proeflessenweek-2/"
+  },
+  {
+    "title": "Talkin' Blues",
+    "date": "2026-09-09",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/talkin-blues"
+  },
+  {
+    "title": "The Christophers",
+    "date": "2026-09-09",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/the-christophers"
   },
   {
     "title": "Tijdreis door de Zuiderzee",
@@ -7396,6 +7487,15 @@
     "city": "Amen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3474616599/akoestische-releaseshow-lisa-ploeger-the-lighthouse-keeper-s-daughter"
+  },
+  {
+    "title": "Altijd al willen leren klaverjassen ? Kom naar deze avond voor beginners!",
+    "date": "2026-09-11",
+    "source": "dorpshuisannen",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Dorpshuis Annen",
+    "url": "https://www.dorpshuisannen.nl/voorstellingen"
   },
   {
     "title": "Blaudzun",
@@ -8302,6 +8402,14 @@
     "subtitle": "Ons café is weer open en dus is het tijd voor Terras Theater"
   },
   {
+    "title": "The Good Sister",
+    "date": "2026-09-12",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/the-good-sister"
+  },
+  {
     "title": "The Smiler presents: L.O.L",
     "date": "2026-09-12",
     "source": "effenaar",
@@ -8561,14 +8669,12 @@
     "genre": "overig"
   },
   {
-    "title": "Grunn at the Park",
+    "title": "Grunn at the park",
     "date": "2026-09-13",
-    "source": "visitgroningen",
-    "genre": "Muziek",
-    "city": "Leek",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3678566751/grunn-at-the-park",
-    "category": "Muziek overig"
+    "source": "podiumnienoordleek",
+    "genre": "overig",
+    "venue": "Nienoord, Leek",
+    "url": "https://www.podiumnienoordleek.nl/agenda/grunn-at-the-park-2026-09-13/"
   },
   {
     "title": "Hawkwind",
@@ -8762,6 +8868,14 @@
     "genre": "overig"
   },
   {
+    "title": "The Good Sister",
+    "date": "2026-09-13",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/the-good-sister"
+  },
+  {
     "title": "Tuinconcert: Les Chansons Françaises - Alexander Broussard",
     "date": "2026-09-13",
     "source": "drenthe.nl",
@@ -8832,6 +8946,14 @@
     "venue": "Kielzog, Winschoten",
     "url": "https://www.kielzog.nl/evenementen/muzikale-herinneringen?instance=yesplan-3433679617-1783518488",
     "subtitle": "Een harmonieuze en gezellige ochtend"
+  },
+  {
+    "title": "Silent Rebellion (16 jr.)",
+    "date": "2026-09-14",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/silent-rebellion-16-jr"
   },
   {
     "title": "Slava Kommisarenko",
@@ -8934,6 +9056,14 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/she-her-her-hers/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/03/She-Her-Her-Hers_kl.jpg"
+  },
+  {
+    "title": "Silent Rebellion (16 jr.)",
+    "date": "2026-09-15",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/silent-rebellion-16-jr"
   },
   {
     "title": "Starten als Imker?",
@@ -9101,6 +9231,14 @@
     "date": "2026-09-16",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Sinners (16 jr.)",
+    "date": "2026-09-16",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/sinners-16-jr"
   },
   {
     "title": "THE LONGEST JOHNS",
@@ -9597,11 +9735,10 @@
   {
     "title": "Pink Floyd Project",
     "date": "2026-09-18",
-    "source": "drenthe.nl",
+    "source": "denieuwekolk.nl",
     "genre": "overig",
-    "city": "Assen",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3614502001/pink-floyd-project"
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/theater/agenda/pink-floyd-project"
   },
   {
     "title": "Plus Instruments (NL) + Desintresse (NL) + Hondenfokker (NL)",
@@ -10201,6 +10338,14 @@
     "url": "https://www.concertgebouw.nl/concerten/45527465-sibelius-vioolconcert-moesorgskis-schilderijen-van-een-tentoonstelling"
   },
   {
+    "title": "Silent Rebellion (16 jr.)",
+    "date": "2026-09-19",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/silent-rebellion-16-jr"
+  },
+  {
     "title": "Sport-, Cultuur- en Vitaliteitsfestival &#8211; Vitaal festival",
     "date": "2026-09-19",
     "source": "drenthe.nl",
@@ -10707,6 +10852,14 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/399161253/slowtriatlon-r-waterland-van-friesland"
   },
   {
+    "title": "Silent Rebellion (16 jr.)",
+    "date": "2026-09-20",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/silent-rebellion-16-jr"
+  },
+  {
     "title": "The BluesBones + Eddy Smith & The 507",
     "date": "2026-09-20",
     "source": "tivolivredenburg",
@@ -10894,6 +11047,14 @@
     ]
   },
   {
+    "title": "The Portuguese House",
+    "date": "2026-09-21",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/the-portuguese-house"
+  },
+  {
     "title": "Undertale: The Determination Symphony",
     "date": "2026-09-21",
     "source": "dedoelen",
@@ -11049,6 +11210,14 @@
     "date": "2026-09-22",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "The Portuguese House",
+    "date": "2026-09-22",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/the-portuguese-house"
   },
   {
     "title": "Bert Visscher",
@@ -12293,6 +12462,15 @@
     ]
   },
   {
+    "title": "Gewoon Aans, een energieke, eigenzinnige toneelgroep met 'Wat 'n gedoo'",
+    "date": "2026-09-26",
+    "source": "dorpshuisannen",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Dorpshuis Annen",
+    "url": "https://www.dorpshuisannen.nl/voorstellingen"
+  },
+  {
     "title": "Harlingen Ongeschut 2026",
     "date": "2026-09-26",
     "source": "friesland.nl",
@@ -12605,6 +12783,14 @@
     "category": "Theater overig"
   },
   {
+    "title": "The Portuguese House",
+    "date": "2026-09-26",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/the-portuguese-house"
+  },
+  {
     "title": "The best of Simon & Garfunkel - Syb van der Ploeg, Maarten Peters e.a.",
     "date": "2026-09-26",
     "source": "lawei",
@@ -12693,6 +12879,14 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/127692171/vroug-thuus-festival-2",
     "category": "Muziekfestival"
+  },
+  {
+    "title": "Wandeling ‘Cuby’s natuur’",
+    "date": "2026-09-26",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/theater/agenda/wandeling-cubys-natuur"
   },
   {
     "title": "Wattenavond 2026!",
@@ -13217,6 +13411,14 @@
     "genre": "overig"
   },
   {
+    "title": "The Portuguese House",
+    "date": "2026-09-27",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/the-portuguese-house"
+  },
+  {
     "title": "Theaterconcert MILONGE",
     "date": "2026-09-27",
     "source": "visitgroningen",
@@ -13305,6 +13507,14 @@
     "city": "Joure",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1508248971/jouster-merke-koersen"
+  },
+  {
+    "title": "Les enfants vont bien",
+    "date": "2026-09-28",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/les-enfants-vont-bien"
   },
   {
     "title": "Moving Talent: Van talent naar podium",
@@ -13396,6 +13606,14 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/lsd-and-the-search-for-god/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/03/LSD-and-the-Search-for-God-KL.jpg"
+  },
+  {
+    "title": "Les enfants vont bien",
+    "date": "2026-09-29",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/les-enfants-vont-bien"
   },
   {
     "title": "Nederlands Kamerkoor",
@@ -21469,6 +21687,17 @@
     "genre": "overig"
   },
   {
+    "title": "Friso - Meerdervoort VV Utrecht DS 1",
+    "date": "2026-10-21",
+    "source": "friso",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Sneker Sporthal, van Giffenstraat 3, 8601EX  Sneek",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964001",
+    "gender": "dames",
+    "sport": "volleybal"
+  },
+  {
     "title": "Friso Sneek - Meerdervoort VV Utrecht DS 1",
     "date": "2026-10-21",
     "source": "friso",
@@ -22775,6 +23004,15 @@
     "category": "Theater overig"
   },
   {
+    "title": "Het ALTO KWARTET , een verrassende bewerking van Ede Staal’s rijke erfenis",
+    "date": "2026-10-24",
+    "source": "dorpshuisannen",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Dorpshuis Annen",
+    "url": "https://www.dorpshuisannen.nl/voorstellingen"
+  },
+  {
     "title": "Het ALTO KWARTET — Ede Staal's erfenis",
     "date": "2026-10-24",
     "source": "dorpshuisannen",
@@ -22871,6 +23109,17 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3007158065/lola-cedes",
     "category": "Pop en Rock"
+  },
+  {
+    "title": "Lycurgus - Prima Donna Kaas Huizen HS 1",
+    "date": "2026-10-24",
+    "source": "lycurgus",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Topsportcentrum Alfacollege, Groningen",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964161",
+    "gender": "heren",
+    "sport": "volleybal"
   },
   {
     "title": "Midnight Til Morning",
@@ -25246,6 +25495,17 @@
     ]
   },
   {
+    "title": "Friso - Sliedrecht Sport DS 1",
+    "date": "2026-10-31",
+    "source": "friso",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Sneker Sporthal, van Giffenstraat 3, 8601EX  Sneek",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1963992",
+    "gender": "dames",
+    "sport": "volleybal"
+  },
+  {
     "title": "Friso Sneek - Sliedrecht Sport DS 1",
     "date": "2026-10-31",
     "source": "friso",
@@ -25582,6 +25842,15 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45550450-stravinskys-le-sacre-du-printemps-en-wynton-marsalis-celloconcert"
+  },
+  {
+    "title": "Strunen deur Annen door de Historische vereniging Annen , thema Disco '76, dit jaar in de Grutter",
+    "date": "2026-10-31",
+    "source": "dorpshuisannen",
+    "genre": "overig",
+    "time": "19:00",
+    "venue": "Dorpshuis Annen",
+    "url": "https://www.dorpshuisannen.nl/voorstellingen"
   },
   {
     "title": "Strunen deur Annen — Historische Vereniging (thema Disco '76)",
@@ -30458,6 +30727,17 @@
     "url": "https://www.paard.nl/en/event/flemming-6/"
   },
   {
+    "title": "Friso - Apollo 8 DS 1",
+    "date": "2026-11-14",
+    "source": "friso",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Sneker Sporthal, van Giffenstraat 3, 8601EX  Sneek",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1963982",
+    "gender": "dames",
+    "sport": "volleybal"
+  },
+  {
     "title": "Friso Sneek - Apollo 8 DS 1",
     "date": "2026-11-14",
     "source": "friso",
@@ -33135,6 +33415,17 @@
     "cats": []
   },
   {
+    "title": "Friso - Draisma Dynamo DS 1",
+    "date": "2026-11-21",
+    "source": "friso",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Sneker Sporthal, van Giffenstraat 3, 8601EX  Sneek",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964004",
+    "gender": "dames",
+    "sport": "volleybal"
+  },
+  {
     "title": "Friso Sneek - Draisma Dynamo DS 1",
     "date": "2026-11-21",
     "source": "friso",
@@ -35237,6 +35528,17 @@
     "genre": "overig"
   },
   {
+    "title": "Lycurgus - Scherp in Packaging ZVH HS 1",
+    "date": "2026-11-27",
+    "source": "lycurgus",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Topsportcentrum Alfacollege, Groningen",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964162",
+    "gender": "heren",
+    "sport": "volleybal"
+  },
+  {
     "title": "MODESTEP",
     "date": "2026-11-27",
     "source": "melkweg",
@@ -35649,6 +35951,17 @@
     ]
   },
   {
+    "title": "Friso - SOMAS/Activia DS 1",
+    "date": "2026-11-28",
+    "source": "friso",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Sneker Sporthal, van Giffenstraat 3, 8601EX  Sneek",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1963997",
+    "gender": "dames",
+    "sport": "volleybal"
+  },
+  {
     "title": "Friso Sneek - SOMAS/Activia DS 1",
     "date": "2026-11-28",
     "source": "friso",
@@ -36026,6 +36339,15 @@
     "cats": [
       "toneel"
     ]
+  },
+  {
+    "title": "Toneeluitvoering door toneelvereniging Advendo",
+    "date": "2026-11-28",
+    "source": "dorpshuisannen",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Dorpshuis Annen",
+    "url": "https://www.dorpshuisannen.nl/voorstellingen"
   },
   {
     "title": "Transmission",
@@ -39909,6 +40231,17 @@
     "category": "Theater overig"
   },
   {
+    "title": "Friso - Peelpush DS 1",
+    "date": "2026-12-12",
+    "source": "friso",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Sneker Sporthal, van Giffenstraat 3, 8601EX  Sneek",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1963988",
+    "gender": "dames",
+    "sport": "volleybal"
+  },
+  {
     "title": "Friso Sneek - Peelpush DS 1",
     "date": "2026-12-12",
     "source": "friso",
@@ -41093,6 +41426,17 @@
     "city": "Ruinen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2530001623/kerstconcert-roon-staal-mariakerk-ruinen"
+  },
+  {
+    "title": "Lycurgus - Orion Stars HS 1",
+    "date": "2026-12-16",
+    "source": "lycurgus",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Topsportcentrum Alfacollege, Groningen",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/2039600",
+    "gender": "heren",
+    "sport": "volleybal"
   },
   {
     "title": "Maarten Heijmans & Xander Vrienten Wachtend op de dood",
@@ -44397,6 +44741,17 @@
     "subtitle": "Renaissance 2.0"
   },
   {
+    "title": "Lycurgus - Sliedrecht Sport HS 1",
+    "date": "2027-01-09",
+    "source": "lycurgus",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Topsportcentrum Alfacollege, Groningen",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964166",
+    "gender": "heren",
+    "sport": "volleybal"
+  },
+  {
     "title": "Max van den Burg - Maxikozi",
     "date": "2027-01-09",
     "source": "drenthe.nl",
@@ -45155,6 +45510,17 @@
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3789276511/franciscus-de-familiemusical-6"
+  },
+  {
+    "title": "Friso - Jumbo Virena Autogroep Sudosa DS 1",
+    "date": "2027-01-16",
+    "source": "friso",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Sneker Sporthal, van Giffenstraat 3, 8601EX  Sneek",
+    "url": "https://api.nevobo.nl/permalink/wedstrijd/1964008",
+    "gender": "dames",
+    "sport": "volleybal"
   },
   {
     "title": "Friso Sneek - Jumbo Virena Autogroep Sudosa DS 1",
@@ -50436,6 +50802,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "De stille kracht van de natuur , Drentse natuurfilm gemaakt door Henk en Janetta Bos",
+    "date": "2027-02-13",
+    "source": "dorpshuisannen",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Dorpshuis Annen",
+    "url": "https://www.dorpshuisannen.nl/voorstellingen"
   },
   {
     "title": "DeRondedeRoo/Feikes Huis Please don't make love to me, I'm exhausted",
@@ -55876,6 +56251,15 @@
     "city": "Meppel",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2939830495/de-maskermeiden-cadeautje-2-8-jaar"
+  },
+  {
+    "title": "Een avondje blues, swing en boogie door Ed Bakers Boogie Machine",
+    "date": "2027-03-13",
+    "source": "dorpshuisannen",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Dorpshuis Annen",
+    "url": "https://www.dorpshuisannen.nl/voorstellingen"
   },
   {
     "title": "Ellen ten Damme Medusa (try-out)",
@@ -62100,6 +62484,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Pubkwisssss",
+    "date": "2027-04-17",
+    "source": "dorpshuisannen",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Dorpshuis Annen",
+    "url": "https://www.dorpshuisannen.nl/voorstellingen"
   },
   {
     "title": "Pynarello",

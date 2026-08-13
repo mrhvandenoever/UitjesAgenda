@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (23 bronnen, 21 scripts)
+## ✅ Geautomatiseerd (29 bronnen, 27 scripts)
 
 | Bron | Script |
 |---|---|
@@ -45,6 +45,12 @@ Laatst samengesteld: 2026-08-13.
 | Posthuis | `scrape_posthuistheater.py` |
 | Bostheater | `scrape_bostheater.py` |
 | GC Zuidlaren | `scrape_gczuidlaren.py` |
+| Nieuwe Kolk (denieuwekolk.nl) | `scrape_denieuwekolk.py` (37 events, alleen /theater/ + /bios/, /bieb/-activiteiten bewust overgeslagen) |
+| Lycurgus | `scrape_lycurgus.py` |
+| CRAFT Sudosa | `scrape_sudosa.py` |
+| Friso Sneek | `scrape_friso.py` |
+| Dorpshuis Annen | `scrape_dorpshuisannen.py` |
+| Nienoord | `scrape_nienoord.py` (site-structuur gewijzigd, regex herbouwd — 3 events, kleiner dan de oude ~9) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
@@ -70,18 +76,14 @@ en `scrape_handmatig.py` (zie ✋ hieronder).
 | FC Groningen | 18 thuiswedstrijden (data staat er al) | eenmalig via Chrome gehaald, geen los script |
 | GIJS Groningen (ijshockey) | — | site toont nog seizoen 2025-2026, herchecken zodra nieuw seizoen live is |
 
-## 🔧 Kan zonder AI — recipe werkt, script nog niet gebouwd (8 bronnen)
+## 🔧 Kan zonder AI — recipe werkt, script nog niet gebouwd (3 bronnen)
 
 | Bron | Verwachte omvang | Bijzonderheid |
 |---|---|---|
-| Nieuwe Kolk (denieuwekolk.nl) | ~99-400 events | Per-event-URL nog niet geïmplementeerd (zie ARCHITECTURE.md) |
-| Nienoord | ~9 events | Oude regex matcht niet meer (site gewijzigd) — opnieuw uitzoeken |
-| Geke Hoogstins | ~2 events | — |
-| Machinefabriek | ~2 events | Via podiuminfo.nl-aggregator |
-| Dorpshuis Annen | ~6 events | — |
-| Noorderbron | klein | Vergaderlocatie met incidentele publieke activiteiten |
+| Geke Hoogstins | ~2 events | Tekst-structuur rommelig (datums en titels niet netjes gekoppeld), nog uit te zoeken |
+| Machinefabriek | ~2 events | Via podiuminfo.nl-aggregator, nog niet geprobeerd |
+| Noorderbron | klein | Vergaderlocatie met incidentele publieke activiteiten, nog niet geprobeerd |
 | AFAS Live | onbekend | Geen JSON-LD/datetime-markers gevonden bij eerste check, verder uitzoeken |
-| Lycurgus / CRAFT Sudosa / Friso Sneek | 7 thuiswedstrijden elk (halve seizoen) | Nevobo RSS-feed, zelfde patroon als eerdere Nevobo-scrapers — nog geen los script |
 
 ## ❌ Geblokkeerd (4 bronnen)
 
