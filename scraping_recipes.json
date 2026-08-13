@@ -598,11 +598,11 @@
   "donar": {
     "display_name": "Donar",
     "agenda_url": "https://www.donar.nl/wedstrijden",
-    "render_type": "static",
+    "render_type": "unresolved",
     "scrape_code": "urllib + BeautifulSoup.",
-    "notes": "",
+    "notes": "Herchecked 2026-08-13. Site (donar.nl/wedstrijden) is Next.js met React Server Components — data zit gefragmenteerd over cross-referenced self.__next_f.push()-chunks, geen simpele regex-extractie mogelijk voor de tegenstander-naam (wel voor datum/tijd/venue). Betere route gevonden via basketball.nl (analoog aan handbal.nl/Sportlink): de \"Vereniging zoeken\"-widget op basketball.nl/basketball/competities/vereniging-zoeken/ draait op een extern platform \"Foys\" (competition-widget.foys.tech), met een echte publieke API op api.foys.io. Werkende endpoints (geverifieerd): GET https://api.foys.io/foys/api/v2/pub/organisations/{orgId} (clubinfo), .../organisations/{orgId}/accommodations (venue), https://api.foys.io/competition/public-api/v1/organisations/{orgId}/teams (teams) — federationId voor basketball.nl is 52cfa65e-9782-4a81-ab35-e2f981fcb7a9. Nog NIET gevonden: hoe je Donar's orgId opzoekt (geen werkende search/list-endpoint gevonden na een aantal pogingen — clubs-lijst wordt client-side geladen zonder duidelijke query-param-gedreven zoek-API). Vervolgstap: via Chrome de \"Vereniging zoeken\"-lijst doorklikken tot Donar gevonden is (alfabetisch, dus relatief ver doorpaginerern voorbij de D), orgId aflezen uit de resulterende URL-hash (#/clubs/{orgId}/details), en dan pas de wedstrijd/programma-endpoint reverse-engineeren (nog niet gevonden — alleen team-lijst-endpoint bevestigd, niet de fixtures zelf). UPDATE 2026-08-13: officiele NBB-database gevonden (db.basketball.nl/help/koppelingen), gedocumenteerde JSON-API: https://api.basketballstats.nl/db/json/wedstrijd.pl?clb_ID=359&seizoen=YYYY-YYYY (Donar club-ID=359, opgezocht via db.basketball.nl/db/service/howtolink.pl dropdown). Werkt (72 wedstrijden) voor seizoen 2025-2026, maar geeft 0 wedstrijden + naam=\"Onbekende competitie\" voor 2026-2027 - de NBB-database lijkt de huidige BNXT-League-season nog niet (volledig) te vullen, mogelijk omdat BNXT een aparte Belgisch-Nederlandse competitie-organisatie heeft losstaand van de NBB. Alternatief geopperd door Michiel: livescore.com/nl/basketbal/bnxt-league/bnxt-league/fixtures/ - ook Next.js/client-side, endpoint nog niet gevonden. Volgende stap: (a) periodiek de basketballstats.nl-API opnieuw proberen of de NBB alsnog 2026-2027-data vult, of (b) livescore.com verder reverse-engineeren met Chrome MCP.",
     "sample_event_url": "https://www.donar.nl/wedstrijden",
-    "last_verified": "2026-07-05"
+    "last_verified": "2026-08-13"
   },
   "lycurgus": {
     "display_name": "Lycurgus",

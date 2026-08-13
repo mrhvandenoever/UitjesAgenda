@@ -53,11 +53,24 @@ Van de 19 geconfigureerde clubs in `gen_uitjes.py` (`SPORT_CLUBS`):
 
 ## Scrapers uitbreiden richting volledig automatisch (zie SCRAPERS.md)
 Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat in
-`SCRAPERS.md`; twee sporen om verder te automatiseren:
-- [ ] **29 bronnen "kan zonder AI"**: recipe/scrape-code staat al klaar in `scraping_recipes.json`, alleen nog geen los `scrape_<naam>.py`-bestand — grootste, meest kansrijke o.a. Kielzog, Forum, Nieuwe Kolk, OntdekPoort (~216 events), Posthuis, de ESPN-gescrapete voetbalclubs, Nevobo-volleybalclubs.
-- [ ] **13 bronnen "AI/Chrome nodig"**: bevestigd client-rendered — de moeite waard om (net als bij SPOT/handbal.nl) te checken of er alsnog een verborgen API is voor plain-requests-scraping, voor er met Chrome MCP gewerkt wordt. O.a. Vera, Atlas Emmen, Simplon, Grand Theatre, Neushoorn, Groninger Museum.
+`SCRAPERS.md`.
+
+### Sessie 2026-08-13 — 15 nieuwe scrapers gebouwd
+- [x] FC Twente, SC Cambuur, Go Ahead Eagles, PEC Zwolle (ESPN.nl, gedeeld patroon)
+- [x] SC Heerenveen (eigen site, embedded JSON)
+- [x] FC Emmen (eigen site, WP-tabel)
+- [x] Kielzog (JSON-API), Forum (met SKIP-lijst), Geert Teis, USVA (~6/10 events)
+- [x] Martiniplaza (via theater.nl, JSON-LD — bleek 60 events i.p.v. verwachte 6-57)
+- [x] De Tamboer, Posthuis, Bostheater, GC Zuidlaren
+- 6786 → 6986 events na deze batch (na dedup)
+- [ ] Donar (basketbal) — 3 platforms onderzocht, nog niet opgelost. Zie SCRAPERS.md voor de volledige stand (Foys-API, NBB-API met lege 2026-2027-data, livescore.com-tip van Michiel nog te proberen).
+- [ ] Zummerbühne, OntdekPoort, Hunebedcentrum — bleken bij nader inzien AI/Chrome nodig (ticketwidget resp. bot-bescherming), verplaatst in SCRAPERS.md.
+
+### Resterende sporen (zie SCRAPERS.md voor details)
+- [ ] **8 bronnen "kan zonder AI"**: Nieuwe Kolk (denieuwekolk.nl, per-event-URL), Nienoord (regex verouderd), Geke Hoogstins, Machinefabriek, Dorpshuis Annen, Noorderbron, AFAS Live, Lycurgus/Sudosa/Friso (Nevobo RSS, zelfde patroon als eerdere Nevobo-scrapers).
+- [ ] **16 bronnen "AI/Chrome nodig"**: Vera, Atlas Emmen, Simplon, Grand Theatre, Winsinghhof, EM2, Neushoorn, Groninger Museum, Drents Museum, Zuidhaege Assen, Koornbeurs, Zummerbühne, OntdekPoort, Hunebedcentrum, FC Groningen, GIJS Groningen.
 - [ ] **15 bronnen nog nooit geprobeerd**: TivoliVredenburg, Melkweg, Paradiso, 013, Ziggo Dome, Effenaar, Doornroosje, Ahoy, Het Paard, Hedon Zwolle, Rotown, De Doelen, GelreDome, Concertgebouw, Landstede.
-- [ ] Weekelijkse-refresh-commandolijst in `ARCHITECTURE.md` mee laten groeien (of omzetten naar `for f in scrape_*.py`, zie overleg.md).
+- [ ] Weekelijkse-refresh-commandolijst in `ARCHITECTURE.md` mee laten groeien (of omzetten naar `for f in scrape_*.py`, zie overleg.md) — inmiddels 21 losse scripts, lijst wordt onhandig lang.
 
 ## Later / open items (uit ARCHITECTURE.md)
 - [ ] Ticketmaster Discovery API (gratis tier, 5.000 req/dag) — key aanvragen op developer.ticketmaster.com
