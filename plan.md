@@ -79,9 +79,17 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
 - 7031 → 7067 events na deze batch
 - **"Kan zonder AI"-lijst is nu leeg.** Resterende sporen: AI/Chrome nodig (16 bronnen) en nog nooit geprobeerd (15 bronnen), zie SCRAPERS.md.
 
-### Resterende sporen (zie SCRAPERS.md voor details)
-- [ ] **16 bronnen "AI/Chrome nodig"**: Vera, Atlas Emmen, Simplon, Grand Theatre, Winsinghhof, EM2, Neushoorn, Groninger Museum, Drents Museum, Zuidhaege Assen, Koornbeurs, Zummerbühne, OntdekPoort, Hunebedcentrum, FC Groningen, GIJS Groningen.
-- [ ] **15 bronnen nog nooit geprobeerd**: TivoliVredenburg, Melkweg, Paradiso, 013, Ziggo Dome, Effenaar, Doornroosje, Ahoy, Het Paard, Hedon Zwolle, Rotown, De Doelen, GelreDome, Concertgebouw, Landstede.
+### Sessie 2026-08-14 — landelijke podia gecheckt, blijken AI/Chrome nodig
+- [x] Alle 15 "nooit geprobeerd"-bronnen (landelijke podia) gecheckt met plain requests — vrijwel allemaal zwaar client-rendered (Next.js/Vue), anders dan de kleine Noord-Nederlandse venues. Verplaatst naar AI/Chrome-categorie, details in SCRAPERS.md.
+- [x] Donar opnieuw geprobeerd (NBB-API nog steeds leeg voor 2026-2027; livescore.com-tip van Michiel bekeken maar netwerkmonitoring ving de data-call niet) — blijft open, volgende keer grondiger met Chrome MCP (JS-state uitlezen i.p.v. netwerkverkeer).
+- [ ] **31 bronnen "AI/Chrome nodig"** (was 16, nu + de 15 landelijke podia): zie SCRAPERS.md voor de volledige lijst en per-bron bevindingen.
+
+### Kapotte/generieke links (overleg.md punt 4) — grotendeels opgelost 2026-08-14
+- [x] FC Twente, SC Cambuur, Go Ahead Eagles, PEC Zwolle: ESPN.nl heeft een `"id"`-veld per wedstrijd, nu een echte per-wedstrijd-URL i.p.v. de teampagina.
+- [x] Martiniplaza: theater.nl's JSON-LD had de echte URL in `@id`, niet in `url` — simpele scraper-fix.
+- [x] Sportclubs zonder per-wedstrijd-pagina (E&O, Hurry-Up, FC Groningen, Donar) bewust ongewijzigd gelaten — geen betere URL beschikbaar.
+- 7067 → 6999 events (klein netto verschil, ging vooral om URL-kwaliteit i.p.v. nieuwe events; daling komt door 1 dag datum-rollover + dat cambuur/martiniplaza wat verlopen/dubbele rijen kwijtraakten bij het verwijderen-en-herladen — oude rijen moesten eerst weg zodat de URL-update ook echt doorkwam, insert_event() update alleen bij aggregator-vs-directe-bron-botsingen).
+- Resterende kapotte links vallen samen met de AI/Chrome-lijst (grote landelijke podia) — wordt vanzelf meegenomen zodra die aangepakt worden.
 - [ ] Weekelijkse-refresh-commandolijst in `ARCHITECTURE.md` mee laten groeien (of omzetten naar `for f in scrape_*.py`, zie overleg.md) — inmiddels 21 losse scripts, lijst wordt onhandig lang.
 
 ## Later / open items (uit ARCHITECTURE.md)

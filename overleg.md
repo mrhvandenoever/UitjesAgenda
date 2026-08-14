@@ -13,6 +13,7 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - Tijdelijk op deze laptop tot de andere pc terug is?
 - Structureel verhuizen?
 - Scheduled task ("uitjes-agenda-refresh", maandag 08:04) moet dan ook verhuisd/opnieuw ingesteld worden.
+- **2026-08-14**: als de andere pc vandaag gerepareerd is, draait de refresh daar weer — nog niet bevestigd, voorlopig dus.
 
 ### 2. Slimmer scrapen (efficiëntie)
 - Huidige situatie: elke scraper haalt bij elke run alle pagina's opnieuw op (bv. drenthe.nl: 34+ pagina's, duurde >3 min).
@@ -25,11 +26,11 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 ### 3. SPOT Groningen — Oosterpoort vs Stadsschouwburg — OPGELOST 2026-08-11
 - Bleek geen extra request per event nodig: SPOT's eigen programma-pagina heeft de locatie al in een `data-location`-attribuut per event (plus een genre-signaal via `data-genres`/`data-subgenres`). Nieuwe `scrape_spotgroningen.py` gebouwd, zie `decisions.md`.
 
-### 4. Generieke/kapotte event-links (26 van ~50 bronnen)
-- Audit: 26 bronnen linken alle events naar dezelfde generieke agenda-URL i.p.v. een specifieke event-pagina. O.a. TivoliVredenburg (406 events → 1 link), Melkweg (175), Atlastheater (165), Doornroosje, 013, Effenaar, Ahoy, Koornbeurs, Vera (35), Posthuistheater, Martiniplaza, Neushoorn, Ziggo Dome, Paradiso, denieuwekolk.nl (86), en alle 8 sportclubs.
-- denieuwekolk.nl heeft de juiste regex al klaarstaan in scraping_recipes.json maar nooit afgemaakt (was een `pass`-placeholder) — waarschijnlijk de snelste eerste fix.
-- Sportclubs linken vaak bewust naar een algemene wedstrijdkalender — mogelijk acceptabel, geen per-wedstrijd pagina nodig?
-- Keuze nodig: prioritering — alle 26 is een grote klus. Welke eerst (denieuwekolk.nl / Vera / de grote landelijke podia)? Sportclubs meenemen of bewust laten staan?
+### 4. Generieke/kapotte event-links (26 van ~50 bronnen) — grotendeels opgelost
+- **denieuwekolk.nl**: opgelost bij de scraper-herbouw (2026-08-13), zie decisions.md.
+- **2026-08-14 opgelost**: FC Twente, SC Cambuur, Go Ahead Eagles, PEC Zwolle (ESPN.nl bleek een `"id"`-veld per wedstrijd te hebben → `https://www.espn.nl/voetbal/wedstrijd/_/gameId/{id}`, i.p.v. steeds de teampagina) en Martiniplaza (theater.nl's JSON-LD had de echte URL niet in het `url`-veld maar in `@id` — simpele fix).
+- **Resterend, bewust ongewijzigd**: E&O, Hurry-Up, FC Groningen, Donar en de overige sportclubs linken naar een algemene wedstrijdkalender omdat er geen aparte per-wedstrijd-pagina beschikbaar is — dat is prima, geen fix nodig.
+- **Resterend, nog kapot**: de grote landelijke podia (TivoliVredenburg, Melkweg, Atlastheater, Doornroosje, 013, Effenaar, Ahoy, Koornbeurs, Vera, Ziggo Dome, Paradiso, Neushoorn) — vallen samen met de AI/Chrome-lijst (zie punt 6-achtig probleem: zonder JS-rendering komen we sowieso niet aan hun events, laat staan aan per-event-links). Wordt in principe vanzelf meegenomen zodra die bronnen met Chrome MCP aangepakt worden.
 
 ### 5. Nationale sportteams toevoegen
 - Idee van Michiel: naast clubs ook de nationale selecties meenemen (bv. Oranje Dames volleybal — https://www.volleybal.nl/volleybal/oranje-dames/programma). Concreet aanleiding: ze oefenen komend weekend in Groningen (Martiniplaza).

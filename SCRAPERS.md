@@ -58,7 +58,7 @@ Laatst samengesteld: 2026-08-13.
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig (16 bronnen)
+## 🌐 AI/Chrome nodig (31 bronnen — zie ook de landelijke-podia-tabel verderop)
 
 | Bron | Verwachte omvang | Notitie |
 |---|---|---|
@@ -101,14 +101,41 @@ Drie routes onderzocht, geen van alle direct werkend voor het huidige BNXT-seizo
 3. **NBB officiële database** (db.basketball.nl/help/koppelingen) — gedocumenteerde JSON-API `api.basketballstats.nl/db/json/wedstrijd.pl?clb_ID=359&seizoen=YYYY-YYYY` (Donar clb_ID=359). Werkt voor seizoen 2025-2026 (72 wedstrijden), maar geeft 0 wedstrijden + "Onbekende competitie" voor 2026-2027 — BNXT League lijkt nog niet (volledig) in dit systeem gevuld.
 4. **livescore.com/nl/basketbal/bnxt-league** (tip van Michiel) — ook Next.js, endpoint nog niet gevonden.
 
-Vervolgstap: periodiek de basketballstats.nl-API herproberen, of livescore.com verder reverse-engineeren met Chrome MCP.
+**2026-08-14 herprobeerd**: NBB-API geeft nog steeds 0 wedstrijden voor 2026-2027.
+livescore.com/nl/basketbal/bnxt-league (tip van Michiel) bekeken via browser —
+geen bruikbare data-API gevonden in het netwerkverkeer (alleen statische
+Next.js-assets zichtbaar, de eigenlijke fixture-call werd niet gevangen).
+Vervolgstap: periodiek de basketballstats.nl-API herproberen, of
+livescore.com grondiger reverse-engineeren met Chrome MCP (form-interactie/
+JS-state uitlezen i.p.v. alleen netwerkverkeer monitoren, zoals wel lukte bij
+Donar's basketball.nl-onderzoek).
 
-## ❓ Nog nooit geprobeerd (15 bronnen)
+## ❓ Nog nooit geprobeerd — landelijke podia (2026-08-14 gecheckt, blijken vrijwel allemaal AI/Chrome nodig)
 
-TivoliVredenburg, Melkweg, Paradiso, 013 Tilburg, Ziggo Dome, Effenaar,
-Doornroosje, Rotterdam Ahoy, Het Paard, Hedon Zwolle, Rotown, De Doelen,
-GelreDome, Concertgebouw, Landstede Hammers (basketbal — DNS-fout bij laatste
-poging, mogelijk verouderd domein).
+Bij een eerste check (plain requests, geen browser) bleken deze grote,
+commerciële venues consistent zwaar client-rendered — anders dan de kleine
+Noord-Nederlandse venues die in de vorige sessie meestal "kan zonder AI"
+bleken. Geen bruikbare JSON-LD/structured data in de ruwe HTML gevonden bij:
+
+| Bron | Bevinding |
+|---|---|
+| TivoliVredenburg | JSON-LD aanwezig maar alleen Yoast-SEO-metadata, geen events; datumfilter-widget is client-side |
+| Melkweg | Next.js (`__NEXT_DATA__`), geen server-rendered events |
+| 013 Tilburg | JSON-LD aanwezig, alleen metadata (geen Event-items) |
+| Doornroosje | JSON-LD aanwezig, alleen metadata |
+| De Doelen | JSON-LD aanwezig, alleen metadata |
+| Ziggo Dome | geen JSON-LD, geen `__NEXT_DATA__` gevonden — nadere inspectie nodig |
+| Rotterdam Ahoy | geen JSON-LD gevonden |
+| GelreDome | geen JSON-LD gevonden |
+| Effenaar | 2.7MB pagina, 0 JSON-LD-blokken — vermoedelijk zwaar JS-bundle-gedreven |
+| Paradiso, Concertgebouw | homepage geladen maar geen agenda-link gevonden in de ruwe HTML (nav is vermoedelijk ook client-side) — juiste agenda-URL nog niet gevonden |
+| Rotown | `/agenda/` geeft 404, exacte listing-URL nog niet gevonden (individuele event-URL's wel: rotown.nl/agenda/artiest/) |
+| Het Paard | timeout bij eerste poging, nog niet opnieuw geprobeerd |
+| Hedon Zwolle | pagina laadt maar verdacht klein (7KB) — mogelijk verkeerde URL of redirect, nog uit te zoeken |
+| Landstede Hammers (basketbal) | DNS-fout bij laatste poging, mogelijk verouderd domein |
+
+Alle 15 verplaatst naar de AI/Chrome-categorie in de praktijk — zie hierboven
+voor de volledige AI/Chrome-lijst (nu 31 bronnen in totaal).
 
 ## 📍 Eenmalig opgelost, geen herhaalbaar script (2 bronnen)
 

@@ -55,7 +55,7 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
                 continue
             for item in data.get('@graph', [data]):
                 if 'Event' in str(item.get('@type', '')):
-                    batch.append((item.get('name', '').strip(), item.get('startDate', ''), item.get('url')))
+                    batch.append((item.get('name', '').strip(), item.get('startDate', ''), item.get('url') or item.get('@id')))
 
         if not batch or batch == prev_batch:
             break

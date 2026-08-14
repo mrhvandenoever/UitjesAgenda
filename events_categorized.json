@@ -1,327 +1,5 @@
 [
   {
-    "title": "150 jaar Mata Hari - Echo’s van Mata Hari | immersieve lichtinstallatie",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Leeuwarden",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1238032208/150-jaar-mata-hari-kunstinstallatie"
-  },
-  {
-    "title": "Antiek- en curiosamarkt",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Leeuwarden",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2435765619/antiek-en-curiosamarkt-1"
-  },
-  {
-    "title": "Boerenmarkt Woudsend",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Woudsend",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/586204796/boerenmarkt-woudsend"
-  },
-  {
-    "title": "De Graanrepubliek",
-    "date": "2026-08-13",
-    "source": "zummerbuhne",
-    "genre": "overig",
-    "venue": "Zummerbühne (Oostwold)",
-    "url": "https://www.zummerbuhne.nl/ticketverkoop",
-    "category": "Muziektheater / Outdoor",
-    "cats": [
-      "toneel",
-      "muziek"
-    ]
-  },
-  {
-    "title": "Der Rosenkavalier - Opera Spanga",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "Theater",
-    "city": "Spanga",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2062567033/der-rosenkavalier-opera-spanga"
-  },
-  {
-    "title": "Djembé weekend",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Engwierum",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1024157502/djembe-weekend"
-  },
-  {
-    "title": "Doe Museum",
-    "date": "2026-08-13",
-    "source": "kielzog",
-    "genre": "overig",
-    "venue": "Kielzog, Winschoten",
-    "url": "https://www.kielzog.nl/evenementen/doe-museum-7?instance=yesplan-3784248321-1776342217"
-  },
-  {
-    "title": "Donderdag Meppeldag",
-    "date": "2026-08-13",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Meppel",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/647916559/donderdag-meppeldag-1"
-  },
-  {
-    "title": "Gondelvaart Balk",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Balk",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/643505543/gondelvaart-balk"
-  },
-  {
-    "title": "Het openluchttheater Sellingen",
-    "date": "2026-08-13",
-    "source": "visitgroningen",
-    "genre": "Theater",
-    "city": "Sellingen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1268504576/het-openluchttheater-sellingen",
-    "category": "Theater overig"
-  },
-  {
-    "title": "Informatieplein Beijum",
-    "date": "2026-08-13",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/informatieplein-beijum?date=13-08-2026"
-  },
-  {
-    "title": "Informatieplein Selwerd",
-    "date": "2026-08-13",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/informatieplein-selwerd?date=13-08-2026"
-  },
-  {
-    "title": "Jaarmarkt met vrijmarkt - Klazienaveen",
-    "date": "2026-08-13",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Klazienaveen",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/4062434107/jaarmarkt-met-vrijmarkt-klazienaveen"
-  },
-  {
-    "title": "MEAU",
-    "date": "2026-08-13",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
-    "title": "MYTH MAKERS – Édua Mária László en Huba Hőnigh",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Heerenveen",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/855789275/myth-makers-edua-maria-laszlo-en-huba-honigh"
-  },
-  {
-    "title": "Maakplaats: Open Maakplaats",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Heerenveen",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1344485251/maakplaats-open-maakplaats"
-  },
-  {
-    "title": "Magische ZomerAvond",
-    "date": "2026-08-13",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Schoonoord",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1051319968/magische-zomeravond"
-  },
-  {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-13",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=13-08-2026"
-  },
-  {
-    "title": "Oldehove Glowup - Blood on the Clocktower X Spellekijn",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Leeuwarden",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1668584347/concept-oldehove-glowup-blood-on-the-clocktower"
-  },
-  {
-    "title": "Ontmoet de Boswachter",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Appelscha",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1033607807/ontmoet-de-boswachter-1"
-  },
-  {
-    "title": "Op zoek naar sporen bij Ketlik (6+)",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Katlijk",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3339026319/op-zoek-naar-sporen-bij-ketlik-6"
-  },
-  {
-    "title": "Opa en Oma dagen | Smalspoormuseum",
-    "date": "2026-08-13",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Erica",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3454994782/opa-en-oma-dagen-smalspoormuseum"
-  },
-  {
-    "title": "Openluchtspel Havelte speelt 'Piepers en parels', een blijspel in verstaanbaar Drents",
-    "date": "2026-08-13",
-    "source": "drenthe.nl",
-    "genre": "Theater",
-    "city": "Havelte",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1859539476/openluchtspel-havelte-speelt-piepers-en-parels-een-blijspel-in-verstaanbaar-drents"
-  },
-  {
-    "title": "Orgelconcert door Sebastiaan Schippers",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "Muziek",
-    "city": "Easterein",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2704637071/orgelconcert-door-sebastiaan-schippers-m-m-v-ilse-terpstra-fluit"
-  },
-  {
-    "title": "Rondje Verhalenwerf Hoogeveen",
-    "date": "2026-08-13",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Hoogeveen",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/550876629/rondje-verhalenwerf-hoogeveen"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-08-13",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=13-08-2026"
-  },
-  {
-    "title": "THE GHOST INSIDE",
-    "date": "2026-08-13",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
-    "title": "Talks Events/Fashion Repair",
-    "date": "2026-08-13",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/talks-events/fashion-repair?date=13-08-2026"
-  },
-  {
-    "title": "Tijdreis rondje Gaasterland",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Rijs",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/731019329/tijdreis-rondje-gaasterland"
-  },
-  {
-    "title": "Tsjaikovski’s Romeo en Julia en Griegs Pianoconcert met Daniel Ciobanu",
-    "date": "2026-08-13",
-    "source": "concertgebouw",
-    "genre": "Klassiek",
-    "location": "Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/41486302-tsjaikovskis-romeo-en-julia-en-griegs-pianoconcert-met-daniel-ciobanu"
-  },
-  {
-    "title": "Usva Keiweek – Craft Café: Transform Your Tote Bag",
-    "date": "2026-08-13",
-    "source": "usva",
-    "genre": "overig",
-    "venue": "USVA, Groningen",
-    "url": "https://www.usva.nl/usva-keiweek-craft-cafe-transform-your-tote-bag/"
-  },
-  {
-    "title": "Usva Keiweek – Jam Session",
-    "date": "2026-08-13",
-    "source": "usva",
-    "genre": "overig",
-    "venue": "USVA, Groningen",
-    "url": "https://www.usva.nl/usva-keiweek-jam-session/"
-  },
-  {
-    "title": "Verhalenbingo in Bibliotheek Heerenveen",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Heerenveen",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/168278550/verhalenbingo-in-bibliotheek-heerenveen"
-  },
-  {
-    "title": "Verhalenbingo in Strandbibliotheek Makkum",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Makkum",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1424646065/verhalenbingo-in-strandbibliotheek-makkum"
-  },
-  {
-    "title": "Zomerarrangement op donderdagmiddag in Sloten",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Sloten",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1606264123/zomerarrangement-op-donderdagmiddag"
-  },
-  {
-    "title": "Zomerfestival Verhalen Knutselen In Limbusland",
-    "date": "2026-08-13",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/zomerfestival-verhalen-knutselen-in-limbusland?date=13-08-2026"
-  },
-  {
-    "title": "Zomermarkt aan de boulevard van Makkum",
-    "date": "2026-08-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Makkum",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2089940230/zomermarkt-makkum"
-  },
-  {
     "title": "Chiatura Kwartet - Concert Georgische Polyfone Zang",
     "date": "2026-08-14",
     "source": "drenthe.nl",
@@ -1328,7 +1006,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875639",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -2172,6 +1850,16 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2916851496/embed-emerging-digital-arts-shiavash-naghshbandi-lock-on-protocol",
     "category": "Toneel"
+  },
+  {
+    "title": "FC Twente - FK Qarabag",
+    "date": "2026-08-20",
+    "source": "fctwente",
+    "genre": "sport",
+    "venue": "De Grolsch Veste, Enschede",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401909620",
+    "gender": "heren",
+    "sport": "voetbal"
   },
   {
     "title": "Gratis Juridisch Spreekuur",
@@ -3144,7 +2832,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875633",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -3303,22 +2991,12 @@
     "genre": "overig"
   },
   {
-    "title": "SC Cambuur - Feyenoord",
-    "date": "2026-08-23",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - Feyenoord",
     "date": "2026-08-23",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875631",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -4643,8 +4321,8 @@
     "date": "2026-08-29",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875627",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -5095,22 +4773,12 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2685644834/rondom-latin-muziek-zomermiddag-concert"
   },
   {
-    "title": "SC Cambuur - FC Twente",
-    "date": "2026-08-30",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - FC Twente",
     "date": "2026-08-30",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875622",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -7148,7 +6816,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875612",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -7911,7 +7579,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875610",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -7975,7 +7643,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875609",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -8796,18 +8464,8 @@
     "date": "2026-09-13",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
-    "title": "SC Cambuur - N.E.C.",
-    "date": "2026-09-13",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875603",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -8817,7 +8475,7 @@
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875604",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -10672,7 +10330,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875593",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -11485,25 +11143,13 @@
     ]
   },
   {
-    "title": "We Will Rock You Musical",
-    "date": "2026-09-23",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
-  },
-  {
     "title": "We Will Rock You Musical 2025/2026",
     "date": "2026-09-23",
     "source": "martiniplaza",
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/we-will-rock-you-musical-2025-2026#2026-09-23T20-00"
   },
   {
     "title": "AND ALSO THE TREES",
@@ -11808,25 +11454,13 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1954129347/verhalen-van-het-landschap-borger-odoorn"
   },
   {
-    "title": "We Will Rock You Musical",
-    "date": "2026-09-24",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
-  },
-  {
     "title": "We Will Rock You Musical 2025/2026",
     "date": "2026-09-24",
     "source": "martiniplaza",
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/we-will-rock-you-musical-2025-2026#2026-09-24T20-00"
   },
   {
     "title": "40UP",
@@ -12233,25 +11867,13 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/787242918/wandelretraite-op-vlieland"
   },
   {
-    "title": "We Will Rock You Musical",
-    "date": "2026-09-25",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
-  },
-  {
     "title": "We Will Rock You Musical 2025/2026",
     "date": "2026-09-25",
     "source": "martiniplaza",
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/we-will-rock-you-musical-2025-2026#2026-09-25T20-00"
   },
   {
     "title": "15 Years of Gabber Syndrome",
@@ -12944,25 +12566,13 @@
     "genre": "overig"
   },
   {
-    "title": "We Will Rock You Musical",
-    "date": "2026-09-26",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
-  },
-  {
     "title": "We Will Rock You Musical 2025/2026",
     "date": "2026-09-26",
     "source": "martiniplaza",
     "genre": "overig",
     "time": "15:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/we-will-rock-you-musical-2025-2026#2026-09-26T15-00"
   },
   {
     "title": "Willie Darktrousers | solo",
@@ -13496,25 +13106,13 @@
     "url": "https://dedoelen.nl/nl/agenda/van-baerle-trio-594l"
   },
   {
-    "title": "We Will Rock You Musical",
-    "date": "2026-09-27",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
-  },
-  {
     "title": "We Will Rock You Musical 2025/2026",
     "date": "2026-09-27",
     "source": "martiniplaza",
     "genre": "overig",
     "time": "14:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/we-will-rock-you-musical-2025-2026#2026-09-27T14-00"
   },
   {
     "title": "Babyconcert (0 t/m 18 maanden)",
@@ -14858,13 +14456,9 @@
     "date": "2026-10-03",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Theater / Muziek",
-    "cats": [
-      "toneel",
-      "muziek"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/child-of-destiny-theatertour-2026#2026-10-03T20-00"
   },
   {
     "title": "Child of Destiny – The Dutch Experience",
@@ -17710,7 +17304,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875590",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -18360,8 +17954,8 @@
     "date": "2026-10-11",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875586",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -21156,7 +20750,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875577",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -21333,8 +20927,8 @@
     "date": "2026-10-18",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875578",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -21375,22 +20969,12 @@
     "genre": "overig"
   },
   {
-    "title": "SC Cambuur - AZ",
-    "date": "2026-10-18",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - AZ",
     "date": "2026-10-18",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875576",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -22599,7 +22183,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875574",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -23137,12 +22721,9 @@
     "date": "2026-10-24",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/ik-weet-het-eigenlijk-niet#2026-10-24T20-00"
   },
   {
     "title": "Il Parnasso in Festa",
@@ -25891,22 +25472,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1671872129/pickleball-clinic"
   },
   {
-    "title": "SC Cambuur - Go Ahead Eagles",
-    "date": "2026-10-31",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - Go Ahead Eagles",
     "date": "2026-10-31",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875561",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -26529,8 +26100,8 @@
     "date": "2026-11-01",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875560",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -28456,22 +28027,12 @@
     ]
   },
   {
-    "title": "SC Cambuur - PSV",
-    "date": "2026-11-07",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - PSV",
     "date": "2026-11-07",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875553",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -28723,7 +28284,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875550",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -29737,16 +29298,13 @@
     ]
   },
   {
-    "title": "Cats – musical 2026/2027",
+    "title": "Cats - musical 2026/2027",
     "date": "2026-11-12",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/cats-musical-2026-2027#2026-11-12T20-00"
   },
   {
     "title": "Early James",
@@ -30154,16 +29712,13 @@
     "genre": "overig"
   },
   {
-    "title": "Cats – musical 2026/2027",
+    "title": "Cats - musical 2026/2027",
     "date": "2026-11-13",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/cats-musical-2026-2027#2026-11-13T20-00"
   },
   {
     "title": "DI-RECT",
@@ -30748,16 +30303,13 @@
     "genre": "overig"
   },
   {
-    "title": "Cats – musical 2026/2027",
+    "title": "Cats - musical 2026/2027",
     "date": "2026-11-14",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "15:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/cats-musical-2026-2027#2026-11-14T15-00"
   },
   {
     "title": "DI-RECT",
@@ -31320,16 +30872,13 @@
     ]
   },
   {
-    "title": "Cats – musical 2026/2027",
+    "title": "Cats - musical 2026/2027",
     "date": "2026-11-15",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "14:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/cats-musical-2026-2027#2026-11-15T14-00"
   },
   {
     "title": "Century's Crime - The most authentic tribute to Supertramp",
@@ -32116,16 +31665,13 @@
     "genre": "overig"
   },
   {
-    "title": "Cats – musical 2026/2027",
+    "title": "Cats - musical 2026/2027",
     "date": "2026-11-18",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/cats-musical-2026-2027#2026-11-18T20-00"
   },
   {
     "title": "Daoud",
@@ -32400,16 +31946,13 @@
     ]
   },
   {
-    "title": "Cats – musical 2026/2027",
+    "title": "Cats - musical 2026/2027",
     "date": "2026-11-19",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/cats-musical-2026-2027#2026-11-19T20-00"
   },
   {
     "title": "Chris Verlaan - Ach, er komen geen kindjes van",
@@ -32788,16 +32331,13 @@
     "genre": "overig"
   },
   {
-    "title": "Cats – musical 2026/2027",
+    "title": "Cats - musical 2026/2027",
     "date": "2026-11-20",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/cats-musical-2026-2027#2026-11-20T20-00"
   },
   {
     "title": "Circumstances",
@@ -33345,16 +32885,13 @@
     ]
   },
   {
-    "title": "Cats – musical 2026/2027",
+    "title": "Cats - musical 2026/2027",
     "date": "2026-11-21",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/cats-musical-2026-2027#2026-11-21T20-00"
   },
   {
     "title": "Chelsea Wolfe",
@@ -33498,7 +33035,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875545",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -33577,7 +33114,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875542",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -34055,16 +33592,13 @@
     ]
   },
   {
-    "title": "Cats – musical 2026/2027",
+    "title": "Cats - musical 2026/2027",
     "date": "2026-11-22",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "14:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/cats-musical-2026-2027#2026-11-22T14-00"
   },
   {
     "title": "Charl zingt Shaffy - Een ode aan Ramses Shaffy",
@@ -36327,8 +35861,8 @@
     "date": "2026-11-28",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875532",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -36367,22 +35901,12 @@
     "genre": "overig"
   },
   {
-    "title": "SC Cambuur - Sparta Rotterdam",
-    "date": "2026-11-28",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - Sparta Rotterdam",
     "date": "2026-11-28",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875530",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -36992,12 +36516,9 @@
     "date": "2026-11-30",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/alles-is-comedy-najib-amhali-roue-verveer#2026-11-30T20-00"
   },
   {
     "title": "Bugge Wesseltoft – It’s still snowing on my piano",
@@ -37591,7 +37112,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/mannen-komen-van-mars-vrouwen-van-venus-huub-stapel#2026-12-03T20-00"
   },
   {
     "title": "Maurits Fondse Trio... plays Billy Joel",
@@ -38322,7 +37843,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875525",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -39147,12 +38668,9 @@
     "date": "2026-12-09",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/evita-gouden-jubileum-musicalconcert#2026-12-09T20-00"
   },
   {
     "title": "Fabio Luisi en het Concertgebouworkest met Brahms' Symfonie nr. 2",
@@ -39405,12 +38923,9 @@
     "date": "2026-12-10",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/evita-gouden-jubileum-musicalconcert#2026-12-10T20-00"
   },
   {
     "title": "Eindhoven Metal Meeting Warm Up Evening 2026",
@@ -39441,20 +38956,7 @@
     "genre": "overig",
     "time": "19:30",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
-  },
-  {
-    "title": "Holiday on Ice – Cinema of Dreams",
-    "date": "2026-12-10",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Show / Familie",
-    "cats": [
-      "show",
-      "kinderen"
-    ]
+    "url": "https://www.theater.nl/holiday-on-ice-2026#2026-12-10T19-30"
   },
   {
     "title": "Holland Baroque & Les Itinérantes Noël Nomade",
@@ -39765,12 +39267,9 @@
     "date": "2026-12-11",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/evita-gouden-jubileum-musicalconcert#2026-12-11T20-00"
   },
   {
     "title": "Een Groter Verhaal",
@@ -39844,20 +39343,7 @@
     "genre": "overig",
     "time": "19:30",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
-  },
-  {
-    "title": "Holiday on Ice – Cinema of Dreams",
-    "date": "2026-12-11",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Show / Familie",
-    "cats": [
-      "show",
-      "kinderen"
-    ]
+    "url": "https://www.theater.nl/holiday-on-ice-2026#2026-12-11T19-30"
   },
   {
     "title": "Holland Baroque & Les Itinérantes",
@@ -40319,12 +39805,9 @@
     "date": "2026-12-12",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/evita-gouden-jubileum-musicalconcert#2026-12-12T20-00"
   },
   {
     "title": "Eindhoven Metal Meeting 2026 - Day 2",
@@ -40338,7 +39821,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875517",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -40455,20 +39938,7 @@
     "genre": "overig",
     "time": "15:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
-  },
-  {
-    "title": "Holiday on Ice – Cinema of Dreams",
-    "date": "2026-12-12",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Show / Familie",
-    "cats": [
-      "show",
-      "kinderen"
-    ]
+    "url": "https://www.theater.nl/holiday-on-ice-2026#2026-12-12T15-00"
   },
   {
     "title": "Joep in ATLAS",
@@ -40601,8 +40071,8 @@
     "date": "2026-12-12",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875515",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -40863,12 +40333,9 @@
     "date": "2026-12-13",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
+    "time": "15:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/evita-gouden-jubileum-musicalconcert#2026-12-13T15-00"
   },
   {
     "title": "Elske DeWall & Family (acoustic)",
@@ -40978,20 +40445,7 @@
     "genre": "overig",
     "time": "12:30",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
-  },
-  {
-    "title": "Holiday on Ice – Cinema of Dreams",
-    "date": "2026-12-13",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Show / Familie",
-    "cats": [
-      "show",
-      "kinderen"
-    ]
+    "url": "https://www.theater.nl/holiday-on-ice-2026#2026-12-13T12-30"
   },
   {
     "title": "Hurry-Up DS1 - DSS DS1",
@@ -42343,13 +41797,9 @@
     "date": "2026-12-18",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical / Cabaret",
-    "cats": [
-      "musical",
-      "cabaret"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/titanique-musical#2026-12-18T20-00"
   },
   {
     "title": "Top 2000 Live",
@@ -42553,7 +42003,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875507",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -42703,22 +42153,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1408864048/pink-floyd-project-4"
   },
   {
-    "title": "SC Cambuur - FC Groningen",
-    "date": "2026-12-19",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - FC Groningen",
     "date": "2026-12-19",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875504",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -42758,13 +42198,9 @@
     "date": "2026-12-19",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical / Cabaret",
-    "cats": [
-      "musical",
-      "cabaret"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/titanique-musical#2026-12-19T20-00"
   },
   {
     "title": "Top 2000 Live Listen to the Music",
@@ -43166,13 +42602,9 @@
     "date": "2026-12-20",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical / Cabaret",
-    "cats": [
-      "musical",
-      "cabaret"
-    ]
+    "time": "14:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/titanique-musical#2026-12-20T14-00"
   },
   {
     "title": "Vlieg Met Me Mee",
@@ -43420,7 +42852,7 @@
     "genre": "overig",
     "time": "13:30",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/aladdin-de-van-hoorne-sprookjesmusical#2026-12-23T13-30"
   },
   {
     "title": "Bouke Rocks Elvis",
@@ -44593,7 +44025,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875502",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -44929,8 +44361,8 @@
     "date": "2027-01-09",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875500",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -45042,7 +44474,7 @@
     "genre": "overig",
     "time": "14:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/de-kleine-prins-musical#2027-01-10T14-00"
   },
   {
     "title": "Grote Pianisten: Mitsuko Uchida speelt Schubert",
@@ -45707,7 +45139,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875488",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -45855,22 +45287,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2530917855/richard-groenendijk"
   },
   {
-    "title": "SC Cambuur - Willem II",
-    "date": "2027-01-16",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - Willem II",
     "date": "2027-01-16",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875447",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -47081,7 +46503,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875672",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -47100,7 +46522,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875670",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -47750,7 +47172,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/esther-van-der-voort-mama-is-boos#2027-01-27T20-00"
   },
   {
     "title": "Schönbergs Verklärte Nacht door Trio Zadig",
@@ -48259,7 +47681,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875663",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -48347,8 +47769,8 @@
     "date": "2027-01-30",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875661",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -48542,7 +47964,7 @@
     "genre": "overig",
     "time": "14:30",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/de-nog-grotere-slijmmusical#2027-01-31T14-30"
   },
   {
     "title": "Ernst en Bobbie",
@@ -48977,7 +48399,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/laat-me#2027-02-03T20-00"
   },
   {
     "title": "Lisa Ostermann",
@@ -49211,12 +48633,9 @@
     "date": "2027-02-04",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/sherlock-holmes#2027-02-04T20-00"
   },
   {
     "title": "Stadssafari - Met Bioloog Luc Hoogenstein",
@@ -51027,7 +50446,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875707",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -51188,22 +50607,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1641016754/roxeanne-hazes"
   },
   {
-    "title": "SC Cambuur - FC Utrecht",
-    "date": "2027-02-13",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - FC Utrecht",
     "date": "2027-02-13",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875705",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -51967,7 +51376,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/dinsdagmiddag-van-der-laan-woe#2027-02-18T20-00"
   },
   {
     "title": "Faulty Towers",
@@ -52169,7 +51578,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/dinsdagmiddag-van-der-laan-woe#2027-02-19T20-00"
   },
   {
     "title": "DoelenEnsemble",
@@ -52572,7 +51981,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875700",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -52791,8 +52200,8 @@
     "date": "2027-02-20",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875696",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -52898,25 +52307,13 @@
     "subtitle": "Schilderen vanuit de onderbuik"
   },
   {
-    "title": "Voor haar – Frans Halsema musical",
-    "date": "2027-02-20",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
-  },
-  {
     "title": "Voor haar, de Frans Halsema musical",
     "date": "2027-02-20",
     "source": "martiniplaza",
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/voor-haar-de-frans-halsema-musical#2027-02-20T20-00"
   },
   {
     "title": "AolVolk",
@@ -54034,22 +53431,12 @@
     ]
   },
   {
-    "title": "SC Cambuur - PEC Zwolle",
-    "date": "2027-02-27",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - PEC Zwolle",
     "date": "2027-02-27",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875688",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -55005,7 +54392,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875682",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -55027,7 +54414,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875679",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -55140,8 +54527,8 @@
     "date": "2027-03-06",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875678",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -55779,12 +55166,9 @@
     "date": "2027-03-10",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/kende-da#2027-03-10T20-00"
   },
   {
     "title": "Kirill Gerstein",
@@ -55975,12 +55359,9 @@
     "date": "2027-03-11",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/kende-da#2027-03-11T20-00"
   },
   {
     "title": "Kooiapen (try-out)",
@@ -56269,12 +55650,9 @@
     "date": "2027-03-12",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
+    "time": "20:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/kende-da#2027-03-12T20-00"
   },
   {
     "title": "NAAR DE GETVER",
@@ -56490,7 +55868,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875715",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -56705,22 +56083,12 @@
     "url": "https://www.concertgebouw.nl/concerten/45558882-rachmaninoffs-pianoconcert-nr.-3-met-behzod-abduraimov"
   },
   {
-    "title": "SC Cambuur - ADO Den Haag",
-    "date": "2027-03-13",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - ADO Den Haag",
     "date": "2027-03-13",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875716",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -57548,20 +56916,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
-  },
-  {
-    "title": "Donna's Hot Stuff – Tribute Queen & Disco",
-    "date": "2027-03-19",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Muziek / Show",
-    "cats": [
-      "muziek",
-      "show"
-    ]
+    "url": "https://www.theater.nl/donnas-hot-stuff-tribute-queen-disco#2027-03-19T20-00"
   },
   {
     "title": "FC Emmen - VVV-Venlo",
@@ -57824,7 +57179,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/de-bevers-zijn-er-bijna#2027-03-20T20-00"
   },
   {
     "title": "De Eenzame Ziel",
@@ -57865,7 +57220,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875723",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -58014,8 +57369,8 @@
     "date": "2027-03-20",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875727",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -58702,13 +58057,9 @@
     "date": "2027-03-26",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical / Familie",
-    "cats": [
-      "musical",
-      "kinderen"
-    ]
+    "time": "19:30",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/101-dalmatier-de-musical#2027-03-26T19-30"
   },
   {
     "title": "Beyond the Music - U2 Greatest Hits - Orchestra Version",
@@ -58886,13 +58237,9 @@
     "date": "2027-03-27",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical / Familie",
-    "cats": [
-      "musical",
-      "kinderen"
-    ]
+    "time": "14:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/101-dalmatier-de-musical#2027-03-27T14-00"
   },
   {
     "title": "Anneke van Giersbergen The Irish Road Trip",
@@ -59108,13 +58455,9 @@
     "date": "2027-03-28",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical / Familie",
-    "cats": [
-      "musical",
-      "kinderen"
-    ]
+    "time": "12:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/101-dalmatier-de-musical#2027-03-28T12-00"
   },
   {
     "title": "André Kuipers & Kamerata-Zuid",
@@ -59180,13 +58523,9 @@
     "date": "2027-03-29",
     "source": "martiniplaza",
     "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical / Familie",
-    "cats": [
-      "musical",
-      "kinderen"
-    ]
+    "time": "14:00",
+    "venue": "Martiniplaza, Groningen",
+    "url": "https://www.theater.nl/101-dalmatier-de-musical#2027-03-29T14-00"
   },
   {
     "title": "De musical zonder billen (4+) Jaski & Groenteman",
@@ -59934,7 +59273,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875732",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -60138,22 +59477,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4113509702/rapalje-in-de-skans-gorredijk"
   },
   {
-    "title": "SC Cambuur - Telstar",
-    "date": "2027-04-03",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - Telstar",
     "date": "2027-04-03",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875734",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -61441,8 +60770,8 @@
     "date": "2027-04-10",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875742",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -61459,22 +60788,12 @@
     ]
   },
   {
-    "title": "SC Cambuur - Fortuna Sittard",
-    "date": "2027-04-10",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - Fortuna Sittard",
     "date": "2027-04-10",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875743",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -61947,25 +61266,13 @@
     "cats": []
   },
   {
-    "title": "The Bodyguard",
-    "date": "2027-04-14",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
-  },
-  {
     "title": "The Bodyguard (2027)",
     "date": "2027-04-14",
     "source": "martiniplaza",
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/the-bodyguard-2027#2027-04-14T20-00"
   },
   {
     "title": "Thomas Bergersen",
@@ -62184,25 +61491,13 @@
     ]
   },
   {
-    "title": "The Bodyguard",
-    "date": "2027-04-15",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
-  },
-  {
     "title": "The Bodyguard (2027)",
     "date": "2027-04-15",
     "source": "martiniplaza",
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/the-bodyguard-2027#2027-04-15T20-00"
   },
   {
     "title": "Thomas Azier",
@@ -62463,25 +61758,13 @@
     ]
   },
   {
-    "title": "The Bodyguard",
-    "date": "2027-04-16",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
-  },
-  {
     "title": "The Bodyguard (2027)",
     "date": "2027-04-16",
     "source": "martiniplaza",
     "genre": "overig",
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/the-bodyguard-2027#2027-04-16T20-00"
   },
   {
     "title": "Tribute to Adele",
@@ -62782,25 +62065,13 @@
     "category": "Concert"
   },
   {
-    "title": "The Bodyguard",
-    "date": "2027-04-17",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
-  },
-  {
     "title": "The Bodyguard (2027)",
     "date": "2027-04-17",
     "source": "martiniplaza",
     "genre": "overig",
     "time": "15:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/the-bodyguard-2027#2027-04-17T15-00"
   },
   {
     "title": "The Story of BZN",
@@ -63021,25 +62292,13 @@
     "url": "https://www.kielzog.nl/cursussen/salsa-dansmiddag-5"
   },
   {
-    "title": "The Bodyguard",
-    "date": "2027-04-18",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
-  },
-  {
     "title": "The Bodyguard (2027)",
     "date": "2027-04-18",
     "source": "martiniplaza",
     "genre": "overig",
     "time": "14:00",
     "venue": "Martiniplaza, Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen"
+    "url": "https://www.theater.nl/the-bodyguard-2027#2027-04-18T14-00"
   },
   {
     "title": "Theatergroep Waark De wichter van Champ Clark",
@@ -63758,7 +63017,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875749",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -63780,7 +63039,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875752",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -63878,8 +63137,8 @@
     "date": "2027-04-24",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875753",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -64498,7 +63757,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875760",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -65151,7 +64410,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875767",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -65222,8 +64481,8 @@
     "date": "2027-05-08",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875770",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -65261,22 +64520,12 @@
     ]
   },
   {
-    "title": "SC Cambuur - sc Heerenveen",
-    "date": "2027-05-08",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
     "title": "SC Cambuur Leeuwarden - sc Heerenveen",
     "date": "2027-05-08",
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875772",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -66241,7 +65490,7 @@
     "source": "fctwente",
     "genre": "sport",
     "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/team/_/id/152",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875778",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -66259,7 +65508,7 @@
     "source": "goahead",
     "genre": "sport",
     "venue": "De Adelaarshorst, Deventer",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3706/ned.go_ahead_eagles",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875781",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -66972,18 +66221,8 @@
     "date": "2027-05-23",
     "source": "peczwolle",
     "genre": "sport",
-    "venue": "MAC³PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
-    "title": "SC Cambuur - Ajax",
-    "date": "2027-05-23",
-    "source": "cambuur",
-    "genre": "sport",
-    "venue": "Cambuur Stadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
+    "venue": "MAC3PARK Stadion, Zwolle",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875786",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -66993,7 +66232,7 @@
     "source": "cambuur",
     "genre": "sport",
     "venue": "Cambuurstadion, Leeuwarden",
-    "url": "https://www.espn.nl/voetbal/team/speelkalender/_/id/3736/ned.cambuur_leeuwarden",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875787",
     "gender": "heren",
     "sport": "voetbal"
   },
@@ -68556,16 +67795,14 @@
     ]
   },
   {
-    "title": "Tafkal – Most Wanted",
+    "title": "TAFKAL - MOST WANTED (2027)",
     "date": "2027-11-11",
-    "source": "martiniplaza",
-    "genre": "overig",
-    "venue": "Martiniplaza Groningen",
-    "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
+    "source": "visitgroningen",
+    "genre": "Theater",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2725556287/tafkal-most-wanted",
+    "category": "Cabaret"
   },
   {
     "title": "BETTIE SERVEERT",

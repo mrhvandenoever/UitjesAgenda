@@ -21,7 +21,7 @@ VENUE  = 'De Adelaarshorst, Deventer'
 URL    = 'https://www.espn.nl/voetbal/team/speelkalender/_/id/3706/ned.go_ahead_eagles'
 
 PATTERN = re.compile(
-    r'"displayName":"([^"]+)"[^}]{0,300}"isHome":true\}'
+    r'"id":"(\d+)","competitors":\[\{"id":"\d+",[^}]*"displayName":"([^"]+)"[^}]{0,300}"isHome":true\}'
     r'.{0,600}'
     r'"displayName":"([^"]+)"[^}]{0,300}"isHome":false\}'
     r'.{0,200}"date":"(202[67]-\d{2}-\d{2})',
@@ -45,7 +45,7 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
 
     found = added = 0
     for m in PATTERN.finditer(html):
-        home, away, date_iso = m.groups()
+        game_id, home, away, date_iso = m.groups()
         if CLUB.lower() not in home.lower():
             continue
         found += 1
@@ -53,7 +53,7 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
             'title':  f'{CLUB} - {away}',
             'date':   date_iso,
             'venue':  VENUE,
-            'url':    URL,
+            'url':    f'https://www.espn.nl/voetbal/wedstrijd/_/gameId/{game_id}',
             'source': SOURCE,
             'genre':  'sport',
             'sport':  'voetbal',
