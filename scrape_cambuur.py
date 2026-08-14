@@ -13,6 +13,7 @@ import urllib.request
 import re
 import argparse
 from events_db import insert_event, log_scrape, init_db
+from page_cache import unchanged
 
 SOURCE = 'cambuur'
 CLUB   = 'SC Cambuur Leeuwarden'
@@ -43,6 +44,7 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
         return 0, 0
 
     found = added = 0
+    all_events = []
     for m in PATTERN.finditer(html):
         game_id, home, away, date_iso = m.groups()
         if CLUB.lower() not in home.lower():
@@ -61,10 +63,16 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
         if dry_run:
             print(f"    [{ev['date']}] {ev['title']}")
         else:
-            if insert_event(ev):
-                added += 1
+            all_events.append(ev)
 
     if not dry_run:
+        if unchanged(SOURCE, all_events):
+            log_scrape(SOURCE, found, 0, notes='ongewijzigd sinds vorige run, geskipt')
+            print(f"✓ Klaar: {found} gevonden, geen wijzigingen sinds vorige run (geskipt)")
+            return found, 0
+        for ev in all_events:
+            if insert_event(ev):
+                added += 1
         log_scrape(SOURCE, found, added)
         print(f"✓ Klaar: {found} gevonden, {added} nieuw in DB")
     else:

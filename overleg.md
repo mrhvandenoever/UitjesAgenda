@@ -15,13 +15,14 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - Scheduled task ("uitjes-agenda-refresh", maandag 08:04) moet dan ook verhuisd/opnieuw ingesteld worden.
 - **2026-08-14**: als de andere pc vandaag gerepareerd is, draait de refresh daar weer — nog niet bevestigd, voorlopig dus.
 
-### 2. Slimmer scrapen (efficiëntie)
+### 2. Slimmer scrapen (efficiëntie) — hash-caching GEBOUWD 2026-08-14
 - Huidige situatie: elke scraper haalt bij elke run alle pagina's opnieuw op (bv. drenthe.nl: 34+ pagina's, duurde >3 min).
 - Idee (rsync/delta-achtig) afgewogen:
-  - **Early-stop bij eerste "alles al bekend"-pagina** — simpel, maar riskant: nieuwe events kunnen ook op oudere pagina's worden ingevoegd (niet gegarandeerd chronologisch/append-only).
-  - **Per-pagina hash-caching** — blijft elke pagina ophalen (dus niets gemist), slaat alleen parse/DB-stap over bij ongewijzigde pagina-inhoud. Bespaart CPU/DB-tijd, niet netwerktijd.
-  - **Parallelle requests** — waarschijnlijk de grootste tijdswinst als de bottleneck vooral het aantal sequentiële HTTP-requests is (lijkt hier het geval).
-  - Voorstel: hash-caching + parallelisatie combineren, geen early-stop.
+  - **Early-stop bij eerste "alles al bekend"-pagina** — simpel, maar riskant: nieuwe events kunnen ook op oudere pagina's worden ingevoegd (niet gegarandeerd chronologisch/append-only). Bewust niet gekozen.
+  - **Hash-caching** — blijft elke pagina ophalen (dus niets gemist), slaat alleen parse/DB-stap over bij ongewijzigde data. Bespaart CPU/DB-tijd, niet netwerktijd.
+  - **Parallelle requests** — waarschijnlijk de grootste tijdswinst als de bottleneck vooral het aantal sequentiële HTTP-requests is (lijkt hier het geval). Nog niet gebouwd, apart punt.
+- **2026-08-14**: `page_cache.py` gebouwd (hash-cache in `events.db`, zie ARCHITECTURE.md §Change-detection) en uitgerold naar alle 30 live-scrapende `scrape_*.py`-bestanden — Michiel akkoord: "changedetection voor 31 scripts: prima" (31e, `scrape_handmatig.py`, bewust overgeslagen: vaste jaarevents, niets te cachen). Getest en werkt zoals bedoeld.
+- **Nog open**: parallelle requests (aparte, grotere wijziging — netwerktijd i.p.v. CPU/DB-tijd) is niet meegenomen in deze ronde.
 
 ### 3. SPOT Groningen — Oosterpoort vs Stadsschouwburg — OPGELOST 2026-08-11
 - Bleek geen extra request per event nodig: SPOT's eigen programma-pagina heeft de locatie al in een `data-location`-attribuut per event (plus een genre-signaal via `data-genres`/`data-subgenres`). Nieuwe `scrape_spotgroningen.py` gebouwd, zie `decisions.md`.
@@ -42,9 +43,12 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - Ambitie: de tool op termijn landelijk maken (nu vooral Noord-Nederland + een aantal landelijke podia).
 - Nader te bepalen: schaal (hoeveel bronnen/pagina's erbij), of de huidige scraper-architectuur dat aankan, prioritering t.o.v. de andere open items.
 
-### 7. Weekelijkse-refresh-script laten meegroeien
-- Nu (in `ARCHITECTURE.md`): elke scraper apart bij naam genoemd in de Cowork-scheduled-task-commandolijst. Bij 40+ losse `scrape_<naam>.py`-bestanden (zie punt 8 / `SCRAPERS.md`) wordt dat een lange, makkelijk-te-vergeten-lijst.
-- Idee: omzetten naar `for f in scrape_*.py: python $f` (met evt. een expliciete uitzonderingslijst voor scripts die niet standaard wekelijks moeten draaien). Nog niet besloten/gebouwd.
+### 7. Weekelijkse-refresh-script laten meegroeien — OPGELOST 2026-08-14
+- Was: elke scraper apart bij naam genoemd in de Cowork-scheduled-task-commandolijst — liep binnen twee sessies drie kwart achter (31 scrapers bestonden, de lijst noemde er nog 7).
+- Nu: `run_weekly_refresh.py` — globt zelf alle `scrape_*.py`-bestanden, geen lijst meer om bij te houden. Uitzonderen kan door geen `scrape_`-prefix te gebruiken.
+- Extra: zelf-herstellend gedrag. Een scraper met een harde fout (crash/fetch-failure) wordt automatisch hernoemd naar `fix_<naam>.py` — matcht de glob niet meer, dus wordt overgeslagen tot iemand het repareert. Scrapers die succesvol 0 events vinden worden niet hernoemd (kan legitiem zijn) maar wel gerapporteerd om te checken.
+- Zie ARCHITECTURE.md §Wekelijkse refresh en de docstring van `run_weekly_refresh.py`.
+- **Nog open**: change-detection/caching (zie punt 2 hierboven) — het mechanisme is nog niet gebouwd, alleen het idee (hash-cache per pagina) staat vast. Wordt apart opgepakt, niet meegenomen in deze refactor.
 
 ### 8. Scraper-architectuur: één bestand per venue — AFGESPROKEN 2026-08-11
 - Michiel's voorstel: voor elke venue een eigen, klein `scrape_<naam>.py`-bestand, ook als dat duplicatie tussen scripts betekent — makkelijker te debuggen (fout = precies dat ene bestand) en veiliger te editen dan één groot gedeeld scraper-bestand.

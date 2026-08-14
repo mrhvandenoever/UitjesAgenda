@@ -90,7 +90,16 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
 - [x] Sportclubs zonder per-wedstrijd-pagina (E&O, Hurry-Up, FC Groningen, Donar) bewust ongewijzigd gelaten — geen betere URL beschikbaar.
 - 7067 → 6999 events (klein netto verschil, ging vooral om URL-kwaliteit i.p.v. nieuwe events; daling komt door 1 dag datum-rollover + dat cambuur/martiniplaza wat verlopen/dubbele rijen kwijtraakten bij het verwijderen-en-herladen — oude rijen moesten eerst weg zodat de URL-update ook echt doorkwam, insert_event() update alleen bij aggregator-vs-directe-bron-botsingen).
 - Resterende kapotte links vallen samen met de AI/Chrome-lijst (grote landelijke podia) — wordt vanzelf meegenomen zodra die aangepakt worden.
-- [ ] Weekelijkse-refresh-commandolijst in `ARCHITECTURE.md` mee laten groeien (of omzetten naar `for f in scrape_*.py`, zie overleg.md) — inmiddels 21 losse scripts, lijst wordt onhandig lang.
+- [x] Weekelijkse-refresh-commandolijst → `run_weekly_refresh.py` (globt `scrape_*.py`, self-healing quarantaine naar `fix_*.py` bij harde fout). Zie ARCHITECTURE.md §Wekelijkse refresh, overleg.md punt 7.
+
+### Sessie 2026-08-14 vervolg — run_weekly_refresh.py + change-detection
+- [x] `run_weekly_refresh.py` gebouwd en écht gedraaid (niet alleen dry-run) — valideerde de self-healing logica met een geval uit de praktijk.
+- [x] **Gevonden tijdens die run**: `scrape_friesland.py` werd onterecht gequarantained — bleek een te-strakke 300s-timeout te zijn (friesland.nl heeft ~69 pagina's à ~3s), geen kapotte scraper. Timeout naar 600s, script teruggezet. Zie decisions.md.
+- [x] `page_cache.py` gebouwd (hash-based change-detection, skip parse/insert bij ongewijzigde data) en toegepast als werkend voorbeeld op `scrape_martiniplaza.py`. Zie ARCHITECTURE.md §Change-detection.
+- [x] Rollout van `page_cache.py`-patroon naar alle 30 live-scrapende `scrape_*.py`-bestanden (31e, `scrape_handmatig.py`, bewust overgeslagen). Getest: tweede live run herkent "geen wijzigingen", `--dry-run` negeert de cache.
+- [x] **Bijvangst**: tijdens de eerste échte `run_weekly_refresh.py`-run bleken `scrape_friesland.py` en `scrape_visitgroningen.py` onterecht gequarantained (300s-timeout te krap voor hun tientallen pagina's) — timeout naar 600s, beide teruggezet en opnieuw (succesvol) gedraaid. Zie decisions.md.
+- [x] CLAUDE.md/decisions.md/overleg.md/ARCHITECTURE.md bijgewerkt.
+- 6999 → 7055 events na deze sessie (friesland.nl +19 nieuw; rest van de bronnen grotendeels ongewijzigd t.o.v. vorige refresh).
 
 ## Later / open items (uit ARCHITECTURE.md)
 - [ ] Ticketmaster Discovery API (gratis tier, 5.000 req/dag) — key aanvragen op developer.ticketmaster.com

@@ -21,6 +21,7 @@ import time
 import argparse
 from datetime import datetime, date
 from events_db import insert_event, log_scrape, init_db
+from page_cache import unchanged
 
 SSL_CTX = ssl.create_default_context()
 SSL_CTX.check_hostname = False
@@ -211,6 +212,7 @@ def parse_page(html: str) -> list[dict]:
 def scrape(max_pages: int = 0, dry_run: bool = False) -> tuple[int, int]:
     init_db()
     found = added = 0
+    all_events = []
     page  = 1
     consecutive_empty = 0
 
@@ -237,8 +239,7 @@ def scrape(max_pages: int = 0, dry_run: bool = False) -> tuple[int, int]:
         for e in events:
             found += 1
             if not dry_run:
-                if insert_event(e):
-                    added += 1
+                all_events.append(e)
             else:
                 print(f"    [{e['date']}] {e['genre']:10s} {e['title'][:50]} ({e.get('city','')})")
 
@@ -250,6 +251,13 @@ def scrape(max_pages: int = 0, dry_run: bool = False) -> tuple[int, int]:
         time.sleep(0.5)
 
     if not dry_run:
+        if unchanged(SOURCE, all_events):
+            log_scrape(SOURCE, found, 0, notes='ongewijzigd sinds vorige run, geskipt')
+            print(f"✓ Klaar: {found} gevonden, geen wijzigingen sinds vorige run (geskipt)")
+            return found, 0
+        for e in all_events:
+            if insert_event(e):
+                added += 1
         log_scrape(SOURCE, found, added)
         print(f"\n✓ Klaar: {found} gevonden, {added} nieuw in DB")
     else:

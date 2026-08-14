@@ -26,6 +26,7 @@ import re
 import argparse
 from datetime import date
 from events_db import insert_event, log_scrape, init_db
+from page_cache import unchanged
 
 SSL_CTX = ssl.create_default_context()
 SSL_CTX.check_hostname = False
@@ -145,6 +146,7 @@ def parse_block(block: str) -> dict | None:
 def scrape(dry_run: bool = False) -> tuple[int, int]:
     init_db()
     found = added = 0
+    all_events = []
     today = date.today().isoformat()
 
     try:
@@ -175,10 +177,16 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
         if dry_run:
             print(f"    [{ev['date']} {ev['time']}] {ev['title'][:50]:50s} cats={ev['cats']} @ {ev['venue']}")
         else:
-            if insert_event(ev):
-                added += 1
+            all_events.append(ev)
 
     if not dry_run:
+        if unchanged(SOURCE, all_events):
+            log_scrape(SOURCE, found, 0, notes='ongewijzigd sinds vorige run, geskipt')
+            print(f"✓ Klaar: {found} gevonden, geen wijzigingen sinds vorige run (geskipt)")
+            return found, 0
+        for ev in all_events:
+            if insert_event(ev):
+                added += 1
         log_scrape(SOURCE, found, added)
         print(f"✓ Klaar: {found} gevonden, {added} nieuw in DB")
     else:

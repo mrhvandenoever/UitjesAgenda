@@ -15,6 +15,7 @@ import re
 import json
 import argparse
 from events_db import insert_event, log_scrape, init_db
+from page_cache import unchanged
 
 SOURCE   = 'grandcafe_zuidlaren'
 BASE_URL = 'https://grandcafezuidlaren.nl/agenda/'
@@ -44,6 +45,7 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
     blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
 
     found = added = 0
+    all_events = []
     for b in blocks:
         try:
             data = json.loads(b)
@@ -68,10 +70,16 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
             if dry_run:
                 print(f"    [{ev['date']} {ev['time'] or '?'}] {ev['title']}")
             else:
-                if insert_event(ev):
-                    added += 1
+                all_events.append(ev)
 
     if not dry_run:
+        if unchanged(SOURCE, all_events):
+            log_scrape(SOURCE, found, 0, notes='ongewijzigd sinds vorige run, geskipt')
+            print(f"✓ Klaar: {found} gevonden, geen wijzigingen sinds vorige run (geskipt)")
+            return found, 0
+        for ev in all_events:
+            if insert_event(ev):
+                added += 1
         log_scrape(SOURCE, found, added)
         print(f"✓ Klaar: {found} gevonden, {added} nieuw in DB")
     else:

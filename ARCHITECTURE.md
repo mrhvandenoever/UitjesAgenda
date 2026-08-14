@@ -23,6 +23,8 @@
 | `index.html` | Gegenereerde output. **Nooit handmatig aanpassen.** |
 | `requirements.txt` | Intentioneel leeg — alleen Python stdlib nodig. |
 | `scrape_<bron>.py` | Eén los scraper-script per bron/venue (zie §Scrapers-conventie). Huidige scripts: `scrape_drenthe.py`, `scrape_friesland.py`, `scrape_visitgroningen.py`, `scrape_spotgroningen.py`, `scrape_handbal.py` (E&O + Hurry-Up), `scrape_naarzuidlaren.py`, `scrape_handmatig.py` (vaste jaarevents). |
+| `run_weekly_refresh.py` | Draait alle `scrape_*.py`-bestanden (auto-discovery via glob), daarna export + generate. Zie §Wekelijkse refresh. |
+| `page_cache.py` | Change-detection: hash-cache in `events.db` om parse/insert-werk over te slaan als een bron ongewijzigd is. Zie §Change-detection. |
 | `SCRAPERS.md` | Status per bron: geautomatiseerd / kan zonder AI (recipe klaar) / AI-Chrome nodig / nog niet geprobeerd. |
 | `CLAUDE.md` | Werkwijze voor Claude in deze repo (wanneer welk .md-bestand lezen/bijwerken). |
 | `onboarding.md` / `overleg.md` / `plan.md` / `decisions.md` | Voor beheerders: resp. hoe-neem-ik-dit-over, open discussiepunten, to-do, genomen beslissingen. |
@@ -216,6 +218,63 @@ wordt alleen eenmalig ingezet om de scrape-methode van een bron te *ontdekken*
 
 ---
 
+## Change-detection (page_cache.py)
+
+Elke scraper haalt bij elke run alle pagina's opnieuw op — dat blijft zo
+(zie §Wekelijkse refresh, netwerktijd is niet het doel hiervan). Wat wél
+overgeslagen kan worden: de parse/insert-stap, als de opgehaalde data
+identiek is aan de vorige run. Daarvoor is `page_cache.py` gebouwd:
+
+```python
+from page_cache import unchanged
+
+# ...verzamel events zoals normaal in een lijst...
+
+if unchanged(SOURCE, all_events):
+    log_scrape(SOURCE, len(all_events), 0, notes='ongewijzigd, geskipt')
+    print(f"✓ Klaar: {len(all_events)} gevonden, geen wijzigingen (geskipt)")
+    return len(all_events), 0
+
+# ...anders: normale insert_event()-loop...
+```
+
+`unchanged(key, data)` hasht `data` (SHA256, via `repr()`) en vergelijkt met
+de hash die bij `key` is opgeslagen in de `page_hash`-tabel in `events.db`
+(zelfde database, aparte tabel — geen los bestand). Werkt de hash altijd bij,
+ook bij de eerste keer of bij een wijziging.
+
+**Ontwerpkeuzes:**
+- **Vergelijk de geëxtraheerde data, niet de ruwe HTML.** HTML bevat vaak
+  ruis (advertenties, CSRF-tokens, timestamps) die een "wijziging" lijkt
+  terwijl de events zelf niet veranderd zijn — dat zou de cache waardeloos
+  maken (elke run "gewijzigd").
+- **Geen early-stop tijdens het ophalen.** Bewust niet gekozen (zie
+  `overleg.md` punt 2): bij bronnen die niet gegarandeerd append-only zijn
+  kan een nieuw event ook op een oudere pagina verschijnen. Elke pagina
+  wordt dus nog steeds opgehaald; alleen het parsen/opslaan wordt
+  overgeslagen als de inhoud (of de hele resulterende eventlijst)
+  ongewijzigd is.
+- **Eén key per bron is meestal genoeg** (`SOURCE`, bv. `'martiniplaza'`).
+  Voor bronnen met losse sub-onderdelen (meerdere teams/pagina's die
+  onafhankelijk kunnen wijzigen) kan een specifiekere key gebruikt worden,
+  bv. `f"{SOURCE}:cambuur"` — dan wordt per sub-onderdeel bepaald of parsen
+  nodig is in plaats van alles-of-niets voor de hele bron.
+- **`--dry-run` negeert de cache** — een dry-run toont altijd alle gevonden
+  events, en werkt de hash niet bij (geen state-wijziging bij een preview).
+
+**Status (2026-08-14):** uitgerold naar alle 30 scrapers die live data ophalen
+(31e, `scrape_handmatig.py`, bewust overgeslagen — vaste jaarlijkse events,
+niets om te cachen). Grotendeels mechanisch toegepast (het insert-patroon was
+opvallend consistent over alle bestanden) met een migratiescript, twee
+afwijkende bestanden (`scrape_friesland.py`, `scrape_naarzuidlaren.py` —
+inline dict-literal i.p.v. losse `ev`-variabele) met de hand. Getest op
+`scrape_bostheater.py` en `scrape_handbal.py`: tweede live run meldt
+"geen wijzigingen sinds vorige run (geskipt)", `--dry-run` negeert de cache
+zoals bedoeld. Let op `scrape_naarzuidlaren.py`: gebruikt bewust dezelfde
+`SOURCE = 'drenthe.nl'` als `scrape_drenthe.py` (provincie-filter), maar een
+eigen cache-key (`SOURCE + ':naarzuidlaren'`) — anders zou een wijziging bij
+de één de cache van de ander onterecht laten denken dat er niks veranderd is.
+
 ## Cross-source dedup & insert-prioriteit
 
 Regionale aggregators (`drenthe.nl`, `visitgroningen`, `friesland.nl`, samen
@@ -273,23 +332,31 @@ Die opent PowerShell op de PC en voert uit:
 
 ```powershell
 cd C:\dev\uitjesagenda
-python scrape_drenthe.py
-python scrape_visitgroningen.py
-python scrape_friesland.py
-python scrape_handmatig.py
-python scrape_naarzuidlaren.py
-python scrape_spotgroningen.py
-python scrape_handbal.py
-python events_db.py export
-python gen_uitjes.py
+python run_weekly_refresh.py
 git add -A
 git commit -m "auto refresh"
 git push
 ```
 
-Deze lijst moet je handmatig bijwerken als er een nieuw `scrape_<naam>.py`-bestand
-bijkomt (zie §Scrapers-conventie) — nog niet omgezet naar een automatische
-`for f in scrape_*.py`-loop, staat als bespreekpunt in `overleg.md`.
+`run_weekly_refresh.py` globt zelf alle `scrape_*.py`-bestanden en draait ze
+één voor één — **geen handmatige lijst meer om bij te houden** (was tot
+2026-08-14 wel zo, liep binnen twee sessies drie kwart achter: 31 scrapers
+bestonden, ARCHITECTURE.md noemde er nog 7). Daarna `events_db.py export` +
+`gen_uitjes.py` automatisch.
+
+Zelf-herstellend: een scraper die een harde fout geeft (crash, of geen
+`✓ Klaar`/`Dry-run`-regel in de output — gebeurt alleen als de fetch/parse-
+stap zelf faalt) wordt automatisch hernoemd naar `fix_<naam>.py`. Zo'n
+bestand matcht `scrape_*.py` niet meer en wordt de volgende run vanzelf
+overgeslagen, tot iemand het repareert en terugzet. Een scraper die succesvol
+draait maar 0 events vindt wordt **niet** hernoemd (kan legitiem zijn, bv.
+buiten seizoen) — komt wel in het eindrapport te staan om handmatig te
+checken. Zie de docstring van `run_weekly_refresh.py` voor het volledige
+gedrag, en `python run_weekly_refresh.py --dry-run` om te zien welke scripts
+zouden draaien zonder iets uit te voeren.
+
+Een script uitzonderen van de wekelijkse run: geen `scrape_`-prefix gebruiken
+(of in een subfolder zetten) — dan matcht de glob het niet.
 
 SQLite werkt alleen lokaal — niet vanuit de Cowork sandbox (FUSE-mount beperking).
 

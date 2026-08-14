@@ -16,6 +16,7 @@ import re
 import argparse
 from datetime import datetime, date
 from events_db import insert_event, log_scrape, init_db
+from page_cache import unchanged
 
 SSL_CTX = ssl.create_default_context()
 SSL_CTX.check_hostname = False
@@ -74,6 +75,7 @@ def genre_from_title(title: str) -> str:
 def scrape(dry_run: bool = False) -> tuple[int, int]:
     init_db()
     found = added = 0
+    all_events = []
 
     print(f'  Ophalen {BASE_URL}...', end=' ', flush=True)
     try:
@@ -142,7 +144,7 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
         if dry_run:
             print(f'    [{parsed}] {genre:10s} {title} ({PROVINCE})')
         else:
-            if insert_event({
+            all_events.append({
                 'title':    title,
                 'date':     parsed,
                 'city':     'Zuidlaren',
@@ -150,10 +152,16 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
                 'genre':    genre,
                 'source':   SOURCE,
                 'url':      url,
-            }):
-                added += 1
+            })
 
     if not dry_run:
+        if unchanged(SOURCE + ':naarzuidlaren', all_events):
+            log_scrape(SOURCE, found, 0, notes='ongewijzigd sinds vorige run, geskipt')
+            print(f'✓ Klaar: {found} gevonden, geen wijzigingen sinds vorige run (geskipt)')
+            return found, 0
+        for ev in all_events:
+            if insert_event(ev):
+                added += 1
         log_scrape(SOURCE, found, added)
         print(f'✓ Klaar: {found} gevonden, {added} nieuw in DB')
     else:
