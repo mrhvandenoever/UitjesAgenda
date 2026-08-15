@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (32 bronnen, 30 scripts)
+## ✅ Geautomatiseerd (34 bronnen, 32 scripts)
 
 | Bron | Script |
 |---|---|
@@ -54,6 +54,8 @@ Laatst samengesteld: 2026-08-13.
 | Machinefabriek | `scrape_machinefabriek.py` (via podiuminfo.nl, JSON-LD, 2 events) |
 | Noorderbron | `scrape_noorderbron.py` (WP Event Manager, 1 event) |
 | AFAS Live | `scrape_afaslive.py` (92 events) |
+| Donar (basketbal, BNXT League) | `scrape_donar.py` (via bnxtleague.com/Sportpress-API, zie decisions.md 2026-08-15 — 15 thuiswedstrijden) |
+| Landstede Hammers (basketbal, BNXT League) | `scrape_landstede.py` (zelfde API/aanpak als Donar, 15 thuiswedstrijden) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
@@ -85,30 +87,32 @@ en `scrape_handmatig.py` (zie ✋ hieronder).
 |---|---|---|
 | Geke Hoogstins | ~2 "events" | Zijn eigenlijk maandenlange doorlopende exposities ("22 mei t/m eind oktober"), geen losse datums — past niet goed in ons single-date-event-model. Bewust niet gebouwd. |
 
-## ❌ Geblokkeerd (4 bronnen)
+## ❌ Geblokkeerd (3 bronnen)
 
 | Bron | Probleem |
 |---|---|
 | Unis Flyers (ijshockey) | Schema 2026-2027 nog niet gepubliceerd |
 | OG Capitals (ijshockey) | Redirect-loop, niet bereikbaar zonder browser |
 | LDODK (korfbal) | Competitie zelf zegt: seizoen start pas 6-8 nov 2026 |
-| Donar (basketbal) | Zie aparte sectie hieronder — 3 platforms onderzocht, nog geen werkende data-bron voor 2026-2027 |
 
-### Donar — stand van zaken (2026-08-13)
-Drie routes onderzocht, geen van alle direct werkend voor het huidige BNXT-seizoen:
-1. **donar.nl/wedstrijden** — Next.js/React Server Components, data gefragmenteerd over cross-referenced chunks, geen simpele regex-extractie voor tegenstander-naam.
-2. **basketball.nl "Vereniging zoeken"** — draait op extern platform "Foys" (`api.foys.io`), werkende endpoints voor clubinfo/teams gevonden, maar geen werkende club-search/list-endpoint om Donar's orgId te vinden zonder handmatig doorklikken.
-3. **NBB officiële database** (db.basketball.nl/help/koppelingen) — gedocumenteerde JSON-API `api.basketballstats.nl/db/json/wedstrijd.pl?clb_ID=359&seizoen=YYYY-YYYY` (Donar clb_ID=359). Werkt voor seizoen 2025-2026 (72 wedstrijden), maar geeft 0 wedstrijden + "Onbekende competitie" voor 2026-2027 — BNXT League lijkt nog niet (volledig) in dit systeem gevuld.
-4. **livescore.com/nl/basketbal/bnxt-league** (tip van Michiel) — ook Next.js, endpoint nog niet gevonden.
+### Donar — OPGELOST 2026-08-15
+Drie eerder onderzochte routes liepen allemaal dood (donar.nl zelf: Next.js
+zonder bruikbare API; basketball.nl/Foys: geen club-search-endpoint zonder
+handmatig doorklikken; NBB-database `api.basketballstats.nl`: gaf 0
+wedstrijden + "Onbekende competitie" voor 2026-2027 — BNXT League nog niet
+gevuld in dat systeem; livescore.com-tip van Michiel: netwerkmonitoring ving
+de fixture-call niet).
 
-**2026-08-14 herprobeerd**: NBB-API geeft nog steeds 0 wedstrijden voor 2026-2027.
-livescore.com/nl/basketbal/bnxt-league (tip van Michiel) bekeken via browser —
-geen bruikbare data-API gevonden in het netwerkverkeer (alleen statische
-Next.js-assets zichtbaar, de eigenlijke fixture-call werd niet gevangen).
-Vervolgstap: periodiek de basketballstats.nl-API herproberen, of
-livescore.com grondiger reverse-engineeren met Chrome MCP (form-interactie/
-JS-state uitlezen i.p.v. alleen netwerkverkeer monitoren, zoals wel lukte bij
-Donar's basketball.nl-onderzoek).
+De doorbraak kwam niet van een club-site maar van **de BNXT League's eigen
+officiële site** (bnxtleague.com) — die draait op een bespoke CMS "Sportpress"
+(bureau Webpont, specifiek voor deze competitie gebouwd) met een publieke
+JSON-API op `bnxt.sportpress.info`. Gevonden door Michiels vraag om te
+checken of BNXT-clubs/CMS-en een plugin met API gebruiken — het antwoord was
+niet een generieke WP/Joomla-plugin, maar wél een herbruikbare officiële
+league-brede API. Zie `scrape_donar.py`'s docstring voor de volledige
+API-mechaniek (seizoen/phase/team-id-discovery, paginering-quirk). Bonus:
+dezelfde API dekt ook **Landstede Hammers** — zie `scrape_landstede.py`.
+Beide: 15 thuiswedstrijden voor seizoen 2026-2027 (okt 2026 - mei 2027).
 
 ## ❓ Nog nooit geprobeerd — landelijke podia (2026-08-14 gecheckt, blijken vrijwel allemaal AI/Chrome nodig)
 

@@ -36,6 +36,18 @@ Levend document. Vink af / verplaats naar "Later" zodra iets besproken of gedaan
 ## SSL-vervolg — OPGELOST 2026-08-15
 - [x] 6 scrapers (`drenthe`, `friesland`, `handbal`, `naarzuidlaren`, `spotgroningen`, `visitgroningen`) gebruikten nog `ssl.CERT_NONE` (certificaatverificatie helemaal uit). Overgezet naar `ssl_fix.create_context()` (alleen VERIFY_X509_STRICT uit, verificatie blijft actief) en alle 6 opnieuw functioneel getest.
 
+## Donar + Landstede Hammers (basketbal) — OPGELOST 2026-08-15
+Michiel vroeg te checken of BNXT-clubsites of CMS-en (WordPress/Joomla) een
+plugin met API gebruiken voor wedstrijdschema's. Geen generieke plugin
+gevonden, maar wel iets beters: de BNXT League's eigen site draait op een
+bespoke CMS "Sportpress" (bureau Webpont) met een publieke JSON-API. Nieuwe
+`scrape_donar.py` + `scrape_landstede.py` (bijna-identiek, zelfde API/patroon
+als de ESPN-familie). Zie SCRAPERS.md en decisions.md voor de volledige
+vondst/API-mechaniek. 15 thuiswedstrijden per club, seizoen 2026-2027.
+Onderweg 14 verouderde, losstaand-ingevoerde Donar-events (andere titelstijl,
+geen los script) uit de database opgeruimd — die botsten niet met de nieuwe
+rijen (net iets andere titeltekst) en gaven dus dubbele wedstrijden.
+
 ## Sport-audit (2026-08-10)
 Van de 19 geconfigureerde clubs in `gen_uitjes.py` (`SPORT_CLUBS`):
 - **Compleet, data klopt**: fcgroningen (16), fcemmen (18), heerenveen (24), cambuur (16), fctwente (17), goahead (16), peczwolle (16), donar (14) — volledig seizoen aug 2026 - mei 2027.
@@ -74,7 +86,7 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
 - [x] Martiniplaza (via theater.nl, JSON-LD — bleek 60 events i.p.v. verwachte 6-57)
 - [x] De Tamboer, Posthuis, Bostheater, GC Zuidlaren
 - 6786 → 6986 events na deze batch (na dedup)
-- [ ] Donar (basketbal) — 3 platforms onderzocht, nog niet opgelost. Zie SCRAPERS.md voor de volledige stand (Foys-API, NBB-API met lege 2026-2027-data, livescore.com-tip van Michiel nog te proberen).
+- [x] Donar (basketbal) — 3 platforms onderzocht, toen nog niet opgelost (later wel, zie sessie 2026-08-15 hierboven).
 - [ ] Zummerbühne, OntdekPoort, Hunebedcentrum — bleken bij nader inzien AI/Chrome nodig (ticketwidget resp. bot-bescherming), verplaatst in SCRAPERS.md.
 
 ### Sessie 2026-08-13 vervolg — nog 6 scrapers erbij
