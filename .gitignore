@@ -3,6 +3,9 @@ events.db
 events.db-wal
 events.db-shm
 
+# Log van de geplande weekly_refresh.ps1-taak — lokaal, hoeft niet gecommit
+refresh_log.txt
+
 # Python
 __pycache__/
 *.pyc
