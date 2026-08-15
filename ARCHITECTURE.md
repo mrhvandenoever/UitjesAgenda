@@ -338,6 +338,35 @@ Eenmalig opzetten (per machine, niet via chat): kopieer
 `secrets.local.json.example` naar `secrets.local.json` en vul de echte
 waarde(s) zelf in een lokale editor in.
 
+## Ticketmaster-scrapers
+
+Sinds 2026-08-15: voor grote arena's/podia die via Ticketmaster verkopen is
+`ticketmaster.py` een herbruikbare helper rond de gratis Discovery API
+(zie §API-keys hierboven voor de key-opslag). Patroon (zie
+`scrape_ziggodome.py`/`scrape_ahoy.py`):
+
+```python
+from ticketmaster import fetch_venue_events
+VENUE_ID = 'Z598xZbpZdFeF'  # eenmalig opgezocht met find_venue_id('...')
+items = fetch_venue_events(VENUE_ID)
+```
+
+`find_venue_id(keyword)` is bedoeld om **eenmalig** te draaien (bv. via een
+losse `python -c`-eenregelaar) om het juiste venue-id te vinden — niet om
+in de scraper zelf bij elke run aan te roepen, want een naam-zoekopdracht
+kan per ongeluk een ander venue matchen (Ticketmaster geeft vaak meerdere
+resultaten terug voor dezelfde naam, bv. "Ziggo Dome", "Ziggo Dome Club",
+"Vinyl Room - Ziggo Dome"). Het venue-id zelf is stabiel.
+
+**Niet elk podium verkoopt via Ticketmaster** — geprobeerd voor Paradiso en
+Concertgebouw (venue gevonden, 0 events) en Rotown/Het Paard (geen
+venue-match). Alleen bruikbaar gebleken voor de grotere commerciële
+arena's/stadions (Ziggo Dome, Ahoy).
+
+Rate limits (gratis tier): 5.000 calls/dag, 5 requests/seconde, deep paging
+tot `size*page<1000` — `ticketmaster.py` wacht zelf minimaal 0.25s tussen
+calls en gebruikt `size=200` om het aantal requests te minimaliseren.
+
 ## Cross-source dedup & insert-prioriteit
 
 Regionale aggregators (`drenthe.nl`, `visitgroningen`, `friesland.nl`, samen

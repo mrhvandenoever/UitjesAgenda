@@ -1,19 +1,20 @@
 """
-scrape_ziggodome.py — Ziggo Dome (Amsterdam) via de Ticketmaster Discovery API
+scrape_ahoy.py — Rotterdam Ahoy via de Ticketmaster Discovery API
 
 Gebruik:
-    python scrape_ziggodome.py              # scrape, sla op in DB
-    python scrape_ziggodome.py --dry-run    # toon events zonder op te slaan
+    python scrape_ahoy.py              # scrape, sla op in DB
+    python scrape_ahoy.py --dry-run    # toon events zonder op te slaan
 
-Eerst gebouwd via podiuminfo.nl (25 events, tot ~2 maanden vooruit), maar
-Michiel wees erop dat Ziggo Dome-tickets vrijwel allemaal via Ticketmaster
-lopen — bevestigd: 83 events, tot mei 2027 (vs okt 2026 bij podiuminfo).
-Vervangt de podiuminfo-versie volledig, zie decisions.md 2026-08-15.
+Stond als "AI/Chrome nodig" in SCRAPERS.md (Foundation-framework, geen
+API-sporen gevonden). Michiel wees erop dat grote arena's als Ahoy vrijwel
+altijd via Ticketmaster verkopen — bevestigd: 41 events. Zie ticketmaster.py
+en decisions.md 2026-08-15.
 
-Venue-id (Z598xZbpZdFeF) eenmalig opgezocht met
-`ticketmaster.find_venue_id('Ziggo Dome')` — zie ticketmaster.py voor
-waarom dit hardcoded hoort te zijn i.p.v. elke run opnieuw op naam te
-zoeken.
+Venue-id (Z598xZbpZdk7k) eenmalig opgezocht met
+`ticketmaster.find_venue_id('Ahoy Rotterdam')` — de zoekterm gaf ook
+"RTM Stage - Rotterdam Ahoy" (een aparte zaal binnen hetzelfde complex) en
+"Ahoy' Rotterdam" (0 events) terug; dit id ("Rotterdam Ahoy") had de meeste
+events en is de hoofdzaal.
 """
 
 import argparse
@@ -21,9 +22,9 @@ from events_db import insert_event, log_scrape, init_db
 from page_cache import unchanged
 from ticketmaster import fetch_venue_events
 
-SOURCE   = 'ziggodome'
-VENUE    = 'Ziggo Dome, Amsterdam'
-VENUE_ID = 'Z598xZbpZdFeF'
+SOURCE   = 'ahoy'
+VENUE    = 'Rotterdam Ahoy, Rotterdam'
+VENUE_ID = 'Z598xZbpZdk7k'
 
 
 def scrape(dry_run: bool = False) -> tuple[int, int]:
@@ -80,5 +81,5 @@ if __name__ == '__main__':
     parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
 
-    print(f"Scraping Ziggo Dome (Ticketmaster Discovery API) [{'dry-run' if args.dry_run else 'live'}]...")
+    print(f"Scraping Rotterdam Ahoy (Ticketmaster Discovery API) [{'dry-run' if args.dry_run else 'live'}]...")
     scrape(dry_run=args.dry_run)

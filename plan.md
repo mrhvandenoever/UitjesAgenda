@@ -164,7 +164,9 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
 ## Later / open items (uit ARCHITECTURE.md)
 - [x] Ticketmaster Discovery API-key aangemaakt en getest (2026-08-15) — werkt, echte data terug voor Groningen (Martiniplaza-events zoals Guus Meeuwis, The Nutcracker). `secrets.local.json` correct ingevuld en genegeerd door git.
   - Rate limits: 5.000 calls/dag, 5 requests/seconde, deep paging beperkt tot `size × page < 1000`.
-  - [ ] Nog te bouwen: een echte `scrape_ticketmaster.py` die dit structureel gebruikt (welke steden/query's, welke bronnen dit aanvult i.p.v. dupliceert met bestaande scrapers — nog te bepalen).
+  - [x] `ticketmaster.py`-helper gebouwd (venue-id-lookup + rate-limited events-fetch). Toegepast op **Ziggo Dome** (vervangt podiuminfo.nl, 83 vs 25 events) en **Ahoy** (nieuw, 41 events).
+  - [x] Ook geprobeerd voor Paradiso/Concertgebouw (venue gevonden, 0 events — verkopen niet via Ticketmaster) en Rotown/Het Paard (geen venue-match, te klein). Niet bruikbaar voor deze 4.
+- [ ] **Het Paard** — Michiel tipte denhaag.com/nl/paard (stadsagenda) als mogelijk alternatief, nog te checken.
 - [ ] Lycurgus/Sudosa/Friso — 2e seizoenshelft volleybal nog niet gepubliceerd door de bond, later herscrapen
 - [ ] GIJS Groningen — URL is nu wel bekend (gijsgroningen.nl/gijs-eredivisie/), maar toont nog seizoen 2025-2026; herchecken zodra 2026-2027 live is
 - [ ] Stadspark Groningen (Summer Stage, Hullaballoo) — revisit zomer 2027
