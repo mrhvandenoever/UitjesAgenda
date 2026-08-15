@@ -2380,12 +2380,12 @@
     "url": "https://www.concertgebouw.nl/concerten/45428186-blof"
   },
   {
-    "title": "Billy Corgan",
+    "title": "Billy Corgan - A Night of Mellon Collie and Infinite Sadness",
     "date": "2026-08-29",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/billy-corgan-ct9s"
+    "genre": "overig",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/billy-corgan-ct9s"
   },
   {
     "title": "Bonte Markt | Visserijdagen",
@@ -4468,12 +4468,13 @@
     "url": "https://www.melkweg.nl/nl/agenda/syd-07-09-2026/"
   },
   {
-    "title": "The Best of Tubular Bells I, II & III",
+    "title": "The Best of Tubular Bells I, II & III - de visionaire muziek van Mike Oldfield – live in concert",
     "date": "2026-09-07",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/the-best-of-tubular-bells-i-ii-iii-zht9"
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/the-best-of-tubular-bells-i-ii-iii-zht9"
   },
   {
     "title": "The Dresden Dolls",
@@ -4518,12 +4519,13 @@
     "genre": "overig"
   },
   {
-    "title": "Pyrrhon & Devoid Of Thought",
+    "title": "Pyrrhon & Devoid Of Thought - Double bill in V11",
     "date": "2026-09-08",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/pyrrhon-devoid-of-thought-mv4n"
+    "genre": "overig",
+    "time": "21:00",
+    "venue": "V11 (externe locatie), Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/pyrrhon-devoid-of-thought-mv4n"
   },
   {
     "title": "Roman Candle - + Filth is Eternal",
@@ -4703,6 +4705,15 @@
     "url": "https://www.paard.nl/en/event/chicco-4/"
   },
   {
+    "title": "Codarts Jazz & Global Sessions: Paul Tintelnot & Max Pöpsel - In samenwerking met Codarts Rotterdam",
+    "date": "2026-09-10",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Studio Blendd @ de Doelen, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/codarts-jazz-global-sessions-paul-tintelnot-max-popsel-7rq3"
+  },
+  {
     "title": "Colin Edwin and John Wesley VOYAGE 35",
     "date": "2026-09-10",
     "source": "tivolivredenburg",
@@ -4810,12 +4821,12 @@
     "url": "https://neushoorn.nl/programma"
   },
   {
-    "title": "Proms: John Williams’ Greatest Hits",
+    "title": "Proms: John Williams’ Greatest Hits - Rotterdams Philharmonisch Orkest",
     "date": "2026-09-10",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/proms-john-williams-greatest-hits-fnk6"
+    "genre": "overig",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/proms-john-williams-greatest-hits-fnk6"
   },
   {
     "title": "Sonido Gallo Negro",
@@ -4937,6 +4948,14 @@
     ]
   },
   {
+    "title": "Cross Comix Festival 2026",
+    "date": "2026-09-11",
+    "source": "dedoelen",
+    "genre": "overig",
+    "venue": "Diverse zalen, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/cross-comix-festival-2026-fn65"
+  },
+  {
     "title": "De Lesbische Liga Live",
     "date": "2026-09-11",
     "source": "tivolivredenburg",
@@ -4981,6 +5000,15 @@
     "type": "Keuken Kampioen Divisie",
     "lat": 52.7693,
     "lon": 6.8891
+  },
+  {
+    "title": "Flow Unplugged - Musical Talent Stage",
+    "date": "2026-09-11",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Eduard Flipse Zaal (sta- en zitplaatsen), Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/flow-unplugged-hgsj"
   },
   {
     "title": "Glazyhaze",
@@ -5109,6 +5137,14 @@
     "date": "2026-09-11",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Vinyl Sessions: Anton de Bruin",
+    "date": "2026-09-11",
+    "source": "dedoelen",
+    "genre": "overig",
+    "venue": "Studio Blendd @ de Doelen, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/vinyl-sessions-anton-de-bruin-s8tk"
   },
   {
     "title": "VroegZat",
@@ -5808,12 +5844,13 @@
     "category": "Sportevenement"
   },
   {
-    "title": "Enigma-Variaties",
+    "title": "Enigma-Variaties - Rotterdams Philharmonisch Orkest",
     "date": "2026-09-13",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/enigma-variaties-r1bq"
+    "genre": "overig",
+    "time": "14:15",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/enigma-variaties-r1bq"
   },
   {
     "title": "Fear Factory - + Crystal Lake + Hate + The Noctural Affair",
@@ -6371,12 +6408,13 @@
     "url": "https://www.doornroosje.nl/event/allegaeon/"
   },
   {
-    "title": "Anna Lapwood met het Philharmonia Orchestra en Laurens Symfonisch vrouwenkoor",
+    "title": "Anna Lapwood met het Philharmonia Orchestra en Laurens Symfonisch vrouwenkoor - Cosmology",
     "date": "2026-09-17",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/anna-lapwood-met-het-philharmonia-orchestra-en-laurens-symfonisch-vrouwenkoor-876t"
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/anna-lapwood-met-het-philharmonia-orchestra-en-laurens-symfonisch-vrouwenkoor-876t"
   },
   {
     "title": "Bert Visscher 65, Dat Zou Je Niet Zeggen - Bert Visscher, Reinout Douma en Noordpool Strijkkwartet",
@@ -6490,6 +6528,15 @@
     "date": "2026-09-17",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Newport Jazz Session: Ella Zirina en Teis Semey",
+    "date": "2026-09-17",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Studio Blendd @ de Doelen, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/newport-jazz-session-ella-zirina-en-teis-semey-9dvm"
   },
   {
     "title": "OS GAROTIN",
@@ -6877,12 +6924,13 @@
     "genre": "overig"
   },
   {
-    "title": "Seizoensopening met Sheku",
+    "title": "Seizoensopening met Sheku - Rotterdams Philharmonisch Orkest",
     "date": "2026-09-18",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/seizoensopening-met-sheku-db4x"
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/seizoensopening-met-sheku-db4x"
   },
   {
     "title": "Selah SUE THE Gallands",
@@ -6918,6 +6966,15 @@
     "url": "https://www.podiuminfo.nl/concert/440606/The-Streamers/Ziggo-Dome/"
   },
   {
+    "title": "Vinyl Sessions: Wes",
+    "date": "2026-09-18",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Studio Blendd @ de Doelen, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/vinyl-sessions-wes-qfbm"
+  },
+  {
     "title": "‘SenTjerra’ met Wereldmuziek in de serie 'Vrijdagmiddagconcerten'",
     "date": "2026-09-18",
     "source": "friesland.nl",
@@ -6936,12 +6993,13 @@
     "image": "https://www.rotown.nl/wp-content/uploads/2026/05/1000-Rabbits-KL-e1778080092766.jpg"
   },
   {
-    "title": "40 Fingers",
+    "title": "40 Fingers - de Italiaanse gitaarsensatie",
     "date": "2026-09-19",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/40-fingers-ctb7"
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/40-fingers-ctb7"
   },
   {
     "title": "90'S NOW",
@@ -6985,12 +7043,22 @@
     "genre": "overig"
   },
   {
-    "title": "Candlelight",
+    "title": "Candlelight - Coldplay meets Imagine Dragons",
     "date": "2026-09-19",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/candlelight-qf66"
+    "genre": "overig",
+    "time": "21:00",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/candlelight-9dkv"
+  },
+  {
+    "title": "Candlelight - Een Hommage aan ABBA en Meer",
+    "date": "2026-09-19",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "18:15",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/candlelight-qf66"
   },
   {
     "title": "DAY WE RAN",
@@ -7956,12 +8024,13 @@
     "url": "https://www.doornroosje.nl/event/berre/"
   },
   {
-    "title": "Cesar: Het verhaal van een drummer",
+    "title": "Cesar: Het verhaal van een drummer - Live in de Doelen met Jean-Paul Heck",
     "date": "2026-09-22",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/cesar-het-verhaal-van-een-drummer-tqb8"
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/cesar-het-verhaal-van-een-drummer-tqb8"
   },
   {
     "title": "Cursus Klassieke Muziek 1 – Hoe het begon",
@@ -8159,14 +8228,6 @@
     "genre": "overig",
     "venue": "Doornroosje, Nijmegen",
     "url": "https://www.doornroosje.nl/event/nona-2/"
-  },
-  {
-    "title": "Ramona Zaharia is Carmen",
-    "date": "2026-09-23",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/ramona-zaharia-is-carmen-hgqc"
   },
   {
     "title": "Rising Stars: cellist Petar Pejčić",
@@ -8923,12 +8984,12 @@
     "genre": "overig"
   },
   {
-    "title": "Verdi's Requiem",
+    "title": "Verdi's Requiem - Rotterdams Philharmonisch Orkest",
     "date": "2026-09-25",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/verdi-s-requiem-b6z6"
+    "genre": "overig",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/verdi-s-requiem-b6z6"
   },
   {
     "title": "Volviers: Groots met een geile G",
@@ -9115,12 +9176,13 @@
     "url": "https://www.doornroosje.nl/event/douwe-bob-7/"
   },
   {
-    "title": "Eindeloos India Festival",
+    "title": "Eindeloos India Festival - met o.a. Maithili Thakur en Debasmita Bhattacharya",
     "date": "2026-09-26",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/eindeloos-india-festival-qf6v"
+    "genre": "overig",
+    "time": "14:30",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/eindeloos-india-festival-qf6v"
   },
   {
     "title": "Elvana",
@@ -9932,12 +9994,13 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3936481170/up-the-north"
   },
   {
-    "title": "Van Baerle Trio",
+    "title": "Van Baerle Trio - Kamermuziekvereeniging",
     "date": "2026-09-27",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/van-baerle-trio-594l"
+    "genre": "overig",
+    "time": "12:00",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/van-baerle-trio-594l"
   },
   {
     "title": "We Will Rock You Musical",
@@ -10304,14 +10367,6 @@
     ]
   },
   {
-    "title": "Lunchconcert: Openbare Repetitie",
-    "date": "2026-09-30",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/lunchconcert-openbare-repetitie-59mg"
-  },
-  {
     "title": "Mamas Gun - Woensdag 30 september 2026 - Annabel, Rotterdam",
     "date": "2026-09-30",
     "source": "rotown",
@@ -10319,6 +10374,15 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/mamas-gun-1/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/05/Mamas-Gun-Declan-Haughian_20250904-r001-007-Fb-event.jpg"
+  },
+  {
+    "title": "Openbare Repetitie - Rotterdams Philharmonisch Orkest",
+    "date": "2026-09-30",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "12:30",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/openbare-repetitie-59mg"
   },
   {
     "title": "Patrick Laureij – Kintsugi. (reprise)",
@@ -10394,12 +10458,12 @@
     "cats": []
   },
   {
-    "title": "Beethovens Pastorale",
+    "title": "Beethovens Pastorale - Rotterdams Philharmonisch Orkest",
     "date": "2026-10-01",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/beethovens-pastorale-tqmt"
+    "genre": "overig",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/beethovens-pastorale-tqmt"
   },
   {
     "title": "Blanks",
@@ -11962,20 +12026,22 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1413522152/droom-dit"
   },
   {
-    "title": "Efteling in concert - Reprise",
+    "title": "Efteling in concert - Reprise - Efteling in Concert keert terug!",
     "date": "2026-10-04",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/efteling-in-concert-reprise-lyrc"
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/efteling-in-concert-reprise-lyrc"
   },
   {
-    "title": "Elizabeth Goh",
+    "title": "Elizabeth Goh - Het kleine blauwe notitieboekje",
     "date": "2026-10-04",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/elizabeth-goh-qfkk"
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Eduard Flipse Zaal (zitplaatsen met vrije stoelkeuze), Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/elizabeth-goh-qfkk"
   },
   {
     "title": "Erwin Nyhoff",
@@ -12316,6 +12382,15 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/326765521/technieker-bikkelrun"
+  },
+  {
+    "title": "The Elements - DProject Orchestra - Nieuwe muziek. Nieuwe musici. Pure energie.",
+    "date": "2026-10-04",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/the-elements-dproject-orchestra-yj7v"
   },
   {
     "title": "Tim Knol & The Wandering Hearts – Tribute to Tom Petty & The Heartbreakers",
@@ -12674,12 +12749,13 @@
     "genre": "overig"
   },
   {
-    "title": "Krystian Zimerman",
+    "title": "Krystian Zimerman - meesterpianist",
     "date": "2026-10-07",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/krystian-zimerman-hgt1"
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/krystian-zimerman-hgt1"
   },
   {
     "title": "LOE.",
@@ -14572,6 +14648,15 @@
     "genre": "overig"
   },
   {
+    "title": "Michael Foster, Leila Bordreuil and Chris Corsano trio - Infinite Hiss presents",
+    "date": "2026-10-12",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Eduard Flipse Zaal (zitplaatsen met vrije stoelkeuze), Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/michael-foster-leila-bordreuil-and-chris-corsano-trio-tq92"
+  },
+  {
     "title": "Pete Murray - 12 oktober 2026 - LantarenVenster, Rotterdam",
     "date": "2026-10-12",
     "source": "rotown",
@@ -14590,12 +14675,13 @@
     "image": "https://www.rotown.nl/wp-content/uploads/2026/04/RUEL-Photo-Credit-Maria-Alvarez_kl.jpg"
   },
   {
-    "title": "Tenebrae",
+    "title": "Tenebrae - Hemelse koorzang uit de Engelse renaissance",
     "date": "2026-10-12",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/tenebrae-r1xn"
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/tenebrae-r1xn"
   },
   {
     "title": "Cuca Roseta",
@@ -14923,12 +15009,13 @@
     "genre": "overig"
   },
   {
-    "title": "Hagelslag de Podcast",
+    "title": "Hagelslag de Podcast - de liveshow",
     "date": "2026-10-14",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/hagelslag-de-podcast-xm31"
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Eduard Flipse Zaal (zitplaatsen met vrije stoelkeuze), Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/hagelslag-de-podcast-xm31"
   },
   {
     "title": "Herman van Veen – Vandaag",
@@ -14967,12 +15054,12 @@
     ]
   },
   {
-    "title": "Intouchables in Concert",
+    "title": "Intouchables in Concert - De geliefde Franse filmklassieker live met het Noordpool Orkest",
     "date": "2026-10-14",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/intouchables-in-concert-s8fp"
+    "genre": "overig",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/intouchables-in-concert-s8fp"
   },
   {
     "title": "Jhariah",
@@ -15568,12 +15655,12 @@
     "url": "https://www.doornroosje.nl/event/wodan-boys-3/"
   },
   {
-    "title": "Yuja Wang speelt Brahms 1 en 2",
+    "title": "Yuja Wang speelt Brahms 1 en 2 - Rotterdams Philharmonisch Orkest",
     "date": "2026-10-15",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/yuja-wang-speelt-brahms-1-en-2-ct6r"
+    "genre": "overig",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/yuja-wang-speelt-brahms-1-en-2-ct6r"
   },
   {
     "title": "corto.alto",
@@ -16383,12 +16470,13 @@
     ]
   },
   {
-    "title": "Het Muziek",
+    "title": "Het Muziek - Hoketus 50",
     "date": "2026-10-17",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/het-muziek-yjfz"
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/het-muziek-yjfz"
   },
   {
     "title": "Huub Cooijmans De Betoverde Klas (4+)",
@@ -16587,12 +16675,13 @@
     "genre": "overig"
   },
   {
-    "title": "Rock The Opera",
+    "title": "Rock The Opera - The Real Sound of Rock",
     "date": "2026-10-17",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/rocktheopera-4zc7"
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/rocktheopera-4zc7"
   },
   {
     "title": "Rolf Sanchez",
@@ -16822,6 +16911,15 @@
     "url": "https://www.atlastheater.nl/voorstellingen/aatje-viert-feest-4plus-18-okt/"
   },
   {
+    "title": "Ahmed Aboutaleb - boekpresentatie | over thuis en toekomst",
+    "date": "2026-10-18",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/ahmed-aboutaleb-n56h"
+  },
+  {
     "title": "Apennoten Een Kist Vol Liedjes",
     "date": "2026-10-18",
     "source": "ontdekpoort",
@@ -16849,12 +16947,13 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/160752516/bit-de-serie-marathon-met-legendarische-sil"
   },
   {
-    "title": "Bach Collegium Japan",
+    "title": "Bach Collegium Japan - Brandenburgse Concerten",
     "date": "2026-10-18",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/bach-collegium-japan-1cmv"
+    "genre": "overig",
+    "time": "14:15",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/bach-collegium-japan-1cmv"
   },
   {
     "title": "Beethovens Symfonie nr. 8 en Sjostakovitsj' Celloconcert nr. 1",
@@ -17268,12 +17367,13 @@
     "url": "https://www.doornroosje.nl/event/neomi-3/"
   },
   {
-    "title": "ABBA Gold",
+    "title": "ABBA Gold - the Concert Show",
     "date": "2026-10-19",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/abba-gold-j21p"
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/abba-gold-j21p"
   },
   {
     "title": "Babyconcert (0 t/m 18 maanden)",
@@ -17544,12 +17644,13 @@
     ]
   },
   {
-    "title": "Canto Ostinato",
+    "title": "Canto Ostinato - Stadsorganist Adriaan Hoek",
     "date": "2026-10-21",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/canto-ostinato-b6hx"
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/canto-ostinato-b6hx"
   },
   {
     "title": "Cul's Cult",
@@ -18143,12 +18244,13 @@
     ]
   },
   {
-    "title": "Twilight in Concert",
+    "title": "Twilight in Concert - beleef de legendarische saga als een episch filmconcert, verlicht door 1000 kaarsen",
     "date": "2026-10-22",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/twilight-in-concert-j2dj"
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/twilight-in-concert-j2dj"
   },
   {
     "title": "Yorick van Norden",
@@ -18216,14 +18318,6 @@
     "city": "Meppel",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3432949113/andries-tunru-stefan-hendrikx-beperkt-houdbaar-1"
-  },
-  {
-    "title": "BENR",
-    "date": "2026-10-23",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/benr-r1dt"
   },
   {
     "title": "Black Sea Dahu",
@@ -18451,6 +18545,15 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/left-of-the-dial-2026-2/",
     "image": "https://www.rotown.nl/wp-content/uploads/2025/10/Teethin-website.jpg"
+  },
+  {
+    "title": "Left of the Dial 2026 - de meest relevante alternatieve artiesten van dat moment",
+    "date": "2026-10-23",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/left-of-the-dial-2026-mv3f"
   },
   {
     "title": "MICHA",
@@ -18974,12 +19077,13 @@
     "image": "https://www.rotown.nl/wp-content/uploads/2025/10/soapbox-website.jpg"
   },
   {
-    "title": "Lizz Wright",
+    "title": "Lizz Wright - soul, gospel en tijdloze jazz",
     "date": "2026-10-24",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/lizz-wright-59hj"
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/lizz-wright-59hj"
   },
   {
     "title": "Lola Cedès",
@@ -19270,12 +19374,13 @@
     "genre": "overig"
   },
   {
-    "title": "APNA Divali Familie Festival 2026",
+    "title": "APNA Divali Familie Festival 2026 - Het festival van licht",
     "date": "2026-10-25",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/apna-divali-familie-festival-2026-fnvb"
+    "genre": "overig",
+    "time": "13:00",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/apna-divali-familie-festival-2026-fnvb"
   },
   {
     "title": "Afternoon Tea met Rudolf Nammensma",
@@ -19337,12 +19442,13 @@
     "genre": "overig"
   },
   {
-    "title": "Catching Cultures Festival",
+    "title": "Catching Cultures Festival - muziek uit alle windstreken",
     "date": "2026-10-25",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/catching-cultures-festival-qfpz"
+    "genre": "overig",
+    "time": "13:30",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/catching-cultures-festival-qfpz"
   },
   {
     "title": "Circus Santelli",
@@ -19968,12 +20074,13 @@
     ]
   },
   {
-    "title": "Katia & Marielle Labèque",
+    "title": "Katia & Marielle Labèque - pianoduo wereldtop",
     "date": "2026-10-27",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/katia-marielle-labeque-1cxl"
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/katia-marielle-labeque-1cxl"
   },
   {
     "title": "Lezing Annejet van der Zijl",
@@ -20126,6 +20233,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Culture (ft. Kenyatta Hill) & Cedric Myton from the Congos",
+    "date": "2026-10-28",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/culture-ft-kenyatta-hill-cedric-myton-from-the-congos-qfbb"
   },
   {
     "title": "De Jukebox",
@@ -20711,12 +20827,12 @@
     "url": "https://www.effenaar.nl/agenda/blof-30okt"
   },
   {
-    "title": "Beethoven en Prokofjev",
+    "title": "Beethoven en Prokofjev - Rotterdams Philharmonisch Orkest",
     "date": "2026-10-30",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/beethoven-en-prokofjev-mvgd"
+    "genre": "overig",
+    "venue": "Grote Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/beethoven-en-prokofjev-mvgd"
   },
   {
     "title": "Blauwe Vinkjes - Poeha",
@@ -20738,12 +20854,13 @@
     "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047585/working-on-a-dream/10362774"
   },
   {
-    "title": "Celine Cairo",
+    "title": "Celine Cairo - Panacea tour",
     "date": "2026-10-30",
     "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/celine-cairo-tq67"
+    "genre": "overig",
+    "time": "21:00",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/celine-cairo-tq67"
   },
   {
     "title": "Chicco",
@@ -21370,14 +21487,6 @@
     "genre": "overig"
   },
   {
-    "title": "Jethro Tull",
-    "date": "2026-10-31",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/jethro-tull-n5wy"
-  },
-  {
     "title": "Jon Allen & The Luna Kings - Zaterdag 31 oktober 2026 - Rotown, Rotterdam",
     "date": "2026-10-31",
     "source": "rotown",
@@ -21768,14 +21877,6 @@
     ]
   },
   {
-    "title": "Als de dag van toen, met o.a. Henk Poort",
-    "date": "2026-11-01",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/als-de-dag-van-toen-met-o-a-henk-poort-qf33"
-  },
-  {
     "title": "Angine De Poitrine",
     "date": "2026-11-01",
     "source": "vera",
@@ -21976,14 +22077,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2952773018/harlinger-bluesfestival"
   },
   {
-    "title": "Henri Demarquette en Victor Demarquette",
-    "date": "2026-11-01",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/henri-demarquette-en-victor-demarquette-b6gm"
-  },
-  {
     "title": "Johanna’s Mountain Boys",
     "date": "2026-11-01",
     "source": "friesland.nl",
@@ -22062,14 +22155,6 @@
     "url": "https://www.landstedehammers.nl",
     "gender": "heren",
     "sport": "basketbal"
-  },
-  {
-    "title": "Laureaten Concert PianoFestival Rotterdam",
-    "date": "2026-11-01",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/laureaten-concert-pianofestival-rotterdam-7rnz"
   },
   {
     "title": "MILONGE XL",
@@ -22633,14 +22718,6 @@
     ]
   },
   {
-    "title": "Geert Mak & Ramon van Engelenhoven",
-    "date": "2026-11-04",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/geert-mak-ramon-van-engelenhoven-n5ps"
-  },
-  {
     "title": "Hippotraktor",
     "date": "2026-11-04",
     "source": "vera",
@@ -22878,14 +22955,6 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/fink-6/"
-  },
-  {
-    "title": "Fire in my mouth",
-    "date": "2026-11-05",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/fire-in-my-mouth-7r9g"
   },
   {
     "title": "Hippotraktor",
@@ -23246,14 +23315,6 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1188394307/concert-door-het-klaagkoor-in-de-serie-vrijdagmiddagconcerten"
-  },
-  {
-    "title": "Demon Slayer in Concert",
-    "date": "2026-11-06",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/demon-slayer-in-concert-6xzk"
   },
   {
     "title": "Disco Inferno met Discophonic Orchestra",
@@ -23736,14 +23797,6 @@
     "url": "https://www.concertgebouw.nl/concerten/45743710-dramatisch-oratorium-van-julia-wolfe-met-146-jonge-zangeressen"
   },
   {
-    "title": "Dvořák Serenade voor Strijkers",
-    "date": "2026-11-07",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/dvorak-serenade-voor-strijkers-zh8t"
-  },
-  {
     "title": "ELECTRIC EEL SHOCK",
     "date": "2026-11-07",
     "source": "hedon",
@@ -23818,14 +23871,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Iris Hond & Kamerata-Zuid",
-    "date": "2026-11-07",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/iris-hond-kamerata-zuid-r19c"
   },
   {
     "title": "Janneke de Bijl - Pluk eventueel de dag",
@@ -24555,14 +24600,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "The West Coast Big Band",
-    "date": "2026-11-08",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/the-west-coast-big-band-9dgh"
   },
   {
     "title": "Theater Terra",
@@ -25355,14 +25392,6 @@
     "genre": "overig"
   },
   {
-    "title": "Naruto Shippuden Symphonic Experience",
-    "date": "2026-11-12",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/naruto-shippuden-symphonic-experience-dbwd"
-  },
-  {
     "title": "Nate Smith",
     "date": "2026-11-12",
     "source": "tivolivredenburg",
@@ -25373,14 +25402,6 @@
     "date": "2026-11-12",
     "source": "tivolivredenburg",
     "genre": "overig"
-  },
-  {
-    "title": "Nikola Meeuwsen",
-    "date": "2026-11-12",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/nikola-meeuwsen-87bc"
   },
   {
     "title": "Noord Nederlands Orkest – Symfonische Soundtracks",
@@ -25729,14 +25750,6 @@
     ]
   },
   {
-    "title": "Een avond met Yotam Ottolenghi",
-    "date": "2026-11-13",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/een-avond-met-yotam-ottolenghi-dbgk"
-  },
-  {
     "title": "Elmer",
     "date": "2026-11-13",
     "source": "tivolivredenburg",
@@ -25800,14 +25813,6 @@
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/goed-dat-jij-bestaat-johnny-de-mol-13-nov/"
-  },
-  {
-    "title": "Hello Darkness presents",
-    "date": "2026-11-13",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/hello-darkness-presents-r15m"
   },
   {
     "title": "Hiigo",
@@ -26330,14 +26335,6 @@
     ]
   },
   {
-    "title": "DoelenEnsemble en het Young DoelenEnsemble",
-    "date": "2026-11-14",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/doelenensemble-en-het-young-doelenensemble-7rby"
-  },
-  {
     "title": "Edsilia Rombley",
     "date": "2026-11-14",
     "source": "afaslive",
@@ -26507,14 +26504,6 @@
     "date": "2026-11-14",
     "source": "tivolivredenburg",
     "genre": "overig"
-  },
-  {
-    "title": "Nowruz Concert 2026",
-    "date": "2026-11-14",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/nowruz-concert-2026-tq3n"
   },
   {
     "title": "Olli Mustonen en leden van Amsterdam Sinfonietta in Elgars Pianokwintet",
@@ -27171,14 +27160,6 @@
     "url": "https://theaterroden.nl/de-freudjes"
   },
   {
-    "title": "Tribute to Cliff Richard & The Shadows",
-    "date": "2026-11-15",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/tribute-to-cliff-richard-the-shadows-hgft"
-  },
-  {
     "title": "Tuimelaar (0,5+)",
     "date": "2026-11-15",
     "source": "tivolivredenburg",
@@ -27602,14 +27583,6 @@
     ]
   },
   {
-    "title": "Harry Potter and the Chamber of Secrets™ in Concert",
-    "date": "2026-11-18",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/harry-potter-and-the-chamber-of-secretstm-in-concert-7rms"
-  },
-  {
     "title": "Het Grote Klassieke Muziek Festijn met Jamai",
     "date": "2026-11-18",
     "source": "concertgebouw",
@@ -27719,14 +27692,6 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/714927065/sherlock-holmes-try-out",
     "category": "Toneel"
-  },
-  {
-    "title": "Sint Sing Along",
-    "date": "2026-11-18",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/sint-sing-along-qfmw"
   },
   {
     "title": "Sinterklaasconcert (4+)",
@@ -29117,14 +29082,6 @@
     "category": "Concert"
   },
   {
-    "title": "Luka Bloom",
-    "date": "2026-11-21",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/luka-bloom-qf3h"
-  },
-  {
     "title": "Marcel Hensema",
     "date": "2026-11-21",
     "source": "posthuistheater",
@@ -29716,14 +29673,6 @@
     ]
   },
   {
-    "title": "Trio Portici",
-    "date": "2026-11-22",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/trio-portici-mvy6"
-  },
-  {
     "title": "We zijn toch familie",
     "date": "2026-11-22",
     "source": "drenthe.nl",
@@ -30162,14 +30111,6 @@
     "genre": "overig"
   },
   {
-    "title": "Shirma Rouse, het Orkest Koninklijke Luchtmacht & ZO! Gospel Choir",
-    "date": "2026-11-25",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/shirma-rouse-het-orkest-koninklijke-luchtmacht-zo-gospel-choir-hgr8"
-  },
-  {
     "title": "Sinterklaas en het grote mysterie",
     "date": "2026-11-25",
     "source": "vanberesteyn",
@@ -30186,14 +30127,6 @@
     "date": "2026-11-25",
     "source": "tivolivredenburg",
     "genre": "overig"
-  },
-  {
-    "title": "Thomas Oliemans, Cor Bakker, Bert van den Brink",
-    "date": "2026-11-25",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/thomas-oliemans-cor-bakker-bert-van-den-brink-593s"
   },
   {
     "title": "We All Sing ABBA",
@@ -30427,14 +30360,6 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/mobilhome-2/"
-  },
-  {
-    "title": "Mozart en Dvořák",
-    "date": "2026-11-26",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/mozart-en-dvorak-s8n3"
   },
   {
     "title": "Mythos: Ragnarök",
@@ -30984,14 +30909,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "The Music of Hans Zimmer & Alan Silvestri",
-    "date": "2026-11-27",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/the-music-of-hans-zimmer-alan-silvestri-fnkg"
   },
   {
     "title": "The Veils - + Anthonie Tonnon",
@@ -31595,14 +31512,6 @@
     "category": "Muziek overig"
   },
   {
-    "title": "The Witcher in Concert",
-    "date": "2026-11-28",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/the-witcher-in-concert-n5zr"
-  },
-  {
     "title": "Toneeluitvoering Advendo",
     "date": "2026-11-28",
     "source": "dorpshuisannen",
@@ -31669,22 +31578,6 @@
     "genre": "overig",
     "venue": "Effenaar, Eindhoven",
     "url": "https://www.effenaar.nl/agenda/ao"
-  },
-  {
-    "title": "A Celtic Winter",
-    "date": "2026-11-29",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/a-celtic-winter-4ztr"
-  },
-  {
-    "title": "Andreas Scholl & Accademia Bizantina",
-    "date": "2026-11-29",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/andreas-scholl-accademia-bizantina-qfw4"
   },
   {
     "title": "BENR",
@@ -31824,14 +31717,6 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/gallowstreet-6/"
-  },
-  {
-    "title": "Hadewych van Gent",
-    "date": "2026-11-29",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/hadewych-van-gent-hgcr"
   },
   {
     "title": "Herman van Veen",
@@ -32423,14 +32308,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Lunchconcert: Openbare Repetitie",
-    "date": "2026-12-02",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/lunchconcert-openbare-repetitie-n5xz"
   },
   {
     "title": "Luuk Weggemans – Lach maar om mij (try-out)",
@@ -33213,14 +33090,6 @@
     "genre": "overig"
   },
   {
-    "title": "Nikola Meeuwsen speelt Rachmaninoff",
-    "date": "2026-12-04",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/nikola-meeuwsen-speelt-rachmaninoff-1cbh"
-  },
-  {
     "title": "No Kidding - Julika Marijn",
     "date": "2026-12-04",
     "source": "atlastheater",
@@ -33286,14 +33155,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Salvador Sobral",
-    "date": "2026-12-04",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/salvador-sobral-db36"
   },
   {
     "title": "Sarah Julia - 4 december 2026 - Rotown, Rotterdam",
@@ -33828,14 +33689,6 @@
     "sport": "basketbal"
   },
   {
-    "title": "London Philharmonic Orchestra met Alice Sara Ott",
-    "date": "2026-12-06",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/london-philharmonic-orchestra-met-alice-sara-ott-fnpm"
-  },
-  {
     "title": "Mahler 4 met Karina Canellakis",
     "date": "2026-12-06",
     "source": "concertgebouw",
@@ -33996,14 +33849,6 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1108059256/gurriers-ire-enola-gay-uk",
     "category": "Concert"
-  },
-  {
-    "title": "JODOKCELLO",
-    "date": "2026-12-07",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/jodokcello-6x3m"
   },
   {
     "title": "Jake Xerxes Fussell",
@@ -34171,14 +34016,6 @@
     "image": "https://www.rotown.nl/wp-content/uploads/2026/03/Opus-Kink-Photo-Credit-Joe-Gollifer-1-FB-event.jpg"
   },
   {
-    "title": "Orkest van de Achttiende Eeuw",
-    "date": "2026-12-08",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/orkest-van-de-achttiende-eeuw-qfww"
-  },
-  {
     "title": "Polyphia",
     "date": "2026-12-08",
     "source": "afaslive",
@@ -34260,14 +34097,6 @@
     "cats": [
       "theater"
     ]
-  },
-  {
-    "title": "50 jaar The Last Waltz",
-    "date": "2026-12-09",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/50-jaar-the-last-waltz-9dhz"
   },
   {
     "title": "Alex Henry Foster",
@@ -34493,14 +34322,6 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/the-tubs/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/04/The-Tubs-KL-e1776785932443.jpg"
-  },
-  {
-    "title": "Beethoven met Martha Argerich",
-    "date": "2026-12-10",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/beethoven-met-martha-argerich-59wj"
   },
   {
     "title": "Blauwe Vinkjes",
@@ -34945,14 +34766,6 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/davina-michelle-4/"
-  },
-  {
-    "title": "De Niemanders",
-    "date": "2026-12-11",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/de-niemanders-j2t4"
   },
   {
     "title": "De Wichtersesjes - Marcel Smit",
@@ -35675,14 +35488,6 @@
     "category": "Concert"
   },
   {
-    "title": "Kerst Doelen Concert",
-    "date": "2026-12-12",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/kerst-doelen-concert-n532"
-  },
-  {
     "title": "LUCKY FONZ III",
     "date": "2026-12-12",
     "source": "neushoorn",
@@ -35928,14 +35733,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1231147261/zalige-vrouwtjes"
   },
   {
-    "title": "Abeer Nehme",
-    "date": "2026-12-13",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/abeer-nehme-tqds"
-  },
-  {
     "title": "Alle kinderen stinken (6+) – Patrick Duijtshoff en Judith van den Berg",
     "date": "2026-12-13",
     "source": "spotgroningen.nl",
@@ -35955,14 +35752,6 @@
     "city": "Jellum",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3119519666/big-mill-band-1"
-  },
-  {
-    "title": "Charl zingt Shaffy",
-    "date": "2026-12-13",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/charl-zingt-shaffy-dblw"
   },
   {
     "title": "Davina Michelle Extra Show",
@@ -36155,14 +35944,6 @@
       "show",
       "kinderen"
     ]
-  },
-  {
-    "title": "Isabelle van Keulen Ensemble",
-    "date": "2026-12-13",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/isabelle-van-keulen-ensemble-tqkf"
   },
   {
     "title": "Julian Sas Miles & Memories Tour",
@@ -36964,14 +36745,6 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1164337249/bee-gees-by-maincourse-3",
     "category": "Muziek overig"
-  },
-  {
-    "title": "Beethovens Negende",
-    "date": "2026-12-18",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/beethovens-negende-fnvh"
   },
   {
     "title": "Bertolf - Bluefinger Volume 2.",
@@ -38114,14 +37887,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1722048957/we-want-more-vocal-group-1"
   },
   {
-    "title": "White Christmas at de Doelen",
-    "date": "2026-12-20",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/white-christmas-at-de-doelen-fn4k"
-  },
-  {
     "title": "ANÚNA - On a Cold Winter’s Night",
     "date": "2026-12-21",
     "source": "friesland.nl",
@@ -38169,14 +37934,6 @@
     "date": "2026-12-21",
     "source": "melkweg",
     "genre": "overig"
-  },
-  {
-    "title": "Nederlands Kamerkoor en Cappella Mediterranea",
-    "date": "2026-12-21",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/nederlands-kamerkoor-en-cappella-mediterranea-s854"
   },
   {
     "title": "Nu is het nog rustig (8+) – Theater Artemis, hetpaleis en Het Zuidelijk Toneel",
@@ -38307,14 +38064,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Sinfonia Rotterdam",
-    "date": "2026-12-22",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/sinfonia-rotterdam-s8dh"
   },
   {
     "title": "Sven & Matthijs – The best of",
@@ -38452,14 +38201,6 @@
     "date": "2026-12-23",
     "source": "ahoy",
     "genre": "overig"
-  },
-  {
-    "title": "Het zwanenmeer",
-    "date": "2026-12-23",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/het-zwanenmeer-lycq"
   },
   {
     "title": "Mees Kees - DE HUSSELRACE (7+)",
@@ -39354,12 +39095,16 @@
     ]
   },
   {
-    "title": "Nieuwjaarsconcert",
+    "title": "Nieuwjaarsconcert Noord Nederlands Orkest",
     "date": "2027-01-07",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/nieuwjaarsconcert-zh7q"
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "venue": "Theater De Tamboer",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3747019846/nieuwjaarsconcert-noord-nederlands-orkest",
+    "category": "uitje",
+    "cats": [
+      "uitje"
+    ]
   },
   {
     "title": "Noord Nederlands Orkest – Hanzevast Nieuwjaarsconcert",
@@ -39534,14 +39279,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Proms: Happy New Year",
-    "date": "2027-01-08",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/proms-happy-new-year-59wz"
   },
   {
     "title": "RHAPSODY OF FIRE + SERIOUS BLACK",
@@ -40820,14 +40557,6 @@
     "url": "https://www.atlastheater.nl/voorstellingen/efteling-vertelt-baron-1898-6plus-17-jan/"
   },
   {
-    "title": "Eva Saladin",
-    "date": "2027-01-17",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/eva-saladin-ctvt"
-  },
-  {
     "title": "Grondtonen",
     "date": "2027-01-17",
     "source": "friesland.nl",
@@ -40902,14 +40631,6 @@
     "url": "https://www.landstedehammers.nl",
     "gender": "heren",
     "sport": "basketbal"
-  },
-  {
-    "title": "Master of Film Music: Ennio Morricone",
-    "date": "2027-01-17",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/master-of-film-music-ennio-morricone-r151"
   },
   {
     "title": "Mike Massé",
@@ -41139,14 +40860,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45896894-het-concertgebouworkest-speelt-rachmaninoff"
-  },
-  {
-    "title": "Huub van der Lubbe & Amsterdam Sinfonietta",
-    "date": "2027-01-20",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/huub-van-der-lubbe-amsterdam-sinfonietta-mvh9"
   },
   {
     "title": "JOHN ILLSLEY (OF DIRE STRAITS)",
@@ -41400,14 +41113,6 @@
     "time": "20:15",
     "venue": "Koornbeurs, Franeker",
     "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047616/breken-de-tent-af/10362805"
-  },
-  {
-    "title": "Beethoven en Strauss",
-    "date": "2027-01-22",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/beethoven-en-strauss-6xhw"
   },
   {
     "title": "Borodin Quartet speelt Debussy en Sjostakovitsj",
@@ -41832,14 +41537,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/107323470/nits-1"
   },
   {
-    "title": "Nationaal Jeugdorkest",
-    "date": "2027-01-23",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/nationaal-jeugdorkest-1c6g"
-  },
-  {
     "title": "Paskal Jakobsen",
     "date": "2027-01-23",
     "source": "spotgroningen.nl",
@@ -42029,14 +41726,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/467000814/bluegrass-boogieman-pieternel"
   },
   {
-    "title": "Brooklyn Rider",
-    "date": "2027-01-24",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/brooklyn-rider-s89z"
-  },
-  {
     "title": "De Vrienden van Amstel LIVE",
     "date": "2027-01-24",
     "source": "ahoy",
@@ -42215,14 +41904,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Collegium Vocale Gent",
-    "date": "2027-01-25",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/collegium-vocale-gent-9dz4"
   },
   {
     "title": "Dan & Phil komen",
@@ -42673,14 +42354,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2851575681/lovella-telesford-wat-een-gezeik"
   },
   {
-    "title": "Mahler en Manoury",
-    "date": "2027-01-29",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/mahler-en-manoury-879r"
-  },
-  {
     "title": "Martijn Koning - OVERPRIKKELD",
     "date": "2027-01-29",
     "source": "koornbeurs",
@@ -42912,14 +42585,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45868613-kleutersinfonietta-stuiterstokken-4-en-5-jaar"
-  },
-  {
-    "title": "Münchener Kammerorchester met Leila Josefowicz",
-    "date": "2027-01-30",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/munchener-kammerorchester-met-leila-josefowicz-6xl3"
   },
   {
     "title": "Nationaal Theaterweekend",
@@ -43394,14 +43059,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Andrea Vanzo",
-    "date": "2027-02-03",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/andrea-vanzo-1c53"
   },
   {
     "title": "Andrea Vanzo - 3 februari 2027 - de Doelen, Rotterdam",
@@ -44416,14 +44073,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2292992135/fryslan-symfony"
   },
   {
-    "title": "Goldmund Quartet",
-    "date": "2027-02-07",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/goldmund-quartet-j2ng"
-  },
-  {
     "title": "Hans & Grietje op de vlucht!",
     "date": "2027-02-07",
     "source": "friesland.nl",
@@ -44655,14 +44304,6 @@
     ]
   },
   {
-    "title": "The Bootleg Beatles",
-    "date": "2027-02-08",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/the-bootleg-beatles-7rf4"
-  },
-  {
     "title": "CONTRA (12+) – WabiSabi | Het Houten Huis | HIIIT",
     "date": "2027-02-09",
     "source": "spotgroningen.nl",
@@ -44673,14 +44314,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Mikhail Pletnev",
-    "date": "2027-02-09",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/mikhail-pletnev-4z18"
   },
   {
     "title": "Nabil – Daar is hij weer!",
@@ -44770,14 +44403,6 @@
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1591920620/joost-spijkers-ziel-en-zalig"
-  },
-  {
-    "title": "Nederlands Kamerkoor & Carel Kraayenhof",
-    "date": "2027-02-10",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/nederlands-kamerkoor-carel-kraayenhof-fnwl"
   },
   {
     "title": "Pretpakhuis Boeing boeing",
@@ -45647,14 +45272,6 @@
     ]
   },
   {
-    "title": "Fee Suzanne de Ruiter",
-    "date": "2027-02-14",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/fee-suzanne-de-ruiter-4zrs"
-  },
-  {
     "title": "Govert de Roos - van Hazes tot Playboy",
     "date": "2027-02-14",
     "source": "drenthe.nl",
@@ -45674,14 +45291,6 @@
     "time": "16:00",
     "venue": "Winsinghhof, Roden",
     "url": "https://theaterroden.nl/gscf-finalistentour"
-  },
-  {
-    "title": "Heel hart!",
-    "date": "2027-02-14",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/heel-hart-1cb6"
   },
   {
     "title": "Het orkest van de Veenkoloniën",
@@ -46025,14 +45634,6 @@
     ]
   },
   {
-    "title": "Lunchconcert: Openbare Repetitie",
-    "date": "2027-02-17",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/lunchconcert-openbare-repetitie-fn63"
-  },
-  {
     "title": "Marco Schuitmaker - Live in het Theater",
     "date": "2027-02-17",
     "source": "drenthe.nl",
@@ -46161,14 +45762,6 @@
     "cats": [
       "theater"
     ]
-  },
-  {
-    "title": "Grieg, Debussy en Ravel",
-    "date": "2027-02-18",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/grieg-debussy-en-ravel-tqxr"
   },
   {
     "title": "Janneke de Bijl",
@@ -46330,14 +45923,6 @@
     "city": "Hoogeveen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/881989393/circumstances-beyond"
-  },
-  {
-    "title": "DoelenEnsemble",
-    "date": "2027-02-19",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/doelenensemble-xmln"
   },
   {
     "title": "Donna’s Hot Stuff - A Tribute to the Queen of Disco",
@@ -46804,14 +46389,6 @@
     "url": "https://www.concertgebouw.nl/concerten/37331026-juilliard-string-quartet-speelt-ravel-en-grieg"
   },
   {
-    "title": "Klassiek Romantiek met Schubert",
-    "date": "2027-02-20",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/klassiek-romantiek-met-schubert-hg7s"
-  },
-  {
     "title": "Klein Amsterdam Producties",
     "date": "2027-02-20",
     "source": "visitgroningen",
@@ -46867,14 +46444,6 @@
     "city": "Hoogeveen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2868282034/oscar-smit-eur-472-000"
-  },
-  {
-    "title": "Outlander in Concert",
-    "date": "2027-02-20",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/outlander-in-concert-59ph"
   },
   {
     "title": "PEC Zwolle - FC Groningen",
@@ -47415,14 +46984,6 @@
     "category": "Jeugdtheater"
   },
   {
-    "title": "The Classic Rock Show",
-    "date": "2027-02-24",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/the-classic-rock-show-tqd7"
-  },
-  {
     "title": "Tryater Plûns (4+)",
     "date": "2027-02-24",
     "source": "ontdekpoort",
@@ -47642,14 +47203,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2772686328/de-broers-van-arkel-zeg-maar-u"
   },
   {
-    "title": "Ests Filharmonisch Kamerkoor",
-    "date": "2027-02-26",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/ests-filharmonisch-kamerkoor-dbhv"
-  },
-  {
     "title": "Familieconcert: Sofie en het wonder van Fez (6+)",
     "date": "2027-02-26",
     "source": "concertgebouw",
@@ -47861,14 +47414,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45557504-hartmut-haenchen-en-nederlands-philharmonisch-met-bruckner-6"
-  },
-  {
-    "title": "Jakub Józef Orliński",
-    "date": "2027-02-27",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/jakub-jozef-orlinski-lyf5"
   },
   {
     "title": "Jan Beuving - Dekpunt",
@@ -48199,14 +47744,6 @@
     "url": "https://www.concertgebouw.nl/concerten/43353329-close-up-concertgebouworkest-beethovens-fakkeldragers"
   },
   {
-    "title": "Fazıl Say met Mozarteumorchester Salzburg",
-    "date": "2027-03-02",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/fazil-say-met-mozarteumorchester-salzburg-593g"
-  },
-  {
     "title": "Nachtwacht – NITE, Club Guy & Roni, HIIIT, Het Muziek",
     "date": "2027-03-02",
     "source": "spotgroningen.nl",
@@ -48265,14 +47802,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Lunchconcert: Openbare Repetitie",
-    "date": "2027-03-03",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/lunchconcert-openbare-repetitie-r1nx"
   },
   {
     "title": "Nachtwacht – NITE, Club Guy & Roni, HIIIT, Het Muziek",
@@ -48575,14 +48104,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Kopatchinskaja speelt Prokofjev Symfonisch",
-    "date": "2027-03-05",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/kopatchinskaja-speelt-prokofjev-symfonisch-j2qz"
   },
   {
     "title": "Maarten van Rossem",
@@ -49066,14 +48587,6 @@
     ]
   },
   {
-    "title": "Augustin Dumay",
-    "date": "2027-03-07",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/augustin-dumay-tqkt"
-  },
-  {
     "title": "Beethoven! Belcea Quartet speelt alle strijkkwartetten (deel 2)",
     "date": "2027-03-07",
     "source": "concertgebouw",
@@ -49289,14 +48802,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2939947209/pinokkio-7"
   },
   {
-    "title": "Rob de Nijs Tribute",
-    "date": "2027-03-07",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/rob-de-nijs-tribute-6xjz"
-  },
-  {
     "title": "Samen picknicken - Maya Show | 1+",
     "date": "2027-03-07",
     "source": "atlastheater",
@@ -49504,14 +49009,6 @@
     "cats": [
       "concert"
     ]
-  },
-  {
-    "title": "Daniel Lozakovich & Amsterdam Sinfonietta",
-    "date": "2027-03-10",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/daniel-lozakovich-amsterdam-sinfonietta-n5pj"
   },
   {
     "title": "Kende da!?",
@@ -49986,14 +49483,6 @@
     ]
   },
   {
-    "title": "NieR:Orchestra Concert 12026 [YoRHa]",
-    "date": "2027-03-12",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/nier-orchestra-concert-12026-yorha-s8qw"
-  },
-  {
     "title": "Nikola Meeuwsen",
     "date": "2027-03-12",
     "source": "friesland.nl",
@@ -50238,14 +49727,6 @@
     "time": "20:15",
     "venue": "Winsinghhof, Roden",
     "url": "https://theaterroden.nl/leon-moorman"
-  },
-  {
-    "title": "Lucile Richardot & Ensemble Correspondances",
-    "date": "2027-03-13",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/lucile-richardot-ensemble-correspondances-r16p"
   },
   {
     "title": "Nachtwacht – NITE, Club Guy & Roni, HIIIT, Het Muziek",
@@ -50528,14 +50009,6 @@
     ]
   },
   {
-    "title": "Olli begint een orkest",
-    "date": "2027-03-14",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/olli-begint-een-orkest-qfmm"
-  },
-  {
     "title": "Pip Utton - TRUMP",
     "date": "2027-03-14",
     "source": "koornbeurs",
@@ -50616,14 +50089,6 @@
     "url": "https://www.concertgebouw.nl/concerten/45558881-rachmaninoffs-pianoconcert-nr.-3-met-behzod-abduraimov"
   },
   {
-    "title": "The Legend of Korra",
-    "date": "2027-03-15",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/the-legend-of-korra-6x4v"
-  },
-  {
     "title": "Zing en Ontdek Beethoven",
     "date": "2027-03-15",
     "source": "concertgebouw",
@@ -50642,14 +50107,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "De Nederlandse Bachvereniging",
-    "date": "2027-03-16",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/de-nederlandse-bachvereniging-n5w2"
   },
   {
     "title": "Dvořáks Symfonie nr. 9 en Kian Soltani soleert in Elgar",
@@ -50746,14 +50203,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Levent Yüksel",
-    "date": "2027-03-17",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/levent-yuksel-8757"
   },
   {
     "title": "Maris, Wat Eten We Vandaag?",
@@ -51072,14 +50521,6 @@
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/466851320/francis-van-broekhuizen-magical-opera"
-  },
-  {
-    "title": "Gershwin en Stravinsky",
-    "date": "2027-03-19",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/gershwin-en-stravinsky-yjt3"
   },
   {
     "title": "Isa Hoes, Edwin Jonker e.a. – De Verbouwing",
@@ -51584,14 +51025,6 @@
     "genre": "overig"
   },
   {
-    "title": "Yentl & de Boer",
-    "date": "2027-03-20",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/yentl-de-boer-4z2l"
-  },
-  {
     "title": "Ashton Brothers - BROTHERS (reprise)",
     "date": "2027-03-21",
     "source": "drenthe.nl",
@@ -51704,14 +51137,6 @@
     "city": "Terband",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1807311223/las-bandidas-op-volle-theatertour"
-  },
-  {
-    "title": "Ode aan het Levenslied | Meezingconcert",
-    "date": "2027-03-21",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/ode-aan-het-levenslied-meezingconcert-r1v9"
   },
   {
     "title": "Oerboer!",
@@ -52033,14 +51458,6 @@
     "location": "Amsterdam",
     "url": "https://www.afaslive.nl/agenda/ice-nine-kills",
     "image": "https://www.afaslive.nl/files/Agenda/2027/03.-maart/_1200x630_crop_center-center_none/Ice-Nine-Kills.jpg"
-  },
-  {
-    "title": "Matthäus-Passion 2027",
-    "date": "2027-03-25",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/matthaus-passion-2027-xmhq"
   },
   {
     "title": "Nabil - Daar is hij weer!",
@@ -52501,14 +51918,6 @@
     ]
   },
   {
-    "title": "André Kuipers & Kamerata-Zuid",
-    "date": "2027-03-28",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/andre-kuipers-kamerata-zuid-dbpb"
-  },
-  {
     "title": "Authentieke uitvoering van Händels Messiah",
     "date": "2027-03-28",
     "source": "concertgebouw",
@@ -52536,14 +51945,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Martin String Quartet",
-    "date": "2027-03-28",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/martin-string-quartet-6xgp"
   },
   {
     "title": "Mendelssohns Vioolconcert door Alexandra Conunova & Beethoven 8",
@@ -52716,14 +52117,6 @@
     "category": "Theater overig"
   },
   {
-    "title": "Göttinger Symphonieorchester",
-    "date": "2027-03-31",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/gottinger-symphonieorchester-tqm1"
-  },
-  {
     "title": "Holland Dance Festival Talent on the Move 2027",
     "date": "2027-03-31",
     "source": "ontdekpoort",
@@ -52880,14 +52273,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Ralph van Raat, Rosanne Philippens, Laura Bohn",
-    "date": "2027-04-01",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/ralph-van-raat-rosanne-philippens-laura-bohn-87d1"
   },
   {
     "title": "STORMRAM - Nieuwe Noordelijke Makers",
@@ -53293,14 +52678,6 @@
     "url": "https://www.concertgebouw.nl/concerten/45558878-lorenzo-viotti-en-gautier-capucon-met-elgar-en-tsjaikovski"
   },
   {
-    "title": "Mahler & Beethoven met Akiko Suwanai",
-    "date": "2027-04-03",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/mahler-beethoven-met-akiko-suwanai-qfxk"
-  },
-  {
     "title": "Mus & kapitein Kwaadbaard en De 5 slangen (8+)",
     "date": "2027-04-03",
     "source": "drenthe.nl",
@@ -53447,14 +52824,6 @@
     ]
   },
   {
-    "title": "Barbican Quartet, Nikola Meeuwsen & Songha Choi",
-    "date": "2027-04-04",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/barbican-quartet-nikola-meeuwsen-songha-choi-dbzm"
-  },
-  {
     "title": "Betoverende Canto ostinato door Pianoduo Scholtes & Janssens",
     "date": "2027-04-04",
     "source": "concertgebouw",
@@ -53529,14 +52898,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45900869-janine-jansen-en-concertgebouworkest-in-beethovens-vioolconcert"
-  },
-  {
-    "title": "Karsu",
-    "date": "2027-04-04",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/karsu-zhrf"
   },
   {
     "title": "Klassieke Vrienden Tim Nobel ontvangt The Ghost, the King and I",
@@ -53770,14 +53131,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Saint-Saëns en Moessorgski",
-    "date": "2027-04-06",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/saint-saens-en-moessorgski-ctmc"
   },
   {
     "title": "Vlieg met me mee — Simone Kleinsma, Brigitte Heitzer, Lisa Schol e.a.",
@@ -54786,14 +54139,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Peter en de wolf: het ware verhaal",
-    "date": "2027-04-11",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/peter-en-de-wolf-het-ware-verhaal-9dpw"
   },
   {
     "title": "Saint-Saëns’ Orgelsymfonie onder leiding van Aurel Dawidiuk",
@@ -56048,14 +55393,6 @@
     "url": "https://www.paard.nl/en/event/kim-wilde-4/"
   },
   {
-    "title": "Mariza",
-    "date": "2027-04-21",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/mariza-b6w5"
-  },
-  {
     "title": "Rayen Panday Grip",
     "date": "2027-04-21",
     "source": "ontdekpoort",
@@ -56209,14 +55546,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Lavinia Meijer",
-    "date": "2027-04-22",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/lavinia-meijer-tqvq"
   },
   {
     "title": "Martijn Kardol - Voor de vorm (try-out)",
@@ -56643,14 +55972,6 @@
     "sport": "voetbal"
   },
   {
-    "title": "Proms: The Four Seasons",
-    "date": "2027-04-24",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/proms-the-four-seasons-n5kj"
-  },
-  {
     "title": "Respighi & Moussa met Denève & Lamsma",
     "date": "2027-04-24",
     "source": "concertgebouw",
@@ -56753,14 +56074,6 @@
     "time": "15:00",
     "venue": "Koornbeurs, Franeker",
     "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047658/Titel/10362847"
-  },
-  {
-    "title": "Liza Ferschtman",
-    "date": "2027-04-25",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/liza-ferschtman-fnwx"
   },
   {
     "title": "Pim & Pom Kunst op pootjes (2+)",
@@ -56964,14 +56277,6 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2051152843/the-kik-4",
     "category": "Concert"
-  },
-  {
-    "title": "The Tallis Scholars",
-    "date": "2027-04-29",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/the-tallis-scholars-1cxm"
   },
   {
     "title": "Theater Utrecht — The Scream",
@@ -57651,14 +56956,6 @@
     "category": "Muziek overig"
   },
   {
-    "title": "Nederlands Philharmonisch Orkest o.l.v. Lorenzo Viotti",
-    "date": "2027-05-07",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/nederlands-philharmonisch-orkest-o-l-v-lorenzo-viotti-qfk3"
-  },
-  {
     "title": "Nigel Otermans — De Tijdreiziger",
     "date": "2027-05-07",
     "source": "lawei",
@@ -58139,14 +57436,6 @@
     "category": "Toneel"
   },
   {
-    "title": "Lunchconcert: Openbare Repetitie",
-    "date": "2027-05-12",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/lunchconcert-openbare-repetitie-zh21"
-  },
-  {
     "title": "Martijn Crins – Kooiapen (try-out)",
     "date": "2027-05-12",
     "source": "spotgroningen.nl",
@@ -58376,14 +57665,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Beethoven 5: Herdenkingsconcert",
-    "date": "2027-05-14",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/beethoven-5-herdenkingsconcert-n5kl"
   },
   {
     "title": "Bob Marley Tribute door Rootsriders ft Mo Ali",
@@ -58981,14 +58262,6 @@
     ]
   },
   {
-    "title": "Opus 13 Quartet",
-    "date": "2027-05-19",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/opus-13-quartet-9d43"
-  },
-  {
     "title": "Piano Nights: de mooiste pianomuziek van alle tijden",
     "date": "2027-05-19",
     "source": "concertgebouw",
@@ -59036,14 +58309,6 @@
     "cats": [
       "musical"
     ]
-  },
-  {
-    "title": "Carmina Burana",
-    "date": "2027-05-20",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/carmina-burana-r1dk"
   },
   {
     "title": "Fred Delfgaauw — Tot hier en nu verder",
@@ -59939,14 +59204,6 @@
     ]
   },
   {
-    "title": "Goran Bregovic Wedding & Funeral Band",
-    "date": "2027-05-30",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/goran-bregovic-wedding-funeral-band-87q2"
-  },
-  {
     "title": "Loes Luca & The Ramblers",
     "date": "2027-05-30",
     "source": "concertgebouw",
@@ -59962,14 +59219,6 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3468438086/lucas-arthur-jussen"
-  },
-  {
-    "title": "Nino Gvetadze & Maja Bogdanović",
-    "date": "2027-05-30",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/nino-gvetadze-maja-bogdanovic-r16f"
   },
   {
     "title": "Simsala Saartje",
@@ -60054,14 +59303,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Grigori Sokolov",
-    "date": "2027-06-02",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/grigori-sokolov-zh1n"
   },
   {
     "title": "Stefan de Walle, Donny Ronny e.a. — Het uur van de waarheid",
@@ -60263,14 +59504,6 @@
     ]
   },
   {
-    "title": "Ultieme Weense Klassieken",
-    "date": "2027-06-05",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/ultieme-weense-klassieken-4zsy"
-  },
-  {
     "title": "Van canon tot concert: Pachelbel, Bach, Vivaldi & Leclair",
     "date": "2027-06-05",
     "source": "concertgebouw",
@@ -60384,14 +59617,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/39937297-yuja-wang-speelt-brahms-pianoconcerten-nr.-1-en-2"
-  },
-  {
-    "title": "Beethoven en Widor",
-    "date": "2027-06-09",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/beethoven-en-widor-mvlb"
   },
   {
     "title": "Merijn Scholten – Lemming (reprise)",
@@ -60523,14 +59748,6 @@
     ]
   },
   {
-    "title": "Gipsy Kings",
-    "date": "2027-06-12",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/gipsy-kings-hg82"
-  },
-  {
     "title": "John Adams, Philip Glass en John Williams’ Star Wars Suite",
     "date": "2027-06-12",
     "source": "concertgebouw",
@@ -60563,14 +59780,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/43931248-composer-in-residence-carlos-simon-en-zijn-gardner-suite"
-  },
-  {
-    "title": "Academy of St Martin in the Fields",
-    "date": "2027-06-14",
-    "source": "dedoelen",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://dedoelen.nl/nl/agenda/academy-of-st-martin-in-the-fields-lyqn"
   },
   {
     "title": "Jay Francis - Tunnelvisie",

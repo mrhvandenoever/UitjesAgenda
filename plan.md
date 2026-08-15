@@ -81,6 +81,7 @@ scrapers (830 events samen):
 - [x] **Winsinghhof opgelost** — `scrape_theaterroden.py`, geen Playwright nodig. Bleek een verkeerd domein (`winsinghhof.nl` bestaat niet meer, echte domein is `theaterroden.nl`). 68 events. podiuminfo.nl (tip Michiel) gaf hier maar 12/71 — bevestigt dat podiuminfo alleen concerten dekt, niet theater/cabaret.
 - [x] **Koornbeurs opgelost** — `scrape_koornbeurs.py`, vijfde Playwright-scraper. Geen bijzondere reden waarom eerdere check niets vond (gewoon client-rendered zonder API). 117 events.
 - [x] **Grand Theatre Groningen opgelost** — `scrape_grandtheatregroningen.py`, zesde Playwright-scraper. DOM-structuur bleek toch regex-baar (geen echte data-attributen, maar wel consistente `event-container`-blokken). 61 events.
+- [x] **De Doelen opgelost** — `scrape_dedoelen.py`, achtste Playwright-scraper. Ook een verkeerde-URL-fout (`/programma` i.p.v. `/nl/agenda`). 49 events, grootste near-duplicate-opruiming tot nu toe (151 oude rijen).
 - [ ] **Vera nog steeds niet opgelost** — enige overgebleven Stager-bron met het AJAX-paginering-probleem (zie decisions.md 2026-08-15). Zou met Chrome MCP (interactief een nonce/cookie achterhalen) alsnog kunnen, apart punt.
 - [ ] Overweeg later: gedeelde browser-instance i.p.v. elke Playwright-scraper zijn eigen Chromium laten starten (opstarttijd ~7s per scraper, kan oplopen bij veel Playwright-scrapers) — zie ARCHITECTURE.md §Playwright-scrapers.
 
@@ -161,7 +162,9 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
 - 6999 → 7055 events na deze sessie (friesland.nl +19 nieuw; rest van de bronnen grotendeels ongewijzigd t.o.v. vorige refresh).
 
 ## Later / open items (uit ARCHITECTURE.md)
-- [ ] Ticketmaster Discovery API (gratis tier, 5.000 req/dag, 5/sec) — Michiel is een app aan het aanmaken op developer.ticketmaster.com (2026-08-15). Alleen `?apikey=...` nodig voor read-only requests, geen OAuth/callback-URL. Veilige key-opslag staat klaar: `secrets.local.json` (in .gitignore) + `secrets_local.py`, zie ARCHITECTURE.md §API-keys en decisions.md.
+- [x] Ticketmaster Discovery API-key aangemaakt en getest (2026-08-15) — werkt, echte data terug voor Groningen (Martiniplaza-events zoals Guus Meeuwis, The Nutcracker). `secrets.local.json` correct ingevuld en genegeerd door git.
+  - Rate limits: 5.000 calls/dag, 5 requests/seconde, deep paging beperkt tot `size × page < 1000`.
+  - [ ] Nog te bouwen: een echte `scrape_ticketmaster.py` die dit structureel gebruikt (welke steden/query's, welke bronnen dit aanvult i.p.v. dupliceert met bestaande scrapers — nog te bepalen).
 - [ ] Lycurgus/Sudosa/Friso — 2e seizoenshelft volleybal nog niet gepubliceerd door de bond, later herscrapen
 - [ ] GIJS Groningen — URL is nu wel bekend (gijsgroningen.nl/gijs-eredivisie/), maar toont nog seizoen 2025-2026; herchecken zodra 2026-2027 live is
 - [ ] Stadspark Groningen (Summer Stage, Hullaballoo) — revisit zomer 2027
