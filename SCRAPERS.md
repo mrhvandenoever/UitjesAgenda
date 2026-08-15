@@ -6,7 +6,7 @@ of dat het volledig automatisch draait. Broninformatie komt uit
 snel-scanbare status-samenvatting daarvan, plus welke bronnen al een eigen
 `.py`-script hebben.
 
-Laatst samengesteld: 2026-08-13.
+Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 
 ## Legenda
 
@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (34 bronnen, 32 scripts)
+## ✅ Geautomatiseerd (38 bronnen, 36 scripts)
 
 | Bron | Script |
 |---|---|
@@ -56,28 +56,36 @@ Laatst samengesteld: 2026-08-13.
 | AFAS Live | `scrape_afaslive.py` (92 events) |
 | Donar (basketbal, BNXT League) | `scrape_donar.py` (via bnxtleague.com/Sportpress-API, zie decisions.md 2026-08-15 — 15 thuiswedstrijden) |
 | Landstede Hammers (basketbal, BNXT League) | `scrape_landstede.py` (zelfde API/aanpak als Donar, 15 thuiswedstrijden) |
+| Atlas Emmen | `scrape_atlastheater.py` (Umbraco-ticketing-API, `GetPerformances`, 192 events — was "AI/Chrome nodig") |
+| Podium Zuidhaege (Assen) | `scrape_podiumzuidhaege.py` (WP REST `event_listing`-post-type + tekst-regex voor datum, 22 events — was "AI/Chrome nodig") |
+| Melkweg (Amsterdam) | `scrape_melkweg.py` (server-rendered HTML, regex, 257 events — was "AI/Chrome nodig") |
+| 013 Tilburg | `scrape_013.py` (server-rendered HTML, regex, 154 events — was "AI/Chrome nodig") |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig (31 bronnen — zie ook de landelijke-podia-tabel verderop)
+## 🌐 AI/Chrome nodig (25 bronnen, incl. landelijke-podia-tabel verderop)
+
+6 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md) — bleken bij
+nader onderzoek toch geen browser nodig: Atlas Emmen (Umbraco-ticketing-API),
+Zuidhaege Assen (WP REST `event_listing`-post-type), Melkweg en 013 Tilburg
+(server-rendered HTML, geen client-side rendering zoals eerder aangenomen —
+`__NEXT_DATA__`/JSON-LD-check miste dit toen).
 
 | Bron | Verwachte omvang | Notitie |
 |---|---|---|
-| Atlas Emmen | ~185 events | client-rendered |
-| Vera | ~60 events | client-rendered |
-| Simplon | ~47 events | client-rendered |
-| Grand Theatre (Groningen) | ~25 events | innerText-parsing nodig, geen bruikbare CSS-classes |
-| Winsinghhof (theaterroden) | ~71 events | client-rendered |
-| EM2 Groningen | ~21 events | client-rendered |
+| Vera | ~60 events | WordPress, maar geen custom event-post-type via REST + programma-pagina zelf is echt client-rendered (te weinig datums in ruwe HTML) |
+| Simplon | ~47 events | zelfde als Vera — WordPress zonder REST-exposed events |
+| Grand Theatre (Groningen) | ~25 events | innerText-parsing nodig, geen bruikbare CSS-classes, geen Umbraco/wp-json-API gevonden |
+| Winsinghhof (theaterroden) | ~71 events | client-rendered, domein gaf SSL-connectfout bij laatste check, nog niet grondig onderzocht |
+| EM2 Groningen | ~21 events | WordPress (generator-tag bevestigd), maar nog niet gecheckt op custom event-post-type/REST — waarschijnlijk vergelijkbaar met Vera/Simplon, niet onderzocht |
 | Neushoorn | onbekend | bevestigd SPA |
-| Groninger Museum | onbekend | bevestigd SPA |
-| Drents Museum | onbekend | bevestigd SPA |
-| Zuidhaege Assen | onbekend | bevestigd SPA |
-| Koornbeurs | onbekend | bevestigd SPA |
+| Groninger Museum | onbekend | Craft CMS (SEOmatic-generator) — mogelijk GraphQL-API, niet onderzocht |
+| Drents Museum | onbekend | zelfde Craft CMS als Groninger Museum |
+| Koornbeurs | onbekend | eigen JS-bundle bevat geen Umbraco/API-endpoints (anders dan Atlas Emmen, ondanks vergelijkbare bestandsstructuur) |
 | Zummerbühne | ~25 events | Ticketwidget in iframe, geen data in ruwe HTML (2026-08-13 herchecked — eerdere recipe ging uit van markdown-fetch, klopt niet met plain HTML) |
-| OntdekPoort | ~216 events | Bot-bescherming — zelfs de homepage geeft 403, niet op te lossen met alleen headers (2026-08-13) |
-| Hunebedcentrum | onbekend | Bot-bescherming, 403 (2026-08-13) |
+| OntdekPoort | ~216 events | Bot-bescherming — zelfs de homepage geeft 403, niet op te lossen met alleen headers (2026-08-13, herbevestigd 2026-08-15) |
+| Hunebedcentrum | onbekend | Bot-bescherming, 403 (2026-08-13, herbevestigd 2026-08-15) |
 | FC Groningen | 18 thuiswedstrijden (data staat er al) | eenmalig via Chrome gehaald, geen los script |
 | GIJS Groningen (ijshockey) | — | site toont nog seizoen 2025-2026, herchecken zodra nieuw seizoen live is |
 
@@ -114,32 +122,35 @@ API-mechaniek (seizoen/phase/team-id-discovery, paginering-quirk). Bonus:
 dezelfde API dekt ook **Landstede Hammers** — zie `scrape_landstede.py`.
 Beide: 15 thuiswedstrijden voor seizoen 2026-2027 (okt 2026 - mei 2027).
 
-## ❓ Nog nooit geprobeerd — landelijke podia (2026-08-14 gecheckt, blijken vrijwel allemaal AI/Chrome nodig)
+## ❓ Landelijke podia — herchecked 2026-08-15, 2 bleken toch server-rendered
 
-Bij een eerste check (plain requests, geen browser) bleken deze grote,
-commerciële venues consistent zwaar client-rendered — anders dan de kleine
-Noord-Nederlandse venues die in de vorige sessie meestal "kan zonder AI"
-bleken. Geen bruikbare JSON-LD/structured data in de ruwe HTML gevonden bij:
+Bij de eerste check (2026-08-14, plain requests) bleken deze grote,
+commerciële venues consistent zwaar client-rendered — geen bruikbare
+JSON-LD/`__NEXT_DATA__` gevonden. Op 2026-08-15 opnieuw gecheckt met een
+bredere test (tellen van datum-achtige strings in de ruwe HTML i.p.v. alleen
+JSON-LD/`__NEXT_DATA__`): **Melkweg en 013 Tilburg bleken alsnog gewoon
+server-rendered** (de eerdere check keek specifiek naar `__NEXT_DATA__`/
+JSON-LD en miste dat de HTML zelf al complete event-lijsten bevat) — nu
+opgelost, zie ✅ hierboven. Landstede Hammers is ook al opgelost (2026-08-15,
+zie eigen sectie hierboven — BNXT League-API, niet deze site).
 
 | Bron | Bevinding |
 |---|---|
-| TivoliVredenburg | JSON-LD aanwezig maar alleen Yoast-SEO-metadata, geen events; datumfilter-widget is client-side |
-| Melkweg | Next.js (`__NEXT_DATA__`), geen server-rendered events |
-| 013 Tilburg | JSON-LD aanwezig, alleen metadata (geen Event-items) |
-| Doornroosje | JSON-LD aanwezig, alleen metadata |
-| De Doelen | JSON-LD aanwezig, alleen metadata |
-| Ziggo Dome | geen JSON-LD, geen `__NEXT_DATA__` gevonden — nadere inspectie nodig |
-| Rotterdam Ahoy | geen JSON-LD gevonden |
-| GelreDome | geen JSON-LD gevonden |
-| Effenaar | 2.7MB pagina, 0 JSON-LD-blokken — vermoedelijk zwaar JS-bundle-gedreven |
-| Paradiso, Concertgebouw | homepage geladen maar geen agenda-link gevonden in de ruwe HTML (nav is vermoedelijk ook client-side) — juiste agenda-URL nog niet gevonden |
-| Rotown | `/agenda/` geeft 404, exacte listing-URL nog niet gevonden (individuele event-URL's wel: rotown.nl/agenda/artiest/) |
-| Het Paard | timeout bij eerste poging, nog niet opnieuw geprobeerd |
-| Hedon Zwolle | pagina laadt maar verdacht klein (7KB) — mogelijk verkeerde URL of redirect, nog uit te zoeken |
-| Landstede Hammers (basketbal) | DNS-fout bij laatste poging, mogelijk verouderd domein |
+| TivoliVredenburg | JSON-LD aanwezig maar alleen Yoast-SEO-metadata, geen events; 6 datum-strings bij hercheck — vermoedelijk alleen filter-widget, niet grondig genoeg onderzocht om zeker te zijn |
+| Doornroosje | JSON-LD aanwezig, alleen metadata; 3 datum-strings bij hercheck — waarschijnlijk ruis, niet client_js bevestigd |
+| De Doelen | JSON-LD aanwezig, alleen metadata; nog niet herchecked op server-rendered HTML |
+| Ziggo Dome | geen JSON-LD, geen `__NEXT_DATA__`; 0 datum-strings bij hercheck — waarschijnlijk echt client-rendered |
+| Rotterdam Ahoy | geen JSON-LD; 0 datum-strings bij hercheck — waarschijnlijk echt client-rendered |
+| GelreDome | geen JSON-LD; 0 datum-strings bij hercheck — waarschijnlijk echt client-rendered |
+| Effenaar | 1.6MB pagina, 150 datum-strings bij hercheck (!) maar bleken bij inspectie CMS-content-blocks (Statamic-achtige structuur, `publish_date`-velden van pagina-onderdelen), niet per se events-datums — nadere inspectie nodig, veelbelovend maar niet afgerond |
+| Paradiso, Concertgebouw | homepage geladen maar geen agenda-link gevonden in de ruwe HTML; Paradiso 1 datum-string bij hercheck (vermoedelijk ruis) — juiste agenda-URL nog niet gevonden |
+| Rotown | `/agenda/` geeft 404, 1 datum-string bij hercheck (ruis) — exacte listing-URL nog niet gevonden (individuele event-URL's wel: rotown.nl/agenda/artiest/) |
+| Het Paard | connectiefout bij hercheck 2026-08-15 (was timeout op 2026-08-14) — nog niet gelukt te bereiken |
+| Hedon Zwolle | pagina laadt maar blijft verdacht klein (7KB, ongewijzigd t.o.v. 2026-08-14) — mogelijk verkeerde URL of redirect, nog uit te zoeken |
 
-Alle 15 verplaatst naar de AI/Chrome-categorie in de praktijk — zie hierboven
-voor de volledige AI/Chrome-lijst (nu 31 bronnen in totaal).
+Resterend van deze oorspronkelijke 15: 10 bronnen, geteld bij de 25
+"AI/Chrome nodig" hierboven (Melkweg, 013 en Landstede Hammers zijn
+opgelost).
 
 ## 📍 Eenmalig opgelost, geen herhaalbaar script (2 bronnen)
 

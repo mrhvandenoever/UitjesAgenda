@@ -48,6 +48,19 @@ Onderweg 14 verouderde, losstaand-ingevoerde Donar-events (andere titelstijl,
 geen los script) uit de database opgeruimd — die botsten niet met de nieuwe
 rijen (net iets andere titeltekst) en gaven dus dubbele wedstrijden.
 
+## 31 AI/Chrome-bronnen: eerste 4 opgelost zonder browser — sessie 2026-08-15
+Zelfde methodiek als bij Donar toegepast op de "AI/Chrome nodig"-lijst:
+JS-bundles/ruwe HTML doorzoeken op verborgen API's of over het hoofd geziene
+server-rendering, i.p.v. meteen Chrome MCP inzetten. Resultaat: 4 nieuwe
+scrapers (830 events samen):
+- [x] `scrape_atlastheater.py` — Umbraco-ticketing-API (`GetPerformances`), 192 events
+- [x] `scrape_podiumzuidhaege.py` — WP REST `event_listing` + tekst-regex voor datum, 22 events
+- [x] `scrape_melkweg.py` — bleek toch server-rendered HTML (eerdere check miste dit), 257 events
+- [x] `scrape_013.py` — zelfde als Melkweg, 154 events
+- Bijvangst: 252 verlopen, ongedocumenteerde losse events opgeruimd bij deze 4 bronnen (zie decisions.md)
+- [ ] **Effenaar** — veelbelovend (150 datum-strings gevonden) maar bleek CMS-content-block-metadata, niet afgerond, nog eens goed naar kijken
+- [ ] Resterende ~21 bronnen nog niet (opnieuw) onderzocht met deze methodiek: Vera, Simplon, Grand Theatre, Winsinghhof, EM2, Neushoorn, Groninger Museum, Drents Museum, Koornbeurs, Zummerbühne, OntdekPoort, Hunebedcentrum, FC Groningen, GIJS Groningen, TivoliVredenburg, Doornroosje, De Doelen, Ziggo Dome, Ahoy, GelreDome, Paradiso, Concertgebouw, Rotown, Het Paard, Hedon Zwolle — zie SCRAPERS.md voor per-bron status/bevindingen.
+
 ## Sport-audit (2026-08-10)
 Van de 19 geconfigureerde clubs in `gen_uitjes.py` (`SPORT_CLUBS`):
 - **Compleet, data klopt**: fcgroningen (16), fcemmen (18), heerenveen (24), cambuur (16), fctwente (17), goahead (16), peczwolle (16), donar (14) — volledig seizoen aug 2026 - mei 2027.
