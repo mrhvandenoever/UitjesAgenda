@@ -79,6 +79,7 @@ scrapers (830 events samen):
 - [x] **Simplon opgelost** — `scrape_simplon.py`, derde Playwright-scraper. Zelfde Stager-platform als Vera maar geen AJAX-paginering-probleem, simpel DOM-patroon. 48 events.
 - [x] **Effenaar opgelost** — `scrape_effenaar.py`, vierde Playwright-scraper. Bleek een verkeerde-URL-fout in een eerdere sessie (`/programma` i.p.v. `/agenda`), geen echt "AI/Chrome nodig"-geval. 125 events.
 - [x] **Winsinghhof opgelost** — `scrape_theaterroden.py`, geen Playwright nodig. Bleek een verkeerd domein (`winsinghhof.nl` bestaat niet meer, echte domein is `theaterroden.nl`). 68 events. podiuminfo.nl (tip Michiel) gaf hier maar 12/71 — bevestigt dat podiuminfo alleen concerten dekt, niet theater/cabaret.
+- [x] **Koornbeurs opgelost** — `scrape_koornbeurs.py`, vijfde Playwright-scraper. Geen bijzondere reden waarom eerdere check niets vond (gewoon client-rendered zonder API). 117 events.
 - [ ] **Vera nog steeds niet opgelost** — enige overgebleven Stager-bron met het AJAX-paginering-probleem (zie decisions.md 2026-08-15). Zou met Chrome MCP (interactief een nonce/cookie achterhalen) alsnog kunnen, apart punt.
 - [ ] Overweeg later: gedeelde browser-instance i.p.v. elke Playwright-scraper zijn eigen Chromium laten starten (opstarttijd ~7s per scraper, kan oplopen bij veel Playwright-scrapers) — zie ARCHITECTURE.md §Playwright-scrapers.
 

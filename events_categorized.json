@@ -1285,6 +1285,15 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2800895439/tapt-festival-leeuwarden"
   },
   {
+    "title": "The Odyssey",
+    "date": "2026-08-22",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10049269/Titel/10377873"
+  },
+  {
     "title": "Theun de Vries-boekendag",
     "date": "2026-08-22",
     "source": "friesland.nl",
@@ -1481,6 +1490,15 @@
     "url": "https://www.espn.nl/voetbal/team/_/id/3736/ned.cambuur_leeuwarden",
     "gender": "heren",
     "sport": "voetbal"
+  },
+  {
+    "title": "The Odyssey",
+    "date": "2026-08-23",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10049269/Titel/10377876"
   },
   {
     "title": "Theaterconcert MILONGE XL",
@@ -3201,6 +3219,15 @@
     "genre": "overig"
   },
   {
+    "title": "ERWIN JAVA’S TRAVEL PARTY FEATURING ERWIN NYHOFF - Play Cuby & the Blizzards",
+    "date": "2026-09-04",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047400/play-cuby-the-blizzards/10364118"
+  },
+  {
     "title": "FC Emmen - FC Volendam",
     "date": "2026-09-04",
     "source": "fcemmen",
@@ -3311,16 +3338,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Play Cuby & the Blizzards",
-    "date": "2026-09-04",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Queer of Hearts (UK) + Gevaudan Dogs (UK) + Sai Tao",
@@ -5064,16 +5081,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3234074329/expositie-kerktorens-bakens-van-betekenis"
   },
   {
-    "title": "Koornbeurs Preview Aankomend Seizoen",
-    "date": "2026-09-12",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Korenfestival Emmen",
     "date": "2026-09-12",
     "source": "drenthe.nl",
@@ -5317,6 +5324,15 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3221930726/hoe-de-beide-ivans-ruzie-kregen-tuintheater"
   },
   {
+    "title": "UITFESTIVAL WAADHOEKE - Koornbeurs Preview Aankomend Seizoen",
+    "date": "2026-09-12",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047838/koornbeurs-preview-aankomend-seizoen/10364123"
+  },
+  {
     "title": "UITfestival DFM | BALK",
     "date": "2026-09-12",
     "source": "friesland.nl",
@@ -5324,15 +5340,6 @@
     "city": "Balk",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2276446943/uitfestival-dfm-balk"
-  },
-  {
-    "title": "Uitfestival Waadhoeke",
-    "date": "2026-09-12",
-    "source": "friesland.nl",
-    "genre": "Festival",
-    "city": "Gemeente Waadhoeke",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1202298888/uitfestival-waadhoeke-1"
   },
   {
     "title": "VOULEZ VOUS",
@@ -5445,6 +5452,15 @@
     "cats": [
       "concert"
     ]
+  },
+  {
+    "title": "Brass in Hollywood - Brassband Blaast de Bazuin",
+    "date": "2026-09-13",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048919/brassband-blaast-de-bazuin/10373318"
   },
   {
     "title": "Concert Muziekkamer: Nikola Meeuwsen",
@@ -5845,10 +5861,9 @@
     "date": "2026-09-16",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "11:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047839/Titel/10364124"
   },
   {
     "title": "Baby Reindeer – Try Out",
@@ -10207,6 +10222,15 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4030779211/wintervaren-sloep-events-friesland"
   },
   {
+    "title": "Albert Meijer - TIM IN EEN TASJE - PREMIÈRE",
+    "date": "2026-10-02",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047402/tim-in-een-tasje-premiere/10361505"
+  },
+  {
     "title": "Anne Jan Toonstra",
     "date": "2026-10-02",
     "source": "spotgroningen.nl",
@@ -10545,16 +10569,6 @@
     "image": "https://www.afaslive.nl/files/Agenda/2026/Oktober/_1200x630_crop_center-center_none/Synthony-no2.jpg"
   },
   {
-    "title": "TIM IN EEN TASJE - PREMIÈRE",
-    "date": "2026-10-02",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "TINO MARTIN: LIVE MET BAND",
     "date": "2026-10-02",
     "source": "013",
@@ -10769,6 +10783,15 @@
     "city": "Uitwellingerga",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3884966679/door-het-water-van-de-doop"
+  },
+  {
+    "title": "Expeditie Junior - TIJD VOOR WETENSCHAP",
+    "date": "2026-10-03",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "11:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047842/tijd-voor-wetenschap/10364129"
   },
   {
     "title": "Fabriekstalenten",
@@ -11180,16 +11203,6 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/tender/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/02/Tender-Photo-Credit-Natalie-Dodd-KL.jpg"
-  },
-  {
-    "title": "TIJD VOOR WETENSCHAP",
-    "date": "2026-10-03",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "The Magic Numbers",
@@ -11997,6 +12010,15 @@
     ]
   },
   {
+    "title": "Bianca Pander - US MIDTERMS 101",
+    "date": "2026-10-07",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047403/us-midterms-101/10361506"
+  },
+  {
     "title": "Conor Mclain",
     "date": "2026-10-07",
     "source": "paard",
@@ -12175,16 +12197,6 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/teus-nobel-4-childs-play/"
-  },
-  {
-    "title": "US MIDTERMS 101",
-    "date": "2026-10-07",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Van Baerle Trio met Schumann, MacMillan en Brahms",
@@ -12604,14 +12616,13 @@
     "genre": "overig"
   },
   {
-    "title": "DE VERBINDERS!",
+    "title": "De Vlieger en de Vanger - Martinikerk",
     "date": "2026-10-09",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048013/martinikerk/10365165"
   },
   {
     "title": "Diggy Dex",
@@ -12717,6 +12728,15 @@
     ]
   },
   {
+    "title": "Joep van Deudekom & Rob Urgert - DE VERBINDERS!",
+    "date": "2026-10-09",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047404/de-verbinders/10361507"
+  },
+  {
     "title": "Julia Sabaté",
     "date": "2026-10-09",
     "source": "simplon",
@@ -12799,16 +12819,6 @@
     "city": "Gorredijk",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2677563504/marcel-hensema-in-de-skans-gorredijk"
-  },
-  {
-    "title": "Martinikerk",
-    "date": "2026-10-09",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Mork - Soulburn - Arroganz",
@@ -13266,10 +13276,9 @@
     "date": "2026-10-10",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047405/Titel/10361508"
   },
   {
     "title": "Hunebedconcert | Margaretha Consort",
@@ -13577,16 +13586,6 @@
     "genre": "overig"
   },
   {
-    "title": "BLAASKWINTET BLAASVAAK",
-    "date": "2026-10-11",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Bill Callahan – + support: Nathan Bowles",
     "date": "2026-10-11",
     "source": "spotgroningen.nl",
@@ -13689,6 +13688,15 @@
     "date": "2026-10-11",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Klassiek in Museum Martena - BLAASKWINTET BLAASVAAK",
+    "date": "2026-10-11",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047833/blaaskwintet-blaasvaak/10364115"
   },
   {
     "title": "Klassieke hits door het Radio Filharmonisch Orkest",
@@ -13881,10 +13889,9 @@
     "date": "2026-10-12",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "10:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047832/Titel/10364112"
   },
   {
     "title": "Het avontuur van Pieter Konijn (4+)",
@@ -14169,16 +14176,6 @@
     "genre": "overig"
   },
   {
-    "title": "CHROMATIQUE (AL)",
-    "date": "2026-10-14",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Comedytunes Comedynight",
     "date": "2026-10-14",
     "source": "simplon",
@@ -14350,6 +14347,15 @@
     "date": "2026-10-14",
     "source": "013",
     "genre": "overig"
+  },
+  {
+    "title": "LOUISE BADUEL (BE) - CHROMATIQUE (AL)",
+    "date": "2026-10-14",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047841/chromatique-al/10364127"
   },
   {
     "title": "LàQua (0,5 - 3) – Teatro Koreja",
@@ -14627,16 +14633,6 @@
     ]
   },
   {
-    "title": "GAAT OP VAKANTIE (2+)",
-    "date": "2026-10-15",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Herman van Veen – Vandaag",
     "date": "2026-10-15",
     "source": "spotgroningen.nl",
@@ -14725,6 +14721,15 @@
     "city": "Sneek",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3398355474/jubileum-concert-bruskoppen"
+  },
+  {
+    "title": "Juf Roos - GAAT OP VAKANTIE (2+)",
+    "date": "2026-10-15",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047485/gaat-op-vakantie-2/10362363"
   },
   {
     "title": "Kinderbios in de Tsjerke",
@@ -15028,10 +15033,9 @@
     "date": "2026-10-16",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "11:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047840/Titel/10364125"
   },
   {
     "title": "DIGGY DEX",
@@ -15658,6 +15662,15 @@
     ]
   },
   {
+    "title": "Frank Groothof & Orkest speelt - PETER EN DE WOLF (AL)",
+    "date": "2026-10-17",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047487/peter-en-de-wolf-al/10362365"
+  },
+  {
     "title": "Herman van Veen – Vandaag",
     "date": "2026-10-17",
     "source": "spotgroningen.nl",
@@ -15841,16 +15854,6 @@
     "time": "22:00",
     "venue": "Neushoorn, Leeuwarden",
     "url": "https://neushoorn.nl/programma"
-  },
-  {
-    "title": "PETER EN DE WOLF (AL)",
-    "date": "2026-10-17",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Racoon",
@@ -17539,6 +17542,15 @@
     "url": "https://theaterroden.nl/firma-frictie-2"
   },
   {
+    "title": "Gerard Alderliefste & Friends - VIVRE!",
+    "date": "2026-10-23",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047488/vivre/10362366"
+  },
+  {
     "title": "Get Physical!",
     "date": "2026-10-23",
     "source": "melkweg",
@@ -17845,16 +17857,6 @@
     "location": "Amsterdam",
     "url": "https://www.afaslive.nl/agenda/unreal-by-day-x-cloudy",
     "image": "https://www.afaslive.nl/files/Agenda/2026/Oktober/_1200x630_crop_center-center_none/UNREAL-BY-DAY-x-CLOUDY-en-UNREAL-BY-NIGHT-x-KUKO-ALL-NIGHT-LONG.jpg"
-  },
-  {
-    "title": "VIVRE!",
-    "date": "2026-10-23",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "VROEGZAT",
@@ -18270,16 +18272,6 @@
     "sport": "volleybal"
   },
   {
-    "title": "THE CIRCLE OF LIFE",
-    "date": "2026-10-24",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "THE HU",
     "date": "2026-10-24",
     "source": "013",
@@ -18296,6 +18288,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "The Diamond Baritones. - THE CIRCLE OF LIFE",
+    "date": "2026-10-24",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047844/the-circle-of-life/10364131"
   },
   {
     "title": "The Dutch Tenors",
@@ -18739,10 +18740,9 @@
     "date": "2026-10-25",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047570/Titel/10362756"
   },
   {
     "title": "Meester Jesper Kraakt de code (6+)",
@@ -19160,10 +19160,9 @@
     "date": "2026-10-27",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048542/Titel/10369950"
   },
   {
     "title": "Nena",
@@ -19856,6 +19855,15 @@
     "category": "Cabaret"
   },
   {
+    "title": "Brucified - WORKING ON A DREAM",
+    "date": "2026-10-30",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047585/working-on-a-dream/10362774"
+  },
+  {
     "title": "Celine Cairo",
     "date": "2026-10-30",
     "source": "dedoelen",
@@ -20225,16 +20233,6 @@
     "url": "https://shop.tickets.cm.com/0296eae6-17ca-84d7-2df4-b12b114ff6f9"
   },
   {
-    "title": "WORKING ON A DREAM",
-    "date": "2026-10-30",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Yellofox",
     "date": "2026-10-30",
     "source": "paard",
@@ -20501,16 +20499,6 @@
     "genre": "overig"
   },
   {
-    "title": "LEVEN MET HUMOR",
-    "date": "2026-10-31",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Lola Cedes",
     "date": "2026-10-31",
     "source": "tivolivredenburg",
@@ -20619,6 +20607,15 @@
     "time": "22:00",
     "venue": "Neushoorn, Leeuwarden",
     "url": "https://neushoorn.nl/programma"
+  },
+  {
+    "title": "Ronald Snijders - LEVEN MET HUMOR",
+    "date": "2026-10-31",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047586/leven-met-humor/10362775"
   },
   {
     "title": "SC Cambuur - Go Ahead Eagles",
@@ -20963,6 +20960,15 @@
     "cats": []
   },
   {
+    "title": "De Lange - IN THE ARMS OF SOLITUDE",
+    "date": "2026-11-01",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047587/in-the-arms-of-solitude/10362776"
+  },
+  {
     "title": "Evergreen Top 1000 Live!",
     "date": "2026-11-01",
     "source": "drenthe.nl",
@@ -21056,16 +21062,6 @@
     "genre": "Muziek",
     "location": "Rotterdam",
     "url": "https://dedoelen.nl/nl/agenda/henri-demarquette-en-victor-demarquette-b6gm"
-  },
-  {
-    "title": "IN THE ARMS OF SOLITUDE",
-    "date": "2026-11-01",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Johanna’s Mountain Boys",
@@ -21960,6 +21956,15 @@
     "category": "Cabaret"
   },
   {
+    "title": "Joris Linssen - LIEVE HEMEL",
+    "date": "2026-11-05",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047588/lieve-hemel/10362777"
+  },
+  {
     "title": "KRUIDKOEK & JOOST OOMEN",
     "date": "2026-11-05",
     "source": "hedon",
@@ -21985,16 +21990,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45889079-klaus-makela-leidt-het-concertgebouworkest-in-dvoraks-symfonie-nr.-7"
-  },
-  {
-    "title": "LIEVE HEMEL",
-    "date": "2026-11-05",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Le Guess Who? - Thursday",
@@ -22321,16 +22316,6 @@
     "genre": "overig"
   },
   {
-    "title": "GRIP",
-    "date": "2026-11-06",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Gewoon Aans – Wat ’n gedoo! (humor & streektaal)",
     "date": "2026-11-06",
     "source": "drenthe.nl",
@@ -22538,6 +22523,15 @@
     "genre": "overig"
   },
   {
+    "title": "Rayan Panday - GRIP",
+    "date": "2026-11-06",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047589/grip/10362778"
+  },
+  {
     "title": "Sara Kroos",
     "date": "2026-11-06",
     "source": "denieuwekolk.nl",
@@ -22712,16 +22706,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45889154-concertgebouworkest-essentials-klaus-makela-leidt-dvoraks-symfonie-nr.-7"
-  },
-  {
-    "title": "DADDY COOL",
-    "date": "2026-11-07",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Date Night - Alain Clark",
@@ -23104,6 +23088,15 @@
     ]
   },
   {
+    "title": "Turns 50 - DADDY COOL",
+    "date": "2026-11-07",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047590/daddy-cool/10364116"
+  },
+  {
     "title": "Unfold by Patroon",
     "date": "2026-11-07",
     "source": "013",
@@ -23410,6 +23403,15 @@
     "genre": "overig"
   },
   {
+    "title": "Lokale Helden - REMEDY KWINTET",
+    "date": "2026-11-08",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047594/remedy-kwintet/10362783"
+  },
+  {
     "title": "M-KIDS",
     "date": "2026-11-08",
     "source": "013",
@@ -23491,16 +23493,6 @@
     "date": "2026-11-08",
     "source": "effenaar",
     "genre": "overig"
-  },
-  {
-    "title": "REMEDY KWINTET",
-    "date": "2026-11-08",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Ricky Koole",
@@ -23733,10 +23725,9 @@
     "date": "2026-11-10",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048544/Titel/10369952"
   },
   {
     "title": "Cat Smits Company",
@@ -24283,16 +24274,6 @@
     ]
   },
   {
-    "title": "HÈ FIJN",
-    "date": "2026-11-12",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "ISAIAH FALLS",
     "date": "2026-11-12",
     "source": "melkweg",
@@ -24318,6 +24299,15 @@
     "city": "Lemmer",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/223515220/workshop-winterster"
+  },
+  {
+    "title": "Martijn Crins - HÈ FIJN",
+    "date": "2026-11-12",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047456/he-fijn/10362312"
   },
   {
     "title": "Martin Luke Brown - 12 november 2026 - Rotown, Rotterdam",
@@ -24584,16 +24574,6 @@
     "city": "Drachten",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1301248616/bokkers"
-  },
-  {
-    "title": "CCR",
-    "date": "2026-11-13",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "CHRIS KLÄFFORD",
@@ -25030,6 +25010,15 @@
     "date": "2026-11-13",
     "source": "013",
     "genre": "overig"
+  },
+  {
+    "title": "The Fortunate Sons - CCR",
+    "date": "2026-11-13",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047591/ccr/10362780"
   },
   {
     "title": "Thijs Kemperink",
@@ -25528,6 +25517,15 @@
     ]
   },
   {
+    "title": "Roel & Jos Maalderink - VERBROEDERING",
+    "date": "2026-11-14",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047592/verbroedering/10362781"
+  },
+  {
     "title": "Saint Levant",
     "date": "2026-11-14",
     "source": "melkweg",
@@ -25622,16 +25620,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "VERBROEDERING",
-    "date": "2026-11-14",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Wouter Monden",
@@ -25781,16 +25769,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "DAHLDINER TWEE: NU NOG LEKKERDER!",
-    "date": "2026-11-15",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "DI-RECT",
@@ -26011,6 +25989,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Op Verhaal - DAHLDINER TWEE: NU NOG LEKKERDER!",
+    "date": "2026-11-15",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "17:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047593/dahldiner-twee-nu-nog-lekkerder/10362782"
   },
   {
     "title": "Pianist Alice Sara Ott speelt Beethoven met Nederlands Philharmonisch",
@@ -26491,16 +26478,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/856512313/eran-ben-michael"
   },
   {
-    "title": "FILMGESCHIEDENIS IN VOGELVLUCHT",
-    "date": "2026-11-18",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Ferocious Dog",
     "date": "2026-11-18",
     "source": "vera",
@@ -26579,6 +26556,15 @@
     "date": "2026-11-18",
     "source": "013",
     "genre": "overig"
+  },
+  {
+    "title": "Kees Wamelink - FILMGESCHIEDENIS IN VOGELVLUCHT",
+    "date": "2026-11-18",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047595/filmgeschiedenis-in-vogelvlucht/10362784"
   },
   {
     "title": "LEVI.SCT",
@@ -26987,10 +26973,9 @@
     "date": "2026-11-19",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047596/Titel/10362785"
   },
   {
     "title": "Wabi Sabi Theater i.s.m. HIIIT & Het Houten Huis",
@@ -27061,16 +27046,6 @@
     "cats": [
       "concert"
     ]
-  },
-  {
-    "title": "BREEKBARE MENSEN",
-    "date": "2026-11-20",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Bongeziwe Mabandla",
@@ -27305,6 +27280,15 @@
     "city": "Meppel",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2086272482/joosen-de-jager-niets-aan-het-handje-try-out"
+  },
+  {
+    "title": "Kaaskop & Van Vleuten - BREEKBARE MENSEN",
+    "date": "2026-11-20",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047597/breekbare-mensen/10362786"
   },
   {
     "title": "Kelapa Muda - Kinderen van de Molukken",
@@ -28144,14 +28128,13 @@
     "category": "Muziek overig"
   },
   {
-    "title": "STICHTING SINTERKLAAS INTOCHT FRANEKER",
+    "title": "SINTERKLAAS INTOCHT - STICHTING SINTERKLAAS INTOCHT FRANEKER",
     "date": "2026-11-21",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "11:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047843/stichting-sinterklaas-intocht-franeker/10364130"
   },
   {
     "title": "Sudosa - Sliedrecht Sport DS 1",
@@ -28303,16 +28286,6 @@
     "venue": "Podium Zuidhaege Assen",
     "url": "https://podiumzuidhaege.nl/programma/",
     "category": "klassiek",
-    "cats": []
-  },
-  {
-    "title": "DE VAART OVER DE ZEVEN ZEEËN",
-    "date": "2026-11-22",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
     "cats": []
   },
   {
@@ -28566,6 +28539,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Skumkoppen - DE VAART OVER DE ZEVEN ZEEËN",
+    "date": "2026-11-22",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047598/de-vaart-over-de-zeven-zeeen/10362787"
   },
   {
     "title": "Strauss' Also sprach Zarathustra en Rosenkavalier Suite",
@@ -29576,14 +29558,13 @@
     ]
   },
   {
-    "title": "GEN Z VS. BOOMERS",
+    "title": "Fries Project Orkest - GEN Z VS. BOOMERS",
     "date": "2026-11-27",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "19:30",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047599/gen-z-vs-boomers/10362788"
   },
   {
     "title": "Guido Spek",
@@ -30072,6 +30053,15 @@
     ]
   },
   {
+    "title": "Dilana Smith - LEGENDARY MEN OF ROCK",
+    "date": "2026-11-28",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047600/legendary-men-of-rock/10362789"
+  },
+  {
     "title": "Edwin Evers Band",
     "date": "2026-11-28",
     "source": "drenthe.nl",
@@ -30237,16 +30227,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45868616-kleutersinfonietta-stuiterstokken-4-en-5-jaar"
-  },
-  {
-    "title": "LEGENDARY MEN OF ROCK",
-    "date": "2026-11-28",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Los Problemos met Sinterklaasos",
@@ -31079,10 +31059,9 @@
     "date": "2026-12-01",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048543/Titel/10369951"
   },
   {
     "title": "Elske DeWall en het Cohen Collectief",
@@ -31778,14 +31757,13 @@
     "url": "https://www.concertgebouw.nl/concerten/41701220-antoine-tamestit-james-ehnes-en-vrienden-spelen-brahms-strijkkwintet-nr.-2"
   },
   {
-    "title": "BROMENS",
+    "title": "BRO’S - BROMENS",
     "date": "2026-12-04",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047601/bromens/10362790"
   },
   {
     "title": "Beth Hart",
@@ -32561,6 +32539,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Het Rob de Nijs Songbook",
+    "date": "2026-12-06",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048777/Titel/10372072"
   },
   {
     "title": "Kerst met John Holiday en Amsterdam Sinfonietta",
@@ -34049,16 +34036,6 @@
     "genre": "overig"
   },
   {
-    "title": "THE CHRISTMAS SHOW",
-    "date": "2026-12-11",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "THE SCENE",
     "date": "2026-12-11",
     "source": "hedon",
@@ -34073,6 +34050,15 @@
       "Nederlands",
       "Pop"
     ]
+  },
+  {
+    "title": "The Academy & Hiske Oosterwijk - THE CHRISTMAS SHOW",
+    "date": "2026-12-11",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047602/the-christmas-show/10362791"
   },
   {
     "title": "The Pianoman Live",
@@ -34473,6 +34459,51 @@
     "url": "https://www.concertgebouw.nl/concerten/43641531-meesters-op-de-gitaar-marcin-dylla-met-spaans-mexicaans-programma"
   },
   {
+    "title": "Midnightwalk - Startgroep 1 19:00",
+    "date": "2026-12-12",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "19:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047830/startgroep-1-19-00/10364016"
+  },
+  {
+    "title": "Midnightwalk - Startgroep 2 19:15",
+    "date": "2026-12-12",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "19:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047830/startgroep-2-19-15/10364106"
+  },
+  {
+    "title": "Midnightwalk - Startgroep 3 19:30",
+    "date": "2026-12-12",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047830/startgroep-3-19-30/10364107"
+  },
+  {
+    "title": "Midnightwalk - Startgroep 4 19:45",
+    "date": "2026-12-12",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "19:45",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047830/startgroep-4-19-45/10364108"
+  },
+  {
+    "title": "Midnightwalk - Startgroep 5 20:00",
+    "date": "2026-12-12",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047830/startgroep-5-20-00/10364109"
+  },
+  {
     "title": "Nacht van de Nederpop XXL",
     "date": "2026-12-12",
     "source": "afaslive",
@@ -34529,16 +34560,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45743782-sibelius-sohy-muziek-rond-wo1"
-  },
-  {
-    "title": "Startgroep 1 19:00",
-    "date": "2026-12-12",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Studio 100 Singalong in Symphony",
@@ -34985,6 +35006,15 @@
     ]
   },
   {
+    "title": "Pier 21 - WAT SPILET",
+    "date": "2026-12-13",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047603/wat-spilet/10362792"
+  },
+  {
     "title": "RIKAS",
     "date": "2026-12-13",
     "source": "doornroosje",
@@ -35065,16 +35095,6 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3705928913/the-new-diamonds",
     "category": "Muziek overig"
-  },
-  {
-    "title": "WAT SPILET",
-    "date": "2026-12-13",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "WIDOWSPEAK",
@@ -35772,16 +35792,6 @@
     ]
   },
   {
-    "title": "HET HOOGTEPUNT",
-    "date": "2026-12-18",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Het Zwanenmeer - Staatsopera van Stara Zagora, Bulgarije",
     "date": "2026-12-18",
     "source": "lawei",
@@ -35918,6 +35928,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Niet Schieten! - HET HOOGTEPUNT",
+    "date": "2026-12-18",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047604/het-hoogtepunt/10362793"
   },
   {
     "title": "Nikola Meeuwsen",
@@ -36196,16 +36215,6 @@
     "cats": []
   },
   {
-    "title": "GIRLS ON FIRE 3",
-    "date": "2026-12-19",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Go Ahead Eagles - Ajax",
     "date": "2026-12-19",
     "source": "goahead",
@@ -36329,6 +36338,15 @@
     "cats": [
       "klassiek"
     ]
+  },
+  {
+    "title": "Opvliegers - GIRLS ON FIRE 3",
+    "date": "2026-12-19",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047605/girls-on-fire-3/10362794"
   },
   {
     "title": "Pink Floyd Project",
@@ -36493,16 +36511,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "DOCUMENTAIRE",
-    "date": "2026-12-20",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "De Kersthaas",
@@ -36704,6 +36712,15 @@
     "time": "14:00",
     "venue": "Winsinghhof, Roden",
     "url": "https://theaterroden.nl/robert-poortinga-kerstconcert"
+  },
+  {
+    "title": "Rode Loper presenteert - DOCUMENTAIRE",
+    "date": "2026-12-20",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047606/documentaire/10362795"
   },
   {
     "title": "SC Heerenveen - De Graafschap (v)",
@@ -37032,16 +37049,6 @@
     "url": "https://www.013.nl/programma/152590/culs-cult"
   },
   {
-    "title": "DE HUSSELRACE (7+)",
-    "date": "2026-12-23",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "De Circusbroers (4+)",
     "date": "2026-12-23",
     "source": "visitgroningen",
@@ -37127,6 +37134,15 @@
     "genre": "Muziek",
     "location": "Rotterdam",
     "url": "https://dedoelen.nl/nl/agenda/het-zwanenmeer-lycq"
+  },
+  {
+    "title": "Mees Kees - DE HUSSELRACE (7+)",
+    "date": "2026-12-23",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "13:30",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047607/de-husselrace-7/10362796"
   },
   {
     "title": "Zing-Cirkel Concertgebouw",
@@ -37770,16 +37786,6 @@
     ]
   },
   {
-    "title": "MET VRIENDEN (3+)",
-    "date": "2027-01-03",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Noordpool Orkest – Nieuwjaarsconcert: Future Is Now",
     "date": "2027-01-03",
     "source": "spotgroningen.nl",
@@ -37827,6 +37833,15 @@
       "concert",
       "klassiek"
     ]
+  },
+  {
+    "title": "Vos & Haas - MET VRIENDEN (3+)",
+    "date": "2027-01-03",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "13:30",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047609/met-vrienden-3/10362798"
   },
   {
     "title": "Wijsneuzen",
@@ -37974,6 +37989,15 @@
     ]
   },
   {
+    "title": "Isabelle Kafando - ROF DAAIMUND",
+    "date": "2027-01-07",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047611/rof-daaimund/10362800"
+  },
+  {
     "title": "Marjolijn van Kooten",
     "date": "2027-01-07",
     "source": "vanberesteyn",
@@ -38004,16 +38028,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "ROF DAAIMUND",
-    "date": "2027-01-07",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Sneek Skittert! Nieuwjaarsrevue",
@@ -38192,16 +38206,6 @@
     "genre": "overig"
   },
   {
-    "title": "SYB VAN DER PLOEG",
-    "date": "2027-01-08",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Sjors van der Panne",
     "date": "2027-01-08",
     "source": "vanberesteyn",
@@ -38254,6 +38258,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Wereldzangers - SYB VAN DER PLOEG",
+    "date": "2027-01-08",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047612/syb-van-der-ploeg/10362801"
   },
   {
     "title": "Yunchan Lim, Iván Fischer en Concertgebouworkest met Liszt",
@@ -38322,16 +38335,6 @@
     "genre": "overig"
   },
   {
-    "title": "DE TOESTAND IN DE WERELD VOLGENS HARM EDENS",
-    "date": "2027-01-09",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Dancing Queens (xs tribute to ABBA) - Beatrice en Vera van der Poel",
     "date": "2027-01-09",
     "source": "drenthe.nl",
@@ -38390,6 +38393,15 @@
     "genres": [
       "Metal"
     ]
+  },
+  {
+    "title": "Harm Edens - DE TOESTAND IN DE WERELD VOLGENS HARM EDENS",
+    "date": "2027-01-09",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047613/de-toestand-in-de-wereld-volgens-harm-edens/10362802"
   },
   {
     "title": "Karin Bloemen",
@@ -38784,16 +38796,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/105106878/andries-tunru-ravot-1"
   },
   {
-    "title": "BABEL",
-    "date": "2027-01-15",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Beach Boys’ Best - Greatest Hits from the Kings of Harmony",
     "date": "2027-01-15",
     "source": "drenthe.nl",
@@ -38900,6 +38902,15 @@
     "city": "Coevorden",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2648886148/harm-edens-de-toestand-in-de-wereld-volgens-harm-edens-1"
+  },
+  {
+    "title": "Kommil Foo - BABEL",
+    "date": "2027-01-15",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047614/babel/10362803"
   },
   {
     "title": "Noord Nederlands Orkest",
@@ -39067,6 +39078,15 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3921173066/bouke-scholten",
     "category": "Muziek overig"
+  },
+  {
+    "title": "Charl zingt - SHAFFY",
+    "date": "2027-01-16",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10043296/shaffy/10337693"
   },
   {
     "title": "De Vrienden van Amstel LIVE",
@@ -39291,16 +39311,6 @@
     "sport": "voetbal"
   },
   {
-    "title": "SHAFFY",
-    "date": "2027-01-16",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "SMELLS LIKE NIRVANA",
     "date": "2027-01-16",
     "source": "melkweg",
@@ -39486,6 +39496,15 @@
     "url": "https://www.concertgebouw.nl/concerten/45900546-jamie-duffy"
   },
   {
+    "title": "Jasper van der veen - OP SCHERP",
+    "date": "2027-01-17",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047615/op-scherp/10362804"
+  },
+  {
     "title": "JazzProSessies",
     "date": "2027-01-17",
     "source": "vanberesteyn",
@@ -39539,16 +39558,6 @@
     "date": "2027-01-17",
     "source": "effenaar",
     "genre": "overig"
-  },
-  {
-    "title": "OP SCHERP",
-    "date": "2027-01-17",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "SC Heerenveen - Sparta Rotterdam",
@@ -40026,14 +40035,13 @@
     "cats": []
   },
   {
-    "title": "BREKEN DE TENT AF!",
+    "title": "Arie & Silvester - BREKEN DE TENT AF!",
     "date": "2027-01-22",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047616/breken-de-tent-af/10362805"
   },
   {
     "title": "Beethoven en Strauss",
@@ -40425,14 +40433,13 @@
     "sport": "voetbal"
   },
   {
-    "title": "HULDE",
+    "title": "Jan & Marijke - HULDE",
     "date": "2027-01-23",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047617/hulde/10362806"
   },
   {
     "title": "Jan Henk de Groot en Reinout Douma - Tiepelzinneg",
@@ -40688,14 +40695,13 @@
     ]
   },
   {
-    "title": "HULDE",
+    "title": "Jan & Marijke - HULDE",
     "date": "2027-01-24",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047618/hulde/10362807"
   },
   {
     "title": "Klassieke Vrienden Tim Nobel ontvangt Sergiy Bolotny",
@@ -41303,6 +41309,15 @@
     "url": "https://dedoelen.nl/nl/agenda/mahler-en-manoury-879r"
   },
   {
+    "title": "Martijn Koning - OVERPRIKKELD",
+    "date": "2027-01-29",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047619/overprikkeld/10362808"
+  },
+  {
     "title": "Nationaal Theaterweekend",
     "date": "2027-01-29",
     "source": "ontdekpoort",
@@ -41334,16 +41349,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "OVERPRIKKELD",
-    "date": "2027-01-29",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Oud‑Harichster Johannes Kramer terug naar Harich!",
@@ -41486,6 +41491,15 @@
     "city": "Gorredijk",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1501420135/brucetime-in-de-skans-gorredijk"
+  },
+  {
+    "title": "Crazy Little Things - We Are The Champions",
+    "date": "2027-01-30",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047620/we-are-the-champions/10362809"
   },
   {
     "title": "FC Groningen - N.E.C.",
@@ -41677,16 +41691,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2350999958/wat-speelt-pier21"
   },
   {
-    "title": "We Are The Champions",
-    "date": "2027-01-30",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Weergaloze muzieknacht — Nationaal Theaterweekend: Muziek blind date",
     "date": "2027-01-30",
     "source": "lawei",
@@ -41804,6 +41808,15 @@
     ]
   },
   {
+    "title": "Nieuwe Noordelijke Makers - STORMRAM:",
+    "date": "2027-01-31",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047621/stormram/10362810"
+  },
+  {
     "title": "Ode aan de frontman — Nationaal Theaterweekend: Muziek blind date",
     "date": "2027-01-31",
     "source": "lawei",
@@ -41850,16 +41863,6 @@
     "url": "https://www.sc-heerenveen.nl/hoofdelftallen/1e-mannen-elftal/seasons/20262027/sc-heerenveen-ajax-vriendenloterij-eredivisie",
     "gender": "heren",
     "sport": "voetbal"
-  },
-  {
-    "title": "STORMRAM:",
-    "date": "2027-01-31",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Schokgolf",
@@ -42079,10 +42082,9 @@
     "date": "2027-02-03",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "17:45",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048545/Titel/10369953"
   },
   {
     "title": "HENGE",
@@ -42235,6 +42237,15 @@
     "url": "https://www.paard.nl/en/event/henge-4/"
   },
   {
+    "title": "Ivgy en Greben - WHAT WE LEAVE BEHIND",
+    "date": "2027-02-04",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047622/what-we-leave-behind/10362811"
+  },
+  {
     "title": "Kim Schuddeboom - Hardleers (try-out)",
     "date": "2027-02-04",
     "source": "theaterroden",
@@ -42343,16 +42354,6 @@
     ]
   },
   {
-    "title": "WHAT WE LEAVE BEHIND",
-    "date": "2027-02-04",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Wat Blijft Er Van Ons Over",
     "date": "2027-02-04",
     "source": "podiumzuidhaege",
@@ -42455,16 +42456,6 @@
     "date": "2027-02-05",
     "source": "013",
     "genre": "overig"
-  },
-  {
-    "title": "GITAARHELDEN - PART 2",
-    "date": "2027-02-05",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Govert de Roos  Van Hazes tot Playboy",
@@ -42616,6 +42607,15 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/268649068/the-fortunate-sons-creedence-gold"
   },
   {
+    "title": "The Story Tellers - GITAARHELDEN - PART 2",
+    "date": "2027-02-05",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047623/gitaarhelden-part-2/10362812"
+  },
+  {
     "title": "Toontje Lager",
     "date": "2027-02-05",
     "source": "friesland.nl",
@@ -42752,6 +42752,15 @@
     ]
   },
   {
+    "title": "Karin Bloemen & band - RENAISSANCE 2.0",
+    "date": "2027-02-06",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047624/renaissance-2-0/10362813"
+  },
+  {
     "title": "Karina Canellakis & Barbara Hannigan met Barber, Ives & Stravinsky",
     "date": "2027-02-06",
     "source": "concertgebouw",
@@ -42779,16 +42788,6 @@
     "city": "Hoogeveen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1180675580/novastar-theatertour"
-  },
-  {
-    "title": "RENAISSANCE 2.0",
-    "date": "2027-02-06",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Rachmaninoffs Pianoconcert nr. 2 met Nikola Meeuwsen & Sjostakovitsj 5",
@@ -43236,16 +43235,6 @@
     "sport": "voetbal"
   },
   {
-    "title": "THE SANDS FAMILY (IRL) & FLING (FRL)",
-    "date": "2027-02-07",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Wildeboel! (speelfilm)  Henk en Janetta Bos",
     "date": "2027-02-07",
     "source": "drenthe.nl",
@@ -43253,6 +43242,15 @@
     "city": "Coevorden",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/284011445/wildeboel-speelfilm-henk-en-janetta-bos"
+  },
+  {
+    "title": "Winterfolk - THE SANDS FAMILY (IRL) & FLING (FRL)",
+    "date": "2027-02-07",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047625/the-sands-family-irl-fling-frl/10362814"
   },
   {
     "title": "Swan Lake (6+) – Introdans",
@@ -43484,16 +43482,6 @@
     "genre": "overig"
   },
   {
-    "title": "EINDELIJK VOLWASSEN",
-    "date": "2027-02-11",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Ivgi & Greben What We Leave Behind",
     "date": "2027-02-11",
     "source": "ontdekpoort",
@@ -43569,6 +43557,15 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2248301935/rene-van-meurs-1",
     "category": "Cabaret"
+  },
+  {
+    "title": "Rob Kamphues - EINDELIJK VOLWASSEN",
+    "date": "2027-02-11",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047626/eindelijk-volwassen/10362815"
   },
   {
     "title": "Rob Kemps – Laat me niet alleen",
@@ -43674,16 +43671,6 @@
     ]
   },
   {
-    "title": "DE WICHTERSESJES",
-    "date": "2027-02-12",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Daddy Cool turns 50",
     "date": "2027-02-12",
     "source": "visitgroningen",
@@ -43758,6 +43745,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Marcel Smit - DE WICHTERSESJES",
+    "date": "2027-02-12",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047627/de-wichtersesjes/10362816"
   },
   {
     "title": "Nederland/België - Marijn Brouwers en Vera Mann",
@@ -43946,16 +43942,6 @@
     "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875656",
     "gender": "heren",
     "sport": "voetbal"
-  },
-  {
-    "title": "FEEST IN DE TOVERTUIN (2+)",
-    "date": "2027-02-13",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "FLOOR JANSEN",
@@ -44193,6 +44179,15 @@
     ]
   },
   {
+    "title": "Woezel & Pip De Musical - FEEST IN DE TOVERTUIN (2+)",
+    "date": "2027-02-13",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "13:30",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047628/feest-in-de-tovertuin-2/10362817"
+  },
+  {
     "title": "AMORPHIS",
     "date": "2027-02-14",
     "source": "013",
@@ -44254,16 +44249,6 @@
     ]
   },
   {
-    "title": "DE MON AMOUR TOUR",
-    "date": "2027-02-14",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Fee Suzanne de Ruiter",
     "date": "2027-02-14",
     "source": "dedoelen",
@@ -44322,6 +44307,15 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/4276341401/janke-dekker-de-mooie-dingen"
   },
   {
+    "title": "Klassiek in het Martena Museum - VESPUCCI KWARTET",
+    "date": "2027-02-14",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047835/vespucci-kwartet/10364119"
+  },
+  {
     "title": "Kytes - 14 februari 2027 - Rotown, Rotterdam",
     "date": "2027-02-14",
     "source": "rotown",
@@ -44373,14 +44367,13 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3724705413/syb-van-der-ploeg-maarten-peters-e-a-in-de-skans-gorredijk"
   },
   {
-    "title": "VESPUCCI KWARTET",
+    "title": "The Story of BZN - DE MON AMOUR TOUR",
     "date": "2027-02-14",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047630/de-mon-amour-tour/10362819"
   },
   {
     "title": "VKSO",
@@ -44730,6 +44723,15 @@
     "url": "https://www.concertgebouw.nl/concerten/45913700-zing-cirkel-concertgebouw"
   },
   {
+    "title": "2E Eise Eisinga Lezing - DE ZOEKTOCHT  NAAR BUITENAARDS LEVEN - INGE LOES TEN KATE",
+    "date": "2027-02-18",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047631/de-zoektocht-naar-buitenaards-leven-inge-loes-ten-kate/10362820"
+  },
+  {
     "title": "Club Guy & Roni invites",
     "date": "2027-02-18",
     "source": "friesland.nl",
@@ -44749,16 +44751,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "DE ZOEKTOCHT NAAR BUITENAARDS LEVEN - INGE LOES TEN KATE",
-    "date": "2027-02-18",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Faulty Towers",
@@ -44886,16 +44878,6 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3604348041/van-der-laan-woe-dinsdagmiddag-2",
     "category": "Cabaret"
-  },
-  {
-    "title": "10 YEARS STRONG",
-    "date": "2027-02-19",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "100% Nederlandstalige show - Daredevils: Zing Nederlands Met Me",
@@ -45072,6 +45054,15 @@
     "url": "https://www.concertgebouw.nl/concerten/37331025-juilliard-string-quartet-speelt-ravel-en-grieg"
   },
   {
+    "title": "Mell VF - 10 YEARS STRONG",
+    "date": "2027-02-19",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047632/10-years-strong/10362821"
+  },
+  {
     "title": "Noord Nederlands Orkest",
     "date": "2027-02-19",
     "source": "friesland.nl",
@@ -45195,6 +45186,15 @@
     "cats": []
   },
   {
+    "title": "André Manuel - DE EENZAME ZIEL",
+    "date": "2027-02-20",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047633/de-eenzame-ziel/10362822"
+  },
+  {
     "title": "Bert Hadders - Roest",
     "date": "2027-02-20",
     "source": "theaterroden",
@@ -45224,16 +45224,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "DE EENZAME ZIEL",
-    "date": "2027-02-20",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Dana Winner",
@@ -45601,6 +45591,15 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3375373924/ballet-vibes-6-junior-company-nationale-ballet"
   },
   {
+    "title": "CRAZY TUNES JAZZ BAND - THE ROARING TWENTIES",
+    "date": "2027-02-21",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047634/the-roaring-twenties/10362823"
+  },
+  {
     "title": "Ciconia - The Hague String Orchestra & Hawijch Elders: Echo’s van de Balkan",
     "date": "2027-02-21",
     "source": "concertgebouw",
@@ -45767,16 +45766,6 @@
     "genre": "overig"
   },
   {
-    "title": "THE ROARING TWENTIES",
-    "date": "2027-02-21",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Take It To The Limit - A celebration of the Eagles",
     "date": "2027-02-21",
     "source": "visitgroningen",
@@ -45884,10 +45873,9 @@
     "date": "2027-02-23",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "19:45",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048546/Titel/10369954"
   },
   {
     "title": "Evi Hanssen – Bloedheet & Tranen",
@@ -46490,10 +46478,9 @@
     "date": "2027-02-27",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "14:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047635/Titel/10362824"
   },
   {
     "title": "Meesters op de gitaar: Rafael Aguirre - van Giuliani tot Chopin",
@@ -46657,10 +46644,9 @@
     "date": "2027-02-28",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047639/Titel/10362828"
   },
   {
     "title": "De Circusbroers (4+) - Huub Cooijmans",
@@ -47187,10 +47173,9 @@
     "date": "2027-03-05",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047640/Titel/10362829"
   },
   {
     "title": "Mist",
@@ -47319,16 +47304,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "ALTIJD AAN",
-    "date": "2027-03-06",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Anneke van Giersbergen",
@@ -47555,6 +47530,15 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45744211-peltokoski-meeuwsen-met-prokofjevs-pianoconcert-nr.-2"
+  },
+  {
+    "title": "Pieter Verelst - ALTIJD AAN",
+    "date": "2027-03-06",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047641/altijd-aan/10362830"
   },
   {
     "title": "Russo",
@@ -47889,16 +47873,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2939947209/pinokkio-7"
   },
   {
-    "title": "RISE UP",
-    "date": "2027-03-07",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Rob de Nijs Tribute",
     "date": "2027-03-07",
     "source": "dedoelen",
@@ -47924,6 +47898,15 @@
     "url": "https://neushoorn.nl/programma",
     "category": "pop",
     "cats": []
+  },
+  {
+    "title": "The Dutch Tenors - RISE UP",
+    "date": "2027-03-07",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047219/rise-up/10360854"
   },
   {
     "title": "Umi (0,5) – Wonderland Collectief/Makiko ito",
@@ -48257,6 +48240,15 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3440478778/daniel-arends-2-verschillende-shows-op-1-avond"
   },
   {
+    "title": "De Meiden van Toen - NAAR DE GETVER",
+    "date": "2027-03-11",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047642/naar-de-getver/10362831"
+  },
+  {
     "title": "Dutch Classical Talent: Martin String Quartet – SPOT Lunchbreak",
     "date": "2027-03-11",
     "source": "spotgroningen.nl",
@@ -48309,16 +48301,6 @@
     "time": "20:15",
     "venue": "Winsinghhof, Roden",
     "url": "https://theaterroden.nl/kooiapen"
-  },
-  {
-    "title": "NAAR DE GETVER",
-    "date": "2027-03-11",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Nabil - Daar is hij weer!",
@@ -48470,16 +48452,6 @@
     "url": "https://www.concertgebouw.nl/concerten/45900875-concertgebouworkest-klaus-makela-beethovens-missa-solemnis"
   },
   {
-    "title": "DE HOUTENE TOER",
-    "date": "2027-03-12",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "DE MEIDEN van toen - NAAR DE GETVER",
     "date": "2027-03-12",
     "source": "theaterroden",
@@ -48627,6 +48599,15 @@
     ]
   },
   {
+    "title": "Piter Wilkens - DE HOUTENE TOER",
+    "date": "2027-03-12",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047643/de-houtene-toer/10362832"
+  },
+  {
     "title": "THE DIRTY DADDIES",
     "date": "2027-03-12",
     "source": "013",
@@ -48697,16 +48678,6 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1386666258/con-amore-13-maart-grunneger-oavend",
     "category": "Toneel"
-  },
-  {
-    "title": "DE MUSICAL (6+)",
-    "date": "2027-03-13",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "De Bingo Show van Maartje en Kine",
@@ -48833,6 +48804,15 @@
     "city": "Gorredijk",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1080486694/jim-de-groot-en-sebas-wolfensberger-in-de-skans-gorredijk"
+  },
+  {
+    "title": "Juf Braaksel - DE MUSICAL (6+)",
+    "date": "2027-03-13",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047637/de-musical-6/10362826"
   },
   {
     "title": "Leon Moorman - Knooin",
@@ -49140,6 +49120,15 @@
     "url": "https://dedoelen.nl/nl/agenda/olli-begint-een-orkest-qfmm"
   },
   {
+    "title": "Pip Utton - TRUMP",
+    "date": "2027-03-14",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047644/trump/10362833"
+  },
+  {
     "title": "SC Heerenveen - Fortuna Sittard",
     "date": "2027-03-14",
     "source": "heerenveen",
@@ -49169,16 +49158,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "TRUMP",
-    "date": "2027-03-14",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Wijn & Spijs — Vijf gangen met bijpassende wijnen",
@@ -49503,16 +49482,6 @@
     ]
   },
   {
-    "title": "HARDLEERS",
-    "date": "2027-03-18",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Hokjesdenker - We zien het wel even",
     "date": "2027-03-18",
     "source": "lawei",
@@ -49532,6 +49501,15 @@
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/jandino-20-jaar-jandino-de-grote-jubileumshow-18-mrt/"
+  },
+  {
+    "title": "Kim Schuddeboom - HARDLEERS",
+    "date": "2027-03-18",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047645/hardleers/10362834"
   },
   {
     "title": "Matthäus-Passion met passie",
@@ -49585,16 +49563,6 @@
     "city": "Friesland",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/659362492/de-week-van-de-circulaire-economie"
-  },
-  {
-    "title": "20 YEARS!",
-    "date": "2027-03-19",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Bachs Matthäus-Passion met het Concertgebouworkest",
@@ -49740,6 +49708,15 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/877904588/matthaus-passion-11"
+  },
+  {
+    "title": "Motel Westcoast - 20 YEARS!",
+    "date": "2027-03-19",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047646/20-years/10362835"
   },
   {
     "title": "Nederlands Kamerorkest - Bachs Matthäus-Passion",
@@ -50047,14 +50024,13 @@
     ]
   },
   {
-    "title": "MINIMATTHÄUS - JOHANN SEBASTIAN BACH",
+    "title": "Mattheüs Ensemble - MINIMATTHÄUS - JOHANN SEBASTIAN BACH",
     "date": "2027-03-20",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047647/minimatthaus-johann-sebastian-bach/10362836"
   },
   {
     "title": "Meesters op de gitaar: Petrit Çeku speelt Barber, Paganini en Rodrigo",
@@ -50331,14 +50307,13 @@
     "url": "https://www.effenaar.nl/agenda/pop-koor-xl-21mrt"
   },
   {
-    "title": "SOLO",
+    "title": "Rosanne Alderliefste - SOLO",
     "date": "2027-03-21",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047648/solo/10362837"
   },
   {
     "title": "Somer Kamerorkest speelt Somer, Wagner en Bruckner - Mythische proporties in een aards formaat",
@@ -50429,14 +50404,13 @@
     "category": "Theater overig"
   },
   {
-    "title": "Alice's Adventures in Wonderland - The Royal Ballet",
+    "title": "Alice’s Adventures in Wonderland - The Royal  Ballet",
     "date": "2027-03-23",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048547/Titel/10369956"
   },
   {
     "title": "Maartje en Kine – DE BINGO SHOW",
@@ -50715,10 +50689,9 @@
     "date": "2027-03-26",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "18:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047845/Titel/10364132"
   },
   {
     "title": "De Matthäus Passion Uitgelegd",
@@ -50969,14 +50942,13 @@
     ]
   },
   {
-    "title": "MIST",
+    "title": "Laus Steenbeeke e.a. - MIST",
     "date": "2027-03-27",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047649/mist/10362838"
   },
   {
     "title": "Marco Schuitmaker - Live in het theater",
@@ -51728,14 +51700,13 @@
     ]
   },
   {
-    "title": "BROTHERS",
+    "title": "Ashton Brothers - BROTHERS",
     "date": "2027-04-03",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047650/brothers/10362839"
   },
   {
     "title": "Baby Reindeer",
@@ -52020,16 +51991,6 @@
     "url": "https://www.atlastheater.nl/voorstellingen/the-singer-songwriter-show-nick-schilder-03-apr/"
   },
   {
-    "title": "'MARIS, WAT ETEN WE VANDAAG'",
-    "date": "2027-04-04",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "ALEXANDRA KAY",
     "date": "2027-04-04",
     "source": "melkweg",
@@ -52222,6 +52183,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Mariska Bauer - ‘MARIS, WAT ETEN WE VANDAAG’",
+    "date": "2027-04-04",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047651/maris-wat-eten-we-vandaag/10362840"
   },
   {
     "title": "Motel Westcoast 20 Years!",
@@ -52717,16 +52687,6 @@
     ]
   },
   {
-    "title": "BABY REINDEER",
-    "date": "2027-04-09",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Een Theatercollege van Aukje Nauta — Schaamteloos schaamtevrij",
     "date": "2027-04-09",
     "source": "lawei",
@@ -52921,6 +52881,15 @@
     ]
   },
   {
+    "title": "Thijs van de Meeberg - BABY REINDEER",
+    "date": "2027-04-09",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047652/baby-reindeer/10362841"
+  },
+  {
     "title": "Tim Knol - Wanderings",
     "date": "2027-04-09",
     "source": "visitgroningen",
@@ -53092,6 +53061,15 @@
     ]
   },
   {
+    "title": "Nationaal Jeugd Musical Theater - OLIVER EN HET AVONTUUR VAN DE STRAATKINDEREN",
+    "date": "2027-04-10",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047653/oliver-en-het-avontuur-van-de-straatkinderen/10362842"
+  },
+  {
     "title": "Nederlands Blazers Ensemble – Strauss en Schönberg",
     "date": "2027-04-10",
     "source": "spotgroningen.nl",
@@ -53123,16 +53101,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "OLIVER EN HET AVONTUUR VAN DE STRAATKINDEREN",
-    "date": "2027-04-10",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "On Tour! Isabelle van Keulen & Ulrike Payer",
@@ -53450,10 +53418,9 @@
     "date": "2027-04-11",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047654/Titel/10362843"
   },
   {
     "title": "The Zac Schulze Gang",
@@ -53860,16 +53827,6 @@
     "category": "Cabaret"
   },
   {
-    "title": "GOED DAT JIJ BESTAAT!",
-    "date": "2027-04-16",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Gelukkig heb je mij nog - Richard Groenendijk",
     "date": "2027-04-16",
     "source": "atlastheater",
@@ -53913,6 +53870,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Johnny de Mol - GOED DAT JIJ BESTAAT!",
+    "date": "2027-04-16",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047655/goed-dat-jij-bestaat/10362844"
   },
   {
     "title": "Kemp & Stek Relatieverschillen om te gillen!",
@@ -54089,16 +54055,6 @@
     ]
   },
   {
-    "title": "BEST OF CLAPTON",
-    "date": "2027-04-17",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Barokopera Amsterdam – The Indian Queen",
     "date": "2027-04-17",
     "source": "spotgroningen.nl",
@@ -54262,6 +54218,15 @@
     "url": "https://www.concertgebouw.nl/concerten/45255040-nederlandse-bachvereniging-lucie-horsch-bach-toen-nu"
   },
   {
+    "title": "Ocobar - BEST OF CLAPTON",
+    "date": "2027-04-17",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047656/best-of-clapton/10362845"
+  },
+  {
     "title": "Piter Wilkens - de houtene tour",
     "date": "2027-04-17",
     "source": "lawei",
@@ -54420,16 +54385,6 @@
     "sport": "basketbal"
   },
   {
-    "title": "EINDVOORSTELLINGEN THEATERLESSEN",
-    "date": "2027-04-18",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Frank Boeijen",
     "date": "2027-04-18",
     "source": "drenthe.nl",
@@ -54461,6 +54416,15 @@
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2236659830/gerard-alderliefste-friends-vivre"
+  },
+  {
+    "title": "Het Achterland - EINDVOORSTELLINGEN THEATERLESSEN",
+    "date": "2027-04-18",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047657/eindvoorstellingen-theaterlessen/10362846"
   },
   {
     "title": "KleuterSinfonietta: StuiterStokken (4 en 5 jaar)",
@@ -54776,10 +54740,9 @@
     "date": "2027-04-22",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048548/Titel/10369957"
   },
   {
     "title": "Jay Francis - Tunnelvisie",
@@ -55357,10 +55320,9 @@
     "date": "2027-04-25",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047658/Titel/10362847"
   },
   {
     "title": "Liza Ferschtman",
@@ -55621,16 +55583,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/211794978/bee-gees-by-maincourse"
   },
   {
-    "title": "DE TIJDREIZIGER (6+)",
-    "date": "2027-04-30",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Ferschtman, Karizna en Pace met Brahms en het echtpaar Schumann",
     "date": "2027-04-30",
     "source": "concertgebouw",
@@ -55704,6 +55656,15 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/626582775/niels-geusebroek-because-of-you"
   },
   {
+    "title": "Nigel Otermans - DE TIJDREIZIGER (6+)",
+    "date": "2027-04-30",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047659/de-tijdreiziger-6/10362848"
+  },
+  {
     "title": "Theater Terra - Pippi en de Piraten | 6+",
     "date": "2027-04-30",
     "source": "atlastheater",
@@ -55728,6 +55689,15 @@
     "time": "20:00",
     "venue": "GelreDome, Arnhem",
     "url": "https://www.gelredome.nl/evenement/vitesse-fc-volendam-26-27"
+  },
+  {
+    "title": "40e Groninger Studenten Cabaret Festival - FINALISTENTOUR",
+    "date": "2027-05-01",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047660/finalistentour/10362849"
   },
   {
     "title": "Alleen maar lieve jongens",
@@ -55787,16 +55757,6 @@
     "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875758",
     "gender": "heren",
     "sport": "voetbal"
-  },
-  {
-    "title": "FINALISTENTOUR",
-    "date": "2027-05-01",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Go Ahead Eagles - PSV",
@@ -55978,6 +55938,15 @@
     "url": "https://www.concertgebouw.nl/concerten/37970602-kwintetten-voor-piano-en-blazers-door-musici-van-het-concertgebouworkest"
   },
   {
+    "title": "Loes Luca & The Ramblers - RAMBLIN’ WITH LOES",
+    "date": "2027-05-02",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047661/ramblin-with-loes/10362850"
+  },
+  {
     "title": "Lossen het op! - De Zoete Zusjes | 3+",
     "date": "2027-05-02",
     "source": "atlastheater",
@@ -56002,16 +55971,6 @@
     "city": "Hoogeveen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3289201480/pippi-en-de-piraten-6-theater-terra"
-  },
-  {
-    "title": "RAMBLIN' WITH LOES",
-    "date": "2027-05-02",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "SC Heerenveen - FC Utrecht",
@@ -57100,6 +57059,15 @@
     "category": "Cabaret"
   },
   {
+    "title": "Nieuwe Noordelijke Makers - STORMRAM:",
+    "date": "2027-05-14",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047662/stormram/10362851"
+  },
+  {
     "title": "Noord Nederlands Orkest NNO x De Kast",
     "date": "2027-05-14",
     "source": "ontdekpoort",
@@ -57118,16 +57086,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45901320-riccardo-chailly-leidt-rachmaninoff-bij-het-concertgebouworkest"
-  },
-  {
-    "title": "STORMRAM:",
-    "date": "2027-05-14",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Samir Fighil — Turbulentie",
@@ -57364,6 +57322,15 @@
     "url": "https://www.concertgebouw.nl/concerten/45901319-riccardo-chailly-leidt-rachmaninoff-bij-het-concertgebouworkest"
   },
   {
+    "title": "Teun Van den Elzen - ZE MOESTEN EENS WETEN",
+    "date": "2027-05-15",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047663/ze-moesten-eens-weten/10362852"
+  },
+  {
     "title": "The Gesualdo Six",
     "date": "2027-05-15",
     "source": "spotgroningen.nl",
@@ -57386,16 +57353,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "ZE MOESTEN EENS WETEN",
-    "date": "2027-05-15",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
   },
   {
     "title": "Authentieke uitvoering van Mozarts Requiem",
@@ -57901,16 +57858,6 @@
     ]
   },
   {
-    "title": "CELEBRATING THE 50'S & 60'S",
-    "date": "2027-05-22",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Fuzz Club 2027 - Saturday",
     "date": "2027-05-22",
     "source": "effenaar",
@@ -58024,6 +57971,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "The Bentleys - CELEBRATING THE 50’S & 60’S",
+    "date": "2027-05-22",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047664/celebrating-the-50s-60s/10362853"
   },
   {
     "title": "Thomas van Luyn – Super Normaal",
@@ -58158,10 +58114,9 @@
     "date": "2027-05-25",
     "source": "koornbeurs",
     "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048549/Titel/10369958"
   },
   {
     "title": "Vier Crematies en een Scheiding - De Theatertroep",
@@ -58391,16 +58346,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/834235729/becaud-frank-cools-en-florian-de-schepper"
   },
   {
-    "title": "Concert in de Trije",
-    "date": "2027-05-29",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "venue": "Theater de Koornbeurs Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/programma",
-    "category": "theater",
-    "cats": []
-  },
-  {
     "title": "Daddy Cool turns 50 — Boney M 1976 – 2026",
     "date": "2027-05-29",
     "source": "lawei",
@@ -58441,6 +58386,15 @@
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/lachen-schieten-brullen-ratatatata-29-mei/"
+  },
+  {
+    "title": "MARINIERSKAPEL - Concert in de Trije",
+    "date": "2027-05-29",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047834/concert-in-de-trije/10364117"
   },
   {
     "title": "Magnificent Seven",
