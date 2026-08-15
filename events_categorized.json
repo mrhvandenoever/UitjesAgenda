@@ -1995,21 +1995,6 @@
     "url": "https://www.concertgebouw.nl/concerten/41629423-elgars-celloconcert-door-anastasia-kobekina"
   },
   {
-    "title": "FC Groningen - Fortuna Sittard",
-    "date": "2026-08-28",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "20:00",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
-  },
-  {
     "title": "Festival Oude Muziek Utrecht - 28 augustus",
     "date": "2026-08-28",
     "source": "tivolivredenburg",
@@ -3840,21 +3825,6 @@
     "city": "Annen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2843412264/easy-toys-grasbaanraces-1"
-  },
-  {
-    "title": "FC Groningen - FC Twente",
-    "date": "2026-09-06",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "12:15",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
   },
   {
     "title": "Festival Oude Muziek Utrecht - 6 september",
@@ -6140,6 +6110,16 @@
     ]
   },
   {
+    "title": "FC Groningen - PEC Zwolle",
+    "date": "2026-09-18",
+    "source": "fcgroningen",
+    "genre": "sport",
+    "venue": "Euroborg, Groningen",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875599",
+    "gender": "heren",
+    "sport": "voetbal"
+  },
+  {
     "title": "Good Vibrations",
     "date": "2026-09-18",
     "source": "friesland.nl",
@@ -6942,21 +6922,6 @@
     "date": "2026-09-20",
     "source": "tivolivredenburg",
     "genre": "overig"
-  },
-  {
-    "title": "FC Groningen - Ajax",
-    "date": "2026-09-20",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "14:30",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
   },
   {
     "title": "FC Twente - PSV",
@@ -11070,21 +11035,6 @@
     "city": "Jellum",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1913171311/erwin-nyhoff-1"
-  },
-  {
-    "title": "FC Groningen - Heerenveen",
-    "date": "2026-10-04",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "14:30",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
   },
   {
     "title": "Familiemiddag – in de Stadsschouwburg",
@@ -15793,19 +15743,14 @@
     ]
   },
   {
-    "title": "FC Groningen - Feyenoord",
+    "title": "FC Groningen - Ajax",
     "date": "2026-10-18",
     "source": "fcgroningen",
     "genre": "sport",
-    "time": "16:45",
     "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875575",
     "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
+    "sport": "voetbal"
   },
   {
     "title": "FC Twente - FC Utrecht",
@@ -20479,19 +20424,14 @@
     "url": "https://www.013.nl/programma/146654/eye-ball-iii"
   },
   {
-    "title": "FC Groningen - NAC Breda",
+    "title": "FC Groningen - Sparta Rotterdam",
     "date": "2026-11-01",
     "source": "fcgroningen",
     "genre": "sport",
-    "time": "14:30",
     "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875557",
     "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
+    "sport": "voetbal"
   },
   {
     "title": "FRANK BOEIJEN",
@@ -27207,6 +27147,16 @@
     "genre": "overig"
   },
   {
+    "title": "FC Groningen - sc Heerenveen",
+    "date": "2026-11-21",
+    "source": "fcgroningen",
+    "genre": "sport",
+    "venue": "Euroborg, Groningen",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875546",
+    "gender": "heren",
+    "sport": "voetbal"
+  },
+  {
     "title": "FC Twente - Willem II",
     "date": "2026-11-21",
     "source": "fctwente",
@@ -27738,21 +27688,6 @@
     "time": "19:00",
     "venue": "Grote Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/de-nog-grotere-slijmmusical-6plus-22-nov/"
-  },
-  {
-    "title": "FC Groningen - PEC Zwolle",
-    "date": "2026-11-22",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "14:30",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
   },
   {
     "title": "Freedom and Whiskey",
@@ -29520,6 +29455,16 @@
     "type": "Keuken Kampioen Divisie",
     "lat": 52.7693,
     "lon": 6.8891
+  },
+  {
+    "title": "FC Groningen - Willem II",
+    "date": "2026-11-28",
+    "source": "fcgroningen",
+    "genre": "sport",
+    "venue": "Euroborg, Groningen",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875536",
+    "gender": "heren",
+    "sport": "voetbal"
   },
   {
     "title": "FLEMMING",
@@ -31892,21 +31837,6 @@
     ]
   },
   {
-    "title": "FC Groningen - AZ",
-    "date": "2026-12-06",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "16:45",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
-  },
-  {
     "title": "FROUKJE - EXTRA SHOW",
     "date": "2026-12-06",
     "source": "013",
@@ -33620,6 +33550,16 @@
     "genre": "overig"
   },
   {
+    "title": "FC Groningen - Feyenoord",
+    "date": "2026-12-12",
+    "source": "fcgroningen",
+    "genre": "sport",
+    "venue": "Euroborg, Groningen",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875518",
+    "gender": "heren",
+    "sport": "voetbal"
+  },
+  {
     "title": "FC Twente - Sparta Rotterdam",
     "date": "2026-12-12",
     "source": "fctwente",
@@ -34086,21 +34026,6 @@
     "city": "Oldeholtwolde",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3774301873/elske-dewall-family-acoustic"
-  },
-  {
-    "title": "FC Groningen - RKC Waalwijk",
-    "date": "2026-12-13",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "14:30",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
   },
   {
     "title": "Familieconcert: Tsjaikovski’s De notenkraker (6+)",
@@ -37862,6 +37787,16 @@
     "category": "Theater overig"
   },
   {
+    "title": "FC Groningen - Go Ahead Eagles",
+    "date": "2027-01-10",
+    "source": "fcgroningen",
+    "genre": "sport",
+    "venue": "Euroborg, Groningen",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875494",
+    "gender": "heren",
+    "sport": "voetbal"
+  },
+  {
     "title": "Grote Pianisten: Mitsuko Uchida speelt Schubert",
     "date": "2027-01-10",
     "source": "concertgebouw",
@@ -38768,21 +38703,6 @@
     "genre": "Muziek",
     "location": "Rotterdam",
     "url": "https://dedoelen.nl/nl/agenda/eva-saladin-ctvt"
-  },
-  {
-    "title": "FC Groningen - Almere City",
-    "date": "2027-01-17",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "14:30",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
   },
   {
     "title": "Grondtonen",
@@ -40828,6 +40748,16 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1501420135/brucetime-in-de-skans-gorredijk"
   },
   {
+    "title": "FC Groningen - N.E.C.",
+    "date": "2027-01-30",
+    "source": "fcgroningen",
+    "genre": "sport",
+    "venue": "Euroborg, Groningen",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875664",
+    "gender": "heren",
+    "sport": "voetbal"
+  },
+  {
     "title": "FC Twente - SC Cambuur Leeuwarden",
     "date": "2027-01-30",
     "source": "fctwente",
@@ -41084,21 +41014,6 @@
     "city": "Gorredijk",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/779807473/ernst-en-bobbie-in-de-skans-gorredijk"
-  },
-  {
-    "title": "FC Groningen - Go Ahead Eagles",
-    "date": "2027-01-31",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "14:30",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
   },
   {
     "title": "Hohe Messe van Bach door Chœur de Chambre de Namur, Il Gardellino & solisten",
@@ -43311,6 +43226,16 @@
     ]
   },
   {
+    "title": "FC Groningen - AZ",
+    "date": "2027-02-13",
+    "source": "fcgroningen",
+    "genre": "sport",
+    "venue": "Euroborg, Groningen",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875656",
+    "gender": "heren",
+    "sport": "voetbal"
+  },
+  {
     "title": "FEEST IN DE TOVERTUIN (2+)",
     "date": "2027-02-13",
     "source": "koornbeurs",
@@ -43637,21 +43562,6 @@
     "url": "https://www.theaterdekoornbeurs.nl/programma",
     "category": "theater",
     "cats": []
-  },
-  {
-    "title": "FC Groningen - Heracles Almelo",
-    "date": "2027-02-14",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "14:30",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
   },
   {
     "title": "Fee Suzanne de Ruiter",
@@ -46067,21 +45977,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/46703801/de-circusbroers-4-huub-cooijmans"
   },
   {
-    "title": "FC Groningen - Sparta Rotterdam",
-    "date": "2027-02-28",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "14:30",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
-  },
-  {
     "title": "Faulty Towers The Dining Experience",
     "date": "2027-02-28",
     "source": "friesland.nl",
@@ -46836,6 +46731,16 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3707975189/een-tijd-van-liefde"
+  },
+  {
+    "title": "FC Groningen - Telstar",
+    "date": "2027-03-06",
+    "source": "fcgroningen",
+    "genre": "sport",
+    "venue": "Euroborg, Groningen",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875683",
+    "gender": "heren",
+    "sport": "voetbal"
   },
   {
     "title": "FC Twente - AZ",
@@ -48450,21 +48355,6 @@
     "url": "https://www.concertgebouw.nl/concerten/45900872-concertgebouworkest-klaus-makela-beethovens-missa-solemnis"
   },
   {
-    "title": "FC Groningen - NEC Nijmegen",
-    "date": "2027-03-14",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "14:30",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
-  },
-  {
     "title": "Frisse Oren Tuimelaar (6-18 maanden)",
     "date": "2027-03-14",
     "source": "ontdekpoort",
@@ -49371,6 +49261,16 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1419004713/donna-s-hot-stuff"
+  },
+  {
+    "title": "FC Groningen - PSV",
+    "date": "2027-03-20",
+    "source": "fcgroningen",
+    "genre": "sport",
+    "venue": "Euroborg, Groningen",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875722",
+    "gender": "heren",
+    "sport": "voetbal"
   },
   {
     "title": "FC Twente - Go Ahead Eagles",
@@ -51503,21 +51403,6 @@
     ]
   },
   {
-    "title": "FC Groningen - Willem II",
-    "date": "2027-04-04",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "14:30",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
-  },
-  {
     "title": "Familieconcert: Carmen, een stierlijk muzikaal verhaal (6+)",
     "date": "2027-04-04",
     "source": "concertgebouw",
@@ -52405,6 +52290,16 @@
     "city": "Meppel",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3753315453/diederik-nomden-vers"
+  },
+  {
+    "title": "FC Groningen - Excelsior",
+    "date": "2027-04-10",
+    "source": "fcgroningen",
+    "genre": "sport",
+    "venue": "Euroborg, Groningen",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875739",
+    "gender": "heren",
+    "sport": "voetbal"
   },
   {
     "title": "Francis van Broekhuizen - Magical Opera",
@@ -53813,21 +53708,6 @@
     "cats": []
   },
   {
-    "title": "FC Groningen - PSV",
-    "date": "2027-04-18",
-    "source": "fcgroningen",
-    "genre": "sport",
-    "time": "14:30",
-    "venue": "Euroborg, Groningen",
-    "province": "Groningen",
-    "url": "https://tickets.fcgroningen.nl/",
-    "gender": "heren",
-    "sport": "voetbal",
-    "type": "Eredivisie",
-    "lat": 53.2027,
-    "lon": 6.5678
-  },
-  {
     "title": "Frank Boeijen",
     "date": "2027-04-18",
     "source": "drenthe.nl",
@@ -55160,6 +55040,16 @@
     "cats": [
       "concert"
     ]
+  },
+  {
+    "title": "FC Groningen - ADO Den Haag",
+    "date": "2027-05-01",
+    "source": "fcgroningen",
+    "genre": "sport",
+    "venue": "Euroborg, Groningen",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875758",
+    "gender": "heren",
+    "sport": "voetbal"
   },
   {
     "title": "FINALISTENTOUR",
@@ -56775,6 +56665,16 @@
     "cats": [
       "musical"
     ]
+  },
+  {
+    "title": "FC Groningen - SC Cambuur Leeuwarden",
+    "date": "2027-05-16",
+    "source": "fcgroningen",
+    "genre": "sport",
+    "venue": "Euroborg, Groningen",
+    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875777",
+    "gender": "heren",
+    "sport": "voetbal"
   },
   {
     "title": "FC Twente - Feyenoord",

@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (38 bronnen, 36 scripts)
+## ✅ Geautomatiseerd (39 bronnen, 37 scripts)
 
 | Bron | Script |
 |---|---|
@@ -60,34 +60,35 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Podium Zuidhaege (Assen) | `scrape_podiumzuidhaege.py` (WP REST `event_listing`-post-type + tekst-regex voor datum, 22 events — was "AI/Chrome nodig") |
 | Melkweg (Amsterdam) | `scrape_melkweg.py` (server-rendered HTML, regex, 257 events — was "AI/Chrome nodig") |
 | 013 Tilburg | `scrape_013.py` (server-rendered HTML, regex, 154 events — was "AI/Chrome nodig") |
+| FC Groningen | `scrape_fcgroningen.py` (ESPN.nl, team-id 145 — zelfde patroon als Cambuur/FC Twente/Go Ahead/PEC Zwolle, 14 events — was "eenmalig via Chrome gehaald, geen los script") |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig (25 bronnen, incl. landelijke-podia-tabel verderop)
+## 🌐 AI/Chrome nodig (24 bronnen, incl. landelijke-podia-tabel verderop)
 
-6 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md) — bleken bij
+7 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md) — bleken bij
 nader onderzoek toch geen browser nodig: Atlas Emmen (Umbraco-ticketing-API),
 Zuidhaege Assen (WP REST `event_listing`-post-type), Melkweg en 013 Tilburg
 (server-rendered HTML, geen client-side rendering zoals eerder aangenomen —
-`__NEXT_DATA__`/JSON-LD-check miste dit toen).
+`__NEXT_DATA__`/JSON-LD-check miste dit toen), FC Groningen (ESPN.nl, zelfde
+patroon als de andere Eredivisie-clubs).
 
 | Bron | Verwachte omvang | Notitie |
 |---|---|---|
-| Vera | ~60 events | WordPress, maar geen custom event-post-type via REST + programma-pagina zelf is echt client-rendered (te weinig datums in ruwe HTML) |
-| Simplon | ~47 events | zelfde als Vera — WordPress zonder REST-exposed events |
-| Grand Theatre (Groningen) | ~25 events | innerText-parsing nodig, geen bruikbare CSS-classes, geen Umbraco/wp-json-API gevonden |
-| Winsinghhof (theaterroden) | ~71 events | client-rendered, domein gaf SSL-connectfout bij laatste check, nog niet grondig onderzocht |
-| EM2 Groningen | ~21 events | WordPress (generator-tag bevestigd), maar nog niet gecheckt op custom event-post-type/REST — waarschijnlijk vergelijkbaar met Vera/Simplon, niet onderzocht |
-| Neushoorn | onbekend | bevestigd SPA |
-| Groninger Museum | onbekend | Craft CMS (SEOmatic-generator) — mogelijk GraphQL-API, niet onderzocht |
+| Vera | ~60 events | WordPress, geen custom event-post-type via REST. Programma-pagina toont wél ~20 events server-rendered (pagina 1), maar paginering loopt via een `admin-ajax.php`-call (`action=renderProgramme`) die zonder browsersessie een lege 200-respons geeft (vermoedelijk Cloudflare Bot Management op dat specifieke endpoint) — `?page=N` als URL-param werkt niet (negeerd server-side). Zonder browser dus alleen de eerste ~20 van ~60 events te halen; niet gebouwd (te onvolledig/fragiel). |
+| Simplon | ~47 events | WordPress zonder REST-exposed events, nog niet los onderzocht op hetzelfde admin-ajax-patroon als Vera |
+| Grand Theatre (Groningen) | ~25 events | innerText-parsing nodig, geen bruikbare CSS-classes, geen Umbraco/wp-json-API gevonden (custom plugin "michnhokn", niet herkend) |
+| Winsinghhof (theaterroden) | ~71 events | domein blijft onbereikbaar (connectiefout, herbevestigd 2026-08-15) — mogelijk verouderd/gewijzigd domein, nog uit te zoeken welke URL wel klopt |
+| EM2 Groningen | ~21 events | WordPress met custom `event`-post-type, WEL via `/wp-json/wp/v2/event` opvraagbaar — maar de evenementdatum staat los in vrije tekst zonder vast patroon ("De Gipsy Jazz Sessie op 12 juli is...", datum niet aan het begin zoals bij Zuidhaege) en sommige entries lijken terugkerende events zonder duidelijke enkele datum. Deels opgelost (API gevonden) maar datum-extractie te onbetrouwbaar bevonden om nu te bouwen. |
+| Neushoorn | onbekend | Webflow-site (net als GelreDome) — CMS-collecties worden client-side geladen, in de ruwe HTML staat alleen een lege placeholder (`w-dyn-bind-empty`). Genre bevestigd: bevestigd SPA. |
+| Groninger Museum | onbekend | Craft CMS (SEOmatic-generator) — voor de hand liggende GraphQL-endpoints (`/actions/graphql/api`, `/api`) geven beide 404, geen API gevonden |
 | Drents Museum | onbekend | zelfde Craft CMS als Groninger Museum |
 | Koornbeurs | onbekend | eigen JS-bundle bevat geen Umbraco/API-endpoints (anders dan Atlas Emmen, ondanks vergelijkbare bestandsstructuur) |
 | Zummerbühne | ~25 events | Ticketwidget in iframe, geen data in ruwe HTML (2026-08-13 herchecked — eerdere recipe ging uit van markdown-fetch, klopt niet met plain HTML) |
 | OntdekPoort | ~216 events | Bot-bescherming — zelfs de homepage geeft 403, niet op te lossen met alleen headers (2026-08-13, herbevestigd 2026-08-15) |
 | Hunebedcentrum | onbekend | Bot-bescherming, 403 (2026-08-13, herbevestigd 2026-08-15) |
-| FC Groningen | 18 thuiswedstrijden (data staat er al) | eenmalig via Chrome gehaald, geen los script |
-| GIJS Groningen (ijshockey) | — | site toont nog seizoen 2025-2026, herchecken zodra nieuw seizoen live is |
+| GIJS Groningen (ijshockey) | — | site toont nog seizoen 2025-2026 (herchecked 2026-08-15, nog steeds oud), herchecken zodra nieuw seizoen live is |
 
 ## 🔧 Kan zonder AI — structureel lastig te automatiseren (1 bron)
 
@@ -136,19 +137,19 @@ zie eigen sectie hierboven — BNXT League-API, niet deze site).
 
 | Bron | Bevinding |
 |---|---|
-| TivoliVredenburg | JSON-LD aanwezig maar alleen Yoast-SEO-metadata, geen events; 6 datum-strings bij hercheck — vermoedelijk alleen filter-widget, niet grondig genoeg onderzocht om zeker te zijn |
-| Doornroosje | JSON-LD aanwezig, alleen metadata; 3 datum-strings bij hercheck — waarschijnlijk ruis, niet client_js bevestigd |
-| De Doelen | JSON-LD aanwezig, alleen metadata; nog niet herchecked op server-rendered HTML |
-| Ziggo Dome | geen JSON-LD, geen `__NEXT_DATA__`; 0 datum-strings bij hercheck — waarschijnlijk echt client-rendered |
-| Rotterdam Ahoy | geen JSON-LD; 0 datum-strings bij hercheck — waarschijnlijk echt client-rendered |
-| GelreDome | geen JSON-LD; 0 datum-strings bij hercheck — waarschijnlijk echt client-rendered |
+| TivoliVredenburg | **Bevestigd Cloudflare bot-challenge** ("Just a moment..."-pagina) — dit is echte bot-detectie, bewust niet omzeild (zie CLAUDE.md-achtige regel: nooit CAPTCHA/bot-detectie omzeilen). Vereist een echte browser die de JS-uitdaging natuurlijk doorloopt, geen curl-truc. |
+| Doornroosje | WordPress bevestigd (`/wp/wp-includes/...`), custom post-types zijn `vacatures`/`campagne`/`festival` — geen bruikbaar events-type via REST. 3 datum-strings bij hercheck bleek ruis. |
+| De Doelen | Vite-gebundelde JS (`site.js`) doorzocht op API-endpoints/fetch-calls — niets events-gerelateerds gevonden, alleen wachtwoord-lijst-fetches en een Spotify-oembed-call. Geen bruikbare API gevonden. |
+| Ziggo Dome | Next.js/Turbopack, nog niet grondig doorzocht op server-rendering (na de Melkweg-verrassing extra interessant om alsnog te checken) |
+| Rotterdam Ahoy | Foundation-framework (geen moderne JS-bundler), "Silvercore"-CDN — geen API-aanwijzingen gevonden, geen event-achtige CSS-classes in de ruwe HTML |
+| GelreDome | **Webflow-site** (cdn.prod.website-files.com) met Finsweet CMS-filter — CMS-collectie staat leeg in de ruwe HTML (`w-dyn-bind-empty`), wordt client-side gevuld. Zelfde platform als Neushoorn. |
 | Effenaar | 1.6MB pagina, 150 datum-strings bij hercheck (!) maar bleken bij inspectie CMS-content-blocks (Statamic-achtige structuur, `publish_date`-velden van pagina-onderdelen), niet per se events-datums — nadere inspectie nodig, veelbelovend maar niet afgerond |
 | Paradiso, Concertgebouw | homepage geladen maar geen agenda-link gevonden in de ruwe HTML; Paradiso 1 datum-string bij hercheck (vermoedelijk ruis) — juiste agenda-URL nog niet gevonden |
 | Rotown | `/agenda/` geeft 404, 1 datum-string bij hercheck (ruis) — exacte listing-URL nog niet gevonden (individuele event-URL's wel: rotown.nl/agenda/artiest/) |
 | Het Paard | connectiefout bij hercheck 2026-08-15 (was timeout op 2026-08-14) — nog niet gelukt te bereiken |
 | Hedon Zwolle | pagina laadt maar blijft verdacht klein (7KB, ongewijzigd t.o.v. 2026-08-14) — mogelijk verkeerde URL of redirect, nog uit te zoeken |
 
-Resterend van deze oorspronkelijke 15: 10 bronnen, geteld bij de 25
+Resterend van deze oorspronkelijke 15: 12 bronnen, geteld bij de 24
 "AI/Chrome nodig" hierboven (Melkweg, 013 en Landstede Hammers zijn
 opgelost).
 

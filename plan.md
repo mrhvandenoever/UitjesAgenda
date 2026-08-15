@@ -58,8 +58,15 @@ scrapers (830 events samen):
 - [x] `scrape_melkweg.py` — bleek toch server-rendered HTML (eerdere check miste dit), 257 events
 - [x] `scrape_013.py` — zelfde als Melkweg, 154 events
 - Bijvangst: 252 verlopen, ongedocumenteerde losse events opgeruimd bij deze 4 bronnen (zie decisions.md)
+### Vervolg — tweede ronde, 2026-08-15
+- [x] **FC Groningen opgelost** — `scrape_fcgroningen.py`, zelfde ESPN.nl-patroon als de andere Eredivisie-clubs (team-id 145). 18 verouderde/deels foute rijen opgeruimd uit een oude Chrome-pull.
+- [x] Cloudflare-bot-check bij TivoliVredenburg herkend en bewust niet omzeild (principiële grens, geen praktisch "kan niet")
+- [x] Webflow+Finsweet-platform herkend bij Neushoorn/GelreDome (CMS-collecties client-side gevuld, geen voor de hand liggende publieke API)
+- [ ] **Vera/Simplon** — gedeeltelijke server-rendering (pagina 1, ~20/60 events), paginering blijkt te lopen via een admin-ajax-call die zonder browser een lege respons geeft (vermoedelijk Cloudflare op dat endpoint). Bewust niet gebouwd (te onvolledig). Evt. later met Chrome MCP de paginering-cookie/nonce achterhalen.
+- [ ] **EM2 Groningen** — REST-API met custom `event`-post-type gevonden, maar datum staat inconsistent midden in vrije tekst. Kan later met een zorgvuldiger regex-patroon.
 - [ ] **Effenaar** — veelbelovend (150 datum-strings gevonden) maar bleek CMS-content-block-metadata, niet afgerond, nog eens goed naar kijken
-- [ ] Resterende ~21 bronnen nog niet (opnieuw) onderzocht met deze methodiek: Vera, Simplon, Grand Theatre, Winsinghhof, EM2, Neushoorn, Groninger Museum, Drents Museum, Koornbeurs, Zummerbühne, OntdekPoort, Hunebedcentrum, FC Groningen, GIJS Groningen, TivoliVredenburg, Doornroosje, De Doelen, Ziggo Dome, Ahoy, GelreDome, Paradiso, Concertgebouw, Rotown, Het Paard, Hedon Zwolle — zie SCRAPERS.md voor per-bron status/bevindingen.
+- [ ] **Ziggo Dome** — Next.js/Turbopack, na de Melkweg-ervaring (leek ook client-rendered maar was het niet) een goede kandidaat om alsnog grondig te checken
+- [ ] Resterende bronnen zonder duidelijk vervolgpad (zie SCRAPERS.md voor details per bron): Grand Theatre, Winsinghhof (domein onbereikbaar), Koornbeurs, Groninger Museum, Drents Museum, Zummerbühne, OntdekPoort (403), Hunebedcentrum (403), GIJS Groningen (oud seizoen), Doornroosje, De Doelen, Ahoy, GelreDome, Paradiso, Concertgebouw, Rotown, Het Paard, Hedon Zwolle
 
 ## Sport-audit (2026-08-10)
 Van de 19 geconfigureerde clubs in `gen_uitjes.py` (`SPORT_CLUBS`):
