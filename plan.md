@@ -44,14 +44,12 @@ Van de 19 geconfigureerde clubs in `gen_uitjes.py` (`SPORT_CLUBS`):
   - [ ] `ldodk` (korfbal) — site zegt expliciet "geen programma bekend"
   - [ ] `dos46` (korfbal) — mijn.korfbal.nl laadt leeg (JS-shell)
 
-## Bug: afstandsberekening klopt niet voor aggregator-bronnen (gevonden 2026-08-11)
+## Bug: afstandsberekening klopt niet voor aggregator-bronnen — OPGELOST (gevonden 2026-08-11, geverifieerd 2026-08-15)
 - **Symptoom** (gemeld door Michiel): filter op 15km vanaf een locatie tussen Annen en Zuidlaren toont Ruinen, Diever, Nieuw-Dordrecht, Vledder, Alteveer, Meppel etc. — allemaal met exact "~13km", terwijl deze plaatsen in werkelijkheid zeer verschillende, deels veel grotere afstanden hebben.
-- **Oorzaak bevestigd**: `VENUE_LOC` in `gen_uitjes.py` heeft voor de 3 grote regionale aggregators (`drenthe.nl`, `visitgroningen`, `friesland.nl`) maar **één vast coördinaat per bron**, niet per stad — ongeacht of het event in Ruinen, Meppel of Nieuw-Dordrecht is. Alle events van zo'n bron krijgen dus dezelfde (onjuiste) afstand tot de gebruiker.
-- **Impact**: 2777 van de ~6800 events (bijna 40%) bij deze 3 bronnen, verspreid over 254 verschillende plaatsen.
-- **Voorstel fix**: bouw een city→lat/lon-lookuptabel voor deze 254 plaatsen (eenmalig geocoden via Nominatim, net als de bestaande adres-zoekfunctie al gebruikt; daarna cachen — coördinaten van dorpen/steden veranderen niet). Gebruik in `event_html()`/de afstandsberekening per event de eigen stad-coördinaten i.p.v. de vaste bron-coördinaten, met de huidige `VENUE_LOC`-waarde alleen nog als fallback voor events zonder herkenbare `city`.
-- [ ] Lookuptabel bouwen (254 plaatsen, eenmalige geocode-actie)
-- [ ] `gen_uitjes.py` aanpassen: per-event coördinaten i.p.v. per-bron
-- [ ] Verifiëren met het Annen/Zuidlaren-voorbeeld van Michiel
+- **Oorzaak**: `VENUE_LOC` in `gen_uitjes.py` had voor de 3 grote regionale aggregators (`drenthe.nl`, `visitgroningen`, `friesland.nl`) maar **één vast coördinaat per bron**, niet per stad.
+- **Fix** (zat al in de 17 commits die op 2026-08-15 zijn ingehaald vanaf GitHub): `city_coords.json` (254 plaatsen, eenmalig geocoded, zie `build_city_coords.py`) + `gen_uitjes.py`/`event_html()` gebruikt nu `CITY_COORDS.get(e['city'])` per event, met `VENUE_LOC` alleen nog als fallback.
+- **Geverifieerd 2026-08-15**: het exacte Annen/Zuidlaren-voorbeeld gecheckt in het live `index.html` — Ruinen/Diever/Meppel/Vledder hebben nu elk hun eigen `data-latlon`, niet meer hetzelfde bron-coördinaat.
+- **Klein restpunt, nieuw gevonden**: 3 van de 256 plaatsen bij aggregators missen een match in `city_coords.json` — **"Winsum-Obergum"**, **"Zuidwest-Drenthe"**, **"8"** (1 event elk). Dit zijn zelf al foute city-extracties uit de scraper (regio-naam resp. letterlijk "8" i.p.v. een plaatsnaam), geen probleem in de lookup. Vallen terug op het oude bron-coördinaat — verwaarloosbare impact (3 van ~7000+ events), niet actief opgepakt.
 
 ## SPOT-scraper achterhaald + genre-classificatie te ambigu — OPGELOST 2026-08-11
 - SPOT-data was verouderd (621 live vs 325 opgeslagen) — nieuwe `scrape_spotgroningen.py` gebouwd, leest ook `data-location` (Oosterpoort vs Stadsschouwburg) en `data-genres`/`data-subgenres` (echt genre-signaal, bv. "jazz") uit SPOT's eigen HTML.
