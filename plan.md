@@ -75,7 +75,7 @@ scrapers (830 events samen):
 - [x] **Playwright geïnstalleerd** (na akkoord Michiel) om de resterende niet-bot-beschermde JS-bronnen alsnog zonder AI te automatiseren — eerste externe dependency in het project.
 - [x] Chromium geïnstalleerd, `scrape_neushoorn.py` gebouwd en werkt (110 events) — eerste Playwright-scraper.
 - [x] `scrape_gelredome.py` gebouwd en werkt (21 events, Vitesse + concerten) — tweede Playwright-scraper, zelfde Webflow-platform als Neushoorn.
-- [ ] **Ziggo Dome** — met Playwright gecheckt: gevirtualiseerde lijst (~60 events, scroll-simulatie nodig om alles te pakken). Concreet vervolgpad, nog niet gebouwd.
+- [x] **Ziggo Dome opgelost** — uiteindelijk via podiuminfo.nl (tip Michiel, JSON-LD, geen Playwright nodig) i.p.v. de eerder onderzochte Playwright-scroll-aanpak (die werkte ook, maar podiuminfo is simpeler + heeft echte per-event-URL's). 25 events. Onderweg 13 near-duplicate "wees"-rijen opgeruimd + een `page_hash`-valkuil ontdekt (zie decisions.md/ARCHITECTURE.md §Change-detection).
 - [ ] Overige Playwright-kandidaten nog te proberen: Effenaar (nadere check nodig, leek CMS-metadata), Simplon (zelfde als Vera/Neushoorn te proberen — mogelijk ook Stager-platform)
 - [ ] Overweeg later: gedeelde browser-instance i.p.v. elke Playwright-scraper zijn eigen Chromium laten starten (opstarttijd ~7s per scraper, kan oplopen bij veel Playwright-scrapers) — zie ARCHITECTURE.md §Playwright-scrapers.
 

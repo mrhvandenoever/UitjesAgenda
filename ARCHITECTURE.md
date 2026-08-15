@@ -263,6 +263,14 @@ ook bij de eerste keer of bij een wijziging.
   nodig is in plaats van alles-of-niets voor de hele bron.
 - **`--dry-run` negeert de cache** — een dry-run toont altijd alle gevonden
   events, en werkt de hash niet bij (geen state-wijziging bij een preview).
+- **Valkuil bij handmatige DB-opruiming** (zie decisions.md 2026-08-15,
+  Ziggo Dome): als je na een scrape handmatig rijen in `events` verwijdert
+  (bv. stale/dubbele data opruimen) en de bron daarna opnieuw scraped, kan
+  `unchanged()` denken dat er "niks veranderd" is — de opgehaalde data zelf
+  is immers identiek aan de vorige run — en slaat dan de hele insert-stap
+  over, ook al mist de DB nu een rij die er wel hoort te staan. Fix: wis
+  eerst de `page_hash`-rij voor die bron (`DELETE FROM page_hash WHERE
+  key='<source>'`) vóór de eerstvolgende run na een handmatige opruiming.
 
 **Status (2026-08-14):** uitgerold naar alle 30 scrapers die live data ophalen
 (31e, `scrape_handmatig.py`, bewust overgeslagen — vaste jaarlijkse events,
