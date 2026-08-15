@@ -36,6 +36,7 @@ Losse tabel (`page_hash`) in dezelfde events.db — geen aparte databestand.
 """
 
 import hashlib
+import ssl_fix  # noqa: F401 -- side-effect: relaxeert VERIFY_X509_STRICT, zie ssl_fix.py
 from events_db import get_conn
 
 SCHEMA = """

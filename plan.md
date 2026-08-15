@@ -30,6 +30,11 @@ Levend document. Vink af / verplaats naar "Later" zodra iets besproken of gedaan
 - [x] `refresh_log.txt` toegevoegd aan `.gitignore`
 - [x] `.gitignore` + `weekly_refresh.ps1` gecommit en gepusht
 - [x] ARCHITECTURE.md / decisions.md / overleg.md bijgewerkt met de nieuwe taak-opzet
+- [x] Afstand-bug (aggregators) gecheckt: bleek al opgelost in de ingehaalde commits, geverifieerd met het Annen/Zuidlaren-voorbeeld
+- [x] **Kritieke bug gevonden en gefixt**: 24 van de 31 scrapers faalden stilzwijgend door `ssl.VERIFY_X509_STRICT` (Python 3.14 op deze laptop) — zie decisions.md voor de volledige analyse. Fix: nieuw `ssl_fix.py`, geïmporteerd via `page_cache.py`. Alle 24 opnieuw getest, werken weer.
+
+## SSL-vervolg — OPGELOST 2026-08-15
+- [x] 6 scrapers (`drenthe`, `friesland`, `handbal`, `naarzuidlaren`, `spotgroningen`, `visitgroningen`) gebruikten nog `ssl.CERT_NONE` (certificaatverificatie helemaal uit). Overgezet naar `ssl_fix.create_context()` (alleen VERIFY_X509_STRICT uit, verificatie blijft actief) en alle 6 opnieuw functioneel getest.
 
 ## Sport-audit (2026-08-10)
 Van de 19 geconfigureerde clubs in `gen_uitjes.py` (`SPORT_CLUBS`):

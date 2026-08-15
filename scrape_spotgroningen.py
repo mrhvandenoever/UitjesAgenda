@@ -27,10 +27,9 @@ import argparse
 from datetime import date
 from events_db import insert_event, log_scrape, init_db
 from page_cache import unchanged
+from ssl_fix import create_context
 
-SSL_CTX = ssl.create_default_context()
-SSL_CTX.check_hostname = False
-SSL_CTX.verify_mode = ssl.CERT_NONE
+SSL_CTX = create_context()
 
 SOURCE   = 'spotgroningen.nl'
 BASE_URL = 'https://www.spotgroningen.nl/programma/'
