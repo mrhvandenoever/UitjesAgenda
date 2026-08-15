@@ -19,9 +19,17 @@ Levend document. Vink af / verplaats naar "Later" zodra iets besproken of gedaan
 - [x] Alles gecommit + gepusht (meerdere commits, telkens na review)
 
 ## Binnenkort — te overleggen (zie overleg.md)
-- [ ] Waar draait de wekelijkse refresh voortaan: deze laptop, andere pc (na reparatie), of iets anders?
-- [ ] Scraper-efficiëntie: per-pagina hash-caching + parallelle requests i.p.v. elke run alles opnieuw ophalen
+- [x] Waar draait de wekelijkse refresh voortaan — OPGELOST 2026-08-15: deze laptop, zie hieronder.
+- [ ] Scraper-efficiëntie: per-pagina hash-caching (gebouwd, zie sessie 2026-08-14) + parallelle requests (nog niet gebouwd) i.p.v. elke run alles opnieuw ophalen
 - [ ] Documentatiestructuur compleet: readme / onboarding / architecture / overleg / plan / decisions — bijhouden wie wat update
+
+## Sessie 2026-08-15
+- [x] Lokale repo gesynchroniseerd met GitHub (17 commits achter, fast-forward — onderweg een stale `.git/HEAD.lock` opgeruimd)
+- [x] Windows Taakplanner-taak "uitjes-agenda-refresh" ingesteld: ma/wo/za 04:00, draait `weekly_refresh.ps1` (nieuw, pure PowerShell/geen AI) → `run_weekly_refresh.py` + commit/push bij wijzigingen
+- [x] Taak-principal op S4U gezet (draait ongeacht inlogstatus) — vereiste een handmatige stap door Michiel in een Administrator-PowerShell
+- [x] `refresh_log.txt` toegevoegd aan `.gitignore`
+- [x] `.gitignore` + `weekly_refresh.ps1` gecommit en gepusht
+- [x] ARCHITECTURE.md / decisions.md / overleg.md bijgewerkt met de nieuwe taak-opzet
 
 ## Sport-audit (2026-08-10)
 Van de 19 geconfigureerde clubs in `gen_uitjes.py` (`SPORT_CLUBS`):

@@ -9,11 +9,9 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 
 ## Open vragen / te bespreken
 
-### 1. Waar draait de wekelijkse refresh voortaan?
-- Tijdelijk op deze laptop tot de andere pc terug is?
-- Structureel verhuizen?
-- Scheduled task ("uitjes-agenda-refresh", maandag 08:04) moet dan ook verhuisd/opnieuw ingesteld worden.
-- **2026-08-14**: als de andere pc vandaag gerepareerd is, draait de refresh daar weer — nog niet bevestigd, voorlopig dus.
+### 1. Waar draait de wekelijkse refresh voortaan? — OPGELOST 2026-08-15
+- **Besluit**: structureel op deze laptop (`C:\dev\uitjesagenda`), niet de andere pc.
+- Windows Taakplanner-taak "uitjes-agenda-refresh" opnieuw ingesteld: **ma/wo/za 04:00** (was maandag 08:04), draait `weekly_refresh.ps1`, `LogonType S4U` (draait ongeacht inlogstatus, geen wachtwoord opgeslagen). Zie `decisions.md` en ARCHITECTURE.md §Wekelijkse refresh.
 
 ### 2. Slimmer scrapen (efficiëntie) — hash-caching GEBOUWD 2026-08-14
 - Huidige situatie: elke scraper haalt bij elke run alle pagina's opnieuw op (bv. drenthe.nl: 34+ pagina's, duurde >3 min).
@@ -66,4 +64,4 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - Nog niet uitgewerkt, puur een ideeschets.
 
 ## Status
-Sessie 2026-08-10/11 afgerond — zie `plan.md` voor het volledige overzicht van wat gedaan is. Volgende sessie: verder met de scraper-uitbreiding (zie `plan.md` en `SCRAPERS.md`) en de nog openstaande discussiepunten hierboven (1, 2, 4, 5, 6, 7).
+Sessie 2026-08-15: GitHub gesynchroniseerd (17 commits ingehaald) + punt 1 opgelost (Taakplanner-taak ma/wo/za 04:00 op deze laptop). Nog openstaande discussiepunten: 2 (parallelle requests, niet gestart), 4 (deels open, samen met AI/Chrome-lijst), 5, 6, 9 (ideeschetsen, nog niet uitgewerkt). Zie `plan.md` voor het volledige overzicht.

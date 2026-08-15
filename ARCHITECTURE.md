@@ -325,17 +325,36 @@ De scraping en deduplicatie vinden altijd lokaal op de PC plaats.
 
 ---
 
-### Wekelijkse refresh (Cowork scheduled task)
+### Wekelijkse refresh (Windows Taakplanner-taak)
 
-Elke maandag om 08:04 draait de Cowork scheduled task "uitjes-agenda-refresh".  
-Die opent PowerShell op de PC en voert uit:
+Elke **ma/wo/za om 04:00** draait Windows Taakplanner-taak "uitjes-agenda-refresh"
+op `C:\dev\uitjesagenda` (deze laptop, `mrhva`). De taak roept
+`weekly_refresh.ps1` aan, die:
 
 ```powershell
 cd C:\dev\uitjesagenda
 python run_weekly_refresh.py
+# alleen als git status --porcelain iets teruggeeft:
 git add -A
-git commit -m "auto refresh"
+git commit -m "auto refresh <datum>"
 git push
+```
+
+en alles logt naar `refresh_log.txt` (lokaal, staat in `.gitignore`).
+
+**Zonder AI**: de taak is puur `schtasks`/Taakplanner + een PowerShell-script,
+geen Cowork-sessie of Claude bij betrokken — sluit aan bij het einddoel
+"wekelijkse refresh volledig no-ai-needed" (zie `decisions.md`).
+
+Taak-principal staat op **S4U** (`LogonType S4U`, `RunLevel Limited`): draait
+ongeacht of `mrhva` is ingelogd, zonder dat er een wachtwoord is opgeslagen.
+Dit moest vanuit een **verhoogde** PowerShell ingesteld worden (`Set-ScheduledTask`
+met een nieuwe `-Principal`) — de standaard (niet-elevated) registratie geeft
+alleen `LogonType Interactive` (draait alleen als er een ingelogde sessie is).
+
+Taak bekijken/aanpassen:
+```powershell
+Get-ScheduledTask -TaskName "uitjes-agenda-refresh" | Get-ScheduledTaskInfo
 ```
 
 `run_weekly_refresh.py` globt zelf alle `scrape_*.py`-bestanden en draait ze
@@ -360,10 +379,12 @@ Een script uitzonderen van de wekelijkse run: geen `scrape_`-prefix gebruiken
 
 SQLite werkt alleen lokaal — niet vanuit de Cowork sandbox (FUSE-mount beperking).
 
-**Let op — waar dit vanavond (2026-08-10/11) daadwerkelijk draaide**: de PC met
-deze scheduled task was kapot, dus de refresh is die sessie handmatig vanaf een
-andere laptop gedraaid (`C:\dev\uitjesagenda` op die machine). Nog niet besloten
-of dat de nieuwe standaardplek wordt — zie `overleg.md`.
+**Geschiedenis**: tot 2026-08-15 liep dit via een Cowork scheduled task
+(maandag 08:04) op een andere pc; die pc was kapot, dus de refresh draaide
+tijdelijk handmatig vanaf deze laptop (`C:\dev\uitjesagenda`). Op 2026-08-15
+vervangen door de Windows Taakplanner-taak hierboven — deze laptop is nu de
+vaste plek, geen Cowork-afhankelijkheid meer. Zie `decisions.md` en
+`overleg.md` punt 1.
 
 ---
 
