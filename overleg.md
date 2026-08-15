@@ -25,11 +25,11 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 ### 3. SPOT Groningen — Oosterpoort vs Stadsschouwburg — OPGELOST 2026-08-11
 - Bleek geen extra request per event nodig: SPOT's eigen programma-pagina heeft de locatie al in een `data-location`-attribuut per event (plus een genre-signaal via `data-genres`/`data-subgenres`). Nieuwe `scrape_spotgroningen.py` gebouwd, zie `decisions.md`.
 
-### 4. Generieke/kapotte event-links (26 van ~50 bronnen) — grotendeels opgelost
+### 4. Generieke/kapotte event-links (26 van ~50 bronnen) — OPGELOST 2026-08-15
 - **denieuwekolk.nl**: opgelost bij de scraper-herbouw (2026-08-13), zie decisions.md.
 - **2026-08-14 opgelost**: FC Twente, SC Cambuur, Go Ahead Eagles, PEC Zwolle (ESPN.nl bleek een `"id"`-veld per wedstrijd te hebben → `https://www.espn.nl/voetbal/wedstrijd/_/gameId/{id}`, i.p.v. steeds de teampagina) en Martiniplaza (theater.nl's JSON-LD had de echte URL niet in het `url`-veld maar in `@id` — simpele fix).
 - **Resterend, bewust ongewijzigd**: E&O, Hurry-Up, FC Groningen, Donar en de overige sportclubs linken naar een algemene wedstrijdkalender omdat er geen aparte per-wedstrijd-pagina beschikbaar is — dat is prima, geen fix nodig.
-- **Resterend, nog kapot**: de grote landelijke podia (TivoliVredenburg, Melkweg, Atlastheater, Doornroosje, 013, Effenaar, Ahoy, Koornbeurs, Vera, Ziggo Dome, Paradiso, Neushoorn) — vallen samen met de AI/Chrome-lijst (zie punt 6-achtig probleem: zonder JS-rendering komen we sowieso niet aan hun events, laat staan aan per-event-links). Wordt in principe vanzelf meegenomen zodra die bronnen met Chrome MCP aangepakt worden.
+- **2026-08-15 alsnog opgelost**: de destijds nog kapotte grote landelijke podia (TivoliVredenburg, Melkweg, Atlastheater, Doornroosje, 013, Effenaar, Ahoy, Koornbeurs, Vera, Ziggo Dome, Paradiso, Neushoorn) hebben nu allemaal echte per-event-URL's — kwam vanzelf mee toen deze bronnen als onderdeel van de "31 AI/Chrome-bronnen"-marathon (zie SCRAPERS.md/decisions.md) een eigen scraper kregen (Ticketmaster-API of Playwright, geen echte AI/Chrome-MCP-inzet nodig gebleken). Punt is nu volledig afgesloten.
 
 ### 5. Nationale sportteams toevoegen
 - Idee van Michiel: naast clubs ook de nationale selecties meenemen (bv. Oranje Dames volleybal — https://www.volleybal.nl/volleybal/oranje-dames/programma). Concreet aanleiding: ze oefenen komend weekend in Groningen (Martiniplaza).
@@ -81,4 +81,4 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - Nog niets van deze 3 knoppen is gebouwd — dit is de vastgelegde richting uit een brainstormsessie, technische uitwerking volgt in een latere sessie.
 
 ## Status
-Sessie 2026-08-15: GitHub gesynchroniseerd (17 commits ingehaald), punt 1 opgelost (Taakplanner-taak ma/wo/za 04:00), kritieke SSL-bug gefixt, 31 → 6 AI/Chrome-bronnen opgelost (26 nieuwe scrapers, zie SCRAPERS.md/decisions.md/plan.md — resterende 6 bewust geparkeerd als "moeilijk"), Ticketmaster-API-key veilig opgezet. Sessie afgesloten met een productbrainstorm: 3 nieuwe topniveau-knoppen (Exposities/Favorieten/Admin) — richting bepaald, zie punten 9-11, nog niet gebouwd. Nog openstaande discussiepunten: 2 (parallelle requests, niet gestart), 4 (grotendeels opgelost samen met de AI/Chrome-lijst), 5, 6 (ideeschetsen, nog niet uitgewerkt).
+Sessie 2026-08-15: GitHub gesynchroniseerd (17 commits ingehaald), punt 1 opgelost (Taakplanner-taak ma/wo/za 04:00), kritieke SSL-bug gefixt, 31 → 7 AI/Chrome-bronnen opgelost (26 nieuwe scrapers, zie SCRAPERS.md/decisions.md/plan.md — resterende 7 bewust geparkeerd als "moeilijk"), punt 4 (kapotte links) daarmee ook volledig afgesloten, Ticketmaster-API-key veilig opgezet. Sessie afgesloten met een productbrainstorm: 3 nieuwe topniveau-knoppen (Exposities/Favorieten/Admin) — richting bepaald, zie punten 9-11, nog niet gebouwd. Nog openstaande discussiepunten: 2 (parallelle requests, niet gestart), 5, 6 (ideeschetsen, nog niet uitgewerkt).

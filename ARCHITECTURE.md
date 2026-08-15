@@ -23,7 +23,7 @@
 | `index.html` | Gegenereerde output. **Nooit handmatig aanpassen.** |
 | `requirements.txt` | `playwright` (sinds 2026-08-15, alleen voor lokale headless-browser-scrapers) — verder leeg, de rest is pure Python stdlib. Cloudflare-build gebruikt dit bestand niet (roept alleen `gen_uitjes.py` aan, stdlib-only). |
 | `secrets_local.py` + `secrets.local.json` | API-keys (bv. Ticketmaster) — `secrets.local.json` staat in `.gitignore`, nooit committen. Zie §API-keys hieronder. |
-| `scrape_<bron>.py` | Eén los scraper-script per bron/venue (zie §Scrapers-conventie). Huidige scripts: `scrape_drenthe.py`, `scrape_friesland.py`, `scrape_visitgroningen.py`, `scrape_spotgroningen.py`, `scrape_handbal.py` (E&O + Hurry-Up), `scrape_naarzuidlaren.py`, `scrape_handmatig.py` (vaste jaarevents). |
+| `scrape_<bron>.py` | Eén los scraper-script per bron/venue (zie §Scrapers-conventie). 56 scripts op dit moment — zie `SCRAPERS.md` voor de volledige, actuele lijst per bron (dit bestand houdt bewust geen kopie van die lijst bij, om drift te voorkomen). |
 | `run_weekly_refresh.py` | Draait alle `scrape_*.py`-bestanden (auto-discovery via glob), daarna export + generate. Zie §Wekelijkse refresh. |
 | `page_cache.py` | Change-detection: hash-cache in `events.db` om parse/insert-werk over te slaan als een bron ongewijzigd is. Zie §Change-detection. |
 | `ssl_fix.py` | Workaround voor `ssl.VERIFY_X509_STRICT` (Python 3.13+), side-effect-import via `page_cache.py` — dus geen aparte import per scraper nodig. Zie decisions.md 2026-08-15. |

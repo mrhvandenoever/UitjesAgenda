@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (57 bronnen, 55 scripts)
+## ✅ Geautomatiseerd (56 bronnen, 56 scripts)
 
 | Bron | Script |
 |---|---|
@@ -65,7 +65,6 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | TivoliVredenburg | `scrape_tivolivredenburg.py` (via songkick.com — tip van Michiel — alleen muziek/concerten, ~9 shows per run; site zelf blijft een bevestigde Cloudflare bot-challenge, bewust niet omzeild) |
 | Neushoorn (Leeuwarden) | `scrape_neushoorn.py` — **eerste Playwright-scraper** (headless Chromium rendert de Webflow-SPA, daarna regex op de DOM), 110 events. Zie ARCHITECTURE.md §Playwright-scrapers. |
 | GelreDome (Arnhem) | `scrape_gelredome.py` (Playwright, zelfde Webflow-platform als Neushoorn, mix van Vitesse-thuiswedstrijden + concerten/evenementen, volgt paginering, 21 events) |
-| Ziggo Dome (Amsterdam) | `scrape_ziggodome.py` (via podiuminfo.nl — tip van Michiel, JSON-LD, geen Playwright nodig, 25 events) |
 | Simplon (Groningen) | `scrape_simplon.py` (Playwright, derde scraper — Stager-platform net als Vera, maar eigen programma-pagina heeft wél een simpel regex-baar DOM-patroon zonder Vera's AJAX-paginering-probleem, 48 events) |
 | Effenaar (Eindhoven) | `scrape_effenaar.py` (Playwright, vierde scraper — eerdere check gebruikte de verkeerde URL `/programma` i.p.v. `/agenda`, vandaar de vroegere "CMS-metadata"-conclusie; juiste URL geeft een schoon `agenda-card`-grid, 125 events) |
 | Winsinghhof (Roden) | `scrape_theaterroden.py` (geen Playwright nodig — domein verhuisd naar theaterroden.nl, oude `winsinghhof.nl` bestaat niet meer; gewoon server-rendered HTML, 68 events. podiuminfo.nl gaf hier maar 12/71 — dekt alleen concerten, niet dit vooral-theater-programma) |
@@ -84,23 +83,21 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig — geparkeerd als "moeilijk" (6 bronnen)
+## 🌐 AI/Chrome nodig — geparkeerd als "moeilijk" (7 bronnen)
 
 Michiel, 2026-08-15: "parkeren we deze even als moeilijk, pakken we stuk
 voor stuk op als we zin hebben" — geen actieve vervolgstap gepland, dit is
 bewust de rustplek voor bronnen waar de dag-technieken (verkeerde-URL-check,
 Playwright, Ticketmaster) niet meer verder komen zonder een wezenlijk
 andere aanpak (wachten op een seizoen, of een mens die door een
-cookie-flow/GraphQL-schema heen gaat).
+cookie-flow/GraphQL-schema heen gaat). Alle 24 andere bronnen die vandaag
+nog "AI/Chrome nodig" waren, zijn inmiddels opgelost — zie de
+`## ✅ Geautomatiseerd`-sectie hierboven en decisions.md voor de volledige
+geschiedenis per bron.
 
-12 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md): Atlas Emmen
-(Umbraco-ticketing-API), Zuidhaege Assen (WP REST `event_listing`-post-type),
-Melkweg en 013 Tilburg (bleken toch server-rendered), FC Groningen (ESPN.nl),
-Hedon en TivoliVredenburg (tips van Michiel), Ziggo Dome (podiuminfo.nl, tip
-Michiel) — allemaal zónder browser opgelost. **Neushoorn en GelreDome**
-waren de eerste die écht een headless browser nodig hadden (Playwright,
-sinds vandaag beschikbaar) — geen verborgen API gevonden, wel
-automatiseerbaar zonder AI.
+OntdekPoort en Hunebedcentrum zijn hier bewust anders dan de andere 5:
+échte bot-bescherming (403), een principiële grens (nooit omzeild), geen
+"nog niet gelukt".
 
 | Bron | Verwachte omvang | Notitie |
 |---|---|---|

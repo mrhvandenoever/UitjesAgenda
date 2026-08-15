@@ -119,3 +119,32 @@ moet als gecompromitteerd behandeld worden. Afgesproken:
   - **34 near-duplicate wees-rijen opgeruimd** (oude titels zonder spatie tussen naam en landcode, bv. "Wednesdayusa" i.p.v. "Wednesday" + losse "USA"-badge — duidt op een eerdere, minder zorgvuldige scrape-poging), `page_hash` meegewist.
 - **Rotown opgelost — geen Playwright nodig, laatste van de oorspronkelijke 15 landelijke podia.** `/agenda/` (zonder slug) gaf een 404, waardoor het leek alsof er geen listing-pagina bestond — maar de HOMEPAGE zelf bevat gewoon 139 losse JSON-LD `Event`-blokken (schema.org), plain HTTP-request. Rotown promoot ook events bij andere Rotterdamse venues (V11, De Doelen, Maassilo, Annabel, ...) — gefilterd op `location.name == 'Rotown'`, zelfde aanpak als `scrape_hedon.py`. 97 events. **Alle 15 oorspronkelijke landelijke podia zijn hiermee opgelost.**
 - **De Doelen opgelost — achtste Playwright-scraper.** Zelfde verkeerde-URL-fout als Effenaar/Winsinghhof: `/programma` geeft een 404, echte agenda-URL is `/nl/agenda`. `eventCard`-grid met titel, subtitel, datum (mét 2-cijferig jaartal, geen inferentie nodig), tijd en zaal. 49 events. Grootste near-duplicate-opruiming tot nu toe: 151 oude wees-rijen (titel zonder subtitel, wel een echte URL dit keer — alleen de titel-vorm verschilde) opgeruimd, `page_hash` meegewist.
+
+## 2026-08-15 afsluiting — resterende AI/Chrome-bronnen geparkeerd als "moeilijk"
+Na het oplossen van 25 van de 31 "AI/Chrome nodig"-bronnen (via verkeerde-URL-fixes,
+Playwright en de Ticketmaster Discovery API) resteerden 7 bronnen zonder duidelijk
+vervolgpad: EM2 Groningen (datum-extractie te onbetrouwbaar), Groninger Museum en
+Drents Museum (Craft CMS, geen API gevonden, blijft leeg zelfs met Playwright),
+Zummerbühne (iframe bleek een ride-share-widget, geen ticketing), OntdekPoort en
+Hunebedcentrum (échte bot-bescherming, 403 — principiële grens, nooit omzeild), en
+GIJS Groningen (site toont nog het oude seizoen). Michiel: "parkeren we deze even
+als 'moeilijk', pakken we stuk voor stuk op als we zin hebben" — bewust geen actieve
+vervolgstap gepland. Zie SCRAPERS.md voor de per-bron notities.
+
+## 2026-08-15 — productbrainstorm: 3 nieuwe topniveau-knoppen (nog niet gebouwd)
+Michiel wil naast Uitjes/Sport drie nieuwe knoppen: **Exposities**, **Favorieten**,
+**Admin**. Richting per stuk bepaald, bewust nog niet geïmplementeerd (eerst verder
+brainstormen) — zie overleg.md punten 9-11 en plan.md voor de volledige uitwerking.
+Kernbeslissingen:
+- **Exposities**: `genre='expo'` uit de Uitjes-stroom halen. "Verdwijn-probleem"
+  opgelost met **route A**: een expositie blijft zichtbaar totdat een bekende
+  `date_end` al voorbij is (dat veld bestaat al in het datamodel maar wordt door
+  `gen_uitjes.py` nog nergens gebruikt — vrijwel geen scraper vult het vandaag al
+  in). Default sortering op startdatum, met alfabetisch/einddatum als alternatief.
+  Afstandsfilter blijft gewoon gelden, geen uitzondering.
+- **Favorieten**: een act/team/gezelschap volgen over alle bronnen heen (bevestigt
+  het eerder al genoteerde idee, zie overleg.md punt 9) — matching- en UI/opslag-
+  ontwerp nog open.
+- **Admin**: bewust **alleen lokaal/read-only** (scraper-status, event-aantallen,
+  laatste refresh) — expliciet GEEN backend en GEEN bewerkmogelijkheid via de site,
+  om het "volledig statisch, geen backend"-architectuurprincipe niet te doorbreken.

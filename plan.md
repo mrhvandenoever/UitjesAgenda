@@ -172,7 +172,7 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
 - [x] Zummerbühne en Groninger/Drents Museum verder onderzocht (2026-08-15): Zummerbühne's iframe bleek een ride-share-widget (geen ticketing), museum blijft leeg ook na cookiebanner-klik — beide bevestigde doodlopende paden, geen quick win meer te vinden.
 - [x] **Rotown opgelost** — `scrape_rotown.py`, geen Playwright nodig (JSON-LD op de homepage). 97 events. **Alle 15 oorspronkelijke landelijke podia zijn nu opgelost.**
 - [x] **Vera opgelost** — `scrape_vera.py`, elfde Playwright-scraper. Bleek géén Cloudflare-blokkade zoals eerder aangenomen, gewoon een infinite-scroll die curl niet kon triggeren — een echte browser-scroll laadt alles. 69 events.
-- [x] Resterende 6 AI/Chrome-bronnen bewust geparkeerd als "moeilijk" (Michiel) — geen actieve vervolgstap, oppakken zodra er zin in is.
+- [x] Resterende 7 AI/Chrome-bronnen bewust geparkeerd als "moeilijk" (Michiel) — geen actieve vervolgstap, oppakken zodra er zin in is.
 
 ## Nieuwe feature-richting: 3 topniveau-knoppen (Exposities/Favorieten/Admin) — sessie 2026-08-15
 Productbrainstorm afgerond, richting vastgelegd in overleg.md punten 9-11. Nog NIET gebouwd (Michiel wilde eerst verder brainstormen, geen code deze sessie).
