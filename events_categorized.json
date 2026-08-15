@@ -981,6 +981,15 @@
     "genre": "overig"
   },
   {
+    "title": "Vitesse - Almere City FC",
+    "date": "2026-08-21",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-almere-city-fc-26-27"
+  },
+  {
     "title": "Vliegerfestival Emmen",
     "date": "2026-08-21",
     "source": "drenthe.nl",
@@ -3383,6 +3392,15 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2097608291/the-last-mandrill-ep-release-momsname-eolith",
     "category": "Pop en Rock"
+  },
+  {
+    "title": "Vitesse - Top Oss",
+    "date": "2026-09-04",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-top-oss-26-27"
   },
   {
     "title": "Wilde Rust | Maison de Toile Kampeerweekend",
@@ -6948,6 +6966,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Vitesse - Jong PSV",
+    "date": "2026-09-19",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "16:30",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-jong-psv-26-27"
   },
   {
     "title": "Zangduo The Lasses - folk",
@@ -11129,6 +11156,15 @@
     "date": "2026-10-03",
     "source": "melkweg",
     "genre": "overig"
+  },
+  {
+    "title": "Vitesse - NAC Breda",
+    "date": "2026-10-03",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "16:30",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-nac-breda-26-27"
   },
   {
     "title": "Vroeg Pieken",
@@ -15731,6 +15767,15 @@
     "genre": "overig"
   },
   {
+    "title": "Snuffelmarkt",
+    "date": "2026-10-17",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "9:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/snuffelmarkt-20261017"
+  },
+  {
     "title": "Sons of the Culture Clash (Rudeboy + dj DNA)",
     "date": "2026-10-17",
     "source": "visitgroningen",
@@ -16256,6 +16301,15 @@
     "genre": "overig",
     "venue": "Melkweg, Amsterdam",
     "url": "https://www.melkweg.nl/nl/agenda/sam-tompkins-18-10-2026/"
+  },
+  {
+    "title": "Snuffelmarkt",
+    "date": "2026-10-18",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "9:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/snuffelmarkt-20261018"
   },
   {
     "title": "Souad Massi",
@@ -17661,6 +17715,15 @@
     "url": "https://neushoorn.nl/programma",
     "category": "pop",
     "cats": []
+  },
+  {
+    "title": "Vitesse - FC Emmen",
+    "date": "2026-10-23",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-fc-emmen-26-27"
   },
   {
     "title": "4AM KRU",
@@ -23327,6 +23390,15 @@
     "category": "Jeugdtheater"
   },
   {
+    "title": "Vitesse - De Graafschap",
+    "date": "2026-11-08",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "12:15",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-de-graafschap-26-27"
+  },
+  {
     "title": "Zing, spring, miauw (2+)",
     "date": "2026-11-08",
     "source": "theaterroden",
@@ -27315,6 +27387,15 @@
     "city": "Friesland",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1223269519/verhalenavond"
+  },
+  {
+    "title": "Vitesse - Jong AZ",
+    "date": "2026-11-20",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-jong-az-26-27"
   },
   {
     "title": "Winter in de Kas",
@@ -31910,6 +31991,15 @@
     ]
   },
   {
+    "title": "Vitesse - VVV Venlo",
+    "date": "2026-12-04",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-vvv-venlo-26-27"
+  },
+  {
     "title": "Voor Haar, de Frans Halsema Musical",
     "date": "2026-12-04",
     "source": "drenthe.nl",
@@ -33837,6 +33927,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Vitesse - Helmond Sport",
+    "date": "2026-12-11",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-helmond-sport-26-27"
   },
   {
     "title": "Vrouwejaars 2026 De blik op 2026 door de ogen van vrouwen!",
@@ -38700,6 +38799,15 @@
     "url": "https://www.atlastheater.nl/voorstellingen/the-songs-and-stories-of-the-dubliners-the-dubliners-experience-15-jan/"
   },
   {
+    "title": "Vitesse - Jong Ajax",
+    "date": "2027-01-15",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-jong-ajax-26-27"
+  },
+  {
     "title": "Andries Tunru - Ravot",
     "date": "2027-01-16",
     "source": "drenthe.nl",
@@ -39965,6 +40073,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Vitesse - MVV Maastricht",
+    "date": "2027-01-22",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-mvv-maastricht-26-27"
   },
   {
     "title": "Wim Helsen – Welkom ongemak (reprise)",
@@ -42627,6 +42744,15 @@
     "category": "Theater overig"
   },
   {
+    "title": "Vitesse - FC Eindhoven",
+    "date": "2027-02-06",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "16:30",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-fc-eindhoven-26-27"
+  },
+  {
     "title": "kweek: Bart - Ontsteking",
     "date": "2027-02-06",
     "source": "lawei",
@@ -44917,6 +45043,15 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/the-reytons-1/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/04/The-Reytons-5_kl.jpg"
+  },
+  {
+    "title": "Vitesse - Roda JC",
+    "date": "2027-02-19",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-roda-jc-26-27"
   },
   {
     "title": "100% Nederlandstalige show - Daredevils: Zing Nederlands Met Me",
@@ -47687,6 +47822,15 @@
     ]
   },
   {
+    "title": "Vitesse - FC Den Bosch",
+    "date": "2027-03-07",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "12:15",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-fc-den-bosch-26-27"
+  },
+  {
     "title": "Angélique Kidjo & Metropole Orkest: African Symphony",
     "date": "2027-03-08",
     "source": "concertgebouw",
@@ -49629,6 +49773,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Vitesse - Jong FC Utrecht",
+    "date": "2027-03-19",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-jong-fc-utrecht-26-27"
   },
   {
     "title": "Ashton Brothers - BROTHERS (reprise)",
@@ -53826,6 +53979,15 @@
     "category": "Concert"
   },
   {
+    "title": "Vitesse - FC Dordrecht",
+    "date": "2027-04-16",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-fc-dordrecht-26-27"
+  },
+  {
     "title": "Waldemar Torenstra, Judith Noyons e.a. — Nora of een poppenhuis",
     "date": "2027-04-16",
     "source": "lawei",
@@ -55479,6 +55641,15 @@
     "url": "https://www.concertgebouw.nl/concerten/45901013-van-bach-tot-handel-met-het-concertgebouworkest"
   },
   {
+    "title": "Vitesse - FC Volendam",
+    "date": "2027-04-30",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-fc-volendam-26-27"
+  },
+  {
     "title": "Alleen maar lieve jongens",
     "date": "2027-05-01",
     "source": "friesland.nl",
@@ -56934,6 +57105,15 @@
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/the-story-of-floyd-later-works-pink-project-the-band-14-mei/"
+  },
+  {
+    "title": "Vitesse - Heracles Almelo",
+    "date": "2027-05-14",
+    "source": "gelredome",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "GelreDome, Arnhem",
+    "url": "https://www.gelredome.nl/evenement/vitesse-heracles-almelo-26-27"
   },
   {
     "title": "Aladdin De Musical",

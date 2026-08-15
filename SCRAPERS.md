@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (42 bronnen, 40 scripts)
+## ✅ Geautomatiseerd (43 bronnen, 41 scripts)
 
 | Bron | Script |
 |---|---|
@@ -64,19 +64,26 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Hedon (Zwolle) | `scrape_hedon.py` (eigen `/api/events`, Yesplan-backed — tip van Michiel over Hedons LinkedIn-post, 118 events — was "AI/Chrome nodig", pagina bleek lege Angular-shell) |
 | TivoliVredenburg | `scrape_tivolivredenburg.py` (via songkick.com — tip van Michiel — alleen muziek/concerten, ~9 shows per run; site zelf blijft een bevestigde Cloudflare bot-challenge, bewust niet omzeild) |
 | Neushoorn (Leeuwarden) | `scrape_neushoorn.py` — **eerste Playwright-scraper** (headless Chromium rendert de Webflow-SPA, daarna regex op de DOM), 110 events. Zie ARCHITECTURE.md §Playwright-scrapers. |
+| GelreDome (Arnhem) | `scrape_gelredome.py` (Playwright, zelfde Webflow-platform als Neushoorn, mix van Vitesse-thuiswedstrijden + concerten/evenementen, volgt paginering, 21 events) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig (21 bronnen, incl. landelijke-podia-tabel verderop)
+## 🌐 AI/Chrome nodig (20 bronnen, incl. landelijke-podia-tabel verderop)
 
-10 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md): Atlas Emmen
+11 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md): Atlas Emmen
 (Umbraco-ticketing-API), Zuidhaege Assen (WP REST `event_listing`-post-type),
 Melkweg en 013 Tilburg (bleken toch server-rendered), FC Groningen (ESPN.nl),
 Hedon en TivoliVredenburg (tips van Michiel) — allemaal zónder browser
-opgelost. **Neushoorn** is de eerste die écht een headless browser nodig
-had (Playwright, sinds vandaag beschikbaar) — geen verborgen API gevonden,
-wel automatiseerbaar zonder AI.
+opgelost. **Neushoorn en GelreDome** waren de eerste die écht een headless
+browser nodig hadden (Playwright, sinds vandaag beschikbaar) — geen
+verborgen API gevonden, wel automatiseerbaar zonder AI.
+
+**Ziggo Dome bleek bij nader Playwright-onderzoek een gevirtualiseerde lijst**
+(react-window-achtig: ~60 items totaal maar maar ~17 tegelijk in de DOM,
+rest verschijnt pas bij scrollen) — technisch oplosbaar met scroll-simulatie
+in Playwright, maar meer werk dan de andere Playwright-scrapers. Nog niet
+gebouwd, wel een concrete vervolgstap i.p.v. "onbekend".
 
 | Bron | Verwachte omvang | Notitie |
 |---|---|---|
@@ -146,7 +153,7 @@ zie ✅ hierboven (`scrape_tivolivredenburg.py`, via Songkick, tip Michiel).
 |---|---|
 | Doornroosje | WordPress bevestigd (`/wp/wp-includes/...`), custom post-types zijn `vacatures`/`campagne`/`festival` — geen bruikbaar events-type via REST. 3 datum-strings bij hercheck bleek ruis. |
 | De Doelen | Vite-gebundelde JS (`site.js`) doorzocht op API-endpoints/fetch-calls — niets events-gerelateerds gevonden, alleen wachtwoord-lijst-fetches en een Spotify-oembed-call. Geen bruikbare API gevonden. |
-| Ziggo Dome | Next.js/Turbopack, nog niet grondig doorzocht op server-rendering (na de Melkweg-verrassing extra interessant om alsnog te checken) |
+| Ziggo Dome | Next.js/Turbopack — met Playwright gecheckt: geen server-rendering (anders dan Melkweg), wél een gevirtualiseerde lijst (~60 events, maar ~17 tegelijk in de DOM). Oplosbaar met scroll-simulatie, nog niet gebouwd — zie ✅-sectie hierboven. |
 | Rotterdam Ahoy | Foundation-framework (geen moderne JS-bundler), "Silvercore"-CDN — geen API-aanwijzingen gevonden, geen event-achtige CSS-classes in de ruwe HTML |
 | GelreDome | **Webflow-site** (cdn.prod.website-files.com) met Finsweet CMS-filter — CMS-collectie staat leeg in de ruwe HTML (`w-dyn-bind-empty`), wordt client-side gevuld. Zelfde platform als Neushoorn. |
 | Effenaar | 1.6MB pagina, 150 datum-strings bij hercheck (!) maar bleken bij inspectie CMS-content-blocks (Statamic-achtige structuur, `publish_date`-velden van pagina-onderdelen), niet per se events-datums — nadere inspectie nodig, veelbelovend maar niet afgerond |
@@ -158,7 +165,7 @@ Hedon Zwolle bleek een lege Angular-SPA-shell (7KB) te zijn, maar heeft een
 eigen `/api/events`-endpoint — opgelost, zie ✅ hierboven
 (`scrape_hedon.py`).
 
-Resterend van deze oorspronkelijke 15: 10 bronnen, geteld bij de 21
+Resterend van deze oorspronkelijke 15: 9 bronnen, geteld bij de 20
 "AI/Chrome nodig" hierboven (Melkweg, 013, Landstede Hammers, Hedon en
 TivoliVredenburg zijn opgelost).
 
