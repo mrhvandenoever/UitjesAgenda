@@ -84,7 +84,14 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig (6 bronnen, incl. landelijke-podia-tabel verderop)
+## 🌐 AI/Chrome nodig — geparkeerd als "moeilijk" (6 bronnen)
+
+Michiel, 2026-08-15: "parkeren we deze even als moeilijk, pakken we stuk
+voor stuk op als we zin hebben" — geen actieve vervolgstap gepland, dit is
+bewust de rustplek voor bronnen waar de dag-technieken (verkeerde-URL-check,
+Playwright, Ticketmaster) niet meer verder komen zonder een wezenlijk
+andere aanpak (wachten op een seizoen, of een mens die door een
+cookie-flow/GraphQL-schema heen gaat).
 
 12 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md): Atlas Emmen
 (Umbraco-ticketing-API), Zuidhaege Assen (WP REST `event_listing`-post-type),
