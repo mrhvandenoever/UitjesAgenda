@@ -172,6 +172,14 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
 - [x] Zummerbühne en Groninger/Drents Museum verder onderzocht (2026-08-15): Zummerbühne's iframe bleek een ride-share-widget (geen ticketing), museum blijft leeg ook na cookiebanner-klik — beide bevestigde doodlopende paden, geen quick win meer te vinden.
 - [x] **Rotown opgelost** — `scrape_rotown.py`, geen Playwright nodig (JSON-LD op de homepage). 97 events. **Alle 15 oorspronkelijke landelijke podia zijn nu opgelost.**
 - [x] **Vera opgelost** — `scrape_vera.py`, elfde Playwright-scraper. Bleek géén Cloudflare-blokkade zoals eerder aangenomen, gewoon een infinite-scroll die curl niet kon triggeren — een echte browser-scroll laadt alles. 69 events.
+- [x] Resterende 6 AI/Chrome-bronnen bewust geparkeerd als "moeilijk" (Michiel) — geen actieve vervolgstap, oppakken zodra er zin in is.
+
+## Nieuwe feature-richting: 3 topniveau-knoppen (Exposities/Favorieten/Admin) — sessie 2026-08-15
+Productbrainstorm afgerond, richting vastgelegd in overleg.md punten 9-11. Nog NIET gebouwd (Michiel wilde eerst verder brainstormen, geen code deze sessie).
+- [ ] **Exposities**: `genre='expo'` uit de Uitjes-stroom halen naar een eigen knop. Altijd tonen tenzij een bekende `date_end` al voorbij is (route A) — `date_end` staat al in het datamodel maar wordt door `gen_uitjes.py` nog nergens gebruikt. Sortering: default startdatum, met alfabetisch/einddatum als alternatief. Afstandsfilter blijft gewoon gelden.
+- [ ] Overweeg als vervolg: Geke Hoogstins alsnog bouwen nu er een fatsoenlijke plek voor doorlopende exposities is (was eerder bewust overgeslagen, zie decisions.md).
+- [ ] **Favorieten**: act/team volgen over alle bronnen heen — matching-probleem (zelfde titel, andere spelling per bron) en UI/opslag nog te ontwerpen, zie overleg.md punt 9.
+- [ ] **Admin**: lokale/read-only statusweergave (scraper-status, event-aantallen per bron, laatste refresh) — geen backend, geen bewerkmogelijkheid. Exacte inhoud/vormgeving nog te bepalen, zie overleg.md punt 11.
 - [ ] Lycurgus/Sudosa/Friso — 2e seizoenshelft volleybal nog niet gepubliceerd door de bond, later herscrapen
 - [ ] GIJS Groningen — URL is nu wel bekend (gijsgroningen.nl/gijs-eredivisie/), maar toont nog seizoen 2025-2026; herchecken zodra 2026-2027 live is
 - [ ] Stadspark Groningen (Summer Stage, Hullaballoo) — revisit zomer 2027

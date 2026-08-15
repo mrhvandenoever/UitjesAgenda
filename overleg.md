@@ -54,14 +54,31 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - `SCRAPERS.md` toegevoegd: overzicht per bron of er al een script is, of het zonder AI kan (recipe klaar), of het AI/Chrome vereist (client-rendered site), of nog nooit geprobeerd.
 - Einddoel: wekelijkse refresh volledig zonder AI — AI alleen eenmalig gebruiken om een scrape-methode te ontdekken (zoals bij SPOT/handbal.nl gebeurde), niet structureel bij elke run.
 
-### 9. Favorieten: volg een specifieke act/team
-- Idee van Michiel: een sportteam, band, theatergezelschap, cabaretier of andere act kunnen selecteren als "favoriet", en dan zien waar en wanneer die optreedt — over alle bronnen/venues heen.
-- Interessante ontwerpvragen:
+### 9. Favorieten: volg een specifieke act/team — RICHTING BEVESTIGD 2026-08-15
+- Idee van Michiel: een sportteam, band, theatergezelschap, cabaretier of andere act kunnen selecteren als "favoriet", en dan zien waar en wanneer die optreedt — over alle bronnen/venues heen. Bevestigd 2026-08-15 (naar aanleiding van de bredere "nog drie knoppen erbij"-brainstorm, zie ook punt 11) als één van drie nieuwe topniveau-knoppen naast Uitjes/Sport/Exposities.
+- Interessante ontwerpvragen, nog open:
   - Hoe herken je "dezelfde act" over verschillende bronnen heen als de titeltekst steeds anders is (bv. "Peter Bernstein Quartet" bij SPOT vs. een net iets andere titel bij een aggregator)? Zelfde soort matching-probleem als bij de cross-source dedup, maar dan voor identiteit i.p.v. duplicaten.
   - UI: een simpele naam-zoekfunctie/autocomplete over alle titels, of een echte "favorieten"-lijst die lokaal (browser) wordt opgeslagen?
   - Notificatie erbij (bv. "nieuw optreden toegevoegd voor favoriet X"), of alleen een filter/overzicht?
   - Sport past hier natuurlijk al goed bij (club-filter bestaat al) — dit zou het generaliseren naar willekeurige artiesten/gezelschappen ook buiten sport.
-- Nog niet uitgewerkt, puur een ideeschets.
+- Nog niet technisch uitgewerkt — richting staat vast, ontwerp (matching, UI, opslag) nog te doen.
+
+### 10. Exposities als eigen topniveau-modus — RICHTING BEPAALD 2026-08-15
+- Aanleiding: `genre='expo'` bestaat al binnen "Uitjes", maar exposities zijn wezenlijk anders (lopen weken/maanden, geen vast tijdstip) en horen niet tussen concerten/wedstrijden op één dag.
+- **Besloten**: eigen derde knop naast Uitjes en Sport (zie ook punt 11).
+- **Het "verdwijn-probleem" opgelost middels route A** (Michiels voorkeur): exposities altijd tonen, tenzij er een bekende `date_end` is die al voorbij is. `date_end` staat al in het datamodel (DB-schema + export) maar wordt nog nergens door `gen_uitjes.py` gelezen/getoond — dode infrastructuur die hiervoor wakker gemaakt moet worden. Bijna geen enkele scraper vult 'm vandaag echt in (van 6669 events heeft er 1 een `date_end`, en die ziet eruit als een placeholder).
+- **Sortering**: default op startdatum, met alfabetisch en op-einddatum als alternatieve sorteeropties (gebruiker kiest).
+- **Afstandsfilter**: blijft gewoon werken, geen uitzondering voor Exposities.
+- **Nog open**:
+  - Welke scrapers eerst `date_end` laten invullen? Kandidaten: bestaande expo-bronnen (Groninger/Drents Museum zodra die ooit lukken) en het eerder bewust overgeslagen Geke Hoogstins (decisions.md: "maandenlange doorlopende exposities, geen losse datums, past niet in ons single-date-event-model" — deze beslissing kan nu mogelijk herzien worden).
+  - Technische uitwerking: UI-plek van de nieuwe knop, hoe `classify()`/`SRC`/filters precies moeten worden aangepast om expo's uit de Uitjes-stroom te halen.
+  - Nog niet gebouwd — bewust nog niet gestart, Michiel wilde eerst verder brainstormen voor er code komt.
+
+### 11. Twee extra topniveau-knoppen: Favorieten + Admin — RICHTING BEPAALD 2026-08-15
+- Michiel wil in totaal 3 nieuwe knoppen naast Uitjes/Sport: **Exposities** (punt 10), **Favorieten** (punt 9) en **Admin**.
+- **Admin — scope afgebakend**: alleen een lokale/read-only weergave (bv. scraper-status, event-aantallen per bron, laatst-gedraaide-refresh-informatie) — GEEN backend, GEEN mogelijkheid om events te bewerken/verwijderen via de site. Bewuste keuze om het "volledig statisch, geen backend"-architectuurprincipe (zie ARCHITECTURE.md/decisions.md) niet te doorbreken — dat zou inlog + een backend vereisen, een grote stap die nu niet gewenst is.
+- **Nog open**: exacte inhoud/vormgeving van het Admin-scherm (welke metrics precies, hoe "lokaal-only" technisch werkt — bv. alleen zichtbaar op localhost, of een verborgen/niet-gelinkte URL op de live site, of een apart lokaal script/bestand los van `index.html`).
+- Nog niets van deze 3 knoppen is gebouwd — dit is de vastgelegde richting uit een brainstormsessie, technische uitwerking volgt in een latere sessie.
 
 ## Status
-Sessie 2026-08-15: GitHub gesynchroniseerd (17 commits ingehaald) + punt 1 opgelost (Taakplanner-taak ma/wo/za 04:00 op deze laptop). Nog openstaande discussiepunten: 2 (parallelle requests, niet gestart), 4 (deels open, samen met AI/Chrome-lijst), 5, 6, 9 (ideeschetsen, nog niet uitgewerkt). Zie `plan.md` voor het volledige overzicht.
+Sessie 2026-08-15: GitHub gesynchroniseerd (17 commits ingehaald), punt 1 opgelost (Taakplanner-taak ma/wo/za 04:00), kritieke SSL-bug gefixt, 31 → 6 AI/Chrome-bronnen opgelost (26 nieuwe scrapers, zie SCRAPERS.md/decisions.md/plan.md — resterende 6 bewust geparkeerd als "moeilijk"), Ticketmaster-API-key veilig opgezet. Sessie afgesloten met een productbrainstorm: 3 nieuwe topniveau-knoppen (Exposities/Favorieten/Admin) — richting bepaald, zie punten 9-11, nog niet gebouwd. Nog openstaande discussiepunten: 2 (parallelle requests, niet gestart), 4 (grotendeels opgelost samen met de AI/Chrome-lijst), 5, 6 (ideeschetsen, nog niet uitgewerkt).
