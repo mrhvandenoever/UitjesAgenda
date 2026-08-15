@@ -148,3 +148,52 @@ Kernbeslissingen:
 - **Admin**: bewust **alleen lokaal/read-only** (scraper-status, event-aantallen,
   laatste refresh) — expliciet GEEN backend en GEEN bewerkmogelijkheid via de site,
   om het "volledig statisch, geen backend"-architectuurprincipe niet te doorbreken.
+
+## 2026-08-16 — Exposities gebouwd (derde topniveau-modus)
+Implementatie van de op 2026-08-15 vastgelegde richting (overleg.md punt 10).
+Genre `expo` wordt nu volledig uit `events_valid`/de maand-secties gehaald in
+`gen_uitjes.py` en apart bijgehouden (`expo_valid`/`expo_html`, platte lijst,
+geen maand-groepering — dat past niet bij "sorteren op alfabet/einddatum").
+Zichtbaarheidsregel (route A) geïmplementeerd via `event_is_valid(e)`: voor
+expo-events geldt "zichtbaar tenzij een bekende `date_end` al voorbij is",
+i.p.v. de normale `TODAY<=date<=2027-12-31`-regel. Dit is de eerste keer dat
+`date_end` (stond al in het DB-schema/export sinds eerdere sessies, maar werd
+door `gen_uitjes.py` nergens gelezen) daadwerkelijk gebruikt wordt.
+
+Sortering: default startdatum (server-side volgorde), Einddatum/Alfabetisch
+als knoppen die client-side de DOM herordenen (`Array.sort()` +
+`appendChild()`) — geen 3 losse server-gerenderde varianten nodig. Provincie-
+en afstandsfilter werken automatisch mee via het al bestaande gedeelde
+filterblok/`apply()`-mechanisme, geen aparte code nodig. Bewust geen eigen
+Bron-filter gebouwd bij de huidige kleine omvang (4 events).
+
+**Twee bugs gevonden tijdens de bouw, in dezelfde sessie gefixt:**
+1. **`classify()`-substring-bug**: het keyword `'strip'` in de expo-
+   titelkeyword-lijst matchte ook `"Striptease"` als substring — 3
+   theater/cabaretshows ("Striptease Van De Dood" bij atlastheater,
+   spotgroningen.nl, friesland.nl) werden onterecht als `expo` geclassificeerd.
+   Dit bestond al langer maar viel pas op zodra Exposities een eigen,
+   zichtbare, kleine sectie kreeg — voorheen ging zo'n fout genre-label
+   onopgemerkt schuil tussen duizenden Uitjes-events. Gefixt: vervangen door
+   specifiekere `'stripverhaal'`/`'stripmuseum'`/`'stripkunst'`. Voor de fix:
+   7 events geclassificeerd als expo; na de fix: 4 (de 3 misclassificaties
+   weg, geen echte expo's verloren).
+2. **Init-apply-bug (niet gerelateerd aan Exposities, maar in hetzelfde
+   codepad ontdekt)**: `apply()` (de client-side filterfunctie) werd nergens
+   aangeroepen bij het laden van de pagina zelf, alleen vanuit knop-click-
+   handlers. Bevestigd op de live site vóórdat dit gefixt werd: 172
+   sportwedstrijden stonden zichtbaar tussen de Uitjes-events bij een verse
+   paginalaad, tot een gebruiker voor het eerst een filter aanklikte. Gefixt
+   door `setMode('uitjes')` (roept zelf `apply()` aan) toe te voegen aan het
+   JS-init-blok — ontdekt omdat dezelfde init-code sowieso aangepast moest
+   worden voor de nieuwe derde modus.
+
+Lokaal geverifieerd met een tijdelijke `python -m http.server` + de
+Chrome-preview-tools (`.claude/launch.json` toegevoegd voor herbruikbaarheid
+in latere sessies) vóór het pushen: mode-toggle, filter-branches (uitjes/
+sport/exposities), sorteerknoppen, provincie/afstandsfilter, en mobiele
+grid-layout van de expo-kaart (`.event.expo-item` met hogere CSS-specificiteit
+dan de mobile-media-query-regel, anders zou de 2-koloms-layout breken onder
+600px) allemaal getest en werkend bevonden vóór commit.
+
+Zie ARCHITECTURE.md §Exposities voor de volledige technische uitwerking.

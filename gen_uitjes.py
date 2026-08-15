@@ -193,6 +193,13 @@ SPORT_LABELS = {
     'ijshockey': 'IJshockey', 'handbal': 'Handbal', 'korfbal': 'Korfbal',
 }
 
+GENRE_ICONS = {'festival':'🎉','theater':'🎭','cabaret':'🎪','musical':'🎼','klassiek':'🎻','pop':'🎸',
+               'jazz':'🎷','dans':'💃','expo':'🖼️','actief':'🥾','kinderen':'🎈','overig':'•'}
+GENRE_LABELS = {'festival':'Festival / Evenement','theater':'Theater / Toneel','cabaret':'Cabaret / Comedy','musical':'Musical',
+                'klassiek':'Klassiek / Opera','pop':'Pop / Rock','jazz':'Jazz / Blues',
+                'dans':'Dans / Ballet','expo':'Expo / Kunst','actief':'Actief / Natuur',
+                'kinderen':'Kinderen / Familie','overig':'Overig'}
+
 THEATER_VENUES= {'lawei','atlastheater','denieuwekolk.nl','vanberesteyn','theaterroden','geertteis',
                  'grandtheatregroningen','martiniplaza','dorpshuisannen','podiumnienoordleek',
                  'zummerbuhne','posthuistheater','ontdekpoort','koornbeurs'}
@@ -229,7 +236,7 @@ def classify(title, cats, source=''):
                              'piano','viool','cello','strijk','filharmonisch','dirigent',
                              'recital']): return 'klassiek'
     if any(w in t for w in ['expositie','tentoonstelling','galerie','biënnale','biennale',
-                             'storyworld','strip','marilyn']): return 'expo'
+                             'storyworld','stripverhaal','stripmuseum','stripkunst','marilyn']): return 'expo'
     if any(w in t for w in [' theater',' toneel','toneelstuk','voorstelling']): return 'theater'
     if any(w in t for w in ['festival','feest','kermis','volksfeest','volksvermaak',
                              'sneekweek','lemsterwike','ballonfeesten','koningsdag',
@@ -261,9 +268,29 @@ def month_short(iso):
 def safe_key(k): return k.replace('.','_').replace('-','_')
 def esc(s):      return str(s).replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('"','&quot;')
 
-events_valid = sorted([e for e in events if TODAY<=e.get('date','')<='2027-12-31'],
+def event_genre(e):
+    src = e.get('source','')
+    if src in SPORT_SRCS: return 'sport'
+    return classify(e.get('title',''), e.get('cats',[]), src)
+
+for e in events:
+    e['_genre'] = event_genre(e)
+
+def event_is_valid(e):
+    d = e.get('date','')
+    if not d or d > '2027-12-31':
+        return False
+    if e['_genre'] == 'expo':
+        de = e.get('date_end','')
+        return not (de and de < TODAY)
+    return d >= TODAY
+
+events_valid = sorted([e for e in events if e['_genre']!='expo' and event_is_valid(e)],
                       key=lambda e: e.get('date',''))
+expo_valid = sorted([e for e in events if e['_genre']=='expo' and event_is_valid(e)],
+                    key=lambda e: e.get('date',''))
 total = len(events_valid)
+expo_total = len(expo_valid)
 by_month = defaultdict(list)
 for e in events_valid: by_month[e['date'][:7]].append(e)
 months_sorted = sorted(by_month.keys())
@@ -295,20 +322,14 @@ month_nav = '\n'.join(
 def event_html(e):
     src = e.get('source',''); sk = safe_key(src)
     is_sport = src in SPORT_SRCS
-    genre = 'sport' if is_sport else classify(e.get('title',''), e.get('cats',[]), src)
+    genre = e['_genre']
     gender = e.get('gender', '') if is_sport else ''
-    icon_map = {'festival':'🎉','theater':'🎭','cabaret':'🎪','musical':'🎼','klassiek':'🎻','pop':'🎸',
-                'jazz':'🎷','dans':'💃','expo':'🖼️','actief':'🥾','kinderen':'🎈','overig':'•'}
-    glabel_map = {'festival':'Festival / Evenement','theater':'Theater / Toneel','cabaret':'Cabaret / Comedy','musical':'Musical',
-                  'klassiek':'Klassiek / Opera','pop':'Pop / Rock','jazz':'Jazz / Blues',
-                  'dans':'Dans / Ballet','expo':'Expo / Kunst','actief':'Actief / Natuur',
-                  'kinderen':'Kinderen / Familie','overig':'Overig'}
     if is_sport:
         sport_type = e.get('sport', '')
         icon = SPORT_ICONS.get(sport_type, '🏆')
         glabel = SPORT_LABELS.get(sport_type, 'Sport')
     else:
-        icon = icon_map.get(genre,'•'); glabel = glabel_map.get(genre,'Overig')
+        icon = GENRE_ICONS.get(genre,'•'); glabel = GENRE_LABELS.get(genre,'Overig')
     title_html = (f'<a href="{esc(e.get("url",""))}" target="_blank">{esc(e.get("title",""))}</a>'
                   if e.get('url') else esc(e.get('title','')))
     loc = VENUE_LOC.get(src)
@@ -336,6 +357,44 @@ main_html = ''.join(
     + ''.join(event_html(e)+'\n' for e in by_month[m])
     + '</div>\n'
     for m in months_sorted)
+
+def fmt_date_long(iso):
+    try: d=date.fromisoformat(iso); return f"{NL_DAYS[d.weekday()]} {d.day} {NL_MONTHS[d.month-1]} {d.year}"
+    except: return iso
+
+def expo_card_html(e):
+    src = e.get('source',''); sk = safe_key(src)
+    icon = GENRE_ICONS.get('expo','🖼️'); glabel = GENRE_LABELS.get('expo','Expo / Kunst')
+    title_html = (f'<a href="{esc(e.get("url",""))}" target="_blank">{esc(e.get("title",""))}</a>'
+                  if e.get('url') else esc(e.get('title','')))
+    loc = VENUE_LOC.get(src)
+    prov = loc[2] if loc else e.get('province', 'Onbekend')
+    city_loc = CITY_COORDS.get((e.get('city') or '').strip())
+    if city_loc:
+        lat_lon = f'{city_loc[0]},{city_loc[1]}'
+    elif loc:
+        lat_lon = f'{loc[0]},{loc[1]}'
+    else:
+        lat_lon = ''
+    d_start = e.get('date',''); d_end = e.get('date_end','')
+    if d_end:
+        date_txt = f"vanaf {fmt_date_long(d_start)} &middot; t/m {fmt_date_long(d_end)}"
+    else:
+        date_txt = f"vanaf {fmt_date_long(d_start)} &middot; einddatum onbekend"
+    return (f'<div class="event expo-item {sk}" data-src="{src}" data-genre="expo" '
+            f'data-prov="{prov}" data-latlon="{lat_lon}" '
+            f'data-date="{esc(d_start)}" data-dateend="{esc(d_end or "9999-99-99")}" '
+            f'data-titlekey="{esc(e.get("title","").lower())}">'
+            f'<div class="event-main"><div class="event-title">{title_html}</div>'
+            f'<div class="event-daterange">{date_txt}</div>'
+            f'<div class="event-venue">{esc(e.get("venue","") or e.get("city",""))} '
+            f'<span class="dist-badge"></span></div></div>'
+            f'<div class="event-badges">'
+            f'<span class="badge badge-genre g-expo">{icon} {glabel}</span>'
+            f'<span class="badge badge-src s-{sk}">{esc(SRC.get(src,(src,"",""))[0])}</span>'
+            f'</div></div>')
+
+expo_html = ''.join(expo_card_html(e) for e in expo_valid)
 
 today_str = date.today().strftime('%d %B %Y').lstrip('0')
 
@@ -382,7 +441,7 @@ gender_css = ('.btn[data-gender="all"].active{background:#555;color:#fff;border-
 landelijk_json = _json.dumps(sorted(LANDELIJK))
 
 js = f'''
-const TOTAL={total};
+const TOTAL={total+expo_total};
 let selSrc=new Set(), selGenre=new Set(), selProv=new Set(), maxDist=9999;
 let currentMode='uitjes', selSport=new Set(), selClub=new Set(), selGender='all';
 const SPORT_SRCS=new Set(['fcgroningen','fcemmen','heerenveen','cambuur','fctwente','goahead','peczwolle','donar','landstede','lycurgus','sudosa','friso','grizzlys','flyers','ogcapitals','hurryup','eoemmen','ldodk','dos46']);
@@ -417,13 +476,16 @@ function apply(){{
   document.querySelectorAll('.event').forEach(ev=>{{
     const src=ev.dataset.src, dist=parseInt(ev.dataset.dist||9999);
     const isSport=SPORT_SRCS.has(src);
+    const isExpo=ev.classList.contains('expo-item');
     let ok;
     if(currentMode==='uitjes'){{
-      ok=!isSport&&(selSrc.size===0||selSrc.has(src))&&(selGenre.size===0||selGenre.has(ev.dataset.genre))&&(selProv.size===0||selProv.has(ev.dataset.prov))&&dist<=maxDist;
-    }}else{{
+      ok=!isSport&&!isExpo&&(selSrc.size===0||selSrc.has(src))&&(selGenre.size===0||selGenre.has(ev.dataset.genre))&&(selProv.size===0||selProv.has(ev.dataset.prov))&&dist<=maxDist;
+    }}else if(currentMode==='sport'){{
       const sp=SPORT_BY_SRC[src];
       const evGender=ev.dataset.gender||'heren';
       ok=isSport&&(selSport.size===0||selSport.has(sp))&&(selClub.size===0||selClub.has(src))&&(selGender==='all'||evGender===selGender||evGender==='gemengd')&&(selProv.size===0||selProv.has(ev.dataset.prov))&&dist<=maxDist;
+    }}else{{
+      ok=isExpo&&(selProv.size===0||selProv.has(ev.dataset.prov))&&dist<=maxDist;
     }}
     ev.classList.toggle('hidden',!ok);if(ok)v++;
   }});
@@ -541,11 +603,16 @@ function setMode(m){{
   currentMode=m;
   document.getElementById('btn-uitjes').classList.toggle('active',m==='uitjes');
   document.getElementById('btn-sport').classList.toggle('active',m==='sport');
+  document.getElementById('btn-exposities').classList.toggle('active',m==='exposities');
   document.getElementById('sport-filters').style.display=m==='sport'?'block':'none';
+  document.getElementById('expo-filters').style.display=m==='exposities'?'flex':'none';
   ['uitjes-genre','uitjes-src'].forEach(id=>{{
     const el=document.getElementById(id);
     if(el) el.style.display=m==='uitjes'?'':'none';
   }});
+  document.getElementById('month-nav-wrap').style.display=m==='exposities'?'none':'';
+  document.querySelector('main').style.display=m==='exposities'?'none':'';
+  document.getElementById('expo-wrap').style.display=m==='exposities'?'':'none';
   selSport.clear();selClub.clear();selSrc.clear();selGenre.clear();selGender='all';
   document.querySelectorAll('.btn[data-sport],.btn[data-club]').forEach(x=>deactBtn(x));
   document.querySelectorAll('.btn[data-gender]').forEach(x=>x.classList.toggle('active',x.dataset.gender==='all'));
@@ -591,8 +658,23 @@ document.querySelectorAll('.btn[data-gender]').forEach(b=>b.addEventListener('cl
   document.querySelectorAll('.btn[data-gender]').forEach(x=>x.classList.toggle('active',x.dataset.gender===selGender));
   apply();
 }}));
-// Init: zet afstanden vanuit standaard centrum (Annen)
+document.querySelectorAll('.btn[data-sort]').forEach(b=>b.addEventListener('click',()=>{{
+  document.querySelectorAll('.btn[data-sort]').forEach(x=>x.classList.toggle('active',x===b));
+  const sort=b.dataset.sort;
+  const wrap=document.getElementById('expo-wrap');
+  const items=Array.from(wrap.querySelectorAll('.expo-item'));
+  items.sort((a,c)=>{{
+    if(sort==='start') return a.dataset.date.localeCompare(c.dataset.date);
+    if(sort==='end') return a.dataset.dateend.localeCompare(c.dataset.dateend);
+    return a.dataset.titlekey.localeCompare(c.dataset.titlekey);
+  }});
+  items.forEach(it=>wrap.appendChild(it));
+}}));
+// Init: zet afstanden vanuit standaard centrum (Annen), en pas direct de mode-filtering toe
+// (bugfix 2026-08-15: zonder deze regel bleven bv. sportwedstrijden zichtbaar tussen
+// de Uitjes tot de gebruiker voor het eerst een filter aanklikte)
 updateDistances();
+setMode('uitjes');
 '''
 
 html = f'''<!DOCTYPE html>
@@ -662,6 +744,9 @@ main{{padding:0 16px 32px;}}
 .event-title a{{color:#1565c0;text-decoration:none;font-weight:500;}}
 .event-title a:hover{{text-decoration:underline;}}
 .event-venue{{font-size:0.75rem;color:var(--muted);margin-top:2px;}}
+.event-daterange{{font-size:0.75rem;color:#1565c0;font-weight:600;margin-top:2px;}}
+.event.expo-item{{grid-template-columns:1fr auto;}}
+.btn[data-sort].active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
 .dist-badge{{font-size:0.68rem;color:#aaa;margin-left:4px;}}
 .event-badges{{display:flex;flex-direction:column;gap:3px;align-items:flex-end;}}
 .badge{{font-size:0.68rem;padding:2px 6px;border-radius:10px;white-space:nowrap;}}
@@ -674,6 +759,7 @@ main{{padding:0 16px 32px;}}
 <div class="mode-toggle">
   <button class="mode-btn active" id="btn-uitjes" onclick="setMode('uitjes')">🗓️ Uitjes</button>
   <button class="mode-btn" id="btn-sport" onclick="setMode('sport')">⚽ Sport</button>
+  <button class="mode-btn" id="btn-exposities" onclick="setMode('exposities')">🖼️ Exposities</button>
 </div>
 <div id="sport-filters" style="display:none">
 <div class="filters">
@@ -718,7 +804,7 @@ main{{padding:0 16px 32px;}}
 </div>
 <header>
   <h1>🗓️ Uitjes Agenda</h1>
-  <div class="meta">Bijgewerkt: {today_str} &nbsp;·&nbsp; {total} events &nbsp;·&nbsp; {len(active_sources)} bronnen</div>
+  <div class="meta">Bijgewerkt: {today_str} &nbsp;·&nbsp; {total} events &nbsp;·&nbsp; {expo_total} exposities &nbsp;·&nbsp; {len(active_sources)} bronnen</div>
 </header>
 <div class="filters">
   <div class="filters-label">Provincie &amp; afstand</div>
@@ -747,7 +833,6 @@ main{{padding:0 16px 32px;}}
   <button class="btn" data-genre="pop">🎸 Pop / Rock</button>
   <button class="btn" data-genre="jazz">🎷 Jazz</button>
   <button class="btn" data-genre="dans">💃 Dans</button>
-  <button class="btn" data-genre="expo">🖼️ Expo</button>
   <button class="btn" data-genre="actief">🥾 Actief</button>
   <button class="btn" data-genre="kinderen">🎈 Kinderen</button>
   <button class="btn" data-genre="overig">• Overig</button>
@@ -756,9 +841,16 @@ main{{padding:0 16px 32px;}}
   <div class="filters-label">Bron</div>
   {src_buttons}
 </div>
-<div class="month-nav">{month_nav}</div>
+<div class="filters" id="expo-filters" style="display:none">
+  <div class="filters-label">Sorteren</div>
+  <button class="btn active" data-sort="start">Startdatum</button>
+  <button class="btn" data-sort="end">Einddatum</button>
+  <button class="btn" data-sort="alpha">Alfabetisch</button>
+</div>
+<div class="month-nav" id="month-nav-wrap">{month_nav}</div>
 <div id="stats">Toont alle {total} events</div>
 <main>{main_html}</main>
+<div id="expo-wrap" style="display:none;padding:0 16px 32px;">{expo_html}</div>
 <script>{js}</script>
 <footer style="margin-top:32px;padding:16px;font-size:0.72rem;color:#aaa;border-top:1px solid #e0e0e0;line-height:1.6;">
   Uitjes Agenda is een onafhankelijke verzamelagenda. We tonen alleen beperkte feitelijke informatie zoals titel, datum, locatie en bron, met een link naar de oorspronkelijke aanbieder. Voor actuele informatie, tickets, wijzigingen en voorwaarden verwijzen we altijd naar de officiële website van de organisator of locatie. Bent u rechthebbende of organisator en wilt u een event of bron laten aanpassen of verwijderen? Neem contact op via <a href="mailto:chielemans@hotmail.com" style="color:#aaa;">chielemans@hotmail.com</a>

@@ -63,16 +63,15 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
   - Sport past hier natuurlijk al goed bij (club-filter bestaat al) — dit zou het generaliseren naar willekeurige artiesten/gezelschappen ook buiten sport.
 - Nog niet technisch uitgewerkt — richting staat vast, ontwerp (matching, UI, opslag) nog te doen.
 
-### 10. Exposities als eigen topniveau-modus — RICHTING BEPAALD 2026-08-15
+### 10. Exposities als eigen topniveau-modus — GEBOUWD 2026-08-16
 - Aanleiding: `genre='expo'` bestaat al binnen "Uitjes", maar exposities zijn wezenlijk anders (lopen weken/maanden, geen vast tijdstip) en horen niet tussen concerten/wedstrijden op één dag.
 - **Besloten**: eigen derde knop naast Uitjes en Sport (zie ook punt 11).
 - **Het "verdwijn-probleem" opgelost middels route A** (Michiels voorkeur): exposities altijd tonen, tenzij er een bekende `date_end` is die al voorbij is. `date_end` staat al in het datamodel (DB-schema + export) maar wordt nog nergens door `gen_uitjes.py` gelezen/getoond — dode infrastructuur die hiervoor wakker gemaakt moet worden. Bijna geen enkele scraper vult 'm vandaag echt in (van 6669 events heeft er 1 een `date_end`, en die ziet eruit als een placeholder).
 - **Sortering**: default op startdatum, met alfabetisch en op-einddatum als alternatieve sorteeropties (gebruiker kiest).
 - **Afstandsfilter**: blijft gewoon werken, geen uitzondering voor Exposities.
+- **Gebouwd 2026-08-16**: derde topniveau-knop "🖼️ Exposities", route A geïmplementeerd, sortering (startdatum/einddatum/alfabetisch) en provincie/afstandsfilter werken. Zie ARCHITECTURE.md §Exposities en decisions.md 2026-08-16 voor de volledige technische uitwerking, inclusief 2 bugs die tijdens de bouw gevonden en gefixt zijn.
 - **Nog open**:
-  - Welke scrapers eerst `date_end` laten invullen? Kandidaten: bestaande expo-bronnen (Groninger/Drents Museum zodra die ooit lukken) en het eerder bewust overgeslagen Geke Hoogstins (decisions.md: "maandenlange doorlopende exposities, geen losse datums, past niet in ons single-date-event-model" — deze beslissing kan nu mogelijk herzien worden).
-  - Technische uitwerking: UI-plek van de nieuwe knop, hoe `classify()`/`SRC`/filters precies moeten worden aangepast om expo's uit de Uitjes-stroom te halen.
-  - Nog niet gebouwd — bewust nog niet gestart, Michiel wilde eerst verder brainstormen voor er code komt.
+  - Welke scrapers eerst `date_end` laten invullen? Kandidaten: bestaande expo-bronnen (Groninger/Drents Museum zodra die ooit lukken) en het eerder bewust overgeslagen Geke Hoogstins (decisions.md: "maandenlange doorlopende exposities, geen losse datums, past niet in ons single-date-event-model" — deze beslissing kan nu mogelijk herzien worden, zie plan.md).
 
 ### 11. Twee extra topniveau-knoppen: Favorieten + Admin — RICHTING BEPAALD 2026-08-15
 - Michiel wil in totaal 3 nieuwe knoppen naast Uitjes/Sport: **Exposities** (punt 10), **Favorieten** (punt 9) en **Admin**.
@@ -81,4 +80,6 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - Nog niets van deze 3 knoppen is gebouwd — dit is de vastgelegde richting uit een brainstormsessie, technische uitwerking volgt in een latere sessie.
 
 ## Status
-Sessie 2026-08-15: GitHub gesynchroniseerd (17 commits ingehaald), punt 1 opgelost (Taakplanner-taak ma/wo/za 04:00), kritieke SSL-bug gefixt, 31 → 7 AI/Chrome-bronnen opgelost (26 nieuwe scrapers, zie SCRAPERS.md/decisions.md/plan.md — resterende 7 bewust geparkeerd als "moeilijk"), punt 4 (kapotte links) daarmee ook volledig afgesloten, Ticketmaster-API-key veilig opgezet. Sessie afgesloten met een productbrainstorm: 3 nieuwe topniveau-knoppen (Exposities/Favorieten/Admin) — richting bepaald, zie punten 9-11, nog niet gebouwd. Nog openstaande discussiepunten: 2 (parallelle requests, niet gestart), 5, 6 (ideeschetsen, nog niet uitgewerkt).
+Sessie 2026-08-15: GitHub gesynchroniseerd (17 commits ingehaald), punt 1 opgelost (Taakplanner-taak ma/wo/za 04:00), kritieke SSL-bug gefixt, 31 → 7 AI/Chrome-bronnen opgelost (26 nieuwe scrapers, zie SCRAPERS.md/decisions.md/plan.md — resterende 7 bewust geparkeerd als "moeilijk"), punt 4 (kapotte links) daarmee ook volledig afgesloten, Ticketmaster-API-key veilig opgezet. Sessie afgesloten met een productbrainstorm: 3 nieuwe topniveau-knoppen (Exposities/Favorieten/Admin) — richting bepaald, zie punten 9-11.
+
+Sessie 2026-08-16: **Exposities gebouwd** (punt 10 nu volledig afgesloten) — zie ARCHITECTURE.md §Exposities/decisions.md voor de uitwerking, inclusief 2 bijgevangen bugs (`classify()`'s `'strip'`-substring-fout, en een ontbrekende `apply()`-call bij page-load die sportwedstrijden liet meerenderen in Uitjes-modus). Favorieten (punt 9) en Admin (punt 11) nog niet gebouwd. Nog openstaande discussiepunten: 2 (parallelle requests, niet gestart), 5, 6 (ideeschetsen, nog niet uitgewerkt).

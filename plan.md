@@ -174,12 +174,14 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
 - [x] **Vera opgelost** — `scrape_vera.py`, elfde Playwright-scraper. Bleek géén Cloudflare-blokkade zoals eerder aangenomen, gewoon een infinite-scroll die curl niet kon triggeren — een echte browser-scroll laadt alles. 69 events.
 - [x] Resterende 7 AI/Chrome-bronnen bewust geparkeerd als "moeilijk" (Michiel) — geen actieve vervolgstap, oppakken zodra er zin in is.
 
-## Nieuwe feature-richting: 3 topniveau-knoppen (Exposities/Favorieten/Admin) — sessie 2026-08-15
-Productbrainstorm afgerond, richting vastgelegd in overleg.md punten 9-11. Nog NIET gebouwd (Michiel wilde eerst verder brainstormen, geen code deze sessie).
-- [ ] **Exposities**: `genre='expo'` uit de Uitjes-stroom halen naar een eigen knop. Altijd tonen tenzij een bekende `date_end` al voorbij is (route A) — `date_end` staat al in het datamodel maar wordt door `gen_uitjes.py` nog nergens gebruikt. Sortering: default startdatum, met alfabetisch/einddatum als alternatief. Afstandsfilter blijft gewoon gelden.
-- [ ] Overweeg als vervolg: Geke Hoogstins alsnog bouwen nu er een fatsoenlijke plek voor doorlopende exposities is (was eerder bewust overgeslagen, zie decisions.md).
-- [ ] **Favorieten**: act/team volgen over alle bronnen heen — matching-probleem (zelfde titel, andere spelling per bron) en UI/opslag nog te ontwerpen, zie overleg.md punt 9.
-- [ ] **Admin**: lokale/read-only statusweergave (scraper-status, event-aantallen per bron, laatste refresh) — geen backend, geen bewerkmogelijkheid. Exacte inhoud/vormgeving nog te bepalen, zie overleg.md punt 11.
+## Nieuwe feature-richting: 3 topniveau-knoppen (Exposities/Favorieten/Admin) — sessie 2026-08-15/16
+Productbrainstorm afgerond 2026-08-15, richting vastgelegd in overleg.md punten 9-11.
+- [x] **Exposities gebouwd (2026-08-16)**: `genre='expo'` volledig uit de Uitjes-stroom gehaald naar een eigen derde topniveau-knop. Route A geïmplementeerd (altijd tonen tenzij een bekende `date_end` al voorbij is — `date_end` wordt nu voor het eerst echt gelezen door `gen_uitjes.py`). Sortering: default startdatum (server-side), Einddatum/Alfabetisch als client-side herordening. Afstands- en provinciefilter werken mee (gedeeld filterblok, geen aparte code). Zie ARCHITECTURE.md §Exposities voor de volledige technische uitwerking.
+  - Onderweg 2 bugs gevonden en gefixt: `classify()`'s losse keyword `'strip'` matchte per ongeluk "Striptease" (3 theatershows onterecht als expo); en `apply()` werd nooit aangeroepen bij het laden van de pagina, waardoor sportwedstrijden zichtbaar bleven tussen de Uitjes tot de eerste filterklik (bevestigd op de live site: 172 sportevents zichtbaar bij page-load, nu gefixt). Zie decisions.md.
+  - Huidige omvang klein: 4 echte exposities (Groninger Museum x2, Geke Hoogstins, Concertgebouw) — geen aparte Bron-filter gebouwd, kan later als het aantal groeit.
+- [ ] Overweeg als vervolg: Geke Hoogstins-scraper alsnog bouwen nu er een fatsoenlijke plek voor doorlopende exposities is (was eerder bewust overgeslagen, zie decisions.md) — er staat al 1 losse, niet-gescrapete rij ("DSG groepsexpositie", mét correct ingevulde `date_end`) in de DB voor deze bron, en die rij rendert al prima in de nieuwe sectie als voorbeeld van hoe het eruitziet met een echte einddatum.
+- [ ] **Favorieten**: act/team volgen over alle bronnen heen — matching-probleem (zelfde titel, andere spelling per bron) en UI/opslag nog te ontwerpen, zie overleg.md punt 9. Nog niet gebouwd.
+- [ ] **Admin**: lokale/read-only statusweergave (scraper-status, event-aantallen per bron, laatste refresh) — geen backend, geen bewerkmogelijkheid. Exacte inhoud/vormgeving nog te bepalen, zie overleg.md punt 11. Nog niet gebouwd.
 - [ ] Lycurgus/Sudosa/Friso — 2e seizoenshelft volleybal nog niet gepubliceerd door de bond, later herscrapen
 - [ ] GIJS Groningen — URL is nu wel bekend (gijsgroningen.nl/gijs-eredivisie/), maar toont nog seizoen 2025-2026; herchecken zodra 2026-2027 live is
 - [ ] Stadspark Groningen (Summer Stage, Hullaballoo) — revisit zomer 2027

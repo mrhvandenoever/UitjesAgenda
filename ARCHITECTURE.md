@@ -102,6 +102,12 @@ Voor niet-sport-events, volgorde van prioriteit:
 
 **Let op — genre-ambiguïteit**: woorden als "quartet"/"kwartet"/"trio"/"ensemble"/"kamer" duiden **niet** betrouwbaar op klassieke muziek — jazz-combo's heten net zo vaak "Quartet". Deze woorden staan daarom bewust *niet* in de klassiek-keywordlijst (stonden er eerder wel in, gaf verkeerde classificatie bij bv. "Peter Bernstein Quartet"). Bronnen die zelf een genre-signaal geven (zoals SPOT's `data-subgenres`, zie `scrape_spotgroningen.py`) zijn betrouwbaarder dan titel-keywords — geef die door via het `cats`-veld.
 
+**Bug gevonden en gefixt 2026-08-15**: het losse keyword `'strip'` in de expo-titelkeywords matchte als *substring* ook `"Striptease"` — 3 theater/cabaretshows ("Striptease Van De Dood") werden daardoor onterecht als `expo` geclassificeerd. Vervangen door specifiekere `'stripverhaal'`/`'stripmuseum'`/`'stripkunst'`. Dit kwam pas echt aan het licht toen Exposities een eigen zichtbare sectie kreeg (zie hieronder) — voorheen ging zo'n fout genre-label onopgemerkt schuil tussen honderden Uitjes-events.
+
+`icon_map`/`glabel_map` (icoon + label per genre) zijn gehoist naar module-niveau als `GENRE_ICONS`/`GENRE_LABELS`, zodat zowel `event_html()` als `expo_card_html()` (zie hieronder) dezelfde bron gebruiken i.p.v. gedupliceerde lokale dicts.
+
+Genre wordt sinds 2026-08-15 **één keer per event vooraf berekend** (`event_genre(e)`, opgeslagen als `e['_genre']`) in plaats van opnieuw aangeroepen in `event_html()` — nodig omdat de filterstap (`event_is_valid()`, zie §Exposities) het genre ook al moet weten vóórdat er gerenderd wordt.
+
 ---
 
 ### HTML-generatie
@@ -113,6 +119,60 @@ Voor niet-sport-events, volgorde van prioriteit:
 - `data-latlon` — lat,lon voor afstandsberekening
 
 De JavaScript in de browser filtert puur op deze data-attributen — geen server-side filtering.
+
+---
+
+## Exposities (derde topniveau-modus)
+
+Gebouwd 2026-08-15/16, richting bepaald in overleg.md punt 10. Events met
+`_genre=='expo'` worden **volledig uit `events_valid`/`main_html` gehaald** en
+apart gehouden in `expo_valid`/`expo_html` — ze zitten dus niet tussen de
+maand-secties van Uitjes/Sport, maar in een eigen platte lijst.
+
+**Zichtbaarheidsregel (route A, overleg.md punt 10)**: een expositie blijft
+zichtbaar totdat een bekende `date_end` al voorbij is. Geen `date_end`
+ingevuld → altijd zichtbaar, ongeacht hoe ver de startdatum (`date`) al in het
+verleden ligt. Dit is bewust anders dan de normale `TODAY<=date<=2027-12-31`-
+regel voor Uitjes/Sport (`event_is_valid(e)` in `gen_uitjes.py` splitst dit
+per event op basis van `e['_genre']`). Vrijwel geen scraper vult `date_end` op
+dit moment in (2026-08-15: 1 van ~6669 events) — dat is een bewuste,
+geaccepteerde consequentie van route A, geen bug: exposities blijven simpelweg
+zichtbaar tot een scraper ooit een echte einddatum aanlevert.
+
+**Rendering**: `expo_card_html(e)` (geen maand-groepering, i.t.t. `event_html`)
+toont "vanaf `<startdatum>` · t/m `<einddatum>`" of "vanaf `<startdatum>` ·
+einddatum onbekend". Kaart-layout is 2 kolommen (`.event.expo-item{{grid-
+template-columns:1fr auto;}}`, hogere specificiteit dan de standaard
+3-koloms-`.event`-regel zodat het ook onder de mobile media-query wint) i.p.v.
+de standaard 3-koloms-kaart met een smalle datumkolom — een datumbereik past
+niet in 70px.
+
+**Sortering**: default op startdatum (server-side, `expo_valid` is al zo
+gesorteerd), met knoppen "Startdatum"/"Einddatum"/"Alfabetisch" die **client-
+side** de DOM-nodes in `#expo-wrap` herordenen (`Array.sort()` +
+`appendChild()` in volgorde — geen page-reload, geen server-round-trip).
+Events zonder `date_end` krijgen `data-dateend="9999-99-99"` (sentinel) zodat
+ze bij sorteren-op-einddatum altijd onderaan komen i.p.v. bovenaan.
+
+**Filters**: Provincie + afstand werken automatisch mee (zelfde gedeelde
+`.filters`-blok en `apply()`-logica als Uitjes/Sport, geen aparte code nodig).
+Bewust **geen** eigen Bron-filter gebouwd — bij de huidige kleine omvang (4
+events, 3 bronnen) niet nodig, kan later alsnog als het aantal groeit.
+
+**Mode-toggle**: derde knop "🖼️ Exposities" naast Uitjes/Sport. `setMode()`
+verbergt/toont `<main>` (maand-secties) vs `#expo-wrap` (platte lijst) en de
+bijbehorende filter-balken (`#expo-filters` i.p.v. `#uitjes-genre`/
+`#uitjes-src`/`#sport-filters`).
+
+**Bijvangst-bug gevonden en gefixt tijdens deze bouw**: `apply()` (de client-
+side filterfunctie) werd nergens aangeroepen bij het laden van de pagina —
+alleen vanuit knop-click-handlers. Gevolg: op een verse paginalaad stonden
+sportwedstrijden gewoon zichtbaar tussen de Uitjes-events totdat een gebruiker
+voor het eerst een filter aanklikte (bevestigd op de live site vóór de fix:
+172 sportevents zichtbaar in Uitjes-modus bij het laden). Fix: `setMode
+('uitjes')` (roept zelf `apply()` aan) toegevoegd aan het JS-init-blok. Dit
+was al zo vóór de Exposities-bouw — puur toevallig ontdekt omdat dezelfde
+init-code voor de nieuwe derde modus aangepast moest worden.
 
 ---
 
