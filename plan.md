@@ -66,7 +66,16 @@ scrapers (830 events samen):
 - [ ] **EM2 Groningen** — REST-API met custom `event`-post-type gevonden, maar datum staat inconsistent midden in vrije tekst. Kan later met een zorgvuldiger regex-patroon.
 - [ ] **Effenaar** — veelbelovend (150 datum-strings gevonden) maar bleek CMS-content-block-metadata, niet afgerond, nog eens goed naar kijken
 - [ ] **Ziggo Dome** — Next.js/Turbopack, na de Melkweg-ervaring (leek ook client-rendered maar was het niet) een goede kandidaat om alsnog grondig te checken
-- [ ] Resterende bronnen zonder duidelijk vervolgpad (zie SCRAPERS.md voor details per bron): Grand Theatre, Winsinghhof (domein onbereikbaar), Koornbeurs, Groninger Museum, Drents Museum, Zummerbühne, OntdekPoort (403), Hunebedcentrum (403), GIJS Groningen (oud seizoen), Doornroosje, De Doelen, Ahoy, GelreDome, Paradiso, Concertgebouw, Rotown, Het Paard, Hedon Zwolle
+- [ ] Resterende bronnen zonder duidelijk vervolgpad (zie SCRAPERS.md voor details per bron): Grand Theatre, Winsinghhof (domein onbereikbaar), Koornbeurs, Groninger Museum, Drents Museum, Zummerbühne, OntdekPoort (403), Hunebedcentrum (403), GIJS Groningen (oud seizoen), Doornroosje, De Doelen, Ahoy, GelreDome, Paradiso, Concertgebouw, Rotown, Het Paard
+
+### Vervolg — Hedon + TivoliVredenburg via tips van Michiel, Playwright toegevoegd
+- [x] **Hedon Zwolle opgelost** — `scrape_hedon.py`, eigen `/api/events` (Yesplan-backed, tip van Michiel via LinkedIn-post van Hedon zelf). 118 events.
+- [x] **TivoliVredenburg opgelost (gedeeltelijk)** — `scrape_tivolivredenburg.py` via songkick.com (tip Michiel). Alleen muziek/concerten, ~9 shows per run — de site zelf blijft een Cloudflare bot-challenge, bewust niet omzeild.
+- [x] Bij het checken op oude data bleek `tivolivredenburg` al 401 toekomstige, waardevolle events te hebben (niet verouderd zoals bij eerdere gevallen) — bewust NIET opgeruimd, zie decisions.md voor de afweging.
+- [x] **Playwright geïnstalleerd** (na akkoord Michiel) om de resterende niet-bot-beschermde JS-bronnen alsnog zonder AI te automatiseren — eerste externe dependency in het project.
+- [x] Chromium geïnstalleerd, `scrape_neushoorn.py` gebouwd en werkt (110 events) — eerste Playwright-scraper.
+- [ ] Volgende Playwright-kandidaten (geen bot-bescherming, wél client-rendered): GelreDome, Ziggo Dome, Effenaar (nadere check nodig, leek CMS-metadata), Simplon (zelfde als Vera/Neushoorn te proberen — mogelijk ook Stager-platform)
+- [ ] Overweeg later: gedeelde browser-instance i.p.v. elke Playwright-scraper zijn eigen Chromium laten starten (opstarttijd ~7s per scraper, kan oplopen bij veel Playwright-scrapers) — zie ARCHITECTURE.md §Playwright-scrapers.
 
 ## Sport-audit (2026-08-10)
 Van de 19 geconfigureerde clubs in `gen_uitjes.py` (`SPORT_CLUBS`):

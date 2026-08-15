@@ -1,1 +1,10 @@
-# No external dependencies - uses Python stdlib only
+# gen_uitjes.py (en de meeste scrape_*.py-bestanden) gebruiken alleen
+# Python stdlib -- geen dependency nodig voor de Cloudflare-build.
+#
+# playwright is de enige uitzondering, sinds 2026-08-15: headless-browser-
+# scrapers voor bronnen die JS-rendering nodig hebben (zie ARCHITECTURE.md
+# en decisions.md). Alleen nodig LOKAAL om die scrapers te draaien, niet
+# voor de Cloudflare-build (die roept alleen gen_uitjes.py aan).
+#
+# Installeren: pip install -r requirements.txt && playwright install chromium
+playwright

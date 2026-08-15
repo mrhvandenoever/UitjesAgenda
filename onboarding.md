@@ -6,7 +6,7 @@ Praktische gids om dit project over te nemen of mee te draaien. Voor de technisc
 
 - **GitHub-toegang**: repo is [mrhvandenoever/UitjesAgenda](https://github.com/mrhvandenoever/UitjesAgenda). Push-rechten nodig om updates live te zetten.
 - **Cloudflare-toegang**: account met het Pages-project `uitjesagenda` (dash.cloudflare.com → Workers & Pages). Alleen nodig om build-instellingen of domeinen te wijzigen — de gewone workflow (push → auto-build) heeft dit niet nodig.
-- **Python 3** lokaal geïnstalleerd (voor de scrapers en `gen_uitjes.py`). `requirements.txt` is leeg — alleen stdlib.
+- **Python 3** lokaal geïnstalleerd (voor de scrapers en `gen_uitjes.py`). De meeste scrapers zijn pure stdlib; sinds 2026-08-15 is er ook `playwright` nodig voor een paar headless-browser-scrapers — `pip install -r requirements.txt && playwright install chromium` (eenmalig).
 - **Git** lokaal geïnstalleerd.
 
 ## De wekelijkse cyclus

@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (39 bronnen, 37 scripts)
+## ✅ Geautomatiseerd (42 bronnen, 40 scripts)
 
 | Bron | Script |
 |---|---|
@@ -61,18 +61,22 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Melkweg (Amsterdam) | `scrape_melkweg.py` (server-rendered HTML, regex, 257 events — was "AI/Chrome nodig") |
 | 013 Tilburg | `scrape_013.py` (server-rendered HTML, regex, 154 events — was "AI/Chrome nodig") |
 | FC Groningen | `scrape_fcgroningen.py` (ESPN.nl, team-id 145 — zelfde patroon als Cambuur/FC Twente/Go Ahead/PEC Zwolle, 14 events — was "eenmalig via Chrome gehaald, geen los script") |
+| Hedon (Zwolle) | `scrape_hedon.py` (eigen `/api/events`, Yesplan-backed — tip van Michiel over Hedons LinkedIn-post, 118 events — was "AI/Chrome nodig", pagina bleek lege Angular-shell) |
+| TivoliVredenburg | `scrape_tivolivredenburg.py` (via songkick.com — tip van Michiel — alleen muziek/concerten, ~9 shows per run; site zelf blijft een bevestigde Cloudflare bot-challenge, bewust niet omzeild) |
+| Neushoorn (Leeuwarden) | `scrape_neushoorn.py` — **eerste Playwright-scraper** (headless Chromium rendert de Webflow-SPA, daarna regex op de DOM), 110 events. Zie ARCHITECTURE.md §Playwright-scrapers. |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig (24 bronnen, incl. landelijke-podia-tabel verderop)
+## 🌐 AI/Chrome nodig (21 bronnen, incl. landelijke-podia-tabel verderop)
 
-7 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md) — bleken bij
-nader onderzoek toch geen browser nodig: Atlas Emmen (Umbraco-ticketing-API),
-Zuidhaege Assen (WP REST `event_listing`-post-type), Melkweg en 013 Tilburg
-(server-rendered HTML, geen client-side rendering zoals eerder aangenomen —
-`__NEXT_DATA__`/JSON-LD-check miste dit toen), FC Groningen (ESPN.nl, zelfde
-patroon als de andere Eredivisie-clubs).
+10 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md): Atlas Emmen
+(Umbraco-ticketing-API), Zuidhaege Assen (WP REST `event_listing`-post-type),
+Melkweg en 013 Tilburg (bleken toch server-rendered), FC Groningen (ESPN.nl),
+Hedon en TivoliVredenburg (tips van Michiel) — allemaal zónder browser
+opgelost. **Neushoorn** is de eerste die écht een headless browser nodig
+had (Playwright, sinds vandaag beschikbaar) — geen verborgen API gevonden,
+wel automatiseerbaar zonder AI.
 
 | Bron | Verwachte omvang | Notitie |
 |---|---|---|
@@ -81,7 +85,6 @@ patroon als de andere Eredivisie-clubs).
 | Grand Theatre (Groningen) | ~25 events | innerText-parsing nodig, geen bruikbare CSS-classes, geen Umbraco/wp-json-API gevonden (custom plugin "michnhokn", niet herkend) |
 | Winsinghhof (theaterroden) | ~71 events | domein blijft onbereikbaar (connectiefout, herbevestigd 2026-08-15) — mogelijk verouderd/gewijzigd domein, nog uit te zoeken welke URL wel klopt |
 | EM2 Groningen | ~21 events | WordPress met custom `event`-post-type, WEL via `/wp-json/wp/v2/event` opvraagbaar — maar de evenementdatum staat los in vrije tekst zonder vast patroon ("De Gipsy Jazz Sessie op 12 juli is...", datum niet aan het begin zoals bij Zuidhaege) en sommige entries lijken terugkerende events zonder duidelijke enkele datum. Deels opgelost (API gevonden) maar datum-extractie te onbetrouwbaar bevonden om nu te bouwen. |
-| Neushoorn | onbekend | Webflow-site (net als GelreDome) — CMS-collecties worden client-side geladen, in de ruwe HTML staat alleen een lege placeholder (`w-dyn-bind-empty`). Genre bevestigd: bevestigd SPA. |
 | Groninger Museum | onbekend | Craft CMS (SEOmatic-generator) — voor de hand liggende GraphQL-endpoints (`/actions/graphql/api`, `/api`) geven beide 404, geen API gevonden |
 | Drents Museum | onbekend | zelfde Craft CMS als Groninger Museum |
 | Koornbeurs | onbekend | eigen JS-bundle bevat geen Umbraco/API-endpoints (anders dan Atlas Emmen, ondanks vergelijkbare bestandsstructuur) |
@@ -135,9 +138,12 @@ JSON-LD en miste dat de HTML zelf al complete event-lijsten bevat) — nu
 opgelost, zie ✅ hierboven. Landstede Hammers is ook al opgelost (2026-08-15,
 zie eigen sectie hierboven — BNXT League-API, niet deze site).
 
+TivoliVredenburg zelf blijft een bevestigde Cloudflare bot-challenge ("Just a
+moment..."-pagina, bewust niet omzeild) — maar wel opgelost via een omweg,
+zie ✅ hierboven (`scrape_tivolivredenburg.py`, via Songkick, tip Michiel).
+
 | Bron | Bevinding |
 |---|---|
-| TivoliVredenburg | **Bevestigd Cloudflare bot-challenge** ("Just a moment..."-pagina) — dit is echte bot-detectie, bewust niet omzeild (zie CLAUDE.md-achtige regel: nooit CAPTCHA/bot-detectie omzeilen). Vereist een echte browser die de JS-uitdaging natuurlijk doorloopt, geen curl-truc. |
 | Doornroosje | WordPress bevestigd (`/wp/wp-includes/...`), custom post-types zijn `vacatures`/`campagne`/`festival` — geen bruikbaar events-type via REST. 3 datum-strings bij hercheck bleek ruis. |
 | De Doelen | Vite-gebundelde JS (`site.js`) doorzocht op API-endpoints/fetch-calls — niets events-gerelateerds gevonden, alleen wachtwoord-lijst-fetches en een Spotify-oembed-call. Geen bruikbare API gevonden. |
 | Ziggo Dome | Next.js/Turbopack, nog niet grondig doorzocht op server-rendering (na de Melkweg-verrassing extra interessant om alsnog te checken) |
@@ -147,11 +153,14 @@ zie eigen sectie hierboven — BNXT League-API, niet deze site).
 | Paradiso, Concertgebouw | homepage geladen maar geen agenda-link gevonden in de ruwe HTML; Paradiso 1 datum-string bij hercheck (vermoedelijk ruis) — juiste agenda-URL nog niet gevonden |
 | Rotown | `/agenda/` geeft 404, 1 datum-string bij hercheck (ruis) — exacte listing-URL nog niet gevonden (individuele event-URL's wel: rotown.nl/agenda/artiest/) |
 | Het Paard | connectiefout bij hercheck 2026-08-15 (was timeout op 2026-08-14) — nog niet gelukt te bereiken |
-| Hedon Zwolle | pagina laadt maar blijft verdacht klein (7KB, ongewijzigd t.o.v. 2026-08-14) — mogelijk verkeerde URL of redirect, nog uit te zoeken |
 
-Resterend van deze oorspronkelijke 15: 12 bronnen, geteld bij de 24
-"AI/Chrome nodig" hierboven (Melkweg, 013 en Landstede Hammers zijn
-opgelost).
+Hedon Zwolle bleek een lege Angular-SPA-shell (7KB) te zijn, maar heeft een
+eigen `/api/events`-endpoint — opgelost, zie ✅ hierboven
+(`scrape_hedon.py`).
+
+Resterend van deze oorspronkelijke 15: 10 bronnen, geteld bij de 21
+"AI/Chrome nodig" hierboven (Melkweg, 013, Landstede Hammers, Hedon en
+TivoliVredenburg zijn opgelost).
 
 ## 📍 Eenmalig opgelost, geen herhaalbaar script (2 bronnen)
 

@@ -21,11 +21,12 @@
 | `events_categorized.json` | Brondata — alle events. Single source of truth. |
 | `scraping_recipes.json` | Per-bron scrape-instructies (render_type, code, agenda_url). |
 | `index.html` | Gegenereerde output. **Nooit handmatig aanpassen.** |
-| `requirements.txt` | Intentioneel leeg — alleen Python stdlib nodig. |
+| `requirements.txt` | `playwright` (sinds 2026-08-15, alleen voor lokale headless-browser-scrapers) — verder leeg, de rest is pure Python stdlib. Cloudflare-build gebruikt dit bestand niet (roept alleen `gen_uitjes.py` aan, stdlib-only). |
 | `scrape_<bron>.py` | Eén los scraper-script per bron/venue (zie §Scrapers-conventie). Huidige scripts: `scrape_drenthe.py`, `scrape_friesland.py`, `scrape_visitgroningen.py`, `scrape_spotgroningen.py`, `scrape_handbal.py` (E&O + Hurry-Up), `scrape_naarzuidlaren.py`, `scrape_handmatig.py` (vaste jaarevents). |
 | `run_weekly_refresh.py` | Draait alle `scrape_*.py`-bestanden (auto-discovery via glob), daarna export + generate. Zie §Wekelijkse refresh. |
 | `page_cache.py` | Change-detection: hash-cache in `events.db` om parse/insert-werk over te slaan als een bron ongewijzigd is. Zie §Change-detection. |
 | `ssl_fix.py` | Workaround voor `ssl.VERIFY_X509_STRICT` (Python 3.13+), side-effect-import via `page_cache.py` — dus geen aparte import per scraper nodig. Zie decisions.md 2026-08-15. |
+| `scrape_<bron>_pw.py`-stijl (Playwright) | Scrapers voor JS-gerenderde bronnen die geen verborgen API hebben — headless Chromium rendert de pagina, script leest daarna de DOM. Geen AI/LLM nodig per run. Zie §Playwright-scrapers, decisions.md 2026-08-15. Bewust nooit ingezet tegen bot-detectie/CAPTCHA's (TivoliVredenburg, OntdekPoort, Hunebedcentrum blijven daarom buiten schot). |
 | `SCRAPERS.md` | Status per bron: geautomatiseerd / kan zonder AI (recipe klaar) / AI-Chrome nodig / nog niet geprobeerd. |
 | `CLAUDE.md` | Werkwijze voor Claude in deze repo (wanneer welk .md-bestand lezen/bijwerken). |
 | `onboarding.md` / `overleg.md` / `plan.md` / `decisions.md` | Voor beheerders: resp. hoe-neem-ik-dit-over, open discussiepunten, to-do, genomen beslissingen. |
@@ -275,6 +276,38 @@ zoals bedoeld. Let op `scrape_naarzuidlaren.py`: gebruikt bewust dezelfde
 `SOURCE = 'drenthe.nl'` als `scrape_drenthe.py` (provincie-filter), maar een
 eigen cache-key (`SOURCE + ':naarzuidlaren'`) — anders zou een wijziging bij
 de één de cache van de ander onterecht laten denken dat er niks veranderd is.
+
+## Playwright-scrapers
+
+Sinds 2026-08-15 (zie decisions.md) is `playwright` toegevoegd als eerste
+externe dependency (`requirements.txt`), specifiek voor bronnen die
+JS-rendering nodig hebben en waarvoor geen verborgen API te vinden was
+(anders dan bv. Atlas Emmen/Melkweg/013, die uiteindelijk zónder browser
+opgelost bleken — zie SCRAPERS.md). Installatie: `pip install -r
+requirements.txt && playwright install chromium` (eenmalig, ~300MB
+browser-download).
+
+Patroon (zie `scrape_neushoorn.py` als eerste voorbeeld): een functie die
+Chromium headless start, naar de URL navigeert, wacht op `networkidle` (+
+een korte extra `wait_for_timeout` voor late JS-updates), en de gerenderde
+`page.content()` teruggeeft als HTML-string — daarna gewoon dezelfde
+regex-extractie als bij de niet-Playwright-scrapers. Geen AI/LLM betrokken;
+dit is pure browser-automatisering, dus prima geschikt voor de wekelijkse
+refresh (`run_weekly_refresh.py` pikt deze scripts automatisch op, net als
+alle andere `scrape_*.py`-bestanden — geen aparte behandeling nodig).
+
+**Principiële grens**: Playwright wordt bewust NOOIT ingezet om
+bot-detectie of CAPTCHA's te omzeilen. Bronnen met een bevestigde
+Cloudflare-uitdaging (TivoliVredenburg) of 403-bot-bescherming (OntdekPoort,
+Hunebedcentrum) blijven daarom buiten deze aanpak, ongeacht of een headless
+browser die blokkade toevallig zou kunnen passeren.
+
+Overweeg voor toekomstige Playwright-scrapers: opstarttijd is merkbaar
+trager dan een plain `urllib`-request (~7s voor Neushoorn, vs <1s voor de
+meeste andere scrapers) — bij veel Playwright-scrapers kan dit de totale
+duur van `run_weekly_refresh.py` merkbaar verlengen. Nog niet geoptimaliseerd
+(bv. één gedeelde browser-instance voor meerdere scrapers) — apart punt,
+zie plan.md.
 
 ## Cross-source dedup & insert-prioriteit
 
