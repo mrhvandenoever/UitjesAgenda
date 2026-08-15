@@ -22,6 +22,7 @@
 | `scraping_recipes.json` | Per-bron scrape-instructies (render_type, code, agenda_url). |
 | `index.html` | Gegenereerde output. **Nooit handmatig aanpassen.** |
 | `requirements.txt` | `playwright` (sinds 2026-08-15, alleen voor lokale headless-browser-scrapers) — verder leeg, de rest is pure Python stdlib. Cloudflare-build gebruikt dit bestand niet (roept alleen `gen_uitjes.py` aan, stdlib-only). |
+| `secrets_local.py` + `secrets.local.json` | API-keys (bv. Ticketmaster) — `secrets.local.json` staat in `.gitignore`, nooit committen. Zie §API-keys hieronder. |
 | `scrape_<bron>.py` | Eén los scraper-script per bron/venue (zie §Scrapers-conventie). Huidige scripts: `scrape_drenthe.py`, `scrape_friesland.py`, `scrape_visitgroningen.py`, `scrape_spotgroningen.py`, `scrape_handbal.py` (E&O + Hurry-Up), `scrape_naarzuidlaren.py`, `scrape_handmatig.py` (vaste jaarevents). |
 | `run_weekly_refresh.py` | Draait alle `scrape_*.py`-bestanden (auto-discovery via glob), daarna export + generate. Zie §Wekelijkse refresh. |
 | `page_cache.py` | Change-detection: hash-cache in `events.db` om parse/insert-werk over te slaan als een bron ongewijzigd is. Zie §Change-detection. |
@@ -316,6 +317,26 @@ meeste andere scrapers) — bij veel Playwright-scrapers kan dit de totale
 duur van `run_weekly_refresh.py` merkbaar verlengen. Nog niet geoptimaliseerd
 (bv. één gedeelde browser-instance voor meerdere scrapers) — apart punt,
 zie plan.md.
+
+## API-keys
+
+Sommige bronnen (bv. de Ticketmaster Discovery API, zie plan.md) vereisen
+een eigen API-key. Nooit hardcoded in een `scrape_*.py`-bestand en nooit in
+de chat plakken (zie decisions.md 2026-08-15 — zelfde risico als het
+GitHub-PAT-incident: een key die eenmaal in een transcript staat, moet als
+gecompromitteerd behandeld worden).
+
+Patroon: `secrets.local.json` (staat in `.gitignore`, nooit gecommit) met
+per key een entry, uitgelezen via `secrets_local.get_secret(naam)`:
+
+```python
+from secrets_local import get_secret
+API_KEY = get_secret('ticketmaster_api_key')
+```
+
+Eenmalig opzetten (per machine, niet via chat): kopieer
+`secrets.local.json.example` naar `secrets.local.json` en vul de echte
+waarde(s) zelf in een lokale editor in.
 
 ## Cross-source dedup & insert-prioriteit
 

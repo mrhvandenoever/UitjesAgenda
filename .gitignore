@@ -6,6 +6,9 @@ events.db-shm
 # Log van de geplande weekly_refresh.ps1-taak — lokaal, hoeft niet gecommit
 refresh_log.txt
 
+# API-keys/secrets — nooit committen, zie secrets.local.json.example
+secrets.local.json
+
 # Python
 __pycache__/
 *.pyc

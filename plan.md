@@ -161,7 +161,7 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
 - 6999 → 7055 events na deze sessie (friesland.nl +19 nieuw; rest van de bronnen grotendeels ongewijzigd t.o.v. vorige refresh).
 
 ## Later / open items (uit ARCHITECTURE.md)
-- [ ] Ticketmaster Discovery API (gratis tier, 5.000 req/dag) — key aanvragen op developer.ticketmaster.com
+- [ ] Ticketmaster Discovery API (gratis tier, 5.000 req/dag, 5/sec) — Michiel is een app aan het aanmaken op developer.ticketmaster.com (2026-08-15). Alleen `?apikey=...` nodig voor read-only requests, geen OAuth/callback-URL. Veilige key-opslag staat klaar: `secrets.local.json` (in .gitignore) + `secrets_local.py`, zie ARCHITECTURE.md §API-keys en decisions.md.
 - [ ] Lycurgus/Sudosa/Friso — 2e seizoenshelft volleybal nog niet gepubliceerd door de bond, later herscrapen
 - [ ] GIJS Groningen — URL is nu wel bekend (gijsgroningen.nl/gijs-eredivisie/), maar toont nog seizoen 2025-2026; herchecken zodra 2026-2027 live is
 - [ ] Stadspark Groningen (Summer Stage, Hullaballoo) — revisit zomer 2027

@@ -532,6 +532,14 @@
     "genre": "overig"
   },
   {
+    "title": "MÚR",
+    "date": "2026-08-17",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/mur/"
+  },
+  {
     "title": "Spotlight op Wagner: van Liebestod tot de Ring",
     "date": "2026-08-17",
     "source": "concertgebouw",
@@ -540,10 +548,12 @@
     "url": "https://www.concertgebouw.nl/concerten/41486304-spotlight-op-wagner-van-liebestod-tot-de-ring"
   },
   {
-    "title": "WILCO",
+    "title": "Wilco - + Hovvdy",
     "date": "2026-08-17",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/wilco/"
   },
   {
     "title": "Alcest",
@@ -581,6 +591,14 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/41773094-kings-return-magische-samenzang-van-a-cappellakoningen"
+  },
+  {
+    "title": "Signs of the Swarm - + Heavy//Hitter + Tenuem",
+    "date": "2026-08-18",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/signs-of-the-swarm/"
   },
   {
     "title": "Techno Tuesday: Dexon",
@@ -645,6 +663,14 @@
     ]
   },
   {
+    "title": "De Jukebox",
+    "date": "2026-08-19",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/de-jukebox-14/"
+  },
+  {
     "title": "De nieuwe wereld van Fuse",
     "date": "2026-08-19",
     "source": "concertgebouw",
@@ -662,10 +688,20 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1269435641/drentse-heidedagen-schaapskudde-lhee"
   },
   {
-    "title": "HORSEGIRL",
+    "title": "G4 - MARIZ MUSIC + TANGEX + UNITY + TJENSES",
     "date": "2026-08-19",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/g4-4/"
+  },
+  {
+    "title": "Horsegirl - + From 2",
+    "date": "2026-08-19",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/horsegirl/"
   },
   {
     "title": "Jett Rebel",
@@ -809,10 +845,12 @@
     "url": "https://www.noorderzon.nl/programma/izithukuthuku-the-tattered-soul-of-the-worker"
   },
   {
-    "title": "SPARKS",
+    "title": "Sparks",
     "date": "2026-08-20",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/sparks/"
   },
   {
     "title": "Vaartocht door Nationaal Park De Alde Feanen (10+)",
@@ -822,12 +860,6 @@
     "city": "Earnewald",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3715396473/vaartocht-door-nationaal-park-de-alde-feanen-10-15"
-  },
-  {
-    "title": "WEDNESDAY",
-    "date": "2026-08-20",
-    "source": "doornroosje",
-    "genre": "overig"
   },
   {
     "title": "WIES en Hiigo",
@@ -851,6 +883,14 @@
     ]
   },
   {
+    "title": "Wednesday - + Fantasy Of A Broken Heart",
+    "date": "2026-08-20",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/wednesday/"
+  },
+  {
     "title": "After Sun: Hitjesgolf",
     "date": "2026-08-21",
     "source": "tivolivredenburg",
@@ -867,12 +907,6 @@
     "category": "Cultureel festival"
   },
   {
-    "title": "DEAFHEAVEN",
-    "date": "2026-08-21",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "De Graanrepubliek",
     "date": "2026-08-21",
     "source": "zummerbuhne",
@@ -884,6 +918,14 @@
       "toneel",
       "muziek"
     ]
+  },
+  {
+    "title": "Deafheaven - + Show Me The Body",
+    "date": "2026-08-21",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/deafheaven/"
   },
   {
     "title": "EMBED: EMERGING DIGITAL ARTS - Shiavash Naghshbandi - Lock-On Protocol",
@@ -971,6 +1013,14 @@
     "url": "https://www.noorderzon.nl/programma/izithukuthuku-the-tattered-soul-of-the-worker"
   },
   {
+    "title": "Pysched - Nikki Bennis + Feestcollege + Kiss Kiss + Coûteux",
+    "date": "2026-08-21",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/pysched/"
+  },
+  {
     "title": "Raving Charlie",
     "date": "2026-08-21",
     "source": "melkweg",
@@ -995,10 +1045,12 @@
     "url": "https://www.concertgebouw.nl/concerten/41486307-royal-danish-orchestra-en-topviolist-nikolaj-szeps-znaider-in-brahms"
   },
   {
-    "title": "STEEL PULSE",
+    "title": "Steel Pulse",
     "date": "2026-08-21",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/steel-pulse/"
   },
   {
     "title": "Vitesse - Almere City FC",
@@ -1123,10 +1175,12 @@
     "cats": []
   },
   {
-    "title": "FRANK BOEIJEN",
+    "title": "Frank Boeijen",
     "date": "2026-08-22",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/frank-boeijen-18/"
   },
   {
     "title": "Gitaren UIT DE Oost Interviewt Faradays",
@@ -1269,6 +1323,14 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45410365-paco-pena-grootmeester-van-de-flamenco"
+  },
+  {
+    "title": "Papangu - + Dead Neanderthals",
+    "date": "2026-08-22",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/papangu/"
   },
   {
     "title": "Platen- en cd-beurs",
@@ -1433,10 +1495,12 @@
     "genre": "overig"
   },
   {
-    "title": "FRANK BOEIJEN",
+    "title": "Frank Boeijen",
     "date": "2026-08-23",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/frank-boeijen-19/"
   },
   {
     "title": "Go Ahead Eagles - ADO Den Haag",
@@ -1668,10 +1732,12 @@
     "url": "https://www.podiuminfo.nl/concert/453048/Joji/Ziggo-Dome/"
   },
   {
-    "title": "KURT VILE AND THE VIOLATORS",
+    "title": "Kurt Vile and The Violators - + Solex",
     "date": "2026-08-25",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/kurt-vile-and-the-violators-3/"
   },
   {
     "title": "No Dutch Required",
@@ -1778,10 +1844,12 @@
     "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
   },
   {
-    "title": "GOGOL BORDELLO",
+    "title": "Gogol Bordello - + Puzzled Panther",
     "date": "2026-08-26",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/gogol-bordello-3/"
   },
   {
     "title": "MTB Streetrace competitie | De Wijk",
@@ -2287,6 +2355,14 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3655679872/visserijdagen-pubquiz-visserijdagen"
   },
   {
+    "title": "¡Pendejo! + Baardvader",
+    "date": "2026-08-28",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/pendejo-1/"
+  },
+  {
     "title": "90s Nullies 10s",
     "date": "2026-08-29",
     "source": "paard",
@@ -2394,12 +2470,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/293436260/garnizoensdagen-strijd-om-de-veste"
   },
   {
-    "title": "HET NEST FESTIVAL 2026",
-    "date": "2026-08-29",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Hemdykrintocht",
     "date": "2026-08-29",
     "source": "friesland.nl",
@@ -2415,6 +2485,14 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/37331012-het-isidore-string-quartet-inspireert-met-haydn-en-mendelssohn"
+  },
+  {
+    "title": "Het Nest Festival 2026",
+    "date": "2026-08-29",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/het-nest-festival-2026/"
   },
   {
     "title": "Hit The City 2026 | zaterdag",
@@ -2904,10 +2982,12 @@
     "genre": "overig"
   },
   {
-    "title": "ANGINE DE POITRINE",
+    "title": "Angine de Poitrine",
     "date": "2026-08-31",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/angine-de-poitrine/"
   },
   {
     "title": "Cheeky Monday: TANTRON!",
@@ -3001,10 +3081,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3266883736/kijk-achter-de-schermen-bij-eendenkooi-buismanskoai-bij-piaam"
   },
   {
-    "title": "RYAN DAVIS & THE ROADHOUSE BAND",
+    "title": "Ryan Davis & the Roadhouse Band - + Ebby",
     "date": "2026-09-01",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/ryan-davis-the-roadhouse-band-2/"
   },
   {
     "title": "Techno Tuesday: Dexon",
@@ -3024,10 +3106,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2844773135/vaartocht-door-nationaal-park-de-alde-feanen-10-18"
   },
   {
-    "title": "WYATT E.",
+    "title": "Wyatt E. - + 30.000 Monkies",
     "date": "2026-09-01",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/wyatt-e/"
   },
   {
     "title": "3 Provinciën fiets-3-daagse",
@@ -3297,10 +3381,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1132469147/avond-op-de-heide-met-fotocamera"
   },
   {
-    "title": "BEZERKUS BINGO",
+    "title": "BEZERKUS BINGO - Tabitha + Reggy B + Donagrandi",
     "date": "2026-09-04",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/bezerkus-bingo-2/"
   },
   {
     "title": "BONKERS BINGO",
@@ -3531,6 +3617,14 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3064133845/samael"
   },
   {
+    "title": "Special Social Club",
+    "date": "2026-09-04",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/special-social-club-4/"
+  },
+  {
     "title": "Stars in Concert: Nikola Meeuwsen, Emma Kok, Nicola Benedetti, Caro Emerald & Sonya Yoncheva",
     "date": "2026-09-04",
     "source": "concertgebouw",
@@ -3660,12 +3754,6 @@
     "category": "Muziek overig"
   },
   {
-    "title": "DOODSESKADER",
-    "date": "2026-09-05",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "De Graanrepubliek",
     "date": "2026-09-05",
     "source": "zummerbuhne",
@@ -3679,10 +3767,26 @@
     ]
   },
   {
+    "title": "Doodseskader",
+    "date": "2026-09-05",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/doodseskader/"
+  },
+  {
     "title": "Festival Oude Muziek Utrecht - 5 september",
     "date": "2026-09-05",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Fiber - Delta Heavy + Subsonic + Justin Hawkes + Artino",
+    "date": "2026-09-05",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/fiber-20/"
   },
   {
     "title": "Fryske Jun: 25 jaar Van der Valk Hotel Drachten",
@@ -3801,10 +3905,12 @@
     "category": "Sportevenement"
   },
   {
-    "title": "RAUWE KICKS",
+    "title": "Rauwe Kicks",
     "date": "2026-09-05",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/rauwe-kicks-6/"
   },
   {
     "title": "Republiek – Dansavond",
@@ -4420,10 +4526,12 @@
     "url": "https://dedoelen.nl/nl/agenda/pyrrhon-devoid-of-thought-mv4n"
   },
   {
-    "title": "ROMAN CANDLE",
+    "title": "Roman Candle - + Filth is Eternal",
     "date": "2026-09-08",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/roman-candle/"
   },
   {
     "title": "Techno Tuesday: JP aka Lonestriker",
@@ -4462,12 +4570,6 @@
     "sport": "voetbal"
   },
   {
-    "title": "FOY VANCE",
-    "date": "2026-09-09",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "First Time Flyers",
     "date": "2026-09-09",
     "source": "spotgroningen.nl",
@@ -4478,6 +4580,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Foy Vance - + Bonnie Bishop",
+    "date": "2026-09-09",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/foy-vance/"
   },
   {
     "title": "Gaudeamus Festival 2026 Openingsavond",
@@ -4542,6 +4652,14 @@
     "category": "Muziek overig"
   },
   {
+    "title": "Rattlesnake Milk",
+    "date": "2026-09-09",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/rattlesnake-milk/"
+  },
+  {
     "title": "Tijdreis door de Zuiderzee",
     "date": "2026-09-09",
     "source": "friesland.nl",
@@ -4566,6 +4684,14 @@
     "genre": "overig",
     "venue": "Melkweg, Amsterdam",
     "url": "https://www.melkweg.nl/nl/agenda/akira-1988-10-09-2026/"
+  },
+  {
+    "title": "CCC Inc.",
+    "date": "2026-09-10",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/ccc-inc-2/"
   },
   {
     "title": "Chicco",
@@ -4690,6 +4816,14 @@
     "genre": "Muziek",
     "location": "Rotterdam",
     "url": "https://dedoelen.nl/nl/agenda/proms-john-williams-greatest-hits-fnk6"
+  },
+  {
+    "title": "Sonido Gallo Negro",
+    "date": "2026-09-10",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/sonido-gallo-negro/"
   },
   {
     "title": "TAFKAL 2026 - Serieus Grappig",
@@ -5033,12 +5167,6 @@
     "url": "https://simplon.nl/events/bassface-september-2026/"
   },
   {
-    "title": "CLAUDE",
-    "date": "2026-09-12",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "CULTÜRD PRESENTS: KEVIN",
     "date": "2026-09-12",
     "source": "neushoorn",
@@ -5047,6 +5175,14 @@
     "url": "https://neushoorn.nl/programma",
     "category": "pop",
     "cats": []
+  },
+  {
+    "title": "Claude",
+    "date": "2026-09-12",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/claude-2/"
   },
   {
     "title": "Corso Frederiksoord",
@@ -5068,6 +5204,14 @@
     "date": "2026-09-12",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Diaspora",
+    "date": "2026-09-12",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/diaspora-7/"
   },
   {
     "title": "Donderslag",
@@ -5420,6 +5564,22 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2368864213/phoenix-voices"
   },
   {
+    "title": "Popronde - Post Ella + HOOFS",
+    "date": "2026-09-12",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/popronde-10/"
+  },
+  {
+    "title": "Popronde Afterparty",
+    "date": "2026-09-12",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/popronde-afterparty-6/"
+  },
+  {
     "title": "Pro Wrestling Holland Live",
     "date": "2026-09-12",
     "source": "friesland.nl",
@@ -5656,10 +5816,12 @@
     "url": "https://dedoelen.nl/nl/agenda/enigma-variaties-r1bq"
   },
   {
-    "title": "FEAR FACTORY",
+    "title": "Fear Factory - + Crystal Lake + Hate + The Noctural Affair",
     "date": "2026-09-13",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/fear-factory/"
   },
   {
     "title": "Foy Vance – The Wake World Tour",
@@ -5926,6 +6088,14 @@
     "url": "https://www.concertgebouw.nl/concerten/38466033-mahler-9-door-het-mahler-academy-orchestra"
   },
   {
+    "title": "Playlunch",
+    "date": "2026-09-14",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/playlunch/"
+  },
+  {
     "title": "Slava Kommisarenko",
     "date": "2026-09-14",
     "source": "afaslive",
@@ -5985,6 +6155,14 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45999628-mca-debuteert-met-beethovens-zesde-en-vijfde"
+  },
+  {
+    "title": "Maya Ongaku",
+    "date": "2026-09-15",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/maya-ongaku/"
   },
   {
     "title": "Merijn Scholten – Lemming",
@@ -6163,16 +6341,34 @@
     "genre": "overig"
   },
   {
-    "title": "THE LONGEST JOHNS",
+    "title": "Shallowater",
     "date": "2026-09-16",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/shallowater/"
+  },
+  {
+    "title": "The Longest Johns",
+    "date": "2026-09-16",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/the-longest-johns/"
   },
   {
     "title": "6LACK",
     "date": "2026-09-17",
     "source": "013",
     "genre": "overig"
+  },
+  {
+    "title": "Allegaeon - + Gorod + Abysmal Dawn",
+    "date": "2026-09-17",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/allegaeon/"
   },
   {
     "title": "Anna Lapwood met het Philharmonia Orchestra en Laurens Symfonisch vrouwenkoor",
@@ -6431,6 +6627,22 @@
     ]
   },
   {
+    "title": "Chica Chica",
+    "date": "2026-09-18",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/chica-chica/"
+  },
+  {
+    "title": "Come As You Are",
+    "date": "2026-09-18",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/come-as-you-are-2/"
+  },
+  {
     "title": "Concert Fegebart duo",
     "date": "2026-09-18",
     "source": "friesland.nl",
@@ -6605,12 +6817,6 @@
     "genre": "overig"
   },
   {
-    "title": "POLYPHONIC",
-    "date": "2026-09-18",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Pink Floyd Project",
     "date": "2026-09-18",
     "source": "denieuwekolk.nl",
@@ -6631,6 +6837,14 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1396867958/plus-instruments-nl-desintresse-nl-hondenfokker-nl",
     "category": "Concert"
+  },
+  {
+    "title": "Polyphonic",
+    "date": "2026-09-18",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/polyphonic-2/"
   },
   {
     "title": "RAWAYANA",
@@ -6824,6 +7038,14 @@
     "genre": "overig"
   },
   {
+    "title": "Fiesta Macumba - Fiesta Macumba Soundsystem + Lalo el Bandido",
+    "date": "2026-09-19",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/fiesta-macumba-51/"
+  },
+  {
     "title": "Heerenveens UITfestival 2026",
     "date": "2026-09-19",
     "source": "posthuistheater",
@@ -6842,18 +7064,20 @@
     "genre": "overig"
   },
   {
-    "title": "IRON JINN",
-    "date": "2026-09-19",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Indiase klassieke muziek: Prewien Pandohi-Mishre & Ensemble",
     "date": "2026-09-19",
     "source": "concertgebouw",
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/43931211-indiase-klassieke-muziek-prewien-pandohi-mishre-ensemble"
+  },
+  {
+    "title": "Iron Jinn - + zZz",
+    "date": "2026-09-19",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/iron-jinn/"
   },
   {
     "title": "Jan Beuving",
@@ -6936,6 +7160,14 @@
     "city": "Koarnjum",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/732121379/kulturele-portretten-ut-fryslan"
+  },
+  {
+    "title": "Kunstnacht",
+    "date": "2026-09-19",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/kunstnacht-6/"
   },
   {
     "title": "MEGAN MORONEY",
@@ -7044,10 +7276,12 @@
     "url": "https://www.paard.nl/en/event/polyphonic-4/"
   },
   {
-    "title": "RACOON",
+    "title": "Racoon - + Faela",
     "date": "2026-09-19",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/racoon-17/"
   },
   {
     "title": "SLOWTriatlon® Waterland van Friesland",
@@ -7421,12 +7655,6 @@
     "category": "Sportevenement"
   },
   {
-    "title": "LIME GARDEN",
-    "date": "2026-09-20",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "LOS DOKKUM",
     "date": "2026-09-20",
     "source": "friesland.nl",
@@ -7434,6 +7662,14 @@
     "city": "Dokkum",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4095334133/los-dokkum"
+  },
+  {
+    "title": "Lime Garden",
+    "date": "2026-09-20",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/lime-garden/"
   },
   {
     "title": "Martin Oei: Reis door de Russische pianoschool van Balakirev tot Stravinsky",
@@ -7712,10 +7948,12 @@
     "genre": "overig"
   },
   {
-    "title": "BERRE",
+    "title": "Berre",
     "date": "2026-09-22",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/berre/"
   },
   {
     "title": "Cesar: Het verhaal van een drummer",
@@ -7862,6 +8100,14 @@
     ]
   },
   {
+    "title": "De Jukebox",
+    "date": "2026-09-23",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/de-jukebox-15/"
+  },
+  {
     "title": "Flamin' Groovies",
     "date": "2026-09-23",
     "source": "effenaar",
@@ -7907,10 +8153,12 @@
     "image": "https://www.afaslive.nl/files/Agenda/2026/september/_1200x630_crop_center-center_none/My-Hero-Academia.jpg"
   },
   {
-    "title": "NONA",
+    "title": "Nona",
     "date": "2026-09-23",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/nona-2/"
   },
   {
     "title": "Ramona Zaharia is Carmen",
@@ -7959,16 +8207,18 @@
     ]
   },
   {
-    "title": "THE JAYHAWKS",
-    "date": "2026-09-23",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "The Chris Rea Experience",
     "date": "2026-09-23",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "The Jayhawks",
+    "date": "2026-09-23",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/the-jayhawks/"
   },
   {
     "title": "Theater Rotterdam / Mathieu Wijdeven - Helstone in het Pand der Goden",
@@ -8050,16 +8300,20 @@
     "url": "https://neushoorn.nl/programma"
   },
   {
-    "title": "AND ALSO THE TREES",
+    "title": "And Also the Trees",
     "date": "2026-09-24",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/and-also-the-trees/"
   },
   {
-    "title": "BEYOND THE BLACK",
+    "title": "Beyond the Black - + SETYØURSAILS",
     "date": "2026-09-24",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/beyond-the-black-2/"
   },
   {
     "title": "Coming On Strong - Onze Earring",
@@ -8288,6 +8542,14 @@
     "date": "2026-09-24",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "South Summit",
+    "date": "2026-09-24",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/south-summit/"
   },
   {
     "title": "THE LEMON TWIGS",
@@ -8759,6 +9021,14 @@
     "url": "https://www.atlastheater.nl/voorstellingen/beperkt-houdbaar-andries-tunru-stefan-hendrikx-26-sep/"
   },
   {
+    "title": "Bokkeryers",
+    "date": "2026-09-26",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/bokkeryers/"
+  },
+  {
     "title": "BÖKKERS",
     "date": "2026-09-26",
     "source": "013",
@@ -8808,12 +9078,6 @@
     "category": "Concert"
   },
   {
-    "title": "DARYLL-ANN",
-    "date": "2026-09-26",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "DI-RECT",
     "date": "2026-09-26",
     "source": "spotgroningen.nl",
@@ -8826,12 +9090,6 @@
     ]
   },
   {
-    "title": "DOUWE BOB",
-    "date": "2026-09-26",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "DUO-concert: Eljakim & Evergreens",
     "date": "2026-09-26",
     "source": "friesland.nl",
@@ -8839,6 +9097,22 @@
     "city": "Bolsward",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3179936388/duo-concert-eljakim-evergreens"
+  },
+  {
+    "title": "Daryll-Ann",
+    "date": "2026-09-26",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/daryll-ann-5/"
+  },
+  {
+    "title": "Douwe Bob",
+    "date": "2026-09-26",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/douwe-bob-7/"
   },
   {
     "title": "Eindeloos India Festival",
@@ -8991,6 +9265,14 @@
     "date": "2026-09-26",
     "source": "melkweg",
     "genre": "overig"
+  },
+  {
+    "title": "Mama Africa",
+    "date": "2026-09-26",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/mama-africa-7/"
   },
   {
     "title": "Marcel Hensema — Eldorado (reprise)",
@@ -9319,16 +9601,18 @@
     "url": "https://www.atlastheater.nl/voorstellingen/erik-van-muiswinkel-cor-bakker-ea-de-gouden-jaren-try-out-27-sep/"
   },
   {
-    "title": "FLUISTERAARS",
-    "date": "2026-09-27",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Flat Earth Society - The Coltrane Mutations",
     "date": "2026-09-27",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Fluisteraars - + Invunche",
+    "date": "2026-09-27",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/fluisteraars/"
   },
   {
     "title": "Herman Sandman & Bert Hadders – Waar zijn de slingers",
@@ -9914,12 +10198,6 @@
     "genre": "overig"
   },
   {
-    "title": "DOTAN",
-    "date": "2026-09-30",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "De Jukebox",
     "date": "2026-09-30",
     "source": "013",
@@ -9935,6 +10213,14 @@
     "genre": "overig",
     "venue": "Grand Theatre, Groningen",
     "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/de-warme-winkel-britt-for-president"
+  },
+  {
+    "title": "Dotan",
+    "date": "2026-09-30",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/dotan-6/"
   },
   {
     "title": "Efteling in Concert - Reprise",
@@ -9959,10 +10245,12 @@
     "genre": "overig"
   },
   {
-    "title": "JANNE SCHRA",
+    "title": "Janne Schra",
     "date": "2026-09-30",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/janne-schra-4/"
   },
   {
     "title": "Krystian Zimerman",
@@ -9985,6 +10273,14 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/995688925/lsd-the-search-for-god-usa-support",
     "category": "Concert"
+  },
+  {
+    "title": "Lake Malice - + Chaosbay + Eville",
+    "date": "2026-09-30",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/lake-malice/"
   },
   {
     "title": "Little Barrie",
@@ -10186,12 +10482,6 @@
     ]
   },
   {
-    "title": "DOTAN",
-    "date": "2026-10-01",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Danny Vera - The sound of long ago",
     "date": "2026-10-01",
     "source": "lawei",
@@ -10210,6 +10500,14 @@
     "genre": "overig",
     "venue": "Grand Theatre, Groningen",
     "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/de-warme-winkel-britt-for-president"
+  },
+  {
+    "title": "Dotan",
+    "date": "2026-10-01",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/dotan-5/"
   },
   {
     "title": "Douwe Bob",
@@ -10233,6 +10531,14 @@
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/grip-rayen-panday-01-okt/"
+  },
+  {
+    "title": "Grote Geelstaart",
+    "date": "2026-10-01",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/grote-geelstaart/"
   },
   {
     "title": "Het Debuut – Via Rudolphi Producties",
@@ -10473,6 +10779,14 @@
     ]
   },
   {
+    "title": "Bass Drum of Death",
+    "date": "2026-10-02",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/bass-drum-of-death/"
+  },
+  {
     "title": "Black Stone Cherry - The Celebrate Tour – Special guest: 10 Years",
     "date": "2026-10-02",
     "source": "spotgroningen.nl",
@@ -10612,7 +10926,9 @@
     "title": "IJSLAND",
     "date": "2026-10-02",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/ijsland/"
   },
   {
     "title": "Job Knoester",
@@ -10693,16 +11009,18 @@
     "genre": "overig"
   },
   {
-    "title": "MICA MILLAR",
-    "date": "2026-10-02",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Mendelssohns Vierde en Beethovens Tripelconcert",
     "date": "2026-10-02",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Mica Millar",
+    "date": "2026-10-02",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/mica-millar/"
   },
   {
     "title": "Nathalie Baartman",
@@ -10920,10 +11238,12 @@
     ]
   },
   {
-    "title": "BAND OF HORSES",
+    "title": "Band of Horses",
     "date": "2026-10-03",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/band-of-horses-2/"
   },
   {
     "title": "Bockfestival 2026",
@@ -11195,12 +11515,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3853332875/lois-lane"
   },
   {
-    "title": "MYRATH",
-    "date": "2026-10-03",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Marcel Hensema - ELDORADO (reprise)",
     "date": "2026-10-03",
     "source": "visitgroningen",
@@ -11218,6 +11532,14 @@
     "city": "Zwiggelte",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1323520618/midden-drentheloop-2"
+  },
+  {
+    "title": "Myrath - + Roses of Thieves",
+    "date": "2026-10-03",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/myrath/"
   },
   {
     "title": "NOTION",
@@ -12100,10 +12422,12 @@
     "genre": "overig"
   },
   {
-    "title": "UNPROCESSED",
+    "title": "Unprocessed - + Of Virtue + Daedric",
     "date": "2026-10-05",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/unprocessed/"
   },
   {
     "title": "Bluesworld Café: Spijkerblues",
@@ -12312,6 +12636,14 @@
     ]
   },
   {
+    "title": "Hällas - + Earth Tongue",
+    "date": "2026-10-07",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/hallas/"
+  },
+  {
     "title": "IJsland",
     "date": "2026-10-07",
     "source": "spotgroningen.nl",
@@ -12350,10 +12682,20 @@
     "url": "https://dedoelen.nl/nl/agenda/krystian-zimerman-hgt1"
   },
   {
-    "title": "LAIBACH",
+    "title": "LOE.",
     "date": "2026-10-07",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/loe/"
+  },
+  {
+    "title": "Laibach",
+    "date": "2026-10-07",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/laibach/"
   },
   {
     "title": "Mary in The Junkyard - 7 oktober 2026 - Rotown, Rotterdam",
@@ -12501,10 +12843,12 @@
     "url": "https://www.podiuminfo.nl/concert/450404/Acda-en-de-Munnik-Bal-op-het-dak/Ziggo-Dome/"
   },
   {
-    "title": "BEARS IN TREES",
+    "title": "Bears in Trees",
     "date": "2026-10-08",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/bears-in-trees/"
   },
   {
     "title": "Bee Gees by MainCourse",
@@ -12980,6 +13324,14 @@
     ]
   },
   {
+    "title": "Jesse Hoefnagels",
+    "date": "2026-10-09",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/jesse-hoefnagels/"
+  },
+  {
     "title": "Joep van Deudekom & Rob Urgert - DE VERBINDERS!",
     "date": "2026-10-09",
     "source": "koornbeurs",
@@ -13145,12 +13497,6 @@
     "genre": "overig"
   },
   {
-    "title": "SOULCRUSHER 2026",
-    "date": "2026-10-09",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Shadow of Intent",
     "date": "2026-10-09",
     "source": "tivolivredenburg",
@@ -13172,6 +13518,14 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/44075920-sonico---piazzolla---rovira-the-edge-of-tango"
+  },
+  {
+    "title": "Soulcrusher 2026",
+    "date": "2026-10-09",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/soulcrusher-2026/"
   },
   {
     "title": "Tangarine",
@@ -13767,12 +14121,6 @@
     ]
   },
   {
-    "title": "SOULCRUSHER 2026",
-    "date": "2026-10-10",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Shirma's Soul Kitchen - Caribische avond",
     "date": "2026-10-10",
     "source": "friesland.nl",
@@ -13780,6 +14128,22 @@
     "city": "Drachten",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/426939276/shirma-s-soul-kitchen-caribische-avond"
+  },
+  {
+    "title": "Smells Like Alternative",
+    "date": "2026-10-10",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/smells-like-alternative-17/"
+  },
+  {
+    "title": "Soulcrusher 2026",
+    "date": "2026-10-10",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/soulcrusher-2026-1/"
   },
   {
     "title": "Sudosa - Friso Sneek DS 1",
@@ -13979,16 +14343,18 @@
     ]
   },
   {
-    "title": "MAYA FRIDMAN",
-    "date": "2026-10-11",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Margaret Glaspy",
     "date": "2026-10-11",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Maya Fridman – Thunder Perfect Mind",
+    "date": "2026-10-11",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/maya-fridman-thunder-perfect-mind/"
   },
   {
     "title": "Menzis 4 Mijl van Groningen",
@@ -14232,12 +14598,6 @@
     "url": "https://dedoelen.nl/nl/agenda/tenebrae-r1xn"
   },
   {
-    "title": "CORTO.ALTO",
-    "date": "2026-10-13",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Cuca Roseta",
     "date": "2026-10-13",
     "source": "spotgroningen.nl",
@@ -14436,6 +14796,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "corto.alto",
+    "date": "2026-10-13",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/corto-alto/"
   },
   {
     "title": "Amsterdam Klezmer Band - 30 jaar",
@@ -14716,7 +15084,9 @@
     "title": "RONDÉ",
     "date": "2026-10-14",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/ronde-14/"
   },
   {
     "title": "RUEL",
@@ -14928,6 +15298,14 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3401813862/het-huis-dat-stopte-met-staan"
+  },
+  {
+    "title": "IDA",
+    "date": "2026-10-15",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/ida/"
   },
   {
     "title": "IOS",
@@ -15182,6 +15560,14 @@
     "category": "Cabaret"
   },
   {
+    "title": "Wodan Boys - + Badminton",
+    "date": "2026-10-15",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/wodan-boys-3/"
+  },
+  {
     "title": "Yuja Wang speelt Brahms 1 en 2",
     "date": "2026-10-15",
     "source": "dedoelen",
@@ -15322,12 +15708,6 @@
     "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047840/Titel/10364125"
   },
   {
-    "title": "DIGGY DEX",
-    "date": "2026-10-16",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "DOUWE BOB",
     "date": "2026-10-16",
     "source": "013",
@@ -15361,6 +15741,14 @@
     "genre": "overig"
   },
   {
+    "title": "Diggy Dex",
+    "date": "2026-10-16",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/diggy-dex-10/"
+  },
+  {
     "title": "Donovan Woods",
     "date": "2026-10-16",
     "source": "tivolivredenburg",
@@ -15376,18 +15764,20 @@
     "url": "https://www.paard.nl/en/event/dotan-11/"
   },
   {
-    "title": "FANFARE CIOCĂRLIA",
-    "date": "2026-10-16",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Familieconcert: Cello Cello speelt OUD! (6+)",
     "date": "2026-10-16",
     "source": "concertgebouw",
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45868623-familieconcert-cello-cello-speelt-oud-6"
+  },
+  {
+    "title": "Fanfare Ciocărlia",
+    "date": "2026-10-16",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/fanfare-ciocarlia/"
   },
   {
     "title": "Fierder nei it Noarden",
@@ -15511,6 +15901,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "IST IST",
+    "date": "2026-10-16",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/ist-ist-3/"
   },
   {
     "title": "KATJA HEITMANN - MOTUS MORI: PERPETUUM",
@@ -15654,6 +16052,14 @@
     "image": "https://www.rotown.nl/wp-content/uploads/2026/02/Sophie-Hutchings-Photo-Credit-Keith-Saunders.jpg"
   },
   {
+    "title": "Tay Oskee",
+    "date": "2026-10-16",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/tay-oskee/"
+  },
+  {
     "title": "The 70's Unplugged - Forever Young",
     "date": "2026-10-16",
     "source": "lawei",
@@ -15724,12 +16130,6 @@
     "genre": "overig"
   },
   {
-    "title": "AUTECHRE",
-    "date": "2026-10-17",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Akopian Trio speelt Mendelssohn en Rachmaninoff",
     "date": "2026-10-17",
     "source": "concertgebouw",
@@ -15775,6 +16175,14 @@
     "city": "Beetsterzwaag",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/993629422/appeldag"
+  },
+  {
+    "title": "Autechre - + Roel Funcken + MDX",
+    "date": "2026-10-17",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/autechre-2/"
   },
   {
     "title": "Band of Horses – Celebrating 20 Years of Everything All The Time",
@@ -16147,6 +16555,14 @@
     "category": "Concert"
   },
   {
+    "title": "Orgel Vreten",
+    "date": "2026-10-17",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/orgel-vreten-3/"
+  },
+  {
     "title": "Outbreak Safari",
     "date": "2026-10-17",
     "source": "neushoorn",
@@ -16211,6 +16627,14 @@
       "Indie",
       "Alternative"
     ]
+  },
+  {
+    "title": "Skraeckoedlan + Kaleidobolt",
+    "date": "2026-10-17",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/skraeckoedlan/"
   },
   {
     "title": "Snelle",
@@ -16279,6 +16703,14 @@
     "url": "https://neushoorn.nl/programma",
     "category": "pop",
     "cats": []
+  },
+  {
+    "title": "Terug In De Tijd",
+    "date": "2026-10-17",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/terug-in-de-tijd-4/"
   },
   {
     "title": "The Clarks ft. Rinus Gerritsen & Cesar Zuiderwijk Spelen Golden Earring",
@@ -16747,18 +17179,20 @@
     "sport": "voetbal"
   },
   {
-    "title": "SNELLE",
-    "date": "2026-10-18",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Sam Tompkins",
     "date": "2026-10-18",
     "source": "melkweg",
     "genre": "overig",
     "venue": "Melkweg, Amsterdam",
     "url": "https://www.melkweg.nl/nl/agenda/sam-tompkins-18-10-2026/"
+  },
+  {
+    "title": "Snelle",
+    "date": "2026-10-18",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/snelle-5/"
   },
   {
     "title": "Snuffelmarkt",
@@ -16826,6 +17260,14 @@
     "genre": "overig"
   },
   {
+    "title": "néomí",
+    "date": "2026-10-18",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/neomi-3/"
+  },
+  {
     "title": "ABBA Gold",
     "date": "2026-10-19",
     "source": "dedoelen",
@@ -16834,18 +17276,20 @@
     "url": "https://dedoelen.nl/nl/agenda/abba-gold-j21p"
   },
   {
-    "title": "BLOOD RED SHOES",
-    "date": "2026-10-19",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Babyconcert (0 t/m 18 maanden)",
     "date": "2026-10-19",
     "source": "concertgebouw",
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/44728366-babyconcert-0-t-m-18-maanden"
+  },
+  {
+    "title": "Blood Red Shoes",
+    "date": "2026-10-19",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/blood-red-shoes-3/"
   },
   {
     "title": "Buffalo Tom",
@@ -16872,10 +17316,12 @@
     "genre": "overig"
   },
   {
-    "title": "GAVIN DEGRAW",
+    "title": "Gavin DeGraw",
     "date": "2026-10-19",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/gavin-degraw/"
   },
   {
     "title": "Grote Pianisten: Krystian Zimerman speelt Chopin",
@@ -16938,10 +17384,12 @@
     "genre": "overig"
   },
   {
-    "title": "AND SO I WATCH YOU FROM AFAR",
+    "title": "And So I Watch You From Afar + Caspian - + otay:onii",
     "date": "2026-10-20",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/asiwyfa/"
   },
   {
     "title": "Bachs Brandenburgse concerten door Bach Collegium Japan",
@@ -17008,6 +17456,14 @@
     ]
   },
   {
+    "title": "Mind Enterprises",
+    "date": "2026-10-20",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/mind-enterprises/"
+  },
+  {
     "title": "Pankaj Tiwari / CAMPO - The Harvest of Broken Promises",
     "date": "2026-10-20",
     "source": "grandtheatregroningen",
@@ -17062,6 +17518,14 @@
     ]
   },
   {
+    "title": "Arkayla",
+    "date": "2026-10-21",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/arkayla/"
+  },
+  {
     "title": "BITBIRD PRESENTS: SAN HOLO & DROELOE",
     "date": "2026-10-21",
     "source": "melkweg",
@@ -17097,6 +17561,14 @@
     "url": "https://www.013.nl/programma/152582/culs-cult"
   },
   {
+    "title": "De Jukebox",
+    "date": "2026-10-21",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/de-jukebox-16/"
+  },
+  {
     "title": "DoKa - William Rutten",
     "date": "2026-10-21",
     "source": "atlastheater",
@@ -17122,10 +17594,12 @@
     "sport": "volleybal"
   },
   {
-    "title": "GHØSTKID",
+    "title": "GHØSTKID - + SUPPORTS",
     "date": "2026-10-21",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/ghostkid/"
   },
   {
     "title": "Guilt Trip",
@@ -17511,6 +17985,14 @@
     "genre": "overig"
   },
   {
+    "title": "Kruidkoek & Joost Oomen",
+    "date": "2026-10-22",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/kruidkoek-joost-oomen/"
+  },
+  {
     "title": "L A Sagne",
     "date": "2026-10-22",
     "source": "paard",
@@ -17599,10 +18081,12 @@
     "genre": "overig"
   },
   {
-    "title": "ROLF SANCHEZ",
+    "title": "Rolf Sanchez",
     "date": "2026-10-22",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/rolf-sanchez-3/"
   },
   {
     "title": "Ronde",
@@ -17667,12 +18151,6 @@
     "url": "https://dedoelen.nl/nl/agenda/twilight-in-concert-j2dj"
   },
   {
-    "title": "YOUNGBLOOD BRASS BAND",
-    "date": "2026-10-22",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Yorick van Norden",
     "date": "2026-10-22",
     "source": "visitgroningen",
@@ -17681,6 +18159,14 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1994337696/yorick-van-norden-1",
     "category": "Muziek overig"
+  },
+  {
+    "title": "Youngblood Brass Band",
+    "date": "2026-10-22",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/youngblood-brass-band/"
   },
   {
     "title": "3 avonden lachen voor € 33,00! - Cabaret Serie 1 - 2026/2027",
@@ -17744,6 +18230,14 @@
     "date": "2026-10-23",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "CLOUDSURFERS",
+    "date": "2026-10-23",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/cloudsurfers-3/"
   },
   {
     "title": "Cabaret Café",
@@ -18090,12 +18584,6 @@
     "cats": []
   },
   {
-    "title": "THIJS VELDHUIS",
-    "date": "2026-10-23",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Tangarine",
     "date": "2026-10-23",
     "source": "drenthe.nl",
@@ -18139,6 +18627,14 @@
     "city": "Drachten",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3249988074/theatre-of-hate-skids"
+  },
+  {
+    "title": "Thijs Veldhuis",
+    "date": "2026-10-23",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/thijs-veldhuis/"
   },
   {
     "title": "Time Bandits",
@@ -18239,12 +18735,6 @@
     "url": "https://www.concertgebouw.nl/concerten/45966474-ade-christian-loffler-adna"
   },
   {
-    "title": "ARCHSPIRE",
-    "date": "2026-10-24",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Andries Tunru & Stefan Hendrikx - Beperkt Houdbaar",
     "date": "2026-10-24",
     "source": "drenthe.nl",
@@ -18255,6 +18745,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Archspire - + Crown Magnetar + The Zenith Passage + Analepsy",
+    "date": "2026-10-24",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/archspire-3/"
   },
   {
     "title": "BLENDSWORLD - ADE SPECIAL",
@@ -19490,12 +19988,6 @@
     ]
   },
   {
-    "title": "MIDNIGHT TIL MORNING",
-    "date": "2026-10-27",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Manon - The Royal Ballet",
     "date": "2026-10-27",
     "source": "koornbeurs",
@@ -19503,6 +19995,14 @@
     "time": "20:15",
     "venue": "Koornbeurs, Franeker",
     "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048542/Titel/10369950"
+  },
+  {
+    "title": "Midnight Til Morning",
+    "date": "2026-10-27",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/midnight-til-morning/"
   },
   {
     "title": "Nena",
@@ -19515,6 +20015,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Noah Guthrie - + Roofman",
+    "date": "2026-10-27",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/noah-guthrie/"
   },
   {
     "title": "Plien & Bianca - Harrekidee! (reprise)",
@@ -19636,6 +20144,14 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/eliades-ochoa-6/"
+  },
+  {
+    "title": "Fat Dog",
+    "date": "2026-10-28",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/fat-dog-2/"
   },
   {
     "title": "Frazey Ford - 28 oktober 2026 - Annabel, Rotterdam",
@@ -19817,10 +20333,12 @@
     "genre": "overig"
   },
   {
-    "title": "WESTSIDE COWBOY",
+    "title": "Westside Cowboy - + Wyatt",
     "date": "2026-10-28",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/westside-cowboy/"
   },
   {
     "title": "Zing-Cirkel Concertgebouw",
@@ -19829,6 +20347,14 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45913708-zing-cirkel-concertgebouw"
+  },
+  {
+    "title": "Şatellites",
+    "date": "2026-10-28",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/satellites/"
   },
   {
     "title": "25 jaar Academie Concertgebouworkest",
@@ -20346,7 +20872,9 @@
     "title": "IOS",
     "date": "2026-10-30",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/ios/"
   },
   {
     "title": "Jannes live in Ahoy",
@@ -20478,6 +21006,14 @@
     ]
   },
   {
+    "title": "Nobu",
+    "date": "2026-10-30",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/nobu/"
+  },
+  {
     "title": "Residentie Orkest met Sjostakovitsj Tiende",
     "date": "2026-10-30",
     "source": "tivolivredenburg",
@@ -20500,6 +21036,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "The Monsters - + support",
+    "date": "2026-10-30",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/the-monsters/"
   },
   {
     "title": "Theatervoorstelling: Lees mij, zei de brief",
@@ -20635,10 +21179,12 @@
     "category": "Muziekfeest"
   },
   {
-    "title": "ALELA DIANE",
+    "title": "Alela Diane - + The Hackles",
     "date": "2026-10-31",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/alela-diane-3/"
   },
   {
     "title": "Angela Groothuizen",
@@ -20841,6 +21387,14 @@
     "image": "https://www.rotown.nl/wp-content/uploads/2026/03/Jon-Allen-DSCF9843-FB-event-scaled.jpg"
   },
   {
+    "title": "Julia Sabaté",
+    "date": "2026-10-31",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/julia-sabate/"
+  },
+  {
     "title": "KAMFEST",
     "date": "2026-10-31",
     "source": "013",
@@ -20917,6 +21471,14 @@
     "date": "2026-10-31",
     "source": "melkweg",
     "genre": "overig"
+  },
+  {
+    "title": "Okonski + Evita Polidoro",
+    "date": "2026-10-31",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/okonski-evita-polidoro/"
   },
   {
     "title": "Oosterse klanken van Sheherazade & Darvishi",
@@ -21165,6 +21727,14 @@
     "genre": "overig"
   },
   {
+    "title": "WTF Halloween - Pythius + DJ Flight + Tantron b2b Tantron b2b Tantron b2b Tantron b2b Tantron + Tanukichi + Koarse + Click b2b Ju Letta",
+    "date": "2026-10-31",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/wtf-halloween-6/"
+  },
+  {
     "title": "Zzzahara",
     "date": "2026-10-31",
     "source": "paard",
@@ -21369,10 +21939,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2603556058/fryske-tsjiinst-5"
   },
   {
-    "title": "GEORDIE GREEP",
+    "title": "Geordie Greep + Knobil",
     "date": "2026-11-01",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/geordie-greep-knobil/"
   },
   {
     "title": "Groenenberg & De Jong",
@@ -21633,6 +22205,14 @@
     "genre": "overig"
   },
   {
+    "title": "Swapmeet",
+    "date": "2026-11-01",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/swapmeet/"
+  },
+  {
     "title": "THE HOME TEAM",
     "date": "2026-11-01",
     "source": "melkweg",
@@ -21745,10 +22325,12 @@
     ]
   },
   {
-    "title": "GOLDIE BOUTILIER",
+    "title": "Goldie Boutilier",
     "date": "2026-11-02",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/goldie-boutilier/"
   },
   {
     "title": "Klassieke Vrienden – duo sonore",
@@ -21874,10 +22456,12 @@
     "genre": "overig"
   },
   {
-    "title": "LOS PIRAÑAS",
+    "title": "Los Pirañas",
     "date": "2026-11-03",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/los-piranas/"
   },
   {
     "title": "Maas theater en dans | 155",
@@ -22004,6 +22588,14 @@
     "cats": [
       "theater"
     ]
+  },
+  {
+    "title": "Ciao Lucifer",
+    "date": "2026-11-04",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/ciao-lucifer-2/"
   },
   {
     "title": "Dolf Jansen Schaamteloos – Oudejaars 2026",
@@ -22173,10 +22765,12 @@
     ]
   },
   {
-    "title": "TEMPLES",
+    "title": "Temples - + PAUW",
     "date": "2026-11-04",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/temples-2/"
   },
   {
     "title": "Tokio Hotel",
@@ -22294,6 +22888,14 @@
     "url": "https://dedoelen.nl/nl/agenda/fire-in-my-mouth-7r9g"
   },
   {
+    "title": "Hippotraktor",
+    "date": "2026-11-05",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/hippotraktor/"
+  },
+  {
     "title": "Izaline Calister",
     "date": "2026-11-05",
     "source": "denieuwekolk.nl",
@@ -22379,7 +22981,9 @@
     "title": "MEROL",
     "date": "2026-11-05",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/merol-4/"
   },
   {
     "title": "Maaike Ouboter Met Band",
@@ -22664,16 +23268,18 @@
     "genre": "overig"
   },
   {
-    "title": "FINK",
-    "date": "2026-11-06",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "FLEMMING",
     "date": "2026-11-06",
     "source": "013",
     "genre": "overig"
+  },
+  {
+    "title": "Fink - + Angela Autumn",
+    "date": "2026-11-06",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/fink-angela-autumn/"
   },
   {
     "title": "GARAGE NATION",
@@ -22889,12 +23495,6 @@
     "url": "https://simplon.nl/events/queens-pleasure-2026/"
   },
   {
-    "title": "RON POPE",
-    "date": "2026-11-06",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Rayan Panday - GRIP",
     "date": "2026-11-06",
     "source": "koornbeurs",
@@ -22902,6 +23502,14 @@
     "time": "20:15",
     "venue": "Koornbeurs, Franeker",
     "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047589/grip/10362778"
+  },
+  {
+    "title": "Ron Pope - + Henry Wagons",
+    "date": "2026-11-06",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/ron-pope/"
   },
   {
     "title": "Sara Kroos",
@@ -23006,10 +23614,12 @@
     "genre": "overig"
   },
   {
-    "title": "ÃO",
+    "title": "Ão",
     "date": "2026-11-06",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/ao/"
   },
   {
     "title": "35 & Still Alive - zaterdag 7 november - Rotown, Rotterdam",
@@ -23052,6 +23662,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Benjamin Herman trio ft. Tomoaki Baba",
+    "date": "2026-11-07",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/benjamin-herman-trio-featuring-bigyuki/"
   },
   {
     "title": "Bildtse Smaakroete",
@@ -23154,7 +23772,9 @@
     "title": "FLEMMING",
     "date": "2026-11-07",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/flemming-4/"
   },
   {
     "title": "Fabian Franciscus",
@@ -23669,10 +24289,12 @@
     ]
   },
   {
-    "title": "FISCHER-Z",
+    "title": "Fischer-Z",
     "date": "2026-11-08",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/fischer-z/"
   },
   {
     "title": "Grytz en Grize mei Sânman en Sikke",
@@ -24168,6 +24790,14 @@
     "url": "https://www.concertgebouw.nl/concerten/38255291-jaap-van-zweden-en-gautier-capucon-in-dvorak-en-berlioz"
   },
   {
+    "title": "Jeremy Pinnell",
+    "date": "2026-11-10",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/jeremy-pinnell/"
+  },
+  {
     "title": "Lezing Anne-Goaitske Breteler",
     "date": "2026-11-10",
     "source": "posthuistheater",
@@ -24213,10 +24843,12 @@
     "genre": "overig"
   },
   {
-    "title": "PICTURE THIS",
+    "title": "Picture This - + Dreamboys The Band + Marc Atlas",
     "date": "2026-11-10",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/picture-this/"
   },
   {
     "title": "Quatuor Modigliani & Yulianna Avdeeva met Sjostakovitsj, Ravel en Debussy",
@@ -24351,10 +24983,12 @@
     ]
   },
   {
-    "title": "FRANKIE AND THE WITCH FINGERS",
+    "title": "Frankie and the Witch Fingers - + Iguana Death Cult",
     "date": "2026-11-11",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/frankie-and-the-witchfingers-3/"
   },
   {
     "title": "GAVIN JAMES",
@@ -24625,10 +25259,12 @@
     ]
   },
   {
-    "title": "FROUKJE",
+    "title": "Froukje",
     "date": "2026-11-12",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/froukje-11/"
   },
   {
     "title": "Grote Geelstaart - donderdag 12 november 2026 - V11, Rotterdam",
@@ -24759,6 +25395,14 @@
     ]
   },
   {
+    "title": "Pert Near Sandstone",
+    "date": "2026-11-12",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/pert-near-sandstone/"
+  },
+  {
     "title": "Pier21 — Wat spilet",
     "date": "2026-11-12",
     "source": "lawei",
@@ -24784,6 +25428,14 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/queens-pleasure-7/"
+  },
+  {
+    "title": "Rijck",
+    "date": "2026-11-12",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/rijck/"
   },
   {
     "title": "Roufaida – Coming Up For Air",
@@ -24955,6 +25607,14 @@
     "category": "Pop en Rock"
   },
   {
+    "title": "Bettie Serveert",
+    "date": "2026-11-13",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/bettie-serveert-4/"
+  },
+  {
     "title": "Bökkers",
     "date": "2026-11-13",
     "source": "friesland.nl",
@@ -25095,12 +25755,6 @@
     "genre": "overig"
   },
   {
-    "title": "FROUKJE",
-    "date": "2026-11-13",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Flemming - Vrijdag 13 november 2026 - Maassilo, Rotterdam",
     "date": "2026-11-13",
     "source": "rotown",
@@ -25108,6 +25762,14 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/flemming/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/05/Flemming-FB.jpg"
+  },
+  {
+    "title": "Froukje",
+    "date": "2026-11-13",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/froukje-12/"
   },
   {
     "title": "GROMMET",
@@ -25146,6 +25808,14 @@
     "genre": "Muziek",
     "location": "Rotterdam",
     "url": "https://dedoelen.nl/nl/agenda/hello-darkness-presents-r15m"
+  },
+  {
+    "title": "Hiigo",
+    "date": "2026-11-13",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/hiigo-2/"
   },
   {
     "title": "KRUIDKOEK & JOOST OOMEN",
@@ -25668,12 +26338,6 @@
     "url": "https://dedoelen.nl/nl/agenda/doelenensemble-en-het-young-doelenensemble-7rby"
   },
   {
-    "title": "ELMER",
-    "date": "2026-11-14",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Edsilia Rombley",
     "date": "2026-11-14",
     "source": "afaslive",
@@ -25681,6 +26345,14 @@
     "location": "Amsterdam",
     "url": "https://www.afaslive.nl/agenda/edsilia-rombley",
     "image": "https://www.afaslive.nl/files/Agenda/2026/november/_1200x630_crop_center-center_none/Edsilia-Rombley.jpg"
+  },
+  {
+    "title": "Elmer",
+    "date": "2026-11-14",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/elmer-2/"
   },
   {
     "title": "Flemming",
@@ -25821,6 +26493,14 @@
     "city": "Drachten",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2512897284/mother-s-finest-1"
+  },
+  {
+    "title": "NO CIGAR",
+    "date": "2026-11-14",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/no-cigar/"
   },
   {
     "title": "Noord Nederlands Orkest speelt Filmmuziek",
@@ -26070,6 +26750,14 @@
     ]
   },
   {
+    "title": "BLØF",
+    "date": "2026-11-15",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/blof-19/"
+  },
+  {
     "title": "Beethovens Kreutzersonate door LGT Young Soloists",
     "date": "2026-11-15",
     "source": "concertgebouw",
@@ -26273,10 +26961,12 @@
     "genre": "overig"
   },
   {
-    "title": "IMMERSION",
+    "title": "Immersion",
     "date": "2026-11-15",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/immersion/"
   },
   {
     "title": "JazzProSessies",
@@ -26512,10 +27202,12 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2726470830/zachtjes-gaan-de-paardenvoetjes-2"
   },
   {
-    "title": "DAOUD",
+    "title": "BLØF",
     "date": "2026-11-16",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/blof-20/"
   },
   {
     "title": "De Grote Jubileum Show",
@@ -26676,6 +27368,14 @@
     "url": "https://www.concertgebouw.nl/concerten/45913196-zing-en-ontdek-messiah"
   },
   {
+    "title": "daoud",
+    "date": "2026-11-16",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/daoud/"
+  },
+  {
     "title": "Bloc Party + Interpol",
     "date": "2026-11-17",
     "source": "afaslive",
@@ -26760,12 +27460,6 @@
     "category": "Muziek overig"
   },
   {
-    "title": "MUSTBEJOHN",
-    "date": "2026-11-17",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Schrikbaard, suikerspin en de vijfling",
     "date": "2026-11-17",
     "source": "posthuistheater",
@@ -26790,6 +27484,14 @@
     "genre": "overig"
   },
   {
+    "title": "mustbejohn",
+    "date": "2026-11-17",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/mustbejohn/"
+  },
+  {
     "title": "Ablaye Cissoko & Cyrille Brotto",
     "date": "2026-11-18",
     "source": "tivolivredenburg",
@@ -26811,10 +27513,12 @@
     "genre": "overig"
   },
   {
-    "title": "BLANKS",
+    "title": "Blanks",
     "date": "2026-11-18",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/blanks-5/"
   },
   {
     "title": "Cats – musical 2026/2027",
@@ -27076,6 +27780,14 @@
     ]
   },
   {
+    "title": "Adult DVD",
+    "date": "2026-11-19",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/adult-dvd/"
+  },
+  {
     "title": "Anneke van Giersbergen",
     "date": "2026-11-19",
     "source": "effenaar",
@@ -27229,16 +27941,18 @@
     "image": "https://www.rotown.nl/wp-content/uploads/2026/04/Lezard-KL.jpg"
   },
   {
-    "title": "MASTER BOOT RECORD + FULCI",
-    "date": "2026-11-19",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "MEROL",
     "date": "2026-11-19",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Master Boot Record + Fulci - + Arottenbit",
+    "date": "2026-11-19",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/master-boot-record-3/"
   },
   {
     "title": "Noord Nederlands Orkest en Alexei Volodin – Rachmaninoff Paganini-rapsodie",
@@ -27526,12 +28240,6 @@
     ]
   },
   {
-    "title": "FRANK BOEIJEN",
-    "date": "2026-11-20",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Fay Lovsky — Hakken in het zand",
     "date": "2026-11-20",
     "source": "lawei",
@@ -27548,6 +28256,14 @@
     "date": "2026-11-20",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Frank Boeijen",
+    "date": "2026-11-20",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/frank-boeijen-20/"
   },
   {
     "title": "Froukje – + support: Jaïr Faria",
@@ -27666,6 +28382,14 @@
     "city": "Meppel",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2086272482/joosen-de-jager-niets-aan-het-handje-try-out"
+  },
+  {
+    "title": "Joshua Idehen",
+    "date": "2026-11-20",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/joshua-idehen/"
   },
   {
     "title": "Kaaskop & Van Vleuten - BREEKBARE MENSEN",
@@ -28554,12 +29278,6 @@
     "genre": "overig"
   },
   {
-    "title": "TUSKY",
-    "date": "2026-11-21",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Theaterprogramma 26/27 NU online!",
     "date": "2026-11-21",
     "source": "vanberesteyn",
@@ -28591,6 +29309,14 @@
     "city": "Wolvega",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/623291852/toneeluitvoering-man-over-boord-door-toneelvereniging-samen-een"
+  },
+  {
+    "title": "Tusky - + Rats and Daggers",
+    "date": "2026-11-21",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/tusky-3/"
   },
   {
     "title": "Vocal Group Sjonge Jonge - Puur Genieten!",
@@ -28815,12 +29541,6 @@
     ]
   },
   {
-    "title": "NOOR",
-    "date": "2026-11-22",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Nederlands Kamerkoor",
     "date": "2026-11-22",
     "source": "tivolivredenburg",
@@ -28831,6 +29551,14 @@
     "date": "2026-11-22",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Noor",
+    "date": "2026-11-22",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/noor/"
   },
   {
     "title": "Onder de Vulkaan -",
@@ -29162,12 +29890,6 @@
     "url": "https://www.concertgebouw.nl/concerten/43353323-erika-baikoff-en-roman-borisov-schumann-barber-en-rachmaninoff"
   },
   {
-    "title": "IMPERIAL TRIUMPHANT",
-    "date": "2026-11-24",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "INKT",
     "date": "2026-11-24",
     "source": "denieuwekolk.nl",
@@ -29178,6 +29900,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Imperial Triumphant - + Knoll",
+    "date": "2026-11-24",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/imperial-triumphant/"
   },
   {
     "title": "K-OTIC",
@@ -29573,6 +30303,14 @@
     "url": "https://www.atlastheater.nl/voorstellingen/creedence-gold-ccr-by-the-fortunate-sons-26-nov/"
   },
   {
+    "title": "C’est Qui?",
+    "date": "2026-11-26",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/cest-qui/"
+  },
+  {
     "title": "Dutch Classical Talent: Hadewych van Gent – SPOT Lunchbreak",
     "date": "2026-11-26",
     "source": "spotgroningen.nl",
@@ -29712,7 +30450,9 @@
     "title": "NAFT",
     "date": "2026-11-26",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/naft/"
   },
   {
     "title": "NO BARRIER",
@@ -29797,10 +30537,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/620296112/rundfunk-wagyu-try-out"
   },
   {
-    "title": "SHANTEL & BUCOVINA CLUB SOUNDSYSTEM",
+    "title": "Shantel & Bucovina Club Soundsystem",
     "date": "2026-11-26",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/shantel-2/"
   },
   {
     "title": "Sons",
@@ -30222,12 +30964,6 @@
     "url": "https://www.013.nl/programma/145139/sugar-spine"
   },
   {
-    "title": "THE VEILS",
-    "date": "2026-11-27",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "The Cosmic Carnival",
     "date": "2026-11-27",
     "source": "visitgroningen",
@@ -30256,6 +30992,14 @@
     "genre": "Muziek",
     "location": "Rotterdam",
     "url": "https://dedoelen.nl/nl/agenda/the-music-of-hans-zimmer-alan-silvestri-fnkg"
+  },
+  {
+    "title": "The Veils - + Anthonie Tonnon",
+    "date": "2026-11-27",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/the-veils-4/"
   },
   {
     "title": "Theatergroep WAARK",
@@ -30347,6 +31091,14 @@
     "cats": [
       "concert"
     ]
+  },
+  {
+    "title": "stay away from dante!",
+    "date": "2026-11-27",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/stay-away-from-dante/"
   },
   {
     "title": "Ademnood Discobal",
@@ -30995,10 +31747,12 @@
     "category": "Concert"
   },
   {
-    "title": "DAVINA MICHELLE",
+    "title": "Davina Michelle",
     "date": "2026-11-29",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/davina-michelle-3/"
   },
   {
     "title": "De Bus Whisky Theatershow  Dennis Hurkmans",
@@ -31171,10 +31925,12 @@
     "sport": "volleybal"
   },
   {
-    "title": "MENTAL CRUELTY",
+    "title": "Mental Cruelty - + Ov Sulfur + Extermination Dismemberment + Sun Eater",
     "date": "2026-11-29",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/mental-cruelty/"
   },
   {
     "title": "Molendag in Súdwest-Fryslân",
@@ -31393,12 +32149,6 @@
     "url": "https://www.concertgebouw.nl/concerten/43931226-bugge-wesseltoft---its-still-snowing-on-my-piano"
   },
   {
-    "title": "DAVINA MICHELLE",
-    "date": "2026-11-30",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "David Linszen – Striptease Van De Dood (reprise)",
     "date": "2026-11-30",
     "source": "spotgroningen.nl",
@@ -31409,6 +32159,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Davina Michelle",
+    "date": "2026-11-30",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/davina-michelle-4/"
   },
   {
     "title": "Filmavond Orange the World",
@@ -31508,10 +32266,12 @@
     "url": "https://www.concertgebouw.nl/concerten/39937286-handels-messiah-door-maarten-engeltjes-en-prjct-amsterdam"
   },
   {
-    "title": "MATT NASH",
+    "title": "Matt Nash",
     "date": "2026-12-01",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/matt-nash/"
   },
   {
     "title": "Matthew and the Atlas – Temple 10th Anniversary Tour",
@@ -31608,10 +32368,12 @@
     "url": "https://www.effenaar.nl/agenda/davina-michelle-extra-show"
   },
   {
-    "title": "FIRST AID KIT",
+    "title": "First Aid Kit",
     "date": "2026-12-02",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/first-aid-kit/"
   },
   {
     "title": "Iván Fischer leidt Stravinsky's Vuurvogel bij het Concertgebouworkest",
@@ -31914,10 +32676,12 @@
     ]
   },
   {
-    "title": "KIDS WITH BUNS",
+    "title": "Kids With Buns",
     "date": "2026-12-03",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/kids-with-buns-4/"
   },
   {
     "title": "LOÏS LANE",
@@ -32411,6 +33175,14 @@
     "url": "https://www.atlastheater.nl/voorstellingen/life-in-the-fast-lane-the-dutch-eagles-04-dec/"
   },
   {
+    "title": "LÉZARD",
+    "date": "2026-12-04",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/lezard/"
+  },
+  {
     "title": "MAITE HONTELÉ & LA NOVIA",
     "date": "2026-12-04",
     "source": "melkweg",
@@ -32890,10 +33662,12 @@
     "category": "Muziek overig"
   },
   {
-    "title": "ZEITGEIST 2026",
+    "title": "Zeitgeist 2026 - My New Band Believe + Dove Ellis + M(h)aol + more",
     "date": "2026-12-05",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/zeitgeist-2026/"
   },
   {
     "title": "storm: Toneelschuur Producties — Venus & Adonis | Agnes Laura Kumpin",
@@ -33326,12 +34100,6 @@
     ]
   },
   {
-    "title": "BELLE & SEBASTIAN",
-    "date": "2026-12-08",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "BILAL",
     "date": "2026-12-08",
     "source": "melkweg",
@@ -33344,6 +34112,14 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/44728370-babyconcert-0-t-m-18-maanden"
+  },
+  {
+    "title": "Belle & Sebastian",
+    "date": "2026-12-08",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/belle-sebastian/"
   },
   {
     "title": "Cecilia Bartoli: Celestial Harmonies – Music from Heaven and Earth",
@@ -33458,6 +34234,22 @@
     "genre": "overig"
   },
   {
+    "title": "The Skints",
+    "date": "2026-12-08",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/the-skints-2/"
+  },
+  {
+    "title": "The Tubs",
+    "date": "2026-12-08",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/the-tubs/"
+  },
+  {
     "title": "Theater Oostpool – The Drama",
     "date": "2026-12-08",
     "source": "spotgroningen.nl",
@@ -33478,10 +34270,12 @@
     "url": "https://dedoelen.nl/nl/agenda/50-jaar-the-last-waltz-9dhz"
   },
   {
-    "title": "ALEX HENRY FOSTER",
+    "title": "Alex Henry Foster",
     "date": "2026-12-09",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/alex-henry-foster/"
   },
   {
     "title": "Charl zingt Shaffy - Een ode aan Ramses Shaffy",
@@ -33807,10 +34601,12 @@
     "genre": "overig"
   },
   {
-    "title": "GOTU JIM",
+    "title": "Gotu Jim",
     "date": "2026-12-10",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/gotu-jim-4/"
   },
   {
     "title": "Het Zwanenmeer",
@@ -33901,6 +34697,14 @@
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1038337777/kameleon-sadettin-k"
+  },
+  {
+    "title": "L.A. Sagne x FEMME FUGAZI",
+    "date": "2026-12-10",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/l-a-sagne-x-femme-fugazi/"
   },
   {
     "title": "Letz Zep / Aerochicks",
@@ -34016,6 +34820,14 @@
     ]
   },
   {
+    "title": "State Power - + support",
+    "date": "2026-12-10",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/state-power/"
+  },
+  {
     "title": "Stippenlift Kerstshow - donderdag 10 december - V11, Rotterdam",
     "date": "2026-12-10",
     "source": "rotown",
@@ -34040,6 +34852,14 @@
     "url": "https://www.hedon-zwolle.nl/programma"
   },
   {
+    "title": "frytz",
+    "date": "2026-12-10",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/frytz-2/"
+  },
+  {
     "title": "10 jaar Kerst met Stippenlift",
     "date": "2026-12-11",
     "source": "simplon",
@@ -34060,6 +34880,14 @@
     "url": "https://neushoorn.nl/programma",
     "category": "pop",
     "cats": []
+  },
+  {
+    "title": "Abel Ghekiere",
+    "date": "2026-12-11",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/abel-ghekiere/"
   },
   {
     "title": "Al het blauw van de hemel",
@@ -34280,10 +35108,20 @@
     ]
   },
   {
-    "title": "J. BERNARDT",
+    "title": "J. Bernardt",
     "date": "2026-12-11",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/j-bernardt-4/"
+  },
+  {
+    "title": "Jack and the Weatherman",
+    "date": "2026-12-11",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/jack-and-the-weatherman-2/"
   },
   {
     "title": "Jasper Hoibys 3elements",
@@ -34749,10 +35587,12 @@
     "sport": "volleybal"
   },
   {
-    "title": "GALLOWSTREET",
+    "title": "Gallowstreet",
     "date": "2026-12-12",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/gallowstreet-4/"
   },
   {
     "title": "Grootkoor Friesland & Brassband De Wâldsang - Kerstconcert",
@@ -35433,12 +36273,6 @@
     "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047603/wat-spilet/10362792"
   },
   {
-    "title": "RIKAS",
-    "date": "2026-12-13",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Reuzenkerstmarkt",
     "date": "2026-12-13",
     "source": "drenthe.nl",
@@ -35458,6 +36292,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Rikas",
+    "date": "2026-12-13",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/rikas/"
   },
   {
     "title": "Rita  Antonopoulou & Revans",
@@ -35629,7 +36471,9 @@
     "title": "HAEVN",
     "date": "2026-12-15",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/haevn-9/"
   },
   {
     "title": "Inleiding NITE",
@@ -35748,6 +36592,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Michael Prins",
+    "date": "2026-12-16",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/michael-prins-4/"
   },
   {
     "title": "NANOEK presenteert",
@@ -35906,10 +36758,12 @@
     ]
   },
   {
-    "title": "ISABÈL USHER",
+    "title": "Isabèl Usher",
     "date": "2026-12-17",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/isabel-usher-2/"
   },
   {
     "title": "K-OTIC",
@@ -35943,6 +36797,14 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/la-pegatina-12/"
+  },
+  {
+    "title": "Library Card",
+    "date": "2026-12-17",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/library-card/"
   },
   {
     "title": "Lycurgus - Orion Stars HS 1",
@@ -36309,6 +37171,14 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1102623066/kerstconcert-door-stadsorganist-theo-jellema-2"
   },
   {
+    "title": "Klezmagic",
+    "date": "2026-12-18",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/klezmagic/"
+  },
+  {
     "title": "Knock Out Comedy Crew Keihard Lachen in Het Bolwerk",
     "date": "2026-12-18",
     "source": "ontdekpoort",
@@ -36321,10 +37191,12 @@
     ]
   },
   {
-    "title": "LA PEGATINA",
+    "title": "La Pegatina",
     "date": "2026-12-18",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/la-pegatina/"
   },
   {
     "title": "MY Baby",
@@ -36409,6 +37281,14 @@
     "date": "2026-12-18",
     "source": "ahoy",
     "genre": "overig"
+  },
+  {
+    "title": "Thijs Boontjes",
+    "date": "2026-12-18",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/thijs-boontjes-5/"
   },
   {
     "title": "Thijs Kemperink & Erwin Nyhoff - Vieren een Muiterse kerst (reprise)",
@@ -36512,12 +37392,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2823933136/amilia"
   },
   {
-    "title": "BERTOLF",
-    "date": "2026-12-19",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Back to the Country - Part Sixteen",
     "date": "2026-12-19",
     "source": "theaterroden",
@@ -36537,6 +37411,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Bertolf - + WOOLF",
+    "date": "2026-12-19",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/bertolf-4/"
   },
   {
     "title": "Celebrate Christmas: Wishful Singing & VOCES8 Scholars Ensemble",
@@ -36563,6 +37445,14 @@
     "date": "2026-12-19",
     "source": "effenaar",
     "genre": "overig"
+  },
+  {
+    "title": "Clean Pete’s Kerstshow - + Elmer + Joost Oomen + Remy van Kesteren + Jeanne (WIES) + Mart Martinus",
+    "date": "2026-12-19",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/clean-petes-kerstshow-5/"
   },
   {
     "title": "Concertgebouworkest Kinderconcert: Kleine Sheku en het dierenorkest (4+)",
@@ -36929,6 +37819,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Clean Pete’s Kerstmatinee - + Elmer + Joost Oomen + Remy van Kesteren + Jeanne (WIES) + Mart Martinus",
+    "date": "2026-12-20",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/clean-petes-kerstmatinee-2/"
   },
   {
     "title": "De Kersthaas",
@@ -37359,10 +38257,12 @@
     "url": "https://www.concertgebouw.nl/concerten/45991427-illia-fialko-met-schubert-chopin-en-schumann"
   },
   {
-    "title": "JUNGLE BY NIGHT",
+    "title": "Jungle By Night",
     "date": "2026-12-22",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/jungle-by-night-6/"
   },
   {
     "title": "Peuterconcert: Zes mooie ballen (en andere winterliedjes) (2+)",
@@ -37477,6 +38377,14 @@
     "category": "Jeugdtheater"
   },
   {
+    "title": "De Jukebox",
+    "date": "2026-12-23",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/de-jukebox-18/"
+  },
+  {
     "title": "De Kleine Prins",
     "date": "2026-12-23",
     "source": "friesland.nl",
@@ -37561,6 +38469,14 @@
     "time": "13:30",
     "venue": "Koornbeurs, Franeker",
     "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047607/de-husselrace-7/10362796"
+  },
+  {
+    "title": "Stippenlift",
+    "date": "2026-12-23",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/stippenlift-4/"
   },
   {
     "title": "Zing-Cirkel Concertgebouw",
@@ -37890,12 +38806,6 @@
     ]
   },
   {
-    "title": "BLACK BOTTLE RIOT",
-    "date": "2026-12-29",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Beroemdste detective in nieuw mysterie - Sherlock Holmes",
     "date": "2026-12-29",
     "source": "atlastheater",
@@ -37903,6 +38813,14 @@
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/beroemdste-detective-in-nieuw-mysterie-sherlock-holmes-29-dec/"
+  },
+  {
+    "title": "Black Bottle Riot",
+    "date": "2026-12-29",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/black-bottle-riot-11/"
   },
   {
     "title": "COMEDY NIGHT",
@@ -37933,6 +38851,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "MICH",
+    "date": "2026-12-29",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/mich-2/"
   },
   {
     "title": "My First Festival (2-12 jaar)",
@@ -38747,12 +39673,6 @@
     ]
   },
   {
-    "title": "DE KIFT",
-    "date": "2027-01-09",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Dancing Queens (xs tribute to ABBA) - Beatrice en Vera van der Poel",
     "date": "2027-01-09",
     "source": "drenthe.nl",
@@ -38760,6 +39680,14 @@
     "city": "Meppel",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/92620102/dancing-queens-xs-tribute-tot-abba-beatrice-en-vera-van-der-poel"
+  },
+  {
+    "title": "De Kift",
+    "date": "2027-01-09",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/de-kift-10/"
   },
   {
     "title": "De Verleiders — Zoek dekking",
@@ -38832,6 +39760,14 @@
     "cats": [
       "cabaret"
     ]
+  },
+  {
+    "title": "Lotte Melief",
+    "date": "2027-01-09",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/lotte-melief/"
   },
   {
     "title": "Loïs Lane",
@@ -39410,12 +40346,6 @@
     "url": "https://www.concertgebouw.nl/concerten/44655807-sjostakovitsj-symfonie-nr.-13-babi-jar-en-schonbergs-a-survivor-from-warsaw"
   },
   {
-    "title": "THE NOTWIST",
-    "date": "2027-01-15",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "The Bentleys",
     "date": "2027-01-15",
     "source": "vanberesteyn",
@@ -39426,6 +40356,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "The Notwist",
+    "date": "2027-01-15",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/the-notwist-2/"
   },
   {
     "title": "The Songs And Stories of The Dubliners - The Dubliners Experience",
@@ -39663,12 +40601,6 @@
     ]
   },
   {
-    "title": "NEW COOL COLLECTIVE",
-    "date": "2027-01-16",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Nabil",
     "date": "2027-01-16",
     "source": "vanberesteyn",
@@ -39679,6 +40611,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "New Cool Collective",
+    "date": "2027-01-16",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/new-cool-collective-9/"
   },
   {
     "title": "Nicolas Altstaedt en Maxim Emelyanychev in Beethoven, Britten, Schumann en Brahms",
@@ -40511,12 +41451,6 @@
     ]
   },
   {
-    "title": "DEWOLFF",
-    "date": "2027-01-22",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "De Kleine Prins (8+) Een betoverende familiemusical voor jong en oud",
     "date": "2027-01-22",
     "source": "ontdekpoort",
@@ -40533,6 +41467,14 @@
     "date": "2027-01-22",
     "source": "ahoy",
     "genre": "overig"
+  },
+  {
+    "title": "DeWolff",
+    "date": "2027-01-22",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/dewolff-6/"
   },
   {
     "title": "Eddy van der Ley - Interview met Kees Kwakman",
@@ -41422,10 +42364,12 @@
     ]
   },
   {
-    "title": "JULIEN CLERC",
+    "title": "Julien Clerc",
     "date": "2027-01-27",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/julien-clerc-3/"
   },
   {
     "title": "Klaus Mäkelä en het Concertgebouworkest in Beethovens Symfonie nr. 7",
@@ -41545,18 +42489,20 @@
     ]
   },
   {
-    "title": "KOVACS",
-    "date": "2027-01-28",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Klaus Mäkelä en het Concertgebouworkest in Beethovens Symfonie nr. 7",
     "date": "2027-01-28",
     "source": "concertgebouw",
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45896890-klaus-makela-en-het-concertgebouworkest-in-beethovens-symfonie-nr.-7"
+  },
+  {
+    "title": "Kovacs",
+    "date": "2027-01-28",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/kovacs-4/"
   },
   {
     "title": "Legendary Albums Live - BEACH BOY'S BEST",
@@ -41639,6 +42585,14 @@
     "city": "Assen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1198876164/beurs-bouwplan-thuis-in-wonen-2"
+  },
+  {
+    "title": "Clan of Xymox - + Dear Omen",
+    "date": "2027-01-29",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/clan-of-xymox-2/"
   },
   {
     "title": "Concertgebouworkest Annual Gala met Klaus Mäkelä",
@@ -42401,6 +43355,14 @@
     ]
   },
   {
+    "title": "Robin Scherpen",
+    "date": "2027-02-02",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/robin-scherpen/"
+  },
+  {
     "title": "Skryptonite",
     "date": "2027-02-02",
     "source": "afaslive",
@@ -42894,6 +43856,14 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/4213594368/grof-geschud-vieren"
   },
   {
+    "title": "HENGE",
+    "date": "2027-02-05",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/henge-4/"
+  },
+  {
     "title": "Holland Baroque en Wu Wei (sheng)",
     "date": "2027-02-05",
     "source": "friesland.nl",
@@ -42992,12 +43962,6 @@
     ]
   },
   {
-    "title": "TRAMHAUS",
-    "date": "2027-02-05",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "The Black Dahlia Murder",
     "date": "2027-02-05",
     "source": "013",
@@ -43041,6 +44005,14 @@
     "city": "Gorredijk",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3200644960/toontje-lager-in-de-skans-gorredijk"
+  },
+  {
+    "title": "Tramhaus",
+    "date": "2027-02-05",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/tramhaus-2/"
   },
   {
     "title": "VERS! Festival Live op z’n best",
@@ -43965,6 +44937,14 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2801388685/niels-geusebroek-2",
     "category": "Muziek overig"
+  },
+  {
+    "title": "Primitive Ring",
+    "date": "2027-02-11",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/primitive-ring/"
   },
   {
     "title": "René van Meurs",
@@ -45934,12 +46914,6 @@
     ]
   },
   {
-    "title": "THE REYTONS",
-    "date": "2027-02-20",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "TYLER BRADEN",
     "date": "2027-02-20",
     "source": "melkweg",
@@ -45974,6 +46948,14 @@
     "city": "Zweeloo",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2994957451/the-lasses-the-rocky-road"
+  },
+  {
+    "title": "The Reytons",
+    "date": "2027-02-20",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/the-reytons/"
   },
   {
     "title": "Voor haar – Frans Halsema musical",
@@ -46339,10 +47321,12 @@
     "cats": []
   },
   {
-    "title": "THE RASMUS",
+    "title": "The Rasmus",
     "date": "2027-02-23",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/the-rasmus/"
   },
   {
     "title": "Aladdin De Musical",
@@ -46692,10 +47676,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3972449685/girls-on-fire-3-de-ultieme-ladiesnight"
   },
   {
-    "title": "HEIDEROOSJES",
+    "title": "Heideroosjes",
     "date": "2027-02-26",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/heideroosjes-2/"
   },
   {
     "title": "Hier! - BÖKKERS",
@@ -46849,12 +47835,6 @@
     "url": "https://www.concertgebouw.nl/concerten/45744215-een-imaginaire-vespers-met-pygmalion"
   },
   {
-    "title": "FATOUMATA DIAWARA",
-    "date": "2027-02-27",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Familiemusical De Kleine Prins (8+)",
     "date": "2027-02-27",
     "source": "vanberesteyn",
@@ -46865,6 +47845,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Fatoumata Diawara",
+    "date": "2027-02-27",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/fatoumata-diawara-2/"
   },
   {
     "title": "Hartmut Haenchen en Nederlands Philharmonisch met Bruckner 6",
@@ -47101,10 +48089,12 @@
     "url": "https://www.concertgebouw.nl/concerten/45558883-hartmut-haenchen-en-nederlands-philharmonisch-met-bruckner-6"
   },
   {
-    "title": "LOREENA MCKENNITT",
+    "title": "Loreena McKennitt",
     "date": "2027-02-28",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/loreena-mckennitt/"
   },
   {
     "title": "Missie Maan - André Kuipers - Space Academy | 8+",
@@ -47295,6 +48285,14 @@
     "cats": [
       "concert"
     ]
+  },
+  {
+    "title": "REZN - + Coltaine",
+    "date": "2027-03-03",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/rezn-2/"
   },
   {
     "title": "Rising Stars: Amelio Trio",
@@ -49819,6 +50817,14 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4124964052/stormram-nieuwe-noordelijke-makers-2"
   },
   {
+    "title": "The Haunted Youth",
+    "date": "2027-03-17",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/the-haunted-youth-2/"
+  },
+  {
     "title": "Zing-Cirkel Concertgebouw",
     "date": "2027-03-17",
     "source": "concertgebouw",
@@ -51293,12 +52299,6 @@
     ]
   },
   {
-    "title": "DUBIOZA KOLEKTIV",
-    "date": "2027-03-27",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "De Verleiders - Zoek Dekking!",
     "date": "2027-03-27",
     "source": "drenthe.nl",
@@ -51316,6 +52316,14 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2476894742/diederik-nomden",
     "category": "Muziek overig"
+  },
+  {
+    "title": "Dubioza Kolektiv",
+    "date": "2027-03-27",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/dubioza-kolektiv-5/"
   },
   {
     "title": "Eddy van der Ley + Gertjan Verbeek & Foppe de Haan Sportcollege",
@@ -53850,10 +54858,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/47115439/the-zac-schulze-gang-1"
   },
   {
-    "title": "UUHAI",
+    "title": "UUHAI - + Blossom Cult + Muhūrta",
     "date": "2027-04-11",
     "source": "doornroosje",
-    "genre": "overig"
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/uuhai/"
   },
   {
     "title": "Werktuig het Hoorspel",
@@ -54128,12 +55138,6 @@
     "genre": "overig"
   },
   {
-    "title": "RUBEN HILLEN",
-    "date": "2027-04-15",
-    "source": "doornroosje",
-    "genre": "overig"
-  },
-  {
     "title": "Rob Kemps — Laat me niet alleen",
     "date": "2027-04-15",
     "source": "lawei",
@@ -54144,6 +55148,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Ruben Hillen",
+    "date": "2027-04-15",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/ruben-hillen/"
   },
   {
     "title": "Teus Nobel - Child's Play",
@@ -59999,12 +61011,6 @@
     "cats": [
       "cabaret"
     ]
-  },
-  {
-    "title": "BETTIE SERVEERT",
-    "date": "2027-11-13",
-    "source": "doornroosje",
-    "genre": "overig"
   },
   {
     "title": "Kayhan Kalhor Ensemble",

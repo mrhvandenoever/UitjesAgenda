@@ -55,6 +55,23 @@ Chronologisch, nieuwste onderaan. Kort: wat is besloten en waarom.
   - **Effenaar** lijkt op eenzelfde false-negative te wijzen (150 datum-achtige strings bij hercheck) maar bleek bij inspectie CMS-content-block-metadata te zijn, niet per se events — niet afgerond, zie SCRAPERS.md.
   - **Bijvangst, zelfde patroon als de oude Donar-rijen**: alle 4 bronnen bleken al oudere, ongedocumenteerde losse data in de DB te hebben staan (uit een eerdere, nergens vastgelegde eenmalige pull) — voor Melkweg/013/Atlas Theater waren dit stuk voor stuk **verlopen** events (juni/juli 2026, al voorbij op het moment van scrapen). 252 stale rijen in totaal opgeruimd (61 melkweg, 23 013, 166 atlastheater, 2 podiumzuidhaege) door per bron de vers-gescrapete (titel_norm, datum)-set te bepalen en al het andere te verwijderen. Les: bij het bouwen van een scraper voor een bron die al langer in `gen_uitjes.py`/`SRC` voorkomt, checken of er nog "wees"-data van een eerdere sessie in de DB zit, niet aannemen dat de bron bij nul begint.
 
+## 2026-08-15 vervolg — veilige omgang met API-keys
+Michiel plakte per ongeluk een (vermoedelijk Ticketmaster-)API-key in de
+chat, gevolgd door een link naar de OAuth-loginpagina. Zelfde risico als het
+eerdere GitHub-PAT-incident: een key die eenmaal in een transcript staat,
+moet als gecompromitteerd behandeld worden. Afgesproken:
+- Michiel regenereert de key op developer.ticketmaster.com.
+- Nooit een key in de chat plakken, ook niet expliciet gevraagd — zelfde
+  regel als voor GitHub PAT's, nu verbreed naar alle API-keys/secrets.
+- Nieuw patroon opgezet: `secrets.local.json` (in `.gitignore`, nooit
+  gecommit) + `secrets_local.py` (`get_secret(naam)`-helper) +
+  `secrets.local.json.example` (template, wel gecommit). Michiel vult de
+  echte waarde zelf lokaal in, buiten de chat om. Zie ARCHITECTURE.md §API-keys.
+- Ticketmaster Discovery API zelf: alleen een API-key nodig voor read-only
+  requests (`?apikey=...` als query-param), geen OAuth/consumer-secret nodig
+  — bevestigd via developer.ticketmaster.com/products-and-docs/apis/getting-started/.
+  5.000 calls/dag gratis tier, 5 requests/seconde rate limit.
+
 ## 2026-08-15 vervolg — tweede ronde door de 25 resterende AI/Chrome-bronnen
 - **FC Groningen opgelost** (`scrape_fcgroningen.py`): stond als "eenmalig via Chrome gehaald, geen los script" (2026-07-05) maar volgt gewoon hetzelfde ESPN.nl-patroon als Cambuur/FC Twente/Go Ahead/PEC Zwolle (team-id 145, gevonden via websearch). Zelfde bijvangst-patroon als Donar/de vorige 4: 18 verouderde rijen in de DB (generieke `tickets.fcgroningen.nl`-URL, uit die eenmalige Chrome-pull) opgeruimd — sommige hadden zelfs een **andere tegenstander** op dezelfde datum dan de verse ESPN-data (schema was kennelijk gewijzigd sinds juli), dus dit was niet alleen overbodig maar deels ook gewoon fout.
 - **Methodiek verder aangescherpt — belangrijkste les deze ronde**: "client-rendered" of "SPA" is niet altijd wat het lijkt. Twee concrete valkuilen ontdekt:
@@ -84,3 +101,5 @@ Chronologisch, nieuwste onderaan. Kort: wat is besloten en waarom.
   - **Bijvangst, near-duplicate-variant**: 65 oude "wees"-rijen met een generieke URL (`.../voorstellingen`, geen per-event-link) bleken dezelfde voorstellingen als de verse data, maar met alleen de subtitel als titel (bv. oud "Gestrand op Mars (8+)" vs vers "Wijsneuzen - Gestrand op Mars (8+)") — matchten niet op de unique-constraint, gaven dubbels. Opgeruimd (alle rijen met die generieke URL, ook de paar die toevallig niet in de verse set matchten). Meteen ook proactief de `page_hash`-valkuil (zie hierboven, Ziggo Dome) vermeden door de cache-entry gelijk mee te wissen in hetzelfde opruimscript.
 - **Koornbeurs opgelost — vijfde Playwright-scraper.** Eerdere JS-bundle-check vond geen Umbraco/API-endpoints (ondanks een bestandsstructuur die op Atlas Emmen leek) — bleek dus gewoon client-side gerenderd zonder verborgen API, geen bijzondere reden. 127 events (`performance-preview`-grid, dag/maand zonder jaartal, artiest+titel niet consistent gevuld — zelfde fallback-aanpak als `scrape_atlastheater.py`). Zelfde near-duplicate-opruiming als bij Winsinghhof: 109 oude wees-rijen met generieke URL (alleen `title` zonder `artist`-prefix) opgeruimd, `page_hash` proactief meegewist.
 - **Grand Theatre Groningen opgelost — zesde Playwright-scraper.** De "innerText-parsing nodig, geen bruikbare CSS-classes"-conclusie uit een eerdere sessie klopte gedeeltelijk (geen data-attributen), maar de DOM-structuur zelf is wél consistent genoeg voor regex: elk event zit in een `<li class="event-container">`-blok met een echte (soms externe, bv. naar noorderzon.nl voor "op locatie"-programma) `overlay-link`-URL en één of meer `<h1>wd DD mmm</h1>`-speelmomenten. Meerdaagse voorstellingen worden meerdere losse events (1 per speeldatum) — 38 unieke shows, 61 events totaal. Geen oude data aangetroffen (61/61 nieuw) — eerste keer dat deze bron succesvol gescraped is.
+- **Doornroosje opgelost — zevende Playwright-scraper.** WordPress zonder bruikbaar events-type via REST (zoals eerder geconstateerd), maar de programma-pagina zelf rendert een `c-program__item`-lijst zodra Playwright de JS uitvoert. Bijzonderheid: meerdere shows op dezelfde dag delen één datum-blok — alleen het eerste item van die dag heeft een gevulde datum, latere items (`c-program__item--samedate`) hebben een leeg datum-blok en hergebruiken de laatst geziene datum. 223 events. Groninger/Drents Museum ook met Playwright geprobeerd: pagina blijft leeg zelfs na volledige render (mogelijk cookie-banner-blokkade) — niet verder uitgezocht, lagere prioriteit dan podia.
+  - **Bijvangst**: 127 near-duplicate wees-rijen opgeruimd (oude titel zonder support-act-info, `url IS NULL`), `page_hash` proactief meegewist.
