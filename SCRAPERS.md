@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (48 bronnen, 46 scripts)
+## ✅ Geautomatiseerd (49 bronnen, 47 scripts)
 
 | Bron | Script |
 |---|---|
@@ -70,11 +70,12 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Effenaar (Eindhoven) | `scrape_effenaar.py` (Playwright, vierde scraper — eerdere check gebruikte de verkeerde URL `/programma` i.p.v. `/agenda`, vandaar de vroegere "CMS-metadata"-conclusie; juiste URL geeft een schoon `agenda-card`-grid, 125 events) |
 | Winsinghhof (Roden) | `scrape_theaterroden.py` (geen Playwright nodig — domein verhuisd naar theaterroden.nl, oude `winsinghhof.nl` bestaat niet meer; gewoon server-rendered HTML, 68 events. podiuminfo.nl gaf hier maar 12/71 — dekt alleen concerten, niet dit vooral-theater-programma) |
 | Koornbeurs (Franeker) | `scrape_koornbeurs.py` (Playwright, vijfde scraper — geen verborgen API zoals bij Atlas Emmen ondanks vergelijkbare bestandsstructuur, wel client-side gerenderd zonder API, 117 events) |
+| Grand Theatre (Groningen) | `scrape_grandtheatregroningen.py` (Playwright, zesde scraper — geen data-attributen maar wel een consistente DOM-structuur per event, meerdaagse shows worden meerdere events, 61 events) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig (15 bronnen, incl. landelijke-podia-tabel verderop)
+## 🌐 AI/Chrome nodig (14 bronnen, incl. landelijke-podia-tabel verderop)
 
 12 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md): Atlas Emmen
 (Umbraco-ticketing-API), Zuidhaege Assen (WP REST `event_listing`-post-type),
@@ -88,7 +89,6 @@ automatiseerbaar zonder AI.
 | Bron | Verwachte omvang | Notitie |
 |---|---|---|
 | Vera | ~60 events | WordPress, geen custom event-post-type via REST. Programma-pagina toont wél ~20 events server-rendered (pagina 1), maar paginering loopt via een `admin-ajax.php`-call (`action=renderProgramme`) die zonder browsersessie een lege 200-respons geeft (vermoedelijk Cloudflare Bot Management op dat specifieke endpoint) — `?page=N` als URL-param werkt niet (negeerd server-side). Zonder browser dus alleen de eerste ~20 van ~60 events te halen; niet gebouwd (te onvolledig/fragiel). |
-| Grand Theatre (Groningen) | ~25 events | innerText-parsing nodig, geen bruikbare CSS-classes, geen Umbraco/wp-json-API gevonden (custom plugin "michnhokn", niet herkend) |
 | EM2 Groningen | ~21 events | WordPress met custom `event`-post-type, WEL via `/wp-json/wp/v2/event` opvraagbaar — maar de evenementdatum staat los in vrije tekst zonder vast patroon ("De Gipsy Jazz Sessie op 12 juli is...", datum niet aan het begin zoals bij Zuidhaege) en sommige entries lijken terugkerende events zonder duidelijke enkele datum. Deels opgelost (API gevonden) maar datum-extractie te onbetrouwbaar bevonden om nu te bouwen. |
 | Groninger Museum | onbekend | Craft CMS (SEOmatic-generator) — voor de hand liggende GraphQL-endpoints (`/actions/graphql/api`, `/api`) geven beide 404, geen API gevonden |
 | Drents Museum | onbekend | zelfde Craft CMS als Groninger Museum |
@@ -160,7 +160,7 @@ Hedon Zwolle bleek een lege Angular-SPA-shell (7KB) te zijn, maar heeft een
 eigen `/api/events`-endpoint — opgelost, zie ✅ hierboven
 (`scrape_hedon.py`).
 
-Resterend van deze oorspronkelijke 15: 7 bronnen, geteld bij de 15
+Resterend van deze oorspronkelijke 15: 7 bronnen, geteld bij de 14
 "AI/Chrome nodig" hierboven (Melkweg, 013, Landstede Hammers, Hedon en
 TivoliVredenburg zijn opgelost).
 

@@ -761,6 +761,14 @@
     "genre": "overig"
   },
   {
+    "title": "EMBED: EMERGING DIGITAL ARTS - Shiavash Naghshbandi - Lock-On Protocol",
+    "date": "2026-08-20",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
+  },
+  {
     "title": "Muziektheater Koelonie | Frederiksoord",
     "date": "2026-08-20",
     "source": "drenthe.nl",
@@ -795,12 +803,10 @@
   {
     "title": "Noorderzon: VAP, Vusi Mdoyi & Phala Ookeditse Phala - Izithukuthuku: The Tattered Soul of the Worker",
     "date": "2026-08-20",
-    "source": "visitgroningen",
-    "genre": "Theater",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1844041631/noorderzon-vap-vusi-mdoyi-phala-ookeditse-phala-izithukuthuku-the-tattered-soul-of-the-worker",
-    "category": "Toneel"
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/izithukuthuku-the-tattered-soul-of-the-worker"
   },
   {
     "title": "SPARKS",
@@ -880,6 +886,14 @@
     ]
   },
   {
+    "title": "EMBED: EMERGING DIGITAL ARTS - Shiavash Naghshbandi - Lock-On Protocol",
+    "date": "2026-08-21",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
+  },
+  {
     "title": "FC Emmen - Jong AZ",
     "date": "2026-08-21",
     "source": "fcemmen",
@@ -943,12 +957,18 @@
   {
     "title": "Noorderzon: Lagartijas Tiradas al Sol - Centroamérica",
     "date": "2026-08-21",
-    "source": "visitgroningen",
-    "genre": "Theater",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2786159938/noorderzon-lagartijas-tiradas-al-sol-centroamerica",
-    "category": "Toneel"
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/centroamerica"
+  },
+  {
+    "title": "Noorderzon: VAP, Vusi Mdoyi & Phala Ookeditse Phala - Izithukuthuku: The Tattered Soul of the Worker",
+    "date": "2026-08-21",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/izithukuthuku-the-tattered-soul-of-the-worker"
   },
   {
     "title": "Raving Charlie",
@@ -1085,6 +1105,14 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2720928225/drentse-heidedagen-schaapskudde-holtingerveld"
   },
   {
+    "title": "EMBED: EMERGING DIGITAL ARTS - Shiavash Naghshbandi - Lock-On Protocol",
+    "date": "2026-08-22",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
+  },
+  {
     "title": "EMO58",
     "date": "2026-08-22",
     "source": "neushoorn",
@@ -1187,6 +1215,22 @@
       "toneel",
       "festival"
     ]
+  },
+  {
+    "title": "Noorderzon: Lagartijas Tiradas al Sol - Centroamérica",
+    "date": "2026-08-22",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/centroamerica"
+  },
+  {
+    "title": "Noorderzon: VAP, Vusi Mdoyi & Phala Ookeditse Phala - Izithukuthuku: The Tattered Soul of the Worker",
+    "date": "2026-08-22",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/izithukuthuku-the-tattered-soul-of-the-worker"
   },
   {
     "title": "Orgelbespeling Jellegeert Postma",
@@ -1375,6 +1419,14 @@
     ]
   },
   {
+    "title": "EMBED: EMERGING DIGITAL ARTS - Lilly Stienstra - De Langste Route Naar Huis",
+    "date": "2026-08-23",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
+  },
+  {
     "title": "ERIN KINSEY",
     "date": "2026-08-23",
     "source": "melkweg",
@@ -1461,6 +1513,14 @@
     ]
   },
   {
+    "title": "Noorderzon: Lagartijas Tiradas al Sol - Centroamérica",
+    "date": "2026-08-23",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/centroamerica"
+  },
+  {
     "title": "Open Dag Nijkleaster - Klooster Westerhûs",
     "date": "2026-08-23",
     "source": "friesland.nl",
@@ -1537,6 +1597,14 @@
     "url": "https://www.melkweg.nl/nl/agenda/cheeky-monday-24-08-2026/"
   },
   {
+    "title": "EMBED: EMERGING DIGITAL ARTS - Lilly Stienstra - De Langste Route Naar Huis",
+    "date": "2026-08-24",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
+  },
+  {
     "title": "LEIP! Markt",
     "date": "2026-08-24",
     "source": "friesland.nl",
@@ -1561,12 +1629,10 @@
   {
     "title": "Noorderzon: Susie Wang - Burnt Toast",
     "date": "2026-08-24",
-    "source": "visitgroningen",
-    "genre": "Theater",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/451864329/noorderzon-susie-wang-burnt-toast",
-    "category": "Toneel"
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/burnt-toast"
   },
   {
     "title": "Sheherazade van Rimski-Korsakov en Yulianna Avdeeva met Rachmaninoff",
@@ -1575,6 +1641,14 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/41629419-sheherazade-van-rimski-korsakov-en-yulianna-avdeeva-met-rachmaninoff"
+  },
+  {
+    "title": "EMBED: EMERGING DIGITAL ARTS - Frank Mohr Institute & Minerva Academie: Babak Khalili – 29th",
+    "date": "2026-08-25",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
   },
   {
     "title": "Het Gustav Mahler Jugendorchester speelt Mahler 7",
@@ -1615,12 +1689,18 @@
   {
     "title": "Noorderzon: Magda Szpecht - She stands in the middle of the battlefield",
     "date": "2026-08-25",
-    "source": "visitgroningen",
-    "genre": "Theater",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1058553080/noorderzon-magda-szpecht-she-stands-in-the-middle-of-the-battlefield",
-    "category": "Toneel"
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/en/programme/she-stands-in-the-middle-of-the-battlefield"
+  },
+  {
+    "title": "Noorderzon: Susie Wang - Burnt Toast",
+    "date": "2026-08-25",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/burnt-toast"
   },
   {
     "title": "Vaartocht door Nationaal Park De Alde Feanen (10+)",
@@ -1690,6 +1770,14 @@
     ]
   },
   {
+    "title": "EMBED: EMERGING DIGITAL ARTS - Frank Mohr Institute & Minerva Academie: Babak Khalili – 29th",
+    "date": "2026-08-26",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
+  },
+  {
     "title": "GOGOL BORDELLO",
     "date": "2026-08-26",
     "source": "doornroosje",
@@ -1716,6 +1804,22 @@
       "toneel",
       "festival"
     ]
+  },
+  {
+    "title": "Noorderzon: Magda Szpecht - She stands in the middle of the battlefield",
+    "date": "2026-08-26",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/en/programme/she-stands-in-the-middle-of-the-battlefield"
+  },
+  {
+    "title": "Noorderzon: Susie Wang - Burnt Toast",
+    "date": "2026-08-26",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/burnt-toast"
   },
   {
     "title": "Opening Visserijdagen met Just Like Elton John & DJ Vivaro",
@@ -1807,6 +1911,14 @@
       "toneel",
       "muziek"
     ]
+  },
+  {
+    "title": "EMBED: EMERGING DIGITAL ARTS - Hanze Creative Media and Game Technologies - Come Play: Future Game Arcade",
+    "date": "2026-08-27",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
   },
   {
     "title": "For King & Country & Josh Baldwin",
@@ -1930,6 +2042,14 @@
     ]
   },
   {
+    "title": "Noorderzon: Magda Szpecht - She stands in the middle of the battlefield",
+    "date": "2026-08-27",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/en/programme/she-stands-in-the-middle-of-the-battlefield"
+  },
+  {
     "title": "THE ALCHEMIST",
     "date": "2026-08-27",
     "source": "melkweg",
@@ -2020,6 +2140,14 @@
     ]
   },
   {
+    "title": "EMBED: EMERGING DIGITAL ARTS - Hanze Creative Media and Game Technologies - Come Play: Future Game Arcade",
+    "date": "2026-08-28",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
+  },
+  {
     "title": "Elgars Celloconcert door Anastasia Kobekina",
     "date": "2026-08-28",
     "source": "concertgebouw",
@@ -2099,6 +2227,14 @@
       "toneel",
       "festival"
     ]
+  },
+  {
+    "title": "Noorderzon: Patricia Apergi - Hystory",
+    "date": "2026-08-28",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/hystory"
   },
   {
     "title": "Real Farmer",
@@ -2235,6 +2371,14 @@
     "category": "Theater overig"
   },
   {
+    "title": "EMBED: EMERGING DIGITAL ARTS - Hanze Creative Media and Game Technologies - Come Play: Future Game Arcade",
+    "date": "2026-08-29",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
+  },
+  {
     "title": "Festival Oude Muziek Utrecht - 29 augustus",
     "date": "2026-08-29",
     "source": "tivolivredenburg",
@@ -2354,12 +2498,10 @@
   {
     "title": "Noorderzon: Patricia Apergi - Hystory",
     "date": "2026-08-29",
-    "source": "visitgroningen",
-    "genre": "Theater",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1209994350/noorderzon-patricia-apergi-hystory",
-    "category": "Toneel"
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/hystory"
   },
   {
     "title": "Orgelconcert Wolfgang Zerer",
@@ -2601,6 +2743,14 @@
     "city": "Mitselwier",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1835963351/expositie-de-taal-van-linnen-en-papier"
+  },
+  {
+    "title": "EMBED: EMERGING DIGITAL ARTS - Hanze Creative Media and Game Technologies - Come Play: Future Game Arcade",
+    "date": "2026-08-30",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
   },
   {
     "title": "Festival Oude Muziek Utrecht - 30 augustus",
@@ -3748,6 +3898,14 @@
     "image": "https://www.afaslive.nl/files/Agenda/_1200x630_crop_center-center_none/The-Black-Keys.jpg"
   },
   {
+    "title": "The Grand Pillow Society - Community Gathering",
+    "date": "2026-09-05",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/the-grand-pillow-society-community-gathering"
+  },
+  {
     "title": "The Orielles - 5 september 2026 - Rotown, Rotterdam",
     "date": "2026-09-05",
     "source": "rotown",
@@ -4032,6 +4190,14 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1020721702/orgelconcert-zandeweer-1",
     "category": "Muziek overig"
+  },
+  {
+    "title": "Outside the Block - Battle Realm",
+    "date": "2026-09-06",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/outside-the-block-battle-realm-september-2026"
   },
   {
     "title": "Pedaal Muzikaal",
@@ -5744,6 +5910,14 @@
     "url": "https://www.melkweg.nl/nl/agenda/cheeky-14-09-2026/"
   },
   {
+    "title": "De Filmclub -",
+    "date": "2026-09-14",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/filmclub-september-2026"
+  },
+  {
     "title": "Mahler 9 door het Mahler Academy Orchestra",
     "date": "2026-09-14",
     "source": "concertgebouw",
@@ -5973,6 +6147,14 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2040919204/orgelconcert-83",
     "category": "Muziek overig"
+  },
+  {
+    "title": "Profound Play - Play Café -",
+    "date": "2026-09-16",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/profound-play-play-cafe-september-2026"
   },
   {
     "title": "Scott Hamilton & Rein de Graaff Trio ft. Philip Catherine",
@@ -6374,6 +6556,14 @@
     "image": "https://www.rotown.nl/wp-content/uploads/2026/06/Persfoto-M.U.G.-KL.jpg"
   },
   {
+    "title": "Martha Canga Antonio - HOLY",
+    "date": "2026-09-18",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/martha-canga-antonio-holy"
+  },
+  {
     "title": "Masood Boomgaard",
     "date": "2026-09-18",
     "source": "tivolivredenburg",
@@ -6770,6 +6960,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Martha Canga Antonio - HOLY",
+    "date": "2026-09-19",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/martha-canga-antonio-holy"
   },
   {
     "title": "Monumentendag en Tsjerkepaad - Foar en troch Harichsters: Muziek, Kunst & Mienskip",
@@ -7500,6 +7698,14 @@
     "url": "https://dedoelen.nl/nl/agenda/undertale-the-determination-symphony-4z8j"
   },
   {
+    "title": "Amsterdam Poet's Theater (Joachim Robbrecht en Artun Alaska Arasli) - Variaties, varianten",
+    "date": "2026-09-22",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/amsterdam-poet-s-theater-variaties-varianten"
+  },
+  {
     "title": "BEARTOOTH",
     "date": "2026-09-22",
     "source": "013",
@@ -7763,6 +7969,14 @@
     "date": "2026-09-23",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Theater Rotterdam / Mathieu Wijdeven - Helstone in het Pand der Goden",
+    "date": "2026-09-23",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/mathieu-wijdeven-helstone-in-het-pand-der-goden"
   },
   {
     "title": "Thee Sinseers",
@@ -9715,6 +9929,14 @@
     "url": "https://www.013.nl/programma/147192/jukebox"
   },
   {
+    "title": "De Warme Winkel - Britt for President",
+    "date": "2026-09-30",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/de-warme-winkel-britt-for-president"
+  },
+  {
     "title": "Efteling in Concert - Reprise",
     "date": "2026-09-30",
     "source": "concertgebouw",
@@ -9980,6 +10202,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "De Warme Winkel - Britt for President",
+    "date": "2026-10-01",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/de-warme-winkel-britt-for-president"
   },
   {
     "title": "Douwe Bob",
@@ -10318,6 +10548,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "De Warme Winkel - Britt for President",
+    "date": "2026-10-02",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/de-warme-winkel-britt-for-president"
   },
   {
     "title": "Dotan",
@@ -11809,6 +12047,14 @@
     "genre": "overig"
   },
   {
+    "title": "De Filmclub -",
+    "date": "2026-10-05",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/filmclub-oktober-2026"
+  },
+  {
     "title": "GIMS",
     "date": "2026-10-05",
     "source": "afaslive",
@@ -11966,12 +12212,10 @@
   {
     "title": "URLAND - Before the Story Starts",
     "date": "2026-10-06",
-    "source": "visitgroningen",
-    "genre": "Theater",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2566415677/urland-before-the-story-starts",
-    "category": "Toneel"
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/urland-before-the-story-starts"
   },
   {
     "title": "BEARS IN TREES",
@@ -12154,6 +12398,14 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/43714209-piano-nights-de-mooiste-pianomuziek-met-eric-christian-en-nino-gvetadze"
+  },
+  {
+    "title": "Profound Play - Play Café -",
+    "date": "2026-10-07",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/profound-play-play-cafe-oktober-2026"
   },
   {
     "title": "Sexodus – Theater Utrecht / URLAND / Beutler Projects",
@@ -12976,6 +13228,14 @@
     ]
   },
   {
+    "title": "Theater Rotterdam / Nastaran Razawi Khorasani - Heartbeats",
+    "date": "2026-10-09",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/theater-rotterdam-nastaran-razawi-khorasani-heartbeats"
+  },
+  {
     "title": "Timebox (met o.a. Diederik Nomden & Ralph Mulder)",
     "date": "2026-10-09",
     "source": "visitgroningen",
@@ -13747,6 +14007,14 @@
     "genre": "overig"
   },
   {
+    "title": "Onder de Vulkaan -",
+    "date": "2026-10-11",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/onder-de-vulkaan-oktober-2026"
+  },
+  {
     "title": "PEC Zwolle - SC Cambuur Leeuwarden",
     "date": "2026-10-11",
     "source": "peczwolle",
@@ -14016,6 +14284,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Hanneke van der Paardt - BANG",
+    "date": "2026-10-13",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/hanneke-van-der-paardt-bang"
   },
   {
     "title": "Inleiding Kelapa Muda",
@@ -14732,6 +15008,14 @@
     "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047485/gaat-op-vakantie-2/10362363"
   },
   {
+    "title": "KATJA HEITMANN - MOTUS MORI: PERPETUUM",
+    "date": "2026-10-15",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/katja-heitmann-motus-mori-perpetuum"
+  },
+  {
     "title": "Kinderbios in de Tsjerke",
     "date": "2026-10-15",
     "source": "friesland.nl",
@@ -15227,6 +15511,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "KATJA HEITMANN - MOTUS MORI: PERPETUUM",
+    "date": "2026-10-16",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/katja-heitmann-motus-mori-perpetuum"
   },
   {
     "title": "KID FRANCESCOLI",
@@ -15759,6 +16051,14 @@
     "city": "Hoogeveen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3922448933/juf-braaksel-de-musical-6"
+  },
+  {
+    "title": "KATJA HEITMANN - MOTUS MORI: PERPETUUM",
+    "date": "2026-10-17",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/katja-heitmann-motus-mori-perpetuum"
   },
   {
     "title": "Kiss All Hipsters",
@@ -16340,6 +16640,14 @@
     ]
   },
   {
+    "title": "KATJA HEITMANN - MOTUS MORI: PERPETUUM",
+    "date": "2026-10-18",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/katja-heitmann-motus-mori-perpetuum"
+  },
+  {
     "title": "King King",
     "date": "2026-10-18",
     "source": "effenaar",
@@ -16616,6 +16924,14 @@
     ]
   },
   {
+    "title": "Workshop Hossein Tavazonizadeh - Documentary theatre",
+    "date": "2026-10-19",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/workshop-hossein-tavazonizadeh-documentary-theatre"
+  },
+  {
     "title": "girli",
     "date": "2026-10-19",
     "source": "tivolivredenburg",
@@ -16690,6 +17006,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Pankaj Tiwari / CAMPO - The Harvest of Broken Promises",
+    "date": "2026-10-20",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/pankaj-tiwari-campo-the-harvest-of-broken-promises"
   },
   {
     "title": "STORMRAM",
@@ -18882,6 +19206,14 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3204947287/the-bones-o-murphy-s-law"
   },
   {
+    "title": "The Grand Pillow Society -",
+    "date": "2026-10-25",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/the-grand-pillow-society-oktober-2026"
+  },
+  {
     "title": "Theatre OF Hate Skids",
     "date": "2026-10-25",
     "source": "paard",
@@ -19053,6 +19385,14 @@
     "genre": "Muziek",
     "location": "Rotterdam",
     "url": "https://dedoelen.nl/nl/agenda/an-orchestral-tribute-to-tim-burton-dark-fantasy-by-moonlight-xm4c"
+  },
+  {
+    "title": "Anas Younes - On Anger & Fatigue",
+    "date": "2026-10-27",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/anas-younes-on-anger-fatigue"
   },
   {
     "title": "BCUC",
@@ -19228,6 +19568,14 @@
     "date": "2026-10-28",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Anas Younes - On Anger & Fatigue",
+    "date": "2026-10-28",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/anas-younes-on-anger-fatigue"
   },
   {
     "title": "Arlo Parks",
@@ -21603,6 +21951,14 @@
     "genre": "overig"
   },
   {
+    "title": "Veronika Abdul-Visocka - She was born for happiness",
+    "date": "2026-11-03",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/veronika-abdul-visocka-she-was-born-for-happiness"
+  },
+  {
     "title": "Victoryland - 3 november 2026 - Rotown, Rotterdam",
     "date": "2026-11-03",
     "source": "rotown",
@@ -21765,6 +22121,14 @@
     "genre": "overig"
   },
   {
+    "title": "Profound Play - Play Café -",
+    "date": "2026-11-04",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/profound-play-play-cafe-november-2026"
+  },
+  {
     "title": "Pynarello & Jochem Stavenuiter – Pulcinella",
     "date": "2026-11-04",
     "source": "spotgroningen.nl",
@@ -21903,6 +22267,14 @@
       "Pop",
       "Nederlands"
     ]
+  },
+  {
+    "title": "Fariborz Karimi - Whispered Dreams",
+    "date": "2026-11-05",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/fariborz-karimi-whispered-dreams"
   },
   {
     "title": "Fink",
@@ -23590,6 +23962,14 @@
     "url": "https://www.gelredome.nl/evenement/vitesse-de-graafschap-26-27"
   },
   {
+    "title": "the pink cube. - Palari: Queer Salons",
+    "date": "2026-11-08",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/the-pink-cube-palari-queer-salons-november-2026"
+  },
+  {
     "title": "Amatis Trio: speelse mix van Schubert tot Wagner en Rebecca Clarke",
     "date": "2026-11-09",
     "source": "concertgebouw",
@@ -23614,6 +23994,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "De Filmclub -",
+    "date": "2026-11-09",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/filmclub-november-2026"
   },
   {
     "title": "De Nog Grotere Slijmmusical (6+)",
@@ -26157,12 +26545,10 @@
   {
     "title": "GRIP/Jan Martens - THE DOG DAYS ARE OVER 2.0",
     "date": "2026-11-16",
-    "source": "visitgroningen",
-    "genre": "Theater",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1549382008/grip-jan-martens-the-dog-days-are-over-2-0",
-    "category": "Toneel"
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/grip-jan-martens-the-dog-days-are-over-2-0"
   },
   {
     "title": "Good Charlotte",
@@ -28447,6 +28833,14 @@
     "genre": "overig"
   },
   {
+    "title": "Onder de Vulkaan -",
+    "date": "2026-11-22",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/onder-de-vulkaan-november-2026"
+  },
+  {
     "title": "Pan (8+) - MaxTak Muziektheater",
     "date": "2026-11-22",
     "source": "drenthe.nl",
@@ -28744,6 +29138,14 @@
     "date": "2026-11-24",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "DansBrabant / Anthony van Gog - The quiet",
+    "date": "2026-11-24",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/dansbrabant-anthony-van-gog-the-quiet"
   },
   {
     "title": "Edis",
@@ -29249,6 +29651,14 @@
       "Singer/Songwriter",
       "Indie"
     ]
+  },
+  {
+    "title": "Manu van Kersbergen - De herontdekking van de hemel",
+    "date": "2026-11-26",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/manu-van-kersbergen-de-herontdekking-van-de-hemel"
   },
   {
     "title": "Marlon Kicken",
@@ -30869,6 +31279,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "The Grand Pillow Society -",
+    "date": "2026-11-29",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/the-grand-pillow-society-november-2026"
   },
   {
     "title": "The Kilkennys Tunes from The Temple Bar",
