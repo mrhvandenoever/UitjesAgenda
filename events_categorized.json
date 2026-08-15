@@ -12046,18 +12046,6 @@
     ]
   },
   {
-    "title": "Gestrand op Mars (8+)",
-    "date": "2026-10-07",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Kinderen",
-    "cats": [
-      "kinderen"
-    ]
-  },
-  {
     "title": "IJsland",
     "date": "2026-10-07",
     "source": "spotgroningen.nl",
@@ -12217,6 +12205,15 @@
     "cats": [
       "theater"
     ]
+  },
+  {
+    "title": "Wijsneuzen - Gestrand op Mars (8+)",
+    "date": "2026-10-07",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "16:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/wijsneuzen"
   },
   {
     "title": "Abonnement Kamermuziek i.s.m. GMV",
@@ -12408,16 +12405,13 @@
     ]
   },
   {
-    "title": "Rare Leeftijd",
+    "title": "Ricky Koole - Rare Leeftijd",
     "date": "2026-10-08",
     "source": "theaterroden",
     "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/ricky-koole"
   },
   {
     "title": "Savine",
@@ -12807,18 +12801,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2677563504/marcel-hensema-in-de-skans-gorredijk"
   },
   {
-    "title": "Marko Maandag (try-out)",
-    "date": "2026-10-09",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
-  },
-  {
     "title": "Martinikerk",
     "date": "2026-10-09",
     "source": "koornbeurs",
@@ -12884,6 +12866,15 @@
     "date": "2026-10-09",
     "source": "ahoy",
     "genre": "overig"
+  },
+  {
+    "title": "Remko Vrijdag - Marko Maandag (try-out)",
+    "date": "2026-10-09",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/marko-maandag"
   },
   {
     "title": "SNELLE",
@@ -13596,18 +13587,6 @@
     "cats": []
   },
   {
-    "title": "Bijna een leven",
-    "date": "2026-10-11",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Bill Callahan – + support: Nathan Bowles",
     "date": "2026-10-11",
     "source": "spotgroningen.nl",
@@ -13825,6 +13804,15 @@
     "time": "20:00",
     "venue": "Ziggo Dome, Amsterdam",
     "url": "https://www.podiuminfo.nl/concert/460406/The-Strokes/Ziggo-Dome/"
+  },
+  {
+    "title": "Toneelgroep Maastricht - Bijna een leven",
+    "date": "2026-10-11",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/toneelgroep-maastricht"
   },
   {
     "title": "Trapperdetrap & Het Concertgebouw - Op avontuur met Dikkie Dik | 2+",
@@ -14979,18 +14967,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1828957926/anochi"
   },
   {
-    "title": "Baby Reindeer (try-out)",
-    "date": "2026-10-16",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Bildtstar + Junkyard Dogs Bildtse Hardrock Double Bill",
     "date": "2026-10-16",
     "source": "ontdekpoort",
@@ -15394,6 +15370,15 @@
     ]
   },
   {
+    "title": "Thijs van de Meeberg - Baby Reindeer (try-out)",
+    "date": "2026-10-16",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/baby-reindeer"
+  },
+  {
     "title": "Une Tribu Collectif - Pouvoir",
     "date": "2026-10-16",
     "source": "lawei",
@@ -15673,18 +15658,6 @@
     ]
   },
   {
-    "title": "Geworteld (try-out)",
-    "date": "2026-10-17",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Herman van Veen – Vandaag",
     "date": "2026-10-17",
     "source": "spotgroningen.nl",
@@ -15806,11 +15779,11 @@
   {
     "title": "Marlijn Weerdenburg - Geworteld (try-out)",
     "date": "2026-10-17",
-    "source": "drenthe.nl",
+    "source": "theaterroden",
     "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1953466216/marlijn-weerdenburg-geworteld-try-out-1"
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/marlijn-weerdenburg"
   },
   {
     "title": "Martijn Crins  Hè fijn",
@@ -17557,6 +17530,15 @@
     ]
   },
   {
+    "title": "Firma Frictie - I'll be your daddy",
+    "date": "2026-10-23",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/firma-frictie-2"
+  },
+  {
     "title": "Get Physical!",
     "date": "2026-10-23",
     "source": "melkweg",
@@ -17592,18 +17574,6 @@
     "city": "Hoogeveen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3041009117/huub-stapel-mannen-komen-van-mars-vrouwen-van-venus"
-  },
-  {
-    "title": "I'll be your daddy",
-    "date": "2026-10-23",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
   },
   {
     "title": "IDA",
@@ -18444,6 +18414,24 @@
     "cats": []
   },
   {
+    "title": "Ydwer Bosma & Onno Innemee - Zand Erover (try-out)",
+    "date": "2026-10-24",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Roden",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/2590107204/ydwer-bosma"
+  },
+  {
+    "title": "Ydwer Bosma en Onno Innemee - Zand Erover (try-out)",
+    "date": "2026-10-24",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/zand-erover"
+  },
+  {
     "title": "ZAZU Presents: Solèy by Francis Mercier 24 oktober",
     "date": "2026-10-24",
     "source": "afaslive",
@@ -18451,18 +18439,6 @@
     "location": "Amsterdam",
     "url": "https://www.afaslive.nl/agenda/zazu-presents-soley",
     "image": "https://www.afaslive.nl/files/_1200x630_crop_center-center_none/Zazu-presents-Soley-ADE.jpg"
-  },
-  {
-    "title": "Zand Erover (try-out)",
-    "date": "2026-10-24",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
   },
   {
     "title": "AMSTERDAM DUB EVENT: MORITZ VON OSWALD / RADIKAL GURU E.A.",
@@ -18857,17 +18833,13 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3818748678/preek-van-de-leek-een-leven-lang-leren"
   },
   {
-    "title": "Pulcinella",
+    "title": "Pynarello & Jochem Stavenuiter - Pulcinella",
     "date": "2026-10-25",
     "source": "theaterroden",
     "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater / Dans",
-    "cats": [
-      "toneel",
-      "dans"
-    ]
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/pynarello-jochem-stavenuiter"
   },
   {
     "title": "SC Heerenveen - AZ",
@@ -19884,18 +19856,6 @@
     "category": "Cabaret"
   },
   {
-    "title": "Breekbare mensen",
-    "date": "2026-10-30",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Celine Cairo",
     "date": "2026-10-30",
     "source": "dedoelen",
@@ -20059,6 +20019,15 @@
     "date": "2026-10-30",
     "source": "013",
     "genre": "overig"
+  },
+  {
+    "title": "Kaaskop & Van Vleuten - Breekbare mensen",
+    "date": "2026-10-30",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/kaaskop-van-vleuten"
   },
   {
     "title": "Klaus Mäkela dirigeert Mahler 7 bij het Concertgebouworkest",
@@ -21202,18 +21171,6 @@
     "genre": "overig"
   },
   {
-    "title": "Muriël van Hemel & Sander Sittig",
-    "date": "2026-11-01",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek",
-    "cats": [
-      "muziek"
-    ]
-  },
-  {
     "title": "Nacht van de Nostalgie Met Imca Marina, Bonnie St. Claire, Ben Cramer, Ria Valk, Ronnie Tober, Jacques Herb & Astrid Nijgh",
     "date": "2026-11-01",
     "source": "ontdekpoort",
@@ -21382,6 +21339,15 @@
     "date": "2026-11-01",
     "source": "effenaar",
     "genre": "overig"
+  },
+  {
+    "title": "Van Hemel Ensemble - Muriël van Hemel & Sander Sittig",
+    "date": "2026-11-01",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/van-hemel-ensemble-2"
   },
   {
     "title": "Van Hemel Ensemble - Muriël van Hemel en Sander Sittig",
@@ -22275,6 +22241,15 @@
     ]
   },
   {
+    "title": "Baas & Adriani - De leukste cabaretvoorstelling 2026",
+    "date": "2026-11-06",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/baas-adriani"
+  },
+  {
     "title": "Baas & Adriani - RUIS",
     "date": "2026-11-06",
     "source": "drenthe.nl",
@@ -22561,18 +22536,6 @@
     "date": "2026-11-06",
     "source": "doornroosje",
     "genre": "overig"
-  },
-  {
-    "title": "RUIS",
-    "date": "2026-11-06",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
   },
   {
     "title": "Sara Kroos",
@@ -23251,6 +23214,24 @@
     ]
   },
   {
+    "title": "Dirk Scheele & Dikkie Dik - Zing, spring, miauw (2+)",
+    "date": "2026-11-08",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Roden",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/2058620762/dirk-scheele-dikkie-dik-zing-spring-miauw-2"
+  },
+  {
+    "title": "Dirk Scheele en Dikkie Dik - Zing, spring, miauw (2+)",
+    "date": "2026-11-08",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/dirk-scheele-dikkie-dik"
+  },
+  {
     "title": "Donar Groningen - Hubo Limburg United",
     "date": "2026-11-08",
     "source": "donar",
@@ -23615,18 +23596,6 @@
     "time": "12:15",
     "venue": "GelreDome, Arnhem",
     "url": "https://www.gelredome.nl/evenement/vitesse-de-graafschap-26-27"
-  },
-  {
-    "title": "Zing, spring, miauw (2+)",
-    "date": "2026-11-08",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Kinderen",
-    "cats": [
-      "kinderen"
-    ]
   },
   {
     "title": "Amatis Trio: speelse mix van Schubert tot Wagner en Rebecca Clarke",
@@ -24451,6 +24420,15 @@
     ]
   },
   {
+    "title": "Silbersee - Via Inferno",
+    "date": "2026-11-12",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/via-inferno"
+  },
+  {
     "title": "Skimer (On)zichtbaar",
     "date": "2026-11-12",
     "source": "ontdekpoort",
@@ -24566,18 +24544,6 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1631938734/trio-oude-muziek-specialisten-aimez-vous-brahms"
-  },
-  {
-    "title": "Via Inferno",
-    "date": "2026-11-12",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
   },
   {
     "title": "Wishful Singing",
@@ -24792,12 +24758,9 @@
     "date": "2026-11-13",
     "source": "theaterroden",
     "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/girls"
   },
   {
     "title": "Goed dat jij bestaat! - Johnny de Mol",
@@ -25188,18 +25151,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2402622746/boom-like-that-in-de-skans-gorredijk"
   },
   {
-    "title": "BRUTO",
-    "date": "2026-11-14",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Beethovens Pianoconcert nr. 4 met Alice Sara Ott",
     "date": "2026-11-14",
     "source": "concertgebouw",
@@ -25240,11 +25191,11 @@
   {
     "title": "Boban Benjamin Braspenning - BRUTO",
     "date": "2026-11-14",
-    "source": "drenthe.nl",
+    "source": "theaterroden",
     "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3326838033/boban-benjamin-braspenning-bruto"
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/bruto-2"
   },
   {
     "title": "BÖKKERS",
@@ -25848,18 +25799,6 @@
     "genre": "overig"
   },
   {
-    "title": "De Freudjes, geen familie",
-    "date": "2026-11-15",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Early James",
     "date": "2026-11-15",
     "source": "tivolivredenburg",
@@ -26156,6 +26095,15 @@
     "city": "Coevorden",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/924238719/the-kilkennys-tunes-from-the-templebar"
+  },
+  {
+    "title": "Theatergezelschap Zuster! - De Freudjes, geen familie",
+    "date": "2026-11-15",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/de-freudjes"
   },
   {
     "title": "Tribute to Cliff Richard & The Shadows",
@@ -29182,18 +29130,6 @@
     ]
   },
   {
-    "title": "Altijdloos",
-    "date": "2026-11-26",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek",
-    "cats": [
-      "muziek"
-    ]
-  },
-  {
     "title": "BLØF & Vrienden 2026",
     "date": "2026-11-26",
     "source": "ahoy",
@@ -29484,6 +29420,15 @@
     "url": "https://www.paard.nl/en/event/sons-4/"
   },
   {
+    "title": "Spruijt & Opperman - Altijdloos",
+    "date": "2026-11-26",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/altijdloos"
+  },
+  {
     "title": "The Music of Hans Zimmer, Alan Silvestri & John Williams",
     "date": "2026-11-26",
     "source": "visitgroningen",
@@ -29690,18 +29635,6 @@
     "url": "https://neushoorn.nl/programma"
   },
   {
-    "title": "Ik neem jou mee",
-    "date": "2026-11-27",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "JP Den Tex & Tineke Schoemaker - Spelen met de Blues",
     "date": "2026-11-27",
     "source": "visitgroningen",
@@ -29764,6 +29697,15 @@
       "Singer/Songwriter",
       "Indie"
     ]
+  },
+  {
+    "title": "Leonie Meijer - Ik neem jou mee",
+    "date": "2026-11-27",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/leonie-meijer"
   },
   {
     "title": "Lucky Done Gone - All Night",
@@ -30127,18 +30069,6 @@
     "cats": [
       "concert",
       "uitje"
-    ]
-  },
-  {
-    "title": "De wichter van Champ Clark",
-    "date": "2026-11-28",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
     ]
   },
   {
@@ -30568,6 +30498,15 @@
     "city": "Bolsward",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1574807548/trouwbeurs-friesland-broerekerk-bolsward"
+  },
+  {
+    "title": "WAARK - De wichter van Champ Clark",
+    "date": "2026-11-28",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/waark-wichter"
   },
   {
     "title": "We All Sing ABBA",
@@ -33567,18 +33506,6 @@
     "url": "https://www.melkweg.nl/nl/agenda/letz-zep-10-12-2026/"
   },
   {
-    "title": "Maar wat er ook gebeurt...",
-    "date": "2026-12-10",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Mike Boddé - Muziekles zonder lijfstraffen",
     "date": "2026-12-10",
     "source": "drenthe.nl",
@@ -33610,6 +33537,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Olga Zuiderhoek - Maar wat er ook gebeurt...",
+    "date": "2026-12-10",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/olga-zuiderhoek"
   },
   {
     "title": "Panzerfaust + Nexion",
@@ -33829,6 +33765,15 @@
     "date": "2026-12-11",
     "source": "effenaar",
     "genre": "overig"
+  },
+  {
+    "title": "Erik de Boer - Stofkruimels en Brooddeeltjes",
+    "date": "2026-12-11",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/stofkruimels-brooddeeltjes"
   },
   {
     "title": "FC Emmen - Jong PSV",
@@ -34096,18 +34041,6 @@
     "city": "Zuidwolde",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/23284947/spruijt-en-opperman-altijdloos"
-  },
-  {
-    "title": "Stofkruimels en Brooddeeltjes",
-    "date": "2026-12-11",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
   },
   {
     "title": "Studio 100 Singalong in Symphony",
@@ -34392,18 +34325,6 @@
     "category": "Muziek overig"
   },
   {
-    "title": "Forever Young",
-    "date": "2026-12-12",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek",
-    "cats": [
-      "muziek"
-    ]
-  },
-  {
     "title": "Fred van Leer",
     "date": "2026-12-12",
     "source": "visitgroningen",
@@ -34648,13 +34569,13 @@
     "genre": "overig"
   },
   {
-    "title": "The 70's Unplugged",
+    "title": "The 70's Unplugged - Forever Young",
     "date": "2026-12-12",
-    "source": "drenthe.nl",
+    "source": "theaterroden",
     "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/2701553856/the-70-s-unplugged"
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/forever-young"
   },
   {
     "title": "The Lasses - A Celtic Winter",
@@ -34829,6 +34750,24 @@
     "cats": [
       "musical"
     ]
+  },
+  {
+    "title": "Ekaterina Litvintseva - Iconic Ballets for Piano",
+    "date": "2026-12-13",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/ekaterina-litvintseva"
+  },
+  {
+    "title": "Ekaterina Litvintseva - The Nutcracker Suite",
+    "date": "2026-12-13",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Roden",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3590406230/ekaterina-litvintseva-the-nutcracker-suite"
   },
   {
     "title": "Elske DeWall & Family (acoustic)",
@@ -35126,19 +35065,6 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3705928913/the-new-diamonds",
     "category": "Muziek overig"
-  },
-  {
-    "title": "The Nutcracker Suite",
-    "date": "2026-12-13",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Dans / Muziek",
-    "cats": [
-      "dans",
-      "klassiek"
-    ]
   },
   {
     "title": "WAT SPILET",
@@ -35581,18 +35507,6 @@
     "url": "https://www.paard.nl/en/event/la-pegatina-12/"
   },
   {
-    "title": "Leven met humor",
-    "date": "2026-12-17",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
-  },
-  {
     "title": "Lycurgus - Orion Stars HS 1",
     "date": "2026-12-17",
     "source": "lycurgus",
@@ -35670,6 +35584,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Ronald Snijders - Leven met humor",
+    "date": "2026-12-17",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/leven-met-humor"
   },
   {
     "title": "Saint-Saëns door Sheku Kanneh-Mason en het Concertgebouworkest",
@@ -35901,6 +35824,15 @@
     ]
   },
   {
+    "title": "Jennie Lena - Soul & The City",
+    "date": "2026-12-18",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/jennie-lena"
+  },
+  {
     "title": "John Coffey - Vrijdag 18 december 2026 - Rotown, Rotterdam",
     "date": "2026-12-18",
     "source": "rotown",
@@ -36027,18 +35959,6 @@
     "url": "https://www.atlastheater.nl/voorstellingen/simone-kleinsma-brigitte-heitzer-ea-vlieg-met-me-mee-18-dec/"
   },
   {
-    "title": "Soul & The City",
-    "date": "2026-12-18",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek",
-    "cats": [
-      "muziek"
-    ]
-  },
-  {
     "title": "Syb van der Ploeg - Wereldzangers",
     "date": "2026-12-18",
     "source": "friesland.nl",
@@ -36159,6 +36079,15 @@
     "date": "2026-12-19",
     "source": "doornroosje",
     "genre": "overig"
+  },
+  {
+    "title": "Back to the Country - Part Sixteen",
+    "date": "2026-12-19",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/back-to-the-country-16"
   },
   {
     "title": "Backfire! + The Young Ones + Support De Allerlaatste Show Ooit!",
@@ -36399,18 +36328,6 @@
     "category": "klassiek",
     "cats": [
       "klassiek"
-    ]
-  },
-  {
-    "title": "Part Sixteen",
-    "date": "2026-12-19",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek",
-    "cats": [
-      "muziek"
     ]
   },
   {
@@ -36713,19 +36630,6 @@
     "url": "https://www.concertgebouw.nl/concerten/37899487-kerst-met-the-choir-of-st-johns-college-cambridge"
   },
   {
-    "title": "Kerstconcert",
-    "date": "2026-12-20",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek / Concert",
-    "cats": [
-      "muziek",
-      "klassiek"
-    ]
-  },
-  {
     "title": "La Pegatina",
     "date": "2026-12-20",
     "source": "spotgroningen.nl",
@@ -36791,6 +36695,15 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2883898439/quinn-aron",
     "category": "Jeugdtheater"
+  },
+  {
+    "title": "Robert Poortinga - Kerstconcert",
+    "date": "2026-12-20",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/robert-poortinga-kerstconcert"
   },
   {
     "title": "SC Heerenveen - De Graafschap (v)",
@@ -39128,6 +39041,15 @@
     ]
   },
   {
+    "title": "Blues Festival - Staconcert",
+    "date": "2027-01-16",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/blues-festival"
+  },
+  {
     "title": "Bluesfestival - Lefthand Freddy & Flavium (staconcert)",
     "date": "2027-01-16",
     "source": "drenthe.nl",
@@ -39391,18 +39313,6 @@
     "genre": "overig",
     "venue": "Melkweg, Amsterdam",
     "url": "https://www.melkweg.nl/nl/agenda/samezitting-16-01-2027/"
-  },
-  {
-    "title": "Staconcert",
-    "date": "2027-01-16",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek",
-    "cats": [
-      "muziek"
-    ]
   },
   {
     "title": "The Dubliners Experience - The Songs And Stories of The Dubliners",
@@ -39998,16 +39908,13 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/263707907/fay-lovsky"
   },
   {
-    "title": "Hakken in het zand",
+    "title": "Fay Lovsky - Hakken in het zand",
     "date": "2027-01-21",
     "source": "theaterroden",
     "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/hakken-zand"
   },
   {
     "title": "Het Concertgebouworkest speelt Rachmaninoff",
@@ -40202,6 +40109,15 @@
     "genre": "overig"
   },
   {
+    "title": "Eddy van der Ley - Interview met Kees Kwakman",
+    "date": "2027-01-22",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/eddy-kees-kwakman"
+  },
+  {
     "title": "Elfie Tromp — Aai poesje aai poesje",
     "date": "2027-01-22",
     "source": "lawei",
@@ -40235,18 +40151,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45896892-het-concertgebouworkest-speelt-rachmaninoff"
-  },
-  {
-    "title": "Interview met Kees Kwakman",
-    "date": "2027-01-22",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
   },
   {
     "title": "Jan Henk de Groot & Reinout Douma",
@@ -40531,6 +40435,15 @@
     "cats": []
   },
   {
+    "title": "Jan Henk de Groot en Reinout Douma - Tiepelzinneg",
+    "date": "2027-01-23",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/tiepelzinneg"
+  },
+  {
     "title": "Made In Purple Speelt Deep Purple’s Made In Japan",
     "date": "2027-01-23",
     "source": "ontdekpoort",
@@ -40704,18 +40617,6 @@
     "url": "https://www.atlastheater.nl/voorstellingen/the-masters-of-magic-met-hans-klok-the-illusionists-magic-seats-23-jan/"
   },
   {
-    "title": "Tiepelzinneg",
-    "date": "2027-01-23",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Tribute to TOTO",
     "date": "2027-01-23",
     "source": "visitgroningen",
@@ -40885,11 +40786,11 @@
   {
     "title": "Pier21 - Wat speelt",
     "date": "2027-01-24",
-    "source": "drenthe.nl",
+    "source": "theaterroden",
     "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3455658997/pier21-wat-speelt"
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/pier21"
   },
   {
     "title": "SC Heerenveen - PEC Zwolle",
@@ -40936,18 +40837,6 @@
     "date": "2027-01-24",
     "source": "melkweg",
     "genre": "overig"
-  },
-  {
-    "title": "Wat speelt",
-    "date": "2027-01-24",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
   },
   {
     "title": "Yorick van Norden - Abbey Road: The Beatles, Pink Floyd en ik",
@@ -41164,6 +41053,15 @@
     "category": "Muziek overig"
   },
   {
+    "title": "Burger Koekoek - Met een Vloek en een Zucht (try-out)",
+    "date": "2027-01-28",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/burger-koekoek"
+  },
+  {
     "title": "Cat Smits Company — Achter gesloten deuren",
     "date": "2027-01-28",
     "source": "lawei",
@@ -41244,18 +41142,6 @@
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/legendary-albums-live-beach-boys-best-28-jan/"
-  },
-  {
-    "title": "Met een Vloek en een Zucht (try-out)",
-    "date": "2027-01-28",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
   },
   {
     "title": "Nhung Dam – Legende van de witte slang",
@@ -41562,11 +41448,11 @@
   {
     "title": "Annick Boer - Vol Erin!",
     "date": "2027-01-30",
-    "source": "drenthe.nl",
+    "source": "theaterroden",
     "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3180584826/annick-boer-vol-erin"
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/annick-boer"
   },
   {
     "title": "Boeing Boeing",
@@ -41782,19 +41668,6 @@
     ]
   },
   {
-    "title": "Vol Erin!",
-    "date": "2027-01-30",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek / Theater",
-    "cats": [
-      "muziek",
-      "toneel"
-    ]
-  },
-  {
     "title": "Wat speelt - Pier21",
     "date": "2027-01-30",
     "source": "drenthe.nl",
@@ -41957,18 +41830,6 @@
     ]
   },
   {
-    "title": "Peter Pan (5+)",
-    "date": "2027-01-31",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Kinderen",
-    "cats": [
-      "kinderen"
-    ]
-  },
-  {
     "title": "Rayen Panday – Grip",
     "date": "2027-01-31",
     "source": "spotgroningen.nl",
@@ -42021,11 +41882,11 @@
   {
     "title": "Theater Terra - Peter Pan (5+)",
     "date": "2027-01-31",
-    "source": "drenthe.nl",
-    "genre": "Theater",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3398758380/theater-terra-peter-pan-5"
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/peter-pan"
   },
   {
     "title": "Theaterweekend",
@@ -42365,18 +42226,6 @@
     ]
   },
   {
-    "title": "Hardleers (try-out)",
-    "date": "2027-02-04",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Henge",
     "date": "2027-02-04",
     "source": "paard",
@@ -42388,11 +42237,11 @@
   {
     "title": "Kim Schuddeboom - Hardleers (try-out)",
     "date": "2027-02-04",
-    "source": "drenthe.nl",
+    "source": "theaterroden",
     "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1512829565/kim-schuddeboom-hardleers-try-out"
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/hardleers"
   },
   {
     "title": "Nhung Dam",
@@ -42966,12 +42815,9 @@
     "date": "2027-02-06",
     "source": "theaterroden",
     "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek",
-    "cats": [
-      "muziek"
-    ]
+    "time": "19:30",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/roder-jongenskoor"
   },
   {
     "title": "Ruud Smulders – RÜDSICHTSLOS",
@@ -43350,6 +43196,15 @@
     "url": "https://www.atlastheater.nl/voorstellingen/pieter-hulst-willem-voogd-de-proefkeuken-en-de-wc-van-tijd-8plus-07-feb/"
   },
   {
+    "title": "Pip & Pelle - Wintershow! (4+)",
+    "date": "2027-02-07",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/pip-pelle"
+  },
+  {
     "title": "Pippi en de piraten (6+) - Theater Terra",
     "date": "2027-02-07",
     "source": "friesland.nl",
@@ -43398,18 +43253,6 @@
     "city": "Coevorden",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/284011445/wildeboel-speelfilm-henk-en-janetta-bos"
-  },
-  {
-    "title": "Wintershow! (4+)",
-    "date": "2027-02-07",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Kinderen",
-    "cats": [
-      "kinderen"
-    ]
   },
   {
     "title": "Swan Lake (6+) – Introdans",
@@ -43651,18 +43494,6 @@
     "cats": []
   },
   {
-    "title": "Father & Son",
-    "date": "2027-02-11",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Ivgi & Greben What We Leave Behind",
     "date": "2027-02-11",
     "source": "ontdekpoort",
@@ -43699,13 +43530,13 @@
     ]
   },
   {
-    "title": "Leo & Marius Blokhuis - Father & son",
+    "title": "Leo & Marius Blokhuis - Father & Son",
     "date": "2027-02-11",
-    "source": "drenthe.nl",
+    "source": "theaterroden",
     "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/2193145138/leo-marius-blokhuis-father-son"
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/leo-marius-blokhuis"
   },
   {
     "title": "Mart Hillen — The big six",
@@ -44098,6 +43929,15 @@
     ]
   },
   {
+    "title": "Diederick Ensink - Iets Te Vieren",
+    "date": "2027-02-13",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/iets-te-vieren"
+  },
+  {
     "title": "FC Groningen - AZ",
     "date": "2027-02-13",
     "source": "fcgroningen",
@@ -44172,18 +44012,6 @@
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/happy-days-the-wieners-13-feb/"
-  },
-  {
-    "title": "Iets Te Vieren",
-    "date": "2027-02-13",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
   },
   {
     "title": "Jan Henk de Groot en Reinout Douma",
@@ -44444,18 +44272,6 @@
     "url": "https://dedoelen.nl/nl/agenda/fee-suzanne-de-ruiter-4zrs"
   },
   {
-    "title": "Finalistentour",
-    "date": "2027-02-14",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek",
-    "cats": [
-      "muziek"
-    ]
-  },
-  {
     "title": "Govert de Roos - van Hazes tot Playboy",
     "date": "2027-02-14",
     "source": "drenthe.nl",
@@ -44466,6 +44282,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Groninger Studenten Cabaret Festival - Finalistentour",
+    "date": "2027-02-14",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "16:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/gscf-finalistentour"
   },
   {
     "title": "Heel hart!",
@@ -44905,18 +44730,6 @@
     "url": "https://www.concertgebouw.nl/concerten/45913700-zing-cirkel-concertgebouw"
   },
   {
-    "title": "Because of You",
-    "date": "2027-02-18",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Club Guy & Roni invites",
     "date": "2027-02-18",
     "source": "friesland.nl",
@@ -44988,6 +44801,15 @@
     "cats": [
       "theater"
     ]
+  },
+  {
+    "title": "Niels Geusebroek - Because of You",
+    "date": "2027-02-18",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/niels-geusebroek"
   },
   {
     "title": "Noord Nederlands Orkest en Arabella Steinbacher – Dvorák 8",
@@ -45147,13 +44969,13 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1800918285/donna-s-hot-stuff-a-tribute-to-the-queen-of-disco"
   },
   {
-    "title": "Ellen Ten Damme - Medusa (try-out(",
+    "title": "Ellen Ten Damme - Medusa (try-out)",
     "date": "2027-02-19",
-    "source": "drenthe.nl",
+    "source": "theaterroden",
     "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/767699762/ellen-ten-damme-medusa-try-out"
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/medusa"
   },
   {
     "title": "Elvis Forever - 50th Anniversary tribute show",
@@ -45248,18 +45070,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/37331025-juilliard-string-quartet-speelt-ravel-en-grieg"
-  },
-  {
-    "title": "Medusa (try-out)",
-    "date": "2027-02-19",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
   },
   {
     "title": "Noord Nederlands Orkest",
@@ -45387,11 +45197,11 @@
   {
     "title": "Bert Hadders - Roest",
     "date": "2027-02-20",
-    "source": "drenthe.nl",
+    "source": "theaterroden",
     "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/973247041/bert-hadders-roest"
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/hadders-roest"
   },
   {
     "title": "Boeing Boeing",
@@ -45713,18 +45523,6 @@
     "category": "theater",
     "cats": [
       "uitje"
-    ]
-  },
-  {
-    "title": "Roest",
-    "date": "2027-02-20",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
     ]
   },
   {
@@ -47292,16 +47090,22 @@
     "url": "https://www.concertgebouw.nl/concerten/45900754-concertgebouworkest-met-jorg-widmann-en-mendelssohn"
   },
   {
-    "title": "Crossroads",
+    "title": "Cor Bakker & David Linx - Crossroads",
+    "date": "2027-03-05",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Roden",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1522867108/cor-bakker-david-linx-crossroads"
+  },
+  {
+    "title": "Cor Bakker en David Linx - Crossroads",
     "date": "2027-03-05",
     "source": "theaterroden",
     "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek",
-    "cats": [
-      "muziek"
-    ]
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/crossroads"
   },
   {
     "title": "De Kast",
@@ -48498,25 +48302,13 @@
     ]
   },
   {
-    "title": "Kooiapen (try-out)",
+    "title": "Martijn Crins - Kooiapen (try-out)",
     "date": "2027-03-11",
     "source": "theaterroden",
     "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
-    "title": "Martijn Crins - Kooiapen (try-out)",
-    "date": "2027-03-11",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1292214999/martijn-crins-kooiapen-try-out"
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/kooiapen"
   },
   {
     "title": "NAAR DE GETVER",
@@ -48688,6 +48480,15 @@
     "cats": []
   },
   {
+    "title": "DE MEIDEN van toen - NAAR DE GETVER",
+    "date": "2027-03-12",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/naar-de-getver"
+  },
+  {
     "title": "Daniël Arends - 2 verschillende shows op 1 avond",
     "date": "2027-03-12",
     "source": "drenthe.nl",
@@ -48779,18 +48580,6 @@
     "genre": "overig",
     "venue": "Martiniplaza Groningen",
     "url": "https://www.theater.nl/groningen/martini-plaza-groningen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
-  },
-  {
-    "title": "NAAR DE GETVER",
-    "date": "2027-03-12",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
     "category": "Cabaret",
     "cats": [
       "cabaret"
@@ -49046,25 +48835,13 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1080486694/jim-de-groot-en-sebas-wolfensberger-in-de-skans-gorredijk"
   },
   {
-    "title": "Knooin",
+    "title": "Leon Moorman - Knooin",
     "date": "2027-03-13",
     "source": "theaterroden",
     "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
-    "title": "Leon Moorman - Knooin",
-    "date": "2027-03-13",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1248356046/leon-moorman-knooin-1"
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/leon-moorman"
   },
   {
     "title": "Lucile Richardot & Ensemble Correspondances",
@@ -49269,6 +49046,15 @@
     "url": "https://www.concertgebouw.nl/concerten/45900872-concertgebouworkest-klaus-makela-beethovens-missa-solemnis"
   },
   {
+    "title": "Fred Delfgaauw - Tot hier en nu verder",
+    "date": "2027-03-14",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/fred-delfgaauw-2027"
+  },
+  {
     "title": "Frisse Oren Tuimelaar (6-18 maanden)",
     "date": "2027-03-14",
     "source": "ontdekpoort",
@@ -49393,18 +49179,6 @@
     "url": "https://www.theaterdekoornbeurs.nl/programma",
     "category": "theater",
     "cats": []
-  },
-  {
-    "title": "Tot hier en nu verder",
-    "date": "2027-03-14",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
   },
   {
     "title": "Wijn & Spijs — Vijf gangen met bijpassende wijnen",
@@ -49717,18 +49491,6 @@
     "url": "https://www.melkweg.nl/nl/agenda/dea-matrona-18-03-2027/"
   },
   {
-    "title": "Eigenlijk (try-out)",
-    "date": "2027-03-18",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Fieke Opdam",
     "date": "2027-03-18",
     "source": "kielzog",
@@ -49809,11 +49571,11 @@
   {
     "title": "Viggo Waas, Eddy B. Wahr en Kees van der Vooren - Eigenlijk (try-out)",
     "date": "2027-03-18",
-    "source": "drenthe.nl",
+    "source": "theaterroden",
     "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/2758150114/viggo-waas-eddy-b-wahr-en-kees-van-der-vooren-eigenlijk-try-out"
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/eigenlijk"
   },
   {
     "title": "Week van de Circulaire Economie",
@@ -49833,19 +49595,6 @@
     "url": "https://www.theaterdekoornbeurs.nl/programma",
     "category": "theater",
     "cats": []
-  },
-  {
-    "title": "A tribute to Tom Petty",
-    "date": "2027-03-19",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek / Concert",
-    "cats": [
-      "muziek",
-      "concert"
-    ]
   },
   {
     "title": "Bachs Matthäus-Passion met het Concertgebouworkest",
@@ -50090,6 +49839,15 @@
     ]
   },
   {
+    "title": "The Waiting - A tribute to Tom Petty",
+    "date": "2027-03-19",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/tribute-tom-petty"
+  },
+  {
     "title": "Thomas Heikoop",
     "date": "2027-03-19",
     "source": "friesland.nl",
@@ -50118,6 +49876,15 @@
     "time": "20:00",
     "venue": "GelreDome, Arnhem",
     "url": "https://www.gelredome.nl/evenement/vitesse-jong-fc-utrecht-26-27"
+  },
+  {
+    "title": "André Manuel - De Eenzame Ziel",
+    "date": "2027-03-20",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/andre-manuel"
   },
   {
     "title": "Ashton Brothers - BROTHERS (reprise)",
@@ -50167,18 +49934,6 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/245732342/de-bevers-de-bevers-zijn-er-bijna",
     "category": "Cabaret"
-  },
-  {
-    "title": "De Eenzame Ziel",
-    "date": "2027-03-20",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
   },
   {
     "title": "De Verleiders Zoek dekking",
@@ -50505,11 +50260,11 @@
   {
     "title": "Garage TDI - Josette (4+)",
     "date": "2027-03-21",
-    "source": "drenthe.nl",
+    "source": "theaterroden",
     "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3548811097/garage-tdi-josette-4"
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/garage-tdi"
   },
   {
     "title": "Izhar Elias & Fernando Cordas - Dos Amigos",
@@ -50528,18 +50283,6 @@
     "city": "Gorredijk",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2816394785/jan-en-marijke-in-de-skans-gorredijk"
-  },
-  {
-    "title": "Josette (4+)",
-    "date": "2027-03-21",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Kinderen",
-    "cats": [
-      "kinderen"
-    ]
   },
   {
     "title": "Koka Kola Rivier (9+) – De Toneelmakerij",
@@ -50830,16 +50573,13 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4211506406/bertolf-bluefinger-volume-2"
   },
   {
-    "title": "Comedynight",
+    "title": "Comedytunes - Comedynight",
     "date": "2027-03-25",
     "source": "theaterroden",
     "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/comedytunes-2027"
   },
   {
     "title": "De Toneelmakerij In Real Life (12+)",
@@ -51732,18 +51472,6 @@
     ]
   },
   {
-    "title": "Nieuwe Noordelijke Makers",
-    "date": "2027-04-01",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Noord Nederlands Orkest Flex Abonnement",
     "date": "2027-04-01",
     "source": "spotgroningen.nl",
@@ -51762,6 +51490,15 @@
     "genre": "Muziek",
     "location": "Rotterdam",
     "url": "https://dedoelen.nl/nl/agenda/ralph-van-raat-rosanne-philippens-laura-bohn-87d1"
+  },
+  {
+    "title": "STORMRAM - Nieuwe Noordelijke Makers",
+    "date": "2027-04-01",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/stormram-2027"
   },
   {
     "title": "Antiklimax",
@@ -51822,18 +51559,6 @@
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3947674017/evi-hanssen-bloedheet-tranen"
-  },
-  {
-    "title": "Familie voor Beginners",
-    "date": "2027-04-02",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
   },
   {
     "title": "GUUS MEEUWIS LIVE IN AHOY",
@@ -51898,6 +51623,15 @@
     "url": "https://neushoorn.nl/programma",
     "category": "pop",
     "cats": []
+  },
+  {
+    "title": "Mylou Frencken - Familie voor Beginners",
+    "date": "2027-04-02",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/familie-voor-beginners"
   },
   {
     "title": "Noord Nederlands Orkest – Doe maar mee Band",
@@ -52212,18 +51946,6 @@
     "url": "https://www.atlastheater.nl/voorstellingen/overprikkeld-martijn-koning-03-apr/"
   },
   {
-    "title": "Populisme De Musical",
-    "date": "2027-04-03",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Musical",
-    "cats": [
-      "musical"
-    ]
-  },
-  {
     "title": "Rapalje",
     "date": "2027-04-03",
     "source": "friesland.nl",
@@ -52249,6 +51971,15 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/37331016-schumann-quartett-speelt-brahms-strijkkwartet-nr.-2"
+  },
+  {
+    "title": "Sem Konijn - Populisme De Musical",
+    "date": "2027-04-03",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/sem-konijn"
   },
   {
     "title": "Sjostakovitsj 15 & Berio’s Sinfonia onder Petrenko",
@@ -52823,18 +52554,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2773124108/fabian-franciscus-is-het-leven-al-begonnen"
   },
   {
-    "title": "Gelukskoekje (try-out)",
-    "date": "2027-04-08",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Ilse Warringa, Theo Maassen e.a. – RATATATATA!",
     "date": "2027-04-08",
     "source": "spotgroningen.nl",
@@ -52924,6 +52643,15 @@
     "cats": [
       "theater"
     ]
+  },
+  {
+    "title": "Sara Kroos - Gelukskoekje (try-out)",
+    "date": "2027-04-08",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/gelukskoekje"
   },
   {
     "title": "Scherpdenkers: Rasit Elibol",
@@ -53038,18 +52766,6 @@
     ]
   },
   {
-    "title": "Galway",
-    "date": "2027-04-09",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek",
-    "cats": [
-      "muziek"
-    ]
-  },
-  {
     "title": "Gregory Page",
     "date": "2027-04-09",
     "source": "friesland.nl",
@@ -53155,11 +52871,11 @@
   {
     "title": "O'DREAMS - Galway",
     "date": "2027-04-09",
-    "source": "drenthe.nl",
+    "source": "theaterroden",
     "genre": "overig",
-    "city": "Roden",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/2858039293/o-dreams-galway-3"
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/galway-2027"
   },
   {
     "title": "Popup Choir  Queen Sing-a-Long",
@@ -53250,18 +52966,6 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1045863365/dana-winner",
     "category": "Concert"
-  },
-  {
-    "title": "De wereld zingt",
-    "date": "2027-04-10",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek",
-    "cats": [
-      "muziek"
-    ]
   },
   {
     "title": "Diederik Nomden - VERS",
@@ -53365,6 +53069,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Minka Zaal & Friends - De wereld zingt",
+    "date": "2027-04-10",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/minka-zaal-friends"
   },
   {
     "title": "Motel Westcoast 20 Years!",
@@ -53558,18 +53271,6 @@
     "url": "https://podiumzuidhaege.nl/a/isabelle-van-keulen-en-ulrike-payer/"
   },
   {
-    "title": "Drie Titanen",
-    "date": "2027-04-11",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Fling, Irish Music",
     "date": "2027-04-11",
     "source": "friesland.nl",
@@ -53601,6 +53302,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Gauguin Ensemble - Drie Titanen",
+    "date": "2027-04-11",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/drie-titanen"
   },
   {
     "title": "Grote Pianisten: Nikolai Lugansky speelt Chopin en Schumann",
@@ -53942,18 +53652,6 @@
     "url": "https://www.concertgebouw.nl/concerten/41773098-barragan-wildschut-la-marca-en-ionita-in-mozarts-klarinetkwartet"
   },
   {
-    "title": "Child's Play",
-    "date": "2027-04-15",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Clean Pete Klassieke Revue met Thomas Beijer",
     "date": "2027-04-15",
     "source": "spotgroningen.nl",
@@ -54061,6 +53759,24 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Teus Nobel - Child's Play",
+    "date": "2027-04-15",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/childs-play"
+  },
+  {
+    "title": "Teus Nobel 4 - Child's Play",
+    "date": "2027-04-15",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Roden",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3572774943/teus-nobel-4-child-s-play"
   },
   {
     "title": "The Bodyguard",
@@ -54211,18 +53927,6 @@
     ]
   },
   {
-    "title": "Lach maar om mij",
-    "date": "2027-04-16",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Cabaret",
-    "cats": [
-      "cabaret"
-    ]
-  },
-  {
     "title": "Later word ik 7 - MEESTER MARK",
     "date": "2027-04-16",
     "source": "atlastheater",
@@ -54230,6 +53934,15 @@
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/later-word-ik-7-meester-mark-16-apr/"
+  },
+  {
+    "title": "Luuk Weggemans - Lach maar om mij",
+    "date": "2027-04-16",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/luuk-weggemans"
   },
   {
     "title": "MUZT Musicalopleiding MUZT speelt …….",
@@ -54455,6 +54168,15 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/4154285880/frank-boeijen"
   },
   {
+    "title": "Govert de Roos - Van Hazes tot Playboy",
+    "date": "2027-04-17",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/govert-de-roos"
+  },
+  {
     "title": "Gregory Page Page Center Stage",
     "date": "2027-04-17",
     "source": "ontdekpoort",
@@ -54620,18 +54342,6 @@
     "category": "Muziek overig"
   },
   {
-    "title": "Van Hazes tot Playboy",
-    "date": "2027-04-17",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Muziek",
-    "cats": [
-      "muziek"
-    ]
-  },
-  {
     "title": "Zoek dekking! - De Verleiders",
     "date": "2027-04-17",
     "source": "atlastheater",
@@ -54682,12 +54392,9 @@
     "date": "2027-04-18",
     "source": "theaterroden",
     "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
+    "time": "14:00",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/bestorming"
   },
   {
     "title": "Dikkie Dik & Dirk Scheele (2+)",
@@ -55340,6 +55047,15 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1382012001/stef-bos-2027"
   },
   {
+    "title": "Tim Knol - Wanderings",
+    "date": "2027-04-23",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/tim-knol-2027"
+  },
+  {
     "title": "Tot het uiterste gedreven - Thijs Kemperink",
     "date": "2027-04-23",
     "source": "atlastheater",
@@ -55347,18 +55063,6 @@
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/tot-het-uiterste-gedreven-thijs-kemperink-23-apr/"
-  },
-  {
-    "title": "Wanderings (try-out)",
-    "date": "2027-04-23",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Dans",
-    "cats": [
-      "dans"
-    ]
   },
   {
     "title": "Yentl en de Boer – De dagen",
@@ -57540,18 +57244,6 @@
     "genre": "overig"
   },
   {
-    "title": "Creating Space",
-    "date": "2027-05-15",
-    "source": "theaterroden",
-    "genre": "overig",
-    "venue": "Theater de Winsinghhof Roden",
-    "url": "https://theaterroden.nl/voorstellingen",
-    "category": "Theater",
-    "cats": [
-      "toneel"
-    ]
-  },
-  {
     "title": "Daan van der Hoeven - Mensenmens",
     "date": "2027-05-15",
     "source": "friesland.nl",
@@ -57617,6 +57309,15 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/43714223-meesters-op-de-gitaar-stephanie-jones-speelt-piazzollas-de-vier-jaargetijden"
+  },
+  {
+    "title": "Mohamed Yusuf Boss - Creating Space",
+    "date": "2027-05-15",
+    "source": "theaterroden",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Winsinghhof, Roden",
+    "url": "https://theaterroden.nl/creating-space"
   },
   {
     "title": "NITE | Club Guy & Roni | HIIIT | Het Muziek - Nachtwacht (reprise) in De Lawei",
