@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (45 bronnen, 43 scripts)
+## ✅ Geautomatiseerd (46 bronnen, 44 scripts)
 
 | Bron | Script |
 |---|---|
@@ -67,11 +67,12 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | GelreDome (Arnhem) | `scrape_gelredome.py` (Playwright, zelfde Webflow-platform als Neushoorn, mix van Vitesse-thuiswedstrijden + concerten/evenementen, volgt paginering, 21 events) |
 | Ziggo Dome (Amsterdam) | `scrape_ziggodome.py` (via podiuminfo.nl — tip van Michiel, JSON-LD, geen Playwright nodig, 25 events) |
 | Simplon (Groningen) | `scrape_simplon.py` (Playwright, derde scraper — Stager-platform net als Vera, maar eigen programma-pagina heeft wél een simpel regex-baar DOM-patroon zonder Vera's AJAX-paginering-probleem, 48 events) |
+| Effenaar (Eindhoven) | `scrape_effenaar.py` (Playwright, vierde scraper — eerdere check gebruikte de verkeerde URL `/programma` i.p.v. `/agenda`, vandaar de vroegere "CMS-metadata"-conclusie; juiste URL geeft een schoon `agenda-card`-grid, 125 events) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig (18 bronnen, incl. landelijke-podia-tabel verderop)
+## 🌐 AI/Chrome nodig (17 bronnen, incl. landelijke-podia-tabel verderop)
 
 12 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md): Atlas Emmen
 (Umbraco-ticketing-API), Zuidhaege Assen (WP REST `event_listing`-post-type),
@@ -151,7 +152,6 @@ zie ✅ hierboven (`scrape_tivolivredenburg.py`, via Songkick, tip Michiel).
 | De Doelen | Vite-gebundelde JS (`site.js`) doorzocht op API-endpoints/fetch-calls — niets events-gerelateerds gevonden, alleen wachtwoord-lijst-fetches en een Spotify-oembed-call. Geen bruikbare API gevonden. |
 | Rotterdam Ahoy | Foundation-framework (geen moderne JS-bundler), "Silvercore"-CDN — geen API-aanwijzingen gevonden, geen event-achtige CSS-classes in de ruwe HTML |
 | GelreDome | **Webflow-site** (cdn.prod.website-files.com) met Finsweet CMS-filter — CMS-collectie staat leeg in de ruwe HTML (`w-dyn-bind-empty`), wordt client-side gevuld. Zelfde platform als Neushoorn. |
-| Effenaar | 1.6MB pagina, 150 datum-strings bij hercheck (!) maar bleken bij inspectie CMS-content-blocks (Statamic-achtige structuur, `publish_date`-velden van pagina-onderdelen), niet per se events-datums — nadere inspectie nodig, veelbelovend maar niet afgerond |
 | Paradiso, Concertgebouw | homepage geladen maar geen agenda-link gevonden in de ruwe HTML; Paradiso 1 datum-string bij hercheck (vermoedelijk ruis) — juiste agenda-URL nog niet gevonden |
 | Rotown | `/agenda/` geeft 404, 1 datum-string bij hercheck (ruis) — exacte listing-URL nog niet gevonden (individuele event-URL's wel: rotown.nl/agenda/artiest/) |
 | Het Paard | connectiefout bij hercheck 2026-08-15 (was timeout op 2026-08-14) — nog niet gelukt te bereiken |
@@ -160,7 +160,7 @@ Hedon Zwolle bleek een lege Angular-SPA-shell (7KB) te zijn, maar heeft een
 eigen `/api/events`-endpoint — opgelost, zie ✅ hierboven
 (`scrape_hedon.py`).
 
-Resterend van deze oorspronkelijke 15: 8 bronnen, geteld bij de 18
+Resterend van deze oorspronkelijke 15: 7 bronnen, geteld bij de 17
 "AI/Chrome nodig" hierboven (Melkweg, 013, Landstede Hammers, Hedon en
 TivoliVredenburg zijn opgelost).
 
