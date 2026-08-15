@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (44 bronnen, 42 scripts)
+## ✅ Geautomatiseerd (45 bronnen, 43 scripts)
 
 | Bron | Script |
 |---|---|
@@ -65,12 +65,13 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | TivoliVredenburg | `scrape_tivolivredenburg.py` (via songkick.com — tip van Michiel — alleen muziek/concerten, ~9 shows per run; site zelf blijft een bevestigde Cloudflare bot-challenge, bewust niet omzeild) |
 | Neushoorn (Leeuwarden) | `scrape_neushoorn.py` — **eerste Playwright-scraper** (headless Chromium rendert de Webflow-SPA, daarna regex op de DOM), 110 events. Zie ARCHITECTURE.md §Playwright-scrapers. |
 | GelreDome (Arnhem) | `scrape_gelredome.py` (Playwright, zelfde Webflow-platform als Neushoorn, mix van Vitesse-thuiswedstrijden + concerten/evenementen, volgt paginering, 21 events) |
-| Ziggo Dome (Amsterdam) | `scrape_ziggodome.py` (via podiuminfo.nl — tip van Michiel, JSON-LD, geen Playwright nodig, 25 events; ziggodome.nl zelf blijft een gevirtualiseerde lijst, zie hieronder) |
+| Ziggo Dome (Amsterdam) | `scrape_ziggodome.py` (via podiuminfo.nl — tip van Michiel, JSON-LD, geen Playwright nodig, 25 events) |
+| Simplon (Groningen) | `scrape_simplon.py` (Playwright, derde scraper — Stager-platform net als Vera, maar eigen programma-pagina heeft wél een simpel regex-baar DOM-patroon zonder Vera's AJAX-paginering-probleem, 48 events) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig (19 bronnen, incl. landelijke-podia-tabel verderop)
+## 🌐 AI/Chrome nodig (18 bronnen, incl. landelijke-podia-tabel verderop)
 
 12 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md): Atlas Emmen
 (Umbraco-ticketing-API), Zuidhaege Assen (WP REST `event_listing`-post-type),
@@ -84,7 +85,6 @@ automatiseerbaar zonder AI.
 | Bron | Verwachte omvang | Notitie |
 |---|---|---|
 | Vera | ~60 events | WordPress, geen custom event-post-type via REST. Programma-pagina toont wél ~20 events server-rendered (pagina 1), maar paginering loopt via een `admin-ajax.php`-call (`action=renderProgramme`) die zonder browsersessie een lege 200-respons geeft (vermoedelijk Cloudflare Bot Management op dat specifieke endpoint) — `?page=N` als URL-param werkt niet (negeerd server-side). Zonder browser dus alleen de eerste ~20 van ~60 events te halen; niet gebouwd (te onvolledig/fragiel). |
-| Simplon | ~47 events | WordPress zonder REST-exposed events, nog niet los onderzocht op hetzelfde admin-ajax-patroon als Vera |
 | Grand Theatre (Groningen) | ~25 events | innerText-parsing nodig, geen bruikbare CSS-classes, geen Umbraco/wp-json-API gevonden (custom plugin "michnhokn", niet herkend) |
 | Winsinghhof (theaterroden) | ~71 events | domein blijft onbereikbaar (connectiefout, herbevestigd 2026-08-15) — mogelijk verouderd/gewijzigd domein, nog uit te zoeken welke URL wel klopt |
 | EM2 Groningen | ~21 events | WordPress met custom `event`-post-type, WEL via `/wp-json/wp/v2/event` opvraagbaar — maar de evenementdatum staat los in vrije tekst zonder vast patroon ("De Gipsy Jazz Sessie op 12 juli is...", datum niet aan het begin zoals bij Zuidhaege) en sommige entries lijken terugkerende events zonder duidelijke enkele datum. Deels opgelost (API gevonden) maar datum-extractie te onbetrouwbaar bevonden om nu te bouwen. |
@@ -160,7 +160,7 @@ Hedon Zwolle bleek een lege Angular-SPA-shell (7KB) te zijn, maar heeft een
 eigen `/api/events`-endpoint — opgelost, zie ✅ hierboven
 (`scrape_hedon.py`).
 
-Resterend van deze oorspronkelijke 15: 8 bronnen, geteld bij de 19
+Resterend van deze oorspronkelijke 15: 8 bronnen, geteld bij de 18
 "AI/Chrome nodig" hierboven (Melkweg, 013, Landstede Hammers, Hedon en
 TivoliVredenburg zijn opgelost).
 

@@ -76,7 +76,9 @@ scrapers (830 events samen):
 - [x] Chromium geïnstalleerd, `scrape_neushoorn.py` gebouwd en werkt (110 events) — eerste Playwright-scraper.
 - [x] `scrape_gelredome.py` gebouwd en werkt (21 events, Vitesse + concerten) — tweede Playwright-scraper, zelfde Webflow-platform als Neushoorn.
 - [x] **Ziggo Dome opgelost** — uiteindelijk via podiuminfo.nl (tip Michiel, JSON-LD, geen Playwright nodig) i.p.v. de eerder onderzochte Playwright-scroll-aanpak (die werkte ook, maar podiuminfo is simpeler + heeft echte per-event-URL's). 25 events. Onderweg 13 near-duplicate "wees"-rijen opgeruimd + een `page_hash`-valkuil ontdekt (zie decisions.md/ARCHITECTURE.md §Change-detection).
-- [ ] Overige Playwright-kandidaten nog te proberen: Effenaar (nadere check nodig, leek CMS-metadata), Simplon (zelfde als Vera/Neushoorn te proberen — mogelijk ook Stager-platform)
+- [x] **Simplon opgelost** — `scrape_simplon.py`, derde Playwright-scraper. Zelfde Stager-platform als Vera maar geen AJAX-paginering-probleem, simpel DOM-patroon. 48 events.
+- [ ] Overige Playwright-kandidaten nog te proberen: Effenaar (nadere check nodig, leek CMS-metadata)
+- [ ] **Vera nog steeds niet opgelost** — enige overgebleven Stager-bron met het AJAX-paginering-probleem (zie decisions.md 2026-08-15). Zou met Chrome MCP (interactief een nonce/cookie achterhalen) alsnog kunnen, apart punt.
 - [ ] Overweeg later: gedeelde browser-instance i.p.v. elke Playwright-scraper zijn eigen Chromium laten starten (opstarttijd ~7s per scraper, kan oplopen bij veel Playwright-scrapers) — zie ARCHITECTURE.md §Playwright-scrapers.
 
 ## Sport-audit (2026-08-10)
