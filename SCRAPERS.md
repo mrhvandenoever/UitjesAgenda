@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (55 bronnen, 53 scripts)
+## ✅ Geautomatiseerd (56 bronnen, 54 scripts)
 
 | Bron | Script |
 |---|---|
@@ -78,11 +78,12 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Het Paard (Den Haag) | `scrape_paard.py` (via denhaag.com/nl/paard — tip van Michiel — geen Playwright nodig, gewone `?page=N`-paginering, 92 events; eigen site paard.nl bleef leeg zelfs met Playwright) |
 | Paradiso (Amsterdam) | `scrape_paradiso.py` (Playwright, negende scraper — juiste URL was een specifieke landingspagina, niet vanaf de homepage vindbaar, 100 events) |
 | Concertgebouw (Amsterdam) | `scrape_concertgebouw.py` (Playwright, tiende scraper — juiste URL `/concerten-en-tickets` (tip Michiel), ~40 pagina's paginering, 600 events — grootste scraper van het project) |
+| Rotown (Rotterdam) | `scrape_rotown.py` (geen Playwright nodig — de HOMEPAGE zelf bevat 139 losse JSON-LD Event-blokken, `/agenda/` als listing-URL bestond gewoon niet; gefilterd op `location.name=='Rotown'`, 97 events) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig (8 bronnen, incl. landelijke-podia-tabel verderop)
+## 🌐 AI/Chrome nodig (7 bronnen, incl. landelijke-podia-tabel verderop)
 
 12 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md): Atlas Emmen
 (Umbraco-ticketing-API), Zuidhaege Assen (WP REST `event_listing`-post-type),
@@ -137,7 +138,7 @@ API-mechaniek (seizoen/phase/team-id-discovery, paginering-quirk). Bonus:
 dezelfde API dekt ook **Landstede Hammers** — zie `scrape_landstede.py`.
 Beide: 15 thuiswedstrijden voor seizoen 2026-2027 (okt 2026 - mei 2027).
 
-## ❓ Landelijke podia — herchecked 2026-08-15, 2 bleken toch server-rendered
+## ❓ Landelijke podia — allemaal opgelost 2026-08-15 (geschiedenis)
 
 Bij de eerste check (2026-08-14, plain requests) bleken deze grote,
 commerciële venues consistent zwaar client-rendered — geen bruikbare
@@ -153,18 +154,15 @@ TivoliVredenburg zelf blijft een bevestigde Cloudflare bot-challenge ("Just a
 moment..."-pagina, bewust niet omzeild) — maar wel opgelost via een omweg,
 zie ✅ hierboven (`scrape_tivolivredenburg.py`, via Songkick, tip Michiel).
 
-| Bron | Bevinding |
-|---|---|
-| GelreDome | **Webflow-site** (cdn.prod.website-files.com) met Finsweet CMS-filter — CMS-collectie staat leeg in de ruwe HTML (`w-dyn-bind-empty`), wordt client-side gevuld. Zelfde platform als Neushoorn. |
-| Rotown | `/agenda/` geeft 404, 1 datum-string bij hercheck (ruis) — exacte listing-URL nog niet gevonden (individuele event-URL's wel: rotown.nl/agenda/artiest/). Geen Ticketmaster-venue gevonden — te klein/indie. |
-
 Hedon Zwolle bleek een lege Angular-SPA-shell (7KB) te zijn, maar heeft een
 eigen `/api/events`-endpoint — opgelost, zie ✅ hierboven
-(`scrape_hedon.py`).
+(`scrape_hedon.py`). GelreDome (Webflow, client-side CMS-collectie) is
+opgelost met Playwright. Ziggo Dome via Ticketmaster, Ahoy via Ticketmaster,
+Effenaar/De Doelen/Paradiso/Concertgebouw/Rotown/Het Paard bleken stuk voor
+stuk verkeerde-URL-fouten (zie decisions.md), Doornroosje/Grand Theatre
+gewoon Playwright.
 
-Resterend van deze oorspronkelijke 15: 1 bron, geteld bij de 8
-"AI/Chrome nodig" hierboven (Melkweg, 013, Landstede Hammers, Hedon en
-TivoliVredenburg zijn opgelost).
+**Alle 15 oorspronkelijke landelijke podia zijn nu opgelost** (2026-08-15).
 
 ## 📍 Eenmalig opgelost, geen herhaalbaar script (2 bronnen)
 
