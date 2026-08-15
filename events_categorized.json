@@ -1175,6 +1175,15 @@
     "cats": []
   },
   {
+    "title": "Faradays",
+    "date": "2026-08-22",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/faradays"
+  },
+  {
     "title": "Frank Boeijen",
     "date": "2026-08-22",
     "source": "doornroosje",
@@ -2323,6 +2332,15 @@
     "url": "https://www.noorderzon.nl/programma/hystory"
   },
   {
+    "title": "Paardcafé: Prosciutto All Night",
+    "date": "2026-08-28",
+    "source": "paard",
+    "genre": "overig",
+    "time": "23:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/paardcafe-prosciutto-all-night"
+  },
+  {
     "title": "Real Farmer",
     "date": "2026-08-28",
     "source": "vera",
@@ -2636,6 +2654,24 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/paard-van-stal-2026-2/"
+  },
+  {
+    "title": "Paard van Stal",
+    "date": "2026-08-29",
+    "source": "paard",
+    "genre": "overig",
+    "time": "19:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/paard-van-stal"
+  },
+  {
+    "title": "Paardcafé: Thyme Flies",
+    "date": "2026-08-29",
+    "source": "paard",
+    "genre": "overig",
+    "time": "23:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/paardcafe-thyme-flies"
   },
   {
     "title": "Podium Zuidhaege op Preuvenement Assen",
@@ -3345,10 +3381,37 @@
     ]
   },
   {
+    "title": "Mensen zeggen dingen",
+    "date": "2026-09-03",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/mensen-zeggen-dingen"
+  },
+  {
+    "title": "Paardcafé: Holly-Ann",
+    "date": "2026-09-03",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/paardcafe-holly-ann"
+  },
+  {
     "title": "Saxuo in de Nicolaikerk",
     "date": "2026-09-03",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Semester Opening Festival - Glow in the Dark Edition",
+    "date": "2026-09-03",
+    "source": "paard",
+    "genre": "overig",
+    "time": "23:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/semester-opening-festival-glow-in-the-dark-edition"
   },
   {
     "title": "Uit de Hoge Hoed Improv Comedy",
@@ -5109,6 +5172,15 @@
     "image": "https://www.rotown.nl/wp-content/uploads/2026/05/Ora-Cogan.jpg"
   },
   {
+    "title": "Paardcafé: Club 3voor12 Den Haag",
+    "date": "2026-09-11",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/paardcafe-club-3voor12-den-haag"
+  },
+  {
     "title": "TAFKAL 2026 - Serieus Grappig",
     "date": "2026-09-11",
     "source": "ahoy",
@@ -5119,6 +5191,15 @@
     "date": "2026-09-11",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Très Bien - Anniversary Edition",
+    "date": "2026-09-11",
+    "source": "paard",
+    "genre": "overig",
+    "time": "23:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/tres-bien-anniversary-edition"
   },
   {
     "title": "Vinyl Sessions: Anton de Bruin",
@@ -6593,6 +6674,15 @@
     ]
   },
   {
+    "title": "VoxTechnik - Live 80’s synth-pop",
+    "date": "2026-09-17",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/voxtechnik-live-80s-synth-pop"
+  },
+  {
     "title": "Voxtechnik",
     "date": "2026-09-17",
     "source": "paard",
@@ -7212,6 +7302,15 @@
     "date": "2026-09-19",
     "source": "melkweg",
     "genre": "overig"
+  },
+  {
+    "title": "Manuel, Lotterman & Dee",
+    "date": "2026-09-19",
+    "source": "paard",
+    "genre": "overig",
+    "time": "19:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/manuel-lotterman-dee"
   },
   {
     "title": "Marcel van Roosmalen – Ik mag niet klagen (reprise)",
@@ -9406,6 +9505,15 @@
     "url": "https://neushoorn.nl/programma"
   },
   {
+    "title": "The Smithsonics – New Wave City 12,5 Jaar",
+    "date": "2026-09-26",
+    "source": "paard",
+    "genre": "overig",
+    "time": "21:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/the-smithsonics-new-wave-city-125-jaar"
+  },
+  {
     "title": "The best of Simon & Garfunkel - Syb van der Ploeg, Maarten Peters e.a.",
     "date": "2026-09-26",
     "source": "lawei",
@@ -9520,6 +9628,15 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/agnieszka-chylinska-10/"
+  },
+  {
+    "title": "Agnieszka Chylińska",
+    "date": "2026-09-27",
+    "source": "paard",
+    "genre": "overig",
+    "time": "18:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/agnieszka-chylinska-1"
   },
   {
     "title": "BEACH BOYS’ BEST",
@@ -10684,6 +10801,15 @@
     "cats": []
   },
   {
+    "title": "Paardcafé: Kate Clover",
+    "date": "2026-10-01",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/paardcafe-kate-clover"
+  },
+  {
     "title": "Pieces of Tomorrow - Mendelssohn 4",
     "date": "2026-10-01",
     "source": "tivolivredenburg",
@@ -10778,6 +10904,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Babybeard",
+    "date": "2026-10-02",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/babybeard"
   },
   {
     "title": "Bass Drum of Death",
@@ -11083,6 +11218,15 @@
     "cats": [
       "concert"
     ]
+  },
+  {
+    "title": "Paardcafé: Nose Shop",
+    "date": "2026-10-02",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/paardcafe-nose-shop"
   },
   {
     "title": "Republica - 2 oktober 2026 - Rotown, Rotterdam",
@@ -12499,6 +12643,15 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/hallas-2/"
+  },
+  {
+    "title": "Hällas",
+    "date": "2026-10-06",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/hallas"
   },
   {
     "title": "James Blake",
@@ -14167,6 +14320,15 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/supafly-2026-2/"
+  },
+  {
+    "title": "Supafly Festival",
+    "date": "2026-10-10",
+    "source": "paard",
+    "genre": "overig",
+    "time": "19:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/supafly-festival"
   },
   {
     "title": "The Devil Wears Prada",
@@ -16513,6 +16675,15 @@
     ]
   },
   {
+    "title": "Joost Oomen & Kruidkoek",
+    "date": "2026-10-17",
+    "source": "paard",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/joost-oomen-kruidkoek"
+  },
+  {
     "title": "Juf Braaksel De Musical (6+)",
     "date": "2026-10-17",
     "source": "drenthe.nl",
@@ -16592,6 +16763,15 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/43931215-nieuwe-blik-terug-armeense-componisten"
+  },
+  {
+    "title": "No Barrier",
+    "date": "2026-10-17",
+    "source": "paard",
+    "genre": "overig",
+    "time": "21:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/no-barrier"
   },
   {
     "title": "Nobu – Highs & Lows Clubtour",
@@ -18215,6 +18395,15 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/ronde-8/"
+  },
+  {
+    "title": "Rondé",
+    "date": "2026-10-22",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/ronde"
   },
   {
     "title": "STMPD 10YRS",
@@ -20357,6 +20546,15 @@
     ]
   },
   {
+    "title": "Kiiōtō Feat. Lou Rhodes of Lamb",
+    "date": "2026-10-28",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/kiioto-feat-lou-rhodes-of-lamb"
+  },
+  {
     "title": "Klaus Mäkela dirigeert Mahler 7 bij het Concertgebouworkest",
     "date": "2026-10-28",
     "source": "concertgebouw",
@@ -22490,6 +22688,15 @@
     "genre": "overig"
   },
   {
+    "title": "Pearl & The Oysters",
+    "date": "2026-11-02",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/pearl-the-oysters"
+  },
+  {
     "title": "Plien & Bianca – Harrekidee! (reprise)",
     "date": "2026-11-02",
     "source": "spotgroningen.nl",
@@ -22950,6 +23157,15 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/world-news/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/06/Word-News-KL.jpg"
+  },
+  {
+    "title": "Ão",
+    "date": "2026-11-04",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/ao"
   },
   {
     "title": "ALCEU VALENÇA",
@@ -24105,6 +24321,15 @@
     "sport": "voetbal"
   },
   {
+    "title": "STONEWALL Festival",
+    "date": "2026-11-07",
+    "source": "paard",
+    "genre": "overig",
+    "time": "18:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/stonewall-festival"
+  },
+  {
     "title": "Single meet Single",
     "date": "2026-11-07",
     "source": "friesland.nl",
@@ -25213,6 +25438,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Macy Gray",
+    "date": "2026-11-11",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/macy-gray-0"
   },
   {
     "title": "NKK NOW Zanggroepen",
@@ -29128,6 +29362,15 @@
     "date": "2026-11-21",
     "source": "ahoy",
     "genre": "overig"
+  },
+  {
+    "title": "Iron Jinn + Temple Fang",
+    "date": "2026-11-21",
+    "source": "paard",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/iron-jinn-temple-fang"
   },
   {
     "title": "Isabèl Usher",
@@ -36890,6 +37133,15 @@
     "url": "https://www.paard.nl/en/event/city-of-sun/"
   },
   {
+    "title": "City of the Sun",
+    "date": "2026-12-17",
+    "source": "paard",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/city-of-the-sun"
+  },
+  {
     "title": "Compagnia Baccalà - Oh Oh",
     "date": "2026-12-17",
     "source": "lawei",
@@ -41259,6 +41511,15 @@
     "url": "https://www.paard.nl/en/event/john-illsley-dire-straits/"
   },
   {
+    "title": "John Illsley of Dire Straits",
+    "date": "2027-01-19",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/john-illsley-of-dire-straits"
+  },
+  {
     "title": "Kasper van der Laan",
     "date": "2027-01-19",
     "source": "friesland.nl",
@@ -44951,6 +45212,15 @@
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1591920620/joost-spijkers-ziel-en-zalig"
+  },
+  {
+    "title": "New Cool Collective",
+    "date": "2027-02-10",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/new-cool-collective"
   },
   {
     "title": "Pretpakhuis Boeing boeing",

@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (52 bronnen, 50 scripts)
+## ✅ Geautomatiseerd (53 bronnen, 51 scripts)
 
 | Bron | Script |
 |---|---|
@@ -75,11 +75,12 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | De Doelen (Rotterdam) | `scrape_dedoelen.py` (Playwright, achtste scraper — verkeerde URL in eerdere sessie (`/programma` i.p.v. `/nl/agenda`), zelfde patroon als Effenaar/Winsinghhof, 49 events) |
 | Ziggo Dome (Amsterdam) | `scrape_ziggodome.py` — **vervangen** van podiuminfo.nl naar de Ticketmaster Discovery API (tip Michiel): 83 events tot mei 2027, was 25 tot okt 2026. Zie `ticketmaster.py`. |
 | Rotterdam Ahoy | `scrape_ahoy.py` (Ticketmaster Discovery API, 41 events — was "AI/Chrome nodig", geen API-sporen gevonden in eigen site) |
+| Het Paard (Den Haag) | `scrape_paard.py` (via denhaag.com/nl/paard — tip van Michiel — geen Playwright nodig, gewone `?page=N`-paginering, 92 events; eigen site paard.nl bleef leeg zelfs met Playwright) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig (11 bronnen, incl. landelijke-podia-tabel verderop)
+## 🌐 AI/Chrome nodig (10 bronnen, incl. landelijke-podia-tabel verderop)
 
 12 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md): Atlas Emmen
 (Umbraco-ticketing-API), Zuidhaege Assen (WP REST `event_listing`-post-type),
@@ -155,13 +156,12 @@ zie ✅ hierboven (`scrape_tivolivredenburg.py`, via Songkick, tip Michiel).
 | GelreDome | **Webflow-site** (cdn.prod.website-files.com) met Finsweet CMS-filter — CMS-collectie staat leeg in de ruwe HTML (`w-dyn-bind-empty`), wordt client-side gevuld. Zelfde platform als Neushoorn. |
 | Paradiso, Concertgebouw | homepage geladen maar geen agenda-link gevonden in de ruwe HTML; Paradiso 1 datum-string bij hercheck (vermoedelijk ruis) — juiste agenda-URL nog niet gevonden. Ticketmaster Discovery API gecheckt (2026-08-15): beide venues gevonden maar 0 events — verkopen kennelijk niet (structureel) via Ticketmaster. |
 | Rotown | `/agenda/` geeft 404, 1 datum-string bij hercheck (ruis) — exacte listing-URL nog niet gevonden (individuele event-URL's wel: rotown.nl/agenda/artiest/). Geen Ticketmaster-venue gevonden — te klein/indie. |
-| Het Paard | connectiefout bij hercheck 2026-08-15 (was timeout op 2026-08-14) — nog niet gelukt te bereiken. Geen Ticketmaster-venue gevonden. Michiel tipte denhaag.com/nl/paard (stadsagenda-aggregator) als mogelijk alternatief, nog te checken. |
 
 Hedon Zwolle bleek een lege Angular-SPA-shell (7KB) te zijn, maar heeft een
 eigen `/api/events`-endpoint — opgelost, zie ✅ hierboven
 (`scrape_hedon.py`).
 
-Resterend van deze oorspronkelijke 15: 4 bronnen, geteld bij de 11
+Resterend van deze oorspronkelijke 15: 3 bronnen, geteld bij de 10
 "AI/Chrome nodig" hierboven (Melkweg, 013, Landstede Hammers, Hedon en
 TivoliVredenburg zijn opgelost).
 
