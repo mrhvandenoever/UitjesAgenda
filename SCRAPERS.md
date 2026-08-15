@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (56 bronnen, 54 scripts)
+## ✅ Geautomatiseerd (57 bronnen, 55 scripts)
 
 | Bron | Script |
 |---|---|
@@ -79,11 +79,12 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Paradiso (Amsterdam) | `scrape_paradiso.py` (Playwright, negende scraper — juiste URL was een specifieke landingspagina, niet vanaf de homepage vindbaar, 100 events) |
 | Concertgebouw (Amsterdam) | `scrape_concertgebouw.py` (Playwright, tiende scraper — juiste URL `/concerten-en-tickets` (tip Michiel), ~40 pagina's paginering, 600 events — grootste scraper van het project) |
 | Rotown (Rotterdam) | `scrape_rotown.py` (geen Playwright nodig — de HOMEPAGE zelf bevat 139 losse JSON-LD Event-blokken, `/agenda/` als listing-URL bestond gewoon niet; gefilterd op `location.name=='Rotown'`, 97 events) |
+| Vera (Groningen) | `scrape_vera.py` (Playwright, elfde scraper — bleek géén Cloudflare-blokkade maar gewoon een infinite-scroll die curl niet kon triggeren; een echte browser-scroll laadt gewoon alles, 69 events) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig (7 bronnen, incl. landelijke-podia-tabel verderop)
+## 🌐 AI/Chrome nodig (6 bronnen, incl. landelijke-podia-tabel verderop)
 
 12 bronnen hieronder OPGELOST 2026-08-15 (zie decisions.md): Atlas Emmen
 (Umbraco-ticketing-API), Zuidhaege Assen (WP REST `event_listing`-post-type),
@@ -96,7 +97,6 @@ automatiseerbaar zonder AI.
 
 | Bron | Verwachte omvang | Notitie |
 |---|---|---|
-| Vera | ~60 events | WordPress, geen custom event-post-type via REST. Programma-pagina toont wél ~20 events server-rendered (pagina 1), maar paginering loopt via een `admin-ajax.php`-call (`action=renderProgramme`) die zonder browsersessie een lege 200-respons geeft (vermoedelijk Cloudflare Bot Management op dat specifieke endpoint) — `?page=N` als URL-param werkt niet (negeerd server-side). Zonder browser dus alleen de eerste ~20 van ~60 events te halen; niet gebouwd (te onvolledig/fragiel). |
 | EM2 Groningen | ~21 events | WordPress met custom `event`-post-type, WEL via `/wp-json/wp/v2/event` opvraagbaar — maar de evenementdatum staat los in vrije tekst zonder vast patroon ("De Gipsy Jazz Sessie op 12 juli is...", datum niet aan het begin zoals bij Zuidhaege) en sommige entries lijken terugkerende events zonder duidelijke enkele datum. Deels opgelost (API gevonden) maar datum-extractie te onbetrouwbaar bevonden om nu te bouwen. |
 | Groninger Museum | onbekend | Craft CMS (SEOmatic-generator) — voor de hand liggende GraphQL-endpoints (`/actions/graphql/api`, `/api`) geven beide 404, geen API gevonden. Met Playwright gecheckt (2026-08-15), ook met een cookiebanner-klik ("Accepteren"): pagina blijft leeg, zelfs na volledige render. Genuine dead end voor nu — zou dieper GraphQL-schema-onderzoek nodig hebben. |
 | Drents Museum | onbekend | zelfde Craft CMS als Groninger Museum, niet apart herchecked |

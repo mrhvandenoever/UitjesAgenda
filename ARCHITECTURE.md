@@ -316,7 +316,21 @@ trager dan een plain `urllib`-request (~7s voor Neushoorn, vs <1s voor de
 meeste andere scrapers) — bij veel Playwright-scrapers kan dit de totale
 duur van `run_weekly_refresh.py` merkbaar verlengen. Nog niet geoptimaliseerd
 (bv. één gedeelde browser-instance voor meerdere scrapers) — apart punt,
-zie plan.md.
+zie plan.md. Voor bronnen met véél pagina's (bv. Concertgebouw, ~40) wél al
+één browser-instance hergebruikt binnen die ene scraper (zie
+`fetch_all_pages()` in `scrape_concertgebouw.py`) — dat scheelt fors t.o.v.
+per pagina een nieuwe Chromium starten.
+
+**Infinite-scroll i.p.v. paginering** (zie `scrape_vera.py`, decisions.md
+2026-08-15): sommige bronnen laden extra content pas na scrollen
+(IntersectionObserver), niet via een klikbare knop of `?page=N`-URL. Een
+`page.mouse.wheel(0, N)` in een lus, net zo lang tot het aantal gevonden
+items niet meer groeit (2-3x stabiel = klaar), simuleert dit. **Let op**:
+een falende curl-POST naar een AJAX-endpoint is geen bewijs van bot-
+detectie — check eerst of de site misschien gewoon scroll- of klik-
+interactie verwacht die curl niet kan nabootsen, vóór je concludeert dat
+een bron "geblokkeerd" is. Een échte Cloudflare-challenge-pagina (zoals bij
+TivoliVredenburg, "Just a moment...") is wél een harde grens.
 
 ## API-keys
 

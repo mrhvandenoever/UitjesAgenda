@@ -171,6 +171,7 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
 - [x] **Concertgebouw opgelost** — `scrape_concertgebouw.py`, tiende Playwright-scraper (juiste URL + paginering-tip van Michiel). **600 events**, grootste scraper van het project, ~1,5 min per run (1 browser-instance voor ~40 pagina's).
 - [x] Zummerbühne en Groninger/Drents Museum verder onderzocht (2026-08-15): Zummerbühne's iframe bleek een ride-share-widget (geen ticketing), museum blijft leeg ook na cookiebanner-klik — beide bevestigde doodlopende paden, geen quick win meer te vinden.
 - [x] **Rotown opgelost** — `scrape_rotown.py`, geen Playwright nodig (JSON-LD op de homepage). 97 events. **Alle 15 oorspronkelijke landelijke podia zijn nu opgelost.**
+- [x] **Vera opgelost** — `scrape_vera.py`, elfde Playwright-scraper. Bleek géén Cloudflare-blokkade zoals eerder aangenomen, gewoon een infinite-scroll die curl niet kon triggeren — een echte browser-scroll laadt alles. 69 events.
 - [ ] Lycurgus/Sudosa/Friso — 2e seizoenshelft volleybal nog niet gepubliceerd door de bond, later herscrapen
 - [ ] GIJS Groningen — URL is nu wel bekend (gijsgroningen.nl/gijs-eredivisie/), maar toont nog seizoen 2025-2026; herchecken zodra 2026-2027 live is
 - [ ] Stadspark Groningen (Summer Stage, Hullaballoo) — revisit zomer 2027
