@@ -294,6 +294,15 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2409546713/bouke-de-vries-unbroken"
   },
   {
+    "title": "Cafe Paradiso",
+    "date": "2026-08-16",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/cafe-paradiso/2910803"
+  },
+  {
     "title": "Dag van het Hunebed",
     "date": "2026-08-16",
     "source": "drenthe.nl",
@@ -324,6 +333,14 @@
     "url": "https://www.espn.nl/voetbal/team/_/id/152",
     "gender": "heren",
     "sport": "voetbal"
+  },
+  {
+    "title": "Family Favourites: filmmuziek van Frozen en Aladdin tot The Lion King",
+    "date": "2026-08-16",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/45410366-family-favourites-filmmuziek-van-frozen-en-aladdin-tot-the-lion-king"
   },
   {
     "title": "Family Favourites: van Harry Potter tot Frozen",
@@ -405,6 +422,15 @@
     "city": "Emmen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2654352243/open-tuinen-carrousel-drenthe-coevorden-emmen"
+  },
+  {
+    "title": "Ron Sexsmith",
+    "date": "2026-08-16",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/ron-sexsmith/2784776"
   },
   {
     "title": "SC Heerenveen - Feyenoord",
@@ -518,6 +544,15 @@
     "category": "Muziek overig"
   },
   {
+    "title": "Cafe Paradiso",
+    "date": "2026-08-17",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/cafe-paradiso/2910820"
+  },
+  {
     "title": "Cheeky Monday: NATTY LOU!",
     "date": "2026-08-17",
     "source": "melkweg",
@@ -618,6 +653,14 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2859680751/vaartocht-door-nationaal-park-de-alde-feanen-10-14"
   },
   {
+    "title": "Wilco - a tour with Wilco + Hovvdy",
+    "date": "2026-08-18",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/wilco-a-tour-with-wilco/2843675"
+  },
+  {
     "title": "BATTLESNAKE",
     "date": "2026-08-19",
     "source": "013",
@@ -708,6 +751,15 @@
     "date": "2026-08-19",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Lorena + The Tide",
+    "date": "2026-08-19",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "21:00",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/lorena-the-tide/2908649"
   },
   {
     "title": "Orgelconcert door Andrzej Szadejko",
@@ -1045,6 +1097,15 @@
     "url": "https://www.concertgebouw.nl/concerten/41486307-royal-danish-orchestra-en-topviolist-nikolaj-szeps-znaider-in-brahms"
   },
   {
+    "title": "Shady Nasty",
+    "date": "2026-08-21",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/shady-nasty/2903072"
+  },
+  {
     "title": "Steel Pulse",
     "date": "2026-08-21",
     "source": "doornroosje",
@@ -1247,6 +1308,23 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/jalan-jalan-faradays-2/"
+  },
+  {
+    "title": "Joy Anonymous",
+    "date": "2026-08-22",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/joy-anonymous/2907303"
+  },
+  {
+    "title": "KELS",
+    "date": "2026-08-22",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/kels/2900969"
   },
   {
     "title": "Keuring Landgeiten",
@@ -1678,6 +1756,14 @@
     "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
   },
   {
+    "title": "Kurt Vile & The Violators + Solex",
+    "date": "2026-08-24",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/kurt-vile-the-violators/2880416"
+  },
+  {
     "title": "LEIP! Markt",
     "date": "2026-08-24",
     "source": "friesland.nl",
@@ -1714,6 +1800,15 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/41629419-sheherazade-van-rimski-korsakov-en-yulianna-avdeeva-met-rachmaninoff"
+  },
+  {
+    "title": "TVOD + Shoom",
+    "date": "2026-08-24",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/tvod/2887336"
   },
   {
     "title": "EMBED: EMERGING DIGITAL ARTS - Frank Mohr Institute & Minerva Academie: Babak Khalili – 29th",
@@ -1995,6 +2090,15 @@
     "genre": "overig"
   },
   {
+    "title": "Claire Kelly",
+    "date": "2026-08-27",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/claire-kelly/2862327"
+  },
+  {
     "title": "De Graanrepubliek",
     "date": "2026-08-27",
     "source": "zummerbuhne",
@@ -2050,6 +2154,15 @@
     "date": "2026-08-27",
     "source": "effenaar",
     "genre": "overig"
+  },
+  {
+    "title": "Hudson Freeman",
+    "date": "2026-08-27",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/hudson-freeman/2819667"
   },
   {
     "title": "Internationaal Folk & Seasongfestival Bie Daip",
@@ -2158,6 +2271,14 @@
     "city": "Lippenhuizen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2424886145/terug-naar-nu"
+  },
+  {
+    "title": "Tsjaikovski's Vioolconcert en Rachmaninoffs Symfonie nr. 3",
+    "date": "2026-08-27",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/41629422-tsjaikovskis-vioolconcert-en-rachmaninoffs-symfonie-nr.-3"
   },
   {
     "title": "Vaartocht door Nationaal Park De Alde Feanen (10+)",
@@ -2363,6 +2484,14 @@
     "cats": []
   },
   {
+    "title": "Shakey Graves + The Man The Myth The Meatslab",
+    "date": "2026-08-28",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/shakey-graves/2849486"
+  },
+  {
     "title": "Superstijl Outdoor",
     "date": "2026-08-28",
     "source": "visitgroningen",
@@ -2543,6 +2672,15 @@
     "genre": "overig"
   },
   {
+    "title": "Kenny Mason",
+    "date": "2026-08-29",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/kenny-mason/2896471"
+  },
+  {
     "title": "Kinderfestival Haren",
     "date": "2026-08-29",
     "source": "visitgroningen",
@@ -2618,6 +2756,15 @@
     "url": "https://www.noorderzon.nl/programma/hystory"
   },
   {
+    "title": "Nyron Higor",
+    "date": "2026-08-29",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/nyron-higor/2892713"
+  },
+  {
     "title": "Orgelconcert Wolfgang Zerer",
     "date": "2026-08-29",
     "source": "visitgroningen",
@@ -2645,6 +2792,15 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/piss/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/06/PISS-KL.jpg"
+  },
+  {
+    "title": "POLIÇA + Sïan Able",
+    "date": "2026-08-29",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/polica/2818276"
   },
   {
     "title": "Paard VAN Stal 2026",
@@ -2805,6 +2961,14 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3520732227/walg-grn-griis-nl",
     "category": "Concert"
+  },
+  {
+    "title": "Xmunashe",
+    "date": "2026-08-29",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/xmunashe/2909045"
   },
   {
     "title": "Zomer in Workum: Bûter Brea Blues Band",
@@ -3044,6 +3208,15 @@
     "url": "https://www.doornroosje.nl/event/angine-de-poitrine/"
   },
   {
+    "title": "Black Star",
+    "date": "2026-08-31",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "21:00",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/black-star/2892234"
+  },
+  {
     "title": "Cheeky Monday: TANTRON!",
     "date": "2026-08-31",
     "source": "melkweg",
@@ -3073,6 +3246,33 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/41629425-jaap-van-zweden-dirigeert-beethovens-symfonie-nr.-9"
+  },
+  {
+    "title": "Jacob Alon",
+    "date": "2026-08-31",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/jacob-alon/2906186"
+  },
+  {
+    "title": "Ryan Davis & The Roadhouse Band",
+    "date": "2026-08-31",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/ryan-davis-the-roadhouse-band/2880680"
+  },
+  {
+    "title": "The Belair Lip Bombs",
+    "date": "2026-08-31",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/the-belair-lip-bombs/2897411"
   },
   {
     "title": "Toody Cole And Her Band",
@@ -3117,6 +3317,15 @@
     "url": "https://www.paard.nl/en/event/gogol-bordello-2/"
   },
   {
+    "title": "Gruppo Sportivo",
+    "date": "2026-09-01",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/gruppo-sportivo/2872889"
+  },
+  {
     "title": "Holy Wave",
     "date": "2026-09-01",
     "source": "paard",
@@ -3133,6 +3342,23 @@
     "city": "Piaam",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3266883736/kijk-achter-de-schermen-bij-eendenkooi-buismanskoai-bij-piaam"
+  },
+  {
+    "title": "Lamb - The Creatures Tour",
+    "date": "2026-09-01",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/lamb-the-creatures-tour/2888825"
+  },
+  {
+    "title": "Love Spells",
+    "date": "2026-09-01",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/love-spells/2888736"
   },
   {
     "title": "Ryan Davis & the Roadhouse Band - + Ebby",
@@ -3192,6 +3418,15 @@
       "Rock",
       "Pop"
     ]
+  },
+  {
+    "title": "Bayonne - Filters Tour",
+    "date": "2026-09-02",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "22:00",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/bayonne-filters-tour/2883837"
   },
   {
     "title": "Chuck Ragan",
@@ -3279,6 +3514,15 @@
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3008524982/senior-cafe-heerenveen-optreden-muzikant-jan-de-vries"
+  },
+  {
+    "title": "WHATMORE",
+    "date": "2026-09-02",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/whatmore/2896450"
   },
   {
     "title": "Wandelen naar de Terp fan de Takomst",
@@ -3397,6 +3641,23 @@
     "time": "20:00",
     "venue": "Het Paard, Den Haag",
     "url": "https://denhaag.com/nl/agenda/paardcafe-holly-ann"
+  },
+  {
+    "title": "Razeen",
+    "date": "2026-09-03",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/razeen/2867981"
+  },
+  {
+    "title": "Samara Cyn",
+    "date": "2026-09-03",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/samara-cyn/2891488"
   },
   {
     "title": "Saxuo in de Nicolaikerk",
@@ -3737,6 +3998,15 @@
     "url": "https://www.gelredome.nl/evenement/vitesse-top-oss-26-27"
   },
   {
+    "title": "Vitor Kley",
+    "date": "2026-09-04",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/vitor-kley/2892868"
+  },
+  {
     "title": "Wilde Rust | Maison de Toile Kampeerweekend",
     "date": "2026-09-04",
     "source": "friesland.nl",
@@ -3805,6 +4075,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Concertgebouw OPEN - gratis miniconcerten voor iedereen!",
+    "date": "2026-09-05",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/45992856-concertgebouw-open-gratis-miniconcerten-voor-iedereen"
   },
   {
     "title": "Couperin & Clerambault orgel&vocaal",
@@ -3901,10 +4179,26 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/4215420357/merula-quartet-huiskamerconcert"
   },
   {
+    "title": "Misha Panfilov",
+    "date": "2026-09-05",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/misha-panfilov/2867195"
+  },
+  {
     "title": "OGENE",
     "date": "2026-09-05",
     "source": "melkweg",
     "genre": "overig"
+  },
+  {
+    "title": "OLIVER TREE – LOVE YOU MADLY, HATE YOU BADLY",
+    "date": "2026-09-05",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/oliver-tree---love-you-madly-hate-you-badly/2888846"
   },
   {
     "title": "Oldehove Glow-up: Dinner In The Sky X Oan Tafel",
@@ -3956,6 +4250,15 @@
     "cats": [
       "concert"
     ]
+  },
+  {
+    "title": "Planet Acid! + lostboyshawty",
+    "date": "2026-09-05",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/planet-acid/2896790"
   },
   {
     "title": "Proostmeerloop Wagenborgen",
@@ -4047,6 +4350,15 @@
     "time": "22:00",
     "venue": "Neushoorn, Leeuwarden",
     "url": "https://neushoorn.nl/programma"
+  },
+  {
+    "title": "TAPE TOY",
+    "date": "2026-09-05",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/tape-toy/2884302"
   },
   {
     "title": "The Black Keys",
@@ -4369,6 +4681,14 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2983990629/pedaal-muzikaal-1"
   },
   {
+    "title": "Royal & The Serpent - EMPTINESS IS GODLY",
+    "date": "2026-09-06",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/royal-the-serpent-emptiness-is-godly/2880440"
+  },
+  {
     "title": "SC Heerenveen - AZ",
     "date": "2026-09-06",
     "source": "heerenveen",
@@ -4417,6 +4737,15 @@
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1166965142/swim-to-fight-cancer-heerenveen-1"
+  },
+  {
+    "title": "The Soulful Sessions",
+    "date": "2026-09-06",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/the-soulful-sessions/2902299"
   },
   {
     "title": "Vrolijk Volluk",
@@ -4508,6 +4837,14 @@
     "genre": "overig"
   },
   {
+    "title": "Ronnie Wood and his band",
+    "date": "2026-09-07",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/ronnie-wood-and-his-band/2855490"
+  },
+  {
     "title": "Star Wars: Return Of The Jedi",
     "date": "2026-09-07",
     "source": "tivolivredenburg",
@@ -4573,6 +4910,15 @@
     "genre": "overig"
   },
   {
+    "title": "Jaguar Sun + Thala",
+    "date": "2026-09-08",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:15",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/jaguar-sun/2867117"
+  },
+  {
     "title": "Pyrrhon & Devoid Of Thought - Double bill in V11",
     "date": "2026-09-08",
     "source": "dedoelen",
@@ -4588,6 +4934,14 @@
     "genre": "overig",
     "venue": "Doornroosje, Nijmegen",
     "url": "https://www.doornroosje.nl/event/roman-candle/"
+  },
+  {
+    "title": "Ronnie Wood and his band",
+    "date": "2026-09-08",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/ronnie-wood-and-his-band/2860734"
   },
   {
     "title": "Techno Tuesday: JP aka Lonestriker",
@@ -4674,6 +5028,14 @@
     ]
   },
   {
+    "title": "Gratis Lunchconcert: Klassiek op het Amstelveld",
+    "date": "2026-09-09",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46004638-gratis-lunchconcert-klassiek-op-het-amstelveld"
+  },
+  {
     "title": "Indoor Friesland 2026",
     "date": "2026-09-09",
     "source": "friesland.nl",
@@ -4687,6 +5049,15 @@
     "date": "2026-09-09",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Mecano",
+    "date": "2026-09-09",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/mecano/2904161"
   },
   {
     "title": "Melanie Martinez - HADES: THE SACRIFICE",
@@ -4732,6 +5103,24 @@
     "city": "Borger",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3658824952/wat-heb-jij-gevonden-kom-naar-het-archeologisch-spreekuur"
+  },
+  {
+    "title": "Zeyne",
+    "date": "2026-09-09",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/zeyne/2883435"
+  },
+  {
+    "title": "Ásgeir",
+    "date": "2026-09-09",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/asgeir/2815766"
   },
   {
     "title": "Akira (1988)",
@@ -4814,6 +5203,15 @@
     ]
   },
   {
+    "title": "Golomb",
+    "date": "2026-09-10",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/golomb/2883875"
+  },
+  {
     "title": "Hiromi & Metropole Orkest",
     "date": "2026-09-10",
     "source": "spotgroningen.nl",
@@ -4883,6 +5281,15 @@
     "url": "https://www.dedoelen.nl/nl/agenda/proms-john-williams-greatest-hits-fnk6"
   },
   {
+    "title": "She Her Her Hers",
+    "date": "2026-09-10",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/she-her-her-hers/2863396"
+  },
+  {
     "title": "Sonido Gallo Negro",
     "date": "2026-09-10",
     "source": "doornroosje",
@@ -4913,6 +5320,15 @@
     "time": "18:00",
     "venue": "Hedon - Kleine Zaal, Zwolle",
     "url": "https://www.hedon-zwolle.nl/programma"
+  },
+  {
+    "title": "Ty Segall + Annabelle Chairlegs",
+    "date": "2026-09-10",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/ty-segall/2848473"
   },
   {
     "title": "Ásgeir",
@@ -5433,6 +5849,15 @@
     "sport": "voetbal"
   },
   {
+    "title": "HEADSEND",
+    "date": "2026-09-12",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "22:00",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/headsend/2906194"
+  },
+  {
     "title": "HET GOEDE DOEL Met Henk Westbroek",
     "date": "2026-09-12",
     "source": "detamboer",
@@ -5686,6 +6111,15 @@
     "city": "Drachten",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/476309972/pro-wrestling-holland-live"
+  },
+  {
+    "title": "Rostam",
+    "date": "2026-09-12",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/rostam/2847423"
   },
   {
     "title": "Run van Winschoten",
@@ -5987,6 +6421,15 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1250332439/kunst-en-hobbymarkt-compas-3"
   },
   {
+    "title": "LamBros.",
+    "date": "2026-09-13",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/lambros/2916639"
+  },
+  {
     "title": "Marathon Sneek",
     "date": "2026-09-13",
     "source": "friesland.nl",
@@ -6006,6 +6449,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "NAKS Kaseko Loco - 30 jaar - presented by From Southeast with Love",
+    "date": "2026-09-13",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46003661-naks-kaseko-loco---30-jaar---presented-by-from-southeast-with-love"
   },
   {
     "title": "Nieloefaar",
@@ -6062,6 +6513,14 @@
     "url": "https://www.espn.nl/voetbal/team/_/id/2565/ned.fc_zwolle",
     "gender": "heren",
     "sport": "voetbal"
+  },
+  {
+    "title": "Rachel Chinouriri",
+    "date": "2026-09-13",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/rachel-chinouriri/2917295"
   },
   {
     "title": "SC Cambuur - N.E.C.",
@@ -6180,12 +6639,28 @@
     "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/filmclub-september-2026"
   },
   {
+    "title": "Feng",
+    "date": "2026-09-14",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/feng/2841619"
+  },
+  {
     "title": "Mahler 9 door het Mahler Academy Orchestra",
     "date": "2026-09-14",
     "source": "concertgebouw",
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/38466033-mahler-9-door-het-mahler-academy-orchestra"
+  },
+  {
+    "title": "Maiah Manser",
+    "date": "2026-09-14",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/maiah-manser/2856708"
   },
   {
     "title": "Playlunch",
@@ -6249,6 +6724,24 @@
     "genre": "overig"
   },
   {
+    "title": "Kate Stephenson",
+    "date": "2026-09-15",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/kate-stephenson/2903068"
+  },
+  {
+    "title": "Lute",
+    "date": "2026-09-15",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/lute/2833754"
+  },
+  {
     "title": "MCA debuteert met Beethovens Zesde en Vijfde",
     "date": "2026-09-15",
     "source": "concertgebouw",
@@ -6293,6 +6786,15 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/she-her-her-hers/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/03/She-Her-Her-Hers_kl.jpg"
+  },
+  {
+    "title": "Sparklmami",
+    "date": "2026-09-15",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/sparklmami/2910490"
   },
   {
     "title": "THE SONGS OF JEFF BUCKLEY PERFORMED BY SLOW PILOT",
@@ -6374,6 +6876,14 @@
     ]
   },
   {
+    "title": "Gratis Lunchconcert: Muze van Zuid",
+    "date": "2026-09-16",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46006086-gratis-lunchconcert-muze-van-zuid"
+  },
+  {
     "title": "Holly Humberstone",
     "date": "2026-09-16",
     "source": "paradiso",
@@ -6400,6 +6910,14 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/320534452/minorie-presents-katya-shirshkova-ru-fr-tomas-niesner-cz",
     "category": "Concert"
+  },
+  {
+    "title": "Mulaa Joans + Orlando",
+    "date": "2026-09-16",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/mulaa-joans/2894562"
   },
   {
     "title": "OSAMASON",
@@ -6581,6 +7099,15 @@
     "genre": "overig"
   },
   {
+    "title": "Maddie Ashman",
+    "date": "2026-09-17",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/maddie-ashman/2907650"
+  },
+  {
     "title": "Maddie Zahm",
     "date": "2026-09-17",
     "source": "paradiso",
@@ -6674,6 +7201,15 @@
     ]
   },
   {
+    "title": "Vienna Vienna",
+    "date": "2026-09-17",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "22:00",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/vienna-vienna/2906755"
+  },
+  {
     "title": "VoxTechnik - Live 80’s synth-pop",
     "date": "2026-09-17",
     "source": "paard",
@@ -6690,6 +7226,15 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/voxtechnik-2/"
+  },
+  {
+    "title": "untitled (halo) + Shallowater",
+    "date": "2026-09-17",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/untitled-halo-shallowater/2885645"
   },
   {
     "title": "All About the Hits - Queen Must Go On",
@@ -6824,6 +7369,15 @@
     "time": "21:15",
     "venue": "Neushoorn, Leeuwarden",
     "url": "https://neushoorn.nl/programma"
+  },
+  {
+    "title": "Gianski",
+    "date": "2026-09-18",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "22:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/gianski/2889578"
   },
   {
     "title": "Good Vibrations",
@@ -7011,6 +7565,15 @@
     "genre": "overig"
   },
   {
+    "title": "The Maine + Grayscale",
+    "date": "2026-09-18",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/the-maine/2846539"
+  },
+  {
     "title": "The Real Trip",
     "date": "2026-09-18",
     "source": "friesland.nl",
@@ -7027,6 +7590,15 @@
     "time": "20:00",
     "venue": "Studio Blendd @ de Doelen, Rotterdam",
     "url": "https://www.dedoelen.nl/nl/agenda/vinyl-sessions-wes-qfbm"
+  },
+  {
+    "title": "overpass",
+    "date": "2026-09-18",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/overpass/2885639"
   },
   {
     "title": "‘SenTjerra’ met Wereldmuziek in de serie 'Vrijdagmiddagconcerten'",
@@ -7095,6 +7667,15 @@
     "date": "2026-09-19",
     "source": "melkweg",
     "genre": "overig"
+  },
+  {
+    "title": "Camille Camille",
+    "date": "2026-09-19",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/camille-camille/2897222"
   },
   {
     "title": "Candlelight - Coldplay meets Imagine Dragons",
@@ -7290,6 +7871,15 @@
     "genre": "overig",
     "venue": "Doornroosje, Nijmegen",
     "url": "https://www.doornroosje.nl/event/kunstnacht-6/"
+  },
+  {
+    "title": "Lime Garden",
+    "date": "2026-09-19",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/lime-garden/2843768"
   },
   {
     "title": "MEGAN MORONEY",
@@ -7537,6 +8127,15 @@
     "city": "Gorredijk",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2482474889/tsjerkepaed-2026-elke-zaterdagmiddag-tot-17-00-uur"
+  },
+  {
+    "title": "Tyn Wybenga Brainteaser Orchestra",
+    "date": "2026-09-19",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/tyn-wybenga-brainteaser-orchestra/2872014"
   },
   {
     "title": "VELDMAN VINTAGE PROJECT",
@@ -7821,6 +8420,15 @@
     "category": "Muziek overig"
   },
   {
+    "title": "Nona",
+    "date": "2026-09-20",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/nona/2870623"
+  },
+  {
     "title": "OET!",
     "date": "2026-09-20",
     "source": "vanberesteyn",
@@ -7894,6 +8502,15 @@
     "url": "https://www.atlastheater.nl/voorstellingen/scholtes-janssens-canto-ostinato-20-sep/"
   },
   {
+    "title": "Super-Sonic Jam w/ Massada, Lekransira & Rafael Devánte Sinay",
+    "date": "2026-09-20",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "18:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/super-sonic-jam-w-massada-lekransira-rafael-devante-sinay/2918171"
+  },
+  {
     "title": "The BluesBones + Eddy Smith & The 507",
     "date": "2026-09-20",
     "source": "tivolivredenburg",
@@ -7925,6 +8542,15 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/37331013-vioolvirtuoos-christian-tetzlaff-speelt-dvorak-karina-canellakis-dirigeert"
+  },
+  {
+    "title": "Voxtrot",
+    "date": "2026-09-20",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/voxtrot/2825807"
   },
   {
     "title": "Wei Fan Dreamen",
@@ -7967,6 +8593,14 @@
     "date": "2026-09-21",
     "source": "paradiso",
     "genre": "overig"
+  },
+  {
+    "title": "Allie Sherlock - For Once I'll Say It Out Loud!",
+    "date": "2026-09-21",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/allie-sherlock-for-once-ill-say-it-out-loud/2817327"
   },
   {
     "title": "Beth & Flo – Zoveel Meer",
@@ -8019,6 +8653,14 @@
     ]
   },
   {
+    "title": "New Constellations",
+    "date": "2026-09-21",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/new-constellations/2868896"
+  },
+  {
     "title": "Sibelius’ Vioolconcert & Moesorgski's Schilderijen van een tentoonstelling",
     "date": "2026-09-21",
     "source": "concertgebouw",
@@ -8037,6 +8679,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Todd Rundgren",
+    "date": "2026-09-21",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/todd-rundgren/2889495"
   },
   {
     "title": "Undertale: The Determination Symphony",
@@ -8090,6 +8740,14 @@
     ]
   },
   {
+    "title": "Daily J",
+    "date": "2026-09-22",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/daily-j/2867953"
+  },
+  {
     "title": "Daniel Barenboim en West-Eastern Divan Orchestra in Beethoven en Schubert",
     "date": "2026-09-22",
     "source": "concertgebouw",
@@ -8116,10 +8774,28 @@
     "genre": "overig"
   },
   {
+    "title": "Lilyisthatyou",
+    "date": "2026-09-22",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "22:00",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/lilyisthatyou/2887624"
+  },
+  {
     "title": "PI'ERRE BOURNE",
     "date": "2026-09-22",
     "source": "melkweg",
     "genre": "overig"
+  },
+  {
+    "title": "Pale Waves",
+    "date": "2026-09-22",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/pale-waves/2890653"
   },
   {
     "title": "Rhiannon Giddens",
@@ -8152,6 +8828,15 @@
     "date": "2026-09-22",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "The Jayhawks",
+    "date": "2026-09-22",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/the-jayhawks/2900833"
   },
   {
     "title": "Bert Visscher",
@@ -8213,16 +8898,49 @@
     "url": "https://www.doornroosje.nl/event/de-jukebox-15/"
   },
   {
+    "title": "Douwe Bob",
+    "date": "2026-09-23",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/douwe-bob/2828540"
+  },
+  {
     "title": "Flamin' Groovies",
     "date": "2026-09-23",
     "source": "effenaar",
     "genre": "overig"
   },
   {
+    "title": "Girl Group",
+    "date": "2026-09-23",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/girl-group/2903257"
+  },
+  {
     "title": "Grass 1925 with live music by Peyman Yazdanian",
     "date": "2026-09-23",
     "source": "tivolivredenburg",
     "genre": "overig"
+  },
+  {
+    "title": "Gratis Lunchconcert: Internationaal Van Wassenaer Concours",
+    "date": "2026-09-23",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46006209-gratis-lunchconcert-internationaal-van-wassenaer-concours"
+  },
+  {
+    "title": "Grote Geelstaart",
+    "date": "2026-09-23",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/grote-geelstaart/2885179"
   },
   {
     "title": "Het Danspaleis",
@@ -8290,6 +9008,15 @@
     "date": "2026-09-23",
     "source": "effenaar",
     "genre": "overig"
+  },
+  {
+    "title": "ShitKid",
+    "date": "2026-09-23",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/shitkid/2900842"
   },
   {
     "title": "South Summit",
@@ -8411,6 +9138,14 @@
     "genre": "overig",
     "venue": "Doornroosje, Nijmegen",
     "url": "https://www.doornroosje.nl/event/beyond-the-black-2/"
+  },
+  {
+    "title": "Chxrry",
+    "date": "2026-09-24",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/chxrry/2895909"
   },
   {
     "title": "Coming On Strong - Onze Earring",
@@ -8554,6 +9289,15 @@
     "cats": [
       "concert"
     ]
+  },
+  {
+    "title": "María José Llergo",
+    "date": "2026-09-24",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/maria-jose-llergo/2863612"
   },
   {
     "title": "Masterpieces Unboxed: Schuberts Forellenkwintet",
@@ -8749,6 +9493,15 @@
     "genre": "overig"
   },
   {
+    "title": "Chicco",
+    "date": "2026-09-25",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/chicco/2841279"
+  },
+  {
     "title": "DI-RECT",
     "date": "2026-09-25",
     "source": "spotgroningen.nl",
@@ -8759,6 +9512,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Daryll-Ann",
+    "date": "2026-09-25",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/daryll-ann/2856495"
   },
   {
     "title": "De Régâhs",
@@ -8994,6 +9756,15 @@
     "cats": [
       "concert"
     ]
+  },
+  {
+    "title": "Strawberry Guy",
+    "date": "2026-09-25",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/strawberry-guy/2890974"
   },
   {
     "title": "The Glamrocks",
@@ -9455,6 +10226,24 @@
     ]
   },
   {
+    "title": "Nobu",
+    "date": "2026-09-26",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/nobu/2886196"
+  },
+  {
+    "title": "Nouvelle Vague",
+    "date": "2026-09-26",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/nouvelle-vague/2889197"
+  },
+  {
     "title": "Oktoberfest",
     "date": "2026-09-26",
     "source": "drenthe.nl",
@@ -9524,6 +10313,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Thee Sinseers",
+    "date": "2026-09-26",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/thee-sinseers/2876956"
   },
   {
     "title": "Time Bandits & Trafassi Nederpop Dubbelshow",
@@ -9847,6 +10645,15 @@
     ]
   },
   {
+    "title": "Mad Tsai",
+    "date": "2026-09-27",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/mad-tsai/2907658"
+  },
+  {
     "title": "Mega Kids Disco",
     "date": "2026-09-27",
     "source": "afaslive",
@@ -10094,6 +10901,15 @@
     "url": "https://www.melkweg.nl/nl/agenda/cheeky-28-09-2026/"
   },
   {
+    "title": "DAAN.",
+    "date": "2026-09-28",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/daan/2847628"
+  },
+  {
     "title": "Dizzee Rascal",
     "date": "2026-09-28",
     "source": "tivolivredenburg",
@@ -10125,6 +10941,23 @@
     "url": "https://www.concertgebouw.nl/concerten/45884789-moving-talent-van-talent-naar-podium"
   },
   {
+    "title": "Moving Talent: altviolist Sunniva Skaug volgt Dvořák naar Amerika",
+    "date": "2026-09-28",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/45884893-moving-talent-altviolist-sunniva-skaug-volgt-dvorak-naar-amerika"
+  },
+  {
+    "title": "The Afghan Whigs",
+    "date": "2026-09-28",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "21:00",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/the-afghan-whigs/2895863"
+  },
+  {
     "title": "Ze brengen ze niet met de ooievaar",
     "date": "2026-09-28",
     "source": "tivolivredenburg",
@@ -10137,6 +10970,15 @@
     "genre": "overig"
   },
   {
+    "title": "Agnes Nunes",
+    "date": "2026-09-29",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/agnes-nunes/2892756"
+  },
+  {
     "title": "Anastacia",
     "date": "2026-09-29",
     "source": "afaslive",
@@ -10146,6 +10988,15 @@
     "image": "https://www.afaslive.nl/files/Agenda/2026/september/_1200x630_crop_center-center_none/Anastacia.jpg"
   },
   {
+    "title": "Bas van Holt",
+    "date": "2026-09-29",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/bas-van-holt/2907200"
+  },
+  {
     "title": "Biji",
     "date": "2026-09-29",
     "source": "paard",
@@ -10153,6 +11004,14 @@
     "location": "Den Haag",
     "province": "Zuid-Holland",
     "url": "https://www.paard.nl/en/event/biji-2/"
+  },
+  {
+    "title": "CAKE",
+    "date": "2026-09-29",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/cake/2816554"
   },
   {
     "title": "DAFT FUNK LIVE",
@@ -10191,6 +11050,23 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/43931212-dutch-jazz-heritage-ode-aan-gerry-mulligan"
+  },
+  {
+    "title": "FORAGER",
+    "date": "2026-09-29",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "22:00",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/forager/2880389"
+  },
+  {
+    "title": "Holy Fuck",
+    "date": "2026-09-29",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/holy-fuck/2809231"
   },
   {
     "title": "ILFU Book Talk: Maggie O'Farrell",
@@ -10348,6 +11224,14 @@
     "url": "https://www.concertgebouw.nl/concerten/45929556-efteling-in-concert---reprise"
   },
   {
+    "title": "Gratis Lunchconcert: Prinses Christina Concours",
+    "date": "2026-09-30",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46006208-gratis-lunchconcert-prinses-christina-concours"
+  },
+  {
     "title": "Holy Fuck",
     "date": "2026-09-30",
     "source": "simplon",
@@ -10439,6 +11323,15 @@
     "url": "https://www.dedoelen.nl/nl/agenda/openbare-repetitie-59mg"
   },
   {
+    "title": "Parra for Cuva",
+    "date": "2026-09-30",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/parra-for-cuva/2796143"
+  },
+  {
     "title": "Patrick Laureij – Kintsugi. (reprise)",
     "date": "2026-09-30",
     "source": "spotgroningen.nl",
@@ -10461,6 +11354,15 @@
     "cats": [
       "klassiek"
     ]
+  },
+  {
+    "title": "Rødhåd x Speedy J",
+    "date": "2026-09-30",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/rodhad-x-speedy-j/2917989"
   },
   {
     "title": "Stand Atlantic",
@@ -11238,6 +12140,14 @@
     "image": "https://www.rotown.nl/wp-content/uploads/2026/03/Republica.jpg"
   },
   {
+    "title": "SOUK Presents: Myriam Fares",
+    "date": "2026-10-02",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/45993198-souk-presents-myriam-fares"
+  },
+  {
     "title": "Sara Kroos – Prikkelarme Kermis (reprise)",
     "date": "2026-10-02",
     "source": "spotgroningen.nl",
@@ -11504,6 +12414,14 @@
     "city": "Meppel",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1006733600/debby-petter-emma-finkers-afslag-gewist"
+  },
+  {
+    "title": "Dialogos: Holland Baroque & Ensemble Constantinople",
+    "date": "2026-10-03",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46004639-dialogos-holland-baroque-ensemble-constantinople"
   },
   {
     "title": "Door het water van de doop",
@@ -12819,6 +13737,14 @@
     ]
   },
   {
+    "title": "Gratis Lunchconcert: Black Achievement Month",
+    "date": "2026-10-07",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46012125-gratis-lunchconcert-black-achievement-month"
+  },
+  {
     "title": "Hällas - + Earth Tongue",
     "date": "2026-10-07",
     "source": "doornroosje",
@@ -13778,6 +14704,14 @@
     ]
   },
   {
+    "title": "Vriendenrepetitie: Emanuel Ax en het Concertgebouworkest spelen John Williams",
+    "date": "2026-10-09",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/45901521-vriendenrepetitie-emanuel-ax-en-het-concertgebouworkest-spelen-john-williams"
+  },
+  {
     "title": "Wodan Boys",
     "date": "2026-10-09",
     "source": "vera",
@@ -14012,6 +14946,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Griekse klanken met Athens State Orchestra",
+    "date": "2026-10-10",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46013601-griekse-klanken-met-athens-state-orchestra"
   },
   {
     "title": "HARD ATTACK",
@@ -14831,6 +15773,14 @@
     ]
   },
   {
+    "title": "Gratis Lunchconcert voor kinderen: Koninklijk Concertgebouw Concours (6+)",
+    "date": "2026-10-13",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46012121-gratis-lunchconcert-voor-kinderen-koninklijk-concertgebouw-concours-6"
+  },
+  {
     "title": "Hanneke van der Paardt - BANG",
     "date": "2026-10-13",
     "source": "grandtheatregroningen",
@@ -15118,6 +16068,14 @@
     "date": "2026-10-14",
     "source": "melkweg",
     "genre": "overig"
+  },
+  {
+    "title": "Gratis Lunchconcert: International Vocal Competition ’s-Hertogenbosch",
+    "date": "2026-10-14",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46012122-gratis-lunchconcert-international-vocal-competition-s-hertogenbosch"
   },
   {
     "title": "Gruppo Sportivo",
@@ -16122,6 +17080,14 @@
     "genre": "overig",
     "venue": "Doornroosje, Nijmegen",
     "url": "https://www.doornroosje.nl/event/ist-ist-3/"
+  },
+  {
+    "title": "Jong talent Mikkel Myer Lee speelt Beethoven en Chopin",
+    "date": "2026-10-16",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46003586-jong-talent-mikkel-myer-lee-speelt-beethoven-en-chopin"
   },
   {
     "title": "KATJA HEITMANN - MOTUS MORI: PERPETUUM",
@@ -17595,6 +18561,14 @@
     "url": "https://www.doornroosje.nl/event/gavin-degraw/"
   },
   {
+    "title": "Grote Pianisten: Krystian Zimerman",
+    "date": "2026-10-19",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/41200339-grote-pianisten-krystian-zimerman"
+  },
+  {
     "title": "Grote Pianisten: Krystian Zimerman speelt Chopin",
     "date": "2026-10-19",
     "source": "concertgebouw",
@@ -17615,6 +18589,14 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45884894-moving-talent-van-talent-naar-podium"
+  },
+  {
+    "title": "Moving Talent: pianist Gabriel Crist zet Mozart in een nieuw licht",
+    "date": "2026-10-19",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/45884894-moving-talent-pianist-gabriel-crist-zet-mozart-in-een-nieuw-licht"
   },
   {
     "title": "The Lemonheads",
@@ -17774,6 +18756,14 @@
     "date": "2026-10-21",
     "source": "melkweg",
     "genre": "overig"
+  },
+  {
+    "title": "ADE: Kara-Lis Coverdale & Lia Kohl",
+    "date": "2026-10-21",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46004305-ade-kara-lis-coverdale-lia-kohl"
   },
   {
     "title": "Amsterdams Studenten Cabaret Festival – Finalistentournee",
@@ -18203,6 +19193,14 @@
     "genres": [
       "Hiphop"
     ]
+  },
+  {
+    "title": "Gratis Lunchconcert: Openbare repetitie Concertgebouworkest",
+    "date": "2026-10-22",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46022583-gratis-lunchconcert-openbare-repetitie-concertgebouworkest"
   },
   {
     "title": "Guido Spek - Voor Spek en Bonen",
@@ -19336,6 +20334,14 @@
     "date": "2026-10-24",
     "source": "013",
     "genre": "overig"
+  },
+  {
+    "title": "Nederlands Concertkoor en Toonkunstkoor Amsterdam: Dvořáks Stabat mater",
+    "date": "2026-10-24",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46013260-nederlands-concertkoor-en-toonkunstkoor-amsterdam-dvoraks-stabat-mater"
   },
   {
     "title": "Next to Normal",
@@ -20526,6 +21532,14 @@
     "date": "2026-10-28",
     "source": "013",
     "genre": "overig"
+  },
+  {
+    "title": "Gratis Lunchconcert: Nederlandse Fluitacademie",
+    "date": "2026-10-28",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46012123-gratis-lunchconcert-nederlandse-fluitacademie"
   },
   {
     "title": "JON ALLEN & THE LUNA KINGS",
@@ -22988,6 +24002,14 @@
     ]
   },
   {
+    "title": "Gratis Lunchconcert: European Chamber Music Academy",
+    "date": "2026-11-04",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46012124-gratis-lunchconcert-european-chamber-music-academy"
+  },
+  {
     "title": "Hippotraktor",
     "date": "2026-11-04",
     "source": "vera",
@@ -24942,6 +25964,14 @@
     "genre": "overig",
     "venue": "Grand Theatre, Groningen",
     "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/the-pink-cube-palari-queer-salons-november-2026"
+  },
+  {
+    "title": "Amatis Trio's Arcadia: van Schubert tot Wagner en Rebecca Clarke",
+    "date": "2026-11-09",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/41701218-amatis-trios-arcadia-van-schubert-tot-wagner-en-rebecca-clarke"
   },
   {
     "title": "Amatis Trio: speelse mix van Schubert tot Wagner en Rebecca Clarke",
@@ -27939,6 +28969,14 @@
     "url": "https://www.paard.nl/en/event/froukje-8/"
   },
   {
+    "title": "Gratis Lunchconcert: Cello Biënnale Amsterdam",
+    "date": "2026-11-18",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46012203-gratis-lunchconcert-cello-biennale-amsterdam"
+  },
+  {
     "title": "Groninger Studenten Cabaret Festival – Halve finale 40e GSCF",
     "date": "2026-11-18",
     "source": "spotgroningen.nl",
@@ -29847,6 +30885,14 @@
     ]
   },
   {
+    "title": "Kayhan Kalhor Ensemble",
+    "date": "2026-11-22",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/43931223-kayhan-kalhor-ensemble"
+  },
+  {
     "title": "Kinderconcert: Help een dief",
     "date": "2026-11-22",
     "source": "friesland.nl",
@@ -30160,6 +31206,14 @@
     "url": "https://www.concertgebouw.nl/concerten/45884893-moving-talent-van-talent-naar-podium"
   },
   {
+    "title": "Moving Talent: cellist Filip Krzeszowiec speelt Martynovs ode aan Schuberts Strijkkwintet",
+    "date": "2026-11-23",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/45884789-moving-talent-cellist-filip-krzeszowiec-speelt-martynovs-ode-aan-schuberts-strijkkwintet"
+  },
+  {
     "title": "Soweto Gospel Choir – JOY",
     "date": "2026-11-23",
     "source": "spotgroningen.nl",
@@ -30456,6 +31510,14 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/genesis-owusu/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/05/Genesis-Owusu-Photo-Credit-Isaac-Brown_kl.jpg"
+  },
+  {
+    "title": "Gratis Lunchconcert: Grachtenfestival Jazz Competition 2026",
+    "date": "2026-11-25",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46012204-gratis-lunchconcert-grachtenfestival-jazz-competition-2026"
   },
   {
     "title": "Greek",
@@ -33837,6 +34899,14 @@
     "cats": [
       "concert"
     ]
+  },
+  {
+    "title": "12e jaarlijkse Chanoekaconcert – Vrijheid!",
+    "date": "2026-12-05",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46013085-12e-jaarlijkse-chanoekaconcert---vrijheid"
   },
   {
     "title": "ARES",
@@ -41435,6 +42505,14 @@
     "genre": "overig"
   },
   {
+    "title": "Madison Cunningham & Metropole Orkest",
+    "date": "2027-01-18",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46012854-madison-cunningham-metropole-orkest"
+  },
+  {
     "title": "Minder telefoon, meer leven – Thijs Launspach",
     "date": "2027-01-18",
     "source": "spotgroningen.nl",
@@ -41655,6 +42733,14 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45947064-van-muffat-tot-beethoven-richard-egarr-en-alexandra-nepomnyashchaya"
+  },
+  {
+    "title": "Vriendenrepetitie: Het Concertgebouworkest speelt Rachmaninoff",
+    "date": "2027-01-20",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/45980784-vriendenrepetitie-het-concertgebouworkest-speelt-rachmaninoff"
   },
   {
     "title": "Zing-Cirkel Concertgebouw",
@@ -45466,6 +46552,14 @@
     "category": "Muziek overig"
   },
   {
+    "title": "The Vernon Spring - A Plane Over Woods 5 Year Anniversary Tour",
+    "date": "2027-02-11",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46072030-the-vernon-spring---a-plane-over-woods-5-year-anniversary-tour"
+  },
+  {
     "title": "ABN AMRO Open 2027 - Session 10 (evening)",
     "date": "2027-02-12",
     "source": "ahoy",
@@ -47782,6 +48876,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Intouchables in Concert",
+    "date": "2027-02-23",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46035908-intouchables-in-concert"
   },
   {
     "title": "Liv Greene & Cahalon Morrison",
@@ -53262,6 +54364,14 @@
     ]
   },
   {
+    "title": "Doppler, Beethoven & Mahler met Sinfonia Rotterdam",
+    "date": "2027-04-01",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46013600-doppler-beethoven-mahler-met-sinfonia-rotterdam"
+  },
+  {
     "title": "Francis van Broekhuizen",
     "date": "2027-04-01",
     "source": "visitgroningen",
@@ -53584,6 +54694,14 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2808072831/u2-greatest-hits",
     "category": "Concert"
+  },
+  {
+    "title": "Vriendenrepetitie: Janine Jansen en Concertgebouworkest in Beethovens Vioolconcert",
+    "date": "2027-04-02",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/45901519-vriendenrepetitie-janine-jansen-en-concertgebouworkest-in-beethovens-vioolconcert"
   },
   {
     "title": "Wirwar Producties presenteert - Weg ermee (5 t/m 12 jaar)",
@@ -56079,6 +57197,14 @@
     ]
   },
   {
+    "title": "Meesters op de gitaar: Marcin Dylla met Spaans-Mexicaans programma",
+    "date": "2027-04-17",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/43641531-meesters-op-de-gitaar-marcin-dylla-met-spaans-mexicaans-programma"
+  },
+  {
     "title": "Mendelssohns Vioolconcert door Christian Tetzlaff",
     "date": "2027-04-17",
     "source": "concertgebouw",
@@ -57152,6 +58278,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Verklaar de Nacht – Strauss & Schönberg",
+    "date": "2027-04-24",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46037243-verklaar-de-nacht---strauss-schonberg"
   },
   {
     "title": "kweek: Oscar Smit - € 472.000,-",
@@ -59989,6 +61123,14 @@
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1389577416/vier-crematies-en-een-scheiding-de-theatertroep"
+  },
+  {
+    "title": "Bachs Goldberg-variaties door Abel Hox",
+    "date": "2027-05-26",
+    "source": "concertgebouw",
+    "genre": "overig",
+    "venue": "Concertgebouw, Amsterdam",
+    "url": "https://www.concertgebouw.nl/concerten/46008200-bachs-goldberg-variaties-door-abel-hox"
   },
   {
     "title": "Joris Teepe presents: NYCTG",

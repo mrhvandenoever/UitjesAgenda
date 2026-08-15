@@ -167,6 +167,9 @@ Einddoel Michiel: wekelijkse refresh volledig zonder AI. Status per bron staat i
   - [x] `ticketmaster.py`-helper gebouwd (venue-id-lookup + rate-limited events-fetch). Toegepast op **Ziggo Dome** (vervangt podiuminfo.nl, 83 vs 25 events) en **Ahoy** (nieuw, 41 events).
   - [x] Ook geprobeerd voor Paradiso/Concertgebouw (venue gevonden, 0 events — verkopen niet via Ticketmaster) en Rotown/Het Paard (geen venue-match, te klein). Niet bruikbaar voor deze 4.
 - [x] **Het Paard opgelost** — `scrape_paard.py`, via denhaag.com/nl/paard (tip Michiel), geen Playwright nodig (gewone `?page=N`-paginering). 92 events.
+- [x] **Paradiso opgelost** — `scrape_paradiso.py`, negende Playwright-scraper. Bleek verkeerde-URL-fout, niet echt AI/Chrome nodig. 100 events.
+- [x] **Concertgebouw opgelost** — `scrape_concertgebouw.py`, tiende Playwright-scraper (juiste URL + paginering-tip van Michiel). **600 events**, grootste scraper van het project, ~1,5 min per run (1 browser-instance voor ~40 pagina's).
+- [x] Zummerbühne en Groninger/Drents Museum verder onderzocht (2026-08-15): Zummerbühne's iframe bleek een ride-share-widget (geen ticketing), museum blijft leeg ook na cookiebanner-klik — beide bevestigde doodlopende paden, geen quick win meer te vinden.
 - [ ] Lycurgus/Sudosa/Friso — 2e seizoenshelft volleybal nog niet gepubliceerd door de bond, later herscrapen
 - [ ] GIJS Groningen — URL is nu wel bekend (gijsgroningen.nl/gijs-eredivisie/), maar toont nog seizoen 2025-2026; herchecken zodra 2026-2027 live is
 - [ ] Stadspark Groningen (Summer Stage, Hullaballoo) — revisit zomer 2027
