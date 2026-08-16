@@ -197,3 +197,52 @@ dan de mobile-media-query-regel, anders zou de 2-koloms-layout breken onder
 600px) allemaal getest en werkend bevonden vóór commit.
 
 Zie ARCHITECTURE.md §Exposities voor de volledige technische uitwerking.
+
+## 2026-08-16 — Parallelle requests: aanpak vastgelegd (nog niet gebouwd)
+Overleg.md punt 2 verder uitgewerkt op Michiels verzoek — bewust alleen het
+ontwerp vastgelegd deze sessie, bouwen volgt later ("eerst alleen vastleggen").
+
+**Twee onafhankelijke niveaus, beide in scope (Michiel koos A+B nadat bleek
+dat B niet alle 56 bestanden raakt):**
+- **Niveau A** (tussen scrapers): `run_weekly_refresh.py`'s hoofdlus van
+  sequentieel naar een `ThreadPoolExecutor` rond de bestaande
+  subprocess-call. Aparte concurrency-limiet per scraper-type (Michiels
+  expliciete keuze i.p.v. één globale limiet) — plain-HTTP vs Playwright
+  (11 losse Chromium-processen, geheugen-zwaar). Type wordt herkend door het
+  bestand te grep'en op `"playwright"`, geen aparte config per script.
+  Voorstel-startwaarden: 8 gelijktijdig voor plain-HTTP, 3 voor Playwright —
+  niet hard vastgezet, bijstellen na een eerste echte run.
+- **Niveau B** (binnen één scraper): alleen de 7 scrapers met een echte
+  multi-request paginaloop (geteld door alle 56 bestanden te grep'en op
+  paginering-patronen en de treffers handmatig te controleren op false
+  positives, bv. Playwright's `browser.new_page()` matcht toevallig ook op
+  "page" maar is geen paginering): `scrape_drenthe.py`, `scrape_friesland.py`,
+  `scrape_visitgroningen.py`, `scrape_forum.py`, `scrape_kielzog.py`,
+  `scrape_posthuistheater.py`, `scrape_paard.py`. Bewust NIET
+  `scrape_concertgebouw.py`/`scrape_gelredome.py` — die hebben ook paginering
+  maar via Playwright met al één hergebruikte browser (zie ARCHITECTURE.md
+  §Playwright-scrapers); parallelliseren daarvan is losse browser-tabs/
+  contexts, een ander soort wijziging met minder duidelijke winst-per-risico
+  — bewust uit scope gehouden voor deze ronde.
+
+**Bouwplan Niveau B**: nieuwe gedeelde helper `parallel_fetch.py` (zelfde
+soort klein infra-bestand als `ssl_fix.py`/`page_cache.py`/`ticketmaster.py`
+— bevat geen scraping/parse-logica, dus geen conflict met de "één bestand per
+bron"-afspraak uit overleg.md punt 8) met een `fetch_pages()`-achtige functie
+op `ThreadPoolExecutor` + het bestaande `urllib` (geen nieuwe dependency
+nodig, alle 7 kandidaten gebruiken al `urllib`, niet `requests`).
+Concurrency-per-scraper bewust laag gehouden (voorstel: 5 gelijktijdige
+requests naar dezelfde bron) — deze sites krijgen nu één sequentiële request
+tegelijk en zijn daar prima mee; te veel gelijktijdige connecties naar
+dezelfde domain kan alsnog rate-limiting/bot-detectie triggeren die er nu
+niet is. Change-detection (`unchanged()`) hoeft niet aangepast: die zit al
+ná het verzamelen van alle pagina's, ongeacht of dat sequentieel of parallel
+gebeurde.
+
+**Randvoorwaarde, ontdekt tijdens het uitwerken**: alle scrapers schrijven
+naar dezelfde SQLite-file via `insert_event()` (`events_db.py:83`) — geen
+WAL-mode, geen busy-timeout op de connectie. Bij echt gelijktijdige processen
+(Niveau A) kan dat een "database is locked"-fout geven zodra twee scrapers
+tegelijk proberen te schrijven. Moet vóór of gelijk met Niveau A gebouwd
+worden: `PRAGMA journal_mode=WAL` + een `busy_timeout` bij het openen van de
+connectie — klein, bekend/standaard SQLite-patroon voor dit scenario.

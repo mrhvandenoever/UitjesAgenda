@@ -20,8 +20,15 @@ Levend document. Vink af / verplaats naar "Later" zodra iets besproken of gedaan
 
 ## Binnenkort — te overleggen (zie overleg.md)
 - [x] Waar draait de wekelijkse refresh voortaan — OPGELOST 2026-08-15: deze laptop, zie hieronder.
-- [ ] Scraper-efficiëntie: per-pagina hash-caching (gebouwd, zie sessie 2026-08-14) + parallelle requests (nog niet gebouwd) i.p.v. elke run alles opnieuw ophalen
+- [ ] Scraper-efficiëntie: per-pagina hash-caching (gebouwd, zie sessie 2026-08-14) + parallelle requests (**aanpak uitgewerkt 2026-08-16, nog te bouwen** — zie hieronder) i.p.v. elke run alles opnieuw ophalen
 - [ ] Documentatiestructuur compleet: readme / onboarding / architecture / overleg / plan / decisions — bijhouden wie wat update
+
+## Parallelle requests — aanpak vastgelegd 2026-08-16, nog te bouwen
+Volledige uitwerking in overleg.md punt 2 en decisions.md 2026-08-16. Samengevat, voor de volgende bouwsessie:
+- [ ] SQLite WAL-mode + busy_timeout in `events_db.py` (vóór of gelijk met Niveau A — zonder dit geeft gelijktijdig schrijven een "database is locked"-fout)
+- [ ] Niveau A: `run_weekly_refresh.py`'s hoofdlus naar `ThreadPoolExecutor`, aparte concurrency-limiet plain-HTTP (voorstel: 8) vs Playwright (voorstel: 3, herkend via grep op `"playwright"` in het bestand)
+- [ ] Niveau B: nieuwe `parallel_fetch.py`-helper (`ThreadPoolExecutor` + bestaande `urllib`, geen nieuwe dependency), toegepast op de 7 scrapers met een echte multi-request paginaloop: `scrape_drenthe.py`, `scrape_friesland.py`, `scrape_visitgroningen.py`, `scrape_forum.py`, `scrape_kielzog.py`, `scrape_posthuistheater.py`, `scrape_paard.py`. Concurrency-per-scraper laag houden (voorstel: 5) om geen rate-limiting te triggeren op sites die nu prima gaan met 1 request tegelijk.
+- [ ] Bewust buiten scope: `scrape_concertgebouw.py`/`scrape_gelredome.py` (Playwright-paginering, ander soort wijziging) — evt. apart later.
 
 ## Sessie 2026-08-15
 - [x] Lokale repo gesynchroniseerd met GitHub (17 commits achter, fast-forward — onderweg een stale `.git/HEAD.lock` opgeruimd)
