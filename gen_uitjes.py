@@ -318,6 +318,13 @@ expo_valid = sorted([e for e in events if e['_genre']=='expo' and event_is_valid
                     key=lambda e: e.get('date',''))
 total = len(events_valid)
 expo_total = len(expo_valid)
+# Aparte uitjes/sport-totalen (naast de gecombineerde 'total') zodat de
+# statusregel per modus het juiste aantal kan tonen i.p.v. altijd tegen de
+# gecombineerde TOTAL te vergelijken -- gemeld door Claude Design 2026-08-18:
+# "Toont X van Y" klopte in Uitjes-modus nooit met "Toont alle", omdat Y ook
+# sport+expo meetelde.
+total_uitjes = sum(1 for e in events_valid if e.get('source') not in SPORT_SRCS)
+total_sport = sum(1 for e in events_valid if e.get('source') in SPORT_SRCS)
 by_month = defaultdict(list)
 for e in events_valid: by_month[e['date'][:7]].append(e)
 months_sorted = sorted(by_month.keys())
@@ -536,6 +543,7 @@ landelijk_json = _json.dumps(sorted(LANDELIJK))
 
 js = f'''
 const TOTAL={total+expo_total};
+const TOTAL_UITJES={total_uitjes}, TOTAL_SPORT={total_sport}, TOTAL_EXPO={expo_total};
 let selSrc=new Set(), selGenre=new Set(), selProv=new Set(), maxDist=9999;
 let currentMode='uitjes', selSport=new Set(), selClub=new Set(), selGender='all';
 let searchQuery='', selWhenFrom=null, selWhenTo=null;
@@ -549,7 +557,7 @@ function deactBtn(el){{el.style.background='';el.style.color='';el.style.borderC
 let centerLat=53.034, centerLon=6.735;
 
 function initAriaPressed(){{
-  document.querySelectorAll('.mode-toggle,.filters').forEach(c=>{{
+  document.querySelectorAll('.mode-toggle,.filters,.popover').forEach(c=>{{
     c.querySelectorAll('.btn,.mode-btn').forEach(b=>b.setAttribute('aria-pressed',b.classList.contains('active')?'true':'false'));
     new MutationObserver(muts=>{{
       muts.forEach(m=>{{
@@ -599,8 +607,8 @@ function renderActiveFilters(){{
   const tokens=[];
   const searchInput=document.getElementById('search-input');
   if(searchQuery) tokens.push(['Zoeken: "'+searchQuery+'"', ()=>{{searchInput.value='';searchQuery='';apply();}}]);
-  const whenBtn=document.querySelector('#uitjes-datum .btn[data-when].active');
-  if(whenBtn&&whenBtn.dataset.when!=='all') tokens.push([whenBtn.textContent, ()=>document.querySelector('#uitjes-datum .btn[data-when="all"]').click()]);
+  const whenBtn=document.querySelector('#popover-when .btn[data-when].active');
+  if(whenBtn&&whenBtn.dataset.when!=='all') tokens.push([whenBtn.textContent, ()=>document.querySelector('#popover-when .btn[data-when="all"]').click()]);
   else if(!whenBtn&&(selWhenFrom||selWhenTo)) tokens.push(['Periode: '+(selWhenFrom||'…')+' t/m '+(selWhenTo||'…'), ()=>{{whenFromInput.value='';whenToInput.value='';onCustomWhenChange();}}]);
   selProv.forEach(p=>{{const b=document.querySelector('.btn[data-prov="'+p+'"]'); if(b)tokens.push([p, ()=>b.click()]);}});
   if(maxDist<9999) tokens.push(['≤ '+maxDist+' km', ()=>{{document.querySelector('.dist-btn[data-dist="9999"]').click();}}]);
@@ -657,7 +665,9 @@ function apply(){{
   document.querySelectorAll('.month-section').forEach(s=>{{
     s.classList.toggle('hidden',s.querySelectorAll('.event:not(.hidden)').length===0);
   }});
-  document.getElementById('stats').textContent=v===TOTAL?'Toont alle '+TOTAL+' events':'Toont '+v+' van '+TOTAL+' events';
+  const modeTotal=currentMode==='uitjes'?TOTAL_UITJES:currentMode==='sport'?TOTAL_SPORT:TOTAL_EXPO;
+  const modeNoun=currentMode==='uitjes'?'uitjes':currentMode==='sport'?'wedstrijden':'exposities';
+  document.getElementById('stats').textContent=v===modeTotal?'Toont alle '+modeTotal+' '+modeNoun:'Toont '+v+' van '+modeTotal+' '+modeNoun;
   const emptyEl=document.getElementById('empty-state');
   emptyEl.classList.toggle('hidden',v!==0);
   if(v===0){{
@@ -704,6 +714,15 @@ document.getElementById('addr-btn').addEventListener('click',async()=>{{
 
 document.getElementById('addr-input').addEventListener('keydown',e=>{{
   if(e.key==='Enter') document.getElementById('addr-btn').click();
+}});
+// Ook toepassen bij het verlaten van het veld (blur), niet alleen op Enter/
+// klik -- anders staat er getypte tekst die niets doet totdat je expliciet
+// op Zoek klikt, terwijl de status eronder nog het oude punt toont (gemeld
+// door Claude Design 2026-08-18: 'Zuidlaren' in het veld, 'standaard: Annen'
+// eronder).
+document.getElementById('addr-input').addEventListener('blur',()=>{{
+  const addr=document.getElementById('addr-input').value.trim();
+  if(addr) document.getElementById('addr-btn').click();
 }});
 
 document.getElementById('loc-btn').addEventListener('click',()=>{{
@@ -770,9 +789,9 @@ function computeWhenRange(preset){{
   return [null,null];
 }}
 const whenFromInput=document.getElementById('when-from'), whenToInput=document.getElementById('when-to');
-document.querySelectorAll('#uitjes-datum .btn[data-when]').forEach(b=>{{
+document.querySelectorAll('#popover-when .btn[data-when]').forEach(b=>{{
   b.addEventListener('click',function(){{
-    document.querySelectorAll('#uitjes-datum .btn[data-when]').forEach(x=>x.classList.toggle('active',x===this));
+    document.querySelectorAll('#popover-when .btn[data-when]').forEach(x=>x.classList.toggle('active',x===this));
     const [from,to]=computeWhenRange(this.dataset.when);
     selWhenFrom=from; selWhenTo=to;
     whenFromInput.value=from||''; whenToInput.value=to||'';
@@ -780,10 +799,10 @@ document.querySelectorAll('#uitjes-datum .btn[data-when]').forEach(b=>{{
   }});
 }});
 function onCustomWhenChange(){{
-  document.querySelectorAll('#uitjes-datum .btn[data-when]').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('#popover-when .btn[data-when]').forEach(x=>x.classList.remove('active'));
   selWhenFrom=whenFromInput.value||null;
   selWhenTo=whenToInput.value||null;
-  if(!selWhenFrom&&!selWhenTo) document.querySelector('#uitjes-datum .btn[data-when="all"]').classList.add('active');
+  if(!selWhenFrom&&!selWhenTo) document.querySelector('#popover-when .btn[data-when="all"]').classList.add('active');
   apply();
 }}
 whenFromInput.addEventListener('change',onCustomWhenChange);
@@ -1117,7 +1136,7 @@ body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fo
 .filters-label{{font-size:0.75rem;color:var(--muted);width:100%;margin-bottom:2px;}}
 .btn{{padding:6px 12px;min-height:36px;border-radius:20px;border:1.5px solid #ccc;background:#fff;cursor:pointer;font-size:0.78rem;color:#555;transition:all .15s;white-space:nowrap;}}
 .btn:hover{{opacity:.8;}}
-.btn[data-src="all"].active,.btn[data-genre="all"].active,.btn[data-prov="all"].active{{background:#555;color:#fff;border-color:#555;}}
+.btn[data-src="all"].active,.btn[data-genre="all"].active,.btn[data-prov="all"].active,.btn[data-when="all"].active{{background:#555;color:#fff;border-color:#555;}}
 .btn[data-sport="all"].active,.btn[data-club="all"].active{{background:#555;color:#fff;border-color:#555;}}
 {sport_css}
 {club_css}
@@ -1153,7 +1172,7 @@ body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fo
 .dist-btn{{padding:4px 10px;}}
 #dist-custom-input{{padding:4px 10px;border-radius:20px;border:1.5px solid #ccc;font-size:1rem;width:80px;}}
 #dist-custom-input:focus{{outline:none;border-color:#1565c0;}}
-#dist-label{{font-size:0.78rem;color:#1565c0;font-weight:600;}}
+#dist-label{{font-size:0.78rem;color:var(--muted);font-weight:600;}}
 #addr-status{{font-size:0.75rem;color:var(--muted);max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}}
 .month-nav{{background:#fff;border-bottom:1px solid var(--border);padding:8px 16px;overflow-x:auto;white-space:nowrap;}}
 .month-link{{display:inline-block;padding:3px 8px;margin-right:4px;border-radius:4px;text-decoration:none;color:var(--muted);font-size:0.78rem;background:#f5f5f5;}}
@@ -1172,7 +1191,7 @@ main{{padding:0 16px 32px;}}
 .event-venue{{font-size:0.75rem;color:var(--muted);margin-top:2px;}}
 .event-daterange{{font-size:0.75rem;color:#1565c0;font-weight:600;margin-top:2px;}}
 .event.expo-item{{grid-template-columns:1fr auto;}}
-.btn[data-sort].active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
+.btn[data-sort].active,.btn[data-when]:not([data-when="all"]).active,.btn[data-usort].active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
 .dist-badge{{font-size:0.72rem;color:var(--muted);margin-left:4px;}}
 .event-badges{{display:flex;flex-direction:column;gap:3px;align-items:flex-end;}}
 a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #1565c0;outline-offset:2px;}}
@@ -1343,7 +1362,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
 
 <div id="active-filters" class="hidden"></div>
 <div class="month-nav" id="month-nav-wrap">{month_nav}</div>
-<div id="stats">Toont alle {total} events</div>
+<div id="stats">Toont alle {total_uitjes} uitjes</div>
 <div id="empty-state" class="hidden"></div>
 <main>{main_html}</main>
 <div id="expo-wrap" style="display:none;padding:0 16px 32px;">{expo_html}</div>

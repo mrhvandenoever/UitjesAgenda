@@ -1291,3 +1291,87 @@ het label is generiek "Sorteren" geworden (was "Sorteren (Uitjes)").
 Geverifieerd via `getComputedStyle(...).display` in beide modi + een
 functionele sorteer-test op sportwedstrijden (afstand-sortering correct
 oplopend).
+
+
+## 2026-08-18 — Derde Claude Design-ronde (HTML/CSS/JS-analyse, geen live klik-test)
+
+Michiel vroeg Claude Design nogmaals om feedback op de branch-preview. Ditmaal
+kon Claude Design de site niet als screenshot bekijken (cross-origin) en
+deed dus een statische analyse van de opgehaalde HTML/CSS/JS -- vond zo
+precies het soort bug dat mijn eigen (wel-interactieve, maar niet-volledige)
+klik-tests hadden moeten vinden en niet vonden.
+
+**🔴 Blokkerende bug, bevestigd**: het hele "Wanneer"-filter deed niets.
+Bij de cluster-5-toolbar-herbouw is de wrapper-div hernoemd van
+`id="uitjes-datum"` naar `id="popover-when"`, maar 6 JS-referenties (event-
+listeners, de token-render-functie) wezen nog naar de oude id
+`#uitjes-datum` -- die matcht niets meer, dus er werden nul click-handlers
+gebonden op de 5 preset-knoppen. Klikken op Vandaag/Dit weekend/Deze week/
+Deze maand deed zichtbaar niets.
+
+**Waarom mijn eigen verificatie dit miste**: bij het testen van cluster 5
+heb ik wél getest dat de Wanneer-POPOVER open/dicht ging (via `tb-when`),
+maar nooit de knoppen ERIN daadwerkelijk aangeklikt na de HTML-herbouw --
+die test was in cluster 2 wel gedaan, maar niet herhaald na de rename in
+cluster 5. Een grep-achtige statische analyse (zoals Claude Design nu deed)
+vindt zo'n dode-selector-bug feilloos; een interactieve test mist 'm zodra
+je toevallig niet exact het geraakte element aanklikt. Les: na een
+structurele HTML-rename altijd opnieuw ELK element in de nieuwe structuur
+aanklikken, niet aannemen dat een eerdere test (vóór de rename) nog geldt.
+
+**Fix**: alle 6 `#uitjes-datum` → `#popover-when`. Herverifieerd door
+ditmaal ECHT alle 5 preset-knoppen aan te klikken en de resulterende
+`selWhenFrom`/`selWhenTo`/actieve-knop-state te controleren (niet alleen de
+popover open/dicht-status).
+
+**Twee kleinere regressies uit dezelfde herbouw, ook bevestigd en gefixt**:
+- `initAriaPressed()` scande `.mode-toggle,.filters` -- maar de meeste
+  popovers (provincie, genre, bron, sport, club, wanneer) hebben geen
+  `.filters`-klasse meer sinds cluster 5 (alleen de 2 blokken binnen de
+  Sorteren-popover behielden 'm toevallig). Scan uitgebreid met `.popover`.
+- `renderActiveFilters()`'s when-token verscheen niet -- zelfde
+  `#uitjes-datum`-oorzaak, vanzelf mee opgelost.
+
+**Nieuwe, kleinere bugs uit dit rapport, ook bevestigd en gefixt**:
+- "Alle" zag er niet actief uit bij Wanneer en Sorteren, en Datum/Afstand
+  zagen er allebei "uit" uit. Oorzaak: de donkere/blauwe actief-stijlen
+  waren alleen gedefinieerd voor `data-src`/`data-genre`/`data-prov`/
+  `data-sport`/`data-club` -- `data-when` en `data-usort` (nieuw in cluster
+  2, geen bestaand patroon om per ongeluk mee te liften) hadden nooit een
+  eigen regel gekregen. Toegevoegd: `[data-when="all"].active` bij de
+  donkere-groep, `[data-when]:not([data-when="all"]).active` en
+  `[data-usort].active` bij de blauwe-groep.
+- Adresveld en status spraken elkaar tegen: getypte tekst deed niets tot
+  een expliciete Enter/klik op Zoek, terwijl de status eronder het oude
+  punt bleef tonen. `blur`-event toegevoegd naast het al-bestaande Enter-
+  gedrag (Enter werkte al, alleen blur ontbrak).
+- `#dist-label` ("Alle afstanden"/"≤ N km") was nog blauw gestyled uit de
+  tijd dat het klikbaar was (cluster 3 verving dat door segmented buttons,
+  maar de kleur bleef per ongeluk staan) -- nu `var(--muted)`, een puur
+  statuslabel zonder link-uitstraling.
+- Statusregel toonde altijd "Toont X van {{TOTAL}}" met een gecombineerde
+  uitjes+sport+expo-teller, ongeacht de actieve modus -- klopte in
+  Uitjes-modus nooit met "Toont alle" omdat sport/expo ook meetelden in
+  TOTAL. Nu drie aparte per-modus-totalen (`TOTAL_UITJES`/`TOTAL_SPORT`/
+  `TOTAL_EXPO`, serverside berekend) en een passend zelfstandig naamwoord
+  per modus ("uitjes"/"wedstrijden"/"exposities").
+
+**Bug tijdens het bouwen van de blur-fix**: per ongeluk een Python-stijl
+`#`-commentaar getypt i.p.v. JS `//` in een nieuw stuk JS -- dit had een
+echte browser-syntaxfout gegeven (`ast.parse()` valideert alleen de
+PYTHON-kant van het bestand, niet de JS-string-inhoud erin, dus dit soort
+fout wordt nooit door de Python-syntaxcheck gevangen). Gevonden en gefixt
+vóór het regenereren/testen, dit keer bewust een losse `read_console_messages`
+-check gedaan na elke wijziging om dit soort dingen niet nogmaals te missen.
+
+**Nog open, bewust nog niet gebouwd** (grotere/subjectieve voorstellen uit
+hetzelfde rapport, wachten op Michiels prioritering): kaart-layout-
+herstructurering (`main{{max-width:1000px}}`, badges dichter bij de titel,
+dag-groepering i.p.v. datum-herhaling per rij) -- door Claude Design zelf
+als "het grootste visuele probleem" bestempeld; URL-state-uitbreiding
+(when/sport/club/gender/sort + adres/coördinaten i.p.v. alleen een kale
+afstand-getal); localStorage-persistentie (adres, laatste modus);
+zoek-normalisatie (diakrieten-folding, meerdere-woorden-AND-split);
+actieknoppen in de lege-staat; mobiele toolbar-herindeling (zoekveld op
+eigen regel, chips naar 44px); typografie (titel/body naar 15-16px,
+`--muted`-contrast naar #6b6b6b).
