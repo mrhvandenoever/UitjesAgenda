@@ -1138,3 +1138,98 @@ verwijderen, URL-state schrijven+herstellen incl. modus, modus-wissel-
 filterbehoud, mobiele layout op 375px-viewport), geen console-errors.
 Gepusht naar `design-review-clusters-1-4` (niet naar `main`) — wacht op
 Michiels review voor mergen.
+
+
+## 2026-08-18 — Claude Design-review cluster 5 gebouwd (toolbar + kleurstrategie)
+
+Vervolg op clusters 1-4. Michiel besloot: cluster 5 wél bouwen, MAAR
+lazy-loading-architectuur (het derde cluster-5-item) niet — die stond al
+vast als "nog niet, later apart bekijken" bij de vorige triage. Blijft op
+dezelfde branch (`design-review-clusters-1-4`), niet gemerged.
+
+### Filterbalk → toolbar + popovers + sticky bar
+- **Eén sticky wrapper** (`.topbar`, `position:sticky;top:0`) voor logo +
+  mode-toggle + meta-regel + toolbar samen — i.p.v. de eerder overwogen
+  gestapelde-sticky-aanpak (header op `top:0`, mode-toggle op
+  `top:<headerhoogte>`) die kwetsbaar zou zijn voor een header die op smalle
+  schermen over twee regels wrapt. Eén wrapper heeft geen offset-berekening
+  nodig, lost het sticky-volgorde-probleem (overleg.md punt 17) definitief op.
+- **Compacte toolbar**: zoekveld + knoppen `Wanneer/Waar/Genre/Bron/Sport/
+  Club/Sorteren` + "Wis filters", i.p.v. 5 altijd-open rijen met ~70 chips.
+  Elke knop opent een popover met de bestaande filter-chips erin — de chips
+  zelf zijn ONGEWIJZIGD (zelfde `data-*`-attributen, zelfde click-handlers),
+  alleen hun presentatie (wel/niet altijd zichtbaar) is anders. Dit hield het
+  risico laag: de onderliggende filterlogica in `apply()` is niet aangeraakt.
+- **Bron-popover**: 48 bronnen nu gegroepeerd per provincie (afgeleid uit
+  `VENUE_LOC`, geen nieuwe data nodig) + een "Landelijk"-groep (de bestaande
+  quick-toggle-knop bleef intact) + een eigen zoekveldje dat de chips én
+  groep-kopjes live filtert.
+- **Filterteller**: elke toolbar-knop toont "(N)" als er N filters actief
+  zijn in die categorie — Claude Design's eigen "filterteller"-voorstel.
+- **Sport/Geslacht samengevoegd** tot één "Sport"-popover (was 2 losse
+  chip-rijen) — geslacht is inhoudelijk een sub-filter van sport-modus.
+- **Sorteren** deelt 1 toolbar-knop/popover tussen Uitjes- en Exposities-
+  sorteeropties (2 losse content-blokken binnenin, getoogd zoals voorheen
+  via bestaande `uitjes-sort`/`expo-filters`-ID's — geen nieuwe logica nodig).
+- **Mobiele touch-targets**: toolbar-knoppen en het zoekveld nu 44px
+  min-height (was ~24px chips) — dit was in de eerste triage bewust NIET los
+  opgepakt omdat losstaand vergroten zonder de balk in te klappen het
+  "wall of chips"-probleem juist zou verergeren; nu vanzelf opgelost omdat
+  de toolbar zelf al compact is.
+
+### Kleurstrategie omgegooid
+`src_css()` gaf voorheen élke bron zijn eigen chip-rand/tekstkleur EN zijn
+eigen actieve-achtergrondkleur EN een gekleurde badge-pill op de kaart — met
+60 bronnen tegelijk geen visuele rust. Nu: bronchips zijn neutraal (gedeelde
+`.btn`-stijl), actief = 1 generieke accentkleur (`#1565c0`, consistent met
+hoe genre/sorteer-chips al werkten) — met een `:not([data-src="all"])`-
+uitzondering zodat de "Alle bronnen"-knop zijn eigen grijze stijl behoudt.
+Per-bron-kleur overleeft alleen nog op de kaart zelf: de 3px linkerrand
+(`.event.{{sk}}{{border-left-color:...}}`) en verder niets. `badge-src`
+(bron-naam op de kaart) is nu platte grijze tekst (`var(--muted)`, geen
+achtergrond/rand meer) i.p.v. een gekleurde pill. Club/sport-chips bewust
+ONGEWIJZIGD gelaten — teamkleuren zijn wél betekenisvolle identiteit
+(shirtkleur-associatie), anders dan de grotendeels arbitraire bron-kleuren.
+
+### Belangrijke methodologische vondst tijdens het verifiëren
+
+Bij het testen van de kleurstrategie via de lokale `http.server`-preview
+bleek `getComputedStyle()` voor **verf-eigenschappen** (`color`,
+`background-color`, `border-color`) op elementen die ZOJUIST van
+`display:none` (via het `hidden`-attribuut op een popover) naar zichtbaar
+zijn gezet, systematisch de OUDE/inactieve waarde terug te geven — ook bij
+een handmatig gezette **inline** style (die normaliter altijd wint,
+ongeacht CSS-cascade). Grondig gediagnosticeerd:
+- Bevestigd met `.matches()` en directe CSS-regel-inspectie dat de juiste
+  regel (hoogste specificiteit, laatste in bronvolgorde, geen
+  `!important`-conflict) wél correct matcht.
+- Bevestigd dat HETZELFDE altijd-zichtbare element (nooit verborgen geweest)
+  wél correct de juiste computed style teruggeeft.
+- Bevestigd dat LAYOUT-eigenschappen (`width`, `padding`, `left`/`top` van
+  een popover) op datzelfde soort net-zichtbaar-gemaakte element WEL correct
+  resolven — alleen verf-eigenschappen zijn bevroren.
+- Dit is dezelfde onderliggende oorzaak als de al eerder gevonden
+  `requestAnimationFrame`-bug (2026-08-17, cluster 1-4): deze testomgeving
+  composeert het tabblad niet (`document.visibilityState==='hidden'`), en
+  layout kan altijd berekend worden (nodig voor scripting), maar
+  verf-resolutie blijkt hier aan een compositor-cyclus gekoppeld die in een
+  niet-gecomposeerd tabblad nooit draait.
+
+**Consequentie**: de kleurstrategie-CSS is grondig geverifieerd via
+cascade-analyse (niet via visuele/computed-style-verificatie, die was voor
+dít specifieke onderdeel niet betrouwbaar beschikbaar in deze omgeving) en
+alle FUNCTIONELE logica (popover open/sluiten, filterteller, "Wis filters",
+URL-state, setMode-toolbar-zichtbaarheid, bron-zoekveld, mobiele
+touch-targets/horizontale-scroll) is wél volledig via de gebruikelijke
+property/attribute-checks geverifieerd. **Michiel: bekijk de kleuren zelf
+even op de preview-deploy (een normaal, wél gecomposeerd tabblad) om de
+laatste visuele stap te bevestigen** — de logica erachter is zo grondig
+mogelijk gecontroleerd zonder dat.
+
+**Geverifieerd**: alle popovers openen/sluiten correct (1 tegelijk, sluiten
+via backdrop/Escape/modus-wissel), filterteller-badges tellen correct,
+"Wis filters" reset alles, bron-zoekveld filtert chips+groepen correct,
+setMode() toont/verbergt de juiste toolbar-knoppen per modus, gedeelde
+Sorteren-popover toont het juiste blok per modus, URL-state blijft werken
+na de herbouw, mobiele toolbar scrollt horizontaal met 44px-knoppen,
+mobiele popovers dokken aan de randen (`left:8px`), geen console-errors.

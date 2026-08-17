@@ -131,24 +131,24 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - Aanleiding: Michiel wees erop dat Zummerbühne (Oostwold) ~20km toonde, Google Maps rijdend 35,7km. Grootste deel bleek een echte databug (verkeerde "Oostwold" coördinaat, zie decisions.md) — na de fix resteert ~27km hemelsbreed vs 35,7km rijdend, wat structureel klopt: de site rekent met haversine (rechte lijn), niet met een routeplanner.
 - Geen actie ondernomen — een echte rijafstand zou een routing-API (bv. OSRM/Google Directions) per event vereisen, een veel grotere en kostbaardere wijziging dan de huidige client-side haversine-berekening. Alleen vastgelegd zodat een volgend "afstand klopt niet"-signaal niet blind als dezelfde soort databug behandeld wordt.
 
-### 17. Claude Design-review: volledige lijst — clusters 1-4 GEBOUWD (branch), cluster 5 nog open (2026-08-17)
-- Aanleiding: Claude Design (nieuwe MCP-integratie, zie decisions.md) heeft de live site beoordeeld. Michiel besloot systematisch, per cluster: clusters 1-4 nu bouwen (gedaan, op branch `design-review-clusters-1-4`, zie decisions.md voor de volledige technische uitwerking incl. 2 echte bugs gevonden tijdens het bouwen), cluster 5 bewust nog niet. ✅ = gefixt/gebouwd, ⬜ = nog open (cluster 5).
+### 17. Claude Design-review: volledige lijst — clusters 1-5 GEBOUWD op branch, alleen lazy-loading bewust overgeslagen (2026-08-18)
+- Aanleiding: Claude Design (nieuwe MCP-integratie, zie decisions.md) heeft de live site beoordeeld. Michiel besloot systematisch, per cluster: clusters 1-5 bouwen, MET UITZONDERING van lazy-loading (bewust "nog niet, later apart bekijken" — zie decisions.md 2026-08-17 voor de toelichting die daarvoor gegeven is). Alles op branch `design-review-clusters-1-4`, nog niet gemerged. ✅ = gefixt/gebouwd, ⬜ = bewust overgeslagen.
 
 **Top-5 uit het rapport:**
 - ✅ Contrast, `content-visibility`
 - ✅ Performance-details: afstanden nu in een `Map` i.p.v. `dataset`. **`requestAnimationFrame`-batching van `apply()` bewust NIET gehouden** — bleek een echte betrouwbaarheidsbug (browsertab niet actief zichtbaar → rAF pauzeert), teruggedraaid, zie decisions.md.
 - ✅ Zoekveld (titel/venue, debounced, via een vooraf-berekend `data-search`-attribuut)
 - ✅ Datumfilter (Vandaag/Dit weekend/Deze week/Deze maand/eigen periode)
-- ⬜ **Cluster 5, nog niet gebouwd**: filterbalk (5 rijen, ~70 chips) herbouwen naar compacte toolbar + popovers, lange sets (bron/club) in een popover met eigen zoekveldje en groepering (Landelijk/Groningen/Drenthe/Friesland). Bundelt ook de sticky-volgorde-fix (mode-toggle/header) en de mobiele touch-targets (44px).
-- ⬜ **Cluster 5, nog niet gebouwd**: kleurstrategie omgooien — raakt de visuele identiteit van 60 bronnen ineens.
-- ⬜ **Cluster 5, nog niet gebouwd, bewust uitgelegd en toen nog niet gekozen**: lazy-loading-architectuur (alleen eerstvolgende ~60 dagen server-side, rest per maand als JSON) — Michiel vroeg om een toelichting (zie decisions.md), koos daarna voor "nog niet, later apart bekijken".
+- ✅ Filterbalk herbouwd naar compacte toolbar + popovers (2026-08-18) — bronnen gegroepeerd per provincie + eigen zoekveldje, filterteller per knop, sticky-volgorde meteen mee opgelost (1 sticky wrapper i.p.v. losse gestapelde elementen).
+- ✅ Kleurstrategie omgegooid (2026-08-18) — bronchips neutraal, kleur alleen nog via de kaart-linkerrand.
+- ⬜ **Bewust overgeslagen**: lazy-loading-architectuur (alleen eerstvolgende ~60 dagen server-side, rest per maand als JSON) — Michiel vroeg om een toelichting (zie decisions.md 2026-08-17), koos daarna voor "nog niet, later apart bekijken". Blijft hier staan voor een moment dat performance echt een probleem wordt.
 
 **Visuele hiërarchie & leesbaarheid:**
 - ✅ Titel-hiërarchie, Nederlandse maandnaam
 - ✅ `line-height:1.45` op body (basis-fontsize bewust ongewijzigd gelaten — de meeste elementen hebben al een eigen kleinere, met opzet compacte size, een blanket 16px-bump zou de informatiedichtheid onevenredig opblazen)
 - ✅ Contrastfout `#aaa` op wit (footer + `.dist-badge`) → `var(--muted)`
 - ✅ Emoji weg uit de bronchips
-- ⬜ Sticky-volgorde (mode-toggle/header) — gebundeld met de cluster-5-toolbar-herbouw.
+- ✅ Sticky-volgorde (mode-toggle/header) — opgelost door de toolbar-herbouw (2026-08-18): 1 sticky `.topbar`-wrapper voor logo+modi+toolbar samen.
 
 **Filterbalk-gedrag:**
 - ✅ Lege-staat-bericht
@@ -159,7 +159,7 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - ✅ Modus wisselen bewaart filters waar mogelijk (Michiels expliciete keuze: "filters bewaren waar mogelijk")
 
 **Mobiel:**
-- ⬜ Touch-targets (44px) — gebundeld met de cluster-5-toolbar-herbouw
+- ✅ Touch-targets (44px) — opgelost via de toolbar-herbouw (compacte knoppen i.p.v. losse chips vergroten)
 - ✅ Chip-groepen op mobiel: horizontale scrollbaan met randfade
 - ✅ Kaart mobiel herindeeld (datum als kicker, bron-badge weg)
 - ✅ Adresrij mobiel eigen volle regel
@@ -170,7 +170,7 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 
 **Niet te verifiëren/fixen vanaf hier**: Claude Design meldde dat de eigen preview vastliep bij het maken van een screenshot van de 5,5MB/8202-events-pagina — waarschijnlijk gewoon een DOM-grootte-limiet van hun eigen previewtool, geen actie mogelijk aan de codebase-kant behalve de al-doorgevoerde `content-visibility`-fix (die dat indirect kan verzachten).
 
-**Status**: clusters 1-4 volledig gebouwd en lokaal geverifieerd (echte browsertests via een lokale `http.server`-preview, niet alleen grep — zie decisions.md) op de branch `design-review-clusters-1-4`, gepusht, nog NIET gemerged naar `main` — wacht op Michiels review. Cluster 5 blijft open voor een volgende ronde.
+**Status**: alle 5 clusters (op lazy-loading na) volledig gebouwd op de branch `design-review-clusters-1-4`, gepusht, nog NIET gemerged naar `main` — wacht op Michiels review. Bij cluster 5 kon de kleurstrategie niet 100% visueel geverifieerd worden binnen deze sessie (een omgevingsbeperking van de test-browser, geen onzekerheid over de code zelf — zie decisions.md 2026-08-18 voor de volledige diagnose); Michiel wordt gevraagd dat laatste stukje zelf op de preview te bevestigen.
 
 ### 18. `insert_event()` update-gedrag structureel aanpakken — OPGELOST 2026-08-17
 - Was 4x hetzelfde patroon (forum.nl, Geke Hoogstins, TivoliVredenburg, SPOT Groningen): `insert_event()` update een bestaande same-source-rij nooit, dus verbeterde scraper-data (venue-differentiatie, `date_end`, URL's) kwam nooit door zonder handmatige opschoning.

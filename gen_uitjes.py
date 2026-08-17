@@ -335,22 +335,48 @@ def _contrast_text(hex_color):
     return '#212121' if (0.299*r + 0.587*g + 0.114*b) > 150 else '#fff'
 
 def src_css(key):
+    # Kleurstrategie omgegooid (Claude Design-review 2026-08-17, cluster 5):
+    # kleur = identiteit EN actieve-staat tegelijk gaf geen visuele rust bij
+    # 70 gekleurde chips + 2 gekleurde badges per kaart. Nu: bronchips zijn
+    # neutraal (gedeelde .btn-stijl + 1 generieke actief-kleur, zie CSS),
+    # broncode-kleur overleeft alleen nog als de 3px kaart-linkerrand -- de
+    # enige plek waar per-bron-kleur nog functioneel nut heeft (snel scannen
+    # welke kaart bij welke bron hoort in een lange lijst). Was voorheen ook
+    # chip-border/tekst + een gekleurde badge-pill (.s-{sk}, nu verwijderd --
+    # badge-src is nu platte grijze tekst, zie CSS).
     sk=safe_key(key); c=SRC.get(key,('','','#999'))[2]
-    return (f'.btn[data-src="{key}"]{{border-color:{c};color:{c};}}'
-            f'.btn[data-src="{key}"].active{{background:{c};color:{_contrast_text(c)};border-color:{c};}}'
-            f'.event.{sk}{{border-left-color:{c};}}'
-            f'.s-{sk}{{background:{c}22;color:{c};border:1px solid {c}44;}}')
+    return f'.event.{sk}{{border-left-color:{c};}}'
 
 src_css_all = '\n'.join(src_css(k) for k in SRC)
 active_sources = sorted(set(e['source'] for e in events_valid))
 
 LANDELIJK = {'tivolivredenburg','melkweg','paradiso','013','ziggodome','effenaar','doornroosje','ahoy'}
+
+# Bron-popover toont bronnen gegroepeerd per provincie (Claude Design-review
+# 2026-08-17, cluster 5: "groepering nodig, je Landelijk-knop bewijst dat")
+# i.p.v. één platte lijst van ~60 chips. Groep afgeleid uit VENUE_LOC — geen
+# nieuwe data nodig. PROV_ORDER bepaalt de volgorde (kerngebied eerst).
+PROV_ORDER = ['Landelijk','Groningen','Drenthe','Friesland','Overijssel',
+              'Utrecht','Noord-Holland','Zuid-Holland','Noord-Brabant','Gelderland','Overig']
+
+def src_group(key):
+    if key in LANDELIJK: return 'Landelijk'
+    loc = VENUE_LOC.get(key)
+    return loc[2] if loc else 'Overig'
+
 src_buttons = '<button class="btn active" data-src="all">Alle bronnen</button>\n'
-src_buttons += '  <button class="btn" data-src-group="landelijk" style="border-color:#c62828;color:#c62828;">🗺️ Landelijk</button>\n'
+src_buttons += '  <button class="btn" data-src-group="landelijk" style="border-color:#c62828;color:#c62828;">🗺️ Landelijk (alle 8)</button>\n'
+_src_by_group = {}
 for key in active_sources:
     if key in SPORT_SRCS: continue  # sport clubs apart
-    label,emoji,_ = SRC.get(key,(key,'•','#999'))
-    src_buttons += f'  <button class="btn" data-src="{key}">{esc(label)}</button>\n'
+    _src_by_group.setdefault(src_group(key), []).append(key)
+_group_order = sorted(_src_by_group.keys(), key=lambda g: PROV_ORDER.index(g) if g in PROV_ORDER else len(PROV_ORDER))
+for grp in _group_order:
+    label_esc = esc(grp)
+    src_buttons += f'  <div class="src-group-label">{label_esc}</div>\n'
+    for key in _src_by_group[grp]:
+        label,emoji,_ = SRC.get(key,(key,'•','#999'))
+        src_buttons += f'  <button class="btn" data-src="{key}" data-src-label="{esc(label.lower())}">{esc(label)}</button>\n'
 
 month_nav = '\n'.join(
     f'<a href="#{month_id(m+"-01")}" class="month-link">{month_short(m+"-01")}</a>'
@@ -599,9 +625,7 @@ function renderActiveFilters(){{
     wrap.appendChild(t);
   }});
   const clearAll=document.createElement('button'); clearAll.className='filter-token clear-all'; clearAll.textContent='Wis alles';
-  clearAll.addEventListener('click',()=>{{
-    tokens.forEach(([,fn])=>fn());
-  }});
+  clearAll.addEventListener('click',clearAllFilters);
   wrap.appendChild(clearAll);
 }}
 
@@ -649,6 +673,7 @@ function apply(){{
   apb.classList.toggle('active',apa);if(apa)actBtn(apb,'#555');else deactBtn(apb);
   document.getElementById('dist-label').textContent=maxDist>=9999?'Alle afstanden':'≤ '+maxDist+' km';
   renderActiveFilters();
+  updateFilterCounts();
   syncURL();
 }}
 
@@ -823,17 +848,102 @@ document.querySelectorAll('.btn[data-prov]').forEach(b=>b.addEventListener('clic
   apply();
 }}));
 
+// --- Popovers: 1 tegelijk open, sluiten bij buitenklik/Escape/modus-wissel.
+// Toolbar-knop-zichtbaarheid bepaalt of een popover uberhaupt te openen is
+// (geen aparte binnen-popover mode-check meer nodig, behalve voor Sorteren
+// dat 2 mogelijke inhoud-blokken deelt tussen uitjes/exposities). ---
+function closeAllPopovers(){{
+  document.querySelectorAll('.popover').forEach(p=>p.hidden=true);
+  document.querySelectorAll('.toolbar-btn[data-popover]').forEach(b=>b.setAttribute('aria-expanded','false'));
+  document.getElementById('popover-backdrop').hidden=true;
+}}
+function positionPopover(popover,trigger){{
+  const r=trigger.getBoundingClientRect();
+  popover.style.top=(r.bottom+4)+'px';
+  let left=r.left;
+  const maxLeft=window.innerWidth-popover.offsetWidth-8;
+  if(left>maxLeft) left=Math.max(8,maxLeft);
+  popover.style.left=left+'px';
+}}
+document.querySelectorAll('.toolbar-btn[data-popover]').forEach(btn=>{{
+  btn.addEventListener('click',function(e){{
+    e.stopPropagation();
+    const popover=document.getElementById(this.dataset.popover);
+    const wasOpen=!popover.hidden;
+    closeAllPopovers();
+    if(!wasOpen){{
+      popover.hidden=false;
+      document.getElementById('popover-backdrop').hidden=false;
+      this.setAttribute('aria-expanded','true');
+      positionPopover(popover,this);
+    }}
+  }});
+}});
+document.getElementById('popover-backdrop').addEventListener('click',closeAllPopovers);
+document.addEventListener('keydown',e=>{{if(e.key==='Escape')closeAllPopovers();}});
+document.querySelectorAll('.popover').forEach(p=>p.addEventListener('click',e=>e.stopPropagation()));
+
+// --- Filterteller per toolbar-knop (Claude Design's 'filterteller'-voorstel) ---
+function updateFilterCounts(){{
+  const setCount=(id,n)=>{{const el=document.getElementById(id); if(el) el.textContent=n>0?' ('+n+')':'';}};
+  setCount('tb-when-count',(selWhenFrom||selWhenTo)?1:0);
+  setCount('tb-where-count',selProv.size+(maxDist<9999?1:0));
+  setCount('tb-genre-count',selGenre.size);
+  setCount('tb-src-count',selSrc.size);
+  setCount('tb-sport-count',selSport.size);
+  setCount('tb-club-count',selClub.size+(selGender!=='all'?1:0));
+}}
+
+// --- Bron-popover: eigen zoekveld filtert de gegroepeerde chips, verbergt
+// een groep-kopje als geen enkele chip erin nog matcht. ---
+document.getElementById('src-search').addEventListener('input',function(){{
+  const q=this.value.trim().toLowerCase();
+  const list=document.getElementById('popover-src-list');
+  let lastGroupLabel=null, groupVisible=false;
+  Array.from(list.children).forEach(el=>{{
+    if(el.classList.contains('src-group-label')){{
+      if(lastGroupLabel) lastGroupLabel.style.display=groupVisible?'':'none';
+      lastGroupLabel=el; groupVisible=false;
+    }}else if(el.dataset.srcLabel){{
+      const match=!q||el.dataset.srcLabel.includes(q);
+      el.style.display=match?'':'none';
+      if(match) groupVisible=true;
+    }}
+  }});
+  if(lastGroupLabel) lastGroupLabel.style.display=groupVisible?'':'none';
+}});
+
+// --- "Wis filters": 1 centrale functie, hergebruikt door zowel de nieuwe
+// toolbar-knop als de "Wis alles"-token in de actieve-filter-samenvatting. ---
+function clearAllFilters(){{
+  searchQuery=''; document.getElementById('search-input').value='';
+  document.querySelector('#popover-when .btn[data-when="all"]')?.click();
+  document.querySelector('.btn[data-prov="all"]')?.click();
+  document.querySelector('.dist-btn[data-dist="9999"]')?.click();
+  document.querySelector('.btn[data-genre="all"]')?.click();
+  document.querySelector('.btn[data-src="all"]')?.click();
+  document.querySelector('.btn[data-sport="all"]')?.click();
+  document.querySelector('.btn[data-club="all"]')?.click();
+  document.querySelector('.btn[data-gender="all"]')?.click();
+  apply();
+}}
+document.getElementById('clear-filters-btn').addEventListener('click',()=>{{clearAllFilters();closeAllPopovers();}});
+
 function setMode(m){{
   currentMode=m;
   document.getElementById('btn-uitjes').classList.toggle('active',m==='uitjes');
   document.getElementById('btn-sport').classList.toggle('active',m==='sport');
   document.getElementById('btn-exposities').classList.toggle('active',m==='exposities');
-  document.getElementById('sport-filters').style.display=m==='sport'?'block':'none';
+  closeAllPopovers();
+  // Welke toolbar-knoppen (en dus welke popovers) zijn relevant per modus --
+  // 'Waar' en 'Sorteren' en het zoekveld blijven in alle 3 modi beschikbaar.
+  document.getElementById('tb-when').style.display=m!=='exposities'?'':'none';
+  document.getElementById('tb-genre').style.display=m==='uitjes'?'':'none';
+  document.getElementById('tb-src').style.display=m==='uitjes'?'':'none';
+  document.getElementById('tb-sport').style.display=m==='sport'?'':'none';
+  document.getElementById('tb-club').style.display=m==='sport'?'':'none';
   document.getElementById('expo-filters').style.display=m==='exposities'?'flex':'none';
-  ['uitjes-genre','uitjes-src','uitjes-datum','uitjes-sort'].forEach(id=>{{
-    const el=document.getElementById(id);
-    if(el) el.style.display=m==='uitjes'?'':'none';
-  }});
+  document.getElementById('uitjes-sort').style.display=m==='uitjes'?'':'none';
   document.getElementById('month-nav-wrap').style.display=m==='exposities'?'none':'';
   document.querySelector('main').style.display=m==='exposities'?'none':'';
   document.getElementById('expo-wrap').style.display=m==='exposities'?'':'none';
@@ -962,21 +1072,46 @@ html = f'''<!DOCTYPE html>
   --bg:#f9f9f9;--card:#fff;--border:#e0e0e0;--text:#212121;--muted:#757575;}}
 *{{box-sizing:border-box;margin:0;padding:0;}}
 body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.45;}}
-header{{background:#fff;border-bottom:2px solid var(--border);padding:12px 16px;position:sticky;top:0;z-index:100;}}
-header h1{{font-size:1.2rem;font-weight:700;margin-bottom:2px;}}
-.meta{{font-size:0.8rem;color:var(--muted);}}
-.filters{{background:#fff;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}}
+/* Eén sticky wrapper voor topbar+toolbar samen (i.p.v. losse gestapelde
+   sticky-elementen met een handmatig berekende top-offset) -- voorkomt het
+   fragiele-offset-probleem dat bij de eerste sticky-volgorde-triage werd
+   overwogen (header-hoogte kan wrappen op smalle schermen), zie overleg.md
+   punt 17 / decisions.md 2026-08-17 (cluster 5, toolbar-herbouw). */
+.topbar{{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;padding:10px 16px 8px;}}
+.topbar-top{{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}}
+.topbar-top h1{{font-size:1.2rem;font-weight:700;margin:0;}}
+.meta{{font-size:0.78rem;color:var(--muted);margin-top:2px;}}
+.mode-toggle{{display:flex;gap:8px;}}
+.mode-btn{{padding:5px 18px;border-radius:20px;border:2px solid #ccc;background:#fff;cursor:pointer;font-weight:700;font-size:0.88rem;}}
+.mode-btn.active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
+.toolbar{{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px;}}
+.toolbar-btn{{padding:8px 14px;min-height:44px;border-radius:20px;border:1.5px solid #ccc;background:#fff;cursor:pointer;font-size:0.85rem;color:#555;white-space:nowrap;display:inline-flex;align-items:center;}}
+.toolbar-btn:hover{{opacity:.85;}}
+.toolbar-btn::after{{content:'▾';margin-left:5px;font-size:0.7em;}}
+.toolbar-btn[aria-expanded="true"]{{background:#e3f2fd;border-color:#1565c0;color:#1565c0;}}
+.toolbar-btn.clear-btn{{border-color:#ef9a9a;color:#c62828;}}
+.toolbar-btn.clear-btn::after{{content:none;}}
+.tb-count{{font-weight:700;}}
+#search-input{{flex:1 1 220px;min-width:160px;min-height:44px;}}
+.popover-backdrop{{position:fixed;inset:0;z-index:150;background:transparent;}}
+.popover{{position:fixed;z-index:160;background:#fff;border:1px solid var(--border);border-radius:10px;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);padding:12px 14px;display:flex;flex-wrap:wrap;gap:6px;
+  align-items:center;max-width:min(92vw,480px);max-height:70vh;overflow-y:auto;}}
+.popover-daterow{{display:flex;gap:6px;width:100%;}}
+.popover-search{{width:100%;padding:6px 10px;border-radius:20px;border:1.5px solid #ccc;font-size:1rem;margin-bottom:4px;}}
+.popover-search:focus{{outline:none;border-color:#1565c0;}}
+.popover-src-list{{display:flex;flex-wrap:wrap;gap:6px;align-items:center;width:100%;}}
+.src-group-label{{font-size:0.72rem;font-weight:700;color:var(--muted);width:100%;margin:6px 0 0;text-transform:uppercase;letter-spacing:.03em;}}
+.src-group-label:first-child{{margin-top:0;}}
 .filters-label{{font-size:0.75rem;color:var(--muted);width:100%;margin-bottom:2px;}}
-.btn{{padding:4px 10px;border-radius:20px;border:1.5px solid #ccc;background:#fff;cursor:pointer;font-size:0.78rem;color:#555;transition:all .15s;white-space:nowrap;}}
+.btn{{padding:6px 12px;min-height:36px;border-radius:20px;border:1.5px solid #ccc;background:#fff;cursor:pointer;font-size:0.78rem;color:#555;transition:all .15s;white-space:nowrap;}}
 .btn:hover{{opacity:.8;}}
 .btn[data-src="all"].active,.btn[data-genre="all"].active,.btn[data-prov="all"].active{{background:#555;color:#fff;border-color:#555;}}
 .btn[data-sport="all"].active,.btn[data-club="all"].active{{background:#555;color:#fff;border-color:#555;}}
 {sport_css}
 {club_css}
 {gender_css}
-.mode-toggle{{background:#fff;padding:8px 16px;display:flex;gap:8px;border-bottom:2px solid var(--border);}}
-.mode-btn{{padding:5px 18px;border-radius:20px;border:2px solid #ccc;background:#fff;cursor:pointer;font-weight:700;font-size:0.88rem;}}
-.mode-btn.active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
+.btn[data-src]:not([data-src="all"]).active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
 {src_css_all}
 {prov_css}
 .btn[data-genre="festival"].active{{background:#e91e63;color:#fff;border-color:#e91e63;}}
@@ -1031,7 +1166,7 @@ main{{padding:0 16px 32px;}}
 .event-badges{{display:flex;flex-direction:column;gap:3px;align-items:flex-end;}}
 a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #1565c0;outline-offset:2px;}}
 .badge{{font-size:0.68rem;padding:2px 6px;border-radius:10px;white-space:nowrap;}}
-.badge-src{{font-weight:600;}}
+.badge-src{{font-weight:400;color:var(--muted);}}
 #back-to-top{{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:#1565c0;color:#fff;border:none;font-size:1.2rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:200;}}
 #back-to-top.hidden{{display:none;}}
 #back-to-top:hover{{background:#0d47a1;}}
@@ -1053,16 +1188,96 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   .addr-row label{{margin-bottom:2px;}}
   #addr-input{{width:100%;}}
   .dist-buttons{{width:100%;}}
-  .chip-scroll,.month-nav{{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);}}
+  .chip-scroll,.month-nav,.toolbar{{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);}}
+  #search-input{{flex:0 0 auto;width:70vw;}}
+  .popover{{left:8px !important;right:8px;max-width:calc(100vw - 16px);width:calc(100vw - 16px);}}
+  .topbar-top{{gap:8px;}}
 }}
 </style></head><body>
-<div class="mode-toggle" role="group" aria-label="Weergave">
-  <button class="mode-btn active" id="btn-uitjes" onclick="setMode('uitjes')">🗓️ Uitjes</button>
-  <button class="mode-btn" id="btn-sport" onclick="setMode('sport')">⚽ Sport</button>
-  <button class="mode-btn" id="btn-exposities" onclick="setMode('exposities')">🖼️ Exposities</button>
+<div class="topbar" id="topbar">
+  <div class="topbar-top">
+    <h1>🗓️ Uitjes Agenda</h1>
+    <div class="mode-toggle" role="group" aria-label="Weergave">
+      <button class="mode-btn active" id="btn-uitjes" onclick="setMode('uitjes')">🗓️ Uitjes</button>
+      <button class="mode-btn" id="btn-sport" onclick="setMode('sport')">⚽ Sport</button>
+      <button class="mode-btn" id="btn-exposities" onclick="setMode('exposities')">🖼️ Exposities</button>
+    </div>
+  </div>
+  <div class="meta">Bijgewerkt: {today_str} &nbsp;·&nbsp; {total} events &nbsp;·&nbsp; {expo_total} exposities &nbsp;·&nbsp; {len(active_sources)} bronnen</div>
+  <div class="toolbar" id="toolbar">
+    <input type="search" id="search-input" placeholder="🔍 Zoek op titel of locatie…" aria-label="Zoek op titel of locatie">
+    <button class="toolbar-btn" id="tb-when" data-popover="popover-when" aria-haspopup="true" aria-expanded="false">Wanneer<span class="tb-count" id="tb-when-count"></span></button>
+    <button class="toolbar-btn" id="tb-where" data-popover="popover-where" aria-haspopup="true" aria-expanded="false">Waar<span class="tb-count" id="tb-where-count"></span></button>
+    <button class="toolbar-btn" id="tb-genre" data-popover="popover-genre" aria-haspopup="true" aria-expanded="false">Genre<span class="tb-count" id="tb-genre-count"></span></button>
+    <button class="toolbar-btn" id="tb-src" data-popover="popover-src" aria-haspopup="true" aria-expanded="false">Bron<span class="tb-count" id="tb-src-count"></span></button>
+    <button class="toolbar-btn" id="tb-sport" data-popover="popover-sport" aria-haspopup="true" aria-expanded="false">Sport<span class="tb-count" id="tb-sport-count"></span></button>
+    <button class="toolbar-btn" id="tb-club" data-popover="popover-club" aria-haspopup="true" aria-expanded="false">Club<span class="tb-count" id="tb-club-count"></span></button>
+    <button class="toolbar-btn" id="tb-sort" data-popover="popover-sort" aria-haspopup="true" aria-expanded="false">Sorteren</button>
+    <button class="toolbar-btn clear-btn" id="clear-filters-btn">Wis filters</button>
+  </div>
 </div>
-<div id="sport-filters" style="display:none">
-<div class="filters chip-scroll" role="group" aria-labelledby="lbl-sport">
+<div class="popover-backdrop" id="popover-backdrop" hidden></div>
+
+<div class="popover" id="popover-when" hidden role="group" aria-labelledby="lbl-datum">
+  <div class="filters-label" id="lbl-datum">Wanneer</div>
+  <button class="btn active" data-when="all">Alle</button>
+  <button class="btn" data-when="today">Vandaag</button>
+  <button class="btn" data-when="weekend">Dit weekend</button>
+  <button class="btn" data-when="week">Deze week</button>
+  <button class="btn" data-when="month">Deze maand</button>
+  <div class="popover-daterow">
+    <input type="date" id="when-from" aria-label="Vanaf datum" title="Eigen periode: vanaf">
+    <input type="date" id="when-to" aria-label="Tot datum" title="Eigen periode: tot">
+  </div>
+</div>
+
+<div class="popover" id="popover-where" hidden role="group" aria-labelledby="lbl-provincie">
+  <div class="filters-label" id="lbl-provincie">Provincie &amp; afstand</div>
+  {prov_buttons}
+  <div class="addr-row">
+    <label>Afstand van:</label>
+    <input type="text" id="addr-input" list="nl-places" placeholder="adres of plaatsnaam" value="Annen, Drenthe">
+    <datalist id="nl-places"><option value="Groningen"><option value="Assen"><option value="Emmen"><option value="Hoogeveen"><option value="Meppel"><option value="Coevorden"><option value="Borger"><option value="Stadskanaal"><option value="Veendam"><option value="Delfzijl"><option value="Leeuwarden"><option value="Sneek"><option value="Heerenveen"><option value="Drachten"><option value="Franeker"><option value="Harlingen"><option value="Dokkum"><option value="Joure"><option value="Zwolle"><option value="Deventer"><option value="Almelo"><option value="Hengelo"><option value="Enschede"><option value="Kampen"><option value="Hardenberg"><option value="Ommen"><option value="Utrecht"><option value="Amersfoort"><option value="Houten"><option value="Nieuwegein"><option value="Zeist"><option value="Woerden"><option value="Veenendaal"><option value="Amsterdam"><option value="Haarlem"><option value="Alkmaar"><option value="Den Helder"><option value="Purmerend"><option value="Zaandam"><option value="Hoorn"><option value="Hilversum"><option value="Amstelveen"><option value="Den Haag"><option value="Rotterdam"><option value="Leiden"><option value="Delft"><option value="Dordrecht"><option value="Gouda"><option value="Schiedam"><option value="Zoetermeer"><option value="Alphen aan den Rijn"><option value="Eindhoven"><option value="Tilburg"><option value="Den Bosch"><option value="Breda"><option value="Helmond"><option value="Roosendaal"><option value="Bergen op Zoom"><option value="Oss"><option value="Veghel"><option value="Nijmegen"><option value="Arnhem"><option value="Apeldoorn"><option value="Doetinchem"><option value="Harderwijk"><option value="Tiel"><option value="Wageningen"><option value="Winterswijk"><option value="Annen"><option value="Gieten"><option value="Tynaarlo"><option value="Beilen"><option value="Roden"><option value="Leek"><option value="Zuidlaren"><option value="Hoogezand"><option value="Winschoten"><option value="Dalen"><option value="Emmer-Compascuum"><option value="Nieuwe-Pekela"><option value="Ter Apel"><option value="Oosterhesselen"></datalist>
+    <button class="icon-btn" id="addr-btn">🔍 Zoek</button>
+    <button class="icon-btn" id="loc-btn" title="Gebruik mijn locatie">📍 Locatie</button>
+    <div class="dist-buttons" id="dist-buttons" role="group" aria-label="Afstand">
+      <button type="button" class="btn dist-btn" data-dist="10">10 km</button>
+      <button type="button" class="btn dist-btn" data-dist="25">25 km</button>
+      <button type="button" class="btn dist-btn" data-dist="50">50 km</button>
+      <button type="button" class="btn dist-btn" data-dist="100">100 km</button>
+      <button type="button" class="btn dist-btn active" data-dist="9999">Alle</button>
+      <input type="number" id="dist-custom-input" placeholder="eigen km" min="1">
+    </div>
+    <span id="dist-label">Alle afstanden</span>
+    <span id="addr-status">standaard: Annen</span>
+  </div>
+</div>
+
+<div class="popover" id="popover-genre" hidden role="group" aria-labelledby="lbl-genre">
+  <div class="filters-label" id="lbl-genre">Genre</div>
+  <button class="btn active" data-genre="all">Alle genres</button>
+  <button class="btn" data-genre="festival">🎉 Festival</button>
+  <button class="btn" data-genre="theater">🎭 Theater</button>
+  <button class="btn" data-genre="cabaret">🎪 Cabaret</button>
+  <button class="btn" data-genre="musical">🎼 Musical</button>
+  <button class="btn" data-genre="klassiek">🎻 Klassiek</button>
+  <button class="btn" data-genre="pop">🎸 Pop / Rock</button>
+  <button class="btn" data-genre="jazz">🎷 Jazz</button>
+  <button class="btn" data-genre="dans">💃 Dans</button>
+  <button class="btn" data-genre="actief">🥾 Actief</button>
+  <button class="btn" data-genre="kinderen">🎈 Kinderen</button>
+  <button class="btn" data-genre="overig">• Overig</button>
+</div>
+
+<div class="popover popover-src" id="popover-src" hidden role="group" aria-labelledby="lbl-bron">
+  <div class="filters-label" id="lbl-bron">Bron</div>
+  <input type="text" id="src-search" placeholder="Zoek bron…" class="popover-search" aria-label="Zoek bron">
+  <div class="popover-src-list" id="popover-src-list">
+  {src_buttons}
+  </div>
+</div>
+
+<div class="popover" id="popover-sport" hidden>
   <div class="filters-label" id="lbl-sport">Sport</div>
   <button class="btn active" data-sport="all">Alle sporten</button>
   <button class="btn" data-sport="voetbal">⚽ Voetbal</button>
@@ -1071,14 +1286,13 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   <button class="btn" data-sport="ijshockey">🏒 IJshockey</button>
   <button class="btn" data-sport="handbal">🤾 Handbal</button>
   <button class="btn" data-sport="korfbal">🎯 Korfbal</button>
-</div>
-<div class="filters chip-scroll" role="group" aria-labelledby="lbl-geslacht">
   <div class="filters-label" id="lbl-geslacht">Geslacht</div>
   <button class="btn active" data-gender="all">Beide</button>
   <button class="btn" data-gender="heren">♂ Heren</button>
   <button class="btn" data-gender="dames">♀ Dames</button>
 </div>
-<div class="filters chip-scroll" role="group" aria-labelledby="lbl-club">
+
+<div class="popover" id="popover-club" hidden role="group" aria-labelledby="lbl-club">
   <div class="filters-label" id="lbl-club">Club</div>
   <button class="btn active" data-club="all">Alle clubs</button>
   <button class="btn" data-club="fcgroningen" data-sport-type="voetbal">⚽ FC Groningen</button>
@@ -1101,75 +1315,21 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   <button class="btn" data-club="ldodk" data-sport-type="korfbal">🎯 LDODK</button>
   <button class="btn" data-club="dos46" data-sport-type="korfbal">🎯 DOS '46</button>
 </div>
-</div>
-<header>
-  <h1>🗓️ Uitjes Agenda</h1>
-  <div class="meta">Bijgewerkt: {today_str} &nbsp;·&nbsp; {total} events &nbsp;·&nbsp; {expo_total} exposities &nbsp;·&nbsp; {len(active_sources)} bronnen</div>
-</header>
-<div class="filters" role="search" aria-label="Zoeken">
-  <input type="search" id="search-input" placeholder="🔍 Zoek op titel of locatie…" aria-label="Zoek op titel of locatie">
-</div>
-<div class="filters" role="group" aria-labelledby="lbl-provincie">
-  <div class="filters-label" id="lbl-provincie">Provincie &amp; afstand</div>
-  {prov_buttons}
-  <div class="addr-row">
-    <label>Afstand van:</label>
-    <input type="text" id="addr-input" list="nl-places" placeholder="adres of plaatsnaam" value="Annen, Drenthe">
-    <datalist id="nl-places"><option value="Groningen"><option value="Assen"><option value="Emmen"><option value="Hoogeveen"><option value="Meppel"><option value="Coevorden"><option value="Borger"><option value="Stadskanaal"><option value="Veendam"><option value="Delfzijl"><option value="Leeuwarden"><option value="Sneek"><option value="Heerenveen"><option value="Drachten"><option value="Franeker"><option value="Harlingen"><option value="Dokkum"><option value="Joure"><option value="Zwolle"><option value="Deventer"><option value="Almelo"><option value="Hengelo"><option value="Enschede"><option value="Kampen"><option value="Hardenberg"><option value="Ommen"><option value="Utrecht"><option value="Amersfoort"><option value="Houten"><option value="Nieuwegein"><option value="Zeist"><option value="Woerden"><option value="Veenendaal"><option value="Amsterdam"><option value="Haarlem"><option value="Alkmaar"><option value="Den Helder"><option value="Purmerend"><option value="Zaandam"><option value="Hoorn"><option value="Hilversum"><option value="Amstelveen"><option value="Den Haag"><option value="Rotterdam"><option value="Leiden"><option value="Delft"><option value="Dordrecht"><option value="Gouda"><option value="Schiedam"><option value="Zoetermeer"><option value="Alphen aan den Rijn"><option value="Eindhoven"><option value="Tilburg"><option value="Den Bosch"><option value="Breda"><option value="Helmond"><option value="Roosendaal"><option value="Bergen op Zoom"><option value="Oss"><option value="Veghel"><option value="Nijmegen"><option value="Arnhem"><option value="Apeldoorn"><option value="Doetinchem"><option value="Harderwijk"><option value="Tiel"><option value="Wageningen"><option value="Winterswijk"><option value="Annen"><option value="Gieten"><option value="Tynaarlo"><option value="Beilen"><option value="Roden"><option value="Leek"><option value="Zuidlaren"><option value="Hoogezand"><option value="Winschoten"><option value="Dalen"><option value="Emmer-Compascuum"><option value="Nieuwe-Pekela"><option value="Ter Apel"><option value="Oosterhesselen"></datalist>
-    <button class="icon-btn" id="addr-btn">🔍 Zoek</button>
-    <button class="icon-btn" id="loc-btn" title="Gebruik mijn locatie">📍 Locatie</button>
-    <div class="dist-buttons" id="dist-buttons" role="group" aria-label="Afstand">
-      <button type="button" class="btn dist-btn" data-dist="10">10 km</button>
-      <button type="button" class="btn dist-btn" data-dist="25">25 km</button>
-      <button type="button" class="btn dist-btn" data-dist="50">50 km</button>
-      <button type="button" class="btn dist-btn" data-dist="100">100 km</button>
-      <button type="button" class="btn dist-btn active" data-dist="9999">Alle</button>
-      <input type="number" id="dist-custom-input" placeholder="eigen km" min="1">
-    </div>
-    <span id="dist-label">Alle afstanden</span>
-    <span id="addr-status">standaard: Annen</span>
+
+<div class="popover" id="popover-sort" hidden>
+  <div class="filters" id="uitjes-sort" role="group" aria-labelledby="lbl-usort" style="border:none;padding:0;">
+    <div class="filters-label" id="lbl-usort">Sorteren (Uitjes)</div>
+    <button class="btn active" data-usort="datum">Datum</button>
+    <button class="btn" data-usort="afstand">Afstand</button>
+  </div>
+  <div class="filters" id="expo-filters" style="display:none;border:none;padding:0;" role="group" aria-labelledby="lbl-sorteren">
+    <div class="filters-label" id="lbl-sorteren">Sorteren (Exposities)</div>
+    <button class="btn active" data-sort="start">Startdatum</button>
+    <button class="btn" data-sort="end">Einddatum</button>
+    <button class="btn" data-sort="alpha">Alfabetisch</button>
   </div>
 </div>
-<div class="filters chip-scroll" id="uitjes-datum" role="group" aria-labelledby="lbl-datum">
-  <div class="filters-label" id="lbl-datum">Wanneer</div>
-  <button class="btn active" data-when="all">Alle</button>
-  <button class="btn" data-when="today">Vandaag</button>
-  <button class="btn" data-when="weekend">Dit weekend</button>
-  <button class="btn" data-when="week">Deze week</button>
-  <button class="btn" data-when="month">Deze maand</button>
-  <input type="date" id="when-from" aria-label="Vanaf datum" title="Eigen periode: vanaf">
-  <input type="date" id="when-to" aria-label="Tot datum" title="Eigen periode: tot">
-</div>
-<div class="filters chip-scroll" id="uitjes-genre" role="group" aria-labelledby="lbl-genre">
-  <div class="filters-label" id="lbl-genre">Genre</div>
-  <button class="btn active" data-genre="all">Alle genres</button>
-  <button class="btn" data-genre="festival">🎉 Festival</button>
-  <button class="btn" data-genre="theater">🎭 Theater</button>
-  <button class="btn" data-genre="cabaret">🎪 Cabaret</button>
-  <button class="btn" data-genre="musical">🎼 Musical</button>
-  <button class="btn" data-genre="klassiek">🎻 Klassiek</button>
-  <button class="btn" data-genre="pop">🎸 Pop / Rock</button>
-  <button class="btn" data-genre="jazz">🎷 Jazz</button>
-  <button class="btn" data-genre="dans">💃 Dans</button>
-  <button class="btn" data-genre="actief">🥾 Actief</button>
-  <button class="btn" data-genre="kinderen">🎈 Kinderen</button>
-  <button class="btn" data-genre="overig">• Overig</button>
-</div>
-<div class="filters chip-scroll" id="uitjes-src" role="group" aria-labelledby="lbl-bron">
-  <div class="filters-label" id="lbl-bron">Bron</div>
-  {src_buttons}
-</div>
-<div class="filters chip-scroll" id="uitjes-sort" role="group" aria-labelledby="lbl-usort">
-  <div class="filters-label" id="lbl-usort">Sorteren</div>
-  <button class="btn active" data-usort="datum">Datum</button>
-  <button class="btn" data-usort="afstand">Afstand</button>
-</div>
-<div class="filters chip-scroll" id="expo-filters" style="display:none" role="group" aria-labelledby="lbl-sorteren">
-  <div class="filters-label" id="lbl-sorteren">Sorteren</div>
-  <button class="btn active" data-sort="start">Startdatum</button>
-  <button class="btn" data-sort="end">Einddatum</button>
-  <button class="btn" data-sort="alpha">Alfabetisch</button>
-</div>
+
 <div id="active-filters" class="hidden"></div>
 <div class="month-nav" id="month-nav-wrap">{month_nav}</div>
 <div id="stats">Toont alle {total} events</div>
