@@ -14,12 +14,12 @@ Na afloop:
 import urllib.request
 import ssl
 import re
-import time
 import argparse
 from datetime import datetime, date
 from events_db import insert_event, log_scrape, init_db
 from page_cache import unchanged
 from ssl_fix import create_context
+from parallel_fetch import fetch_batches
 
 SSL_CTX = create_context()
 
@@ -182,20 +182,35 @@ def scrape(max_pages: int = 0, dry_run: bool = False) -> tuple[int, int]:
     init_db()
     found = added = 0
     all_events = []
-    page  = 1
 
-    while True:
-        url = f"{BASE_URL}?order=desc&sort=calendar&page={page}"
-        print(f"  Pagina {page}...", end=' ', flush=True)
+    # Pagina's in batches van 5 gelijktijdig ophalen i.p.v. één voor één
+    # (Niveau B, overleg.md punt 2 / decisions.md 2026-08-16). Stop-signaal
+    # is het ontbreken van een "volgende pagina"-link (zelfde platform als
+    # drenthe.nl — zie de les in scrape_drenthe.py/parallel_fetch.py: "0
+    # events" bleek daar géén betrouwbaar eind-signaal, dit wél).
+    def url_for(page: int) -> str:
+        return f"{BASE_URL}?order=desc&sort=calendar&page={page}"
 
-        try:
-            html = fetch(url)
-        except Exception as e:
-            print(f"FOUT: {e}")
+    def no_next_page(page: int, html: str) -> bool:
+        return f'page={page + 1}' not in html
+
+    # batch_cap: visitgroningen.nl bleek bij het bouwen (2026-08-16) ~70-79
+    # echte pagina's te hebben (meer dan drenthe.nl's ~41, ondanks hetzelfde
+    # platform) — ruime marge aangehouden, geen bevestigde bovengrens gemeten.
+    batch_cap = max_pages if max_pages else 120
+    fetched = fetch_batches(
+        1, lambda p: fetch(url_for(p)), no_next_page,
+        max_batches=(batch_cap // 5) + 1, stop_after_consecutive=1)
+
+    for page, html, exc in fetched:
+        if max_pages and page > max_pages:
             break
+        if exc is not None:
+            print(f"  Pagina {page}: FOUT: {exc}")
+            continue
 
         events = parse_page(html)
-        print(f"{len(events)} events")
+        print(f"  Pagina {page}... {len(events)} events")
 
         for e in events:
             found += 1
@@ -206,10 +221,6 @@ def scrape(max_pages: int = 0, dry_run: bool = False) -> tuple[int, int]:
 
         if f'page={page + 1}' not in html:
             break
-        page += 1
-        if max_pages and page > max_pages:
-            break
-        time.sleep(0.5)
 
     if not dry_run:
         if unchanged(SOURCE, all_events):

@@ -16,6 +16,7 @@ import re
 import argparse
 from events_db import insert_event, log_scrape, init_db
 from page_cache import unchanged
+from parallel_fetch import fetch_many
 
 SOURCE   = 'forum.nl'
 BASE_URL = 'https://forum.nl/nl/agenda'
@@ -41,11 +42,14 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
     all_events = []
     seen = set()
 
-    for page in range(1, 8):
-        try:
-            html = fetch(page)
-        except Exception as e:
-            print(f"  Pagina {page} fout: {e}")
+    # De 7 pagina's zijn een vast, klein maximum — gewoon allemaal gelijktijdig
+    # ophalen (Niveau B, overleg.md punt 2 / decisions.md 2026-08-16), maar
+    # nog steeds in paginavolgorde VERWERKEN en stoppen bij de eerste lege
+    # pagina, exact zoals de oude sequentiële versie.
+    pages = list(range(1, 8))
+    for page, (html, exc) in zip(pages, fetch_many(pages, fetch)):
+        if exc is not None:
+            print(f"  Pagina {page} fout: {exc}")
             continue
 
         matches = list(re.finditer(

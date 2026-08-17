@@ -18,6 +18,7 @@ import argparse
 from datetime import date
 from events_db import insert_event, log_scrape, init_db
 from page_cache import unchanged
+from parallel_fetch import fetch_many
 
 SOURCE   = 'kielzog'
 BASE_URL = 'https://www.kielzog.nl/api/v1/agenda'
@@ -62,12 +63,15 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
     total_pages = first.get('meta', {}).get('pagination', {}).get('totalPages', 1)
     print(f"  {total_pages} pagina's op de agenda")
 
+    # Pagina's 2..total_pages gelijktijdig ophalen (Niveau B, overleg.md
+    # punt 2 / decisions.md 2026-08-16) i.p.v. één voor één.
     all_items = list(first.get('data', []))
-    for page in range(2, total_pages + 1):
-        try:
-            all_items.extend(fetch(page).get('data', []))
-        except Exception as e:
-            print(f"  Pagina {page} fout: {e}")
+    pages = list(range(2, total_pages + 1))
+    for page, (result, exc) in zip(pages, fetch_many(pages, fetch)):
+        if exc is not None:
+            print(f"  Pagina {page} fout: {exc}")
+            continue
+        all_items.extend(result.get('data', []))
 
     found = added = 0
     all_events = []

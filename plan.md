@@ -23,12 +23,15 @@ Levend document. Vink af / verplaats naar "Later" zodra iets besproken of gedaan
 - [ ] Scraper-efficiëntie: per-pagina hash-caching (gebouwd, zie sessie 2026-08-14) + parallelle requests (**aanpak uitgewerkt 2026-08-16, nog te bouwen** — zie hieronder) i.p.v. elke run alles opnieuw ophalen
 - [ ] Documentatiestructuur compleet: readme / onboarding / architecture / overleg / plan / decisions — bijhouden wie wat update
 
-## Parallelle requests — aanpak vastgelegd 2026-08-16, nog te bouwen
-Volledige uitwerking in overleg.md punt 2 en decisions.md 2026-08-16. Samengevat, voor de volgende bouwsessie:
-- [ ] SQLite WAL-mode + busy_timeout in `events_db.py` (vóór of gelijk met Niveau A — zonder dit geeft gelijktijdig schrijven een "database is locked"-fout)
-- [ ] Niveau A: `run_weekly_refresh.py`'s hoofdlus naar `ThreadPoolExecutor`, aparte concurrency-limiet plain-HTTP (voorstel: 8) vs Playwright (voorstel: 3, herkend via grep op `"playwright"` in het bestand)
-- [ ] Niveau B: nieuwe `parallel_fetch.py`-helper (`ThreadPoolExecutor` + bestaande `urllib`, geen nieuwe dependency), toegepast op de 7 scrapers met een echte multi-request paginaloop: `scrape_drenthe.py`, `scrape_friesland.py`, `scrape_visitgroningen.py`, `scrape_forum.py`, `scrape_kielzog.py`, `scrape_posthuistheater.py`, `scrape_paard.py`. Concurrency-per-scraper laag houden (voorstel: 5) om geen rate-limiting te triggeren op sites die nu prima gaan met 1 request tegelijk.
-- [ ] Bewust buiten scope: `scrape_concertgebouw.py`/`scrape_gelredome.py` (Playwright-paginering, ander soort wijziging) — evt. apart later.
+## Parallelle requests — GEBOUWD 2026-08-16
+Volledige uitwerking in overleg.md punt 2 en decisions.md 2026-08-16.
+- [x] SQLite WAL-mode + busy_timeout in `events_db.py`'s `get_conn()`
+- [x] Niveau A: `run_weekly_refresh.py`'s hoofdlus naar twee `ThreadPoolExecutor`-pools (plain-HTTP max 8, Playwright max 3, `--max-plain`/`--max-playwright` instelbaar)
+- [x] Niveau B: nieuwe `parallel_fetch.py`-helper (`fetch_many()` + `fetch_batches()`), toegepast op alle 7 kandidaten: `scrape_drenthe.py`, `scrape_friesland.py`, `scrape_visitgroningen.py`, `scrape_forum.py`, `scrape_kielzog.py`, `scrape_posthuistheater.py`, `scrape_paard.py`
+- [x] **Bug gevonden en gefixt onderweg**: `fetch_batches()`'s eerste stopsignaal ("0 events") bleek onbetrouwbaar voor drenthe.nl (site geeft fallback-content i.p.v. een lege pagina voorbij het echte einde) — vervangen door het "geen volgende-pagina-link"-signaal. Zie decisions.md voor de volledige diagnose (3m34s → 13s na de fix).
+- [x] Bewust buiten scope gebleven: `scrape_concertgebouw.py`/`scrape_gelredome.py` (Playwright-paginering, ander soort wijziging) — evt. apart later.
+- [x] Geverifieerd met een echte volle `run_weekly_refresh.py`-run (geen dry-run): 56/56 OK, 0 lock-fouten, 0 hernoemingen. Events na export/generate: 6634 → 7734.
+- [ ] **Nieuw gevonden bijvangst, nog niet opgelost**: forum.nl's doorlopende exposities ("Marilyn Expositie"/"Storyworld") als losse rij per dag i.p.v. datumbereik — zie overleg.md punt 12, plan.md-item hierboven bij de Exposities-sectie.
 
 ## Sessie 2026-08-15
 - [x] Lokale repo gesynchroniseerd met GitHub (17 commits achter, fast-forward — onderweg een stale `.git/HEAD.lock` opgeruimd)
@@ -186,6 +189,7 @@ Productbrainstorm afgerond 2026-08-15, richting vastgelegd in overleg.md punten 
 - [x] **Exposities gebouwd (2026-08-16)**: `genre='expo'` volledig uit de Uitjes-stroom gehaald naar een eigen derde topniveau-knop. Route A geïmplementeerd (altijd tonen tenzij een bekende `date_end` al voorbij is — `date_end` wordt nu voor het eerst echt gelezen door `gen_uitjes.py`). Sortering: default startdatum (server-side), Einddatum/Alfabetisch als client-side herordening. Afstands- en provinciefilter werken mee (gedeeld filterblok, geen aparte code). Zie ARCHITECTURE.md §Exposities voor de volledige technische uitwerking.
   - Onderweg 2 bugs gevonden en gefixt: `classify()`'s losse keyword `'strip'` matchte per ongeluk "Striptease" (3 theatershows onterecht als expo); en `apply()` werd nooit aangeroepen bij het laden van de pagina, waardoor sportwedstrijden zichtbaar bleven tussen de Uitjes tot de eerste filterklik (bevestigd op de live site: 172 sportevents zichtbaar bij page-load, nu gefixt). Zie decisions.md.
   - Huidige omvang klein: 4 echte exposities (Groninger Museum x2, Geke Hoogstins, Concertgebouw) — geen aparte Bron-filter gebouwd, kan later als het aantal groeit.
+- [ ] **Nieuw gevonden 2026-08-16 (na de parallelle-requests-refresh)**: `forum.nl` levert "Marilyn Expositie" en "Storyworld" als een **losse rij per dag** (36 rijen voor 2 doorlopende exposities) i.p.v. één rij met een datumbereik — was onzichtbaar toen expo-events nog tussen de Uitjes verstopt zaten, valt nu op omdat Exposities een kleine, aparte sectie is (41 in totaal, 36 daarvan dit). Geen quick fix (vereist forum.nl-scraper-logica om opeenvolgende identieke dagelijkse titels samen te voegen tot één rij met `date_end`) — bewust niet zomaar gefixt, eerst bespreken hoe dit opgelost moet worden (zie overleg.md, nog geen punt-nummer).
 - [ ] Overweeg als vervolg: Geke Hoogstins-scraper alsnog bouwen nu er een fatsoenlijke plek voor doorlopende exposities is (was eerder bewust overgeslagen, zie decisions.md) — er staat al 1 losse, niet-gescrapete rij ("DSG groepsexpositie", mét correct ingevulde `date_end`) in de DB voor deze bron, en die rij rendert al prima in de nieuwe sectie als voorbeeld van hoe het eruitziet met een echte einddatum.
 - [ ] **Favorieten**: act/team volgen over alle bronnen heen — matching-probleem (zelfde titel, andere spelling per bron) en UI/opslag nog te ontwerpen, zie overleg.md punt 9. Nog niet gebouwd.
 - [ ] **Admin**: lokale/read-only statusweergave (scraper-status, event-aantallen per bron, laatste refresh) — geen backend, geen bewerkmogelijkheid. Exacte inhoud/vormgeving nog te bepalen, zie overleg.md punt 11. Nog niet gebouwd.

@@ -24,9 +24,10 @@
 | `requirements.txt` | `playwright` (sinds 2026-08-15, alleen voor lokale headless-browser-scrapers) — verder leeg, de rest is pure Python stdlib. Cloudflare-build gebruikt dit bestand niet (roept alleen `gen_uitjes.py` aan, stdlib-only). |
 | `secrets_local.py` + `secrets.local.json` | API-keys (bv. Ticketmaster) — `secrets.local.json` staat in `.gitignore`, nooit committen. Zie §API-keys hieronder. |
 | `scrape_<bron>.py` | Eén los scraper-script per bron/venue (zie §Scrapers-conventie). 56 scripts op dit moment — zie `SCRAPERS.md` voor de volledige, actuele lijst per bron (dit bestand houdt bewust geen kopie van die lijst bij, om drift te voorkomen). |
-| `run_weekly_refresh.py` | Draait alle `scrape_*.py`-bestanden (auto-discovery via glob), daarna export + generate. Zie §Wekelijkse refresh. |
+| `run_weekly_refresh.py` | Draait alle `scrape_*.py`-bestanden parallel in twee pools (plain-HTTP/Playwright), daarna export + generate. Zie §Wekelijkse refresh en §Parallelle scrapers. |
 | `page_cache.py` | Change-detection: hash-cache in `events.db` om parse/insert-werk over te slaan als een bron ongewijzigd is. Zie §Change-detection. |
 | `ssl_fix.py` | Workaround voor `ssl.VERIFY_X509_STRICT` (Python 3.13+), side-effect-import via `page_cache.py` — dus geen aparte import per scraper nodig. Zie decisions.md 2026-08-15. |
+| `parallel_fetch.py` | Concurrent pagina's ophalen binnen één scraper (`fetch_many()`/`fetch_batches()`), voor de 7 scrapers met een multi-request paginaloop. Zie §Parallelle scrapers. |
 | `scrape_<bron>_pw.py`-stijl (Playwright) | Scrapers voor JS-gerenderde bronnen die geen verborgen API hebben — headless Chromium rendert de pagina, script leest daarna de DOM. Geen AI/LLM nodig per run. Zie §Playwright-scrapers, decisions.md 2026-08-15. Bewust nooit ingezet tegen bot-detectie/CAPTCHA's (TivoliVredenburg, OntdekPoort, Hunebedcentrum blijven daarom buiten schot). |
 | `SCRAPERS.md` | Status per bron: geautomatiseerd / kan zonder AI (recipe klaar) / AI-Chrome nodig / nog niet geprobeerd. |
 | `CLAUDE.md` | Werkwijze voor Claude in deze repo (wanneer welk .md-bestand lezen/bijwerken). |
@@ -345,6 +346,90 @@ zoals bedoeld. Let op `scrape_naarzuidlaren.py`: gebruikt bewust dezelfde
 `SOURCE = 'drenthe.nl'` als `scrape_drenthe.py` (provincie-filter), maar een
 eigen cache-key (`SOURCE + ':naarzuidlaren'`) — anders zou een wijziging bij
 de één de cache van de ander onterecht laten denken dat er niks veranderd is.
+
+## Parallelle scrapers (Niveau A + B, gebouwd 2026-08-16)
+
+Twee onafhankelijke niveaus van parallellisatie, zie overleg.md punt 2 en
+decisions.md 2026-08-16 voor de volledige geschiedenis.
+
+### Niveau A — tussen scrapers (`run_weekly_refresh.py`)
+
+De hoofdlus draait alle `scrape_*.py`-bestanden niet meer na elkaar, maar in
+twee `ThreadPoolExecutor`-pools die tegelijk lopen:
+- **plain-HTTP-pool** (max 8 gelijktijdig, default): lichte scrapers, gewoon
+  `urllib`-requests.
+- **Playwright-pool** (max 3 gelijktijdig, default): elk een eigen headless
+  Chromium-proces, geheugen-zwaarder — vandaar een lagere limiet.
+
+Scraper-type wordt herkend door het bestand te grep'en op de string
+`"playwright"` (`is_playwright_scraper()`) — geen aparte config per script
+nodig. Concurrency instelbaar via `--max-plain`/`--max-playwright`; op 1
+zetten geeft het oude sequentiële gedrag terug zonder code-wijziging (handige
+noodrem als er in productie iets misgaat). Output van elk script wordt als
+één blok geprint zodra dat script klaar is — de volgorde is nu
+voltooiingsvolgorde, niet meer bestandsvolgorde.
+
+**Randvoorwaarde**: alle scrapers schrijven naar dezelfde SQLite-file via
+`insert_event()`. `events_db.py`'s `get_conn()` gebruikt daarom `PRAGMA
+journal_mode=WAL` + `busy_timeout=30000` — zonder deze fix zou gelijktijdig
+schrijven een "database is locked"-fout kunnen geven.
+
+### Niveau B — binnen één scraper (`parallel_fetch.py`)
+
+Voor de 7 scrapers met een echte multi-request paginaloop (`scrape_drenthe.py`,
+`scrape_friesland.py`, `scrape_visitgroningen.py`, `scrape_forum.py`,
+`scrape_kielzog.py`, `scrape_posthuistheater.py`, `scrape_paard.py`) — de
+overige ~49 doen 1 request of een handjevol en zijn onaangeraakt.
+Concertgebouw/GelreDome hebben ook paginering maar via Playwright met al één
+hergebruikte browser-instance — bewust buiten scope (ander soort wijziging).
+
+`parallel_fetch.py` biedt twee functies, geen scraping-logica erin (zelfde
+soort klein infra-bestand als `ssl_fix.py`/`page_cache.py`/`ticketmaster.py`):
+
+```python
+from parallel_fetch import fetch_many, fetch_batches
+
+# 1. Bekend aantal pagina's vooraf (bv. friesland.nl: totaal uit "van X
+#    resultaten" op pagina 1, dan de rest in één keer):
+for p, (html, exc) in zip(pages, fetch_many(pages, lambda p: fetch(url(p)))):
+    if exc is not None: ...  # zelfde try/except-per-pagina-gevoel als voorheen
+    ...
+
+# 2. Aantal pagina's pas bekend terwijl je gaat (bv. drenthe.nl):
+fetched = fetch_batches(1, lambda p: fetch(url(p)), should_stop_fn,
+                         batch_size=5, max_batches=..., stop_after_consecutive=1)
+for page, html, exc in fetched:
+    ...  # nog steeds sequentieel VERWERKEN or breken op het eigen stopsignaal
+```
+
+Beide draaien op `concurrent.futures.ThreadPoolExecutor` + de bestaande
+`urllib`-fetch-functie van elke scraper — geen nieuwe dependency (alle 7
+kandidaten gebruikten al `urllib`, niet `requests`). Default concurrency is
+laag (5 gelijktijdig per bron) — bewuste keuze, deze sites zijn nu gewend aan
+één sequentiële request tegelijk en te veel gelijktijdige connecties kan
+alsnog rate-limiting/bot-detectie triggeren die er nu niet is.
+
+**Belangrijke les, ontdekt tijdens het bouwen (2026-08-16) — kies het
+stopsignaal zorgvuldig.** Het eerste ontwerp van `fetch_batches()` gebruikte
+"0 events op de pagina" als signaal om te stoppen met verder ophalen. Voor
+drenthe.nl bleek dit **onbetrouwbaar**: de site geeft voorbij het echte einde
+gewoon een fallback-pagina terug (bevestigd: pagina 42/50/60 gaven allemaal 8
+events, nooit 0) — dus "0 events" kwam letterlijk nooit voor, en het ophalen
+liep door tot de veiligheidsgrens (105 pagina's i.p.v. de echte ~41), wat de
+hele snelheidswinst tenietdeed (3m34s, nauwelijks sneller dan de oude
+sequentiële versie). Het WEL betrouwbare signaal was het al langer bestaande
+`f'page={page+1}' not in html`-check (ontbrekende "volgende pagina"-link) —
+`fetch_batches()`'s callback is daarom `should_stop_fn(page, resultaat)`
+(met het paginanummer erbij, nodig voor zo'n check) i.p.v. simpelweg
+"is dit resultaat leeg". Na de fix: 13.1s voor drenthe.nl, identiek
+eventaantal (1221) — de bug kostte alleen tijd, geen foute data.
+`scrape_visitgroningen.py` bleek een vergelijkbare, wél-vertrouwde
+"0 events + geen next-link"-combinatie te hebben (geen fallback-content-kwirk
+zoals drenthe.nl) — maar had een te lage voorlopige veiligheidsgrens (60,
+terwijl het echte einde pas rond pagina 70-80 ligt), waardoor een eerste test
+er stil maar 489 van de uiteindelijke 1030 events uithaalde. Beide lessen:
+**meet het echte eindpunt van een bron voor je een aanname over paginacount
+of stopsignaal in code vastlegt.**
 
 ## Playwright-scrapers
 

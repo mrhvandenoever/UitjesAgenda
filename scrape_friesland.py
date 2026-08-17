@@ -16,12 +16,12 @@ Event-links: /nl/plannen/evenementen/agenda/ID/slug
 import urllib.request
 import ssl
 import re
-import time
 import argparse
 from datetime import datetime, date
 from events_db import insert_event, log_scrape, init_db
 from page_cache import unchanged
 from ssl_fix import create_context
+from parallel_fetch import fetch_many
 
 SSL_CTX = create_context()
 
@@ -179,15 +179,16 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
 
     all_raw = parse_page(html1)
 
-    for p in range(2, n_pages + 1):
-        try:
-            html = fetch(f"{BASE_URL}?page={p}")
-            all_raw.extend(parse_page(html))
-            if p % 10 == 0:
-                print(f"    pagina {p}/{n_pages} ({len(all_raw)} verzameld)")
-            time.sleep(0.25)
-        except Exception as e:
-            print(f"  Pagina {p} fout: {e}")
+    # Pagina's 2..n_pages gelijktijdig ophalen (Niveau B, overleg.md punt 2 /
+    # decisions.md 2026-08-16) i.p.v. één voor één met een sleep ertussen —
+    # de concurrency-limiet in parallel_fetch.py (default 5) is zelf al de
+    # snelheidsrem, dus geen aparte sleep meer nodig.
+    pages = list(range(2, n_pages + 1))
+    for p, (html, exc) in zip(pages, fetch_many(pages, lambda pg: fetch(f"{BASE_URL}?page={pg}"))):
+        if exc is not None:
+            print(f"  Pagina {p} fout: {exc}")
+            continue
+        all_raw.extend(parse_page(html))
 
     print(f"  Totaal opgehaald: {len(all_raw)} kandidaten")
 

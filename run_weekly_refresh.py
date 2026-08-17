@@ -31,6 +31,21 @@ Zelf-herstellend gedrag:
 
 Uitzonderen van de wekelijkse run: geef een script geen scrape_-prefix (of
 zet het in een subfolder) — dan matcht de glob het niet.
+
+Parallel draaien (Niveau A, overleg.md punt 2 / decisions.md 2026-08-16):
+  - Scrapers draaien niet meer één voor één, maar in twee pools met een
+    eigen concurrency-limiet: "plain"-scrapers (gewone HTTP-requests, licht)
+    en "playwright"-scrapers (eigen Chromium-proces per run, geheugen-zwaar)
+    — zie is_playwright_scraper(). Beide pools draaien tegelijk met elkaar.
+  - Concurrency instelbaar via --max-plain/--max-playwright (default 8/3).
+    Op 1 zetten geeft het oude sequentiële gedrag terug zonder code-wijziging
+    — handige noodrem als er in productie iets misgaat.
+  - Output per script wordt als één blok geprint zodra dat script klaar is
+    (niet regel-voor-regel interleaved) — de VOLGORDE waarin scripts
+    afgerond worden is nu voltooiingsvolgorde, niet meer bestandsvolgorde.
+  - SQLite-schrijven is veilig gemaakt voor gelijktijdige processen via
+    WAL-mode + busy_timeout in events_db.py's get_conn() — zonder die fix
+    zou dit "database is locked"-fouten kunnen geven.
 """
 
 import argparse
@@ -39,15 +54,30 @@ import os
 import re
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PYTHON = sys.executable
 SUCCESS_MARKERS = ('✓ Klaar:', 'Dry-run:')
+DEFAULT_MAX_PLAIN = 8
+DEFAULT_MAX_PLAYWRIGHT = 3
 
 
 def find_scrapers() -> list[str]:
     files = sorted(glob.glob(os.path.join(SCRIPT_DIR, 'scrape_*.py')))
     return [os.path.basename(f) for f in files]
+
+
+def is_playwright_scraper(script: str) -> bool:
+    """Geen aparte config per script nodig: gewoon checken of het bestand
+    zelf 'playwright' importeert. Eén losse Chromium-run per script, dus
+    deze pool moet een lagere concurrency-limiet krijgen dan de lichte
+    plain-HTTP-scrapers."""
+    try:
+        with open(os.path.join(SCRIPT_DIR, script), encoding='utf-8') as f:
+            return 'playwright' in f.read()
+    except OSError:
+        return False
 
 
 def run_one(script: str, dry_run: bool) -> tuple[bool, str]:
@@ -75,6 +105,10 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--dry-run', action='store_true', help='toon alleen welke scripts zouden draaien')
     parser.add_argument('--no-generate', action='store_true', help='sla events_db.py export + gen_uitjes.py over')
+    parser.add_argument('--max-plain', type=int, default=DEFAULT_MAX_PLAIN, metavar='N',
+                        help=f'max. gelijktijdige plain-HTTP-scrapers (default {DEFAULT_MAX_PLAIN}, 1 = sequentieel)')
+    parser.add_argument('--max-playwright', type=int, default=DEFAULT_MAX_PLAYWRIGHT, metavar='N',
+                        help=f'max. gelijktijdige Playwright-scrapers (default {DEFAULT_MAX_PLAYWRIGHT}, 1 = sequentieel)')
     args = parser.parse_args()
 
     scrapers = find_scrapers()
@@ -85,25 +119,39 @@ def main():
             print(f"  zou draaien: {s}")
         return
 
+    plain_scripts = [s for s in scrapers if not is_playwright_scraper(s)]
+    playwright_scripts = [s for s in scrapers if is_playwright_scraper(s)]
+    print(f"  {len(plain_scripts)} plain-HTTP (max {args.max_plain} tegelijk), "
+          f"{len(playwright_scripts)} Playwright (max {args.max_playwright} tegelijk)\n")
+
     ok_count = 0
     renamed = []
     zero_results = []
 
-    for script in scrapers:
-        print(f"=== {script} ===")
-        ok, output = run_one(script, dry_run=False)
-        print(output.rstrip())
+    with ThreadPoolExecutor(max_workers=max(1, args.max_plain)) as plain_pool, \
+         ThreadPoolExecutor(max_workers=max(1, args.max_playwright)) as pw_pool:
+        future_to_script = {}
+        for s in plain_scripts:
+            future_to_script[plain_pool.submit(run_one, s, False)] = s
+        for s in playwright_scripts:
+            future_to_script[pw_pool.submit(run_one, s, False)] = s
 
-        if not ok:
-            new_name = 'fix_' + script[len('scrape_'):]
-            os.rename(os.path.join(SCRIPT_DIR, script), os.path.join(SCRIPT_DIR, new_name))
-            renamed.append((script, new_name))
-            print(f"  >> HARDE FOUT — hernoemd naar {new_name} (wordt overgeslagen tot reparatie)")
-        else:
-            ok_count += 1
-            n = found_count(output)
-            if n == 0:
-                zero_results.append(script)
+        for fut in as_completed(future_to_script):
+            script = future_to_script[fut]
+            ok, output = fut.result()
+            print(f"=== {script} ===")
+            print(output.rstrip())
+
+            if not ok:
+                new_name = 'fix_' + script[len('scrape_'):]
+                os.rename(os.path.join(SCRIPT_DIR, script), os.path.join(SCRIPT_DIR, new_name))
+                renamed.append((script, new_name))
+                print(f"  >> HARDE FOUT — hernoemd naar {new_name} (wordt overgeslagen tot reparatie)")
+            else:
+                ok_count += 1
+                n = found_count(output)
+                if n == 0:
+                    zero_results.append(script)
 
     print(f"\n{'=' * 60}")
     print(f"Klaar: {ok_count}/{len(scrapers)} scrapers OK")

@@ -246,3 +246,84 @@ WAL-mode, geen busy-timeout op de connectie. Bij echt gelijktijdige processen
 tegelijk proberen te schrijven. Moet vóór of gelijk met Niveau A gebouwd
 worden: `PRAGMA journal_mode=WAL` + een `busy_timeout` bij het openen van de
 connectie — klein, bekend/standaard SQLite-patroon voor dit scenario.
+
+## 2026-08-16 — Parallelle requests gebouwd (Niveau A+B), inclusief een echte bug gevonden en gefixt
+Michiel: "nee, dit gaan we bouwen nu" — meteen na het vastleggen van de aanpak
+(zie vorige sectie) alsnog gebouwd in dezelfde sessie.
+
+**Gebouwd, in volgorde:**
+1. `events_db.py`'s `get_conn()`: `PRAGMA journal_mode=WAL` + `busy_timeout=30000`
+   toegevoegd (randvoorwaarde voor Niveau A). Geverifieerd: `PRAGMA journal_mode`
+   geeft `wal` terug, `PRAGMA busy_timeout` geeft `30000`.
+2. `run_weekly_refresh.py`: hoofdlus van sequentieel naar twee `ThreadPoolExecutor`-
+   pools (plain-HTTP + Playwright, apart aangestuurd, tegelijk draaiend) rond de
+   bestaande `run_one()`-subprocess-call. `--max-plain`/`--max-playwright` CLI-
+   flags toegevoegd (default 8/3, op 1 = oude sequentiële gedrag). Scraper-type
+   herkend via `is_playwright_scraper()` (grep op `"playwright"` in het bestand
+   zelf, geen aparte config). Geverifieerd met 11 Playwright-scrapers correct
+   herkend, 45 plain-HTTP.
+3. `parallel_fetch.py` (nieuw): `fetch_many(items, fetch_fn, max_workers=5)` voor
+   bronnen met een bekend aantal pagina's vooraf, `fetch_batches(start, fetch_fn,
+   should_stop_fn, batch_size=5, max_batches, stop_after_consecutive=1)` voor
+   bronnen die het aantal pagina's pas ontdekken terwijl ze gaan. Beide op
+   `concurrent.futures.ThreadPoolExecutor` + de bestaande `urllib`-fetch-functies
+   van elke scraper (geen nieuwe dependency). Zelf-test met fake fetch-functies
+   gedraaid vóór toepassing op echte scrapers (orde-behoud, foutisolatie, stop-
+   logica) — allemaal geslaagd.
+4. Toegepast op de 7 kandidaten: `scrape_friesland.py`/`scrape_kielzog.py`
+   (bekend-aantal-vooraf, simpele `fetch_many()`-vervanging van de for-loop),
+   `scrape_forum.py`/`scrape_posthuistheater.py` (vast klein maximum, hele
+   lijst in één keer `fetch_many()`, verwerking blijft sequentieel om exact
+   dezelfde stop-bij-eerste-fout/lege-pagina-semantiek te behouden),
+   `scrape_paard.py`/`scrape_drenthe.py`/`scrape_visitgroningen.py`
+   (`fetch_batches()`, aantal pagina's onbekend vooraf).
+
+**Bug gevonden tijdens het bouwen — belangrijke les**: het eerste ontwerp van
+`fetch_batches()` had een `is_empty_fn(resultaat)`-parameter ("stop als N
+pagina's op rij 0 events opleveren"). Bij een eerste live test met
+`scrape_drenthe.py --dry-run` duurde het genereren 3m34s — nauwelijks sneller
+dan de oude sequentiële ~3+ min, terwijl geïsoleerde tests (5 pagina's
+gelijktijdig) een duidelijke speedup lieten zien (0.32s wall-time voor 5
+pagina's die apart ~0.25s elk kostten). Diagnose: `fetch_batches()` had 105
+pagina's opgehaald (tot de veiligheidsgrens) i.p.v. de echte ~41 — drenthe.nl
+blijkt voorbij het echte einde gewoon een fallback-pagina terug te geven
+(bevestigd: pagina 42/50/60 gaven allemaal 8 events terug, nooit 0), dus het
+"0 events"-stopsignaal kwam letterlijk nooit voor. Het WEL betrouwbare signaal
+bleek het al langer in de sequentiële code aanwezige `f'page={page+1}' not in
+html`-check (ontbrekende "volgende pagina"-link) — die ging bij pagina 41 wél
+meteen op `False`. Fix: `fetch_batches()`'s callback hernoemd/herontworpen naar
+`should_stop_fn(page, resultaat)` (kreeg zo ook het paginanummer, nodig voor de
+next-link-check) met `stop_after_consecutive=1` als default (meteen stoppen,
+i.p.v. moeten wachten op 2x op rij). `scrape_drenthe.py` en
+`scrape_visitgroningen.py` aangepast om deze functie te gebruiken i.p.v. de
+"0 events"-check. Resultaat: drenthe.nl 3m34s → 13.1s (16x), identiek
+eventaantal (1221) — de bug kostte alleen tijd, geen foute data.
+
+**Tweede vondst bij dezelfde fix**: `scrape_visitgroningen.py` had een
+voorlopige veiligheidsgrens van 60 pagina's (gebaseerd op de aanname "zelfde
+soort omvang als drenthe.nl") — bleek te laag: een losse check vond nog
+groeiende, echte data tot pagina 70, met het echte einde ergens tussen 70 en
+80 (pagina 80 gaf zowel 0 events als geen next-link, een normaal/betrouwbaar
+eindsignaal — visitgroningen.nl heeft dus, anders dan drenthe.nl, geen
+fallback-content-kwirk). Grens opgehoogd naar 120 met ruime marge. Bij de
+eerste live-test met de te-lage grens werden hierdoor maar 489 van de
+uiteindelijke 1030 events gevonden — geen crash, gewoon stil te weinig data,
+dus dit had onopgemerkt kunnen blijven zonder de vergelijking met de
+"pagina 70 had nog has_next_link=True"-probe.
+
+**Eindverificatie — een echte volle `run_weekly_refresh.py`-run** (niet
+`--dry-run`, dus met echte gelijktijdige schrijfacties naar `events.db`):
+56/56 scrapers OK, 0 self-healing-hernoemingen, 0 "database is locked"-
+fouten, 0 "0 resultaten"-waarschuwingen. events_db.py export: 7775 rijen
+(was rond de 6669 vóór deze sessie) → `gen_uitjes.py`: 7734 events na
+filtering. Toename komt vooral van visitgroningen.nl (+416) en friesland.nl
+(+346) die door de Niveau-B-fixes nu voor het eerst hun volledige dataset
+betrouwbaar ophalen.
+
+**Bijvangst, niet opgelost deze sessie**: door de volledigere visitgroningen/
+friesland-data sprong het aantal Exposities van 4 naar 41 — bleek forum.nl's
+"Marilyn Expositie"/"Storyworld" te zijn, die als losse rij per dag i.p.v.
+één rij met datumbereik in de data staan. Bestond al sinds forum.nl gescraped
+wordt (sessie 2026-08-13), was alleen onzichtbaar tussen de vele Uitjes-
+events. Zie overleg.md punt 12 — bewust niet gefixt in deze sessie (ander
+onderwerp), drie oplossingsrichtingen genoteerd voor een volgende keer.

@@ -80,8 +80,15 @@ def normalize_title(title: str) -> str:
 
 
 def get_conn() -> sqlite3.Connection:
-    conn = sqlite3.connect(DB_PATH)
+    # timeout=30 + PRAGMA busy_timeout: bij gelijktijdige scrapers (Niveau A,
+    # zie overleg.md punt 2 / decisions.md 2026-08-16) kunnen meerdere
+    # processen tegelijk willen schrijven. WAL-mode laat lezers en één
+    # schrijver gelijktijdig toe; busy_timeout laat SQLite tot 30s wachten
+    # op een korte schrijf-lock i.p.v. meteen "database is locked" te geven.
+    conn = sqlite3.connect(DB_PATH, timeout=30)
     conn.row_factory = sqlite3.Row
+    conn.execute('PRAGMA journal_mode=WAL')
+    conn.execute('PRAGMA busy_timeout=30000')
     return conn
 
 

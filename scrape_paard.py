@@ -27,6 +27,7 @@ import argparse
 from datetime import date
 from events_db import insert_event, log_scrape, init_db
 from page_cache import unchanged
+from parallel_fetch import fetch_batches
 
 SOURCE   = 'paard'
 BASE_URL = 'https://denhaag.com'
@@ -94,28 +95,38 @@ def parse_date(date_text: str) -> str | None:
     return None
 
 
+def extract_matches(html_text: str) -> list[tuple]:
+    blocks = html_text.split('paragraph--type--playlist-item')[1:]
+    matches = [CARD_PATTERN.search(b) for b in blocks]
+    return [m.groups() for m in matches if m]
+
+
 def scrape(dry_run: bool = False) -> tuple[int, int]:
     init_db()
 
+    # Pagina's in batches van 5 gelijktijdig ophalen i.p.v. één voor één
+    # (Niveau B, overleg.md punt 2 / decisions.md 2026-08-16). Geverifieerd
+    # (2026-08-16): denhaag.com geeft voorbij het echte einde gewoon 0
+    # matches terug (geen fallback-content-quirk zoals bij drenthe.nl), dus
+    # "0 matches" is hier een betrouwbaar, direct eind-signaal.
+    def should_stop(page: int, html_text: str) -> bool:
+        return not extract_matches(html_text)
+
+    fetched = fetch_batches(0, fetch, should_stop, max_batches=7, stop_after_consecutive=1)
+
     all_matches = []
-    page = 0
-    while True:
-        try:
-            html_text = fetch(page)
-        except Exception as e:
-            print(f"  FOUT op pagina {page}: {e}")
-            break
-        blocks = html_text.split('paragraph--type--playlist-item')[1:]
-        matches = [CARD_PATTERN.search(b) for b in blocks]
-        matches = [m.groups() for m in matches if m]
+    last_page = 0
+    for page, html_text, exc in fetched:
+        if exc is not None:
+            print(f"  FOUT op pagina {page}: {exc}")
+            continue
+        matches = extract_matches(html_text)
         if not matches:
             break
         all_matches.extend(matches)
-        page += 1
-        if page > 30:  # veiligheidslimiet
-            break
+        last_page = page
 
-    print(f"  {len(all_matches)} events over {page} pagina's")
+    print(f"  {len(all_matches)} events over {last_page + 1} pagina's")
 
     found = added = 0
     all_events = []
