@@ -430,3 +430,79 @@ zichtbaar in Exposities (was 1, met foutieve datum). Exposities-totaal 9 →
 defensieve fallback (momenteel niet strikt nodig — alle 3 titels bevatten
 toevallig al "expositie" als keyword — maar logisch voor een bron die
 uitsluitend exposities toont).
+
+## 2026-08-17 — Kunstpunt Groningen gebouwd (nieuwe aggregator voor Exposities), 2 bugs gevonden en gefixt
+Vervolg op punt 13 (overleg.md): Michiel vroeg Kunstpunt Groningen te
+verkennen en daarna te bouwen, met 2 expliciete eisen: "venue gaat boven de
+aggregator, zoals bij de uitjes" en "check of de link ook naar de goede
+site gaat (dus de specifieke van die expositie)".
+
+**Technische verkenning**: server-rendered WordPress (geen Playwright
+nodig), consistente HTML per expositie (`<article class="m-post...">` met
+categorie/titel/venue/datumbereik). Slechts 2 pagina's, 26-38 items
+(schommelt). Categorie-filter nodig: de kalender bevat ook workshops/
+lezingen/concerten/wandelroutes (40+ categorieën) — alleen "Exhibition"
+meegenomen.
+
+**Link-check (2e eis)**: gecontroleerd op de detailpagina van een
+voorbeeld-expositie (K38) of er een link naar de venue's EIGEN site stond
+naast Kunstpunt's eigen artikel — die bleek er te zijn maar wees alleen
+naar de algemene homepage van de galerie (`kunstencentrumk38.nl`), niet
+naar een expositie-specifieke pagina. De meeste kleine galerieën hebben
+kennelijk geen eigen per-expositie-pagina's. Conclusie: Kunstpunt's eigen
+`/en/agenda/<slug>/`-URL (die de listing-pagina al aanlevert) is de
+specifiekste beschikbare link, en is wat de scraper gebruikt.
+
+**Bonusvondst tijdens de verkenning**: elke detailpagina bevat ook de
+exacte lat/lon van de venue, ingebed als kaart-marker-data
+(`&quot;lat&quot;:53.14,&quot;lng&quot;:6.43` — let op de HTML-entity-
+encoded quotes, een eerste regex-poging met literale `"` miste dit
+volledig). Preciezer dan de bestaande `city_coords.json`-lookup (die 3 van
+de 26 voorkomende plaatsen sowieso niet kent: Zuidhorn, Sappemeer,
+Slochteren). **Bleek dat `gen_uitjes.py` per-event `lat`/`lon` nooit las** —
+`events_db.py` sloeg het al op en exporteerde het, maar `event_html()`/
+`expo_card_html()` keken alleen naar `CITY_COORDS`/`VENUE_LOC`, nooit naar
+het event zelf. Beide functies uitgebreid met een nieuwe hoogste-prioriteit-
+tier: event-eigen `lat`/`lon` > `CITY_COORDS` (plaatsnaam) > `VENUE_LOC`
+(bron-niveau fallback). Bewust GEEN entry voor `kunstpuntgroningen` in
+`VENUE_LOC` toegevoegd — dat zou de per-event `province`-override
+(`prov = loc[2] if loc else e.get('province', 'Onbekend')`) juist
+onbruikbaar maken voor een aggregator die over meerdere provincies gaat.
+
+**Bug 1, gevonden bij het testen**: van de 26 gescrapete exposities kregen
+er maar 2 `genre='expo'` — de rest (Engelse titels als "Coach house",
+"SACRED EARTH", "Bakstain") viel terug op `overig`. Oorzaak:
+`classify()`'s `cats=='expositie'`-tak vereiste ALTIJD ook nog een
+Nederlandse titel-keyword-match (`'expositie','tentoonstelling','galerie',
+'expo','schilderij','architect','design','kunst',...`) — het `cats`-signaal
+was dus nooit werkelijk gezaghebbend, in tegenspraak met het expliciete
+ontwerpprincipe in ARCHITECTURE.md ("bronnen die zelf een genre-signaal
+geven zijn betrouwbaarder dan titel-keywords"). Gecheckt: vóór
+`scrape_kunstpuntgroningen.py` zette GEEN ENKELE scraper `cats=['expositie']`
+— dit pad was dus dood/ongetest sinds het bestond. Gefixt: `c == 'expositie'`
+retourneert nu direct `'expo'`, geen extra keyword-eis meer. Zonder
+bestaande-bron-risico (niemand gebruikte het pad eerder).
+
+**Bug 2, gevonden bij het handmatig doorlopen van de resultaten**: Kunstpunt's
+"The experience of Drenthe" (Galerie DSG, 3 juli–5 sep 2026) bleek exact
+dezelfde expositie als `scrape_gekehoogstins.py`'s "groepsexpositie DSG 'De
+beleving van Drenthe'" (zelfde datums) — Geke Hoogstins is DSG-lid, haar
+site volgt DSG's groepstentoonstellingen al. De bestaande cross-source-dedup
+(`AGGREGATOR_SOURCES` + fuzzy titel-matching in `events_db.py`) miste dit
+volledig omdat de titels in verschillende talen staan (Engels vs
+Nederlands) — geen woord gemeenschappelijk. Michiels expliciete eis "venue
+gaat boven de aggregator" werkte dus in de PRAKTIJK niet voor dit geval,
+ondanks dat het mechanisme correct was ingesteld. Geen generieke cross-taal-
+matcher gebouwd (te veel voor dit ene geval) — pragmatische fix: Kunstpunt's
+"Galerie DSG"-venue expliciet overgeslagen in `scrape_kunstpuntgroningen.py`
+(`SKIP_VENUES`), met de aanname dat Geke Hoogstins' site DSG-groepsshows al
+dekt. Stale rij (de eerste, nog-gedupliceerde live-run) opgeruimd vóór de
+herscrape, zelfde patroon als bij forum.nl/Geke Hoogstins eerder vandaag.
+
+**Resultaat, geverifieerd lokaal vóór commit**: 22 kunstpuntgroningen-events
+in de export (25 gescraped, 3 al verstreken per vandaag — `date_end`
+2026-08-16 < TODAY 2026-08-17, correct gefilterd door de `export_json()`-fix
+van eerder vandaag). Exposities-totaal 11 → 34. Elk Kunstpunt-event heeft nu
+een precieze, per-venue `data-latlon` (geverifieerd: K38 en Kunstpunt zelf
+tonen verschillende coördinaten) en correcte provincie (Roden→Drenthe,
+de rest→Groningen).

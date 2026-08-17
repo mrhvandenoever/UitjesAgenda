@@ -170,8 +170,46 @@ ze bij sorteren-op-einddatum altijd onderaan komen i.p.v. bovenaan.
 
 **Filters**: Provincie + afstand werken automatisch mee (zelfde gedeelde
 `.filters`-blok en `apply()`-logica als Uitjes/Sport, geen aparte code nodig).
-Bewust **geen** eigen Bron-filter gebouwd — bij de huidige kleine omvang (4
-events, 3 bronnen) niet nodig, kan later alsnog als het aantal groeit.
+Bewust **geen** eigen Bron-filter gebouwd — bij de kleine omvang niet nodig,
+kan later alsnog als het aantal groeit.
+
+**Genre-signaal via `cats`, bug gevonden 2026-08-17**: `classify()`'s
+`cats=='expositie'`-tak vereiste tot dan toe ALTIJD ook nog een Nederlandse
+titel-keyword-match — het `cats`-signaal was dus nooit werkelijk gezaghebbend,
+in tegenspraak met het eigen ontwerpprincipe hierboven bij §classify()
+("bronnen die zelf een genre-signaal geven zijn betrouwbaarder dan titel-
+keywords"). Kwam pas aan het licht bij `scrape_kunstpuntgroningen.py` (eerste
+bron die `cats=['expositie']` echt zet) — Engelse titels als "Coach house"
+matchten geen enkel Nederlands keyword en vielen alsnog terug op `overig`.
+Gefixt: `c == 'expositie'` retourneert nu direct `'expo'`. Zonder risico voor
+bestaande bronnen, want niemand gebruikte dit pad eerder.
+
+**Aggregator-bron voor Exposities**: `scrape_kunstpuntgroningen.py`
+(2026-08-17, overleg.md punt 13) is de eerste EXPO-aggregator — zelfde
+principe als drenthe.nl/friesland.nl/visitgroningen voor Uitjes, en dus ook
+toegevoegd aan `AGGREGATOR_SOURCES` in `events_db.py` (venue wint bij een
+botsing). **Cross-taal-dedup-gat ontdekt**: de bestaande fuzzy-titel-dedup
+mist een duplicaat als de aggregator- en de directe-bron-titel in
+verschillende talen staan (Kunstpunt's Engelse "The experience of Drenthe"
+vs Geke Hoogstins' Nederlandse "groepsexpositie DSG 'De beleving van
+Drenthe'", zelfde expositie) — geen woord gemeenschappelijk, dus de
+substring-matching in `find_cross_source_duplicates()` matcht niets. Geen
+generieke cross-taal-matcher gebouwd voor dit ene geval; opgelost met een
+gerichte `SKIP_VENUES`-uitzondering in de scraper zelf. Zie decisions.md
+2026-08-17 voor de volledige analyse — dit is een reëel restrisico bij
+toekomstige aggregatoren die (deels) vertaalde titels tonen.
+
+**Event-eigen `lat`/`lon`, was ongebruikte infrastructuur**: `events_db.py`
+sloeg `lat`/`lon` altijd al op en exporteerde ze, maar `event_html()`/
+`expo_card_html()` lazen ze nooit — alleen `CITY_COORDS` (plaatsnaam-lookup)
+en `VENUE_LOC` (bron-niveau fallback) werden gebruikt. Kunstpunt levert per
+expositie een precieze venue-coördinaat (ingebed als kaart-marker-data op de
+detailpagina), dus beide functies zijn uitgebreid met een nieuwe hoogste-
+prioriteit-tier: event-eigen `lat`/`lon` > `CITY_COORDS` > `VENUE_LOC`.
+Bewust **geen** `VENUE_LOC`-entry voor `kunstpuntgroningen` — die zou de
+per-event `province`-override (`prov = loc[2] if loc else e.get('province',
+'Onbekend')`) onbruikbaar maken voor een aggregator die over meerdere
+provincies gaat.
 
 **Mode-toggle**: derde knop "🖼️ Exposities" naast Uitjes/Sport. `setMode()`
 verbergt/toont `<main>` (maand-secties) vs `#expo-wrap` (platte lijst) en de

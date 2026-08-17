@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (57 bronnen, 57 scripts)
+## ✅ Geautomatiseerd (58 bronnen, 58 scripts)
 
 | Bron | Script |
 |---|---|
@@ -80,6 +80,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Rotown (Rotterdam) | `scrape_rotown.py` (geen Playwright nodig — de HOMEPAGE zelf bevat 139 losse JSON-LD Event-blokken, `/agenda/` als listing-URL bestond gewoon niet; gefilterd op `location.name=='Rotown'`, 97 events) |
 | Vera (Groningen) | `scrape_vera.py` (Playwright, elfde scraper — bleek géén Cloudflare-blokkade maar gewoon een infinite-scroll die curl niet kon triggeren; een echte browser-scroll laadt gewoon alles, 69 events) |
 | Geke Hoogstins (Eext) | `scrape_gekehoogstins.py` (2026-08-17 — was bewust niet gebouwd zolang doorlopende exposities niet in het datamodel pasten; sinds de Exposities-modus (`date_end`) wél mogelijk. Site is vrije tekst, maar de "EXPOSITIES `<jaar>`"-sectie is gestructureerde HTML (`<p><strong>datumbereik</strong> titel</p>`) — regex-baar zonder AI. 3 events/jaar) |
+| Kunstpunt Groningen (aggregator) | `scrape_kunstpuntgroningen.py` (2026-08-17, overleg.md punt 13 — dekt in één keer tientallen Groningse musea/galerieën, o.a. Groninger Museum, Museum Nienoord, Synagoge Groningen, K38, De Stadsgalerie. Server-rendered WordPress, alleen categorie "Exhibition" meegenomen, 2 pagina's. Detailpagina per expositie geeft ook precieze lat/lon + de specifiekste beschikbare link. In `AGGREGATOR_SOURCES` — venue wint bij een botsing, zelfde regel als Uitjes. 22-25 events/run) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).

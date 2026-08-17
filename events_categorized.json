@@ -1,5 +1,165 @@
 [
   {
+    "title": "Carriages & Castles",
+    "date": "2025-06-01",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2028-12-31",
+    "venue": "Museum Nienoord",
+    "city": "Leek",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/koetsen-kastelen/",
+    "lat": 53.1679692,
+    "lon": 6.3950612,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "Coach house",
+    "date": "2025-06-01",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2030-12-31",
+    "venue": "Museum Nienoord",
+    "city": "Leek",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/koetshuis/",
+    "lat": 53.1679692,
+    "lon": 6.3950612,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "Nienoord Manor",
+    "date": "2025-06-01",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2029-12-31",
+    "venue": "Museum Nienoord",
+    "city": "Leek",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/borg-nienoord/",
+    "lat": 53.1679692,
+    "lon": 6.3950612,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "Shell Grotto",
+    "date": "2025-06-01",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2030-12-31",
+    "venue": "Museum Nienoord",
+    "city": "Leek",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/schelpengrot/",
+    "lat": 53.1679692,
+    "lon": 6.3950612,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "The Depot - Travel, Craft & Ambition",
+    "date": "2025-06-01",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2030-12-31",
+    "venue": "Museum Nienoord",
+    "city": "Leek",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/het-depot-reizen-ambacht-ambitie/",
+    "lat": 53.1679692,
+    "lon": 6.3950612,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "Ode to Stadspark",
+    "date": "2026-02-15",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-10-25",
+    "venue": "Theaterlounge Martiniplaza",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/ode-aan-het-stadspark/",
+    "lat": 53.204068,
+    "lon": 6.5580993,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "I am I - fashion transformed",
+    "date": "2026-03-28",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-08-30",
+    "venue": "Museum Landgoed Fraeylemaborg",
+    "city": "Slochteren",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/i-am-i-fashion-transformed/",
+    "lat": 53.21546,
+    "lon": 6.80957,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "contains",
+    "date": "2026-04-17",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-08-28",
+    "venue": "KEIK",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/contains-2/",
+    "lat": 53.2243714,
+    "lon": 6.5643948,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "PaperPaper",
+    "date": "2026-04-18",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-09-27",
+    "venue": "Museum Nienoord",
+    "city": "Leek",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/papierpapier/",
+    "lat": 53.1679692,
+    "lon": 6.3950612,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "Bakstain",
+    "date": "2026-05-08",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-08-23",
+    "venue": "Groninger Museum",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/bakstain/",
+    "lat": 53.2124091,
+    "lon": 6.5660593,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
     "title": "solo-expositie te Groningen in het prachtige pand van BOUT advocaten.",
     "date": "2026-05-22",
     "source": "gekehoogstins.nl",
@@ -9,6 +169,38 @@
     "url": "https://gekehoogstins.nl/exposities-evenementen/exposities/"
   },
   {
+    "title": "Exhibition 'Small but sweet'",
+    "date": "2026-06-07",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-08-30",
+    "venue": "De Stadsgalerie",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/exhibition-small-but-sweet/",
+    "lat": 53.2188,
+    "lon": 6.5649,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "SACRED EARTH",
+    "date": "2026-06-14",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-10-11",
+    "venue": "Synagoge Groningen",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/sacred-earth/",
+    "lat": 53.2147952,
+    "lon": 6.5654737,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
     "title": "groepsexpositie DSG ‘De beleving van Drenthe’",
     "date": "2026-07-03",
     "source": "gekehoogstins.nl",
@@ -16,6 +208,118 @@
     "date_end": "2026-09-05",
     "venue": "Geke Hoogstins (Eext)",
     "url": "https://gekehoogstins.nl/exposities-evenementen/exposities/"
+  },
+  {
+    "title": "WINDOW EXHIBITION: ' I am grateful (?!) by Nasma Al Shutfa",
+    "date": "2026-07-11",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-08-23",
+    "venue": "SIGN",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/window-exhibition-i-am-grateful-by-nasma-al-shutfa/",
+    "lat": 53.2162164,
+    "lon": 6.5746164,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "Surprising exhibition by Marrit Westerhuis with stills and storyboards",
+    "date": "2026-07-13",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-09-12",
+    "venue": "Cultureel Centrum Zuidhorn",
+    "city": "Zuidhorn",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/verrassende-expositie-van-marrit-westerhuis-met-stills-en-storyboards/",
+    "lat": 53.24458358,
+    "lon": 6.40338893,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "'The Yellow Tower' by Marjan Segbroek",
+    "date": "2026-08-01",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-08-31",
+    "venue": "Raamgalerie De Prachtvink",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/the-yellow-tower-by-marjan-segbroek/",
+    "lat": 53.2246,
+    "lon": 6.52832,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "Dag Harm – Work That Lives On",
+    "date": "2026-08-01",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-08-27",
+    "venue": "Galerie Noord",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/dag-harm-work-that-lives-on/",
+    "lat": 53.2153017,
+    "lon": 6.5670813,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "De Duif ('The Pigeon')",
+    "date": "2026-08-01",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-08-29",
+    "venue": "De Duif",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/de-duif/",
+    "lat": 53.21218493,
+    "lon": 6.57606039,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "Expo 'MIMESIS' in Artcenter K38",
+    "date": "2026-08-01",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-08-23",
+    "venue": "Kunstencentrum K38",
+    "city": "Roden",
+    "province": "Drenthe",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/mimesis-in-k38/",
+    "lat": 53.14062,
+    "lon": 6.43208,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "Walter's Showcase: Reynaert Vosveld",
+    "date": "2026-08-04",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-09-04",
+    "venue": "Walter's Bookshop",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/walters-showcase-reynaert-vosveld/",
+    "lat": 53.21854,
+    "lon": 6.56233,
+    "cats": [
+      "expositie"
+    ]
   },
   {
     "title": "Cafe Paradiso",
@@ -520,6 +824,22 @@
     "url": "https://forum.nl/nl/agenda/rooftop-cinema?date=19-08-2026"
   },
   {
+    "title": "Soon in Tschumi: Tschumi Inside",
+    "date": "2026-08-19",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-09-26",
+    "venue": "Tschumipaviljoen",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/tschumi-inside/",
+    "lat": 53.2139096,
+    "lon": 6.5688248,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
     "title": "Spelletjesavond",
     "date": "2026-08-19",
     "source": "rotown",
@@ -639,6 +959,38 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/41486306-chopins-meeslepende-pianomuziek-door-prijswinnaar-eric-lu"
+  },
+  {
+    "title": "Colored In Love",
+    "date": "2026-08-20",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-08-30",
+    "venue": "Kunstruimte De Smederij",
+    "city": "Sappemeer",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/colored-in-love/",
+    "lat": 53.154594,
+    "lon": 6.796011,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "Coming soon to Kunstpunt: Purple Carrot Collective - Still & Printed",
+    "date": "2026-08-20",
+    "source": "kunstpuntgroningen",
+    "genre": "overig",
+    "date_end": "2026-09-26",
+    "venue": "Kunstpunt Groningen",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.kunstpuntgroningen.nl/en/agenda/binnenkort-in-de-kunstuitleen-collectief-purple-carrot-stil-en-druk/",
+    "lat": 53.21408261,
+    "lon": 6.57512886,
+    "cats": [
+      "expositie"
+    ]
   },
   {
     "title": "DIEP | LUX in de buurt",

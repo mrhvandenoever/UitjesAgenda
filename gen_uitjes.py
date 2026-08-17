@@ -58,6 +58,7 @@ SRC = {
     'podiumzuidhaege':     ('Zuidhaege Assen', '🎻', '#01579b'),
     'hunebedcentrum':      ('Hunebedcentrum',  '🪨', '#5d4037'),
     'koornbeurs':          ('Koornbeurs',      '🎪', '#880e4f'),
+    'kunstpuntgroningen':  ('Kunstpunt',       '🎨', '#6a1b9a'),
     # Landelijke podia
     'tivolivredenburg':    ('TivoliVredenburg','🎼', '#6a1b9a'),
     'melkweg':             ('Melkweg',         '🌌', '#283593'),
@@ -218,11 +219,17 @@ def classify(title, cats, source=''):
                'klassiek':'klassiek','opera':'klassiek','dans':'dans','ballet':'dans',
                'familie':'kinderen','kinderen':'kinderen','jazz':'jazz','pop':'pop'}
     for c in cats:
+        # cats=='expositie' is een genre-SIGNAAL van de bron zelf en dus
+        # betrouwbaarder dan titel-keywords (zie de les bij SPOT/data-subgenres
+        # hierboven) — vroeger stond hier ook nog een verplichte extra titel-
+        # keyword-check, maar die maakte het signaal juist onbetrouwbaar (bv.
+        # Engelse titels als "Coach house"/"SACRED EARTH" matchten geen enkel
+        # Nederlands keyword en vielen alsnog terug op 'overig'). Bleek dood
+        # spoor toch: vóór scrape_kunstpuntgroningen.py (2026-08-17) zette geen
+        # enkele scraper 'expositie' in cats, dus geen bestaande bron kon
+        # hierdoor geraakt worden. Zie decisions.md 2026-08-17.
         if c == 'expositie':
-            if any(w in t for w in ['expositie','tentoonstelling','galerie','expo','schilderij',
-                                     'architect','design','kunst','biennale','poppenhuis',
-                                     'marilyn','storyworld','strip','botanisch']):
-                return 'expo'
+            return 'expo'
         elif c in cat_map:
             return cat_map[c]
     if source in EXPO_VENUES: return 'expo'
@@ -334,13 +341,22 @@ def event_html(e):
                   if e.get('url') else esc(e.get('title','')))
     loc = VENUE_LOC.get(src)
     prov = loc[2] if loc else e.get('province', 'Onbekend')
-    city_loc = CITY_COORDS.get((e.get('city') or '').strip())
-    if city_loc:
-        lat_lon = f'{city_loc[0]},{city_loc[1]}'
-    elif loc:
-        lat_lon = f'{loc[0]},{loc[1]}'
+    # Prioriteit: exact event-eigen lat/lon (bv. van een aggregator die per
+    # venue een precieze kaart-marker aanlevert, zie scrape_kunstpuntgroningen.py
+    # / decisions.md 2026-08-17 — was tot dan toe ongebruikte infrastructuur:
+    # events_db.py sloeg lat/lon al op maar geen enkele scraper vulde het en
+    # deze functie las het nooit) > CITY_COORDS (plaatsnaam-lookup) > VENUE_LOC
+    # (bron-niveau fallback, alleen zinvol bij één vaste locatie per bron).
+    if e.get('lat') and e.get('lon'):
+        lat_lon = f"{e['lat']},{e['lon']}"
     else:
-        lat_lon = ''
+        city_loc = CITY_COORDS.get((e.get('city') or '').strip())
+        if city_loc:
+            lat_lon = f'{city_loc[0]},{city_loc[1]}'
+        elif loc:
+            lat_lon = f'{loc[0]},{loc[1]}'
+        else:
+            lat_lon = ''
     return (f'<div class="event {sk}" data-src="{src}" data-genre="{genre}" '
             f'data-prov="{prov}" data-latlon="{lat_lon}" data-gender="{gender}">'
             f'<div class="event-date">{fmt_date(e.get("date",""))}</div>'
@@ -369,13 +385,22 @@ def expo_card_html(e):
                   if e.get('url') else esc(e.get('title','')))
     loc = VENUE_LOC.get(src)
     prov = loc[2] if loc else e.get('province', 'Onbekend')
-    city_loc = CITY_COORDS.get((e.get('city') or '').strip())
-    if city_loc:
-        lat_lon = f'{city_loc[0]},{city_loc[1]}'
-    elif loc:
-        lat_lon = f'{loc[0]},{loc[1]}'
+    # Prioriteit: exact event-eigen lat/lon (bv. van een aggregator die per
+    # venue een precieze kaart-marker aanlevert, zie scrape_kunstpuntgroningen.py
+    # / decisions.md 2026-08-17 — was tot dan toe ongebruikte infrastructuur:
+    # events_db.py sloeg lat/lon al op maar geen enkele scraper vulde het en
+    # deze functie las het nooit) > CITY_COORDS (plaatsnaam-lookup) > VENUE_LOC
+    # (bron-niveau fallback, alleen zinvol bij één vaste locatie per bron).
+    if e.get('lat') and e.get('lon'):
+        lat_lon = f"{e['lat']},{e['lon']}"
     else:
-        lat_lon = ''
+        city_loc = CITY_COORDS.get((e.get('city') or '').strip())
+        if city_loc:
+            lat_lon = f'{city_loc[0]},{city_loc[1]}'
+        elif loc:
+            lat_lon = f'{loc[0]},{loc[1]}'
+        else:
+            lat_lon = ''
     d_start = e.get('date',''); d_end = e.get('date_end','')
     if d_end:
         date_txt = f"vanaf {fmt_date_long(d_start)} &middot; t/m {fmt_date_long(d_end)}"
