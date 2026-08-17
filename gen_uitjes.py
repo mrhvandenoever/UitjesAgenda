@@ -350,7 +350,7 @@ src_buttons += '  <button class="btn" data-src-group="landelijk" style="border-c
 for key in active_sources:
     if key in SPORT_SRCS: continue  # sport clubs apart
     label,emoji,_ = SRC.get(key,(key,'•','#999'))
-    src_buttons += f'  <button class="btn" data-src="{key}">{emoji} {esc(label)}</button>\n'
+    src_buttons += f'  <button class="btn" data-src="{key}">{esc(label)}</button>\n'
 
 month_nav = '\n'.join(
     f'<a href="#{month_id(m+"-01")}" class="month-link">{month_short(m+"-01")}</a>'
@@ -514,28 +514,56 @@ function actBtn(el,c){{el.style.background=c;el.style.color=(c==='#ffcc00'||c===
 function deactBtn(el){{el.style.background='';el.style.color='';el.style.borderColor='';}}
 let centerLat=53.034, centerLon=6.735;
 
+function initAriaPressed(){{
+  document.querySelectorAll('.mode-toggle,.filters').forEach(c=>{{
+    c.querySelectorAll('.btn,.mode-btn').forEach(b=>b.setAttribute('aria-pressed',b.classList.contains('active')?'true':'false'));
+    new MutationObserver(muts=>{{
+      muts.forEach(m=>{{
+        const el=m.target;
+        if(el.classList && (el.classList.contains('btn')||el.classList.contains('mode-btn'))){{
+          el.setAttribute('aria-pressed',el.classList.contains('active')?'true':'false');
+        }}
+      }});
+    }}).observe(c,{{attributes:true,attributeFilter:['class'],subtree:true}});
+  }});
+}}
+initAriaPressed();
+
+const backToTop=document.getElementById('back-to-top');
+window.addEventListener('scroll',()=>{{backToTop.classList.toggle('hidden',window.scrollY<400);}},{{passive:true}});
+
 function haversine(lat1,lon1,lat2,lon2){{
   const R=6371, dLat=(lat2-lat1)*Math.PI/180, dLon=(lon2-lon1)*Math.PI/180;
   const a=Math.sin(dLat/2)**2+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
   return Math.round(R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a)));
 }}
 
+// Afstanden staan in deze Map i.p.v. in dataset.dist -- een Map-lookup is
+// sneller dan telkens een DOM-attribuut lezen/schrijven bij 8202 events,
+// zie decisions.md 2026-08-17 (Claude Design-review).
+const eventDist=new Map();
 function updateDistances(){{
   document.querySelectorAll('.event[data-latlon]').forEach(ev=>{{
     const ll=ev.dataset.latlon;
     if(!ll)return;
     const [lat,lon]=ll.split(',').map(Number);
     const d=haversine(centerLat,centerLon,lat,lon);
-    ev.dataset.dist=d;
+    eventDist.set(ev,d);
     const b=ev.querySelector('.dist-badge');
     if(b)b.textContent='~'+d+'km';
   }});
 }}
 
+// Bewust GEEN requestAnimationFrame-batching (eerst geprobeerd, zie
+// decisions.md 2026-08-17): in een niet-zichtbaar/achtergrond-tabblad
+// (document.visibilityState=='hidden') stelt de browser rAF-callbacks uit
+// of pauzeert ze helemaal, waardoor een klik dan geen zichtbaar effect meer
+// had — bevestigd met een echte browsertest. Marginale winst (1 klik = 1
+// aanroep toch al) woog niet op tegen dat betrouwbaarheidsrisico.
 function apply(){{
   let v=0;
   document.querySelectorAll('.event').forEach(ev=>{{
-    const src=ev.dataset.src, dist=parseInt(ev.dataset.dist||9999);
+    const src=ev.dataset.src, dist=eventDist.get(ev)??9999;
     const isSport=SPORT_SRCS.has(src);
     const isExpo=ev.classList.contains('expo-item');
     let ok;
@@ -611,18 +639,19 @@ document.getElementById('loc-btn').addEventListener('click',()=>{{
   }},()=>{{ status.textContent='❌ Locatie geweigerd'; }});
 }});
 
-document.getElementById('dist-slider').addEventListener('input',function(){{
-  const steps=[25,50,75,100,9999];
-  maxDist=steps[parseInt(this.value)];
-  apply();
+const distCustomInput=document.getElementById('dist-custom-input');
+document.querySelectorAll('.dist-btn').forEach(b=>{{
+  b.addEventListener('click',function(){{
+    maxDist=parseInt(this.dataset.dist);
+    document.querySelectorAll('.dist-btn').forEach(x=>x.classList.toggle('active',x===this));
+    distCustomInput.value='';
+    apply();
+  }});
 }});
-
-document.getElementById('dist-label').addEventListener('click',function(){{
-  const cur=maxDist>=9999?'':String(maxDist);
-  const val=prompt('Afstand in km (leeg = alle afstanden):',cur);
-  if(val===null)return;
-  const n=parseInt(val,10);
-  maxDist=(val.trim()===''||isNaN(n)||n<=0)?9999:n;
+distCustomInput.addEventListener('change',function(){{
+  const n=parseInt(this.value,10);
+  maxDist=(this.value.trim()===''||isNaN(n)||n<=0)?9999:n;
+  document.querySelectorAll('.dist-btn').forEach(x=>x.classList.remove('active'));
   apply();
 }});
 
@@ -753,7 +782,7 @@ html = f'''<!DOCTYPE html>
 :root{{{css_vars}
   --bg:#f9f9f9;--card:#fff;--border:#e0e0e0;--text:#212121;--muted:#757575;}}
 *{{box-sizing:border-box;margin:0;padding:0;}}
-body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:14px;}}
+body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.45;}}
 header{{background:#fff;border-bottom:2px solid var(--border);padding:12px 16px;position:sticky;top:0;z-index:100;}}
 header h1{{font-size:1.2rem;font-weight:700;margin-bottom:2px;}}
 .meta{{font-size:0.8rem;color:var(--muted);}}
@@ -795,9 +824,11 @@ header h1{{font-size:1.2rem;font-weight:700;margin-bottom:2px;}}
 #addr-input:focus{{outline:none;border-color:#1565c0;}}
 .icon-btn{{padding:4px 8px;border-radius:20px;border:1.5px solid #ccc;background:#fff;cursor:pointer;font-size:0.82rem;}}
 .icon-btn:hover{{background:#f5f5f5;}}
-.dist-slider-wrap{{display:flex;align-items:center;gap:6px;}}
-#dist-slider{{width:100px;accent-color:#1565c0;cursor:pointer;}}
-#dist-label{{font-size:0.78rem;color:#1565c0;font-weight:600;min-width:110px;}}
+.dist-buttons{{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}}
+.dist-btn{{padding:4px 10px;}}
+#dist-custom-input{{padding:4px 10px;border-radius:20px;border:1.5px solid #ccc;font-size:1rem;width:80px;}}
+#dist-custom-input:focus{{outline:none;border-color:#1565c0;}}
+#dist-label{{font-size:0.78rem;color:#1565c0;font-weight:600;}}
 #addr-status{{font-size:0.75rem;color:var(--muted);max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}}
 .month-nav{{background:#fff;border-bottom:1px solid var(--border);padding:8px 16px;overflow-x:auto;white-space:nowrap;}}
 .month-link{{display:inline-block;padding:3px 8px;margin-right:4px;border-radius:4px;text-decoration:none;color:var(--muted);font-size:0.78rem;background:#f5f5f5;}}
@@ -817,24 +848,34 @@ main{{padding:0 16px 32px;}}
 .event-daterange{{font-size:0.75rem;color:#1565c0;font-weight:600;margin-top:2px;}}
 .event.expo-item{{grid-template-columns:1fr auto;}}
 .btn[data-sort].active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
-.dist-badge{{font-size:0.68rem;color:#aaa;margin-left:4px;}}
+.dist-badge{{font-size:0.72rem;color:var(--muted);margin-left:4px;}}
 .event-badges{{display:flex;flex-direction:column;gap:3px;align-items:flex-end;}}
 a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #1565c0;outline-offset:2px;}}
 .badge{{font-size:0.68rem;padding:2px 6px;border-radius:10px;white-space:nowrap;}}
 .badge-src{{font-weight:600;}}
+#back-to-top{{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:#1565c0;color:#fff;border:none;font-size:1.2rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:200;}}
+#back-to-top.hidden{{display:none;}}
+#back-to-top:hover{{background:#0d47a1;}}
 @media(max-width:600px){{
-  .event{{grid-template-columns:60px 1fr;}}
-  .event-badges{{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;justify-content:flex-start;}}
+  .event:not(.expo-item){{display:block;padding:10px 12px;position:relative;}}
+  .event:not(.expo-item) .event-date{{margin-bottom:3px;padding-top:0;}}
+  .event:not(.expo-item) .badge-src{{display:none;}}
+  .event:not(.expo-item) .event-badges{{position:absolute;top:10px;right:12px;flex-direction:row;}}
+  .addr-row{{flex-direction:column;align-items:stretch;}}
+  .addr-row label{{margin-bottom:2px;}}
+  #addr-input{{width:100%;}}
+  .dist-buttons{{width:100%;}}
+  .chip-scroll,.month-nav{{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);}}
 }}
 </style></head><body>
-<div class="mode-toggle">
+<div class="mode-toggle" role="group" aria-label="Weergave">
   <button class="mode-btn active" id="btn-uitjes" onclick="setMode('uitjes')">🗓️ Uitjes</button>
   <button class="mode-btn" id="btn-sport" onclick="setMode('sport')">⚽ Sport</button>
   <button class="mode-btn" id="btn-exposities" onclick="setMode('exposities')">🖼️ Exposities</button>
 </div>
 <div id="sport-filters" style="display:none">
-<div class="filters">
-  <div class="filters-label">Sport</div>
+<div class="filters chip-scroll" role="group" aria-labelledby="lbl-sport">
+  <div class="filters-label" id="lbl-sport">Sport</div>
   <button class="btn active" data-sport="all">Alle sporten</button>
   <button class="btn" data-sport="voetbal">⚽ Voetbal</button>
   <button class="btn" data-sport="basketbal">🏀 Basketbal</button>
@@ -843,14 +884,14 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   <button class="btn" data-sport="handbal">🤾 Handbal</button>
   <button class="btn" data-sport="korfbal">🎯 Korfbal</button>
 </div>
-<div class="filters">
-  <div class="filters-label">Geslacht</div>
+<div class="filters chip-scroll" role="group" aria-labelledby="lbl-geslacht">
+  <div class="filters-label" id="lbl-geslacht">Geslacht</div>
   <button class="btn active" data-gender="all">Beide</button>
   <button class="btn" data-gender="heren">♂ Heren</button>
   <button class="btn" data-gender="dames">♀ Dames</button>
 </div>
-<div class="filters">
-  <div class="filters-label">Club</div>
+<div class="filters chip-scroll" role="group" aria-labelledby="lbl-club">
+  <div class="filters-label" id="lbl-club">Club</div>
   <button class="btn active" data-club="all">Alle clubs</button>
   <button class="btn" data-club="fcgroningen" data-sport-type="voetbal">⚽ FC Groningen</button>
   <button class="btn" data-club="fcemmen" data-sport-type="voetbal">⚽ FC Emmen</button>
@@ -877,8 +918,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   <h1>🗓️ Uitjes Agenda</h1>
   <div class="meta">Bijgewerkt: {today_str} &nbsp;·&nbsp; {total} events &nbsp;·&nbsp; {expo_total} exposities &nbsp;·&nbsp; {len(active_sources)} bronnen</div>
 </header>
-<div class="filters">
-  <div class="filters-label">Provincie &amp; afstand</div>
+<div class="filters" role="group" aria-labelledby="lbl-provincie">
+  <div class="filters-label" id="lbl-provincie">Provincie &amp; afstand</div>
   {prov_buttons}
   <div class="addr-row">
     <label>Afstand van:</label>
@@ -886,15 +927,20 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
     <datalist id="nl-places"><option value="Groningen"><option value="Assen"><option value="Emmen"><option value="Hoogeveen"><option value="Meppel"><option value="Coevorden"><option value="Borger"><option value="Stadskanaal"><option value="Veendam"><option value="Delfzijl"><option value="Leeuwarden"><option value="Sneek"><option value="Heerenveen"><option value="Drachten"><option value="Franeker"><option value="Harlingen"><option value="Dokkum"><option value="Joure"><option value="Zwolle"><option value="Deventer"><option value="Almelo"><option value="Hengelo"><option value="Enschede"><option value="Kampen"><option value="Hardenberg"><option value="Ommen"><option value="Utrecht"><option value="Amersfoort"><option value="Houten"><option value="Nieuwegein"><option value="Zeist"><option value="Woerden"><option value="Veenendaal"><option value="Amsterdam"><option value="Haarlem"><option value="Alkmaar"><option value="Den Helder"><option value="Purmerend"><option value="Zaandam"><option value="Hoorn"><option value="Hilversum"><option value="Amstelveen"><option value="Den Haag"><option value="Rotterdam"><option value="Leiden"><option value="Delft"><option value="Dordrecht"><option value="Gouda"><option value="Schiedam"><option value="Zoetermeer"><option value="Alphen aan den Rijn"><option value="Eindhoven"><option value="Tilburg"><option value="Den Bosch"><option value="Breda"><option value="Helmond"><option value="Roosendaal"><option value="Bergen op Zoom"><option value="Oss"><option value="Veghel"><option value="Nijmegen"><option value="Arnhem"><option value="Apeldoorn"><option value="Doetinchem"><option value="Harderwijk"><option value="Tiel"><option value="Wageningen"><option value="Winterswijk"><option value="Annen"><option value="Gieten"><option value="Tynaarlo"><option value="Beilen"><option value="Roden"><option value="Leek"><option value="Zuidlaren"><option value="Hoogezand"><option value="Winschoten"><option value="Dalen"><option value="Emmer-Compascuum"><option value="Nieuwe-Pekela"><option value="Ter Apel"><option value="Oosterhesselen"></datalist>
     <button class="icon-btn" id="addr-btn">🔍 Zoek</button>
     <button class="icon-btn" id="loc-btn" title="Gebruik mijn locatie">📍 Locatie</button>
-    <div class="dist-slider-wrap">
-      <input type="range" id="dist-slider" min="0" max="4" step="1" value="4">
-      <span id="dist-label" title="Klik om een eigen afstand in km in te voeren" style="cursor:pointer;text-decoration:underline dotted;">Alle afstanden</span>
+    <div class="dist-buttons" id="dist-buttons" role="group" aria-label="Afstand">
+      <button type="button" class="btn dist-btn" data-dist="10">10 km</button>
+      <button type="button" class="btn dist-btn" data-dist="25">25 km</button>
+      <button type="button" class="btn dist-btn" data-dist="50">50 km</button>
+      <button type="button" class="btn dist-btn" data-dist="100">100 km</button>
+      <button type="button" class="btn dist-btn active" data-dist="9999">Alle</button>
+      <input type="number" id="dist-custom-input" placeholder="eigen km" min="1">
     </div>
+    <span id="dist-label">Alle afstanden</span>
     <span id="addr-status">standaard: Annen</span>
   </div>
 </div>
-<div class="filters" id="uitjes-genre">
-  <div class="filters-label">Genre</div>
+<div class="filters chip-scroll" id="uitjes-genre" role="group" aria-labelledby="lbl-genre">
+  <div class="filters-label" id="lbl-genre">Genre</div>
   <button class="btn active" data-genre="all">Alle genres</button>
   <button class="btn" data-genre="festival">🎉 Festival</button>
   <button class="btn" data-genre="theater">🎭 Theater</button>
@@ -908,12 +954,12 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   <button class="btn" data-genre="kinderen">🎈 Kinderen</button>
   <button class="btn" data-genre="overig">• Overig</button>
 </div>
-<div class="filters" id="uitjes-src">
-  <div class="filters-label">Bron</div>
+<div class="filters chip-scroll" id="uitjes-src" role="group" aria-labelledby="lbl-bron">
+  <div class="filters-label" id="lbl-bron">Bron</div>
   {src_buttons}
 </div>
-<div class="filters" id="expo-filters" style="display:none">
-  <div class="filters-label">Sorteren</div>
+<div class="filters chip-scroll" id="expo-filters" style="display:none" role="group" aria-labelledby="lbl-sorteren">
+  <div class="filters-label" id="lbl-sorteren">Sorteren</div>
   <button class="btn active" data-sort="start">Startdatum</button>
   <button class="btn" data-sort="end">Einddatum</button>
   <button class="btn" data-sort="alpha">Alfabetisch</button>
@@ -923,9 +969,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
 <div id="empty-state" class="hidden"></div>
 <main>{main_html}</main>
 <div id="expo-wrap" style="display:none;padding:0 16px 32px;">{expo_html}</div>
+<button id="back-to-top" class="hidden" title="Naar boven" aria-label="Naar boven" onclick="window.scrollTo({{top:0,behavior:'smooth'}})">&uarr;</button>
 <script>{js}</script>
-<footer style="margin-top:32px;padding:16px;font-size:0.72rem;color:#aaa;border-top:1px solid #e0e0e0;line-height:1.6;">
-  Uitjes Agenda is een onafhankelijke verzamelagenda. We tonen alleen beperkte feitelijke informatie zoals titel, datum, locatie en bron, met een link naar de oorspronkelijke aanbieder. Voor actuele informatie, tickets, wijzigingen en voorwaarden verwijzen we altijd naar de officiële website van de organisator of locatie. Bent u rechthebbende of organisator en wilt u een event of bron laten aanpassen of verwijderen? Neem contact op via <a href="mailto:chielemans@hotmail.com" style="color:#aaa;">chielemans@hotmail.com</a>
+<footer style="margin-top:32px;padding:16px;font-size:0.72rem;color:var(--muted);border-top:1px solid #e0e0e0;line-height:1.6;">
+  Uitjes Agenda is een onafhankelijke verzamelagenda. We tonen alleen beperkte feitelijke informatie zoals titel, datum, locatie en bron, met een link naar de oorspronkelijke aanbieder. Voor actuele informatie, tickets, wijzigingen en voorwaarden verwijzen we altijd naar de officiële website van de organisator of locatie. Bent u rechthebbende of organisator en wilt u een event of bron laten aanpassen of verwijderen? Neem contact op via <a href="mailto:chielemans@hotmail.com" style="color:var(--muted);">chielemans@hotmail.com</a>
 </footer>
 </body></html>'''
 
