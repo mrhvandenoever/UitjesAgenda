@@ -233,3 +233,14 @@ alle drie de dagen genoteerd stond. Bleek niet zo, op twee niveaus tegelijk:
   moeten krijgen en dat nog niet hadden) en alle drie scrapers live gedraaid +
   export + generate. Geverifieerd: Zomerfeest Eext toont nu het volledige
   bereik. Zie decisions.md 2026-08-17 voor de volledige technische uitwerking.
+
+## Zummerbühne toonde verkeerde afstand — OPGELOST 2026-08-17
+Michiel meldde dat de afstand bij Zummerbühne (~20km) niet klopte met Google
+Maps (35,7km rijdend vanaf huis). Bleek een plaatsnaam-verwarring: er bestaan
+twee "Oostwold"-plaatsen in Noord-Nederland (Oldambt, waar Zummerbühne echt
+zit, en Westerkwartier) — `city_coords.json` wees naar de verkeerde. Gefixt
+op drie plekken: `city_coords.json`, de 25 handmatige DB-rijen kregen
+expliciete lat/lon/city, en `VENUE_LOC['zummerbuhne']`'s fallback in
+`gen_uitjes.py` (bleek ook de verkeerde provincie te hebben: Drenthe i.p.v.
+Groningen). Resterend verschil (~27km hemelsbreed vs 35,7km rijdend) is
+inherent aan de haversine-methode, geen bug. Zie decisions.md 2026-08-17.

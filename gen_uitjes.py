@@ -121,7 +121,7 @@ VENUE_LOC = {
     'denieuwekolk.nl':      (52.9953, 6.5625, 'Drenthe'),
     'detamboer':            (52.7235, 6.4754, 'Drenthe'),
     'theaterroden':         (53.1390, 6.4344, 'Drenthe'),
-    'zummerbuhne':          (52.8500, 6.7500, 'Drenthe'),
+    'zummerbuhne':          (53.208276, 7.041508, 'Groningen'),  # Oostwold, Oldambt (niet het andere Oostwold bij Westerkwartier — zie decisions.md 2026-08-17)
     'drentsmuseum':         (52.9963, 6.5640, 'Drenthe'),
     'podiumzuidhaege':      (52.9930, 6.5580, 'Drenthe'),
     'hunebedcentrum':       (52.9236, 6.7904, 'Drenthe'),

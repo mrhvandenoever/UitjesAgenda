@@ -127,6 +127,10 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - **Bewust geen aanname gedaan** (CLAUDE.md-regel): huidig gedrag blijft ongewijzigd — de regex leest het cijfer na "t/m" als losse (foutieve) startdag en er wordt geen `date_end` gezet. Niet per se meer fout dan voorheen, maar ook niet structureel opgelost.
 - **Open vraag voor Michiel**: hoe hiermee om te gaan? Opties: (a) laten zoals het is (huidige stand), (b) de scrape-datum als benadering van de startdatum gebruiken (zoals bij kunstinzicht.nl overwogen en toen afgewezen, zie punt 13 — zelfde bezwaar zou hier gelden), (c) dit soort events gewoon overslaan i.p.v. met een foutieve startdag te tonen, (d) de detailpagina per event bezoeken voor een preciezere datum (kost een extra request per event, ~150 stuks).
 
+### 16. Afstandsberekening blijft hemelsbreed (haversine), niet rijdend — bevestigd geaccepteerd 2026-08-17
+- Aanleiding: Michiel wees erop dat Zummerbühne (Oostwold) ~20km toonde, Google Maps rijdend 35,7km. Grootste deel bleek een echte databug (verkeerde "Oostwold" coördinaat, zie decisions.md) — na de fix resteert ~27km hemelsbreed vs 35,7km rijdend, wat structureel klopt: de site rekent met haversine (rechte lijn), niet met een routeplanner.
+- Geen actie ondernomen — een echte rijafstand zou een routing-API (bv. OSRM/Google Directions) per event vereisen, een veel grotere en kostbaardere wijziging dan de huidige client-side haversine-berekening. Alleen vastgelegd zodat een volgend "afstand klopt niet"-signaal niet blind als dezelfde soort databug behandeld wordt.
+
 ## Status
 Sessie 2026-08-15: GitHub gesynchroniseerd (17 commits ingehaald), punt 1 opgelost (Taakplanner-taak ma/wo/za 04:00), kritieke SSL-bug gefixt, 31 → 7 AI/Chrome-bronnen opgelost (26 nieuwe scrapers, zie SCRAPERS.md/decisions.md/plan.md — resterende 7 bewust geparkeerd als "moeilijk"), punt 4 (kapotte links) daarmee ook volledig afgesloten, Ticketmaster-API-key veilig opgezet. Sessie afgesloten met een productbrainstorm: 3 nieuwe topniveau-knoppen (Exposities/Favorieten/Admin) — richting bepaald, zie punten 9-11.
 

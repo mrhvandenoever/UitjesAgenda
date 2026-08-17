@@ -790,3 +790,56 @@ alle drie bestanden, live dry-run bevestigt Zomerfeest Eext specifiek
 gegenereerde `index.html` gecontroleerd — Zomerfeest Eext toont nu
 "vr 21 t/m zo 23 aug" en blijft (gesimuleerd) zichtbaar t/m 23 augustus,
 verdwijnt pas op 24 augustus.
+
+## 2026-08-17 — Zummerbühne toont verkeerde afstand (Oostwold-verwarring)
+
+Michiel meldde dat Zummerbühne (Oostwold) op de site ~20km toont, maar Google
+Maps vanaf huis een veel grotere afstand (35,7km rijdend). Root cause: er
+bestaan **twee verschillende plaatsen genaamd "Oostwold" in Noord-Nederland**
+— één in Oldambt (Groningen, bij Scheemda/Winschoten, waar Zummerbühne
+daadwerkelijk zit: Polderweg 26/28, 9682 XS) en één in Westerkwartier (bij
+Leek, ~40km verderop richting het westen). `city_coords.json`'s "Oostwold"-
+entry (via Nominatim-geocoding, zie `build_city_coords.py`) wees naar de
+VERKEERDE (Westerkwartier) — de bestaande `VIEWBOX`-bounding-box voor Noord-
+Nederland dekt beide plaatsen, dus disambigueert niet tussen ze; Nominatim gaf
+gewoon zijn top-ranked match terug (`limit: 1`), zonder enige garantie dat
+dat de bedoelde plaats is.
+
+**Bijkomende factor**: de 25 Zummerbühne-rijen (`source='zummerbuhne'`,
+handmatig ingevoerd — er bestaat geen `scrape_zummerbuhne.py`, zie
+SCRAPERS.md: de site's ticketwidget bleek een ride-share/carpool-widget, geen
+scrapbare ticketverkoop) hadden helemaal geen `city`/`lat`/`lon` ingevuld,
+dus vielen sowieso terug op `VENUE_LOC['zummerbuhne']` — een hardcoded
+fallback-coördinaat `(52.85, 6.75, 'Drenthe')` die BEIDEN fout bleek: niet
+alleen de coördinaat zelf (ergens in zuidelijk Drenthe, nergens bij Oostwold),
+maar ook de provincie (Oldambt is Groningen, niet Drenthe — dus deze events
+stonden al die tijd ook onterecht onder het Drenthe-provinciefilter i.p.v.
+Groningen).
+
+**Fix, drie plekken**:
+1. `city_coords.json`'s `"Oostwold"`-entry gecorrigeerd naar de Oldambt-
+   coördinaten (53.208276, 7.041508) — enige huidige gebruiker in de dataset
+   is de visitgroningen-aggregator-rij voor dezelfde Zummerbühne, dus geen
+   ander event breekt hierdoor.
+2. Alle 25 handmatige `zummerbuhne`-rijen in de DB kregen expliciet
+   `lat`/`lon`/`city` (zelfde prioriteitsketen als Kunstpunt eerder deze
+   sessie: event-eigen lat/lon wint sowieso van CITY_COORDS/VENUE_LOC) —
+   preciezer dan via de plaatsnaam-lookup, en maakt deze events onafhankelijk
+   van een eventuele toekomstige hernieuwde Oostwold-verwarring.
+3. `VENUE_LOC['zummerbuhne']` in `gen_uitjes.py` gecorrigeerd naar dezelfde
+   coördinaten + provincie 'Groningen' (was 'Drenthe') — blijft nu een
+   correcte fallback mocht een toekomstige handmatige rij weer zonder
+   lat/lon ingevoerd worden.
+
+**Resterend verschil, geen bug**: haversine (hemelsbreed) geeft nu ~27km
+Annen-Oostwold, Google Maps rijdend ~35,7km — dat verschil is inherent aan
+hemelsbrede-afstand-vs-rijafstand (de Dollard/Reiderland-polders in die hoek
+van de provincie hebben geen directe wegen) en is een bekende, geaccepteerde
+beperking van de haversine-aanpak, niet apart opgelost.
+
+**Restpunt, niet gefixt**: `build_city_coords.py`'s Nominatim-geocoding kan
+in theorie hetzelfde soort fout maken bij elke andere plaatsnaam die
+dubbel voorkomt binnen de Noord-Nederland-viewbox — nu alleen ontdekt en
+gefixt voor dit ene concrete geval (Oostwold), geen generieke disambiguatie
+gebouwd (zou een provincie/gemeente-hint per plaatsnaam vereisen, die de
+brondata niet altijd meegeeft).
