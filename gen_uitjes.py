@@ -1093,10 +1093,21 @@ body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fo
 .toolbar-btn.clear-btn::after{{content:none;}}
 .tb-count{{font-weight:700;}}
 #search-input{{flex:1 1 220px;min-width:160px;min-height:44px;}}
-.popover-backdrop{{position:fixed;inset:0;z-index:150;background:transparent;}}
-.popover{{position:fixed;z-index:160;background:#fff;border:1px solid var(--border);border-radius:10px;
-  box-shadow:0 8px 24px rgba(0,0,0,.18);padding:12px 14px;display:flex;flex-wrap:wrap;gap:6px;
+.popover-backdrop{{display:none;position:fixed;inset:0;z-index:150;background:transparent;}}
+.popover-backdrop:not([hidden]){{display:block;}}
+/* [hidden] leunt normaal op de user-agent-stylesheet (display:none), maar
+   die heeft een LAGERE specificiteit dan een eigen .popover{{display:flex}}
+   -regel -- auteur-CSS wint dan van UA-CSS bij gelijke specificiteit, dus
+   een 'gesloten' popover bleef gewoon zichtbaar (bevestigd door Michiel op
+   echte Firefox, 2026-08-18 -- niet zichtbaar in de test-omgeving omdat
+   screenshots daar niet werkten, alleen de hidden-property is gecheckt, niet
+   de daadwerkelijke rendering). Nu expliciet zelf geregeld i.p.v. op de
+   UA-standaard te vertrouwen: display:none is de default, display:flex
+   alleen zonder [hidden]. */
+.popover{{display:none;position:fixed;z-index:160;background:#fff;border:1px solid var(--border);border-radius:10px;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);padding:12px 14px;flex-wrap:wrap;gap:6px;
   align-items:center;max-width:min(92vw,480px);max-height:70vh;overflow-y:auto;}}
+.popover:not([hidden]){{display:flex;}}
 .popover-daterow{{display:flex;gap:6px;width:100%;}}
 .popover-search{{width:100%;padding:6px 10px;border-radius:20px;border:1.5px solid #ccc;font-size:1rem;margin-bottom:4px;}}
 .popover-search:focus{{outline:none;border-color:#1565c0;}}

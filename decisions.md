@@ -1233,3 +1233,47 @@ setMode() toont/verbergt de juiste toolbar-knoppen per modus, gedeelde
 Sorteren-popover toont het juiste blok per modus, URL-state blijft werken
 na de herbouw, mobiele toolbar scrollt horizontaal met 44px-knoppen,
 mobiele popovers dokken aan de randen (`left:8px`), geen console-errors.
+
+
+## 2026-08-18 — Popover-sluiten kapot in echte Firefox (gemeld door Michiel, gemist in test)
+
+Direct na het pushen van cluster 5 liet Michiel een screenshot zien van
+echte Firefox: meerdere popovers (Sorteren, Club, Bron) stonden tegelijk
+open, overlappend, onbruikbaar.
+
+**Root cause**: `.popover{{...display:flex;...}}` (mijn eigen CSS-klasse) is
+een AUTEUR-regel. Het `hidden`-HTML-attribuut leunt op een LAGE-specificiteit
+regel in de user-agent-stylesheet (`[hidden]{{display:none}}`). Bij gelijke
+specificiteit wint auteur-CSS van UA-CSS — dus mijn `display:flex` op
+`.popover` overschreef de browser's ingebouwde hidden-gedrag volledig. Een
+"gesloten" popover (`hidden` attribuut wél aanwezig) bleef gewoon zichtbaar.
+
+**Waarom dit niet in de sessie zelf ontdekt werd**: de verificatie tijdens
+het bouwen checkte `popover.hidden` (de JS-property, reflecteert alleen of
+het HTML-attribuut aanwezig is) en `getComputedStyle(...).display` bleek
+destijds NIET gecheckt te zijn voor de default/gesloten staat — alleen voor
+de OPEN staat (na een klik). Screenshots werkten niet in de gebruikte
+test-omgeving (zie de rAF-bug en de kleurstrategie-bevinding eerder deze
+sessie, zelfde niet-composerend-tabblad-beperking), dus een puur-visuele
+controle was ook niet mogelijk geweest. Achteraf bezien had een simpele
+`getComputedStyle(popover).display` check op de STARTSITUATIE (vóór ooit een
+popover te openen) dit meteen gevonden — dat specifieke, makkelijke checkje
+is over het hoofd gezien.
+
+**Fix**: `.popover` (en `.popover-backdrop`) krijgen nu expliciet zelf
+`display:none` als basisregel, met een eigen `:not([hidden])`-uitzondering
+voor de zichtbare staat — leunt niet meer op de UA-stylesheet voor het
+hidden-gedrag, dus geen specificiteitsstrijd meer mogelijk.
+
+**Herverifieerd, dit keer met de juiste check**: `getComputedStyle(el).display`
+voor alle 7 popovers in de default/gesloten staat (allemaal `none`,
+bevestigd) én tijdens het schakelen tussen popovers (openen van Club sluit
+Bron correct, `display` gaat naar `none`/`flex` zoals het hoort) én bij een
+backdrop-klik (alles sluit, `display:none`). Gepusht als vervolgcommit op
+dezelfde branch.
+
+**Les**: bij UI-elementen die op het `hidden`-attribuut leunen, altijd
+expliciet `display:none` als eigen basisregel zetten i.p.v. te vertrouwen
+op de user-agent-stylesheet — met name zodra er ook een class-gebaseerde
+`display`-regel voor hetzelfde element bestaat (die wint dan altijd, ook al
+lijkt `hidden` in de HTML-broncode/JS-property prima aanwezig).

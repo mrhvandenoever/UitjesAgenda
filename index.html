@@ -99,10 +99,21 @@ body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fon
 .toolbar-btn.clear-btn::after{content:none;}
 .tb-count{font-weight:700;}
 #search-input{flex:1 1 220px;min-width:160px;min-height:44px;}
-.popover-backdrop{position:fixed;inset:0;z-index:150;background:transparent;}
-.popover{position:fixed;z-index:160;background:#fff;border:1px solid var(--border);border-radius:10px;
-  box-shadow:0 8px 24px rgba(0,0,0,.18);padding:12px 14px;display:flex;flex-wrap:wrap;gap:6px;
+.popover-backdrop{display:none;position:fixed;inset:0;z-index:150;background:transparent;}
+.popover-backdrop:not([hidden]){display:block;}
+/* [hidden] leunt normaal op de user-agent-stylesheet (display:none), maar
+   die heeft een LAGERE specificiteit dan een eigen .popover{display:flex}
+   -regel -- auteur-CSS wint dan van UA-CSS bij gelijke specificiteit, dus
+   een 'gesloten' popover bleef gewoon zichtbaar (bevestigd door Michiel op
+   echte Firefox, 2026-08-18 -- niet zichtbaar in de test-omgeving omdat
+   screenshots daar niet werkten, alleen de hidden-property is gecheckt, niet
+   de daadwerkelijke rendering). Nu expliciet zelf geregeld i.p.v. op de
+   UA-standaard te vertrouwen: display:none is de default, display:flex
+   alleen zonder [hidden]. */
+.popover{display:none;position:fixed;z-index:160;background:#fff;border:1px solid var(--border);border-radius:10px;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);padding:12px 14px;flex-wrap:wrap;gap:6px;
   align-items:center;max-width:min(92vw,480px);max-height:70vh;overflow-y:auto;}
+.popover:not([hidden]){display:flex;}
 .popover-daterow{display:flex;gap:6px;width:100%;}
 .popover-search{width:100%;padding:6px 10px;border-radius:20px;border:1.5px solid #ccc;font-size:1rem;margin-bottom:4px;}
 .popover-search:focus{outline:none;border-color:#1565c0;}
@@ -120,25 +131,25 @@ body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fon
 .btn[data-sport="ijshockey"]:hover{border-color:#37474f;color:#37474f;}.btn[data-sport="ijshockey"].active{background:#37474f;color:#fff;border-color:#37474f;}
 .btn[data-sport="handbal"]:hover{border-color:#c62828;color:#c62828;}.btn[data-sport="handbal"].active{background:#c62828;color:#fff;border-color:#c62828;}
 .btn[data-sport="korfbal"]:hover{border-color:#f57c00;color:#f57c00;}.btn[data-sport="korfbal"].active{background:#f57c00;color:#fff;border-color:#f57c00;}
-.btn[data-club="ldodk"]:hover{border-color:#f57c00;color:#f57c00;}.btn[data-club="ldodk"].active{background:#f57c00;color:#fff;border-color:#f57c00;}
 .btn[data-club="fcemmen"]:hover{border-color:#003087;color:#003087;}.btn[data-club="fcemmen"].active{background:#003087;color:#fff;border-color:#003087;}
-.btn[data-club="donar"]:hover{border-color:#e2001a;color:#e2001a;}.btn[data-club="donar"].active{background:#e2001a;color:#fff;border-color:#e2001a;}
-.btn[data-club="lycurgus"]:hover{border-color:#ffcc00;color:#ffcc00;}.btn[data-club="lycurgus"].active{background:#ffcc00;color:#212121;border-color:#ffcc00;}
 .btn[data-club="ogcapitals"]:hover{border-color:#e65100;color:#e65100;}.btn[data-club="ogcapitals"].active{background:#e65100;color:#fff;border-color:#e65100;}
-.btn[data-club="cambuur"]:hover{border-color:#ffd700;color:#ffd700;}.btn[data-club="cambuur"].active{background:#ffd700;color:#212121;border-color:#ffd700;}
-.btn[data-club="friso"]:hover{border-color:#d32f2f;color:#d32f2f;}.btn[data-club="friso"].active{background:#d32f2f;color:#fff;border-color:#d32f2f;}
-.btn[data-club="dos46"]:hover{border-color:#1565c0;color:#1565c0;}.btn[data-club="dos46"].active{background:#1565c0;color:#fff;border-color:#1565c0;}
-.btn[data-club="peczwolle"]:hover{border-color:#0033a0;color:#0033a0;}.btn[data-club="peczwolle"].active{background:#0033a0;color:#fff;border-color:#0033a0;}
-.btn[data-club="heerenveen"]:hover{border-color:#0052a5;color:#0052a5;}.btn[data-club="heerenveen"].active{background:#0052a5;color:#fff;border-color:#0052a5;}
-.btn[data-club="grizzlys"]:hover{border-color:#6699cc;color:#6699cc;}.btn[data-club="grizzlys"].active{background:#6699cc;color:#fff;border-color:#6699cc;}
-.btn[data-club="hurryup"]:hover{border-color:#ff6600;color:#ff6600;}.btn[data-club="hurryup"].active{background:#ff6600;color:#fff;border-color:#ff6600;}
-.btn[data-club="landstede"]:hover{border-color:#ff6b00;color:#ff6b00;}.btn[data-club="landstede"].active{background:#ff6b00;color:#fff;border-color:#ff6b00;}
-.btn[data-club="sudosa"]:hover{border-color:#2e7d32;color:#2e7d32;}.btn[data-club="sudosa"].active{background:#2e7d32;color:#fff;border-color:#2e7d32;}
-.btn[data-club="eoemmen"]:hover{border-color:#c62828;color:#c62828;}.btn[data-club="eoemmen"].active{background:#c62828;color:#fff;border-color:#c62828;}
 .btn[data-club="goahead"]:hover{border-color:#f5a623;color:#f5a623;}.btn[data-club="goahead"].active{background:#f5a623;color:#212121;border-color:#f5a623;}
-.btn[data-club="fctwente"]:hover{border-color:#cc0000;color:#cc0000;}.btn[data-club="fctwente"].active{background:#cc0000;color:#fff;border-color:#cc0000;}
+.btn[data-club="sudosa"]:hover{border-color:#2e7d32;color:#2e7d32;}.btn[data-club="sudosa"].active{background:#2e7d32;color:#fff;border-color:#2e7d32;}
+.btn[data-club="peczwolle"]:hover{border-color:#0033a0;color:#0033a0;}.btn[data-club="peczwolle"].active{background:#0033a0;color:#fff;border-color:#0033a0;}
+.btn[data-club="dos46"]:hover{border-color:#1565c0;color:#1565c0;}.btn[data-club="dos46"].active{background:#1565c0;color:#fff;border-color:#1565c0;}
 .btn[data-club="fcgroningen"]:hover{border-color:#00a651;color:#00a651;}.btn[data-club="fcgroningen"].active{background:#00a651;color:#fff;border-color:#00a651;}
+.btn[data-club="lycurgus"]:hover{border-color:#ffcc00;color:#ffcc00;}.btn[data-club="lycurgus"].active{background:#ffcc00;color:#212121;border-color:#ffcc00;}
+.btn[data-club="fctwente"]:hover{border-color:#cc0000;color:#cc0000;}.btn[data-club="fctwente"].active{background:#cc0000;color:#fff;border-color:#cc0000;}
+.btn[data-club="eoemmen"]:hover{border-color:#c62828;color:#c62828;}.btn[data-club="eoemmen"].active{background:#c62828;color:#fff;border-color:#c62828;}
+.btn[data-club="heerenveen"]:hover{border-color:#0052a5;color:#0052a5;}.btn[data-club="heerenveen"].active{background:#0052a5;color:#fff;border-color:#0052a5;}
+.btn[data-club="landstede"]:hover{border-color:#ff6b00;color:#ff6b00;}.btn[data-club="landstede"].active{background:#ff6b00;color:#fff;border-color:#ff6b00;}
+.btn[data-club="friso"]:hover{border-color:#d32f2f;color:#d32f2f;}.btn[data-club="friso"].active{background:#d32f2f;color:#fff;border-color:#d32f2f;}
+.btn[data-club="cambuur"]:hover{border-color:#ffd700;color:#ffd700;}.btn[data-club="cambuur"].active{background:#ffd700;color:#212121;border-color:#ffd700;}
 .btn[data-club="flyers"]:hover{border-color:#003087;color:#003087;}.btn[data-club="flyers"].active{background:#003087;color:#fff;border-color:#003087;}
+.btn[data-club="donar"]:hover{border-color:#e2001a;color:#e2001a;}.btn[data-club="donar"].active{background:#e2001a;color:#fff;border-color:#e2001a;}
+.btn[data-club="ldodk"]:hover{border-color:#f57c00;color:#f57c00;}.btn[data-club="ldodk"].active{background:#f57c00;color:#fff;border-color:#f57c00;}
+.btn[data-club="hurryup"]:hover{border-color:#ff6600;color:#ff6600;}.btn[data-club="hurryup"].active{background:#ff6600;color:#fff;border-color:#ff6600;}
+.btn[data-club="grizzlys"]:hover{border-color:#6699cc;color:#6699cc;}.btn[data-club="grizzlys"].active{background:#6699cc;color:#fff;border-color:#6699cc;}
 .btn[data-gender="all"].active{background:#555;color:#fff;border-color:#555;}.btn[data-gender="heren"].active{background:#1565c0;color:#fff;border-color:#1565c0;}.btn[data-gender="dames"].active{background:#c2185b;color:#fff;border-color:#c2185b;}
 .btn[data-src]:not([data-src="all"]).active{background:#1565c0;color:#fff;border-color:#1565c0;}
 .event.spotgroningen_nl{border-left-color:#e53935;}
