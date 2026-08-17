@@ -1277,3 +1277,17 @@ expliciet `display:none` als eigen basisregel zetten i.p.v. te vertrouwen
 op de user-agent-stylesheet — met name zodra er ook een class-gebaseerde
 `display`-regel voor hetzelfde element bestaat (die wint dan altijd, ook al
 lijkt `hidden` in de HTML-broncode/JS-property prima aanwezig).
+
+## 2026-08-18 — Sorteren-popover leeg bij Sport-modus (gemeld door Michiel)
+
+Na de popover-fix meldde Michiel dat de Sorteren-popover bij Sport-modus
+leeg bleef. Klopte: `setMode()` toonde het `uitjes-sort`-blok alleen bij
+`m==='uitjes'` en het `expo-filters`-blok alleen bij `m==='exposities'` —
+voor Sport-modus werd dus geen van beide getoond. De onderliggende
+sorteerlogica (op datum/afstand, werkt generiek op `.month-section`-
+kinderen) is niet mode-specifiek en werkt net zo goed voor sportwedstrijden
+als voor uitjes. Fix: `uitjes-sort` toont nu bij zowel `uitjes` als `sport`;
+het label is generiek "Sorteren" geworden (was "Sorteren (Uitjes)").
+Geverifieerd via `getComputedStyle(...).display` in beide modi + een
+functionele sorteer-test op sportwedstrijden (afstand-sortering correct
+oplopend).

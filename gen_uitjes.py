@@ -943,7 +943,7 @@ function setMode(m){{
   document.getElementById('tb-sport').style.display=m==='sport'?'':'none';
   document.getElementById('tb-club').style.display=m==='sport'?'':'none';
   document.getElementById('expo-filters').style.display=m==='exposities'?'flex':'none';
-  document.getElementById('uitjes-sort').style.display=m==='uitjes'?'':'none';
+  document.getElementById('uitjes-sort').style.display=(m==='uitjes'||m==='sport')?'':'none';
   document.getElementById('month-nav-wrap').style.display=m==='exposities'?'none':'';
   document.querySelector('main').style.display=m==='exposities'?'none':'';
   document.getElementById('expo-wrap').style.display=m==='exposities'?'':'none';
@@ -1329,7 +1329,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
 
 <div class="popover" id="popover-sort" hidden>
   <div class="filters" id="uitjes-sort" role="group" aria-labelledby="lbl-usort" style="border:none;padding:0;">
-    <div class="filters-label" id="lbl-usort">Sorteren (Uitjes)</div>
+    <div class="filters-label" id="lbl-usort">Sorteren</div>
     <button class="btn active" data-usort="datum">Datum</button>
     <button class="btn" data-usort="afstand">Afstand</button>
   </div>
