@@ -1273,7 +1273,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   <button class="btn" data-genre="musical">🎼 Musical</button>
   <button class="btn" data-genre="klassiek">🎻 Klassiek</button>
   <button class="btn" data-genre="pop">🎸 Pop / Rock</button>
-  <button class="btn" data-genre="jazz">🎷 Jazz</button>
+  <button class="btn" data-genre="jazz">🎷 Jazz / Blues</button>
   <button class="btn" data-genre="dans">💃 Dans</button>
   <button class="btn" data-genre="actief">🥾 Actief</button>
   <button class="btn" data-genre="kinderen">🎈 Kinderen</button>
