@@ -667,6 +667,36 @@ Praktisch gevolg: fix #1 werkt alleen met terugwerkende kracht zodra een bron
 **opnieuw** gescraped wordt — bestaande data van een bron die nooit opnieuw
 gedraaid is, kan nog steeds een niet-opgemerkte aggregator-dubbel bevatten.
 
+### Same-source herscrape: veld-voor-veld merge (2026-08-17)
+
+Tot 2026-08-17 deed `insert_event()` bij een `(title_norm, date)`-botsing
+tussen **dezelfde bron** helemaal niets — de bestaande rij bleef altijd
+staan, ook als de nieuwe scrape-data beter was (bv. een venue-differentiatie
+of URL die pas later aan de scraper is toegevoegd). Dit patroon werd 4x
+apart ontdekt en telkens handmatig gerepareerd (forum.nl, Geke Hoogstins,
+TivoliVredenburg, SPOT Groningen — zie decisions.md), voor het structureel
+opgelost werd.
+
+**Huidig gedrag, drie gevallen bij een botsing**:
+1. **Zelfde bron** → veld-voor-veld merge (`_merge_values()`): een nieuwe
+   waarde wint alleen als die niet leeg is (`None`/`''`/`'[]'`), anders
+   blijft de bestaande waarde staan. Voorkomt dat een scraper-run met een
+   incompleet veld (bv. een parse-fout bij één specifiek event) een eerder
+   wél gevulde waarde wist, terwijl een run met ECHT betere data (het
+   4x-geziene scenario) nu gewoon doorkomt. Geen wijziging → `insert_event()`
+   retourneert `False`, geen overbodige UPDATE.
+2. **Aggregator (bestaand) vs. directe venue-bron (nieuw)** → ongewijzigd
+   gedrag, volledige overschrijving (zie hierboven) — geen veld-voor-veld-
+   merge nodig, de directe bron is per definitie de betere bron.
+3. **Overig** (bv. aggregator ná een directe bron, of twee verschillende
+   directe bronnen) → genegeerd, zoals voorheen.
+
+Getest met 6 scenario's tegen een losstaande test-DB (nieuw event, identieke
+herscrape, same-source met een nieuw veld, same-source met een leeg veld dat
+niets mag wissen, aggregator-vs-direct beide richtingen) vóór toepassing op
+de echte `events.db`. Zie decisions.md 2026-08-17 voor de volledige
+uitwerking.
+
 ## Deployment
 
 ### Volledige flow (data + site)

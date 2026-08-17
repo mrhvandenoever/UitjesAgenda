@@ -964,3 +964,50 @@ same-source-botsing, niet alleen bij aggregator-vs-directe-bron) zou dit
 hele patroon in één keer voorkomen i.p.v. steeds opnieuw per-bron te
 ontdekken en handmatig te repareren — nog niet gebouwd, wel de moeite waard
 om te overwegen. Zie ook overleg.md.
+
+## 2026-08-17 — insert_event() structureel gefixt (voorkomt een 5e herhaling)
+
+Michiel vroeg door op het zojuist genoemde restpunt ("kan je een kleine
+search doen om dat te achterhalen? ik bedoel de insert(event)") — dus
+uitgezocht en meteen structureel gefixt i.p.v. het weer als open punt te
+laten liggen.
+
+**Analyse eerst**: gecheckt hoe vaak velden per bron daadwerkelijk leeg
+zijn (bv. `friesland.nl`/`drenthe.nl`/`visitgroningen` missen structureel
+`venue`, `melkweg`/`013` missen bij een deel van de events `url`/`venue`).
+Bevestigt het risico dat een naïeve "altijd overschrijven"-regel net zo
+gevaarlijk zou zijn als het huidige "nooit overschrijven" — een scraper-run
+met één incompleet veld (parse-fout bij een specifiek event) zou dan een
+eerder wél gevulde waarde kunnen wissen.
+
+**Fix**: `insert_event()` in `events_db.py` herbouwd met een derde
+botsings-geval. Was: (1) aggregator-vs-directe-bron → overschrijven, (2)
+overig → altijd negeren. Nu: (1) **zelfde bron** → veld-voor-veld merge via
+nieuwe `_merge_values()`-helper (nieuwe waarde wint alleen als die niet leeg
+is — `None`/`''`/`'[]'` tellen als leeg), (2) aggregator-vs-directe-bron →
+ongewijzigd volledige overschrijving, (3) overig → ongewijzigd genegeerd.
+Bijkomende opschoning: `_event_values()`-helper toegevoegd om de
+kolom-waarden-dict (voorheen 2x losstaand uitgeschreven, voor INSERT en
+UPDATE) te delen.
+
+**Getest tegen een losstaande test-DB** (niet de echte `events.db`) met 6
+scenario's vóór toepassing: nieuw event invoegen, identieke same-source-
+herscrape (moet no-op zijn, `False`), same-source met een nieuw ingevuld
+veld (moet updaten, bestaande velden blijven intact), same-source met een
+leeg veld waar eerder een waarde stond (mag NIETS wissen), directe bron
+overschrijft aggregator (bestaand gedrag, moet blijven werken), aggregator
+ná een directe bron (moet genegeerd blijven). Alle 6 scenario's gaven het
+verwachte resultaat. Daarna een read-only check tegen de echte DB
+(`events_db.py stats`) en een live herscrape van SPOT Groningen gedraaid
+ter controle — die werd door `page_cache.py`'s `unchanged()` als
+"ongewijzigd sinds vorige run" geskipt (verwacht, want net dezelfde dag al
+herscraped), dus geen directe test van het nieuwe pad tegen productiedata,
+maar bevestigt wel dat er niets kapot is gegaan aan de bestaande flow.
+
+**Effect vanaf nu**: de volgende keer dat een scraper een veld toevoegt of
+verbetert (nieuwe URL-extractie, betere venue-splitsing, een `date_end`-fix
+zoals bij drenthe.nl deze sessie) komt dat automatisch door bij de
+eerstvolgende herscrape, zonder dat er eerst weer een handmatige
+stale-rijen-opschoning nodig is zoals bij forum.nl/Geke Hoogstins/
+TivoliVredenburg/SPOT Groningen. Zie ARCHITECTURE.md §Cross-source dedup
+voor de bijgewerkte technische beschrijving.

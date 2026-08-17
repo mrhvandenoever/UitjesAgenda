@@ -108,17 +108,95 @@ def init_db():
 # Invoegen
 # ---------------------------------------------------------------------------
 
+_UPDATE_SQL = """
+    UPDATE events SET
+        title=:title, date_end=:date_end, time=:time, location=:location,
+        venue=:venue, city=:city, province=:province, lat=:lat, lon=:lon,
+        genre=:genre, genres=:genres, category=:category, cats=:cats,
+        source=:source, url=:url, image=:image, price=:price,
+        subtitle=:subtitle, gender=:gender, sport=:sport, type=:type
+    WHERE title_norm=:title_norm AND date=:date
+"""
+
+
+def _event_values(event: dict, title: str, title_norm: str, date: str) -> dict:
+    """Bouwt de kolom-waarden-dict voor een event -- gedeeld door INSERT en
+    beide UPDATE-paden in insert_event(), was voorheen 2x losstaand herhaald."""
+    return {
+        'title':      title,
+        'title_norm': title_norm,
+        'date':       date,
+        'date_end':   event.get('date_end'),
+        'time':       event.get('time'),
+        'location':   event.get('location'),
+        'venue':      event.get('venue'),
+        'city':       event.get('city'),
+        'province':   event.get('province'),
+        'lat':        event.get('lat'),
+        'lon':        event.get('lon'),
+        'genre':      event.get('genre', 'overig'),
+        'genres':     json.dumps(event['genres'], ensure_ascii=False)
+                      if isinstance(event.get('genres'), list) else event.get('genres'),
+        'category':   event.get('category'),
+        'cats':       json.dumps(event['cats'], ensure_ascii=False)
+                      if isinstance(event.get('cats'), list) else event.get('cats'),
+        'source':     event.get('source', 'onbekend'),
+        'url':        event.get('url'),
+        'image':      event.get('image'),
+        'price':      event.get('price'),
+        'subtitle':   event.get('subtitle'),
+        'gender':     event.get('gender'),
+        'sport':      event.get('sport'),
+        'type':       event.get('type'),
+    }
+
+
+def _is_empty(v) -> bool:
+    return v is None or v == '' or v == '[]'
+
+
+def _merge_values(existing_row, new_values: dict) -> tuple[dict, bool]:
+    """Merge nieuwe veldwaarden over een bestaande rij heen: een nieuwe
+    waarde wint alleen als die niet leeg is, anders blijft de bestaande
+    waarde staan. Voorkomt dat een scraper-run met een incompleet veld (bv.
+    een parse-fout bij een event) een eerder wel gevulde waarde overschrijft
+    -- maar laat een same-source herscrape met BETERE data (het scenario dat
+    al 4x dit project misging omdat insert_event() same-source-botsingen
+    voorheen altijd negeerde: forum.nl, Geke Hoogstins, TivoliVredenburg,
+    SPOT Groningen -- zie decisions.md 2026-08-17) nu wel doorkomen."""
+    merged, changed = {}, False
+    for field, new_val in new_values.items():
+        if field in ('title_norm', 'date'):
+            merged[field] = new_val
+            continue
+        old_val = existing_row[field] if field in existing_row.keys() else None
+        merged[field] = new_val if not _is_empty(new_val) else old_val
+        if merged[field] != old_val:
+            changed = True
+    return merged, changed
+
+
 def insert_event(event: dict) -> bool:
     """
-    Voeg event in. Retourneert True als nieuw (of geupgraded), False als
+    Voeg event in. Retourneert True als nieuw (of bijgewerkt), False als
     ongewijzigd duplicaat.
 
     UNIQUE(title_norm, date) betekent dat twee bronnen die hetzelfde event
-    melden botsen op de insert. Zonder verdere logica wint dan simpelweg wie
-    het eerst gescraped is — niet per se de beste bron. Daarom: bij zo een
-    botsing, als de AL BESTAANDE rij van een aggregator komt (AGGREGATOR_SOURCES)
-    en de NIEUWE rij van een directe venue-bron, overschrijf de bestaande rij
-    dan met de nieuwe (preciezere venue/url/cats). Anders: negeer zoals voorheen.
+    melden botsen op de insert. Drie botsings-gevallen:
+    1. Zelfde bron herscraped hetzelfde event (title_norm, date) -- merge
+       per veld (zie _merge_values): een nieuwe niet-lege waarde wint, een
+       lege nieuwe waarde laat de bestaande staan. Dit was voorheen een pure
+       no-op (de rij werd nooit bijgewerkt), wat 4x tot stille dataveroudering
+       leidde (zie decisions.md 2026-08-17) -- nu wel opgelost, met de
+       leeg-wint-nooit-regel als vangnet tegen een incomplete scraper-run.
+    2. Aggregator vs. directe venue-bron -- bestaand gedrag ongewijzigd: als
+       de AL BESTAANDE rij van een aggregator komt (AGGREGATOR_SOURCES) en de
+       NIEUWE rij van een directe venue-bron, overschrijft de nieuwe rij de
+       bestaande volledig (preciezere venue/url/cats, geen veld-voor-veld-
+       merge nodig want de directe bron is altijd de betere bron).
+    3. Overig (bv. aggregator na directe bron, of twee verschillende directe
+       bronnen) -- genegeerd zoals voorheen, bestaande rij is al even goed of
+       beter.
     """
     title = (event.get('title') or '').strip()
     date  = (event.get('date')  or '').strip()
@@ -127,6 +205,7 @@ def insert_event(event: dict) -> bool:
 
     title_norm = normalize_title(title)
     new_source = event.get('source', 'onbekend')
+    values = _event_values(event, title, title_norm, date)
 
     conn = get_conn()
     try:
@@ -139,67 +218,27 @@ def insert_event(event: dict) -> bool:
                 (:title, :title_norm, :date, :date_end, :time, :location, :venue, :city, :province,
                  :lat, :lon, :genre, :genres, :category, :cats, :source, :url, :image,
                  :price, :subtitle, :gender, :sport, :type)
-        """, {
-            'title':      title,
-            'title_norm': title_norm,
-            'date':       date,
-            'date_end':   event.get('date_end'),
-            'time':       event.get('time'),
-            'location':   event.get('location'),
-            'venue':      event.get('venue'),
-            'city':       event.get('city'),
-            'province':   event.get('province'),
-            'lat':        event.get('lat'),
-            'lon':        event.get('lon'),
-            'genre':      event.get('genre', 'overig'),
-            'genres':     json.dumps(event['genres'], ensure_ascii=False)
-                          if isinstance(event.get('genres'), list) else event.get('genres'),
-            'category':   event.get('category'),
-            'cats':       json.dumps(event['cats'], ensure_ascii=False)
-                          if isinstance(event.get('cats'), list) else event.get('cats'),
-            'source':     event.get('source', 'onbekend'),
-            'url':        event.get('url'),
-            'image':      event.get('image'),
-            'price':      event.get('price'),
-            'subtitle':   event.get('subtitle'),
-            'gender':     event.get('gender'),
-            'sport':      event.get('sport'),
-            'type':       event.get('type'),
-        })
+        """, values)
         conn.commit()
         return True
     except sqlite3.IntegrityError:
         existing = conn.execute(
-            'SELECT source FROM events WHERE title_norm = ? AND date = ?',
+            'SELECT * FROM events WHERE title_norm = ? AND date = ?',
             (title_norm, date)
         ).fetchone()
-        existing_source = existing['source'] if existing else None
-        if existing_source in AGGREGATOR_SOURCES and new_source not in AGGREGATOR_SOURCES:
-            conn.execute("""
-                UPDATE events SET
-                    title=:title, date_end=:date_end, time=:time, location=:location,
-                    venue=:venue, city=:city, province=:province, lat=:lat, lon=:lon,
-                    genre=:genre, genres=:genres, category=:category, cats=:cats,
-                    source=:source, url=:url, image=:image, price=:price,
-                    subtitle=:subtitle, gender=:gender, sport=:sport, type=:type
-                WHERE title_norm=:title_norm AND date=:date
-            """, {
-                'title': title, 'title_norm': title_norm, 'date': date,
-                'date_end': event.get('date_end'), 'time': event.get('time'),
-                'location': event.get('location'), 'venue': event.get('venue'),
-                'city': event.get('city'), 'province': event.get('province'),
-                'lat': event.get('lat'), 'lon': event.get('lon'),
-                'genre': event.get('genre', 'overig'),
-                'genres': json.dumps(event['genres'], ensure_ascii=False)
-                           if isinstance(event.get('genres'), list) else event.get('genres'),
-                'category': event.get('category'),
-                'cats': json.dumps(event['cats'], ensure_ascii=False)
-                         if isinstance(event.get('cats'), list) else event.get('cats'),
-                'source': new_source, 'url': event.get('url'), 'image': event.get('image'),
-                'price': event.get('price'), 'subtitle': event.get('subtitle'),
-                'gender': event.get('gender'), 'sport': event.get('sport'),
-                'type': event.get('type'),
-            })
+        if existing is None:
+            return False
+        existing_source = existing['source']
+
+        if existing_source == new_source:
+            merged, changed = _merge_values(existing, values)
+            if not changed:
+                return False
+            conn.execute(_UPDATE_SQL, merged)
+            conn.commit()
+            return True
+        elif existing_source in AGGREGATOR_SOURCES and new_source not in AGGREGATOR_SOURCES:
+            conn.execute(_UPDATE_SQL, values)
             conn.commit()
             return True
         return False  # duplicaat, bestaande rij is al even goed of beter

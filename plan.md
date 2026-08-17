@@ -257,8 +257,16 @@ TivoliVredenburg): 611/662 rijen stonden vast op de generieke fallback-venue
 terwijl de scraper allang het juiste gebouw (Oosterpoort/Stadsschouwburg/etc.)
 uit `data-location` haalt — gewoon nooit ge-update sinds die logica gebouwd
 is. 559 stale rijen gescoped verwijderd, live herscraped: 329 Oosterpoort,
-202 Stadsschouwburg, nog maar 67 legitiem generiek. Zie decisions.md/
-overleg.md punt 18 (4e keer = structurele fix overwegen, nog niet besloten).
+202 Stadsschouwburg, nog maar 67 legitiem generiek.
+
+## insert_event() structureel gefixt — OPGELOST 2026-08-17
+Michiel vroeg door op het "4e keer hetzelfde patroon"-restpunt hierboven.
+`insert_event()` doet nu een veld-voor-veld merge bij een same-source-
+botsing (nieuwe waarde wint alleen als niet leeg) i.p.v. de rij altijd
+ongewijzigd te laten — voorkomt dat dit patroon (forum.nl/Geke Hoogstins/
+TivoliVredenburg/SPOT Groningen) zich nog een 5e keer herhaalt. Getest met
+6 scenario's tegen een losstaande test-DB. Zie decisions.md/overleg.md
+punt 18/ARCHITECTURE.md §Cross-source dedup.
 
 ## Zummerbühne toonde verkeerde afstand — OPGELOST 2026-08-17
 Michiel meldde dat de afstand bij Zummerbühne (~20km) niet klopte met Google
