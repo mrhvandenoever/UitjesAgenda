@@ -1011,3 +1011,130 @@ eerstvolgende herscrape, zonder dat er eerst weer een handmatige
 stale-rijen-opschoning nodig is zoals bij forum.nl/Geke Hoogstins/
 TivoliVredenburg/SPOT Groningen. Zie ARCHITECTURE.md §Cross-source dedup
 voor de bijgewerkte technische beschrijving.
+
+
+## 2026-08-17 — Claude Design-review clusters 1-4 gebouwd op een feature-branch
+
+Na overleg.md punt 17 (volledige, geclusterde lijst) heeft Michiel per cluster
+besloten wat te bouwen: clusters 1-4 (kleine fixes, nieuwe functionaliteit,
+afstand-UI, mobiele layout) goedgekeurd om nu te bouwen; cluster 5 (filterbalk
+→ toolbar-herbouw, kleurstrategie, lazy-loading-architectuur) bewust NIET nu —
+zie overleg.md voor de motivatie per onderdeel. Op Michiels verzoek dit keer
+op een aparte branch (`design-review-clusters-1-4`) i.p.v. direct op `main`,
+zodat hij het resultaat eerst kan bekijken voor het gemerged wordt.
+
+### Cluster 1 — kleine veilige fixes
+- `line-height:1.45` op body (algemene leesbaarheid; de meeste elementen
+  hebben al een eigen kleinere, met opzet compacte font-size — een blanket
+  16px-bump zou de informatiedichtheid van deze dense-listing-UI onevenredig
+  opblazen, dus bewust NIET gedaan).
+- Contrastfout `#aaa` op wit (~2,3:1, faalt WCAG) in footer + `.dist-badge`
+  gefixt naar `var(--muted)` (~5,4:1, haalt AA).
+- Emoji weg uit de 60 bronchips (badges op de kaarten zelf gebruikten ze al
+  niet) — "ruis, geen informatie" per de review.
+- "Terug naar boven"-knop (verschijnt na 400px scroll, `scrollTo` smooth).
+- Afstanden bijgehouden in een `Map` i.p.v. telkens `dataset.dist`
+  lezen/schrijven (JS-perf).
+- `aria-pressed` via een MutationObserver, bewust GESCOPED tot alleen de
+  filter-containers (`.mode-toggle`,`.filters`) i.p.v. `document.body` — een
+  observer op de hele pagina zou ook bij ELKE `.hidden`-toggle op de 8202
+  event-kaarten meevuren (gebeurt continu tijdens filteren) en zo precies de
+  perf-winst van de Map-gebaseerde `apply()` tenietdoen.
+- `role="group"` + `aria-labelledby` op alle 7 filter-groepen + mode-toggle.
+
+### Cluster 3 — afstand-UI
+- Range-slider + `window.prompt()` vervangen door zichtbare segmented buttons
+  (10/25/50/100/alle) + een inline eigen-km-veld (`type="number"`, 16px
+  font-size — voorkomt dezelfde iOS-zoom-bug als eerder bij `#addr-input`).
+- Adresrij op mobiel een eigen volle regel (`flex-direction:column`) i.p.v.
+  rommelig wrappen tussen label/input/knoppen/afstandsknoppen.
+
+### Cluster 4 — mobiel layout
+- Chip-filtergroepen op mobiel: horizontale scroll met randfade
+  (`mask-image`) i.p.v. wrappen naar 3-4 regels — toegepast via een nieuwe
+  `.chip-scroll`-klasse op de 6 pure-chip-groepen (Sport/Geslacht/Club/
+  Genre/Bron/Sorteren). **Bewust NIET** op de Provincie&afstand-groep: die
+  bevat ook de complexere adresrij (input/knoppen), niet geschikt voor
+  dezelfde scrollstrip als simpele chips.
+- Kaart op mobiel herindeeld: `display:block` i.p.v. de 3-koloms-grid, datum
+  als kleine kicker boven de titel, bron-badge (`.badge-src`) verborgen
+  (genre-badge blijft, nuttige info) — bewust `.event:not(.expo-item)` om de
+  Exposities-kaarten (andere HTML-structuur, geen los datum-element) niet
+  mee te raken.
+
+### Cluster 2 — nieuwe functionaliteit (grootste stuk)
+- **Zoekveld**: debounced (250ms) tekstveld, zoekt op titel+venue via een
+  vooraf-berekend `data-search`-attribuut per kaart (lowercased, gezet in
+  `event_html()`/`expo_card_html()`) — voorkomt dat elke toetsaanslag 8202x
+  child-elementen moet uitlezen en `.toLowerCase()` moet aanroepen. Werkt in
+  alle 3 modi.
+- **Datumfilter**: Vandaag/Dit weekend/Deze week/Deze maand + een eigen
+  van/tot-periode (`<input type="date">`, native picker). Overlapt-logica
+  voor meerdaagse events (`data-dateend`): een event matcht zodra zijn
+  bereik overlapt met het gekozen venster, niet alleen bij een exacte
+  startdatum-match. Alleen zichtbaar/actief in uitjes+sport (niet
+  exposities, per definitie langlopend).
+- **Sorteren voor Uitjes** (datum/afstand): herordent kaarten BINNEN elke
+  maand-sectie i.p.v. de maand-groepering zelf op te heffen zoals bij
+  Exposities' platte lijst — lager risico, blijft chronologisch
+  navigeerbaar.
+- **Actieve-filter-samenvatting**: verwijderbare tokens + "Wis alles".
+  Verwijderen delegeert naar de BESTAANDE klik-handler van de bijbehorende
+  chip (via `.click()`) i.p.v. filterlogica te dupliceren — voorkomt dat de
+  token-rij en de chips zelf uit sync raken.
+- **URL-state**: filters/modus/zoekterm in de query-string
+  (`history.replaceState`, geen `pushState` — anders krijgt elke chip-klik
+  een eigen terug-knop-stap). Adres zelf (async geocode-aanroep) bewust NIET
+  meegenomen — zou de init-flow async maken, scope beperkt gehouden.
+
+### Task: modus-wissel bewaart filters waar mogelijk
+`setMode()` wiste voorheen bij ELKE modus-wissel alle sport- én
+uitjes-specifieke filters. Nu: filters die in de nieuwe modus geen
+betekenis hebben vervallen (bv. genre/bron bij het overschakelen naar
+Sport), de rest (provincie, afstand, zoekterm) blijft behouden — Michiels
+expliciete keuze uit de clustering-vraag.
+
+### Twee echte bugs gevonden tijdens het bouwen, bevestigd met een live browsertest
+
+**1. `requestAnimationFrame`-batching van `apply()` (JS-perf-suggestie uit de
+review) bleek een reële betrouwbaarheidsbug.** Eerst gebouwd zoals
+voorgesteld; een test tegen een lokale `http.server`-preview liet zien dat
+een klik op een filter-chip geen zichtbaar effect meer had. Root cause:
+`document.visibilityState==='hidden'` in de niet-actief-zichtbare
+browser-tab van de testomgeving — browsers stellen `requestAnimationFrame`-
+callbacks dan uit of pauzeren ze helemaal (spec-gedrag, geen bug van de
+testomgeving). Bevestigd door `_applyNow()` direct aan te roepen (werkte
+meteen correct) vs. via `apply()`→`requestAnimationFrame` (bleef hangen).
+Voor een ECHTE gebruiker in een actief tabblad vuurt rAF wel betrouwbaar af
+op ~60fps, maar het risico (tabblad wisselen net na een klik, sommige
+mobiele/in-app-browser-contexten) woog niet op tegen de marginale winst van
+het batchen van één simpele klik-reactie (1 klik = 1 aanroep toch al).
+Teruggedraaid; alleen de Map-gebaseerde afstand-optimalisatie gehouden (die
+heeft dat risico niet, is een pure data-structuur-verbetering).
+
+**2. Tijdzone-bug in de nieuwe datumfilter-logica.** `computeWhenRange()`
+gebruikte aanvankelijk `d.toISOString().slice(0,10)` om een `Date`-object
+naar een ISO-datumstring om te zetten — `.toISOString()` converteert echter
+altijd naar UTC. Met de Nederlandse zomertijd (UTC+2) gaf `new
+Date().setHours(0,0,0,0)` (lokale middernacht) via `.toISOString()` de
+datum van de VORIGE dag terug (bevestigd: 17 augustus lokaal → "2026-08-16"
+in de ISO-string). Dit had ELKE Nederlandse gebruiker geraakt (heel de
+doelgroep van deze site zit in UTC+1/+2). Gefixt door lokale
+datumcomponenten (`getFullYear()`/`getMonth()`/`getDate()`) te gebruiken
+i.p.v. UTC-conversie.
+
+**Les, breder dan deze twee bugs**: beide zijn typisch het soort fout dat
+een grep-gebaseerde verificatie (zoals bij de eerste, kleinere design-fixes
+dit project) NOOIT had gevonden — alleen een echte browsertest met
+daadwerkelijke klik-interacties en tijdzone-gevoelige datumberekeningen
+legde ze bloot. Bij deze grotere, interactievere batch is daarom bewust
+overgestapt van "regenereren + grep" naar "regenereren + een lokale
+`http.server`-preview + browser-`javascript_exec`-tests die de JS
+daadwerkelijk laten draaien".
+
+**Geverifieerd**: alle onderdelen los getest via de lokale preview
+(zoeken, datumfilter incl. tijdzone-check, sorteren, filter-tokens
+verwijderen, URL-state schrijven+herstellen incl. modus, modus-wissel-
+filterbehoud, mobiele layout op 375px-viewport), geen console-errors.
+Gepusht naar `design-review-clusters-1-4` (niet naar `main`) — wacht op
+Michiels review voor mergen.

@@ -268,6 +268,30 @@ TivoliVredenburg/SPOT Groningen) zich nog een 5e keer herhaalt. Getest met
 6 scenario's tegen een losstaande test-DB. Zie decisions.md/overleg.md
 punt 18/ARCHITECTURE.md §Cross-source dedup.
 
+## Claude Design-review clusters 1-4 — GEBOUWD op branch 2026-08-17
+Michiel liet de volledige punt-17-lijst clusteren en besloot per cluster wat
+te bouwen: clusters 1-4 (kleine fixes, zoekveld/datumfilter/sorteren/
+filter-tokens/URL-state, afstand-UI, mobiele layout) nu; cluster 5
+(toolbar-herbouw, kleurstrategie, lazy-loading) nog niet — zie overleg.md
+punt 17 voor de volledige, bijgewerkte status per item.
+- [x] Op verzoek van Michiel op een feature-branch gebouwd
+  (`design-review-clusters-1-4`) i.p.v. direct op `main` — wacht op review
+  voor te mergen.
+- [x] Alle 4 clusters + de modus-wissel-filterbehoud-taak geïmplementeerd en
+  **echt in de browser getest** (lokale `http.server`-preview +
+  `javascript_exec`, niet alleen grep — belangrijk verschil t.o.v. de
+  eerdere, kleinere design-fix-batch).
+- [x] **2 echte bugs gevonden en gefixt tijdens het bouwen, alleen te vinden
+  via een live browsertest**: (1) `requestAnimationFrame`-batching van
+  `apply()` bleek stil te vallen in een niet-actief-zichtbaar tabblad
+  (`document.visibilityState==='hidden'`) — teruggedraaid; (2) de nieuwe
+  datumfilter-logica gaf door `.toISOString()`'s UTC-conversie de verkeerde
+  datum terug in de Nederlandse zomertijd (UTC+2) — zou ELKE Nederlandse
+  gebruiker geraakt hebben, gefixt met lokale datumcomponenten. Zie
+  decisions.md 2026-08-17 voor de volledige analyse van beide.
+- [ ] Wacht op Michiels review van de branch/preview-deploy voor mergen naar
+  `main`.
+
 ## Zummerbühne toonde verkeerde afstand — OPGELOST 2026-08-17
 Michiel meldde dat de afstand bij Zummerbühne (~20km) niet klopte met Google
 Maps (35,7km rijdend vanaf huis). Bleek een plaatsnaam-verwarring: er bestaan

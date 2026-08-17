@@ -389,9 +389,15 @@ def event_html(e):
             lat_lon = ''
     d_start = e.get('date',''); d_end = e.get('date_end','')
     date_disp = fmt_date_range(d_start, d_end) if d_end and d_end != d_start else fmt_date(d_start)
+    # Vooraf berekende, lowercased zoektekst (titel + venue/stad) als data-
+    # attribuut -- voorkomt dat het zoekveld bij elke toetsaanslag 8202x
+    # child-elementen moet uitlezen en .toLowerCase() aanroepen. Zie
+    # decisions.md 2026-08-17 (Claude Design-review).
+    search_txt = esc((e.get('title','') + ' ' + (e.get('venue','') or e.get('city','') or '')).lower())
     return (f'<div class="event {sk}" data-src="{src}" data-genre="{genre}" '
             f'data-prov="{prov}" data-latlon="{lat_lon}" data-gender="{gender}" '
-            f'data-date="{esc(d_start)}" data-dateend="{esc(d_end or d_start)}">'
+            f'data-date="{esc(d_start)}" data-dateend="{esc(d_end or d_start)}" '
+            f'data-search="{search_txt}">'
             f'<div class="event-date">{date_disp}</div>'
             f'<div class="event-main"><div class="event-title">{title_html}</div>'
             f'<div class="event-venue">{esc(e.get("venue","") or e.get("city",""))} '
@@ -439,10 +445,11 @@ def expo_card_html(e):
         date_txt = f"vanaf {fmt_date_long(d_start)} &middot; t/m {fmt_date_long(d_end)}"
     else:
         date_txt = f"vanaf {fmt_date_long(d_start)} &middot; einddatum onbekend"
+    search_txt = esc((e.get('title','') + ' ' + (e.get('venue','') or e.get('city','') or '')).lower())
     return (f'<div class="event expo-item {sk}" data-src="{src}" data-genre="expo" '
             f'data-prov="{prov}" data-latlon="{lat_lon}" '
             f'data-date="{esc(d_start)}" data-dateend="{esc(d_end or "9999-99-99")}" '
-            f'data-titlekey="{esc(e.get("title","").lower())}">'
+            f'data-titlekey="{esc(e.get("title","").lower())}" data-search="{search_txt}">'
             f'<div class="event-main"><div class="event-title">{title_html}</div>'
             f'<div class="event-daterange">{date_txt}</div>'
             f'<div class="event-venue">{esc(e.get("venue","") or e.get("city",""))} '
@@ -505,6 +512,7 @@ js = f'''
 const TOTAL={total+expo_total};
 let selSrc=new Set(), selGenre=new Set(), selProv=new Set(), maxDist=9999;
 let currentMode='uitjes', selSport=new Set(), selClub=new Set(), selGender='all';
+let searchQuery='', selWhenFrom=null, selWhenTo=null;
 const SPORT_SRCS=new Set(['fcgroningen','fcemmen','heerenveen','cambuur','fctwente','goahead','peczwolle','donar','landstede','lycurgus','sudosa','friso','grizzlys','flyers','ogcapitals','hurryup','eoemmen','ldodk','dos46']);
 const SPORT_BY_SRC={{fcgroningen:'voetbal',fcemmen:'voetbal',heerenveen:'voetbal',cambuur:'voetbal',fctwente:'voetbal',goahead:'voetbal',peczwolle:'voetbal',donar:'basketbal',landstede:'basketbal',lycurgus:'volleybal',sudosa:'volleybal',friso:'volleybal',grizzlys:'ijshockey',flyers:'ijshockey',ogcapitals:'ijshockey',hurryup:'handbal',eoemmen:'handbal',ldodk:'korfbal',dos46:'korfbal'}};
 const SPORT_COLOR_MAP={{voetbal:'#00a651',basketbal:'#e07000',volleybal:'#1565c0',ijshockey:'#37474f',handbal:'#c62828',korfbal:'#f57c00'}};
@@ -560,6 +568,43 @@ function updateDistances(){{
 // of pauzeert ze helemaal, waardoor een klik dan geen zichtbaar effect meer
 // had — bevestigd met een echte browsertest. Marginale winst (1 klik = 1
 // aanroep toch al) woog niet op tegen dat betrouwbaarheidsrisico.
+function renderActiveFilters(){{
+  const wrap=document.getElementById('active-filters');
+  const tokens=[];
+  const searchInput=document.getElementById('search-input');
+  if(searchQuery) tokens.push(['Zoeken: "'+searchQuery+'"', ()=>{{searchInput.value='';searchQuery='';apply();}}]);
+  const whenBtn=document.querySelector('#uitjes-datum .btn[data-when].active');
+  if(whenBtn&&whenBtn.dataset.when!=='all') tokens.push([whenBtn.textContent, ()=>document.querySelector('#uitjes-datum .btn[data-when="all"]').click()]);
+  else if(!whenBtn&&(selWhenFrom||selWhenTo)) tokens.push(['Periode: '+(selWhenFrom||'…')+' t/m '+(selWhenTo||'…'), ()=>{{whenFromInput.value='';whenToInput.value='';onCustomWhenChange();}}]);
+  selProv.forEach(p=>{{const b=document.querySelector('.btn[data-prov="'+p+'"]'); if(b)tokens.push([p, ()=>b.click()]);}});
+  if(maxDist<9999) tokens.push(['≤ '+maxDist+' km', ()=>{{document.querySelector('.dist-btn[data-dist="9999"]').click();}}]);
+  if(currentMode==='uitjes'){{
+    selGenre.forEach(g=>{{const b=document.querySelector('.btn[data-genre="'+g+'"]'); if(b)tokens.push([b.textContent, ()=>b.click()]);}});
+    selSrc.forEach(s=>{{const b=document.querySelector('.btn[data-src="'+s+'"]'); if(b)tokens.push([b.textContent, ()=>b.click()]);}});
+  }}
+  if(currentMode==='sport'){{
+    selSport.forEach(sp=>{{const b=document.querySelector('.btn[data-sport="'+sp+'"]'); if(b)tokens.push([b.textContent, ()=>b.click()]);}});
+    selClub.forEach(c=>{{const b=document.querySelector('.btn[data-club="'+c+'"]'); if(b)tokens.push([b.textContent, ()=>b.click()]);}});
+    if(selGender!=='all'){{const b=document.querySelector('.btn[data-gender="'+selGender+'"]'); if(b)tokens.push([b.textContent, ()=>document.querySelector('.btn[data-gender="all"]').click()]);}}
+  }}
+  wrap.innerHTML='';
+  if(tokens.length===0){{wrap.classList.add('hidden');return;}}
+  wrap.classList.remove('hidden');
+  tokens.forEach(([label,onRemove])=>{{
+    const t=document.createElement('span'); t.className='filter-token';
+    const txt=document.createElement('span'); txt.textContent=label;
+    const btn=document.createElement('button'); btn.textContent='×'; btn.setAttribute('aria-label','Verwijder filter: '+label);
+    btn.addEventListener('click',onRemove);
+    t.appendChild(txt); t.appendChild(btn);
+    wrap.appendChild(t);
+  }});
+  const clearAll=document.createElement('button'); clearAll.className='filter-token clear-all'; clearAll.textContent='Wis alles';
+  clearAll.addEventListener('click',()=>{{
+    tokens.forEach(([,fn])=>fn());
+  }});
+  wrap.appendChild(clearAll);
+}}
+
 function apply(){{
   let v=0;
   document.querySelectorAll('.event').forEach(ev=>{{
@@ -575,6 +620,13 @@ function apply(){{
       ok=isSport&&(selSport.size===0||selSport.has(sp))&&(selClub.size===0||selClub.has(src))&&(selGender==='all'||evGender===selGender||evGender==='gemengd')&&(selProv.size===0||selProv.has(ev.dataset.prov))&&dist<=maxDist;
     }}else{{
       ok=isExpo&&(selProv.size===0||selProv.has(ev.dataset.prov))&&dist<=maxDist;
+    }}
+    if(ok&&searchQuery){{
+      ok=(ev.dataset.search||'').includes(searchQuery);
+    }}
+    if(ok&&currentMode!=='exposities'&&(selWhenFrom||selWhenTo)){{
+      const evEnd=ev.dataset.dateend||ev.dataset.date;
+      ok=(!selWhenFrom||evEnd>=selWhenFrom)&&(!selWhenTo||ev.dataset.date<=selWhenTo);
     }}
     ev.classList.toggle('hidden',!ok);if(ok)v++;
   }});
@@ -596,6 +648,8 @@ function apply(){{
   const apb=document.querySelector('.btn[data-prov="all"]'),apa=selProv.size===0;
   apb.classList.toggle('active',apa);if(apa)actBtn(apb,'#555');else deactBtn(apb);
   document.getElementById('dist-label').textContent=maxDist>=9999?'Alle afstanden':'≤ '+maxDist+' km';
+  renderActiveFilters();
+  syncURL();
 }}
 
 async function geocode(addr){{
@@ -655,6 +709,79 @@ distCustomInput.addEventListener('change',function(){{
   apply();
 }});
 
+// --- Zoekveld (titel + venue), gedebouncet zodat niet elke toetsaanslag
+// meteen 8202 events opnieuw doorloopt -- zie decisions.md 2026-08-17. ---
+let searchDebounce=null;
+document.getElementById('search-input').addEventListener('input',function(){{
+  clearTimeout(searchDebounce);
+  const val=this.value;
+  searchDebounce=setTimeout(()=>{{
+    searchQuery=val.trim().toLowerCase();
+    apply();
+  }},250);
+}});
+
+// --- Datumfilter (Vandaag/Dit weekend/Deze week/Deze maand/eigen periode) ---
+function computeWhenRange(preset){{
+  const now=new Date(); now.setHours(0,0,0,0);
+  // LOKALE datumcomponenten, NIET .toISOString() (die converteert naar UTC --
+  // met Nederlandse zomertijd (UTC+2) schuift 'vandaag' dan een dag terug,
+  // bevestigd met een echte browsertest. Zie decisions.md 2026-08-17.)
+  const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  const addDays=(d,n)=>{{const r=new Date(d);r.setDate(r.getDate()+n);return r;}};
+  if(preset==='today') return [iso(now),iso(now)];
+  if(preset==='weekend'){{
+    const day=now.getDay();
+    let start=now;
+    if(day>=1&&day<=5) start=addDays(now,5-day);
+    const end=day===0?now:addDays(start,day===6?1:2);
+    return [iso(start),iso(end)];
+  }}
+  if(preset==='week') return [iso(now),iso(addDays(now,6))];
+  if(preset==='month'){{
+    const end=new Date(now.getFullYear(),now.getMonth()+1,0);
+    return [iso(now),iso(end)];
+  }}
+  return [null,null];
+}}
+const whenFromInput=document.getElementById('when-from'), whenToInput=document.getElementById('when-to');
+document.querySelectorAll('#uitjes-datum .btn[data-when]').forEach(b=>{{
+  b.addEventListener('click',function(){{
+    document.querySelectorAll('#uitjes-datum .btn[data-when]').forEach(x=>x.classList.toggle('active',x===this));
+    const [from,to]=computeWhenRange(this.dataset.when);
+    selWhenFrom=from; selWhenTo=to;
+    whenFromInput.value=from||''; whenToInput.value=to||'';
+    apply();
+  }});
+}});
+function onCustomWhenChange(){{
+  document.querySelectorAll('#uitjes-datum .btn[data-when]').forEach(x=>x.classList.remove('active'));
+  selWhenFrom=whenFromInput.value||null;
+  selWhenTo=whenToInput.value||null;
+  if(!selWhenFrom&&!selWhenTo) document.querySelector('#uitjes-datum .btn[data-when="all"]').classList.add('active');
+  apply();
+}}
+whenFromInput.addEventListener('change',onCustomWhenChange);
+whenToInput.addEventListener('change',onCustomWhenChange);
+
+// --- Sorteren voor Uitjes (datum/afstand) -- herordent kaarten BINNEN elke
+// maand-sectie (i.p.v. de maand-groepering zelf op te heffen zoals bij
+// Exposities' platte lijst -- lager risico, blijft chronologisch navigeerbaar). ---
+document.querySelectorAll('#uitjes-sort .btn[data-usort]').forEach(b=>{{
+  b.addEventListener('click',function(){{
+    document.querySelectorAll('#uitjes-sort .btn[data-usort]').forEach(x=>x.classList.toggle('active',x===this));
+    const sort=this.dataset.usort;
+    document.querySelectorAll('.month-section').forEach(sec=>{{
+      const items=Array.from(sec.querySelectorAll('.event'));
+      items.sort((a,c)=>{{
+        if(sort==='afstand') return (eventDist.get(a)??9999)-(eventDist.get(c)??9999);
+        return (a.dataset.date||'').localeCompare(c.dataset.date||'');
+      }});
+      items.forEach(it=>sec.appendChild(it));
+    }});
+  }});
+}});
+
 const LANDELIJK=new Set({landelijk_json});
 document.querySelector('.btn[data-src-group="landelijk"]').addEventListener('click',function(){{
   const isActive=this.classList.contains('active');
@@ -703,19 +830,31 @@ function setMode(m){{
   document.getElementById('btn-exposities').classList.toggle('active',m==='exposities');
   document.getElementById('sport-filters').style.display=m==='sport'?'block':'none';
   document.getElementById('expo-filters').style.display=m==='exposities'?'flex':'none';
-  ['uitjes-genre','uitjes-src'].forEach(id=>{{
+  ['uitjes-genre','uitjes-src','uitjes-datum','uitjes-sort'].forEach(id=>{{
     const el=document.getElementById(id);
     if(el) el.style.display=m==='uitjes'?'':'none';
   }});
   document.getElementById('month-nav-wrap').style.display=m==='exposities'?'none':'';
   document.querySelector('main').style.display=m==='exposities'?'none':'';
   document.getElementById('expo-wrap').style.display=m==='exposities'?'':'none';
-  selSport.clear();selClub.clear();selSrc.clear();selGenre.clear();selGender='all';
-  document.querySelectorAll('.btn[data-sport],.btn[data-club]').forEach(x=>deactBtn(x));
-  document.querySelectorAll('.btn[data-gender]').forEach(x=>x.classList.toggle('active',x.dataset.gender==='all'));
-  const smSA=document.querySelector('.btn[data-sport="all"]'),smCA=document.querySelector('.btn[data-club="all"]');
-  smSA.classList.add('active');actBtn(smSA,'#555');
-  smCA.classList.add('active');actBtn(smCA,'#555');
+  // Filters die in de nieuwe modus geen betekenis hebben vervallen vanzelf;
+  // de rest (provincie, afstand, zoekterm) blijft behouden bij modus-wissel
+  // -- voorheen werd bij ELKE wissel alles gewist, zie decisions.md 2026-08-17
+  // (Claude Design-review, Michiel koos expliciet voor 'bewaren waar mogelijk').
+  if(m!=='sport'){{
+    selSport.clear();selClub.clear();selGender='all';
+    document.querySelectorAll('.btn[data-sport],.btn[data-club]').forEach(x=>deactBtn(x));
+    document.querySelectorAll('.btn[data-gender]').forEach(x=>x.classList.toggle('active',x.dataset.gender==='all'));
+    const smSA=document.querySelector('.btn[data-sport="all"]'),smCA=document.querySelector('.btn[data-club="all"]');
+    if(smSA){{smSA.classList.add('active');actBtn(smSA,'#555');}}
+    if(smCA){{smCA.classList.add('active');actBtn(smCA,'#555');}}
+  }}
+  if(m!=='uitjes'){{
+    selSrc.clear();selGenre.clear();
+    document.querySelectorAll('.btn[data-src]:not([data-src="all"]),.btn[data-genre]:not([data-genre="all"])').forEach(x=>x.classList.remove('active'));
+    document.querySelector('.btn[data-src="all"]')?.classList.add('active');
+    document.querySelector('.btn[data-genre="all"]')?.classList.add('active');
+  }}
   apply();
 }}
 document.querySelectorAll('.btn[data-sport]').forEach(b=>b.addEventListener('click',()=>{{
@@ -767,11 +906,51 @@ document.querySelectorAll('.btn[data-sort]').forEach(b=>b.addEventListener('clic
   }});
   items.forEach(it=>wrap.appendChild(it));
 }}));
-// Init: zet afstanden vanuit standaard centrum (Annen), en pas direct de mode-filtering toe
-// (bugfix 2026-08-15: zonder deze regel bleven bv. sportwedstrijden zichtbaar tussen
-// de Uitjes tot de gebruiker voor het eerst een filter aanklikte)
+// --- URL-state: filters/modus/zoekterm in de query-string, zodat een
+// refresh/terug-knop de selectie niet wist en je een link kunt delen.
+// history.replaceState (niet pushState) i.p.v. elke chip-klik een eigen
+// back-button-stap te geven. ---
+function syncURL(){{
+  const p=new URLSearchParams();
+  if(currentMode!=='uitjes') p.set('mode',currentMode);
+  if(selProv.size) p.set('prov',Array.from(selProv).join(','));
+  if(maxDist<9999) p.set('d',maxDist);
+  if(searchQuery) p.set('q',searchQuery);
+  if(currentMode==='uitjes'){{
+    if(selGenre.size) p.set('genre',Array.from(selGenre).join(','));
+    if(selSrc.size) p.set('src',Array.from(selSrc).join(','));
+  }}
+  const qs=p.toString();
+  history.replaceState(null,'',location.pathname+(qs?'?'+qs:''));
+}}
+function restoreFromURL(){{
+  const p=new URLSearchParams(location.search);
+  const mode=p.get('mode');
+  if(mode==='sport'||mode==='exposities') currentMode=mode;
+  const prov=p.get('prov'); if(prov) prov.split(',').forEach(x=>selProv.add(x));
+  const d=parseInt(p.get('d'),10); if(!isNaN(d)&&d>0) maxDist=d;
+  const q=p.get('q'); if(q){{searchQuery=q; document.getElementById('search-input').value=q;}}
+  const genre=p.get('genre'); if(genre) genre.split(',').forEach(x=>selGenre.add(x));
+  const src=p.get('src'); if(src) src.split(',').forEach(x=>selSrc.add(x));
+  document.querySelectorAll('.btn[data-prov]').forEach(b=>{{if(b.dataset.prov!=='all') b.classList.toggle('active',selProv.has(b.dataset.prov));}});
+  document.querySelectorAll('.btn[data-genre]').forEach(b=>{{if(b.dataset.genre!=='all') b.classList.toggle('active',selGenre.has(b.dataset.genre));}});
+  document.querySelectorAll('.btn[data-src]').forEach(b=>{{if(b.dataset.src) b.classList.toggle('active',selSrc.has(b.dataset.src));}});
+  if(maxDist<9999){{
+    const knownStep=[10,25,50,100].includes(maxDist);
+    document.querySelectorAll('.dist-btn').forEach(b=>b.classList.toggle('active',knownStep&&parseInt(b.dataset.dist)===maxDist));
+    if(!knownStep) document.getElementById('dist-custom-input').value=maxDist;
+  }}
+}}
+
+// Init: URL-state herstellen (indien aanwezig) vóór de eerste render, dan
+// afstanden vanuit standaard centrum (Annen), en de mode-filtering toepassen
+// (bugfix 2026-08-15: zonder de setMode-aanroep bleven bv. sportwedstrijden
+// zichtbaar tussen de Uitjes tot de gebruiker voor het eerst een filter
+// aanklikte). setMode(currentMode) i.p.v. hardcoded 'uitjes' zodat een
+// herstelde modus uit de URL niet meteen weer overschreven wordt.
+restoreFromURL();
 updateDistances();
-setMode('uitjes');
+setMode(currentMode);
 '''
 
 html = f'''<!DOCTYPE html>
@@ -856,6 +1035,15 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
 #back-to-top{{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:#1565c0;color:#fff;border:none;font-size:1.2rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:200;}}
 #back-to-top.hidden{{display:none;}}
 #back-to-top:hover{{background:#0d47a1;}}
+#search-input{{width:100%;padding:8px 12px;border-radius:20px;border:1.5px solid #ccc;font-size:1rem;}}
+#search-input:focus{{outline:none;border-color:#1565c0;}}
+#when-from,#when-to{{padding:4px 8px;border-radius:20px;border:1.5px solid #ccc;font-size:0.85rem;}}
+#active-filters{{padding:6px 16px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:#fff;border-bottom:1px solid var(--border);}}
+#active-filters.hidden{{display:none;}}
+.filter-token{{display:inline-flex;align-items:center;gap:4px;background:#e3f2fd;color:#1565c0;border:1px solid #90caf9;border-radius:14px;padding:2px 4px 2px 10px;font-size:0.78rem;}}
+.filter-token button{{background:none;border:none;color:#1565c0;cursor:pointer;font-size:1rem;line-height:1;padding:2px 6px;}}
+.filter-token.clear-all{{background:#fce4ec;color:#c62828;border-color:#ef9a9a;cursor:pointer;padding:4px 12px;}}
+
 @media(max-width:600px){{
   .event:not(.expo-item){{display:block;padding:10px 12px;position:relative;}}
   .event:not(.expo-item) .event-date{{margin-bottom:3px;padding-top:0;}}
@@ -918,6 +1106,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   <h1>🗓️ Uitjes Agenda</h1>
   <div class="meta">Bijgewerkt: {today_str} &nbsp;·&nbsp; {total} events &nbsp;·&nbsp; {expo_total} exposities &nbsp;·&nbsp; {len(active_sources)} bronnen</div>
 </header>
+<div class="filters" role="search" aria-label="Zoeken">
+  <input type="search" id="search-input" placeholder="🔍 Zoek op titel of locatie…" aria-label="Zoek op titel of locatie">
+</div>
 <div class="filters" role="group" aria-labelledby="lbl-provincie">
   <div class="filters-label" id="lbl-provincie">Provincie &amp; afstand</div>
   {prov_buttons}
@@ -939,6 +1130,16 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
     <span id="addr-status">standaard: Annen</span>
   </div>
 </div>
+<div class="filters chip-scroll" id="uitjes-datum" role="group" aria-labelledby="lbl-datum">
+  <div class="filters-label" id="lbl-datum">Wanneer</div>
+  <button class="btn active" data-when="all">Alle</button>
+  <button class="btn" data-when="today">Vandaag</button>
+  <button class="btn" data-when="weekend">Dit weekend</button>
+  <button class="btn" data-when="week">Deze week</button>
+  <button class="btn" data-when="month">Deze maand</button>
+  <input type="date" id="when-from" aria-label="Vanaf datum" title="Eigen periode: vanaf">
+  <input type="date" id="when-to" aria-label="Tot datum" title="Eigen periode: tot">
+</div>
 <div class="filters chip-scroll" id="uitjes-genre" role="group" aria-labelledby="lbl-genre">
   <div class="filters-label" id="lbl-genre">Genre</div>
   <button class="btn active" data-genre="all">Alle genres</button>
@@ -958,12 +1159,18 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   <div class="filters-label" id="lbl-bron">Bron</div>
   {src_buttons}
 </div>
+<div class="filters chip-scroll" id="uitjes-sort" role="group" aria-labelledby="lbl-usort">
+  <div class="filters-label" id="lbl-usort">Sorteren</div>
+  <button class="btn active" data-usort="datum">Datum</button>
+  <button class="btn" data-usort="afstand">Afstand</button>
+</div>
 <div class="filters chip-scroll" id="expo-filters" style="display:none" role="group" aria-labelledby="lbl-sorteren">
   <div class="filters-label" id="lbl-sorteren">Sorteren</div>
   <button class="btn active" data-sort="start">Startdatum</button>
   <button class="btn" data-sort="end">Einddatum</button>
   <button class="btn" data-sort="alpha">Alfabetisch</button>
 </div>
+<div id="active-filters" class="hidden"></div>
 <div class="month-nav" id="month-nav-wrap">{month_nav}</div>
 <div id="stats">Toont alle {total} events</div>
 <div id="empty-state" class="hidden"></div>
