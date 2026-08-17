@@ -843,3 +843,87 @@ dubbel voorkomt binnen de Noord-Nederland-viewbox — nu alleen ontdekt en
 gefixt voor dit ene concrete geval (Oostwold), geen generieke disambiguatie
 gebouwd (zou een provincie/gemeente-hint per plaatsnaam vereisen, die de
 brondata niet altijd meegeeft).
+
+## 2026-08-17 — Claude Design-integratie + eerste design-review verwerkt
+
+Michiel voegde de `claude-design` MCP-server toe (`claude mcp add --scope user
+--transport http claude-design https://api.anthropic.com/v1/design/mcp`) en
+vroeg om een design-system-project "Uitjesagenda" aan te maken zodat Claude
+Design de live site kan bekijken en met verbetersuggesties komt.
+
+**Werkverdeling vastgelegd**: Claude Design bekijkt/adviseert, ik (Claude
+Code) bouw. De site is geen los HTML-bestand maar wordt gegenereerd door
+`gen_uitjes.py` — alles wat in het design-system-project zelf "gebouwd" zou
+worden staat los van die pipeline en wordt bij de eerstvolgende wekelijkse
+refresh toch overschreven. Project aangemaakt (`b3a7bf05-...`), een kopie
+van `index.html` gepusht als preview-kaart (`pages/index.html`, met een
+`@dsCard`-marker), NIET het bronbestand zelf.
+
+**Eerste review-resultaat verwerkt**: voordat er iets doorgevoerd werd zijn
+een aantal concrete, verifieerbare claims eerst gecheckt tegen de echte code
+(niet blind vertrouwd) — allemaal bevestigd als echte bugs:
+- `src_css()` zette bij ALLE bronnen `color:#fff` op de actieve chip-staat,
+  ook bij lichte kleuren (cambuur `#ffd700`, lycurgus `#ffcc00`, effenaar
+  `#f9a825`, goahead `#f5a623`) — onleesbare witte tekst op geel/oranje.
+  `club_css()` had toevallig al een (hardcoded, niet-generieke) uitzondering
+  voor dit exacte probleem.
+- Beide `target="_blank"`-links (event- en expo-titels) misten `rel="noopener"`.
+- `#addr-input` stond op `0.78rem` (~12,5px, root is 16px want er is geen
+  `html{font-size}`-override) — onder de 16px-grens die iOS-Safari laat
+  inzoomen bij focus.
+- `today_str` gebruikte `date.today().strftime('%B')` — locale-afhankelijk
+  (Engelse maandnaam op deze Windows-serverlocale), terwijl er al een
+  `NL_MONTHS_LONG`-dict bestaat die hier nooit voor gebruikt werd.
+- Geen `content-visibility` ergens in de CSS — klopt, met ~8202 events plat
+  in de DOM is dat een reële, makkelijk te pakken perf-winst.
+
+**Doorgevoerd** (`gen_uitjes.py`):
+1. Nieuwe `_contrast_text(hex_color)`-helper (simpele relatieve-helderheid-
+   check) — `src_css()` gebruikt 'm nu voor de actieve-chip-tekstkleur i.p.v.
+   altijd wit; `club_css()`'s oude hardcoded ternary vervangen door dezelfde
+   helper (consistent, minder duplicatie).
+2. `rel="noopener"` toegevoegd aan beide `target="_blank"`-links.
+3. `content-visibility:auto;contain-intrinsic-size:auto 62px` op `.event`
+   (niet op `.month-section` — een verkeerd geschatte intrinsic-size op een
+   container met sterk wisselend aantal events per maand zou juist
+   scroll-jank kunnen geven; op het kaart-niveau is de hoogte voorspelbaar).
+4. `#addr-input` font-size naar `1rem` (16px).
+5. `today_str` herbouwd met `NL_MONTHS_LONG` i.p.v. `strftime('%B')`.
+6. Titel-hiërarchie: `.event-title a` van `#1565c0`/weight 500 naar
+   `var(--text)`/weight 600/`0.95rem` (blauw+onderstreept alleen nog bij
+   hover) — titel is nu de sterkste tekst op de kaart i.p.v. even zwaar als
+   venue/badges. `.event-date` iets sterker (`var(--text)`, weight 700).
+7. `a:focus-visible,button:focus-visible,input:focus-visible` — ontbrak
+   volledig, toetsenbordgebruikers zagen nergens een focus-indicator.
+8. Lege-staat-bericht (`#empty-state`) toegevoegd: bij 0 resultaten stond er
+   alleen een kleine "Toont 0 van 8202" in de statusbalk, verder een leeg
+   scherm zonder uitleg. Nu een concreet bericht incl. waarschijnlijke
+   oorzaak ("geen events binnen N km — probeer een grotere afstand").
+
+**Bug tijdens het bouwen (proces-les, geen data-bug)**: eerste poging om
+punt 1-3 in één script te bundelen crashte halverwege (de `rel="noopener"`-
+match faalde door een kopieerfout in de multi-line `old`-string) — de
+`assert` gooide een exception VOORDAT `open(path,'w').write(src)` bereikt
+werd, dus de eerdere geslaagde `str.replace()`-stappen (punt 1-2) gingen
+he-le-maal verloren, ook al leek de foutmelding alleen over punt 3 te gaan.
+Pas bij de verificatie-pass (grep op de output) bleek dat de contrast-fix
+er niet in zat. Les: bij een geketende reeks `apply()`-calls in één script
+is een gedeeltelijke crash een ALLES-of-NIETS — geen van de eerdere stappen
+overleeft, want de write gebeurt pas na de laatste. Simpelweg opnieuw
+uitgevoerd met de exacte huidige bestandsinhoud als basis, dit keer
+succesvol; nu bewust elke wijziging apart met een `assert`+aparte
+`grep`-verificatie gecheckt na de finale write, niet vertrouwd op het
+ontbreken van een crash alleen.
+
+**Bewust NIET doorgevoerd, wel gelogd** (grotere/subjectievere
+productkeuzes, horen bij Michiel te liggen): zie overleg.md punt 17 voor de
+volledige lijst (zoekveld, datumfilter, filterbalk→toolbar+popover-herbouw,
+kleurstrategie omgooien, lazy-loading-architectuur, URL/localStorage-state,
+sorteren voor Uitjes, mobiele touch-targets, mode-wissel-die-filters-wist,
+aria-pressed/role=group).
+
+**Geverifieerd**: alle 13 checks (contrast x4 + 1 ongewijzigde controle,
+noopener, content-visibility, addr-input, maandnaam, titel-typografie,
+focus-visible, empty-state div+JS) bevestigd via een grep-gebaseerde
+verificatie-script tegen de daadwerkelijk gegenereerde `index.html` — niet
+alleen "geen crash" aangenomen.

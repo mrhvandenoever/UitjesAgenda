@@ -324,10 +324,20 @@ months_sorted = sorted(by_month.keys())
 
 css_vars = '\n'.join(f'  --{safe_key(k)}:{v[2]};' for k,v in SRC.items())
 
+def _contrast_text(hex_color):
+    """Zwart of wit tekst o.b.v. helderheid van de achtergrondkleur — voorkomt
+    onleesbare combinaties zoals witte tekst op geel (bv. cambuur #ffd700,
+    lycurgus #ffcc00). Gevonden door Claude Design-review 2026-08-17, zie
+    decisions.md: src_css() zette altijd wit, ongeacht achtergrondkleur —
+    club_css() had toevallig al een (hardcoded, niet-generieke) uitzondering."""
+    h = hex_color.lstrip('#')
+    r, g, b = int(h[0:2],16), int(h[2:4],16), int(h[4:6],16)
+    return '#212121' if (0.299*r + 0.587*g + 0.114*b) > 150 else '#fff'
+
 def src_css(key):
     sk=safe_key(key); c=SRC.get(key,('','','#999'))[2]
     return (f'.btn[data-src="{key}"]{{border-color:{c};color:{c};}}'
-            f'.btn[data-src="{key}"].active{{background:{c};color:#fff;border-color:{c};}}'
+            f'.btn[data-src="{key}"].active{{background:{c};color:{_contrast_text(c)};border-color:{c};}}'
             f'.event.{sk}{{border-left-color:{c};}}'
             f'.s-{sk}{{background:{c}22;color:{c};border:1px solid {c}44;}}')
 
@@ -357,7 +367,7 @@ def event_html(e):
         glabel = SPORT_LABELS.get(sport_type, 'Sport')
     else:
         icon = GENRE_ICONS.get(genre,'•'); glabel = GENRE_LABELS.get(genre,'Overig')
-    title_html = (f'<a href="{esc(e.get("url",""))}" target="_blank">{esc(e.get("title",""))}</a>'
+    title_html = (f'<a href="{esc(e.get("url",""))}" target="_blank" rel="noopener">{esc(e.get("title",""))}</a>'
                   if e.get('url') else esc(e.get('title','')))
     loc = VENUE_LOC.get(src)
     prov = loc[2] if loc else e.get('province', 'Onbekend')
@@ -404,7 +414,7 @@ def fmt_date_long(iso):
 def expo_card_html(e):
     src = e.get('source',''); sk = safe_key(src)
     icon = GENRE_ICONS.get('expo','🖼️'); glabel = GENRE_LABELS.get('expo','Expo / Kunst')
-    title_html = (f'<a href="{esc(e.get("url",""))}" target="_blank">{esc(e.get("title",""))}</a>'
+    title_html = (f'<a href="{esc(e.get("url",""))}" target="_blank" rel="noopener">{esc(e.get("title",""))}</a>'
                   if e.get('url') else esc(e.get('title','')))
     loc = VENUE_LOC.get(src)
     prov = loc[2] if loc else e.get('province', 'Onbekend')
@@ -444,7 +454,10 @@ def expo_card_html(e):
 
 expo_html = ''.join(expo_card_html(e) for e in expo_valid)
 
-today_str = date.today().strftime('%d %B %Y').lstrip('0')
+# Locale-onafhankelijk (was strftime('%B') — Engelse maandnaam op deze Windows-
+# server-locale, zie decisions.md 2026-08-17, Claude Design-review).
+_today = date.today()
+today_str = f"{_today.day} {NL_MONTHS_LONG[_today.month-1]} {_today.year}"
 
 provs = ['Groningen','Drenthe','Friesland','Overijssel','Utrecht','Noord-Holland','Zuid-Holland','Noord-Brabant','Gelderland']
 prov_colors = {
@@ -481,7 +494,7 @@ sport_css = '\n'.join(
     for s,c in SPORT_COLORS.items())
 club_css = '\n'.join(
     f'.btn[data-club="{k}"]:hover{{border-color:{SRC[k][2]};color:{SRC[k][2]};}}'
-    f'.btn[data-club="{k}"].active{{background:{SRC[k][2]};color:{"#212121" if SRC[k][2] in ("#ffcc00","#ffd700") else "#fff"};border-color:{SRC[k][2]};}}'
+    f'.btn[data-club="{k}"].active{{background:{SRC[k][2]};color:{_contrast_text(SRC[k][2])};border-color:{SRC[k][2]};}}'
     for k in SPORT_SRCS if k in SRC)
 gender_css = ('.btn[data-gender="all"].active{background:#555;color:#fff;border-color:#555;}'
               '.btn[data-gender="heren"].active{background:#1565c0;color:#fff;border-color:#1565c0;}'
@@ -541,6 +554,13 @@ function apply(){{
     s.classList.toggle('hidden',s.querySelectorAll('.event:not(.hidden)').length===0);
   }});
   document.getElementById('stats').textContent=v===TOTAL?'Toont alle '+TOTAL+' events':'Toont '+v+' van '+TOTAL+' events';
+  const emptyEl=document.getElementById('empty-state');
+  emptyEl.classList.toggle('hidden',v!==0);
+  if(v===0){{
+    emptyEl.textContent = maxDist<9999
+      ? 'Geen events gevonden binnen '+maxDist+' km — probeer een grotere afstand of andere filters.'
+      : 'Geen events gevonden met de huidige filters — probeer andere filters.';
+  }}
   if(currentMode==='uitjes'){{
     document.querySelector('.btn[data-src="all"]')?.classList.toggle('active',selSrc.size===0);
     document.querySelector('.btn[data-genre="all"]')?.classList.toggle('active',selGenre.size===0);
@@ -771,7 +791,7 @@ header h1{{font-size:1.2rem;font-weight:700;margin-bottom:2px;}}
 .g-overig{{background:#f5f5f5;color:#555;}}
 .addr-row{{display:flex;align-items:center;gap:6px;flex-wrap:wrap;width:100%;}}
 .addr-row label{{font-size:0.78rem;color:var(--muted);white-space:nowrap;}}
-#addr-input{{padding:4px 10px;border-radius:20px;border:1.5px solid #ccc;font-size:0.78rem;width:180px;}}
+#addr-input{{padding:4px 10px;border-radius:20px;border:1.5px solid #ccc;font-size:1rem;width:180px;}}
 #addr-input:focus{{outline:none;border-color:#1565c0;}}
 .icon-btn{{padding:4px 8px;border-radius:20px;border:1.5px solid #ccc;background:#fff;cursor:pointer;font-size:0.82rem;}}
 .icon-btn:hover{{background:#f5f5f5;}}
@@ -783,20 +803,23 @@ header h1{{font-size:1.2rem;font-weight:700;margin-bottom:2px;}}
 .month-link{{display:inline-block;padding:3px 8px;margin-right:4px;border-radius:4px;text-decoration:none;color:var(--muted);font-size:0.78rem;background:#f5f5f5;}}
 .month-link:hover{{background:#e0e0e0;}}
 #stats{{background:#fff;padding:6px 16px;font-size:0.8rem;color:var(--muted);border-bottom:1px solid var(--border);}}
+#empty-state{{margin:24px 16px;padding:20px;background:#fff;border:1px dashed var(--border);border-radius:8px;color:var(--muted);text-align:center;font-size:0.9rem;}}
+#empty-state.hidden{{display:none;}}
 main{{padding:0 16px 32px;}}
 .month-section{{margin-top:20px;}} .month-section.hidden{{display:none;}}
 .month-header{{font-size:1rem;font-weight:700;color:var(--muted);padding:8px 0 6px;border-bottom:1px solid var(--border);margin-bottom:8px;}}
-.event{{background:var(--card);border-left:3px solid #ccc;border-radius:4px;padding:8px 10px;margin-bottom:6px;display:grid;grid-template-columns:70px 1fr auto;gap:8px;align-items:start;}}
+.event{{background:var(--card);border-left:3px solid #ccc;border-radius:4px;padding:8px 10px;margin-bottom:6px;display:grid;grid-template-columns:70px 1fr auto;gap:8px;align-items:start;content-visibility:auto;contain-intrinsic-size:auto 62px;}}
 .event.hidden{{display:none;}}
-.event-date{{font-size:0.78rem;color:var(--muted);font-weight:600;padding-top:2px;}}
-.event-title a{{color:#1565c0;text-decoration:none;font-weight:500;}}
-.event-title a:hover{{text-decoration:underline;}}
+.event-date{{font-size:0.8rem;color:var(--text);font-weight:700;padding-top:2px;}}
+.event-title a{{color:var(--text);text-decoration:none;font-weight:600;font-size:0.95rem;}}
+.event-title a:hover{{text-decoration:underline;color:#1565c0;}}
 .event-venue{{font-size:0.75rem;color:var(--muted);margin-top:2px;}}
 .event-daterange{{font-size:0.75rem;color:#1565c0;font-weight:600;margin-top:2px;}}
 .event.expo-item{{grid-template-columns:1fr auto;}}
 .btn[data-sort].active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
 .dist-badge{{font-size:0.68rem;color:#aaa;margin-left:4px;}}
 .event-badges{{display:flex;flex-direction:column;gap:3px;align-items:flex-end;}}
+a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #1565c0;outline-offset:2px;}}
 .badge{{font-size:0.68rem;padding:2px 6px;border-radius:10px;white-space:nowrap;}}
 .badge-src{{font-weight:600;}}
 @media(max-width:600px){{
@@ -897,6 +920,7 @@ main{{padding:0 16px 32px;}}
 </div>
 <div class="month-nav" id="month-nav-wrap">{month_nav}</div>
 <div id="stats">Toont alle {total} events</div>
+<div id="empty-state" class="hidden"></div>
 <main>{main_html}</main>
 <div id="expo-wrap" style="display:none;padding:0 16px 32px;">{expo_html}</div>
 <script>{js}</script>

@@ -131,6 +131,22 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - Aanleiding: Michiel wees erop dat Zummerbühne (Oostwold) ~20km toonde, Google Maps rijdend 35,7km. Grootste deel bleek een echte databug (verkeerde "Oostwold" coördinaat, zie decisions.md) — na de fix resteert ~27km hemelsbreed vs 35,7km rijdend, wat structureel klopt: de site rekent met haversine (rechte lijn), niet met een routeplanner.
 - Geen actie ondernomen — een echte rijafstand zou een routing-API (bv. OSRM/Google Directions) per event vereisen, een veel grotere en kostbaardere wijziging dan de huidige client-side haversine-berekening. Alleen vastgelegd zodat een volgend "afstand klopt niet"-signaal niet blind als dezelfde soort databug behandeld wordt.
 
+### 17. Claude Design-review: grotere/subjectieve suggesties nog te prioriteren (2026-08-17)
+- Aanleiding: Claude Design (nieuwe MCP-integratie, zie decisions.md) heeft de live site beoordeeld. De concrete, verifieerbare bugs zijn al gefixt (contrast, `rel=noopener`, `content-visibility`, input-font-size, Nederlandse maandnaam, titel-hiërarchie, focus-visible, lege-staat-bericht — zie decisions.md 2026-08-17). Dit punt is voor de rest: grotere en/of subjectieve voorstellen die eerst input van Michiel verdienen voor er iets gebouwd wordt.
+- **Nieuwe functionaliteit (uitbreidt, geen bugfix)**:
+  - Zoekveld (titel/venue) — meest gevraagde ontbrekende functie bij 8200+ events, relatief bevat maar raakt wel de filter-JS.
+  - Datumfilter (Vandaag/Dit weekend/Deze week/Deze maand/eigen periode) — nu alleen maand-ankerlinks, geen "wanneer"-filter.
+  - Sorteren voor Uitjes (datum/afstand/relevantie) — bestaat nu alleen voor Exposities.
+  - URL-query-params of localStorage voor filters/modus/adres — refresh/terug-knop gooit nu alles weg, geen deelbare link.
+- **Grotere herstructurering (raakt layout/gedrag substantieel)**:
+  - Filterbalk (5 rijen, ~70 chips) herbouwen naar compacte toolbar + popovers (`[zoeken] [Wanneer▾] [Waar▾] [Genre▾] [Bron▾]`) — met name op mobiel duwt de huidige balk alle events onder de fold.
+  - Kleurstrategie omgooien: chips neutraal maken, kleur alleen nog via kaart-linkerrand + genre-badge — raakt de visuele identiteit van 60 bronnen ineens.
+  - Mobiele touch-targets vergroten (chips nu ~24px, target 44px) — **bewust gekoppeld aan de toolbar-herbouw hierboven**: los vergroten zonder de balk in te klappen maakt het "wall of chips"-probleem op mobiel juist erger, niet beter.
+  - Architectuur: alleen de eerstvolgende ~60 dagen server-side in de HTML, rest per maand als JSON lazy-loaden — grote wijziging t.o.v. het huidige "alles in één static HTML, geen backend"-principe (zie decisions.md/ARCHITECTURE.md), vereist waarschijnlijk Cloudflare Pages Functions of per-maand-JSON-exports.
+- **Gedragswijziging, klein maar een keuze**: modus wisselen (Uitjes/Sport/Exposities) wist nu stilzwijgend de actieve filters (`setMode()` leegt `selSrc`/`selGenre`) — bewaren of expliciet melden?
+- **Toegankelijkheid, groter dan de al-gefixte focus-visible**: `aria-pressed` op alle filter-chips en `role="group"`/`aria-label` op de filter-label-divs — raakt meerdere chip-groepen (genre/bron/provincie/club/gender), bewust niet in de eerste veilige batch meegenomen.
+- **Niet te verifiëren/fixen vanaf hier**: Claude Design meldde dat de eigen preview vastliep bij het maken van een screenshot van de 5,5MB/8202-events-pagina — waarschijnlijk gewoon een DOM-grootte-limiet van hun eigen previewtool, geen actie mogelijk aan de codebase-kant behalve de al-doorgevoerde `content-visibility`-fix (die dat indirect kan verzachten).
+
 ## Status
 Sessie 2026-08-15: GitHub gesynchroniseerd (17 commits ingehaald), punt 1 opgelost (Taakplanner-taak ma/wo/za 04:00), kritieke SSL-bug gefixt, 31 → 7 AI/Chrome-bronnen opgelost (26 nieuwe scrapers, zie SCRAPERS.md/decisions.md/plan.md — resterende 7 bewust geparkeerd als "moeilijk"), punt 4 (kapotte links) daarmee ook volledig afgesloten, Ticketmaster-API-key veilig opgezet. Sessie afgesloten met een productbrainstorm: 3 nieuwe topniveau-knoppen (Exposities/Favorieten/Admin) — richting bepaald, zie punten 9-11.
 
