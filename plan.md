@@ -212,3 +212,24 @@ Productbrainstorm afgerond 2026-08-15, richting vastgelegd in overleg.md punten 
 - [ ] GIJS Groningen — URL is nu wel bekend (gijsgroningen.nl/gijs-eredivisie/), maar toont nog seizoen 2025-2026; herchecken zodra 2026-2027 live is
 - [ ] Stadspark Groningen (Summer Stage, Hullaballoo) — revisit zomer 2027
 - [ ] Overige scraping-recipes zonder werkende methode — zie `SCRAPERS.md` voor de actuele, volledige stand
+
+## Meerdaagse events op drenthe.nl/friesland.nl/visitgroningen — OPGELOST 2026-08-17
+Michiel vroeg of Zomerfeest Eext (drenthe.nl, vr 21 t/m zo 23 augustus) wel op
+alle drie de dagen genoteerd stond. Bleek niet zo, op twee niveaus tegelijk:
+- [x] **Parse-bug**: `parse_date()` in alle drie de "plaece.nl"-scrapers ving
+  "21 t/m 23 augustus" alleen als startdag, gooide de einddag weg via een
+  non-capturing regex-group. Nu herschreven naar een echt `(start, end)`-tuple
+  met een nieuwe volledig-bereik-regextak. 102/252 "t/m"-gevallen op
+  drenthe.nl waren zo'n volledig bereik (fixbaar); de overige 150 "t/m N
+  maand"-teksten zonder zichtbare startdag blijven bewust ongewijzigd (ambigu
+  — zie CLAUDE.md-regel over aannames).
+- [x] **Zichtbaarheids-bug**: `event_is_valid()` gebruikte `date_end` alleen
+  voor expo's — een gewoon (niet-expo) meerdaags event verdween na dag 1 alsnog
+  uit de agenda. Nu ook voor gewone events: blijft zichtbaar t/m `date_end`,
+  valt terug op de oude startdatum-regel als er geen `date_end` is.
+- [x] Weergave uitgebreid: event-kaarten tonen nu "vr 21 t/m zo 23 aug" i.p.v.
+  alleen de startdag zodra `date_end` afwijkt (nieuwe `fmt_date_range()`).
+- [x] DB opgeschoond (precies gescoped: alleen rijen die nu een `date_end`
+  moeten krijgen en dat nog niet hadden) en alle drie scrapers live gedraaid +
+  export + generate. Geverifieerd: Zomerfeest Eext toont nu het volledige
+  bereik. Zie decisions.md 2026-08-17 voor de volledige technische uitwerking.

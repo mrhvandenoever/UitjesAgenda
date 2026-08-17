@@ -73,13 +73,53 @@ def unescape(s: str) -> str:
              .replace('&quot;', '"').replace('&lt;', '<').replace('&gt;', '>').strip())
 
 
-def parse_date(date_str: str) -> str | None:
+def parse_date(date_str: str) -> tuple[str, str | None] | None:
+    """Pakt de datum uit de datumstring. Retourneert (start_iso, end_iso).
+
+    Zelfde fix als scrape_drenthe.py (2026-08-17, zie decisions.md): een
+    volledig bereik ("21 t/m 23 augustus" — start- én einddag) levert nu ook
+    een date_end op. "t/m N maand" zonder zichtbare startdag blijft bewust
+    ongewijzigd (ambigu, zie overleg.md)."""
     s = date_str.strip().lower()
     if any(w in s for w in ('wekelijks', 'maandelijks', 'dagelijks')):
         return None
     for dag in ('maandag', 'dinsdag', 'woensdag', 'donderdag',
                 'vrijdag', 'zaterdag', 'zondag'):
         s = s.replace(dag, '').strip()
+
+    year_m = re.search(r'\b(202\d)\b', s)
+    year   = int(year_m.group(1)) if year_m else datetime.now().year
+
+    def make_date(day: int, month_n: str, roll_year: bool) -> date | None:
+        try:
+            d = date(year, int(month_n), day)
+        except ValueError:
+            return None
+        if roll_year and not year_m and d.isoformat() < TODAY:
+            try:
+                d = date(year + 1, int(month_n), day)
+            except ValueError:
+                return None
+        return d
+
+    m_range = re.search(
+        r'(\d{1,2})\s*t/m\s*(\d{1,2})\s*'
+        r'(januari|februari|maart|april|mei|juni|juli|augustus|'
+        r'september|oktober|november|december)',
+        s
+    )
+    if m_range:
+        start_day, end_day, month_name = m_range.groups()
+        month_n = MONTHS_NL.get(month_name)
+        if not month_n:
+            return None
+        start = make_date(int(start_day), month_n, roll_year=True)
+        if not start:
+            return None
+        end = make_date(int(end_day), month_n, roll_year=False)
+        if not end or end < start:
+            end = start
+        return start.isoformat(), end.isoformat()
 
     m = re.search(
         r'(\d{1,2})\s*(?:t/m\s*\d{1,2}\s*)?'
@@ -94,21 +134,11 @@ def parse_date(date_str: str) -> str | None:
     if not month_n:
         return None
 
-    year_m = re.search(r'\b(202\d)\b', s)
-    year   = int(year_m.group(1)) if year_m else datetime.now().year
-
-    try:
-        d = date(year, int(month_n), int(m.group(1)))
-    except ValueError:
+    d = make_date(int(m.group(1)), month_n, roll_year=True)
+    if not d:
         return None
 
-    if not year_m and d.isoformat() < TODAY:
-        try:
-            d = date(year + 1, int(month_n), int(m.group(1)))
-        except ValueError:
-            return None
-
-    return d.isoformat()
+    return d.isoformat(), None
 
 
 def should_include(title: str) -> bool:
@@ -200,6 +230,7 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
         parsed = parse_date(raw['date_str'])
         if not parsed:
             continue
+        start_iso, end_iso = parsed
 
         found += 1
         city  = raw['city']
@@ -208,13 +239,15 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
 
         ev = {
             'title':    title,
-            'date':     parsed,
+            'date':     start_iso,
             'city':     city,
             'province': PROVINCE,
             'genre':    genre,
             'source':   SOURCE,
             'url':      url_e,
         }
+        if end_iso and end_iso != start_iso:
+            ev['date_end'] = end_iso
         if not dry_run:
             all_events.append(ev)
         else:

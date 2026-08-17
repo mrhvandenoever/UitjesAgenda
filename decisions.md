@@ -721,3 +721,72 @@ Museum-links werken, TivoliVredenburg 0/853 zonder URL (was 480/480 zonder
 URL), Groninger Museumnacht zichtbaar als Uitje, Groninger Museum-scraper
 dekt 8 exposities + 1 activiteit. SCRAPERS.md's "geparkeerd als moeilijk"-
 lijst: 7 → 6 bronnen.
+
+## 2026-08-17 — meerdaagse events op drenthe.nl/friesland.nl/visitgroningen (n.a.v. Michiels vraag over Zomerfeest Eext)
+
+Michiel vroeg of https://www.drenthe.nl/evenementen-activiteiten/4218330043/zomerfeest-eext
+(vr 21 t/m zo 23 augustus 2026) wel op alle drie de dagen genoteerd stond.
+Bleek niet zo — root cause: `parse_date()` in alle drie de "plaece.nl"-scrapers
+(drenthe.nl/friesland.nl/visitgroningen, near-identieke copy-paste-code) had
+een regex `(\d{1,2})\s*(?:t/m\s*\d{1,2}\s*)?(maand)` waarin de `t/m N` een
+NON-capturing group is — het cijfer na "t/m" werd dus wel herkend maar meteen
+weggegooid, met als gevolg dat een 3-daags event alleen op zijn eerste dag in
+de agenda stond.
+
+**Scope van de bug** (gemeten op drenthe.nl, 1469 datumteksten): 252 bevatten
+"t/m" — daarvan 102 volledige bereiken ("21 t/m 23 augustus", start- én
+einddag, altijd dezelfde maand in alle geziene gevallen) en 150 end-only
+("t/m 23 augustus", geen zichtbare startdag — vermoedelijk al eerder begonnen
+doorlopende dingen).
+
+**Fix**: `parse_date()` in alle drie de scrapers herschreven van
+`str | None` naar `tuple[start_iso, end_iso|None] | None`. Nieuwe regex-tak
+herkent volledige bereiken expliciet en levert nu een echte `date_end` op.
+De end-only-vorm is **bewust ongewijzigd gelaten** — een fix zou een gok over
+de onbekende startdatum vereisen, en dat wilde ik niet zonder overleg doen
+(zie CLAUDE.md-regel over aannames). Call sites in alle drie bestanden
+aangepast om het tuple uit te pakken en `date_end` alleen te zetten als die
+afwijkt van de startdatum.
+
+**Bug tijdens het bouwen**: `MONTHS_NL`-dict geeft maandnummers als
+zero-padded STRINGS (`'08'`), niet ints — een `date(year, month_n, day)`-call
+binnen de nieuwe `make_date()`-helper crashte eerst met
+`TypeError: 'str' object cannot be interpreted as an integer` doordat de
+`int()`-conversie (die in de oude code alleen op het uiteindelijke
+`date()`-aanroeppunt stond) niet was meegenomen. Gefixt.
+
+**Belangrijkere vervolgvondst — `event_is_valid()` gebruikte `date_end` alleen
+voor expo's, niet voor gewone events**: zelfs met de parse-fix zou
+Zomerfeest Eext na 21 augustus alsnog uit de agenda verdwijnen, want de
+validity-check in `gen_uitjes.py` filterde niet-expo events uitsluitend op
+`d >= TODAY` (startdatum), `date_end` werd daar helemaal niet gelezen. Dat
+raakt de kern van Michiels vraag — "staat het er nog op dag 2/3" — dus ook
+gefixt: `event_is_valid()` houdt een niet-expo event nu zichtbaar zolang
+`date_end >= TODAY`, met de startdatum-regel als fallback wanneer er geen
+`date_end` is (anders dan bij expo's, die zónder `date_end` juist altijd
+geldig blijven — dat bestaande gedrag is bewust niet aangeraakt).
+
+**Weergave uitgebreid**: `event_html()` toont nu een bereik ("vr 21 t/m zo 23
+aug") i.p.v. alleen de startdag zodra `date_end` afwijkt van `date` — nieuwe
+`fmt_date_range()`-helper, kort formaat (in tegenstelling tot expo's lange
+"vanaf ... t/m ..."-stijl, past beter bij de kleinere event-date-regel).
+`data-date`/`data-dateend`-attributen toegevoegd aan de event-div voor
+consistentie met expo-kaarten (nog niet door JS gebruikt, wel beschikbaar
+voor toekomstig gebruik zoals per-dag filteren).
+
+**Opruimen vóór live-run**: `insert_event()`'s bekende beperking (zie eerdere
+sessies) dat een same-source herscrape een bestaande rij nooit update, dus
+het simpelweg herdraaien van de scrapers zou de nieuwe `date_end`-info niet
+in bestaande rijen krijgen. Preciese cleanup: voor elk van de drie bronnen
+eerst een fresh parse gedaan, en alleen de specifieke bestaande DB-rijen
+verwijderd waarvoor de fresh parse een `date_end` oplevert én de bestaande
+rij nog `date_end IS NULL` had (geen blanket wipe). Resultaat: 15 unieke
+meerdaagse events op drenthe.nl, 35 op friesland.nl, 6 op visitgroningen nu
+met correcte `date_end` in de DB.
+
+**Geverifieerd lokaal vóór commit**: unit-tests voor alle datumformaten in
+alle drie bestanden, live dry-run bevestigt Zomerfeest Eext specifiek
+(`date_end: '2026-08-23'`), live scrape + export + generate uitgevoerd,
+gegenereerde `index.html` gecontroleerd — Zomerfeest Eext toont nu
+"vr 21 t/m zo 23 aug" en blijft (gesimuleerd) zichtbaar t/m 23 augustus,
+verdwijnt pas op 24 augustus.

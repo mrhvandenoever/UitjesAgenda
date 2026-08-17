@@ -236,6 +236,42 @@ init-code voor de nieuwe derde modus aangepast moest worden.
 
 ---
 
+## Meerdaagse Uitjes/Sport-events (`date_end` buiten Exposities)
+
+Gebouwd 2026-08-17, n.a.v. Michiels vraag of Zomerfeest Eext (drenthe.nl,
+3-daags) wel op alle dagen genoteerd stond. Tot dan toe was `date_end` alleen
+voor Exposities een levend concept (zie hierboven) — voor Uitjes/Sport werd
+het veld wel opgeslagen/geëxporteerd maar nergens gelezen.
+
+**Twee lagen aan de bug, allebei gefixt:**
+1. **Parse-laag**: `parse_date()` in `scrape_drenthe.py`/`scrape_friesland.py`/
+   `scrape_visitgroningen.py` (near-identieke "plaece.nl"-scrapers) had een
+   regex met een non-capturing `t/m N`-group — een volledig bereik als
+   "21 t/m 23 augustus" werd dus wel herkend maar de einddag meteen
+   weggegooid. Nu een `tuple[start_iso, end_iso|None]`, met een aparte
+   regex-tak voor het volledige-bereik-geval. De andere, ambigue vorm
+   ("t/m 23 augustus", geen zichtbare startdag — ~150 gevallen op drenthe.nl)
+   is bewust ongewijzigd gelaten, zie overleg.md punt 15.
+2. **Zichtbaarheids-laag**: `event_is_valid()` deed voor niet-expo events
+   uitsluitend `d >= TODAY` — `date_end` werd daar helemaal niet gelezen,
+   dus zelfs met een correcte `date_end` in de data zou een meerdaags event
+   na zijn eerste dag alsnog uit de agenda verdwijnen. Nu: als `date_end`
+   aanwezig is en nog niet gepasseerd, blijft het event zichtbaar; zonder
+   `date_end` geldt de oude regel. **Anders dan bij Exposities**: hier is er
+   GEEN "altijd zichtbaar zonder `date_end`"-gedrag — dat is bewust specifiek
+   voor Exposities (langlopende dingen zonder bekende einddatum), voor
+   Uitjes/Sport zou dat een eendaags event onterecht laten "blijven hangen".
+
+**Weergave**: `event_html()` toont nu een bereik via de nieuwe
+`fmt_date_range()`-helper ("vr 21 t/m zo 23 aug", kort formaat) zodra
+`date_end` afwijkt van `date` — i.p.v. altijd alleen `fmt_date(date)`. Ook
+`data-date`/`data-dateend`-attributen toegevoegd aan de event-div, voor
+consistentie met `expo_card_html()` (nog niet door JS gebruikt, wel
+beschikbaar). Zie decisions.md 2026-08-17 voor de volledige uitwerking,
+inclusief de gescopede DB-opruiming vóór de live-run.
+
+---
+
 ### JavaScript (inline, f-string)
 
 **Let op:** de JS zit in een Python f-string. Alle letterlijke accolades in JS moeten worden verdubbeld: `{{` en `}}`. Vergeet dit → `KeyError` of `ValueError` bij het runnen van `gen_uitjes.py`.

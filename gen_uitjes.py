@@ -266,6 +266,17 @@ NL_MONTHS_LONG = ['Januari','Februari','Maart','April','Mei','Juni',
 def fmt_date(iso):
     try: d=date.fromisoformat(iso); return f"{NL_DAYS[d.weekday()]} {d.day} {NL_MONTHS[d.month-1]}"
     except: return iso
+def fmt_date_range(start_iso, end_iso):
+    """Compacte weergave voor meerdaagse niet-expo events, bv. 'vr 21 t/m zo 23 aug'
+    (zelfde d_start/d_end-veld als expo_card_html, maar kort formaat i.p.v. de
+    lange 'vanaf ... t/m ...'-stijl — past bij de kleinere event-date regel)."""
+    try:
+        ds = date.fromisoformat(start_iso); de = date.fromisoformat(end_iso)
+    except (ValueError, TypeError):
+        return fmt_date(start_iso)
+    if ds.year == de.year and ds.month == de.month:
+        return f"{NL_DAYS[ds.weekday()]} {ds.day} t/m {NL_DAYS[de.weekday()]} {de.day} {NL_MONTHS[de.month-1]}"
+    return f"{fmt_date(start_iso)} t/m {fmt_date(end_iso)}"
 def month_id(iso):    return 'm'+iso[:7].replace('-','')
 def month_label(iso):
     try: y,m=int(iso[:4]),int(iso[5:7]); return f"{NL_MONTHS_LONG[m-1]} {y}"
@@ -288,9 +299,17 @@ def event_is_valid(e):
     d = e.get('date','')
     if not d or d > '2027-12-31':
         return False
+    de = e.get('date_end','')
     if e['_genre'] == 'expo':
-        de = e.get('date_end','')
         return not (de and de < TODAY)
+    # Meerdaagse niet-expo events (bv. festivals van drenthe.nl/friesland.nl/
+    # visitgroningen, zie decisions.md 2026-08-17): zolang date_end nog niet
+    # gepasseerd is blijft het event zichtbaar, ook als de startdag al voorbij
+    # is — anders verdwijnt bv. een 3-daags festival na dag 1 uit de agenda.
+    # Anders dan bij expo: zonder date_end blijft de oude regel gelden
+    # (verdwijnen zodra de enige/startdatum voorbij is), niet "altijd geldig".
+    if de and de >= TODAY:
+        return True
     return d >= TODAY
 
 events_valid = sorted([e for e in events if e['_genre']!='expo' and event_is_valid(e)],
@@ -358,9 +377,12 @@ def event_html(e):
             lat_lon = f'{loc[0]},{loc[1]}'
         else:
             lat_lon = ''
+    d_start = e.get('date',''); d_end = e.get('date_end','')
+    date_disp = fmt_date_range(d_start, d_end) if d_end and d_end != d_start else fmt_date(d_start)
     return (f'<div class="event {sk}" data-src="{src}" data-genre="{genre}" '
-            f'data-prov="{prov}" data-latlon="{lat_lon}" data-gender="{gender}">'
-            f'<div class="event-date">{fmt_date(e.get("date",""))}</div>'
+            f'data-prov="{prov}" data-latlon="{lat_lon}" data-gender="{gender}" '
+            f'data-date="{esc(d_start)}" data-dateend="{esc(d_end or d_start)}">'
+            f'<div class="event-date">{date_disp}</div>'
             f'<div class="event-main"><div class="event-title">{title_html}</div>'
             f'<div class="event-venue">{esc(e.get("venue","") or e.get("city",""))} '
             f'<span class="dist-badge"></span></div></div>'

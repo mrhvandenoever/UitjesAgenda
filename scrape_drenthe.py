@@ -77,8 +77,25 @@ def unescape(s: str) -> str:
              .replace('&quot;', '"').replace('&lt;', '<').replace('&gt;', '>').strip())
 
 
-def parse_date(date_str: str) -> str | None:
-    """Pakt de eerste concrete datum uit de datumstring."""
+def parse_date(date_str: str) -> tuple[str, str | None] | None:
+    """Pakt de datum uit de datumstring. Retourneert (start_iso, end_iso).
+
+    Bij een volledig bereik ("21 t/m 23 augustus" — start- én einddag,
+    zelfde maand in alle 102 geziene gevallen, geen cross-month-bereiken
+    aangetroffen op drenthe.nl) wordt nu ook echt een `date_end` herkend —
+    voorheen ving de regex de "t/m N" wel op maar gooide 'm meteen weg via
+    een non-capturing group, dus een 3-daags evenement als Zomerfeest Eext
+    kwam alleen op zijn eerste dag in de agenda te staan (gemeld door
+    Michiel, zie decisions.md 2026-08-17).
+
+    Let op — bewust NIET aangepakt in deze fix: strings die ALLEEN een
+    einddatum tonen zonder startdag ("t/m 23 augustus", ~150 gevallen op
+    drenthe.nl, vermoedelijk al eerder begonnen doorlopende dingen). Die
+    blijven met de oude (onvolledige, maar niet per se meer fout dan
+    voorheen) aanname behandeld: de regex leest het cijfer na "t/m" als
+    losse startdag en levert geen einddatum. Een echte fix hiervoor vereist
+    een aanname over de onbekende startdatum — bewust niet gegokt, zie
+    overleg.md."""
     s = date_str.strip().lower()
 
     # Skip terugkerende events
@@ -89,6 +106,47 @@ def parse_date(date_str: str) -> str | None:
                 'vrijdag', 'zaterdag', 'zondag'):
         s = s.replace(dag, '').strip()
 
+    year_m = re.search(r'\b(202\d)\b', s)
+    year   = int(year_m.group(1)) if year_m else datetime.now().year
+
+    def make_date(day: int, month_n: str, roll_year: bool) -> date | None:
+        try:
+            d = date(year, int(month_n), day)
+        except ValueError:
+            return None
+        if roll_year and not year_m and d.isoformat() < TODAY:
+            try:
+                d = date(year + 1, int(month_n), day)
+            except ValueError:
+                return None
+        return d
+
+    # Volledig bereik: "21 t/m 23 augustus" — start- en einddag samen.
+    m_range = re.search(
+        r'(\d{1,2})\s*t/m\s*(\d{1,2})\s*'
+        r'(januari|februari|maart|april|mei|juni|juli|augustus|'
+        r'september|oktober|november|december)',
+        s
+    )
+    if m_range:
+        start_day, end_day, month_name = m_range.groups()
+        month_n = MONTHS_NL.get(month_name)
+        if not month_n:
+            return None
+        start = make_date(int(start_day), month_n, roll_year=True)
+        if not start:
+            return None
+        end = make_date(int(end_day), month_n, roll_year=False)
+        # Defensief: als de startdatum over de jaarwisseling gerold is
+        # (roll_year=True) maar de eindberekening niet, kan end < start
+        # uitkomen — val dan terug op end=start i.p.v. een omgekeerd
+        # bereik op te slaan.
+        if not end or end < start:
+            end = start
+        return start.isoformat(), end.isoformat()
+
+    # Enkele datum (of een "t/m N maand"-tekst zonder startdag — zie de
+    # docstring hierboven, bewust ongewijzigd gedrag voor dat geval).
     m = re.search(
         r'(\d{1,2})\s*(?:t/m\s*\d{1,2}\s*)?'
         r'(januari|februari|maart|april|mei|juni|juli|augustus|'
@@ -102,21 +160,11 @@ def parse_date(date_str: str) -> str | None:
     if not month_n:
         return None
 
-    year_m = re.search(r'\b(202\d)\b', s)
-    year   = int(year_m.group(1)) if year_m else datetime.now().year
-
-    try:
-        d = date(year, int(month_n), int(m.group(1)))
-    except ValueError:
+    d = make_date(int(m.group(1)), month_n, roll_year=True)
+    if not d:
         return None
 
-    if not year_m and d.isoformat() < TODAY:
-        try:
-            d = date(year + 1, int(month_n), int(m.group(1)))
-        except ValueError:
-            return None
-
-    return d.isoformat()
+    return d.isoformat(), None
 
 
 def should_include(title: str) -> bool:
@@ -190,20 +238,24 @@ def parse_page(html: str) -> list[dict]:
         parsed = parse_date(date_raw[i])
         if not parsed:
             continue
+        start_iso, end_iso = parsed
 
         city  = unescape(cities[i]).title() if i < len(cities) else None
         url   = ('https://www.drenthe.nl' + links[i]) if i < len(links) else None
         genre = genre_from_title(title)
 
-        events.append({
+        ev = {
             'title':    title,
-            'date':     parsed,
+            'date':     start_iso,
             'city':     city,
             'province': PROVINCE,
             'genre':    genre,
             'source':   SOURCE,
             'url':      url,
-        })
+        }
+        if end_iso and end_iso != start_iso:
+            ev['date_end'] = end_iso
+        events.append(ev)
 
     return events
 

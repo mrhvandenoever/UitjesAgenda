@@ -694,6 +694,7 @@
     "date": "2026-08-18",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-08-23",
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/855789275/myth-makers-edua-maria-laszlo-en-huba-honigh"
@@ -771,6 +772,7 @@
     "date": "2026-08-19",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-08-22",
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1238032208/150-jaar-mata-hari-kunstinstallatie"
@@ -796,6 +798,7 @@
     "date": "2026-08-19",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-08-22",
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2018340934/bajes-buitenbios"
@@ -999,6 +1002,7 @@
     "date": "2026-08-19",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-08-24",
     "city": "Workum",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1170163956/pop-up-restaurant-dyo"
@@ -1053,6 +1057,16 @@
     "city": "Borger",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1066631141/stenen-zoeken-en-stenen-determineren"
+  },
+  {
+    "title": "Theatervoorstelling De Inspecteur",
+    "date": "2026-08-19",
+    "source": "visitgroningen",
+    "genre": "Festival",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/896845920/theatervoorstelling-de-inspecteur",
+    "category": "Theaterfestival"
   },
   {
     "title": "Tuin thee proeverij",
@@ -1187,6 +1201,7 @@
     "date": "2026-08-20",
     "source": "drenthe.nl",
     "genre": "overig",
+    "date_end": "2026-08-22",
     "city": "Emmen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1612445837/diep-lux-in-de-buurt"
@@ -1289,6 +1304,7 @@
     "date": "2026-08-20",
     "source": "drenthe.nl",
     "genre": "Muziek",
+    "date_end": "2026-08-23",
     "city": "Frederiksoord",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2760812077/muziektheater-koelonie-frederiksoord"
@@ -1311,6 +1327,7 @@
     "date": "2026-08-20",
     "source": "visitgroningen",
     "genre": "Festival",
+    "date_end": "2026-08-30",
     "city": "Groningen",
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2098729973/noorderzon",
@@ -1586,6 +1603,7 @@
     "date": "2026-08-21",
     "source": "drenthe.nl",
     "genre": "Muziek",
+    "date_end": "2026-08-23",
     "city": "Grolloo",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3094754470/grolloo-flute-sessions"
@@ -1676,6 +1694,7 @@
     "date": "2026-08-21",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-08-23",
     "city": "Bears",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3258219922/ohh-alright"
@@ -1778,6 +1797,7 @@
     "date": "2026-08-21",
     "source": "drenthe.nl",
     "genre": "Festival",
+    "date_end": "2026-08-23",
     "city": "Emmen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2534967883/vliegerfestival-emmen"
@@ -1797,6 +1817,7 @@
     "date": "2026-08-21",
     "source": "drenthe.nl",
     "genre": "Festival",
+    "date_end": "2026-08-23",
     "city": "Eext",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/4218330043/zomerfeest-eext"
@@ -3066,6 +3087,7 @@
     "date": "2026-08-26",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-08-30",
     "city": "Harlingen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1597211762/avondprogramma-visserijdagen"
@@ -3160,6 +3182,7 @@
     "date": "2026-08-26",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-08-30",
     "city": "Harlingen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/281611673/kermis-harlinger-feestweek"
@@ -3252,6 +3275,7 @@
     "date": "2026-08-26",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-08-30",
     "city": "Wergea",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2796558681/buten-oan-tafel"
@@ -3313,6 +3337,7 @@
     "date": "2026-08-26",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-08-30",
     "city": "Harlingen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1518266798/visserijdagen-harlingen"
@@ -3439,6 +3464,7 @@
     "date": "2026-08-27",
     "source": "friesland.nl",
     "genre": "Festival",
+    "date_end": "2026-08-30",
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3564288598/hendricks-karavaan-cultureel-festival-voor-jong-en-oud"
@@ -3479,6 +3505,7 @@
     "date": "2026-08-27",
     "source": "visitgroningen",
     "genre": "Festival",
+    "date_end": "2026-08-30",
     "city": "Appingedam",
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1239790492/internationaal-folk-seasongfestival-bie-daip",
@@ -3506,6 +3533,7 @@
     "date": "2026-08-27",
     "source": "drenthe.nl",
     "genre": "overig",
+    "date_end": "2026-08-29",
     "city": "Veenhuizen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3071144560/koelonie"
@@ -3524,6 +3552,7 @@
     "date": "2026-08-27",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-08-30",
     "city": "Langweer",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2554166755/langwarder-merke"
@@ -3542,6 +3571,7 @@
     "date": "2026-08-27",
     "source": "drenthe.nl",
     "genre": "Muziek",
+    "date_end": "2026-08-29",
     "city": "Veenhuizen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3956224234/muziektheater-koelonie-veenhuizen"
@@ -3713,6 +3743,7 @@
     "date": "2026-08-28",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-08-30",
     "city": "Bolsward",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1762159701/beachvolleybal-weekend"
@@ -3814,6 +3845,7 @@
     "date": "2026-08-28",
     "source": "friesland.nl",
     "genre": "Festival",
+    "date_end": "2026-08-30",
     "city": "Heeg",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4048336941/heechfeesten-2026"
@@ -3901,6 +3933,7 @@
     "date": "2026-08-28",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-08-30",
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/862534652/pasar-malam-istimewa-xl-niet-publiceren-beeldmateriaal-gemaild"
@@ -3964,6 +3997,7 @@
     "date": "2026-08-28",
     "source": "friesland.nl",
     "genre": "Muziek",
+    "date_end": "2026-08-31",
     "city": "Tersoal",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2044864320/sound-bath-klank-ligconcert"
@@ -3983,6 +4017,7 @@
     "date": "2026-08-28",
     "source": "drenthe.nl",
     "genre": "overig",
+    "date_end": "2026-08-30",
     "city": "Assen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1201522635/tabac-classic-gp-assen"
@@ -4481,6 +4516,15 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1709157653/skelters",
     "category": "Theater overig"
+  },
+  {
+    "title": "Smûk Festival",
+    "date": "2026-08-29",
+    "source": "friesland.nl",
+    "genre": "Festival",
+    "city": "Workum",
+    "province": "Friesland",
+    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1520118490/smuk-festival-workum-met-markt-muziek-en-activiteiten-voor-het-hele-gezin"
   },
   {
     "title": "Smûk Festival Workum - met markt, muziek en activiteiten voor het hele gezin",
@@ -5345,6 +5389,7 @@
     "date": "2026-09-02",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-09-04",
     "city": "Bakkeveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/632178782/3-provincien-fiets-3-daagse-3"
@@ -5467,6 +5512,16 @@
     "genre": "overig",
     "venue": "Vera, Groningen",
     "url": "https://www.vera-groningen.nl/?post_type=events&p=152958&lang=en"
+  },
+  {
+    "title": "Holy Wave (USA) + Dim Pinks (NL)",
+    "date": "2026-09-02",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3341991619/holy-wave-usa-support",
+    "category": "Concert"
   },
   {
     "title": "Holy Wave (USA) + support",
@@ -5793,6 +5848,15 @@
     "time": "20:30",
     "venue": "Het Paard, Den Haag",
     "url": "https://denhaag.com/nl/agenda/mensen-zeggen-dingen"
+  },
+  {
+    "title": "Orgelconcert door Frans van der Hauw",
+    "date": "2026-09-03",
+    "source": "friesland.nl",
+    "genre": "Muziek",
+    "city": "Easterein",
+    "province": "Friesland",
+    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2032165095/orgelconcert-door-frans-van-der-hauw-1"
   },
   {
     "title": "Paardcafé: Holly-Ann",
@@ -6124,6 +6188,7 @@
     "date": "2026-09-04",
     "source": "drenthe.nl",
     "genre": "overig",
+    "date_end": "2026-09-06",
     "city": "Emmen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/45940578/mm-culinair"
@@ -6271,6 +6336,26 @@
     "url": "https://simplon.nl/events/the-last-mandrill-momsname-eolith/"
   },
   {
+    "title": "The Last Mandrill EP-Release // Helen Jewett // Eolith",
+    "date": "2026-09-04",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2097608291/the-last-mandrill-ep-release-momsname-eolith",
+    "category": "Pop en Rock"
+  },
+  {
+    "title": "The Last Mandrill EP-Release // MOMSNAME // Eolith",
+    "date": "2026-09-04",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2097608291/the-last-mandrill-ep-release-momsname-eolith",
+    "category": "Pop en Rock"
+  },
+  {
     "title": "The Preacher Men",
     "date": "2026-09-04",
     "source": "tivolivredenburg",
@@ -6301,6 +6386,7 @@
     "date": "2026-09-04",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-09-06",
     "city": "Slappeterp",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/314073574/wilde-rust-maison-de-toile-weekend"
@@ -6657,6 +6743,16 @@
     "url": "https://denieuwekolk.nl/bios/agenda/omaha"
   },
   {
+    "title": "Open Dag en 50-jarig bestaan Travertijn 6 en 12",
+    "date": "2026-09-05",
+    "source": "visitgroningen",
+    "genre": "Festival",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2471951250/open-dag-en-50-jarig-bestaan-travertijn-6-en-12",
+    "category": "Cultureel festival"
+  },
+  {
     "title": "Orgelconcert Gertine Hoefnagel",
     "date": "2026-09-05",
     "source": "visitgroningen",
@@ -6760,7 +6856,8 @@
     "title": "SUP 11 City Tour",
     "date": "2026-09-05",
     "source": "friesland.nl",
-    "genre": "Sport",
+    "genre": "overig",
+    "date_end": "2026-09-13",
     "city": "Friesland",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2026313852/elfsteden-sup-tour"
@@ -7853,6 +7950,7 @@
     "date": "2026-09-09",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-09-17",
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4085285736/indoor-friesland-2026-1"
@@ -8445,6 +8543,7 @@
     "date": "2026-09-11",
     "source": "visitgroningen",
     "genre": "Festival",
+    "date_end": "2026-09-13",
     "city": "Woudbloem",
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/307216887/festival-roeg-klassiek",
@@ -9101,6 +9200,7 @@
     "date": "2026-09-12",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-09-14",
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1962504092/kunstroute-heerenveen"
@@ -10519,6 +10619,7 @@
     "date": "2026-09-16",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-09-20",
     "city": "Friesland",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/38341384/onbeperkte-elfstedentocht"
@@ -11401,6 +11502,7 @@
     "date": "2026-09-18",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-09-20",
     "city": "Makkum",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4035891738/the-real-trip"
@@ -11410,6 +11512,7 @@
     "date": "2026-09-18",
     "source": "visitgroningen",
     "genre": "Theater",
+    "date_end": "2026-09-20",
     "city": "Groningen",
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/4027359512/the-reality-2025",
@@ -12349,6 +12452,16 @@
     "url": "https://www.tivolivredenburg.nl/agenda/56628553/arankai-20-09-2026"
   },
   {
+    "title": "Ave Maria suete maeght - Marialiederen in Marsum",
+    "date": "2026-09-20",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Marsum",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/174041640/ave-maria-suete-maeght-marialiederen-in-marsum",
+    "category": "Klassieke muziek"
+  },
+  {
     "title": "Beautiful Creatures",
     "date": "2026-09-20",
     "source": "melkweg",
@@ -12425,6 +12538,16 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4085697406/cornelis-bruinsma-de-filmende-brugwachter"
+  },
+  {
+    "title": "Dag van de Vrede",
+    "date": "2026-09-20",
+    "source": "visitgroningen",
+    "genre": "Festival",
+    "city": "Steendam",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1114896630/dag-van-de-vrede-1",
+    "category": "Cultureel festival"
   },
   {
     "title": "De Grote Dino Show",
@@ -13739,6 +13862,7 @@
     "date": "2026-09-24",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-09-28",
     "city": "Joure",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2359942348/jouster-merke-kermis"
@@ -14055,6 +14179,7 @@
     "date": "2026-09-25",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-09-27",
     "city": "Harlingen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2435626493/digital-detox-weekend"
@@ -14454,6 +14579,7 @@
     "date": "2026-09-25",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-09-27",
     "city": "Vlieland",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/787242918/wandelretraite-op-vlieland"
@@ -16625,6 +16751,7 @@
     "date": "2026-10-01",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-10-03",
     "city": "Bolsward",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3285666938/bolletongersdei-bolsward"
@@ -16887,6 +17014,7 @@
     "date": "2026-10-01",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-10-31",
     "city": "Fryslân",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1852213939/oktober-kindermaand"
@@ -18477,6 +18605,7 @@
     "date": "2026-10-03",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-10-10",
     "city": "Friesland",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1118161281/week-van-ons-eten-friesland"
@@ -20056,6 +20185,7 @@
     "date": "2026-10-09",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-10-11",
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4206328613/ilotopie-acqua-forte-parade"
@@ -20328,6 +20458,7 @@
     "date": "2026-10-09",
     "source": "drenthe.nl",
     "genre": "Theater",
+    "date_end": "2026-10-24",
     "city": "Frederiksoord",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/4101746565/locatievoorstelling-de-kloof"
@@ -20390,6 +20521,7 @@
     "date": "2026-10-09",
     "source": "friesland.nl",
     "genre": "Festival",
+    "date_end": "2026-10-11",
     "city": "Workum",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2954377028/muziekfestival-liereliet-2026-in-workum"
@@ -22012,6 +22144,7 @@
     "date": "2026-10-13",
     "source": "visitgroningen",
     "genre": "Festival",
+    "date_end": "2026-10-16",
     "city": "Groningen",
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3935609718/mega-indoor-springkussen-festival-3",
@@ -22466,6 +22599,7 @@
     "date": "2026-10-14",
     "source": "drenthe.nl",
     "genre": "overig",
+    "date_end": "2026-10-18",
     "city": "Meppel",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1881809488/puppet-international"
@@ -23319,6 +23453,7 @@
     "date": "2026-10-16",
     "source": "drenthe.nl",
     "genre": "overig",
+    "date_end": "2026-10-18",
     "city": "Exloo",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1611014629/duivelse-reuzen-en-witte-wieven"
@@ -25805,6 +25940,7 @@
     "date": "2026-10-21",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-10-25",
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1601809034/we-will-rock-you"
@@ -28107,6 +28243,16 @@
     ]
   },
   {
+    "title": "Oktoberfest Delfzijl",
+    "date": "2026-10-25",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Delfzijl",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/221408817/oktoberfest-delfzijl-2",
+    "category": "Muziek overig"
+  },
+  {
     "title": "Op Avontuur met Dikkie Dik (2+)",
     "date": "2026-10-25",
     "source": "tivolivredenburg",
@@ -29620,6 +29766,15 @@
     "genre": "overig",
     "venue": "TivoliVredenburg, Utrecht",
     "url": "https://www.tivolivredenburg.nl/agenda/73989512/lunchconcert-klassiek-30-10-2026"
+  },
+  {
+    "title": "Margiet-middag: Begin het gesprek",
+    "date": "2026-10-30",
+    "source": "friesland.nl",
+    "genre": "overig",
+    "city": "Joure",
+    "province": "Friesland",
+    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/72848546/margiet-middag-begin-het-gesprek"
   },
   {
     "title": "Marko Hietala",
@@ -32175,6 +32330,7 @@
     "date": "2026-11-05",
     "source": "visitgroningen",
     "genre": "Theater",
+    "date_end": "2026-11-07",
     "city": "Groningen",
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2463091250/tafkal-serieus-grappig-2026",
@@ -33508,6 +33664,16 @@
       "Folk",
       "Singer/Songwriter"
     ]
+  },
+  {
+    "title": "Film: Big Bike Film Night",
+    "date": "2026-11-08",
+    "source": "visitgroningen",
+    "genre": "Festival",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/338255728/film-big-bike-film-night-2",
+    "category": "Filmfestival"
   },
   {
     "title": "Fischer-Z",
@@ -38072,6 +38238,7 @@
     "date": "2026-11-20",
     "source": "friesland.nl",
     "genre": "Festival",
+    "date_end": "2026-11-22",
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1620783826/explore-the-north-festival"
@@ -38281,6 +38448,7 @@
     "date": "2026-11-20",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-11-29",
     "city": "Drachten",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1192060713/licht-op-drachten"
@@ -38538,6 +38706,7 @@
     "date": "2026-11-20",
     "source": "drenthe.nl",
     "genre": "overig",
+    "date_end": "2026-11-22",
     "city": "Frederiksoord",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2321966711/winter-in-de-kas"
@@ -45294,6 +45463,7 @@
     "date": "2026-12-09",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-12-11",
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1837511192/de-landbouwbeurs-2"
@@ -50881,6 +51051,7 @@
     "date": "2026-12-29",
     "source": "friesland.nl",
     "genre": "overig",
+    "date_end": "2026-12-31",
     "city": "Sneek",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1200648137/top555"
@@ -55073,6 +55244,26 @@
     ]
   },
   {
+    "title": "101 Dalmatiërs",
+    "date": "2027-01-27",
+    "source": "friesland.nl",
+    "genre": "overig",
+    "date_end": "2027-01-31",
+    "city": "Leeuwarden",
+    "province": "Friesland",
+    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1939006355/101-dalmatiers"
+  },
+  {
+    "title": "Beurs Bouwplan, Thuis in Wonen",
+    "date": "2027-01-27",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "date_end": "2027-01-31",
+    "city": "Assen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1198876164/beurs-bouwplan-thuis-in-wonen-2"
+  },
+  {
     "title": "David Ramirez",
     "date": "2027-01-27",
     "source": "tivolivredenburg",
@@ -55173,12 +55364,52 @@
     "url": "https://www.theater.nl/esther-van-der-voort-mama-is-boos#2027-01-27T20-00"
   },
   {
+    "title": "Nationaal Theaterweekend",
+    "date": "2027-01-27",
+    "source": "friesland.nl",
+    "genre": "Theater",
+    "date_end": "2027-01-31",
+    "city": "Friesland",
+    "province": "Friesland",
+    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2459793513/nationaal-theaterweekend"
+  },
+  {
+    "title": "Nationaal Theaterweekend  Een weekend vol verrassingen",
+    "date": "2027-01-27",
+    "source": "drenthe.nl",
+    "genre": "Theater",
+    "date_end": "2027-01-31",
+    "city": "Coevorden",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1366799680/nationaal-theaterweekend-een-weekend-vol-verrassingen"
+  },
+  {
+    "title": "Nationaal Theaterweekend 2027",
+    "date": "2027-01-27",
+    "source": "visitgroningen",
+    "genre": "Theater",
+    "date_end": "2027-01-31",
+    "city": "Veendam",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3376663464/nationaal-theaterweekend-2027",
+    "category": "Toneel"
+  },
+  {
     "title": "Schönbergs Verklärte Nacht door Trio Zadig",
     "date": "2027-01-27",
     "source": "concertgebouw",
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/43497502-schonbergs-verklarte-nacht-door-trio-zadig"
+  },
+  {
+    "title": "Sneker Filmwinter",
+    "date": "2027-01-27",
+    "source": "friesland.nl",
+    "genre": "overig",
+    "city": "Sneek",
+    "province": "Friesland",
+    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1435344884/sneker-filmwinter"
   },
   {
     "title": "Swedish Chamber Orchestra & Martin Fröst",
@@ -58453,6 +58684,15 @@
     "url": "https://www.ticketmaster.nl/event/abn-amro-open-2027-session-9-morning-afternoon--tickets/536116489?language=en-us"
   },
   {
+    "title": "Al het blauw van de hemel - Buddy Vedder & Shelley Bos",
+    "date": "2027-02-12",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Emmen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1349198934/al-het-blauw-van-de-hemel-buddy-vedder-shelley-bos"
+  },
+  {
     "title": "Andries Tunru & Stefan Hendrikx",
     "date": "2027-02-12",
     "source": "visitgroningen",
@@ -58684,6 +58924,15 @@
     "genre": "overig",
     "venue": "Vera, Groningen",
     "url": "https://www.vera-groningen.nl/?post_type=events&p=152264&lang=nl"
+  },
+  {
+    "title": "Rapalje - Easy & Free",
+    "date": "2027-02-12",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Assen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/407336584/rapalje-easy-free-1"
   },
   {
     "title": "Ruben Hillen",
@@ -58938,6 +59187,15 @@
     "category": "Theater overig"
   },
   {
+    "title": "Knuffelrock Live - Deel 1",
+    "date": "2027-02-13",
+    "source": "drenthe.nl",
+    "genre": "Muziek",
+    "city": "Emmen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/536989913/knuffelrock-live-deel-1"
+  },
+  {
     "title": "Kovacs",
     "date": "2027-02-13",
     "source": "effenaar",
@@ -59099,6 +59357,15 @@
     ]
   },
   {
+    "title": "The Wieners - Happy Days",
+    "date": "2027-02-13",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Emmen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1460068431/the-wieners-happy-days-1"
+  },
+  {
     "title": "Thijs Kemperink - Tot het uiterste gedreven",
     "date": "2027-02-13",
     "source": "drenthe.nl",
@@ -59129,6 +59396,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Valentina Tóth - Revue Revanche (try-out)",
+    "date": "2027-02-13",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Assen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/4045722557/valentina-toth-revue-revanche-try-out"
   },
   {
     "title": "Woezel & Pip De Musical - FEEST IN DE TOVERTUIN (2+)",
@@ -59542,6 +59818,15 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2766987101/al-het-blauw-van-de-hemel"
   },
   {
+    "title": "Derde Dinsdag - Astrid Holleeder",
+    "date": "2027-02-16",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Assen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/2713040592/derde-dinsdag-astrid-holleeder"
+  },
+  {
     "title": "Laat me - Hommage aan Ramses Shaffy & Liesbeth List",
     "date": "2027-02-16",
     "source": "concertgebouw",
@@ -59600,6 +59885,15 @@
     "date": "2027-02-16",
     "source": "melkweg",
     "genre": "overig"
+  },
+  {
+    "title": "Tim Kroezen - 550",
+    "date": "2027-02-16",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Assen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/2250498859/tim-kroezen-550-1"
   },
   {
     "title": "Yorick van Norden",
@@ -59706,6 +60000,15 @@
     ]
   },
   {
+    "title": "Jan Beuving - Dekpunt",
+    "date": "2027-02-17",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Assen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/522891921/jan-beuving-dekpunt-1"
+  },
+  {
     "title": "Jesper Lindell & The Brunnsvik Sounds",
     "date": "2027-02-17",
     "source": "tivolivredenburg",
@@ -59729,6 +60032,15 @@
     "city": "Hoogeveen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1133848455/marco-schuitmaker-live-in-het-theater"
+  },
+  {
+    "title": "Mist - Laus Steenbeeke, Renée de Gruijl, Danny Westerweel, Ydwer Bosma e.a.",
+    "date": "2027-02-17",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Assen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1747812871/mist-laus-steenbeeke-renee-de-gruijl-danny-westerweel-ydwer-bosma-e-a"
   },
   {
     "title": "Noord Nederlands Orkest – Openbare repetitie",
@@ -59800,6 +60112,15 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/37899500-trio-gaspard-met-tsjechisch-programma-smetana-en-dvorak"
+  },
+  {
+    "title": "Van der Laan & Woe Dinsdagmiddag",
+    "date": "2027-02-17",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Emmen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/2068215701/van-der-laan-woe-dinsdagmiddag"
   },
   {
     "title": "Zing-Cirkel Concertgebouw",
@@ -59989,6 +60310,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "The Illusionists - The Masters of Magic met Hans Klok",
+    "date": "2027-02-18",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Assen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3714335847/the-illusionists-the-masters-of-magic-met-hans-klok-3"
   },
   {
     "title": "100% Nederlandstalige show - Daredevils: Zing Nederlands Met Me",
@@ -67372,6 +67702,26 @@
     ]
   },
   {
+    "title": "CATS",
+    "date": "2027-03-27",
+    "source": "friesland.nl",
+    "genre": "overig",
+    "date_end": "2027-03-29",
+    "city": "Leeuwarden",
+    "province": "Friesland",
+    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3449625235/cats"
+  },
+  {
+    "title": "Christel de Laat - Kende da!? (UITVERKOCHT)",
+    "date": "2027-03-27",
+    "source": "visitgroningen",
+    "genre": "Theater",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3279723012/christel-de-laat-kende-da-2027",
+    "category": "Cabaret"
+  },
+  {
     "title": "De Verleiders - Zoek Dekking!",
     "date": "2027-03-27",
     "source": "drenthe.nl",
@@ -67578,6 +67928,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Week van de Circulaire Economie",
+    "date": "2027-03-27",
+    "source": "friesland.nl",
+    "genre": "overig",
+    "city": "Friesland",
+    "province": "Friesland",
+    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/659362492/de-week-van-de-circulaire-economie"
   },
   {
     "title": "101 Dalmatiërs de musical",
@@ -73040,6 +73399,15 @@
     "image": "https://www.afaslive.nl/files/Agenda/2027/04.-april/_1200x630_crop_center-center_none/thirty-seconds-to-mars.jpg"
   },
   {
+    "title": "Autismeweek: activiteiten Friesland",
+    "date": "2027-04-27",
+    "source": "friesland.nl",
+    "genre": "overig",
+    "city": "Friesland",
+    "province": "Friesland",
+    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/257517945/autismeweek-activiteiten-friesland"
+  },
+  {
     "title": "ACinDC - Tribute to AC/DC",
     "date": "2027-04-28",
     "source": "friesland.nl",
@@ -76377,6 +76745,15 @@
     "category": "Cabaret"
   },
   {
+    "title": "CATS - Het Meesterwerk",
+    "date": "2027-05-27",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Assen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1845622977/cats-het-meesterwerk"
+  },
+  {
     "title": "Coffee Break ism Prins Claus Conservatorium",
     "date": "2027-05-27",
     "source": "spotgroningen.nl",
@@ -76405,6 +76782,16 @@
     "genre": "overig",
     "venue": "AFAS Live, Amsterdam",
     "url": "https://www.afaslive.nl/agenda/electro-symphony-orchestra-dance-party"
+  },
+  {
+    "title": "Flinke Pink Festival",
+    "date": "2027-05-27",
+    "source": "visitgroningen",
+    "genre": "Festival",
+    "city": "Leek",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3609597785/flinke-pink-festival-3",
+    "category": "Muziekfestival"
   },
   {
     "title": "Het Nationale Theater – Big Pharma",
@@ -77730,6 +78117,15 @@
     "url": "https://www.tivolivredenburg.nl/agenda/61338998/stef-bos-26-06-2027"
   },
   {
+    "title": "Dorpsfeest Anjum 🥳",
+    "date": "2027-06-27",
+    "source": "friesland.nl",
+    "genre": "Festival",
+    "city": "Anjum",
+    "province": "Friesland",
+    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/165670630/dorpsfeest-anjum-2027"
+  },
+  {
     "title": "Ein Deutsches Requiem op.45 - From Scratch on",
     "date": "2027-06-27",
     "source": "friesland.nl",
@@ -77995,6 +78391,15 @@
     "url": "https://www.013.nl/programma/127758/bettie-serveert"
   },
   {
+    "title": "The Bodyguard",
+    "date": "2027-10-27",
+    "source": "friesland.nl",
+    "genre": "overig",
+    "city": "Leeuwarden",
+    "province": "Friesland",
+    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1807690081/the-bodyguard"
+  },
+  {
     "title": "Bettie Serveert (NL) + support",
     "date": "2027-11-06",
     "source": "visitgroningen",
@@ -78035,6 +78440,16 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/43931223-kayhan-kalhor-ensemble"
+  },
+  {
+    "title": "TAFKAL - MOST WANTED (2027)",
+    "date": "2027-11-27",
+    "source": "visitgroningen",
+    "genre": "Theater",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2725556287/tafkal-most-wanted",
+    "category": "Cabaret"
   },
   {
     "title": "Darkride - 75-jarig jubileum van de Efteling",
