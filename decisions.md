@@ -927,3 +927,40 @@ noopener, content-visibility, addr-input, maandnaam, titel-typografie,
 focus-visible, empty-state div+JS) bevestigd via een grep-gebaseerde
 verificatie-script tegen de daadwerkelijk gegenereerde `index.html` — niet
 alleen "geen crash" aangenomen.
+
+## 2026-08-17 — SPOT Groningen toonde weer generieke "Spot Groningen" i.p.v. Oosterpoort/Stadsschouwburg
+
+Michiel viel op dat de site bij SPOT-events overal "Spot Groningen" toonde,
+terwijl `scrape_spotgroningen.py` (gebouwd 2026-08-10, zie decisions.md
+onder "Architectuur/2026-08-10") juist specifiek het gebouw (Oosterpoort vs
+Stadsschouwburg) uit SPOT's eigen `data-location`-attribuut zou moeten
+lezen.
+
+**Root cause: het bekende `insert_event()`-patroon, 4e keer dit project**
+(eerder gezien bij forum.nl, Geke Hoogstins, TivoliVredenburg): 611 van de
+662 DB-rijen hadden `venue='Spot Groningen'` (de generieke fallback),
+terwijl een fresh scrape van de live programma-pagina voor diezelfde
+titel+datum gewoon het juiste gebouw teruggaf (337 Oosterpoort/209
+Stadsschouwburg op de live pagina op het moment van checken). De
+scraper-logica zelf was dus niet stuk — het waren rijen die (waarschijnlijk)
+al vóór de venue-differentiatie is toegevoegd, en sindsdien bij elke
+herscrape genegeerd werden omdat `insert_event()` een bestaande
+same-source-rij nooit update.
+
+**Fix**: zelfde gescopede aanpak als steeds bij dit patroon — fresh scrape
+gedraaid, en alleen de specifieke bestaande rijen verwijderd waarvoor
+`venue='Spot Groningen'` in de DB stond terwijl de fresh scrape een
+specifiek gebouw opleverde (559 rijen), daarna de scraper live opnieuw
+gedraaid (626 gevonden, 544 nieuw — het kleine verschil met 559 komt door
+een paar events die tussen het verwijderen en herscrapen van datum
+wisselden). Resultaat: 329 Oosterpoort, 202 Stadsschouwburg, 32
+Machinefabriek, 12 USVA, 12 Lutherse Kerk, 8 A-Theater, nog 67 legitiem
+generiek (`elders`/lege `data-location`-waarde op de bron zelf).
+
+**Nog niet structureel opgelost**: dit is de 4e keer dat exact hetzelfde
+onderliggende `insert_event()`-gedrag een stille data-veroudering
+veroorzaakt. Een generieke fix (bv. altijd een UPDATE proberen bij een
+same-source-botsing, niet alleen bij aggregator-vs-directe-bron) zou dit
+hele patroon in één keer voorkomen i.p.v. steeds opnieuw per-bron te
+ontdekken en handmatig te repareren — nog niet gebouwd, wel de moeite waard
+om te overwegen. Zie ook overleg.md.

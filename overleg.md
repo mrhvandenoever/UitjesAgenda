@@ -147,6 +147,12 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - **Toegankelijkheid, groter dan de al-gefixte focus-visible**: `aria-pressed` op alle filter-chips en `role="group"`/`aria-label` op de filter-label-divs — raakt meerdere chip-groepen (genre/bron/provincie/club/gender), bewust niet in de eerste veilige batch meegenomen.
 - **Niet te verifiëren/fixen vanaf hier**: Claude Design meldde dat de eigen preview vastliep bij het maken van een screenshot van de 5,5MB/8202-events-pagina — waarschijnlijk gewoon een DOM-grootte-limiet van hun eigen previewtool, geen actie mogelijk aan de codebase-kant behalve de al-doorgevoerde `content-visibility`-fix (die dat indirect kan verzachten).
 
+### 18. `insert_event()` update-gedrag structureel aanpakken? — 4e keer hetzelfde patroon (2026-08-17)
+- Nu voor de 4e keer dit project (forum.nl, Geke Hoogstins, TivoliVredenburg, nu SPOT Groningen) hetzelfde patroon: een scraper krijgt betere data (venue-differentiatie, `date_end`, URL's), maar `insert_event()` update een bestaande `(title_norm, date)`-rij bij dezelfde bron NOOIT — alleen bij een aggregator-vs-directe-bron-botsing wordt overschreven. Elke keer weer: root cause zoeken, fresh scrape draaien, precies de stale rijen identificeren en verwijderen, opnieuw scrapen.
+- **Optie**: `insert_event()` laten UPDATEN bij elke same-source-botsing (niet alleen aggregator-vs-direct) — de nieuwste scrape-data wint altijd. Zou dit hele patroon in één keer voorkomen.
+- **Risico/afweging, nog niet gewogen**: bij sommige bronnen kan een "nieuwste wint altijd"-regel data juist verslechteren als een scraper een keer een incomplete/foutieve run heeft (leeg veld overschrijft een eerder wél gevuld veld) — zou per veld genuanceerd moeten zijn (bv. alleen overschrijven als het nieuwe veld niet leeg is), niet zomaar een blanket "UPDATE alles".
+- Nog geen besluit — vastgelegd zodat het niet nog een 5e keer als verrassing ontdekt hoeft te worden.
+
 ## Status
 Sessie 2026-08-15: GitHub gesynchroniseerd (17 commits ingehaald), punt 1 opgelost (Taakplanner-taak ma/wo/za 04:00), kritieke SSL-bug gefixt, 31 → 7 AI/Chrome-bronnen opgelost (26 nieuwe scrapers, zie SCRAPERS.md/decisions.md/plan.md — resterende 7 bewust geparkeerd als "moeilijk"), punt 4 (kapotte links) daarmee ook volledig afgesloten, Ticketmaster-API-key veilig opgezet. Sessie afgesloten met een productbrainstorm: 3 nieuwe topniveau-knoppen (Exposities/Favorieten/Admin) — richting bepaald, zie punten 9-11.
 

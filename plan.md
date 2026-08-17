@@ -251,6 +251,15 @@ gepusht als preview.
 - [ ] **Grotere/subjectieve suggesties nog te prioriteren met Michiel**: zoekveld, datumfilter, filterbalk→toolbar+popover-herbouw, kleurstrategie, mobiele touch-targets, URL/localStorage-filterstate, sorteren voor Uitjes, aria-pressed/role=group — zie overleg.md punt 17 voor de volledige lijst.
 - Zie decisions.md 2026-08-17 voor de volledige technische uitwerking, incl. een procesles over een gecrashte batch-script-run die stilzwijgend 2 van de 3 eerdere fixes ongedaan maakte.
 
+## SPOT Groningen toonde weer generiek "Spot Groningen" i.p.v. Oosterpoort/Stadsschouwburg — OPGELOST 2026-08-17
+4e keer hetzelfde `insert_event()`-patroon (na forum.nl, Geke Hoogstins,
+TivoliVredenburg): 611/662 rijen stonden vast op de generieke fallback-venue
+terwijl de scraper allang het juiste gebouw (Oosterpoort/Stadsschouwburg/etc.)
+uit `data-location` haalt — gewoon nooit ge-update sinds die logica gebouwd
+is. 559 stale rijen gescoped verwijderd, live herscraped: 329 Oosterpoort,
+202 Stadsschouwburg, nog maar 67 legitiem generiek. Zie decisions.md/
+overleg.md punt 18 (4e keer = structurele fix overwegen, nog niet besloten).
+
 ## Zummerbühne toonde verkeerde afstand — OPGELOST 2026-08-17
 Michiel meldde dat de afstand bij Zummerbühne (~20km) niet klopte met Google
 Maps (35,7km rijdend vanaf huis). Bleek een plaatsnaam-verwarring: er bestaan
