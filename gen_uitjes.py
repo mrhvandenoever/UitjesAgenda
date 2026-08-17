@@ -59,6 +59,7 @@ SRC = {
     'hunebedcentrum':      ('Hunebedcentrum',  '🪨', '#5d4037'),
     'koornbeurs':          ('Koornbeurs',      '🎪', '#880e4f'),
     'kunstpuntgroningen':  ('Kunstpunt',       '🎨', '#6a1b9a'),
+    'uitzinnig':           ('Uitzinnig',       '🖌️', '#00695c'),
     # Landelijke podia
     'tivolivredenburg':    ('TivoliVredenburg','🎼', '#6a1b9a'),
     'melkweg':             ('Melkweg',         '🌌', '#283593'),

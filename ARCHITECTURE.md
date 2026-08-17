@@ -184,20 +184,28 @@ matchten geen enkel Nederlands keyword en vielen alsnog terug op `overig`.
 Gefixt: `c == 'expositie'` retourneert nu direct `'expo'`. Zonder risico voor
 bestaande bronnen, want niemand gebruikte dit pad eerder.
 
-**Aggregator-bron voor Exposities**: `scrape_kunstpuntgroningen.py`
-(2026-08-17, overleg.md punt 13) is de eerste EXPO-aggregator — zelfde
-principe als drenthe.nl/friesland.nl/visitgroningen voor Uitjes, en dus ook
-toegevoegd aan `AGGREGATOR_SOURCES` in `events_db.py` (venue wint bij een
-botsing). **Cross-taal-dedup-gat ontdekt**: de bestaande fuzzy-titel-dedup
-mist een duplicaat als de aggregator- en de directe-bron-titel in
-verschillende talen staan (Kunstpunt's Engelse "The experience of Drenthe"
-vs Geke Hoogstins' Nederlandse "groepsexpositie DSG 'De beleving van
-Drenthe'", zelfde expositie) — geen woord gemeenschappelijk, dus de
-substring-matching in `find_cross_source_duplicates()` matcht niets. Geen
-generieke cross-taal-matcher gebouwd voor dit ene geval; opgelost met een
-gerichte `SKIP_VENUES`-uitzondering in de scraper zelf. Zie decisions.md
-2026-08-17 voor de volledige analyse — dit is een reëel restrisico bij
-toekomstige aggregatoren die (deels) vertaalde titels tonen.
+**Aggregator-bronnen voor Exposities**: `scrape_kunstpuntgroningen.py`
+(Groningen-gericht) en `scrape_uitzinnig.py` (Drenthe/Groningen/Friesland-
+breed, dedupliceert zelf 3 overlappende "provincie"-pagina's op URL) — beide
+2026-08-17, overleg.md punt 13. Zelfde principe als drenthe.nl/friesland.nl/
+visitgroningen voor Uitjes, dus ook toegevoegd aan `AGGREGATOR_SOURCES` in
+`events_db.py` (venue wint bij een botsing).
+
+**Aggregator-vs-aggregator-dedup-gat — 2x bevestigd, dus een patroon, geen
+toeval**: de bestaande fuzzy-titel-dedup (`find_cross_source_duplicates()`)
+mist een duplicaat structureel zodra BEIDE botsende bronnen een aggregator
+zijn (`if agg_a == agg_b: continue` — het paar wordt dan helemaal niet
+vergeleken, ongeacht titel-overeenkomst). Trad op bij Kunstpunt vs Geke
+Hoogstins ("The experience of Drenthe" vs "groepsexpositie DSG 'De beleving
+van Drenthe'", cross-taal — Engels vs Nederlands) én bij Kunstpunt vs
+Uitzinnig ("Mimesis" vs "Expo 'MIMESIS' in Artcenter K38", zelfde bron via
+twee verschillende aggregatoren). Beide keren opgelost met een gerichte
+`SKIP_VENUES`/`SKIP_TITLES`-uitzondering in de nieuwste scraper i.p.v. een
+generieke fix. **Structureel op te lossen zodra er een 3e aggregator
+bijkomt**: `find_cross_source_duplicates()` zou ook tussen twee
+aggregatoren onderling moeten vergelijken, niet alleen aggregator-vs-
+directe-bron — voor nu (2 aggregatoren, 2 bekende gevallen) is de gerichte-
+SKIP-aanpak goedkoper. Zie decisions.md 2026-08-17 voor beide analyses.
 
 **Event-eigen `lat`/`lon`, was ongebruikte infrastructuur**: `events_db.py`
 sloeg `lat`/`lon` altijd al op en exporteerde ze, maar `event_html()`/

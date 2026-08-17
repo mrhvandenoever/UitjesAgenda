@@ -25,7 +25,7 @@ JSON_PATH  = os.path.join(SCRIPT_DIR, 'events_categorized.json')
 
 # Regionale agenda's die events herlisten die al rechtstreeks van de venue-site
 # gescraped zijn (vaak met net iets andere titel: support-act, subtitel, landcode).
-AGGREGATOR_SOURCES = {'visitgroningen', 'drenthe.nl', 'friesland.nl', 'kunstpuntgroningen'}
+AGGREGATOR_SOURCES = {'visitgroningen', 'drenthe.nl', 'friesland.nl', 'kunstpuntgroningen', 'uitzinnig'}
 CROSS_DUPE_MIN_CORE_LEN = 10  # kortere titels zijn te generiek om veilig te matchen
 
 SCHEMA = """

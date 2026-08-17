@@ -506,3 +506,60 @@ van eerder vandaag). Exposities-totaal 11 → 34. Elk Kunstpunt-event heeft nu
 een precieze, per-venue `data-latlon` (geverifieerd: K38 en Kunstpunt zelf
 tonen verschillende coördinaten) en correcte provincie (Roden→Drenthe,
 de rest→Groningen).
+
+## 2026-08-17 — Uitzinnig.nl gebouwd (derde expositie-aggregator, Drenthe/Groningen/Friesland-breed)
+Michiel wilde verder uitbreiden na Kunstpunt. Kunstinzicht.nl (onderzocht op
+Michiels vraag om Appingedam/Hoogezand/Assen/Veendam/Grootegast/Leeuwarden/
+Emmen) bleek zwak (dun per plaats, geen startdatum) en is bewust niet
+gebouwd — zie overleg.md punt 13. Vervolgens gevonden: **uitzinnig.nl**,
+via dezelfde soort zoekopdrachten die kunstinzicht.nl opleverden, maar van
+duidelijk hogere kwaliteit.
+
+**Technische verkenning**: `uitzinnig.nl/<provincie>/tentoonstellingsagenda.aspx`
+(provincie = drenthe/groningen/friesland) is server-rendered. Bleek bij
+nader onderzoek GEEN strikt gefilterde provincie-feed te zijn — dezelfde
+expositie (bv. "Mimesis" in Roden/Drenthe) dook op alle 3 provinciepagina's
+op. Opgelost door alle 3 op te halen en te dedupliceren op URL (wél uniek
+per expositie) i.p.v. als 3 losstaande feeds te behandelen.
+
+**Datumkwaliteit, beter dan kunstinzicht.nl**: de listing-pagina zelf toont
+alleen "Vandaag t/m X" (zelfde beperking als kunstinzicht.nl leek te hebben),
+maar de DETAILPAGINA bleek een schone ISO-meta-tag te hebben:
+`<meta name="startdatum" content="2026-08-01" /><meta name="einddatum"
+content="2026-08-23" />` — een echte startdatum, in tegenstelling tot
+kunstinzicht.nl. Ook een losse, herkenbare venue-naam per expositie
+gevonden op de detailpagina (`.subinfo`-regel: "1 t/m 23 augustus 2026 |
+Kunstencentrum K38 | Roden (Noordenveld)") — de listing zelf toont alleen
+de plaatsnaam, geen venue.
+
+**Bonus**: "Hunebedcentrum - Beleef 150000 jaar geschiedenis" (Borger) komt
+via deze route binnen — de eerste keer dat er data van Hunebedcentrum (één
+van de 7 permanent-geparkeerde bronnen, 403 bot-bescherming) in de site
+terechtkomt, zonder de bot-bescherming te hoeven omzeilen. Beperkt (1
+doorlopend "museum-item", niet hun volledige agenda), maar een concreet
+positief neveneffect.
+
+**Aggregator-vs-aggregator-dedup-gat bevestigd, 2e keer** (zie ook de DSG-
+episode eerder vandaag bij Kunstpunt): 2 van de 15 gevonden exposities
+("Mimesis"/Kunstencentrum K38/Roden, "Overzichtsexpositie Aldrik Salverda en
+Lucas Klein"/Kunstruimte De Smederij/Sappemeer) bleken exacte duplicaten van
+wat `scrape_kunstpuntgroningen.py` al geeft (zelfde venue, zelfde/bijna-
+identieke datums). De generieke fuzzy-titel-dedup in `events_db.py` mist dit
+STRUCTUREEL zodra BEIDE botsende bronnen een aggregator zijn
+(`find_cross_source_duplicates()`: `if agg_a == agg_b: continue` — skipt het
+paar helemaal, ongeacht hoe goed de titels matchen). Dit is dus geen
+incidenteel randgeval meer maar een voorspelbaar patroon zodra een 2e/3e
+aggregator dezelfde onderliggende bron aggregeert. Zelfde pragmatische fix
+als bij DSG: gerichte `SKIP_TITLES = {'Mimesis', 'Overzichtsexpositie
+Aldrik Salverda en Lucas Klein'}` in `scrape_uitzinnig.py` i.p.v. een
+generieke oplossing. **Genoteerd als iets om ooit structureel op te lossen**
+als er een 3e aggregator bijkomt (bv. `find_cross_source_duplicates()` ook
+laten draaien tussen twee aggregatoren onderling, niet alleen aggregator-
+vs-directe-bron) — voor nu blijft de gerichte-SKIP-aanpak goedkoop genoeg.
+
+**Resultaat, geverifieerd lokaal vóór commit**: 13 nieuwe exposities
+(Dwingeloo x2, Emmer-Compascuum, Zweeloo, Emmen, Borger, Delfzijl,
+Onstwedde, Sappemeer, Kantens, Leeuwarden x3), verspreid over alle 3
+provincies. `uitzinnig` toegevoegd aan `AGGREGATOR_SOURCES` en aan `SRC` in
+`gen_uitjes.py` (eerst vergeten, badge toonde de rauwe bronsleutel i.p.v.
+"Uitzinnig" — gecorrigeerd vóór commit). Exposities-totaal 34 → 47.
