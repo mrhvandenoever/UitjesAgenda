@@ -563,3 +563,161 @@ Onstwedde, Sappemeer, Kantens, Leeuwarden x3), verspreid over alle 3
 provincies. `uitzinnig` toegevoegd aan `AGGREGATOR_SOURCES` en aan `SRC` in
 `gen_uitjes.py` (eerst vergeten, badge toonde de rauwe bronsleutel i.p.v.
 "Uitzinnig" — gecorrigeerd vóór commit). Exposities-totaal 34 → 47.
+
+## 2026-08-17 — Kapotte links gemeld door Michiel: 3 gefixt + een belangrijke herontdekking (TivoliVredenburg)
+Michiel meldde 2 kapotte links (Groninger Museum's "The Architect & The
+Housewife", en TivoliVredenburg's "Filth"/"Alcest" die geen link toonden).
+
+**Groninger Museum**: de opgeslagen URL voor "The Architect & The Housewife"
+bleek verkeerd (handmatig ooit fout ingevoerd — Groninger Museum heeft geen
+actieve scraper, staat geparkeerd als "moeilijk"). Michiel gaf de juiste URL
+door (`/en/art/exhibitions/the-architect-the-housewife-...`), geverifieerd
+en direct in de DB gecorrigeerd (`UPDATE events SET url=...`).
+
+**TivoliVredenburg — een echte, structurele bug gevonden**: "Filth" en
+"Alcest" hadden `url=NULL`, en bij nader onderzoek bleken ALLE 480
+tivolivredenburg-rijen geen URL te hebben. Oorzaak: `scrape_tivolivredenburg.py`
+(via Songkick) haalt wél echte per-event-URL's op — geverifieerd door
+Songkick rechtstreeks te bevragen: "Alcest" had daar gewoon een echte URL.
+Maar `insert_event()`'s conflict-resolutie update een bestaande rij nooit
+bij een same-source-herscrape (alleen bij een aggregator-vs-directe-bron-
+botsing, zie events_db.py's docstring) — exact hetzelfde patroon als de
+forum.nl- en Geke Hoogstins-bugs eerder vandaag. Omdat deze ~9 Songkick-
+shows al vanaf het begin in de (oudere, brede) 480-rijen-legacy-dataset
+stonden zonder URL, werd de Songkick-scraper's eigen URL-data dus STRUCTUREEL
+genegeerd bij elke run sinds die scraper bestaat — niet incidenteel voor
+deze 2 events, maar voor alle ~9 Songkick-gedekte shows tegelijk.
+
+Fix, zorgvuldig gescoped (**niet** de hele 480-rijen-dataset aanraken — die
+bevat bewust bewaarde, bredere legacy-data die niet via Songkick gedekt
+wordt, zie de eerdere sessie-beslissing): alleen de specifieke rijen
+verwijderd die zowel (a) matchen met een titel+datum die Songkick NU
+aanlevert als (b) zelf nog geen URL hadden. 8 van de 9 matchten en zijn
+verwijderd; `page_hash` voor tivolivredenburg gewist; scraper opnieuw live
+gedraaid — alle 8 kregen hun echte Songkick-URL terug.
+
+"Filth" zelf staat niet (meer) op Songkick's ~9-shows-venster, dus kreeg
+geen URL via de herscrape. Michiel vond zelf de directe TivoliVredenburg-URL
+(`tivolivredenburg.nl/agenda/22763649/filth-17-08-2026`) en ook een directe
+URL voor Alcest — beide handmatig in de DB gezet (directe venue-link is
+beter dan een Songkick-redirect-URL).
+
+**Belangrijke herontdekking tijdens het uitzoeken van "Filth"'s directe
+URL**: een plain `urllib`-fetch van die specifieke event-URL werkte
+gewoon, GEEN Cloudflare-uitdaging. Verder getest: `tivolivredenburg.nl/agenda/`
+(de volledige agenda-listing-pagina) rendert ook gewoon server-side met
+alle events + echte per-event-`href`'s in de ruwe HTML — de eerder
+gevonden "Cloudflare-blokkade" (2026-08-15, "herbevestigd") bleek bij
+hertesten een fout-positief: de string "challenge-platform" komt voor,
+maar dat is Cloudflare's passieve JS-bot-analytics-script
+(`/cdn-cgi/challenge-platform/scripts/jsd/main.js`), geen daadwerkelijke
+"Just a moment..."-interstitial — die tekst staat nergens in de pagina.
+Dit weerspreekt de eerder vastgelegde "principiële grens"
+(ARCHITECTURE.md/SCRAPERS.md: "TivoliVredenburg... bevestigde Cloudflare
+bot-challenge"). Mogelijk is Cloudflare's configuratie sindsdien versoepeld,
+of was de eerdere test onvolledig (bv. zonder de juiste User-Agent-header,
+of testte een andere sub-pagina). **Nog niet omgezet in een nieuwe volledige
+scraper** — dit is een bevinding die aan Michiel voorgelegd moet worden
+voor er verder gebouwd wordt (zou de Songkick-omweg overbodig kunnen maken
+en volledige TivoliVredenburg-dekking mogelijk maken, i.p.v. alleen de
+~9 Songkick-shows).
+
+**Ook gemeld door Michiel, nog te onderzoeken**: Groninger Museumnacht
+(19 september) ontbreekt als Uitje — gezien op `groningermuseum.nl/
+?type=soon&page=1&perPage=6`. Eerste check: die specifieke pagina is
+client-side gerenderd (geen "Museumnacht" in de ruwe HTML via plain
+`urllib`) — vraagt om een Playwright-haalbaarheidscheck, uitbesteed aan een
+subagent, resultaat nog niet binnen bij het schrijven van deze entry.
+
+## 2026-08-17 — Groninger Museum opgelost (was 5+ jaar "geparkeerd als moeilijk"), TivoliVredenburg herzien naar directe scraper
+Vervolg op de kapotte-links-melding hierboven. Michiel: "ok, ik ga nu weg,
+pas alle fixes nu direct toe die je hierboven beschrijft en voor tivoli
+vredenburg" — expliciete go-ahead om door te bouwen zonder verdere
+tussentijdse bevestiging.
+
+**Groninger Museum — echte oplossing gevonden via een Playwright-
+netwerkcheck**: eerdere conclusie (2026-08-15) was "Craft CMS, voor de hand
+liggende GraphQL-endpoints geven 404, Playwright-rendering blijft leeg,
+genuine dead end". Een subagent kreeg de opdracht om specifiek
+`groningermuseum.nl/?type=soon&page=1&perPage=6` (de URL uit Michiels
+screenshot) met Playwright te renderen én het netwerkverkeer mee te lezen —
+dat legde een simpele, publieke JSON-endpoint bloot:
+`/api/activities?type=<now|soon|past>&page=N&perPage=N` en
+`/api/exhibitions?type=<now|soon>&page=N&perPage=N`. Geen GraphQL, geen
+sessie/cookie/referrer nodig, gewoon een directe HTTP-GET. `scrape_
+groningermuseum.py` gebouwd: exhibitions geven een schoon `prettyDate`
+("19 september 2026 t/m 9 mei 2027", altijd dag+maand+jaar aan beide
+kanten in de geziene data) → Exposities met `date_end`; activities zijn
+grotendeels generiek-terugkerend ("Ieder weekend en in de schoolvakanties")
+en worden overgeslagen tenzij er een concrete losse datum in staat (zoals
+"Groninger Museumnacht", Michiels oorspronkelijke melding) — 9 events in
+totaal. Bestaande 2 handmatige rijen (waarvan 1 met foutieve URL, zie
+hierboven, en "Kinderbiënnale" die op de site inmiddels omgedoopt/vervangen
+bleek door "Playing House...") opgeruimd vóór de live-run.
+
+**Bijvangst-dedup-gat, 3e keer (nieuw patroon, niet cross-taal maar
+cross-datum)**: "Bakstain" bleek zowel via `scrape_kunstpuntgroningen.py`
+(05-08) als via de nieuwe directe `scrape_groningermuseum.py` (05-09) te
+komen — 1 dag verschil in startdatum. `find_cross_source_duplicates()`
+groepeert strikt per EXACTE datum (`by_date[r['date']].append(r)`), dus dit
+paar werd nooit met elkaar vergeleken ondanks identieke titels. Zelfde
+pragmatische fix als bij DSG: `scrape_kunstpuntgroningen.py`'s
+`SKIP_VENUES` uitgebreid met `'Groninger Museum'` (nu dat er een eigen,
+preciezere directe scraper is, is Kunstpunt's dekking van dat ene venue
+sowieso overbodig geworden). Stale Kunstpunt-rij verwijderd, herscraped.
+
+**TivoliVredenburg — het echte verhaal achter Filth/Alcest**: bleek een
+structurele bug (alle 480 rijen hadden `url=NULL`, niet alleen deze 2) —
+zie de vorige decisions.md-sectie hierboven voor de root-cause-analyse
+(`insert_event()` update nooit bestaande same-source-rijen). Michiel vond
+zelf directe TivoliVredenburg-URL's voor beide events, wat leidde tot de
+ontdekking dat de site zelf helemaal niet (meer) door Cloudflare
+geblokkeerd wordt — zie de nieuwe ARCHITECTURE.md §Playwright-scrapers-les
+hierover.
+
+Vervolgens is `scrape_tivolivredenburg.py` volledig herzien: i.p.v. de
+Songkick-omweg (alleen live-muziek, ~9 shows) haalt hij nu direct
+`tivolivredenburg.nl/agenda/page/N/` op. Paginering loopt door tot een 404
+(2026-08-17: pagina 43, dynamisch bepaald via `parallel_fetch.fetch_batches()`
+i.p.v. hardcoded, zodat dit niet achterloopt als het aantal groeit) — 853
+events, alle 20 items per pagina hebben de datum al in hun eigen URL-slug
+(`.../filth-17-08-2026`), dus geen aparte datumtekst-parsing nodig.
+
+**Bug tijdens het bouwen**: `fetch_batches(1, page_url, should_stop, ...)`
+gaf 0 resultaten — `page_url` bouwt alleen de URL-string, fetcht 'm niet.
+Moest `lambda p: fetch(page_url(p))` zijn. Meteen gevonden via een
+kleinschalige test (`--max 3`) vóór de volle 43-pagina's-run — zelfde
+voorzichtige aanpak als bij eerdere paginering-bugs dit project.
+
+**Stale-data-audit vóór het legacy-dataset vervangen** (480 oude rijen,
+eerder expliciet bewaard omdat ze breder waren dan Songkick): fresh scrape
+(853) vergeleken met de oude 480. Eerste ruwe vergelijking gaf 102
+"legacy-only" rijen, wat schrikbarend leek — bleken bij nadere inspectie
+bijna allemaal al-verstreken events (vóór vandaag) te zijn, dus sowieso al
+gefilterd door de datumfilter. Van de 400 nog-toekomstige legacy-rijen
+bleken er bij een naïeve title-match 22 "ontbrekend" in de fresh scrape —
+maar `normalize_title()` blijkt geaccentueerde tekens (bv. "Paco Peña")
+volledig te STRIPPEN i.p.v. te transcriberen naar hun kale vorm, waardoor
+zulke titels nooit matchen met hun accent-loze variant elders. Na handmatig
+accent-folden (`unicodedata.normalize('NFKD', ...)` + combining-tekens
+verwijderen) bleven er maar 10 échte "legacy-only"-events over (van de 400)
+— waarschijnlijk simpelweg afgelaste/verschoven shows sinds de oude pull.
+Gezien de fresh scrape 853 vs 480 events dekt en nog geen 3% van de oude
+toekomstige data écht ontbreekt, is de hele oude dataset vervangen (niet
+losse rijen bijgehouden) — dit is de eerste keer in dit project dat een
+volledige legacy-dataset zo vervangen wordt i.p.v. ernaast bewaard, bewust
+zo gedaan omdat de nieuwe scraper nu aantoonbaar breder én preciezer is
+(events zonder ooit een URL, tegen nu 100% met URL).
+
+**Restpunt, niet gefixt (buiten scope voor nu)**: `normalize_title()` in
+events_db.py strip geaccentueerde tekens i.p.v. ze te folden — kan in
+theorie ELDERS in het project ook near-duplicates laten glippen bij
+titels met accenten (Frans/Spaans/Portugese artiestennamen komen relatief
+vaak voor bij muziekprogrammering). Nog niet structureel aangepakt, alleen
+opgemerkt tijdens deze stale-data-audit.
+
+**Resultaat, geverifieerd lokaal vóór commit**: Filth/Alcest/Groninger
+Museum-links werken, TivoliVredenburg 0/853 zonder URL (was 480/480 zonder
+URL), Groninger Museumnacht zichtbaar als Uitje, Groninger Museum-scraper
+dekt 8 exposities + 1 activiteit. SCRAPERS.md's "geparkeerd als moeilijk"-
+lijst: 7 → 6 bronnen.

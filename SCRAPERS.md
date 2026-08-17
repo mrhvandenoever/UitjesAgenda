@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (59 bronnen, 59 scripts)
+## ✅ Geautomatiseerd (60 bronnen, 60 scripts)
 
 | Bron | Script |
 |---|---|
@@ -62,7 +62,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | 013 Tilburg | `scrape_013.py` (server-rendered HTML, regex, 154 events — was "AI/Chrome nodig") |
 | FC Groningen | `scrape_fcgroningen.py` (ESPN.nl, team-id 145 — zelfde patroon als Cambuur/FC Twente/Go Ahead/PEC Zwolle, 14 events — was "eenmalig via Chrome gehaald, geen los script") |
 | Hedon (Zwolle) | `scrape_hedon.py` (eigen `/api/events`, Yesplan-backed — tip van Michiel over Hedons LinkedIn-post, 118 events — was "AI/Chrome nodig", pagina bleek lege Angular-shell) |
-| TivoliVredenburg | `scrape_tivolivredenburg.py` (via songkick.com — tip van Michiel — alleen muziek/concerten, ~9 shows per run; site zelf blijft een bevestigde Cloudflare bot-challenge, bewust niet omzeild) |
+| TivoliVredenburg | `scrape_tivolivredenburg.py` (2026-08-17 herzien — bleek GEEN Cloudflare-blokkade meer te hebben, zie decisions.md. Directe agenda-paginering (`/agenda/page/N/`, tot een 404), datum staat gewoon in de event-URL. Volledige agenda i.p.v. alleen Songkick's live-muziek-subset — 853 events/run, was 9) |
 | Neushoorn (Leeuwarden) | `scrape_neushoorn.py` — **eerste Playwright-scraper** (headless Chromium rendert de Webflow-SPA, daarna regex op de DOM), 110 events. Zie ARCHITECTURE.md §Playwright-scrapers. |
 | GelreDome (Arnhem) | `scrape_gelredome.py` (Playwright, zelfde Webflow-platform als Neushoorn, mix van Vitesse-thuiswedstrijden + concerten/evenementen, volgt paginering, 21 events) |
 | Simplon (Groningen) | `scrape_simplon.py` (Playwright, derde scraper — Stager-platform net als Vera, maar eigen programma-pagina heeft wél een simpel regex-baar DOM-patroon zonder Vera's AJAX-paginering-probleem, 48 events) |
@@ -80,33 +80,39 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Rotown (Rotterdam) | `scrape_rotown.py` (geen Playwright nodig — de HOMEPAGE zelf bevat 139 losse JSON-LD Event-blokken, `/agenda/` als listing-URL bestond gewoon niet; gefilterd op `location.name=='Rotown'`, 97 events) |
 | Vera (Groningen) | `scrape_vera.py` (Playwright, elfde scraper — bleek géén Cloudflare-blokkade maar gewoon een infinite-scroll die curl niet kon triggeren; een echte browser-scroll laadt gewoon alles, 69 events) |
 | Geke Hoogstins (Eext) | `scrape_gekehoogstins.py` (2026-08-17 — was bewust niet gebouwd zolang doorlopende exposities niet in het datamodel pasten; sinds de Exposities-modus (`date_end`) wél mogelijk. Site is vrije tekst, maar de "EXPOSITIES `<jaar>`"-sectie is gestructureerde HTML (`<p><strong>datumbereik</strong> titel</p>`) — regex-baar zonder AI. 3 events/jaar) |
-| Kunstpunt Groningen (aggregator) | `scrape_kunstpuntgroningen.py` (2026-08-17, overleg.md punt 13 — dekt in één keer tientallen Groningse musea/galerieën, o.a. Groninger Museum, Museum Nienoord, Synagoge Groningen, K38, De Stadsgalerie. Server-rendered WordPress, alleen categorie "Exhibition" meegenomen, 2 pagina's. Detailpagina per expositie geeft ook precieze lat/lon + de specifiekste beschikbare link. In `AGGREGATOR_SOURCES` — venue wint bij een botsing, zelfde regel als Uitjes. 22-25 events/run) |
+| Kunstpunt Groningen (aggregator) | `scrape_kunstpuntgroningen.py` (2026-08-17, overleg.md punt 13 — dekt in één keer tientallen Groningse musea/galerieën, o.a. Museum Nienoord, Synagoge Groningen, K38, De Stadsgalerie. Server-rendered WordPress, alleen categorie "Exhibition" meegenomen, 2 pagina's. Detailpagina per expositie geeft ook precieze lat/lon + de specifiekste beschikbare link. In `AGGREGATOR_SOURCES` — venue wint bij een botsing, zelfde regel als Uitjes. `SKIP_VENUES` sluit Galerie DSG en Groninger Museum uit — die hebben inmiddels een eigen, preciezere directe scraper. 24 events/run) |
+| Groninger Museum | `scrape_groningermuseum.py` (2026-08-17 — was 2026-08-15 nog "geparkeerd als moeilijk": GraphQL-endpoints gaven 404, Playwright bleef leeg. Bleek achteraf helemaal geen GraphQL nodig te hebben: een plain, publieke JSON-API (`/api/exhibitions`, `/api/activities`, beide met `?type=now\|soon\|past`) — gevonden via een Playwright-netwerkcheck die de onderliggende `fetch()`-call zag. Dekt zowel exposities (met `date`/`date_end`) als losse eenmalige activiteiten (bv. Groninger Museumnacht) — generiek-terugkerende activiteiten ("Ieder weekend") bewust overgeslagen, passen niet in het single-date-model. 9 events/run) |
 | Uitzinnig.nl (aggregator, Drenthe/Groningen/Friesland) | `scrape_uitzinnig.py` (2026-08-17, overleg.md punt 13 — 3 "provincie"-pagina's die in de praktijk overlappen, dus gededupliceerd op URL. Echte start-/einddatum via ISO-meta-tags op de detailpagina (beter dan kunstinzicht.nl, dat bewust niet gebouwd is — zie hieronder). Geeft ook een eerste (deel-)win voor Hunebedcentrum zonder de bot-bescherming te omzeilen. In `AGGREGATOR_SOURCES`. 13 events/run) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig — geparkeerd als "moeilijk" (7 bronnen)
+## 🌐 AI/Chrome nodig — geparkeerd als "moeilijk" (6 bronnen)
 
 Michiel, 2026-08-15: "parkeren we deze even als moeilijk, pakken we stuk
 voor stuk op als we zin hebben" — geen actieve vervolgstap gepland, dit is
 bewust de rustplek voor bronnen waar de dag-technieken (verkeerde-URL-check,
 Playwright, Ticketmaster) niet meer verder komen zonder een wezenlijk
 andere aanpak (wachten op een seizoen, of een mens die door een
-cookie-flow/GraphQL-schema heen gaat). Alle 24 andere bronnen die vandaag
-nog "AI/Chrome nodig" waren, zijn inmiddels opgelost — zie de
+cookie-flow/GraphQL-schema heen gaat). Alle 25 andere bronnen die op
+2026-08-15 nog "AI/Chrome nodig" waren, zijn inmiddels opgelost — zie de
 `## ✅ Geautomatiseerd`-sectie hierboven en decisions.md voor de volledige
 geschiedenis per bron.
 
-OntdekPoort en Hunebedcentrum zijn hier bewust anders dan de andere 5:
+**Groninger Museum alsnog opgelost (2026-08-17)** — zie decisions.md: bleek
+géén GraphQL nodig te hebben, gewoon een publieke JSON-API die een
+Playwright-netwerkcheck blootlegde. **Drents Museum draait op dezelfde Craft
+CMS** — waarschijnlijk een vergelijkbare `/api/exhibitions`-achtige endpoint,
+nog niet apart herchecked, maar een sterke kandidaat om ook op te lossen.
+
+OntdekPoort en Hunebedcentrum zijn hier bewust anders dan de andere 4:
 échte bot-bescherming (403), een principiële grens (nooit omzeild), geen
 "nog niet gelukt".
 
 | Bron | Verwachte omvang | Notitie |
 |---|---|---|
 | EM2 Groningen | ~21 events | WordPress met custom `event`-post-type, WEL via `/wp-json/wp/v2/event` opvraagbaar — maar de evenementdatum staat los in vrije tekst zonder vast patroon ("De Gipsy Jazz Sessie op 12 juli is...", datum niet aan het begin zoals bij Zuidhaege) en sommige entries lijken terugkerende events zonder duidelijke enkele datum. Deels opgelost (API gevonden) maar datum-extractie te onbetrouwbaar bevonden om nu te bouwen. |
-| Groninger Museum | onbekend | Craft CMS (SEOmatic-generator) — voor de hand liggende GraphQL-endpoints (`/actions/graphql/api`, `/api`) geven beide 404, geen API gevonden. Met Playwright gecheckt (2026-08-15), ook met een cookiebanner-klik ("Accepteren"): pagina blijft leeg, zelfs na volledige render. Genuine dead end voor nu — zou dieper GraphQL-schema-onderzoek nodig hebben. |
-| Drents Museum | onbekend | zelfde Craft CMS als Groninger Museum, niet apart herchecked |
+| Drents Museum | onbekend | zelfde Craft CMS als Groninger Museum (nu opgelost, zie hierboven) — waarschijnlijk een vergelijkbare `/api/exhibitions`-achtige JSON-endpoint, nog niet herchecked sinds die vondst. |
 | Zummerbühne | ~25 events | Ticketwidget in iframe, geen data in ruwe HTML. Met Playwright de iframe geïdentificeerd: een widget van platform "Slinger" — bleek bij nader onderzoek een **ride-share/carpool-widget** te zijn (rides/routebeschrijving), niet de ticketverkoop zelf. Doodlopend spoor, geen Ticketmaster-match ook. |
 | OntdekPoort | ~216 events | Bot-bescherming — zelfs de homepage geeft 403, niet op te lossen met alleen headers (2026-08-13, herbevestigd 2026-08-15) |
 | Hunebedcentrum | onbekend | Bot-bescherming, 403 (2026-08-13, herbevestigd 2026-08-15) |
@@ -157,9 +163,11 @@ JSON-LD en miste dat de HTML zelf al complete event-lijsten bevat) — nu
 opgelost, zie ✅ hierboven. Landstede Hammers is ook al opgelost (2026-08-15,
 zie eigen sectie hierboven — BNXT League-API, niet deze site).
 
-TivoliVredenburg zelf blijft een bevestigde Cloudflare bot-challenge ("Just a
-moment..."-pagina, bewust niet omzeild) — maar wel opgelost via een omweg,
-zie ✅ hierboven (`scrape_tivolivredenburg.py`, via Songkick, tip Michiel).
+TivoliVredenburg werd eerst opgelost via een Songkick-omweg (aanname: de site
+zelf toonde een "Just a moment..."-Cloudflare-challenge, bewust niet
+omzeild) — **op 2026-08-17 bleek die aanname niet meer te kloppen** (of nooit
+volledig juist te zijn geweest) en is de scraper herzien naar een directe
+aanpak, zie ✅ hierboven en decisions.md 2026-08-17.
 
 Hedon Zwolle bleek een lege Angular-SPA-shell (7KB) te zijn, maar heeft een
 eigen `/api/events`-endpoint — opgelost, zie ✅ hierboven

@@ -28,7 +28,7 @@
 | `page_cache.py` | Change-detection: hash-cache in `events.db` om parse/insert-werk over te slaan als een bron ongewijzigd is. Zie §Change-detection. |
 | `ssl_fix.py` | Workaround voor `ssl.VERIFY_X509_STRICT` (Python 3.13+), side-effect-import via `page_cache.py` — dus geen aparte import per scraper nodig. Zie decisions.md 2026-08-15. |
 | `parallel_fetch.py` | Concurrent pagina's ophalen binnen één scraper (`fetch_many()`/`fetch_batches()`), voor de 7 scrapers met een multi-request paginaloop. Zie §Parallelle scrapers. |
-| `scrape_<bron>_pw.py`-stijl (Playwright) | Scrapers voor JS-gerenderde bronnen die geen verborgen API hebben — headless Chromium rendert de pagina, script leest daarna de DOM. Geen AI/LLM nodig per run. Zie §Playwright-scrapers, decisions.md 2026-08-15. Bewust nooit ingezet tegen bot-detectie/CAPTCHA's (TivoliVredenburg, OntdekPoort, Hunebedcentrum blijven daarom buiten schot). |
+| `scrape_<bron>_pw.py`-stijl (Playwright) | Scrapers voor JS-gerenderde bronnen die geen verborgen API hebben — headless Chromium rendert de pagina, script leest daarna de DOM. Geen AI/LLM nodig per run. Zie §Playwright-scrapers, decisions.md 2026-08-15. Bewust nooit ingezet tegen bot-detectie/CAPTCHA's (OntdekPoort/Hunebedcentrum blijven daarom buiten schot — TivoliVredenburg bleek achteraf geen echte blokkade te hebben, zie §Playwright-scrapers/decisions.md 2026-08-17). |
 | `SCRAPERS.md` | Status per bron: geautomatiseerd / kan zonder AI (recipe klaar) / AI-Chrome nodig / nog niet geprobeerd. |
 | `CLAUDE.md` | Werkwijze voor Claude in deze repo (wanneer welk .md-bestand lezen/bijwerken). |
 | `onboarding.md` / `overleg.md` / `plan.md` / `decisions.md` | Voor beheerders: resp. hoe-neem-ik-dit-over, open discussiepunten, to-do, genomen beslissingen. |
@@ -510,10 +510,27 @@ refresh (`run_weekly_refresh.py` pikt deze scripts automatisch op, net als
 alle andere `scrape_*.py`-bestanden — geen aparte behandeling nodig).
 
 **Principiële grens**: Playwright wordt bewust NOOIT ingezet om
-bot-detectie of CAPTCHA's te omzeilen. Bronnen met een bevestigde
-Cloudflare-uitdaging (TivoliVredenburg) of 403-bot-bescherming (OntdekPoort,
-Hunebedcentrum) blijven daarom buiten deze aanpak, ongeacht of een headless
-browser die blokkade toevallig zou kunnen passeren.
+bot-detectie of CAPTCHA's te omzeilen. Bronnen met 403-bot-bescherming
+(OntdekPoort, Hunebedcentrum) blijven daarom buiten deze aanpak, ongeacht of
+een headless browser die blokkade toevallig zou kunnen passeren.
+
+**Les, 2026-08-17 — een "bevestigde blokkade" kan zelf ook fout blijken**:
+TivoliVredenburg stond hier tot dan toe ook genoemd als "bevestigde
+Cloudflare-uitdaging" (2026-08-15, "herbevestigd"). Bij het uitzoeken van 2
+kapotte links bleek een plain `urllib`-fetch van de site gewoon te werken —
+geen "Just a moment..."-interstitial. De eerder gevonden term
+"challenge-platform" was Cloudflare's passieve JS-bot-analytics-script
+(`/cdn-cgi/challenge-platform/scripts/jsd/main.js`, wordt op vrijwel elke
+Cloudflare-site geladen, ook niet-geblokkeerde), geen daadwerkelijke
+blokkade — dus géén bot-detectie omzeild, de blokkade bestond kennelijk niet
+(meer). `scrape_tivolivredenburg.py` is herzien naar een directe scraper
+(853 events i.p.v. de eerdere 9 via een Songkick-omweg). Zie decisions.md
+2026-08-17. **Les voor het vervolg**: behandel een "bevestigde blokkade"
+als een momentopname, niet als een permanent gegeven — vooral bij een
+string-match als "challenge-platform"/"Cloudflare" in de ruwe HTML, die
+niet per se een échte interstitial-pagina betekent. Check bij twijfel
+expliciet op de zichtbare "Just a moment..."-tekst zelf, niet op zulke
+bijna-altijd-aanwezige achtergrond-scripts.
 
 Overweeg voor toekomstige Playwright-scrapers: opstarttijd is merkbaar
 trager dan een plain `urllib`-request (~7s voor Neushoorn, vs <1s voor de
@@ -533,8 +550,11 @@ items niet meer groeit (2-3x stabiel = klaar), simuleert dit. **Let op**:
 een falende curl-POST naar een AJAX-endpoint is geen bewijs van bot-
 detectie — check eerst of de site misschien gewoon scroll- of klik-
 interactie verwacht die curl niet kan nabootsen, vóór je concludeert dat
-een bron "geblokkeerd" is. Een échte Cloudflare-challenge-pagina (zoals bij
-TivoliVredenburg, "Just a moment...") is wél een harde grens.
+een bron "geblokkeerd" is. Een échte Cloudflare-challenge-pagina (een
+zichtbare "Just a moment..."-interstitial) is wél een harde grens — maar
+zie hierboven (TivoliVredenburg, 2026-08-17): controleer dit op de
+letterlijke interstitial-tekst, niet op de aanwezigheid van Cloudflare's
+achtergrond-scripts, die staan op bijna elke Cloudflare-site sowieso.
 
 ## API-keys
 

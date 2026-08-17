@@ -66,15 +66,22 @@ CITY_PROVINCE = {
 }
 
 # 'Venue wint van aggregator' (AGGREGATOR_SOURCES in events_db.py) werkt via
-# fuzzy TITEL-matching, en faalt daardoor bij een vertaalde titel: gevonden
-# 2026-08-17: Kunstpunt's "The experience of Drenthe" (Galerie DSG) is
-# dezelfde expositie als scrape_gekehoogstins.py's "groepsexpositie DSG 'De
-# beleving van Drenthe'" (Geke Hoogstins is DSG-lid, haar site volgt DSG's
-# groepstentoonstellingen al) — geen woord gemeenschappelijk, dus de generieke
-# dedup mist dit. Geen generieke cross-taal-matcher gebouwd voor dit ene
-# geval — gewoon deze ene venue overslaan, DSG-groepsshows komen al binnen
-# via de directe (en preciezere) Geke Hoogstins-route.
-SKIP_VENUES = {'Galerie DSG'}
+# fuzzy TITEL-matching op EXACT dezelfde datum — en faalt dus zowel bij een
+# vertaalde titel als bij een datum die 1 dag verschilt tussen bron en
+# aggregator (find_cross_source_duplicates() groepeert strikt per datum, dus
+# vergelijkt zulke paren nooit). Twee bevestigde gevallen (2026-08-17):
+# - "The experience of Drenthe" (Galerie DSG) = scrape_gekehoogstins.py's
+#   "groepsexpositie DSG 'De beleving van Drenthe'" (Geke Hoogstins is
+#   DSG-lid, haar site volgt DSG's groepstentoonstellingen al) — geen woord
+#   gemeenschappelijk.
+# - "Bakstain" (Groninger Museum) = scrape_groningermuseum.py's eigen
+#   "Bakstain" maar dan 1 dag eerder (05-08 vs 05-09) — zelfde titel, maar
+#   de datum-groepering in find_cross_source_duplicates() vergelijkt ze
+#   daardoor nooit.
+# Geen generieke cross-taal/datum-tolerante matcher gebouwd voor deze 2
+# gevallen — gewoon deze venues overslaan, ze komen al binnen via hun eigen,
+# preciezere directe scraper.
+SKIP_VENUES = {'Galerie DSG', 'Groninger Museum'}
 
 LIST_PATTERN = re.compile(
     r'<article class="m-post[^"]*">\s*<a href="([^"]+)"[^>]*>.*?'
