@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (56 bronnen, 56 scripts)
+## ✅ Geautomatiseerd (57 bronnen, 57 scripts)
 
 | Bron | Script |
 |---|---|
@@ -79,6 +79,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Concertgebouw (Amsterdam) | `scrape_concertgebouw.py` (Playwright, tiende scraper — juiste URL `/concerten-en-tickets` (tip Michiel), ~40 pagina's paginering, 600 events — grootste scraper van het project) |
 | Rotown (Rotterdam) | `scrape_rotown.py` (geen Playwright nodig — de HOMEPAGE zelf bevat 139 losse JSON-LD Event-blokken, `/agenda/` als listing-URL bestond gewoon niet; gefilterd op `location.name=='Rotown'`, 97 events) |
 | Vera (Groningen) | `scrape_vera.py` (Playwright, elfde scraper — bleek géén Cloudflare-blokkade maar gewoon een infinite-scroll die curl niet kon triggeren; een echte browser-scroll laadt gewoon alles, 69 events) |
+| Geke Hoogstins (Eext) | `scrape_gekehoogstins.py` (2026-08-17 — was bewust niet gebouwd zolang doorlopende exposities niet in het datamodel pasten; sinds de Exposities-modus (`date_end`) wél mogelijk. Site is vrije tekst, maar de "EXPOSITIES `<jaar>`"-sectie is gestructureerde HTML (`<p><strong>datumbereik</strong> titel</p>`) — regex-baar zonder AI. 3 events/jaar) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
@@ -109,11 +110,11 @@ OntdekPoort en Hunebedcentrum zijn hier bewust anders dan de andere 5:
 | Hunebedcentrum | onbekend | Bot-bescherming, 403 (2026-08-13, herbevestigd 2026-08-15) |
 | GIJS Groningen (ijshockey) | — | site toont nog seizoen 2025-2026 (herchecked 2026-08-15, nog steeds oud), herchecken zodra nieuw seizoen live is |
 
-## 🔧 Kan zonder AI — structureel lastig te automatiseren (1 bron)
+## 🔧 Kan zonder AI — structureel lastig te automatiseren (0 bronnen)
 
-| Bron | Verwachte omvang | Bijzonderheid |
-|---|---|---|
-| Geke Hoogstins | ~2 "events" | Zijn eigenlijk maandenlange doorlopende exposities ("22 mei t/m eind oktober"), geen losse datums — past niet goed in ons single-date-event-model. Bewust niet gebouwd. |
+Leeg sinds 2026-08-17 — Geke Hoogstins (de laatste in deze categorie) is
+opgelost zodra de Exposities-modus doorlopende exposities kon representeren,
+zie de ✅-sectie hierboven.
 
 ## ❌ Geblokkeerd (3 bronnen)
 

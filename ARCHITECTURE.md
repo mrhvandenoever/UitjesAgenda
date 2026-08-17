@@ -140,6 +140,19 @@ dit moment in (2026-08-15: 1 van ~6669 events) — dat is een bewuste,
 geaccepteerde consequentie van route A, geen bug: exposities blijven simpelweg
 zichtbaar tot een scraper ooit een echte einddatum aanlevert.
 
+**Randvoorwaarde in `events_db.py`, bug gevonden 2026-08-17**:
+`export_json()` (de stap vóór `gen_uitjes.py`) filterde events op
+`date >= vandaag` — puur de STARTdatum, zonder `date_end`-besef. Een
+expositie die vóór vandaag begon maar nog loopt (bv. Geke Hoogstins'
+`scrape_gekehoogstins.py`, de eerste bron met zo'n geval) viel daardoor al
+weg vóórdat `event_is_valid()` hierboven er ooit aan toekwam — onzichtbaar
+op de site, ook al stond de data correct in de DB. Fix: de WHERE-clausule
+is nu `(date >= ? OR (date_end IS NOT NULL AND date_end >= ?))` — een event
+blijft ook mee als de startdatum al voorbij is, zolang de einddatum dat nog
+niet is. Puur datumbereik-logica, geen genre-check nodig, dus dekt dit
+automatisch elke toekomstige bron met hetzelfde "al begonnen, nog lopend"-
+patroon.
+
 **Rendering**: `expo_card_html(e)` (geen maand-groepering, i.t.t. `event_html`)
 toont "vanaf `<startdatum>` · t/m `<einddatum>`" of "vanaf `<startdatum>` ·
 einddatum onbekend". Kaart-layout is 2 kolommen (`.event.expo-item{{grid-

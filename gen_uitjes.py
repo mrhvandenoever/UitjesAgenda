@@ -203,7 +203,7 @@ GENRE_LABELS = {'festival':'Festival / Evenement','theater':'Theater / Toneel','
 THEATER_VENUES= {'lawei','atlastheater','denieuwekolk.nl','vanberesteyn','theaterroden','geertteis',
                  'grandtheatregroningen','martiniplaza','dorpshuisannen','podiumnienoordleek',
                  'zummerbuhne','posthuistheater','ontdekpoort','koornbeurs'}
-EXPO_VENUES   = {'groningermuseum','drentsmuseum','hunebedcentrum'}
+EXPO_VENUES   = {'groningermuseum','drentsmuseum','hunebedcentrum','gekehoogstins.nl'}
 
 _kinderen_pat = _re.compile(
     r'kinderen|kindershow|kindertheat|kindervoor|kinderdag|'

@@ -374,3 +374,59 @@ Hoogstins, Concertgebouw, plus een Friesland-galerie-expositie die met de
 volledigere friesland.nl-data van de parallelle-requests-sessie meekwam).
 Forum.nl totaal in DB: 196 → 142 rijen (oude, al-verstreken juni-rijen bewust
 niet opgeruimd — onzichtbaar op de site door de datumfilter, geen impact).
+
+## 2026-08-17 — Geke Hoogstins gebouwd + een echte bug in events_db.py export_json() gevonden
+Was eerder bewust niet gebouwd (zie SCRAPERS.md/eerdere sessie): "maandenlange
+doorlopende exposities, geen losse datums, past niet in ons single-date-
+event-model". Sinds de Exposities-modus (2026-08-16, `date_end` wordt nu
+echt gebruikt) is die reden vervallen — Michiel vroeg hem alsnog te bouwen.
+
+**Site-analyse**: de exposities-pagina zelf is vrije tekst (proza), maar de
+"EXPOSITIES `<jaar>`"-sectie bovenaan bleek verrassend gestructureerde HTML:
+een `<h2>`-heading met het jaartal, gevolgd door exact `<p><strong>datum-
+bereik</strong> titel</p>` per expositie — regex-baar zonder AI/Chrome nodig.
+De rest van de pagina (uitgebreidere vrije-tekst-beschrijving per expositie)
+wordt bewust genegeerd.
+
+**Drie datumbereik-formaten gevonden en afgehandeld** in een nieuwe
+`parse_range()`-functie: "22 mei t/m eind oktober" (geen einddag, "eind
+<maand>" → laatste dag van die maand via `calendar.monthrange()`), "3 juli
+t/m 5 september" (beide kanten dag+maand, jaartal impliciet uit de
+heading), en "13 november t/m 9 januari 2027" (expliciet jaartal aan de
+eindkant bij een jaarwisseling — wint altijd als aanwezig). Alle 3 correct
+getest.
+
+**Bijvangst: de bestaande (handmatig ooit ingevoerde) DB-rij voor "DSG
+groepsexpositie" bleek een verkeerde `date_end` te hebben** — `2027-11-13`
+(exact 1 jaar na de startdatum, een gok/placeholder) terwijl de site zelf
+"13 november t/m 9 januari 2027" zegt. De nieuwe scraper geeft het juiste
+`2027-01-09`. Bevestigt de eerdere aanname in ARCHITECTURE.md ("die ziet
+eruit als een placeholder"). Er bleken zelfs 2 oude handmatige rijen te
+staan (niet 1 zoals eerder aangenomen) — beide met een foutieve `date_end`,
+beide opgeruimd vóór de nieuwe live-scrape (zelfde `insert_event()`-
+conflict-resolutie-beperking als bij de forum.nl-fix vandaag: een same-
+source-herscrape update een bestaande rij niet automatisch).
+
+**Belangrijke, aparte bug gevonden tijdens het verifiëren**: 2 van de 3
+nieuwe events (de exposities die al vóór vandaag zijn begonnen maar nog
+lopen) verschenen niet op de site, ook al stonden ze correct in de DB.
+Oorzaak: `events_db.py`'s `export_json()` filtert met `WHERE date >= ?
+AND date <= '2027-12-31'` — een harde ondergrens op de STARTdatum, zonder
+enige kennis van `date_end`. Events die vóór vandaag begonnen maar nog
+lopen vielen dus al weg vóórdat `gen_uitjes.py`'s eigen (correcte) expo-
+aware `event_is_valid()`-logica er ooit aan toekwam. Dit gat bestond al
+sinds de Exposities-bouw (2026-08-16) maar was onzichtbaar omdat op dat
+moment vrijwel geen enkel event een zinvolle `date_end` had — pas nu, met
+de eerste "al begonnen, nog lopende" expositie, werd het zichtbaar. Fix:
+`WHERE (date >= ? OR (date_end IS NOT NULL AND date_end >= ?)) AND date <=
+'2027-12-31'` — een event blijft nu ook mee als de STARTdatum al voorbij is
+zolang de EINDdatum dat nog niet is. Geen genre-check nodig op dit niveau
+(puur een datumbereik-vraag), dus dekt dit automatisch ook toekomstige
+bronnen met hetzelfde patroon, niet alleen Geke Hoogstins.
+
+**Resultaat, geverifieerd lokaal vóór commit**: alle 3 Geke Hoogstins-events
+zichtbaar in Exposities (was 1, met foutieve datum). Exposities-totaal 9 →
+11. `gekehoogstins.nl` toegevoegd aan `EXPO_VENUES` in `gen_uitjes.py` als
+defensieve fallback (momenteel niet strikt nodig — alle 3 titels bevatten
+toevallig al "expositie" als keyword — maar logisch voor een bron die
+uitsluitend exposities toont).

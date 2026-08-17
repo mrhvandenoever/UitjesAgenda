@@ -306,6 +306,15 @@ def export_json(json_path: str = None, min_date: str = None) -> int:
     """
     Exporteer events naar events_categorized.json (compatibel met gen_uitjes.py).
     Alleen toekomstige events (>= vandaag) tenzij min_date opgegeven.
+
+    Uitzondering (sinds de Exposities-modus, 2026-08-16): een event met een
+    date_end die nog niet voorbij is, blijft mee — ook als de startdatum
+    zelf al in het verleden ligt (een doorlopende expositie die al begonnen
+    is maar nog loopt). Zonder deze OR-clausule zou zo'n event hier al
+    wegvallen, vóórdat gen_uitjes.py's eigen expo-aware filtering
+    (event_is_valid() in gen_uitjes.py, zie ARCHITECTURE.md §Exposities)
+    er ooit aan toekomt. Gevonden 2026-08-17 bij het bouwen van de eerste
+    echte "al begonnen, nog lopende" expositie (scrape_gekehoogstins.py).
     """
     json_path = json_path or JSON_PATH
     min_date  = min_date or datetime.now().strftime('%Y-%m-%d')
@@ -313,9 +322,10 @@ def export_json(json_path: str = None, min_date: str = None) -> int:
     conn  = get_conn()
     rows  = conn.execute("""
         SELECT * FROM events
-        WHERE date >= ? AND date <= '2027-12-31'
+        WHERE (date >= ? OR (date_end IS NOT NULL AND date_end >= ?))
+          AND date <= '2027-12-31'
         ORDER BY date, title
-    """, (min_date,)).fetchall()
+    """, (min_date, min_date)).fetchall()
     conn.close()
 
     dupe_ids = find_cross_source_duplicates(rows)
