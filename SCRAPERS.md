@@ -37,7 +37,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | SC Heerenveen | `scrape_heerenveen.py` |
 | FC Emmen | `scrape_fcemmen.py` |
 | Kielzog | `scrape_kielzog.py` |
-| Forum | `scrape_forum.py` |
+| Forum | `scrape_forum.py` (groepeert opeenvolgende dagen per slug tot één event met `date_end` sinds 2026-08-17 — forum.nl levert doorlopende dingen als "Marilyn Expositie" anders als een losse rij per dag, zie overleg.md punt 12) |
 | Geert Teis | `scrape_geertteis.py` |
 | USVA | `scrape_usva.py` (~6/10 events, rest heeft geen herkenbaar datumformaat) |
 | Martiniplaza | `scrape_martiniplaza.py` (via theater.nl, JSON-LD, 60 events) |

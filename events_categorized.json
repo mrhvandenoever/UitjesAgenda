@@ -36,8 +36,9 @@
     "date": "2026-08-17",
     "source": "forum.nl",
     "genre": "overig",
+    "date_end": "2026-08-30",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=17-08-2026"
+    "url": "https://forum.nl/nl/agenda/marilyn-expositie"
   },
   {
     "title": "Mei-inoar lêze",
@@ -78,8 +79,9 @@
     "date": "2026-08-17",
     "source": "forum.nl",
     "genre": "overig",
+    "date_end": "2026-08-30",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=17-08-2026"
+    "url": "https://forum.nl/nl/agenda/storyworld"
   },
   {
     "title": "Wilco - + Hovvdy",
@@ -197,28 +199,12 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/855789275/myth-makers-edua-maria-laszlo-en-huba-honigh"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-18",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=18-08-2026"
-  },
-  {
     "title": "Signs of the Swarm - + Heavy//Hitter + Tenuem",
     "date": "2026-08-18",
     "source": "doornroosje",
     "genre": "overig",
     "venue": "Doornroosje, Nijmegen",
     "url": "https://www.doornroosje.nl/event/signs-of-the-swarm/"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-08-18",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=18-08-2026"
   },
   {
     "title": "Techno Tuesday: Dexon",
@@ -462,14 +448,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3395709917/maakplaats-kennismaking-met-3d-printen-9-14-jaar"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-19",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=19-08-2026"
-  },
-  {
     "title": "Openluchtspel Havelte speelt 'Piepers en parels', een blijspel in verstaanbaar Drents",
     "date": "2026-08-19",
     "source": "drenthe.nl",
@@ -549,14 +527,6 @@
     "city": "Borger",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1066631141/stenen-zoeken-en-stenen-determineren"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-08-19",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=19-08-2026"
   },
   {
     "title": "Tuin thee proeverij",
@@ -755,14 +725,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1051319968/magische-zomeravond"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-20",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=20-08-2026"
-  },
-  {
     "title": "Muziektheater Koelonie | Frederiksoord",
     "date": "2026-08-20",
     "source": "drenthe.nl",
@@ -845,14 +807,6 @@
     "genre": "overig",
     "venue": "Doornroosje, Nijmegen",
     "url": "https://www.doornroosje.nl/event/sparks/"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-08-20",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=20-08-2026"
   },
   {
     "title": "Talks Events/Fashion Repair",
@@ -1058,14 +1012,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/524474625/kanon-schieten-met-de-stadsschutterij-van-sloten"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-21",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=21-08-2026"
-  },
-  {
     "title": "Maxim Heijmerink (piano)",
     "date": "2026-08-21",
     "source": "friesland.nl",
@@ -1101,8 +1047,9 @@
     "date": "2026-08-21",
     "source": "forum.nl",
     "genre": "overig",
+    "date_end": "2026-09-04",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=21-08-2026"
+    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things"
   },
   {
     "title": "Noorderzon: Lagartijas Tiradas al Sol - Centroamérica",
@@ -1186,14 +1133,6 @@
     "genre": "overig",
     "venue": "Doornroosje, Nijmegen",
     "url": "https://www.doornroosje.nl/event/steel-pulse/"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-08-21",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=21-08-2026"
   },
   {
     "title": "Vakantiemarkt Borger",
@@ -1600,14 +1539,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2257025449/voorlezen-en-knutselen-in-bibliotheek-bolsward"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-22",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=22-08-2026"
-  },
-  {
     "title": "Marktconcert Vincent van Laar",
     "date": "2026-08-22",
     "source": "visitgroningen",
@@ -1656,14 +1587,6 @@
       "toneel",
       "festival"
     ]
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-08-22",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=22-08-2026"
   },
   {
     "title": "Noorderzon: Blaaskr'8",
@@ -1795,14 +1718,6 @@
     ]
   },
   {
-    "title": "Storyworld",
-    "date": "2026-08-22",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=22-08-2026"
-  },
-  {
     "title": "Supercup Korfbal",
     "date": "2026-08-22",
     "source": "drenthe.nl",
@@ -1921,8 +1836,9 @@
     "date": "2026-08-22",
     "source": "forum.nl",
     "genre": "overig",
+    "date_end": "2026-08-23",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/walk-in-smartlab?date=22-08-2026"
+    "url": "https://forum.nl/nl/agenda/walk-in-smartlab"
   },
   {
     "title": "Wat overblijft, een cabinet van tijdloze wezens",
@@ -2165,14 +2081,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/855789275/myth-makers-edua-maria-laszlo-en-huba-honigh"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-23",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=23-08-2026"
-  },
-  {
     "title": "Medialab Instuif",
     "date": "2026-08-23",
     "source": "forum.nl",
@@ -2210,14 +2118,6 @@
       "toneel",
       "festival"
     ]
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-08-23",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=23-08-2026"
   },
   {
     "title": "Noorderzon: Lagartijas Tiradas al Sol - Centroamérica",
@@ -2278,14 +2178,6 @@
     "sport": "voetbal"
   },
   {
-    "title": "Storyworld",
-    "date": "2026-08-23",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=23-08-2026"
-  },
-  {
     "title": "Sunday Live",
     "date": "2026-08-23",
     "source": "friesland.nl",
@@ -2312,14 +2204,6 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/779484078/theaterconcert-milonge-xl",
     "category": "Concert"
-  },
-  {
-    "title": "Walk In Smartlab",
-    "date": "2026-08-23",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/walk-in-smartlab?date=23-08-2026"
   },
   {
     "title": "Wandelen langs libellen en vlinders in de Alde Feanen",
@@ -2383,14 +2267,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3186464321/leip-markt"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-24",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=24-08-2026"
-  },
-  {
     "title": "No Dutch Required",
     "date": "2026-08-24",
     "source": "grandtheatregroningen",
@@ -2402,14 +2278,6 @@
       "toneel",
       "festival"
     ]
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-08-24",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=24-08-2026"
   },
   {
     "title": "Noorderzon: Susie Wang - Burnt Toast",
@@ -2426,14 +2294,6 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/41629419-sheherazade-van-rimski-korsakov-en-yulianna-avdeeva-met-rachmaninoff"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-08-24",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=24-08-2026"
   },
   {
     "title": "TVOD + Shoom",
@@ -2504,14 +2364,6 @@
     "url": "https://www.doornroosje.nl/event/kurt-vile-and-the-violators-3/"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-25",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=25-08-2026"
-  },
-  {
     "title": "No Dutch Required",
     "date": "2026-08-25",
     "source": "grandtheatregroningen",
@@ -2523,14 +2375,6 @@
       "toneel",
       "festival"
     ]
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-08-25",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=25-08-2026"
   },
   {
     "title": "Noorderzon: Magda Szpecht - She stands in the middle of the battlefield",
@@ -2547,14 +2391,6 @@
     "genre": "overig",
     "venue": "Grand Theatre, Groningen",
     "url": "https://www.noorderzon.nl/programma/burnt-toast"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-08-25",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=25-08-2026"
   },
   {
     "title": "Talks Events/Panelgesprek Rwe X Extinction Rebellion",
@@ -2708,14 +2544,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2521851232/mtb-streetrace-competitie"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-26",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=26-08-2026"
-  },
-  {
     "title": "No Dutch Required",
     "date": "2026-08-26",
     "source": "grandtheatregroningen",
@@ -2727,14 +2555,6 @@
       "toneel",
       "festival"
     ]
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-08-26",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=26-08-2026"
   },
   {
     "title": "Noorderzon: Magda Szpecht - She stands in the middle of the battlefield",
@@ -2814,14 +2634,6 @@
     "city": "Harlingen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2697828973/roofvogelshow-visserijdagen"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-08-26",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=26-08-2026"
   },
   {
     "title": "Techno Tuesday: Dexon's Birthday",
@@ -3084,14 +2896,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/320637783/voorlezen-en-knutselen-in-bibliotheek-joure"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-27",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=27-08-2026"
-  },
-  {
     "title": "Muziektheater Koelonie | Veenhuizen",
     "date": "2026-08-27",
     "source": "drenthe.nl",
@@ -3121,14 +2925,6 @@
       "toneel",
       "festival"
     ]
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-08-27",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=27-08-2026"
   },
   {
     "title": "Noorderzon: Magda Szpecht - She stands in the middle of the battlefield",
@@ -3164,14 +2960,6 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3566869401/steen-in-de-vijver"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-08-27",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=27-08-2026"
   },
   {
     "title": "THE ALCHEMIST",
@@ -3425,14 +3213,6 @@
     "url": "https://www.vera-groningen.nl/?post_type=events&p=153568&lang=nl"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-28",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=28-08-2026"
-  },
-  {
     "title": "Missio",
     "date": "2026-08-28",
     "source": "tivolivredenburg",
@@ -3450,14 +3230,6 @@
       "toneel",
       "festival"
     ]
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-08-28",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=28-08-2026"
   },
   {
     "title": "Noorderzon: Patricia Apergi - Hystory",
@@ -3547,14 +3319,6 @@
     "city": "Tersoal",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2044864320/sound-bath-klank-ligconcert"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-08-28",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=28-08-2026"
   },
   {
     "title": "Superstijl Outdoor",
@@ -3877,14 +3641,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3863015500/voorlezen-en-knutselen-in-bibliotheek-heerenveen"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-29",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=29-08-2026"
-  },
-  {
     "title": "Muziek Bingo XXL",
     "date": "2026-08-29",
     "source": "melkweg",
@@ -3904,14 +3660,6 @@
       "toneel",
       "festival"
     ]
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-08-29",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=29-08-2026"
   },
   {
     "title": "Noorderzon: Patricia Apergi - Hystory",
@@ -4084,14 +3832,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1520118490/smuk-festival-workum-met-markt-muziek-en-activiteiten-voor-het-hele-gezin"
   },
   {
-    "title": "Storyworld",
-    "date": "2026-08-29",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=29-08-2026"
-  },
-  {
     "title": "Straattheaterfestival Waterbei",
     "date": "2026-08-29",
     "source": "visitgroningen",
@@ -4230,8 +3970,9 @@
     "date": "2026-08-29",
     "source": "forum.nl",
     "genre": "overig",
+    "date_end": "2026-08-30",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/walk-in-smartlab?date=29-08-2026"
+    "url": "https://forum.nl/nl/agenda/walk-in-smartlab"
   },
   {
     "title": "Waterbei brengt twee dagen straattheater en muziek naar Winschoten",
@@ -4444,14 +4185,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1183142247/koopzondag-hoogeveen-1"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-08-30",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=30-08-2026"
-  },
-  {
     "title": "Medialab Instuif",
     "date": "2026-08-30",
     "source": "forum.nl",
@@ -4477,14 +4210,6 @@
     "city": "Warten",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/337104840/museumbezoek-incl-praamtocht-niet-publiceren-beeldmateriaal-gemaild"
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-08-30",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=30-08-2026"
   },
   {
     "title": "OCT",
@@ -4624,14 +4349,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/574368953/social-run-coffee-sneek"
   },
   {
-    "title": "Storyworld",
-    "date": "2026-08-30",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=30-08-2026"
-  },
-  {
     "title": "Struunmarkt | Diever",
     "date": "2026-08-30",
     "source": "drenthe.nl",
@@ -4666,14 +4383,6 @@
     "city": "Nieuw Amsterdam",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3075073776/vincent-van-gogh-een-vreemdeling-in-zuidoost-drenthe"
-  },
-  {
-    "title": "Walk In Smartlab",
-    "date": "2026-08-30",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/walk-in-smartlab?date=30-08-2026"
   },
   {
     "title": "Wijnproeverij bij zonsondergang op de Oldehove",
@@ -4769,14 +4478,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3079530817/monday-night-music-club-open-sessie"
   },
   {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-08-31",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=31-08-2026"
-  },
-  {
     "title": "Ryan Davis & The Roadhouse Band",
     "date": "2026-08-31",
     "source": "paradiso",
@@ -4790,8 +4491,9 @@
     "date": "2026-08-31",
     "source": "forum.nl",
     "genre": "overig",
+    "date_end": "2026-09-03",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/taalhuis?date=31-08-2026"
+    "url": "https://forum.nl/nl/agenda/taalhuis"
   },
   {
     "title": "The Belair Lip Bombs",
@@ -4862,8 +4564,9 @@
     "date": "2026-09-01",
     "source": "forum.nl",
     "genre": "overig",
+    "date_end": "2026-09-03",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/het-clubhuis?date=01-09-2026"
+    "url": "https://forum.nl/nl/agenda/het-clubhuis"
   },
   {
     "title": "Holy Wave",
@@ -4913,16 +4616,9 @@
     "date": "2026-09-01",
     "source": "forum.nl",
     "genre": "overig",
+    "date_end": "2026-09-04",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=01-09-2026"
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-09-01",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=01-09-2026"
+    "url": "https://forum.nl/nl/agenda/marilyn-expositie"
   },
   {
     "title": "Omaha",
@@ -4945,16 +4641,9 @@
     "date": "2026-09-01",
     "source": "forum.nl",
     "genre": "overig",
+    "date_end": "2026-09-04",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=01-09-2026"
-  },
-  {
-    "title": "Taalhuis",
-    "date": "2026-09-01",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/taalhuis?date=01-09-2026"
+    "url": "https://forum.nl/nl/agenda/storyworld"
   },
   {
     "title": "Techno Tuesday: Dexon",
@@ -5098,14 +4787,6 @@
     "url": "https://denieuwekolk.nl/bios/agenda/harry-potter-and-the-deathly-hallows-part-2"
   },
   {
-    "title": "Het Clubhuis",
-    "date": "2026-09-02",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/het-clubhuis?date=02-09-2026"
-  },
-  {
     "title": "Holy Wave",
     "date": "2026-09-02",
     "source": "vera",
@@ -5153,8 +4834,9 @@
     "date": "2026-09-02",
     "source": "forum.nl",
     "genre": "overig",
+    "date_end": "2026-09-03",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/kleintje-koffie?date=02-09-2026"
+    "url": "https://forum.nl/nl/agenda/kleintje-koffie"
   },
   {
     "title": "Klik & Tik",
@@ -5164,22 +4846,6 @@
     "city": "Drachten",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3775897683/klik-tik"
-  },
-  {
-    "title": "Marilyn Expositie",
-    "date": "2026-09-02",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=02-09-2026"
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-09-02",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=02-09-2026"
   },
   {
     "title": "On the Road",
@@ -5241,22 +4907,6 @@
     "city": "Sleen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2416377916/starten-als-imker-1"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-09-02",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=02-09-2026"
-  },
-  {
-    "title": "Taalhuis",
-    "date": "2026-09-02",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/taalhuis?date=02-09-2026"
   },
   {
     "title": "Us Abe leeft!",
@@ -5377,14 +5027,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3724818067/handwerkcafe"
   },
   {
-    "title": "Het Clubhuis",
-    "date": "2026-09-03",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/het-clubhuis?date=03-09-2026"
-  },
-  {
     "title": "Iliassopdebeat - Drugs & Geld Tour (10yr anniversary)",
     "date": "2026-09-03",
     "source": "paradiso",
@@ -5427,14 +5069,6 @@
     ]
   },
   {
-    "title": "Kleintje Koffie",
-    "date": "2026-09-03",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/kleintje-koffie?date=03-09-2026"
-  },
-  {
     "title": "Maakplaats: Offline Café",
     "date": "2026-09-03",
     "source": "friesland.nl",
@@ -5444,14 +5078,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1740894001/maakplaats-offline-cafe"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-09-03",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=03-09-2026"
-  },
-  {
     "title": "Mensen zeggen dingen",
     "date": "2026-09-03",
     "source": "paard",
@@ -5459,14 +5085,6 @@
     "time": "20:30",
     "venue": "Het Paard, Den Haag",
     "url": "https://denhaag.com/nl/agenda/mensen-zeggen-dingen"
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-09-03",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=03-09-2026"
   },
   {
     "title": "Paardcafé: Holly-Ann",
@@ -5516,22 +5134,6 @@
     "time": "23:30",
     "venue": "Het Paard, Den Haag",
     "url": "https://denhaag.com/nl/agenda/semester-opening-festival-glow-in-the-dark-edition"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-09-03",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=03-09-2026"
-  },
-  {
-    "title": "Taalhuis",
-    "date": "2026-09-03",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/taalhuis?date=03-09-2026"
   },
   {
     "title": "Talks Events/Fashion Repair",
@@ -5807,14 +5409,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/45940578/mm-culinair"
   },
   {
-    "title": "Marilyn Expositie",
-    "date": "2026-09-04",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie?date=04-09-2026"
-  },
-  {
     "title": "Modder",
     "date": "2026-09-04",
     "source": "effenaar",
@@ -5847,14 +5441,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Noorderzon The Museum Of Small And Overlooked Things",
-    "date": "2026-09-04",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/noorderzon-the-museum-of-small-and-overlooked-things?date=04-09-2026"
   },
   {
     "title": "Queer of Hearts (UK) + Gevaudan Dogs (UK) + Sai Tao",
@@ -5915,14 +5501,6 @@
     "cats": [
       "uitje"
     ]
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-09-04",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld?date=04-09-2026"
   },
   {
     "title": "The 502s",

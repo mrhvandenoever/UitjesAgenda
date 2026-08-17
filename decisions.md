@@ -327,3 +327,50 @@ friesland-data sprong het aantal Exposities van 4 naar 41 — bleek forum.nl's
 wordt (sessie 2026-08-13), was alleen onzichtbaar tussen de vele Uitjes-
 events. Zie overleg.md punt 12 — bewust niet gefixt in deze sessie (ander
 onderwerp), drie oplossingsrichtingen genoteerd voor een volgende keer.
+
+## 2026-08-17 — forum.nl doorlopende exposities opgelost (overleg.md punt 12)
+Optie A gekozen en gebouwd: `scrape_forum.py` heeft een nieuwe
+`merge_consecutive_days(dates)`-functie die per slug een gesorteerde lijst
+ISO-datums groepeert in runs van opeenvolgende kalenderdagen (`(start, eind)`
+per run). De scrape-loop verzamelt nu eerst alle (slug → verzameling datums)
+in een dict i.p.v. meteen losse events te bouwen; pas na het ophalen van alle
+pagina's worden de runs bepaald en per run één event aangemaakt (`date_end`
+alleen gezet bij een run langer dan 1 dag).
+
+**Waarom dit veilig is voor het genoemde risico** ("een exhibitie die
+tussentijds een dag dicht is wordt fout samengevoegd"): het algoritme merged
+alleen ECHT opeenvolgende dagen. Een gat in de reeks (ontbrekende dag) breekt
+de run vanzelf in tweeën. Dit bleek meteen relevant in de praktijk: Marilyn
+Expositie en Storyworld hebben een echt gat op 31 augustus (bevestigd door
+de data 2x met een paar minuten ertussen te fetchen — beide keren consistent
+afwezig, dus geen toevallige netwerk-hik) — worden nu correct als 2 losse
+runs opgeslagen (17-30 aug, 1-4 sep) i.p.v. één (foutieve) doorlopende range
+17 aug - 4 sep.
+
+**Generieke bijvangst**: de merge-logica raakt ALLE forum.nl-slugs met
+opeenvolgende dagen, niet alleen de 2 expo's die het probleem zichtbaar
+maakten — bv. "Taalhuis" (4 opeenvolgende dagen) werd ook 1 rij i.p.v. 4,
+en "Noorderzon The Museum Of Small And Overlooked Things" (15 opeenvolgende
+dagen, geen gat) werd 1 rij. Wekelijks-terugkerende programma's als
+"Informatieplein-Lewenborg" (elke dinsdag, dus NIET opeenvolgend) blijven
+terecht losse dag-rijen — het algoritme onderscheidt dit vanzelf zonder een
+aparte "is dit een doorlopend evenement"-classificatie nodig te hebben.
+
+**Stale-data-opruiming nodig, zelfde patroon als eerdere sessies**:
+`insert_event()`'s conflict-resolutie update alleen bij een aggregator-vs-
+directe-bron-botsing (zie events_db.py's docstring) — bij eenzelfde bron die
+opnieuw scraped wordt met GEWIJZIGDE data voor een bestaande (title_norm,
+date)-sleutel (hier: `date_end` erbij) wordt de bestaande rij bewust NIET
+overschreven, dus een simpele her-scrape liet de oude `date_end=NULL`-rijen
+onaangeroerd staan. Opgelost door eerst alle forum.nl-rijen met `date >=
+TODAY` te verwijderen (95 rijen, allemaal daily-duplicates die door de merge
+overbodig worden) plus de `page_hash`-rij voor `forum.nl` te wissen (bekende
+valkuil, zie ARCHITECTURE.md §Change-detection), en dan opnieuw live te
+scrapen: 41/41 nieuw in DB, correct met `date_end` gevuld.
+
+**Resultaat, geverifieerd lokaal vóór commit**: Exposities 41 → 9 (2x Marilyn
+Expositie + 2x Storyworld door het echte gat, 2x Groninger Museum, Geke
+Hoogstins, Concertgebouw, plus een Friesland-galerie-expositie die met de
+volledigere friesland.nl-data van de parallelle-requests-sessie meekwam).
+Forum.nl totaal in DB: 196 → 142 rijen (oude, al-verstreken juni-rijen bewust
+niet opgeruimd — onzichtbaar op de site door de datumfilter, geen impact).

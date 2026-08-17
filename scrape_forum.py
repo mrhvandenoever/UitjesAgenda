@@ -9,11 +9,25 @@ forum.nl mixt bibliotheek-/sociale activiteiten door de echte agenda heen
 (leesclub, digihuis, spreekuur, etc.) — SKIP-lijst filtert die eruit.
 Titel wordt afgeleid van de URL-slug (geen aparte titeltekst dicht bij de
 link beschikbaar zonder complexere parsing).
+
+Doorlopende items (bv. exposities als "Marilyn Expositie"/"Storyworld")
+staan in forum.nl's eigen agenda als een LOSSE rij per dag i.p.v. één rij
+met een datumbereik (ontdekt 2026-08-16, zie overleg.md punt 12/decisions.md
+2026-08-16). merge_consecutive_days() groepeert per slug opeenvolgende
+kalenderdagen tot één event met `date`/`date_end` — een run van 1 dag blijft
+gewoon een normaal event zonder date_end. Bewust op OPEENVOLGENDE dagen
+gebaseerd (niet "alle dagen van dezelfde slug samen"): een wekelijks
+terugkerend programma (bv. "informatieplein-lewenborg", elke week op
+dinsdag) heeft dan vanzelf meerdere losse runs van 1 dag i.p.v. onterecht
+één lange datumrange, en een exhibitie die een dag dicht is (gat in de
+reeks) valt vanzelf uiteen in twee losse, correcte runs i.p.v. dat gat te
+overbruggen.
 """
 
 import urllib.request
 import re
 import argparse
+from datetime import date, timedelta
 from events_db import insert_event, log_scrape, init_db
 from page_cache import unchanged
 from parallel_fetch import fetch_many
@@ -36,16 +50,33 @@ def fetch(page: int) -> str:
         return r.read().decode('utf-8')
 
 
+def merge_consecutive_days(dates: list[str]) -> list[tuple[str, str]]:
+    """Groepeer een lijst ISO-datums in runs van opeenvolgende kalenderdagen.
+    Retourneert (start, eind) per run — eind==start bij een losse dag."""
+    dates = sorted(set(dates))
+    if not dates:
+        return []
+    runs = []
+    run_start = run_end = dates[0]
+    for d in dates[1:]:
+        if date.fromisoformat(d) == date.fromisoformat(run_end) + timedelta(days=1):
+            run_end = d
+        else:
+            runs.append((run_start, run_end))
+            run_start = run_end = d
+    runs.append((run_start, run_end))
+    return runs
+
+
 def scrape(dry_run: bool = False) -> tuple[int, int]:
     init_db()
     found = added = 0
-    all_events = []
-    seen = set()
 
     # De 7 pagina's zijn een vast, klein maximum — gewoon allemaal gelijktijdig
     # ophalen (Niveau B, overleg.md punt 2 / decisions.md 2026-08-16), maar
     # nog steeds in paginavolgorde VERWERKEN en stoppen bij de eerste lege
     # pagina, exact zoals de oude sequentiële versie.
+    by_slug = {}  # slug -> (base_url, set van ISO-datums)
     pages = list(range(1, 8))
     for page, (html, exc) in zip(pages, fetch_many(pages, fetch)):
         if exc is not None:
@@ -62,22 +93,31 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
             url, slug, d, mo, y = m.groups()
             if any(s in url for s in SKIP):
                 continue
-            key = (slug, d, mo, y)
-            if key in seen:
-                continue
-            seen.add(key)
+            base_url, dates = by_slug.setdefault(slug, (url.split('?')[0], set()))
+            dates.add(f'{y}-{mo}-{d}')
 
+    # Per slug de opeenvolgende-dagen-runs omzetten naar events (zie
+    # merge_consecutive_days()-docstring hierboven voor de motivatie).
+    all_events = []
+    for slug, (base_url, dates) in by_slug.items():
+        title = slug.replace('-', ' ').title()
+        for start, end in merge_consecutive_days(list(dates)):
             found += 1
-            title = slug.replace('-', ' ').title()
             ev = {
                 'title':  title,
-                'date':   f'{y}-{mo}-{d}',
+                'date':   start,
                 'venue':  VENUE,
-                'url':    url,
                 'source': SOURCE,
             }
+            if start == end:
+                # losse dag: zelfde per-dag-URL als voorheen
+                ev['url'] = f'{base_url}?date={start[8:10]}-{start[5:7]}-{start[0:4]}'
+            else:
+                ev['date_end'] = end
+                ev['url'] = base_url
             if dry_run:
-                print(f"    [{ev['date']}] {ev['title']}")
+                end_txt = f' t/m {ev["date_end"]}' if 'date_end' in ev else ''
+                print(f"    [{ev['date']}{end_txt}] {ev['title']}")
             else:
                 all_events.append(ev)
 
