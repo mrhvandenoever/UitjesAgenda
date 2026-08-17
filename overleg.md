@@ -131,22 +131,45 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - Aanleiding: Michiel wees erop dat Zummerbühne (Oostwold) ~20km toonde, Google Maps rijdend 35,7km. Grootste deel bleek een echte databug (verkeerde "Oostwold" coördinaat, zie decisions.md) — na de fix resteert ~27km hemelsbreed vs 35,7km rijdend, wat structureel klopt: de site rekent met haversine (rechte lijn), niet met een routeplanner.
 - Geen actie ondernomen — een echte rijafstand zou een routing-API (bv. OSRM/Google Directions) per event vereisen, een veel grotere en kostbaardere wijziging dan de huidige client-side haversine-berekening. Alleen vastgelegd zodat een volgend "afstand klopt niet"-signaal niet blind als dezelfde soort databug behandeld wordt.
 
-### 17. Claude Design-review: grotere/subjectieve suggesties nog te prioriteren (2026-08-17)
-- Aanleiding: Claude Design (nieuwe MCP-integratie, zie decisions.md) heeft de live site beoordeeld. De concrete, verifieerbare bugs zijn al gefixt (contrast, `rel=noopener`, `content-visibility`, input-font-size, Nederlandse maandnaam, titel-hiërarchie, focus-visible, lege-staat-bericht — zie decisions.md 2026-08-17). Dit punt is voor de rest: grotere en/of subjectieve voorstellen die eerst input van Michiel verdienen voor er iets gebouwd wordt.
-- **Nieuwe functionaliteit (uitbreidt, geen bugfix)**:
-  - Zoekveld (titel/venue) — meest gevraagde ontbrekende functie bij 8200+ events, relatief bevat maar raakt wel de filter-JS.
-  - Datumfilter (Vandaag/Dit weekend/Deze week/Deze maand/eigen periode) — nu alleen maand-ankerlinks, geen "wanneer"-filter.
-  - Sorteren voor Uitjes (datum/afstand/relevantie) — bestaat nu alleen voor Exposities.
-  - URL-query-params of localStorage voor filters/modus/adres — refresh/terug-knop gooit nu alles weg, geen deelbare link.
-- **Grotere herstructurering (raakt layout/gedrag substantieel)**:
-  - Filterbalk (5 rijen, ~70 chips) herbouwen naar compacte toolbar + popovers (`[zoeken] [Wanneer▾] [Waar▾] [Genre▾] [Bron▾]`) — met name op mobiel duwt de huidige balk alle events onder de fold.
-  - Kleurstrategie omgooien: chips neutraal maken, kleur alleen nog via kaart-linkerrand + genre-badge — raakt de visuele identiteit van 60 bronnen ineens.
-  - Mobiele touch-targets vergroten (chips nu ~24px, target 44px) — **bewust gekoppeld aan de toolbar-herbouw hierboven**: los vergroten zonder de balk in te klappen maakt het "wall of chips"-probleem op mobiel juist erger, niet beter.
-  - Architectuur: alleen de eerstvolgende ~60 dagen server-side in de HTML, rest per maand als JSON lazy-loaden — grote wijziging t.o.v. het huidige "alles in één static HTML, geen backend"-principe (zie decisions.md/ARCHITECTURE.md), vereist waarschijnlijk Cloudflare Pages Functions of per-maand-JSON-exports.
-- **Gedragswijziging, klein maar een keuze**: modus wisselen (Uitjes/Sport/Exposities) wist nu stilzwijgend de actieve filters (`setMode()` leegt `selSrc`/`selGenre`) — bewaren of expliciet melden?
-- **Sticky-volgorde omgekeerd** (gemist in de eerste triage, later door Michiel opgemerkt): `.mode-toggle` (Uitjes/Sport/Exposities) staat in de HTML vóór `<header>`, maar alleen `<header>` heeft `position:sticky` — bij scrollen blijft het logo/meta-blok hangen, verdwijnt de belangrijkste navigatie juist. Geverifieerd, klopt. Twee opties: (a) simpele fix — volgorde omdraaien (header eerst) en beide sticky maken (gestapeld, header op `top:0`, mode-toggle op `top:<headerhoogte>`); (b) Claude Design's eigen voorstel — alles samenvoegen tot één compacte sticky bar met logo + modi + filterteller. Optie (a) is met een vaste px-offset kwetsbaar voor een header die op mobiel over twee regels wrapt (de meta-tekst is lang) — vereist visuele verificatie op meerdere schermbreedtes vóór het live gaat, niet alleen een grep-check zoals de vorige batch.
-- **Toegankelijkheid, groter dan de al-gefixte focus-visible**: `aria-pressed` op alle filter-chips en `role="group"`/`aria-label` op de filter-label-divs — raakt meerdere chip-groepen (genre/bron/provincie/club/gender), bewust niet in de eerste veilige batch meegenomen.
-- **Niet te verifiëren/fixen vanaf hier**: Claude Design meldde dat de eigen preview vastliep bij het maken van een screenshot van de 5,5MB/8202-events-pagina — waarschijnlijk gewoon een DOM-grootte-limiet van hun eigen previewtool, geen actie mogelijk aan de codebase-kant behalve de al-doorgevoerde `content-visibility`-fix (die dat indirect kan verzachten).
+### 17. Claude Design-review: volledige lijst, grotere/subjectieve punten nog te prioriteren (2026-08-17)
+- Aanleiding: Claude Design (nieuwe MCP-integratie, zie decisions.md) heeft de live site beoordeeld. Onderstaand is het VOLLEDIGE rapport puntsgewijs nagelopen (Michiel vroeg expliciet te controleren of er niets gemist was bij de eerste triage — dat bleek zo, deze versie is compleet). ✅ = al gefixt (zie decisions.md 2026-08-17), overig = nog open, eerst Michiels input nodig.
+
+**Top-5 uit het rapport:**
+- ✅ Contrast, `content-visibility`
+- ⬜ Performance-details naast `content-visibility`: afstanden bijhouden in een JS-array i.p.v. steeds `dataset` te lezen/schrijven, en `apply()` batchen in één `requestAnimationFrame` i.p.v. bij elke chip-klik direct 8000+ events doorlopen.
+- ⬜ Zoekveld (titel/venue) — meest gevraagde ontbrekende functie bij 8200+ events.
+- ⬜ Datumfilter (Vandaag/Dit weekend/Deze week/Deze maand/eigen periode) — nu alleen maand-ankerlinks.
+- ⬜ Filterbalk (5 rijen, ~70 chips) herbouwen naar compacte toolbar + popovers (`[zoeken] [Wanneer▾] [Waar▾] [Genre▾] [Bron▾]`), lange sets (bron/club) in een popover met eigen zoekveldje en groepering (Landelijk/Groningen/Drenthe/Friesland). **Michiel koos ervoor (2026-08-17) de sticky-volgorde-fix hieronder hierbij te bundelen** i.p.v. los te doen — bij deze herbouw meteen ook Claude Design's volledige voorstel meenemen: één compacte sticky bar met logo + modi + filterteller.
+- ⬜ Kleurstrategie omgooien: chips neutraal maken, kleur alleen nog via kaart-linkerrand + genre-badge — raakt de visuele identiteit van 60 bronnen ineens.
+- ⬜ Architectuur: alleen de eerstvolgende ~60 dagen server-side in de HTML, rest per maand als JSON lazy-loaden — grote wijziging t.o.v. het huidige "alles in één static HTML, geen backend"-principe, vereist waarschijnlijk Cloudflare Pages Functions of per-maand-JSON-exports.
+
+**Visuele hiërarchie & leesbaarheid:**
+- ✅ Titel-hiërarchie, Nederlandse maandnaam
+- ⬜ Algemene tekstgrootte: body is 14px met veel secundaire tekst op 0.68–0.78rem (~9,5–11px) — voorstel: ondergrens 13px voor secundair, 16px voor body-tekst. Plus `line-height:1.45` op body (ontbreekt volledig — er is nu alleen een `line-height:1.6` op de footer, nergens anders). **Let op**: dit is breder dan de al-gefixte `#addr-input`-font-size-bug (die loste alleen de iOS-zoom-bug op één specifiek veld op).
+- ⬜ Contrastfout, apart van de al-gefixte gele-chips-bug: `#aaa` (footer-tekst + `.dist-badge`) op wit geeft ≈2,3:1 contrast — faalt WCAG. Nog aanwezig in de code, niet aangeraakt.
+- ⬜ Emoji-inflatie: 60 verschillende emoji in de bronchips lezen als ruis. Voorstel: emoji alleen bij de 3 modi en evt. genres, weghalen uit de bronlijst.
+- ⬜ Sticky-volgorde (mode-toggle/header) — zie hierboven, gebundeld met de toolbar-herbouw.
+
+**Filterbalk-gedrag:**
+- ✅ Lege-staat-bericht
+- ⬜ Actieve-filter-samenvatting: een rij verwijderbare tokens (`Drenthe × ≤50 km × Theater ×`) + "Wis alles" — actieve keuzes zitten nu verspreid over vijf losse rijen, geen overzicht.
+- ⬜ URL-query-params of localStorage voor filters/modus/adres — refresh/terug-knop gooit nu alles weg, geen deelbare link.
+- ⬜ Afstand-UI: de 5-staps-slider (25/50/75/100/alles) vervangen door zichtbare segmented buttons (`10 · 25 · 50 · 100 · alles`) — nu onzichtbare stappen. Losstaand: de custom-km-invoer via `window.prompt()` (bevestigd aanwezig in de code) is op mobiel een omslachtige native dialoog, geen nette in-page UI.
+- ⬜ Sorteren voor Uitjes (datum/afstand/relevantie) — bestaat nu alleen voor Exposities.
+- ⬜ Modus wisselen wist stilzwijgend de actieve filters (`setMode()` leegt `selSrc`/`selGenre`) — bewaren of expliciet melden?
+
+**Mobiel:**
+- ⬜ Touch-targets: chips nu ~24px, target 44px — **bewust gekoppeld aan de toolbar-herbouw**, los vergroten zonder de balk in te klappen maakt het "wall of chips"-probleem juist erger.
+- ⬜ Chip-groepen op mobiel: i.p.v. wrappen naar 3-4 regels, één horizontale scrollbaan per groep met fade aan de randen (zoals `.month-nav` voor de maand-navigatie al doet — bestaand patroon, alleen nog niet toegepast op de filter-chip-groepen).
+- ⬜ Kaart mobiel herindelen: datum als kleine kicker boven de titel i.p.v. een aparte 60px-kolom, titel over volle breedte, "venue · ~18 km" op één regel, bron-badge weg op mobiel.
+- ⬜ Adresrij (label + input + 2 knoppen + slider) wrapt rommelig op mobiel — eigen volle regel geven.
+- ⬜ Geen "terug naar boven"-knop op een pagina van tienduizenden pixels lang.
+
+**Toegankelijkheid, groter dan de al-gefixte `rel=noopener`/`:focus-visible`:**
+- ✅ `rel="noopener"`, `:focus-visible`
+- ⬜ `aria-pressed` op alle filter-chips en `role="group"`/`aria-label` op de filter-label-divs — raakt meerdere chip-groepen (genre/bron/provincie/club/gender), bewust niet in de eerste veilige batch meegenomen.
+
+**Niet te verifiëren/fixen vanaf hier**: Claude Design meldde dat de eigen preview vastliep bij het maken van een screenshot van de 5,5MB/8202-events-pagina — waarschijnlijk gewoon een DOM-grootte-limiet van hun eigen previewtool, geen actie mogelijk aan de codebase-kant behalve de al-doorgevoerde `content-visibility`-fix (die dat indirect kan verzachten).
 
 ### 18. `insert_event()` update-gedrag structureel aanpakken — OPGELOST 2026-08-17
 - Was 4x hetzelfde patroon (forum.nl, Geke Hoogstins, TivoliVredenburg, SPOT Groningen): `insert_event()` update een bestaande same-source-rij nooit, dus verbeterde scraper-data (venue-differentiatie, `date_end`, URL's) kwam nooit door zonder handmatige opschoning.
