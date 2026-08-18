@@ -1344,6 +1344,7 @@ body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fo
 .empty-action-btn:hover{{background:#e3f2fd;}}
 #empty-state.hidden{{display:none;}}
 main{{padding:0 16px 32px;max-width:1000px;margin:0 auto;}}
+#expo-wrap{{padding:0 16px 32px;max-width:1000px;margin:0 auto;}}
 .month-section{{margin-top:20px;}} .month-section.hidden{{display:none;}}
 .day-group.hidden{{display:none;}}
 .month-header{{font-size:1rem;font-weight:700;color:var(--muted);padding:8px 0 6px;border-bottom:1px solid var(--border);margin-bottom:8px;}}
@@ -1532,7 +1533,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
 <div id="stats">Toont alle {total_uitjes} uitjes</div>
 <div id="empty-state" class="hidden"></div>
 <main>{main_html}</main>
-<div id="expo-wrap" style="display:none;padding:0 16px 32px;">{expo_html}</div>
+<div id="expo-wrap" style="display:none;">{expo_html}</div>
 <button id="back-to-top" class="hidden" title="Naar boven" aria-label="Naar boven" onclick="window.scrollTo({{top:0,behavior:'smooth'}})">&uarr;</button>
 <script>{js}</script>
 <footer style="margin-top:32px;padding:16px;font-size:0.72rem;color:var(--muted);border-top:1px solid #e0e0e0;line-height:1.6;">
