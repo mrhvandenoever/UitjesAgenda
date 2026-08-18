@@ -104,6 +104,7 @@ SRC = {
     'dos46':               ("DOS '46",          '🎯', '#1565c0'),
     # Natuuractiviteiten (overleg.md punt 15, 2026-08-18)
     'staatsbosbeheer':     ('Staatsbosbeheer', '🌲', '#43a047'),
+    'intonature':          ('Into Nature',     '🎨', '#00838f'),
 }
 
 VENUE_LOC = {

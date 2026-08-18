@@ -1706,3 +1706,76 @@ correct, de guard (`!el.dataset.lat`) is precies hiervoor gebouwd.
 lokale preview: zoeken op "boomkroonpad" vindt 3 events, genre-knop "🥾
 Actief" bestond en werkt, bron-badge "Staatsbosbeheer" toont correct, geen
 console-errors. Zie SCRAPERS.md voor de bijgewerkte bronnentelling (61).
+
+## 2026-08-18 — Into Nature "extra activiteiten" gebouwd: Playwright, op-volgorde-parser
+
+Derde en laatste stuk van de "Michiel wees op 2 nieuwe bronnen"-scope
+(overleg.md punt 15). Anders dan Staatsbosbeheer heeft `intonature.net`
+géén publieke JSON-API — de agenda-pagina
+(`/agenda/extra-activiteiten-tijdens-into-nature-haunted-by-waters`) is een
+React-app zonder onderliggende data-endpoint gevonden bij het netwerkcheck.
+Playwright nodig.
+
+**DOM-structuur, onderzocht via de Browser pane**: geen herkenbaar
+per-activiteit HTML-element (geen class/id per blok) — alle content zit als
+een platte opeenvolging van `H3` (dag, "Zaterdag 15 augustus", geen
+jaartal), `H5` (activiteit-titel — **niet bij elke activiteit aanwezig**,
+data-inconsistentie op de bron zelf) en `P` (vrije tekst, vaak met "Tijd:"/
+"Locatie:"/"Datum:"-regels) binnen 1 container. `scrape_intonature.py`
+loopt de kinderen op volgorde af i.p.v. CSS-selectors te gebruiken, en
+houdt een lopende "huidige dag"/"huidige titel"/"buffer"-state bij
+(`parse_blocks()`).
+
+**Twee content-typen, bewust verschillend behandeld** (zelfde onderscheid
+als bij Staatsbosbeheer's `activity`/`route`-split, nu binnen 1 bron):
+losse concrete activiteiten (scrapen we) vs. "Boswachters met bakfiets" —
+een terugkerend, laagdrempelig inloopmoment zonder vaste tijd ("Tijd:
+volgt"), inhoudelijk hetzelfde soort "geen concreet moment"-geval als de
+Staatsbosbeheer-`route`'s. Bewust overgeslagen via een titel-check
+(`SKIP_TITLE_PAT`) i.p.v. puur op structuur (H5 aanwezig ja/nee) te
+vertrouwen — **1 exemplaar van "Boswachters met bakfiets" kreeg namelijk
+per ongeluk tóch een H5** (contentauteur-inconsistentie op de bron), dus de
+titel-check ving dit op waar een pure structuurcheck had gefaald. Omgekeerd
+ving de structuurcheck-met-fallback ook een genuine activiteit
+("Verhalen maken onder leiding van curator Nathalie Hartjes...") die GEEN
+eigen H5 kreeg — de parser gebruikt daarom de eerste regel van de P-tekst
+als titel wanneer er geen voorafgaande H5 was, tenzij die regel matcht op
+`SKIP_TITLE_PAT`.
+
+**Bug gevonden en gefixt tijdens het bouwen**: de eerste versie van
+`parse_day()` gebruikte hetzelfde "rol naar volgend jaar als de datum al
+voorbij zou zijn"-patroon als `scrape_drenthe.py`/`scrape_vera.py`. Voor
+een JAARLIJKS terugkerende bron (concerten, vaste podia) is dat correct —
+hier niet: "Wandeling langs kunstwerken..." is een MAANDELIJKS terugkerende
+activiteit BINNEN 1 tentoonstellingsseizoen (15 aug, 12 sept, 10 okt). De
+eerste (15 augustus) was bij het scrapen al gepasseerd (vandaag 18
+augustus) en werd door de roll-logica ten onrechte naar **15 augustus
+2027** geprojecteerd — een kunstmatige toekomst-editie die niet bestaat.
+Gefixt door de roll-forward-logica simpelweg weg te laten: `parse_blocks()`
+filtert toch al op `date >= TODAY`, dus een gepasseerde datum moet gewoon
+vervallen, niet een jaar vooruitschuiven. Resultaat: 12 → 11 events.
+
+**Geen aparte URL per activiteit** gevonden (geen id/anker per blok) — alle
+11 events krijgen dezelfde agenda-pagina-URL.
+
+**Locatie**: geen coördinaten op de pagina gevonden, maar alle genoemde
+adressen (Roderwolderweg/IJsbaan/Dorpshuis Roderwolde, De Onlanderij
+Eelderwolde, Wooncentrum Peize) liggen een paar km van elkaar — `city:
+'Roderwolde'` gezet (stond al in `city_coords.json`) als praktische
+benadering, i.p.v. zelf per-locatie coördinaten te achterhalen. Voor events
+zonder expliciete `venue`-tekst (bv. de Kennisavond, waar "Dorpshuis
+Roderwolde..." als vrije tekst staat i.p.v. achter een "Locatie:"-label)
+springt `venue_display()` (2026-08-18, zie eerder vandaag) automatisch bij
+met de stadsnaam — een mooie, ongeplande bevestiging dat die eerdere fix
+ook hier waarde toevoegt.
+
+**Bewust NIET generiek gebouwd**: dit script is aan deze ene tentoonstelling
+(1 seizoen) gekoppeld via een hardcoded `AGENDA_URL`. Volgend jaar heet de
+expositie anders en verandert de URL — dan is een nieuwe/aangepaste
+scraper nodig, geen automatische doorloop.
+
+**Geverifieerd**: dry-run (11 events, juiste titels/tijden/locaties),
+`insert_event()` (11), regeneratie (8262 → 8273 geldige events), lokale
+preview: zoeken op "kleibosch" vindt 3 events (2x de wandeling + 1x de
+toelichting-zonder-H5), genre/bron-badges correct, geen console-errors.
+Zie SCRAPERS.md voor de bijgewerkte bronnentelling (62).

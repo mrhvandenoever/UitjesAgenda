@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (61 bronnen, 61 scripts)
+## ✅ Geautomatiseerd (62 bronnen, 62 scripts)
 
 | Bron | Script |
 |---|---|
@@ -84,6 +84,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Groninger Museum | `scrape_groningermuseum.py` (2026-08-17 — was 2026-08-15 nog "geparkeerd als moeilijk": GraphQL-endpoints gaven 404, Playwright bleef leeg. Bleek achteraf helemaal geen GraphQL nodig te hebben: een plain, publieke JSON-API (`/api/exhibitions`, `/api/activities`, beide met `?type=now\|soon\|past`) — gevonden via een Playwright-netwerkcheck die de onderliggende `fetch()`-call zag. Dekt zowel exposities (met `date`/`date_end`) als losse eenmalige activiteiten (bv. Groninger Museumnacht) — generiek-terugkerende activiteiten ("Ieder weekend") bewust overgeslagen, passen niet in het single-date-model. 9 events/run) |
 | Uitzinnig.nl (aggregator, Drenthe/Groningen/Friesland) | `scrape_uitzinnig.py` (2026-08-17, overleg.md punt 13 — 3 "provincie"-pagina's die in de praktijk overlappen, dus gededupliceerd op URL. Echte start-/einddatum via ISO-meta-tags op de detailpagina (beter dan kunstinzicht.nl, dat bewust niet gebouwd is — zie hieronder). Geeft ook een eerste (deel-)win voor Hunebedcentrum zonder de bot-bescherming te omzeilen. In `AGGREGATOR_SOURCES`. 13 events/run) |
 | Staatsbosbeheer (natuuractiviteiten, Groningen/Drenthe/Friesland/Overijssel) | `scrape_staatsbosbeheer.py` (2026-08-18, overleg.md punt 15 — de listingpagina is een React-app, maar heeft een publieke, schone JSON-API (`/api/activities?perPage[]=N&page[]=N`, gevonden via een netwerkcheck), geen Playwright nodig. 1213 resultaten NL-breed, drie types: `activity` (echte datum + coördinaten, dit scrapen we), `route` (permanent beschikbaar, `Date` altijd null, bewust NIET gebouwd — past niet in het datum-model), `accomodation` (kampeerterreinen, overgeslagen). Genre `'actief'` expliciet via `cats` i.p.v. titel-gok (`gen_uitjes.py`'s `cat_map` uitgebreid). 71 events/run) |
+| Into Nature "extra activiteiten" (Roderwolde, Drenthe) | `scrape_intonature.py` (2026-08-18, overleg.md punt 15 — React-app, wél Playwright nodig. Geen per-activiteit HTML-element, alleen een platte H3(dag)/H5(titel, niet altijd aanwezig)/P(vrije tekst)-opeenvolging binnen 1 container — op-volgorde-lopende parser i.p.v. CSS-selectors. Terugkerend laagdrempelig "Boswachters met bakfiets"-inloopmoment bewust overgeslagen (titel-check, want kreeg 1x per ongeluk toch een H5). **Kleine, bewust niet-generieke bron**: 1 tentoonstelling/seizoen, volgend jaar andere URL/titel — dan opnieuw bekijken i.p.v. dit script automatisch te laten meedraaien. 11 events/run) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
