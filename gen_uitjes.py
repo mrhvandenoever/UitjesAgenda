@@ -1451,13 +1451,13 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   <div class="toolbar" id="toolbar">
     <input type="search" id="search-input" placeholder="🔍 Zoek op titel of locatie…" aria-label="Zoek op titel of locatie">
     <div class="toolbar-buttons" id="toolbar-buttons">
-      <button class="toolbar-btn" id="tb-when" data-popover="popover-when" aria-haspopup="true" aria-expanded="false">Wanneer<span class="tb-count" id="tb-when-count"></span></button>
-      <button class="toolbar-btn" id="tb-where" data-popover="popover-where" aria-haspopup="true" aria-expanded="false">Waar<span class="tb-count" id="tb-where-count"></span></button>
-      <button class="toolbar-btn" id="tb-genre" data-popover="popover-genre" aria-haspopup="true" aria-expanded="false">Genre<span class="tb-count" id="tb-genre-count"></span></button>
-      <button class="toolbar-btn" id="tb-src" data-popover="popover-src" aria-haspopup="true" aria-expanded="false">Bron<span class="tb-count" id="tb-src-count"></span></button>
-      <button class="toolbar-btn" id="tb-sport" data-popover="popover-sport" aria-haspopup="true" aria-expanded="false">Sport<span class="tb-count" id="tb-sport-count"></span></button>
-      <button class="toolbar-btn" id="tb-club" data-popover="popover-club" aria-haspopup="true" aria-expanded="false">Club<span class="tb-count" id="tb-club-count"></span></button>
-      <button class="toolbar-btn" id="tb-sort" data-popover="popover-sort" aria-haspopup="true" aria-expanded="false">Sorteren</button>
+      <button class="toolbar-btn" id="tb-when" data-popover="popover-when" aria-haspopup="true" aria-expanded="false" aria-controls="popover-when">Wanneer<span class="tb-count" id="tb-when-count"></span></button>
+      <button class="toolbar-btn" id="tb-where" data-popover="popover-where" aria-haspopup="true" aria-expanded="false" aria-controls="popover-where">Waar<span class="tb-count" id="tb-where-count"></span></button>
+      <button class="toolbar-btn" id="tb-genre" data-popover="popover-genre" aria-haspopup="true" aria-expanded="false" aria-controls="popover-genre">Genre<span class="tb-count" id="tb-genre-count"></span></button>
+      <button class="toolbar-btn" id="tb-src" data-popover="popover-src" aria-haspopup="true" aria-expanded="false" aria-controls="popover-src">Bron<span class="tb-count" id="tb-src-count"></span></button>
+      <button class="toolbar-btn" id="tb-sport" data-popover="popover-sport" aria-haspopup="true" aria-expanded="false" aria-controls="popover-sport">Sport<span class="tb-count" id="tb-sport-count"></span></button>
+      <button class="toolbar-btn" id="tb-club" data-popover="popover-club" aria-haspopup="true" aria-expanded="false" aria-controls="popover-club">Club<span class="tb-count" id="tb-club-count"></span></button>
+      <button class="toolbar-btn" id="tb-sort" data-popover="popover-sort" aria-haspopup="true" aria-expanded="false" aria-controls="popover-sort">Sorteren</button>
       <button class="toolbar-btn clear-btn" id="clear-filters-btn">Wis filters</button>
     </div>
   </div>

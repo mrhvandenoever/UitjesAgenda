@@ -1779,3 +1779,64 @@ scraper nodig, geen automatische doorloop.
 preview: zoeken op "kleibosch" vindt 3 events (2x de wandeling + 1x de
 toelichting-zonder-H5), genre/bron-badges correct, geen console-errors.
 Zie SCRAPERS.md voor de bijgewerkte bronnentelling (62).
+
+## 2026-08-18 — Externe review nagelopen: 1 echte fix, 6 niet-reproduceerbaar
+
+Michiel kreeg een kritische externe review van de live site (buiten Claude
+Design om). In plaats van de conclusies over te nemen, elke concrete claim
+losstaand geverifieerd op de live site (JS-checks, geen aannames):
+
+**Bevestigd en gefixt**:
+- `aria-controls` ontbrak op alle 7 toolbar-knoppen (`aria-haspopup`/
+  `aria-expanded` stonden er al wél). Toegevoegd, wijst naar dezelfde
+  popover-id als het al bestaande `data-popover`-attribuut — geen JS-
+  wijziging nodig, puur statische HTML.
+
+**Bevestigd als waar, maar de conclusie eraan verbonden was onjuist**:
+- "8027 uitjes, pagina ~593.000px" — het getal klopt exact
+  (`document.body.scrollHeight` = 592.981px, geverifieerd). Maar de
+  conclusie "dit vraagt om virtualisatie/paginering" gaat voorbij aan
+  `content-visibility:auto` (al aanwezig): de daadwerkelijke render-/
+  transferkosten zijn al gemeten (overleg.md punt 17, 2026-08-18):
+  ~444KB over de lijn, 1 request, ~600ms tot interactief — dat is een
+  perceptie-/lengte-kwestie (lange scrollbar), geen laadtijd-probleem.
+  Geen actie — zou ook rechtstreeks ingaan tegen het net-genomen,
+  gemeten besluit om lazy-loading niet te bouwen.
+- "Screenshots time-outen" — reproduceerbaar, maar bleek exact dezelfde
+  bekende tool-beperking als eerder deze sessie (Browser pane niet
+  zichtbaar → geen compositing), ook op kleine/gefilterde pagina's. Geen
+  paginagrootte-specifiek probleem.
+
+**Niet gereproduceerd** (gecheckt, klopt niet op de live site):
+- "Sorteren/Wis filters/maandnavigatie lopen op 390px buiten beeld" — dit
+  zijn knoppen binnen `.toolbar-buttons`, een BEWUST horizontaal
+  scrollbare strip (Cluster 4, 2026-08-18) met een fade-affordance
+  (`mask-image`-gradient, aanwezig in de CSS). `document.body.scrollWidth`
+  = viewport-breedte, geen paginaniveau-overflow. Werkt zoals ontworpen.
+- "Genre-paneel ging niet betrouwbaar open na 'Dit weekend', Actief
+  onzichtbaar/niet klikbaar" — volledige flow (Wanneer→Dit weekend→Genre-
+  popover openen→Actief aanklikken→correcte 5 resultaten) werkte
+  probleemloos bij 2 losse pogingen. Waarschijnlijk een vergelijkbare
+  tooling-hik als bij onze eigen screenshot-timeout, geen reproduceerbare
+  sitebug.
+- "Actieve filters zouden als chips boven de lijst moeten" — bestaat al
+  (Cluster 5, "Actieve-filter-samenvatting"): met Dit weekend+Actief actief
+  toont de balk exact "Dit weekend × 🥾 Actief × Wis alles". Review
+  waarschijnlijk getest zonder actieve filters (balk is dan leeg/onzichtbaar,
+  dat is de bedoeling).
+- "Lege linktekst verderop in de DOM" — alle 7818 `.event-title a`-links
+  gecontroleerd, 0 leeg. Vermoedelijke verklaring: `.dist-badge`-spans zijn
+  in de ruwe HTML wél leeg totdat JS de afstand invult (`updateDistances()`)
+  — als de review een statische crawl deed i.p.v. de pagina te laten
+  renderen, kan dat als "lege tekst" zijn opgevallen.
+
+**Productopinie, niet zelf doorgevoerd** (Michiels eigen open vraag, zie
+overleg.md punt 15): de reviewer pleit voor een 4e topniveau-tab
+"Wandelingen" voor de 220 Staatsbosbeheer-routes, met eigen filters
+(afstand, routelengte, terreintype, rondwandeling ja/nee) i.p.v. ze in
+Uitjes te proppen. Inhoudelijk sluit dit aan bij de eerdere conclusie
+("dag-gebonden → Uitjes, evergreen → eigen behandeling") maar blijft
+Michiels eigen afweging — alleen vastgelegd als extra input, geen besluit.
+
+**Kaart-hiërarchie/scanbaarheid**: subjectieve designsuggestie, geen
+concrete bug — niet doorgevoerd zonder duidelijkere richting van Michiel.
