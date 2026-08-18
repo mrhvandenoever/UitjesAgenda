@@ -1652,3 +1652,57 @@ een paar dagen op de verkeerde dag), en "Into Nature" simpelweg aan
 `SKIP_TITLE_WORDS`-achtig gedrag toevoegen i.p.v. een structurele oplossing
 bouwen voor 1 event. **Nog niet gebouwd — wacht op Michiels akkoord**, zie
 overleg.md punt 15.
+
+## 2026-08-18 — Staatsbosbeheer gebouwd: schone JSON-API, 71 natuuractiviteiten
+
+Vervolg op bovenstaande punt-15-discussie. Michiel wees op
+`staatsbosbeheer.nl/uit-in-de-natuur/activiteiten` als mogelijke bron voor
+zowel "langlopend" als "kortdurend" natuuraanbod.
+
+**Bron-onderzoek**: de pagina is een client-rendered React-app (plain
+`urllib` ziet alleen een lege shell), maar `read_network_requests` op de
+Browser pane legde direct een publieke JSON-API bloot: `/api/activities?
+perPage[]=N&page[]=N` — 1213 resultaten landelijk, `TotalResults` +
+`Results[]`, elk met `Type`, `Date`, `InfoDetails.Location.{Text,Provinces}`,
+`GeoCoordinate.{Latitude,Longitude}`. Geen Playwright nodig, zelfde soort
+vondst als destijds bij Groninger Museum.
+
+**Drie content-typen op deze ene endpoint, bewust verschillend behandeld**:
+- `activity` (153 in onze 4 provincies, 71 na filtering op toekomstige datum
+  + dedup op URL) — geboekte excursies/rondleidingen met een echte datum en
+  precieze coördinaten. **Dit scrapen we.**
+- `route` (220 in onze 4 provincies) — permanent beschikbare wandelroutes,
+  `Date` altijd `null`. **Bewust NIET gebouwd**: past niet in ons datum-
+  gebaseerde model (geen begin, geen eind, gewoon altijd aanwezig) — apart
+  ontwerpvraagstuk waar Michiel nog over twijfelt ("Uitjes, Exposities...
+  moet ik er nu ook nog wandelingen bij, dat is wel weer een vergroting/
+  verzwaring"). Blijft open, zie overleg.md punt 15.
+- `accomodation` (33) — kampeerterreinen, geen event, overgeslagen.
+
+**Genre**: i.p.v. `classify()`'s titel-keyword-gok (die voor titels als
+"Beleef het Boomkroonpad" of "Ontdek Radio Kootwijk" zou mislukken — geen
+van de bestaande 'actief'-keywords komt erin voor) krijgt elk event
+`cats=['actief']` als expliciet signaal, zelfde patroon als `cats=
+['expositie']` bij de expositie-aggregators. `gen_uitjes.py`'s `cat_map`
+kreeg een nieuwe `'actief':'actief'`-regel om dat signaal te laten werken.
+Genre "Actief / Natuur" (🥾) bestond al (gebruikt door titel-keyword-
+matches als "wandeling"/"safari") — geen nieuw genre nodig, alleen een
+betrouwbaardere manier om er events aan toe te wijzen.
+
+**Regionale filtering**: `InfoDetails.Location.Provinces` bevat exact onze
+eigen provincienamen (`'Friesland'`, geen `'Fryslân'`-variant), dus
+simpele set-intersectie met `{Groningen, Drenthe, Friesland, Overijssel}` —
+dezelfde scope als de rest van de site, geen normalisatie nodig.
+
+**Geen `VENUE_LOC`-entry toegevoegd**: elk event heeft al zijn eigen
+`lat`/`lon` van de API zelf (nauwkeuriger dan een bron-brede fallback zou
+zijn) — de bron beslaat sowieso 4 provincies, een enkel vast punt zou
+toch niet kloppen. Gevolg: de "alleen bronnen binnen mijn afstand"-toggle
+in de Bron-popover (2026-08-18 gebouwd) verbergt Staatsbosbeheer nooit —
+correct, de guard (`!el.dataset.lat`) is precies hiervoor gebouwd.
+
+**Geverifieerd**: dry-run (71 events, juiste titels/data/venues/provincies),
+`insert_event()` (71 nieuw), regeneratie (8315 → 8262 geldige events),
+lokale preview: zoeken op "boomkroonpad" vindt 3 events, genre-knop "🥾
+Actief" bestond en werkt, bron-badge "Staatsbosbeheer" toont correct, geen
+console-errors. Zie SCRAPERS.md voor de bijgewerkte bronnentelling (61).

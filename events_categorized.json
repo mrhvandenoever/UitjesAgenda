@@ -520,6 +520,21 @@
     "url": "https://www.tivolivredenburg.nl/agenda/41895184/alcest-18-08-2026"
   },
   {
+    "title": "Beleef het Boomkroonpad",
+    "date": "2026-08-18",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Hondsrug",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/beleef-het-boomkroonpad",
+    "subtitle": "Beleef het bos eens vanuit een ander perspectief en maak een wandeling over het Boomkroonpad. Dit wandelpad leidt je hoog langs de toppen van de bomen.",
+    "lat": 52.949836,
+    "lon": 6.745159,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Bossafari",
     "date": "2026-08-18",
     "source": "friesland.nl",
@@ -527,6 +542,21 @@
     "city": "Appelscha",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3859740204/bossafari-2"
+  },
+  {
+    "title": "Bossafari Drents-Friese Wold",
+    "date": "2026-08-18",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/bossafari-drents-friese-wold",
+    "subtitle": "Ga samen met je kinderen mee met de boswachter en ontdek het Drents-Friese Wold met al je zintuigen: ruik, proef, zie en hoor de natuur! Ook leuk voor opa's en oma's.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Brinklopen | Loop 2,5 tot 10 km hard",
@@ -604,6 +634,21 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2754580373/kamermuziekweek-apollo-ensemble",
     "category": "Muziekfestival"
+  },
+  {
+    "title": "Kinderdoedag Boomkroonpad",
+    "date": "2026-08-18",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Hondsrug",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/kinderdoedag-boomkroonpad",
+    "subtitle": "Sluit aan bij de kinderdoemiddag waar er elke keer weer iets nieuws te beleven is! Van nestkastjes timmeren tot aan slangen maken en knutselen uit de natuur.",
+    "lat": 52.949836,
+    "lon": 6.745159,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Kings Return: magische samenzang van a-cappellakoningen",
@@ -736,6 +781,36 @@
     "url": "https://www.concertgebouw.nl/concerten/41486305-beethoven-7-en-mahler-bij-het-ukrainian-freedom-orchestra"
   },
   {
+    "title": "Bossafari Sallandse Heuvelrug",
+    "date": "2026-08-19",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/bossafari-sallandse-heuvelrug",
+    "subtitle": "Ga op avontuur in het bos tijdens de bossafari van Staatsbosbeheer en ervaar spelenderwijs de natuur op de Sallandse Heuvelrug. Een gezellig en leerzaam uitje voor kinderen en (groot)ouders.",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
+    "title": "Code S.T.O.R.M. - Hondsrug",
+    "date": "2026-08-19",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Hondsrug",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/code-storm-hondsrug",
+    "subtitle": "De natuur is in gevaar! Een grote storm zal alles verwoesten en jij kan helpen deze te stoppen. Voltooi alle opdrachten in het bos en kom zo achter de code om de weermachine te activeren die de storm tegenhoudt.",
+    "lat": 52.949836,
+    "lon": 6.745159,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Connecting Threads",
     "date": "2026-08-19",
     "source": "podiumzuidhaege",
@@ -743,6 +818,21 @@
     "time": "19:30",
     "venue": "Podium Zuidhaege, Assen",
     "url": "https://podiumzuidhaege.nl/a/opening-expositie-connecting-threads/"
+  },
+  {
+    "title": "Cursus junior boswachter Lauwersmeer",
+    "date": "2026-08-19",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Lauwersmeer",
+    "province": "Groningen",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/lauwersmeer/cursus-junior-boswachter-lauwersmeer",
+    "subtitle": "Zijn jouw kinderen benieuwd naar het werk van de boswachter? Kom dan naar Nationaal Park Lauwersmeer en meld ze aan voor de junior boswachtercursus. In elk seizoen is er van alles te ontdekken in de natuur!",
+    "lat": 53.385056,
+    "lon": 6.235943,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "De Graanrepubliek",
@@ -802,6 +892,21 @@
     "city": "Dwingeloo",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1466076298/drentse-heidedagen-schaapskooi-achter-t-zaand"
+  },
+  {
+    "title": "Escape route in het bos: Raadsels van Raaf",
+    "date": "2026-08-19",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/escape-route-raadsels-van-raaf",
+    "subtitle": "Ontdek de escape route Raadsels van Raaf. Een spannende game waarbij je codes kraakt in het bos en zo het mysterie van Victor Raaf oplost. Een unieke buitenactiviteit van Staatsbosbeheer in het Drents Friese Wold voor kinderen en volwassenen.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Festraite",
@@ -1005,6 +1110,21 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1700106289/tuin-thee-proeverij"
   },
   {
+    "title": "Vaartocht naar de sterrenwacht - Weerribben",
+    "date": "2026-08-19",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Weerribben",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/weerribben/vaartocht-naar-de-sterrenwacht-weerribben",
+    "subtitle": "Wil je de rust van de Weerribben ervaren als alle andere recreanten naar huis zijn? Vaar dan 's avonds in de fluisterboot mee met de boswachter van Staatsbosbeheer. Bij de sterrenwacht bekijk je de sterrenhemel door de sterrenkijker.",
+    "lat": 52.806841,
+    "lon": 5.927587,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Vakantiemarkt met vlomarkt Schoonoord",
     "date": "2026-08-19",
     "source": "drenthe.nl",
@@ -1030,6 +1150,21 @@
     "city": "Orvelte",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/814390752/wonsdag-thoes-in-orvelt"
+  },
+  {
+    "title": "Zomeravondexcursie over de Hondsrug",
+    "date": "2026-08-19",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Hondsrug",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/zomeravondwandeling-boomkroonpad",
+    "subtitle": "Beleef de overgang van dag naar nacht tijdens de zomervondwandeling bij het Boomkroonpad. De gids laat je de mooiste plekjes van de Hondsrug zien.",
+    "lat": 52.949836,
+    "lon": 6.745159,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Zomermarkt in Workum",
@@ -1075,6 +1210,21 @@
     "url": "https://www.tivolivredenburg.nl/agenda/35408611/arthur-verocai-20-08-2026"
   },
   {
+    "title": "Avondwandeling over het Aekingerzand",
+    "date": "2026-08-20",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/avondwandeling-over-het-aekingerzand",
+    "subtitle": "Beleef deze zomer de schemer op het Aekingerzand; een uniek stuifzandgebied waar bijzondere planten en dieren leven. De gids vertelt je er alles over. Geniet van de weidsheid en de stilte van deze unieke \"woestijn\".",
+    "lat": 52.936253,
+    "lon": 6.289589,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Boerenmarkt Woudsend",
     "date": "2026-08-20",
     "source": "friesland.nl",
@@ -1082,6 +1232,21 @@
     "city": "Woudsend",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/586204796/boerenmarkt-woudsend"
+  },
+  {
+    "title": "Boswachtersspreekuur - Drents-Friese Wold",
+    "date": "2026-08-20",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/ontmoet-de-boswachter-drents-friese-wold",
+    "subtitle": "Kom naar het boswachterslab in Buitencentrum Drents-Friese Wold en stel al je vragen over de natuur aan een echte boswachter!",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Chopins meeslepende pianomuziek door prijswinnaar Eric Lu",
@@ -1324,6 +1489,21 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/973673406/rondritten-met-paard-en-wagen-1"
   },
   {
+    "title": "Schemerwandeling Sallandse Heuvelrug",
+    "date": "2026-08-20",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/schemerwandeling-sallandse-heuvelrug",
+    "subtitle": "Wandel bij het vallen van de avond mee met de gids van Staatsbosbeheer over de Sallandse Heuvelrug. De zon gaat onder, de natuur komt tot rust. Nachtdieren ontwaken en laten zich misschien nog wel horen of zien!",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Sparks",
     "date": "2026-08-20",
     "source": "doornroosje",
@@ -1357,6 +1537,21 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3715396473/vaartocht-door-nationaal-park-de-alde-feanen-10-15"
   },
   {
+    "title": "Varen door de Weerribben",
+    "date": "2026-08-20",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Weerribben",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/weerribben/varen-door-de-weerribben",
+    "subtitle": "Vaar mee met de gids van Staatsbosbeheer en vaar door de watergangen van de Weerribben. Onderweg geniet je van de stilte van dit uitgestrekte, waterrijke gebied.",
+    "lat": 52.806841,
+    "lon": 5.927587,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Voorleeshalfuurtje",
     "date": "2026-08-20",
     "source": "forum.nl",
@@ -1385,6 +1580,21 @@
     "subtitle": "LEGENDARISCHE AUSTRALISCHE ROCKBAND",
     "genres": [
       "Rock"
+    ]
+  },
+  {
+    "title": "Waterdiertjes van de Weerribben",
+    "date": "2026-08-20",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Weerribben",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/weerribben/waterdiertjes-van-de-weerribben",
+    "subtitle": "Gewapend met schepnet en zoekkaart stappen de kinderen bij de gids op de boot, op zoek naar waterdiertjes van de Weerribben.",
+    "lat": 52.806841,
+    "lon": 5.927587,
+    "cats": [
+      "actief"
     ]
   },
   {
@@ -1530,6 +1740,21 @@
     "type": "Keuken Kampioen Divisie",
     "lat": 52.7693,
     "lon": 6.8891
+  },
+  {
+    "title": "Fietsen over de Sallandse Heuvelrug",
+    "date": "2026-08-21",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/fietsen-over-de-sallandse-heuvelrug",
+    "subtitle": "Fiets door het heuvelachtige landschap van de Sallandse Heuvelrug met vergezichten, golvende heidevelden en uitgestrekte bossen. Tijdens de pauzes vertelt de gids over dit prachtige gebied.",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Grolloo Flute Sessions",
@@ -2373,11 +2598,17 @@
   {
     "title": "Uilen CSI in het Drents-Friese Wold",
     "date": "2026-08-22",
-    "source": "friesland.nl",
+    "source": "staatsbosbeheer",
     "genre": "overig",
-    "city": "Appelscha",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/916675745/uilen-csi-in-het-drents-friese-wold"
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/uilen-csi-drents-friese-wold",
+    "subtitle": "Word een echte natuurdetective tijdens deze uilen CSI! Weet jij wat een uil het liefste eet? Kom erachter door braakballen van uilen uit te pluizen. Leuk voor kinderen vanaf 4 jaar.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Vaartocht door Nationaal Park De Alde Feanen",
@@ -2714,6 +2945,21 @@
     "url": "https://www.noorderzon.nl/programma/centroamerica"
   },
   {
+    "title": "Ochtendwandeling Sallandse Heuvelrug",
+    "date": "2026-08-23",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/ochtendwandeling-sallandse-heuvelrug",
+    "subtitle": "Stap vroeg uit de veren voor een wandeling door het glooiende landschap van de Sallandse Heuvelrug. De natuur ontwaakt: de zon breekt door, vogels beginnen met fluiten. Een frisse start van je dag!",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Open Dag Nijkleaster - Klooster Westerhûs",
     "date": "2026-08-23",
     "source": "friesland.nl",
@@ -2766,6 +3012,21 @@
     "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875631",
     "gender": "heren",
     "sport": "voetbal"
+  },
+  {
+    "title": "Seizoenswandeling Drents-Friese Wold",
+    "date": "2026-08-23",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/seizoenswandeling-drents-friese-wold",
+    "subtitle": "Ga je mee een frisse neus halen? Een enthousiaste gids van Staatsbosbeheer neemt je mee op een wandeling door het Drents-Friese Wold.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Sunday Live",
@@ -3303,6 +3564,21 @@
     "url": "https://www.ticketmaster.nl/event/aap-rocky-dont-be-dumb-world-tour-%7C-vip-packages-tickets/812455490?language=en-us"
   },
   {
+    "title": "Begeleide stiltewandeling Hondsrug",
+    "date": "2026-08-27",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Hondsrug",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/begeleide-stiltewandeling",
+    "subtitle": "Ga mee op een meditatieve bosbeleving in de bossen van Drenthe. Tijdens deze stiltewandeling word je begeleid om je zintuigen te prikken en de verbinding met jezelf en de omgeving te versterken.",
+    "lat": 52.949836,
+    "lon": 6.745159,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Brother Wallace",
     "date": "2026-08-27",
     "source": "tivolivredenburg",
@@ -3646,6 +3922,21 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3091439065/zomermarkt-visserijdagen"
   },
   {
+    "title": "Zomerwandeling Sallandse heuvelrug",
+    "date": "2026-08-27",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/zomerwandeling-over-de-sallandse-heuvelrug",
+    "subtitle": "Ga mee op zomerexcursie op de Sallandse Heuvelrug met een natuurgids. Ontdek unieke flora, fauna en het levende landschap van dit natuurgebied.",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "10e KidsRun - Schoonebeek",
     "date": "2026-08-28",
     "source": "drenthe.nl",
@@ -3847,6 +4138,21 @@
     "url": "https://www.tivolivredenburg.nl/agenda/53482684/missio-28-08-2026"
   },
   {
+    "title": "Nacht van de Vleermuis in Sellingen - Westerwolde",
+    "date": "2026-08-28",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Westerwolde",
+    "province": "Groningen",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/westerwolde/nacht-van-de-vleermuis-sellingen",
+    "subtitle": "Ga mee op pad met de boswachter van Staatsbosbeheer en speur tijdens de landelijke Nacht van de Vleermuis mee naar de vleermuizen in Sellingen. Tijdens de avondexcursie leer je over de bijzondere leefwijze van vleermuizen en kun je ze met een batdetector horen en zien vliegen.",
+    "lat": 52.922884,
+    "lon": 7.133707,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "No Dutch Required",
     "date": "2026-08-28",
     "source": "grandtheatregroningen",
@@ -3971,6 +4277,21 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1201522635/tabac-classic-gp-assen"
   },
   {
+    "title": "Uilenballen pluizen Weerribben",
+    "date": "2026-08-28",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Weerribben",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/weerribben/uilenballen-pluizen-weerribben",
+    "subtitle": "Ben je nieuwsgierig wat uilen zoal eten? Kom dan uilenballen pluizen in Informatiecentrum Weerribben en ontdek wat je daar allemaal in kunt vinden. Spannend om te ontdekken wat er te voorschijn komt.  De boswachter van Staatsbosbeheer is erbij en geeft uitleg.",
+    "lat": 52.806841,
+    "lon": 5.927587,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Visserijdagen Pubquiz | Visserijdagen",
     "date": "2026-08-28",
     "source": "friesland.nl",
@@ -3978,6 +4299,66 @@
     "city": "Harlingen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3655679872/visserijdagen-pubquiz-visserijdagen"
+  },
+  {
+    "title": "Vollemaanwandeling Boomkroonpad",
+    "date": "2026-08-28",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Hondsrug",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/vollemaanwandeling-bij-het-boomkroonpad",
+    "subtitle": "Beleef de vollemaanwandeling over de Hondsrug bij het Boomkroonpad. Wandel met een gids van Staatsbosbeheer door maanverlichte bossen en heide en ontdek nachtdieren.",
+    "lat": 52.949836,
+    "lon": 6.745159,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
+    "title": "Vollemaanwandeling Drents-Friese Wold",
+    "date": "2026-08-28",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/vollemaanwandeling-in-het-drents-friese-wold",
+    "subtitle": "Beleef de mystieke sfeer van het Drents-Friese Wold bij volle maan. Meld je aan voor een vollemaanwandeling met een gids van Staatsbosbeheer.",
+    "lat": 52.936253,
+    "lon": 6.289589,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
+    "title": "Vollemaanwandeling Engbertsdijksvenen- Twente",
+    "date": "2026-08-28",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Twente",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/twente/vollemaanwandeling-engbertsdijksvenen",
+    "subtitle": "Beleef de mystieke sfeer van de Engbertsdijksvenen bij volle maan. Betreed met de gids van Staatsbosbeheer het natuurgebied bij schemer, zet je zintuigen op scherp en geniet van het steeds donkerder wordende hemel.",
+    "lat": 52.490693,
+    "lon": 6.666024,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
+    "title": "Vollemaanwandeling boswachterij Ommen",
+    "date": "2026-08-28",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Vechtdal",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/vechtdal/vollemaanwandeling-boswachterij-ommen",
+    "subtitle": "Ga mee met Staatsbosbeheer op een vollemaanwandeling in Boswachterij Ommen en ontdek de natuur bij nacht.",
+    "lat": 52.507427,
+    "lon": 6.46194,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "YIP in de Lutherse Kerk",
@@ -4295,6 +4676,36 @@
     "url": "https://www.melkweg.nl/nl/agenda/muziek-bingo-xxl-29-08-2026/"
   },
   {
+    "title": "Nacht van de Vleermuis Springendal  - Twente",
+    "date": "2026-08-29",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Twente",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/twente/nacht-van-de-vleermuis-springendal",
+    "subtitle": "Ga samen met de boswachter en een batdetector op zoek naar vleermuizen in het Springendal in Twente. Je krijgt ook een batdetector mee zodat je de vleermuizen kunt horen praten.",
+    "lat": 52.438824,
+    "lon": 6.881544,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
+    "title": "Nacht van de Vleermuis in Wedde - Westerwolde",
+    "date": "2026-08-29",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Westerwolde",
+    "province": "Groningen",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/westerwolde/nacht-van-de-vleermuis-wedde",
+    "subtitle": "Ga mee op pad met de boswachter van Staatsbosbeheer en speur tijdens de landelijke Nacht van de Vleermuis mee naar de vleermuizen in Wedde. Tijdens de avondexcursie leer je over de bijzondere leefwijze van vleermuizen en kun je ze met een batdetector horen en zien vliegen.",
+    "lat": 53.067319,
+    "lon": 7.072936,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "No Dutch Required",
     "date": "2026-08-29",
     "source": "grandtheatregroningen",
@@ -4323,6 +4734,21 @@
     "time": "20:30",
     "venue": "Paradiso, Amsterdam",
     "url": "https://www.paradiso.nl/nl/programma/nyron-higor/2892713"
+  },
+  {
+    "title": "Ontdek Luchtwachttoren Hees in Ruinen - Drenthe",
+    "date": "2026-08-29",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Ruinen",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/ruinen/luchtwachttoren-ruinen",
+    "subtitle": "Maak een wandeling door boswachterij Ruinen en beklim Luchtwachttoren Hees in Ruinen, Zuidwest-Drenthe. De gids vertelt over het bos- en heidegebied en de historie van dit bouwwerk uit de Koude Oorlog.",
+    "lat": 52.734601,
+    "lon": 6.383752,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Orgelconcert Wolfgang Zerer",
@@ -4487,6 +4913,21 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1520118490/smuk-festival-workum-met-markt-muziek-en-activiteiten-voor-het-hele-gezin"
   },
   {
+    "title": "Stiltewandeling en klankschalenconcert Hondsrug",
+    "date": "2026-08-29",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Hondsrug",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/stiltewandeling-klankschalen-hondsrug",
+    "subtitle": "Tijdens deze excursie maken we een stiltewandeling maken onder begeleiding van de gids. We drinken na een uur een kopje thee en genieten van een klankschalenconcert van circa 20 minuten.",
+    "lat": 52.949836,
+    "lon": 6.745159,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Straattheaterfestival Waterbei",
     "date": "2026-08-29",
     "source": "visitgroningen",
@@ -4594,6 +5035,21 @@
     "city": "Katlijk",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3991944742/vleermuizen-in-het-ketliker-skar-tijdens-de-bat-night"
+  },
+  {
+    "title": "Vollemaanwandeling Sallandse Heuvelrug",
+    "date": "2026-08-29",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/vollemaanwandeling-sallandse-heuvelrug",
+    "subtitle": "Beleef de Sallandse Heuvelrug in het schijnsel van de volle maan. Ga op pad met de gids en maak samen een wandeling door de mystiek verlichte bossen en heidevelden.",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "WALG",
@@ -6596,6 +7052,21 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2591540463/klankenspel-door-poppentheater-ingeborg-pop"
   },
   {
+    "title": "Kuieren over de Sallandse Heuvelrug",
+    "date": "2026-09-05",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/kuieren-over-de-sallandse-heuvelrug",
+    "subtitle": "Ga op pad met gids van Staatsbosbeheer en wandel op een rustig tempo door de Sallandse Heuvelrug. Een ontspannen excursie met leuke weetjes over de planten en diersoorten.",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Laguna",
     "date": "2026-09-05",
     "source": "neushoorn",
@@ -7151,6 +7622,21 @@
     "genre": "overig"
   },
   {
+    "title": "Bosbaden Drents-Friese Wold",
+    "date": "2026-09-06",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/bosbaden-drents-friese-wold",
+    "subtitle": "Tijdens een Shinrin-Yoku wandeling, oftewel bosbad, neemt een gids je mee op een rustgevende tocht door de natuur.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Boudewijn de Groot tributeband Peter de Jong",
     "date": "2026-09-06",
     "source": "friesland.nl",
@@ -7443,6 +7929,21 @@
     "sport": "voetbal"
   },
   {
+    "title": "Seizoenswandeling Hondsrug",
+    "date": "2026-09-06",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Hondsrug",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/seizoenswandeling-hondsrug",
+    "subtitle": "Ontdek de natuur van de Hondsrug tijdens een seizoenswandeling met gids van Staatsbosbeheer. Een mooie excursie vanuit het buitencentrum Boomkroonpad in Drenthe.",
+    "lat": 52.949836,
+    "lon": 6.745159,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Simon and Garfunkel tribute - Syb & Maarten",
     "date": "2026-09-06",
     "source": "friesland.nl",
@@ -7460,6 +7961,21 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1183242442/sjir-ha-sjirim-het-lied-van-de-liefde",
     "category": "Wereldmuziek"
+  },
+  {
+    "title": "Spinnen van het Drents-Friese Wold",
+    "date": "2026-09-06",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/spinnen-van-het-drents-friese-wold",
+    "subtitle": "Ga mee op spinnensafari bij Buitencentrum Drents-Friese Wold. Spinnen, groot en klein, hebben allemaal hun aardigheden en eigenaardigheden. Tijdens deze safari kun je de spinnen van veraf, maar ook van heel dichtbij bekijken. Leuk voor het hele gezin!",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Summer Jams",
@@ -7518,6 +8034,21 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/weird-nightmare/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/02/Weird-Nightmare-kleiner.jpg"
+  },
+  {
+    "title": "Workshop fotografie Drents-Friese Wold",
+    "date": "2026-09-06",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/workshop-fotografie-drents-friese-wold",
+    "subtitle": "Wil je meer weten over fotografie in de natuur? Volg dan deze fotografieworkshop in het Drents-Friese Wold en krijg tips van een ervaren fotograaf.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Workshop: Zingmiddag met Luca",
@@ -8791,6 +9322,21 @@
     "url": "https://simplon.nl/events/bassface-september-2026/"
   },
   {
+    "title": "Beklim Luchtwachttoren Hees in Ruinen - Open Monumentendag",
+    "date": "2026-09-12",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Ruinen",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/ruinen/luchtwachttoren-ruinen-open-monumentendag",
+    "subtitle": "Bezoek en beklim tijdens Open Monumentendag Luchtwachttoren Hees in Boswachterij Ruinen. Genieten van het uitzicht op 20 meter hoog en maak kennis de bijzondere geschiedenis van deze plek.",
+    "lat": 52.734601,
+    "lon": 6.383752,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Beleef het gerestaureerde orgel in Odoorn | Open Monumentendag",
     "date": "2026-09-12",
     "source": "drenthe.nl",
@@ -8849,6 +9395,21 @@
     "date": "2026-09-12",
     "source": "013",
     "genre": "overig"
+  },
+  {
+    "title": "Dagworkshop natuurjournalen Drents-Friese Wold",
+    "date": "2026-09-12",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/natuurjournalen-dagworkshop-drents-friese-wold",
+    "subtitle": "In deze dagcursus natuurjournalen leer je op een laagdrempelige manier buiten in de natuur, tekenen en schilderen. Door je volledig onder te dompelen in wat je ziet, hoort, ruikt en voelt, verfijn je je waarnemingsvermogen en ontdek je subtiele nuances die anders verborgen zouden blijven.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Davina Michelle",
@@ -9529,6 +10090,21 @@
     "sport": "voetbal"
   },
   {
+    "title": "Schemerwandeling Fortmonderbos - IJsselvallei",
+    "date": "2026-09-12",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Ijsselvallei",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/ijsselvallei/schemerwandeling-door-het-fortmonderbos",
+    "subtitle": "Wandel met de boswachter van Staatsbosbeheer door het Fortmonderbos, een zeldzaam gemengd ooibos op een oeverwal van de IJssel. Je maakt de geleidelijke overgang van licht naar donker mee en wie weet kom je nachtdieren, zoals vleermuizen tegen.",
+    "lat": 52.363088,
+    "lon": 6.085815,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Sex Mask",
     "date": "2026-09-12",
     "source": "simplon",
@@ -9795,6 +10371,21 @@
     "category": "concert",
     "cats": [
       "concert"
+    ]
+  },
+  {
+    "title": "Bosbaden op de Sallandse Heuvelrug",
+    "date": "2026-09-13",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/bosbaden-in-salland",
+    "subtitle": "Bosbaden in Salland is een rustige, zintuiglijke natuurervaring waarbij je vertraagt, diep ontspant en volledig opgaat in het bos. Onder begeleiding ontdek je hoe buiten zijn je lichaam en geest tot rust brengt",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "cats": [
+      "actief"
     ]
   },
   {
@@ -13682,6 +14273,21 @@
     "url": "https://www.theater.nl/we-will-rock-you-musical-2025-2026#2026-09-23T20-00"
   },
   {
+    "title": "Wildplukwandeling Drents-Friese Wold",
+    "date": "2026-09-23",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/wildplukwandeling-drents-friese-wold",
+    "subtitle": "Ga mee op zoek naar eetbare wilde planten in het Drents-Friese Wold. Onderweg geniet je van een warm kruidendrankje en een kleine wildplukproeverij.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "bleood",
     "date": "2026-09-23",
     "source": "melkweg",
@@ -14579,6 +15185,21 @@
     "url": "https://www.dedoelen.nl/nl/agenda/verdi-s-requiem-b6z6"
   },
   {
+    "title": "Vollemaanwandeling Springendal - Twente",
+    "date": "2026-09-25",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Twente",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/twente/vollemaanwandeling-springendal-twente",
+    "subtitle": "Beleef de mystieke sfeer van het Springendal bij volle maan. Betreed met een gids het natuurgebied bij schemer, zet je zintuigen op scherp en geniet van het steeds donkerder wordende hemel. Het Springendal is één van de donkerste locaties van Overijssel.",
+    "lat": 52.441892,
+    "lon": 6.894669,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Volviers: Groots met een geile G",
     "date": "2026-09-25",
     "source": "effenaar",
@@ -14733,6 +15354,21 @@
     "genre": "overig",
     "venue": "Doornroosje, Nijmegen",
     "url": "https://www.doornroosje.nl/event/bokkeryers/"
+  },
+  {
+    "title": "Bosuilenexcursie bij volle maan",
+    "date": "2026-09-26",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Vechtdal",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/vechtdal/bosuilen-van-boswachterij-hardenberg",
+    "subtitle": "Dwaal met de boswachter van Staatsbosbeheer door het donkere bos van Boswachterij Hardenberg op zoek naar uilen. Met een beetje geluk laten de bosuilen zich horen of zelf zien.",
+    "lat": 52.54788,
+    "lon": 6.556611,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "BÖKKERS",
@@ -15403,6 +16039,21 @@
     ]
   },
   {
+    "title": "Vollemaanwandeling Emmerdennen Zuidoost-Drenthe",
+    "date": "2026-09-26",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Zuidoost-Drenthe",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/zuidoost-drenthe/vollemaanwandeling-emmerdennen",
+    "subtitle": "Beleef een unieke vollemaanwandeling door de Emmerdennen in Drenthe met Staatsbosbeheer. Ontdek heidevelden, bosmeertjes en nachtelijke dieren tijdens deze bijzondere natuurervaring zonder kunstlicht.",
+    "lat": 52.789558,
+    "lon": 6.907713,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Voorlezen en knutselen in Bibliotheek Sneek",
     "date": "2026-09-26",
     "source": "friesland.nl",
@@ -15804,6 +16455,21 @@
     "city": "Balk",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4171536603/lazy-sunday-afternoon-johan-keus-met-de-north-county"
+  },
+  {
+    "title": "Lange afstandswandeling Drents-Friese Wold",
+    "date": "2026-09-27",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/lange-afstandswandeling-drents-friese-wold",
+    "subtitle": "Voor echte wandelaars! Ga mee met deze extra lange wandeling door het Drents-Friese Wold. Onderweg vertelt de gids over de verschillende landschapstypen waar je doorheen loopt.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Lazy Sunday afternoon- Johan Keus met de North County Y",
@@ -18149,6 +18815,21 @@
     "url": "https://www.paard.nl/en/event/ijsland-2/"
   },
   {
+    "title": "In het rijk van de zeearend: vogels spotten in het Lauwersmeer",
+    "date": "2026-10-03",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Lauwersmeer",
+    "province": "Groningen",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/lauwersmeer/vogels-van-het-lauwersmeer",
+    "subtitle": "Speur mee met de gids van Staatsbosbeheer naar de vogelrijkdom van Nationaal Park Lauwersmeer. Een excursie voor iedereen die het Lauwersmeer wil leren lezen, met de ogen omhoog.",
+    "lat": 53.385056,
+    "lon": 6.235943,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "JD Techniek/ Hurry-up HS1 - RoyalFloraHolland/HVA HS1",
     "date": "2026-10-03",
     "source": "hurryup",
@@ -19324,6 +20005,21 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/746078248/vocaal-ensemble-storm-in-a-jar-zingt-eclipse"
   },
   {
+    "title": "Vogels van het Reevediep",
+    "date": "2026-10-04",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "IJsselmonding",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/ijsselmonding/vogels-van-het-reevediep",
+    "subtitle": "Ga mee vogels spotten met de boswachter van Staatsbosbeheer, een vogelkenner, in de IJsselmonding. Het Reevediep is een ware magneet voor water- en moerasvogels zoals grote zilverreiger, kieviten, diverse soorten eenden, kluten en soms zelfs de zeearend.",
+    "lat": 52.52736,
+    "lon": 5.906962,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Voorstelling: Gozert (8+) - Kinderboekenweek",
     "date": "2026-10-04",
     "source": "friesland.nl",
@@ -20325,6 +21021,21 @@
     "category": "concert",
     "cats": [
       "concert"
+    ]
+  },
+  {
+    "title": "Beleef de nacht in het Lauwersmeer",
+    "date": "2026-10-09",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Lauwersmeer",
+    "province": "Groningen",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/lauwersmeer/beleef-de-nacht-in-het-lauwersmeer",
+    "subtitle": "Beleef de nacht in Nationaal Park Lauwersmeer. Dit waterrijke natuurgebied is een van de meest donkere plekken van Nederland. Vanaf hier kun je de nacht goed beleven: van zonnewende tot sterren kijken en natuurlijk de volle maan bewonderen.",
+    "lat": 53.385056,
+    "lon": 6.235943,
+    "cats": [
+      "actief"
     ]
   },
   {
@@ -21607,6 +22318,21 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1735802004/bockbier-fest-bork"
   },
   {
+    "title": "Bosbad-retraite in het Drents-Friese Wold",
+    "date": "2026-10-11",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/bosbad-retraite-drents-friese-wold",
+    "subtitle": "Ga mee op een uitgebreid bosbad voor een fysiologische reset. Onder begeleiding van geaccrediteerd bosbadgids Femke Banga van het Bostherapiecentrum laat je de dagelijkse hectiek niet alleen achter je, maar zak je in een staat van diepe rust.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Bosbaden in het Drents-Friese Wold",
     "date": "2026-10-11",
     "source": "friesland.nl",
@@ -21663,6 +22389,21 @@
     "genre": "overig",
     "venue": "TivoliVredenburg, Utrecht",
     "url": "https://www.tivolivredenburg.nl/agenda/85851939/groove-beest-familieconcert-met-kay-slice-6-11-10-2026"
+  },
+  {
+    "title": "Herfstwandeling Sallandse Heuvelrug",
+    "date": "2026-10-11",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/herfstwandeling-sallandse-heuvelrug",
+    "subtitle": "Tijdens deze excursie  ontdekken we hoe de natuur zich aanpast aan het eind van de zomermaanden, welke planten en dieren juist nu opvallen, en hoe de herfst het landschap een verstilde schoonheid geeft.",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Het avontuur van Pieter Konijn (4+)",
@@ -21856,6 +22597,21 @@
     "sport": "voetbal"
   },
   {
+    "title": "Paddenstoelen van het Drents-Friese Wold",
+    "date": "2026-10-11",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/paddenstoelen-van-het-drents-friese-wold",
+    "subtitle": "Voor nieuwsgierige kinderen én hun ouders. Kun je paddenstoelen eten of zijn ze giftig? Wat is een heksenkring, heeft dat iets met heksen te maken? Ga mee en ontdek!",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Paul Haenen - Margreet Dolman brengt Warmte en dominee Gremdaat wijst de Weg",
     "date": "2026-10-11",
     "source": "drenthe.nl",
@@ -21932,6 +22688,21 @@
     "time": "14:00",
     "venue": "Grote Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/trapperdetrap-het-concertgebouw-op-avontuur-met-dikkie-dik-2plus-11-okt/"
+  },
+  {
+    "title": "Trekvogels van de Engbertsdijksvenen - Twente",
+    "date": "2026-10-11",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Twente",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/twente/trekvogels-van-de-engbertsdijksvenen",
+    "subtitle": "Het najaar is hét seizoen van de vogeltrek. Waarom vertrekken ze? Hoe vinden ze de weg? En welke soorten kunt u hier zien? Terwijl we samen over de uitgestrekte venen wandelen, speuren we de lucht af naar overvliegende ganzen, vinken, koperwieken, kraanvogels, visarenden en de zeldzame roodpootvalk.",
+    "lat": 52.444243,
+    "lon": 6.676329,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Van Gogh door jouw lens",
@@ -22223,6 +22994,21 @@
     "time": "20:00",
     "venue": "Ziggo Dome, Amsterdam",
     "url": "https://www.ticketmaster.nl/event/j-cole-the-fall-off-tour-tickets/1988373989?language=en-us"
+  },
+  {
+    "title": "Kabouterdag Drents-Friese Wold",
+    "date": "2026-10-13",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/kabouterdag-drents-friese-wold",
+    "subtitle": "Tijdens de Kabouterdag in de herfstvakantie is er van alles te beleven. Steek je handen uit de mouwen en maak je eigen kabouterpaaltje.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Kelapa Muda",
@@ -22569,6 +23355,21 @@
     "url": "https://www.dedoelen.nl/nl/agenda/hagelslag-de-podcast-xm31"
   },
   {
+    "title": "Herfstwandeling in het Springendal",
+    "date": "2026-10-14",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Twente",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/twente/herfstwandeling-springendal",
+    "subtitle": "Heb je zin in een frisse herfstwandeling? Wandel mee met de gids van Staatsbosbeheer door het Springendal en ontdek de herfstschatten van Twente.",
+    "lat": 52.441892,
+    "lon": 6.894669,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Herman van Veen Vandaag",
     "date": "2026-10-14",
     "source": "spotgroningen.nl",
@@ -22705,6 +23506,21 @@
     "url": "https://www.tivolivredenburg.nl/agenda/53001619/nkk-now-zanggroepen-14-10-2026"
   },
   {
+    "title": "Ontmoet de boswachter tijdens het boswachtersspreekuur",
+    "date": "2026-10-14",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drentsche Aa",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drentsche-aa/boswachtersspreekuur-ontmoet-de-boswachter",
+    "subtitle": "Tijdens het boswachtersspreekuur laat de boswachter een heleboel natuurschatten zien. Schedels, geweien, vogelnestjes, veertjes, noem maar op. Misschien heb je zelf ook natuurschatten gevonden. Neem ze mee en laat jouw vondst zien.",
+    "lat": 52.988735,
+    "lon": 6.610329,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "PUB CHOIR",
     "date": "2026-10-14",
     "source": "melkweg",
@@ -22822,6 +23638,21 @@
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/73861783/waylon-time-jumper-2"
+  },
+  {
+    "title": "Workshop natuurjournalen Drents-Friese Wold",
+    "date": "2026-10-14",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/workshop-natuurjournalen-drents-friese-wold",
+    "subtitle": "Tijdens deze workshop leer je op laagdrempelige manier buiten in de natuur, tekenen en schilderen. Je krijgt les in teken- en schildertechnieken zoals werken met aquarelverf, kleuren mengen en eenvoudige landschapjes schetsen.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Young The Giant",
@@ -23470,6 +24301,21 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1828957926/anochi"
+  },
+  {
+    "title": "Bergen en dalen van de Sallandse Heuvelrug",
+    "date": "2026-10-16",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/bergen-en-dalen-van-de-sallandse-heuvelrug",
+    "subtitle": "Tijdens deze excursie vertelt de gids van Staatsbosbeheer over het ontstaan van de Sallandse Heuvelrug. Luister naar verhalen over ijstijden. Onderweg duik je met een grondboor de bodem in en bekijk je de verschillende grondlagen.",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Bildtstar + Junkyard Dogs Bildtse Hardrock Double Bill",
@@ -24196,6 +25042,21 @@
     "city": "Allingawier",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/900845758/boekenbeurs-allingawier"
+  },
+  {
+    "title": "Boswachterslab - Demonstratie prepareren",
+    "date": "2026-10-17",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/boswachterslab-demonstratie-prepareren",
+    "subtitle": "Kom naar het boswachterslab in Buitencentrum Drents-Friese Wold als je meer wilt weten over het prepareren van dieren. Hier kun je zien hoe dieren zo levensecht mogelijk worden geprepareerd.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Bouke & The Elvis Matters Band",
@@ -25798,13 +26659,19 @@
     "url": "https://www.doornroosje.nl/event/arkayla/"
   },
   {
-    "title": "Avontuur in de natuur",
+    "title": "Avontuur in de natuur - Drents-Friese Wold",
     "date": "2026-10-21",
-    "source": "friesland.nl",
+    "source": "staatsbosbeheer",
     "genre": "overig",
-    "city": "Appelscha",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1681608521/avontuur-in-de-natuur"
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/wild-op-woensdag-drents-friese-wold",
+    "subtitle": "De woensdagmiddagen staan in het teken van de wildernis. Ga op zoek naar diersporen, kleine kriebeldieren en ontdek in elk seizoen weer wat nieuws in de natuur. Een leuk natuureducatieprogramma voor kinderen.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "BITBIRD PRESENTS: SAN HOLO & DROELOE",
@@ -27281,6 +28148,21 @@
     "url": "https://www.gelredome.nl/evenement/vitesse-fc-emmen-26-27"
   },
   {
+    "title": "Vollemaanwandeling Lauwersmeer",
+    "date": "2026-10-23",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Lauwersmeer",
+    "province": "Groningen",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/lauwersmeer/vollemaanwandeling-lauwersmeer",
+    "subtitle": "Wandel mee met Staatsbosbeheer tijdens een magische vollemaanwandeling in het Lauwersmeergebied. Beleef de stilte van de nacht, ontdek nachtdieren bij het maanlicht.",
+    "lat": 53.385056,
+    "lon": 6.235943,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "4AM KRU",
     "date": "2026-10-24",
     "source": "melkweg",
@@ -27674,6 +28556,66 @@
     "date": "2026-10-24",
     "source": "013",
     "genre": "overig"
+  },
+  {
+    "title": "Nacht van de Nacht Drents-Friese Wold",
+    "date": "2026-10-24",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/nacht-van-de-nacht-in-het-drents-friese-wold",
+    "subtitle": "Maak tijdens de Nacht van de Nacht een avontuurlijke tocht door het Drents-Friese Wold en ervaar de stilte en duisternis.",
+    "lat": 52.936253,
+    "lon": 6.289589,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
+    "title": "Nacht van de Nacht Engbertsdijksvenen - Twente",
+    "date": "2026-10-24",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Twente",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/twente/nacht-van-de-nacht-engbertsdijksvenen",
+    "subtitle": "Ga op pad en beleef de Nacht van de Nacht. Ervaar welke zintuigen op scherp staan wanneer je zicht minder wordt, hoe hebben nachtdieren zich hier op aangepast? Met een beetje geluk hoor je een uil roepen of reeën blaffen.",
+    "lat": 52.490693,
+    "lon": 6.666024,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
+    "title": "Nacht van de Nacht in Dark Sky Park Lauwersmeer",
+    "date": "2026-10-24",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Lauwersmeer",
+    "province": "Groningen",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/lauwersmeer/nacht-van-de-nacht-lauwersmeer",
+    "subtitle": "Kom tijdens de Nacht van de Nacht naar Nationaal Park Lauwersmeer en maak een spannende tocht in het donker van het Dark Sky Park.",
+    "lat": 53.385056,
+    "lon": 6.235943,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
+    "title": "Nacht van de Nacht voor gezin Engbertsdijksvenen",
+    "date": "2026-10-24",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Twente",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/twente/nacht-van-de-nacht-voor-gezin-engbertsdijksvenen",
+    "subtitle": "’s Avonds als het donker wordt, gaan we samen op pad in de Engbertsdijksvenen. Je loopt door de duisternis, luistert naar spannende verhalen van de boswachter en ontdekt welke dieren ’s nachts wakker zijn.",
+    "lat": 52.490693,
+    "lon": 6.666024,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Nederlands Concertkoor en Toonkunstkoor Amsterdam: Dvořáks Stabat mater",
@@ -28712,6 +29654,21 @@
     "genre": "overig",
     "venue": "TivoliVredenburg, Utrecht",
     "url": "https://www.tivolivredenburg.nl/agenda/48173061/son-lux-26-10-2026"
+  },
+  {
+    "title": "Vollemaanwandeling Boswachterij Staphorst",
+    "date": "2026-10-26",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Boswachterij Staphorst",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/boswachterij-staphorst/vollemaanwandeling-boswachterij-staphorst",
+    "subtitle": "Beleef de mystieke sfeer van boswachterij Staphorst bij maanlicht. Ga met de boswachter van Staatsbosbeheer op pad voor een nachtelijke wandeling bij volle maan.",
+    "lat": 52.62587,
+    "lon": 6.269363,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Abonnement Topmusici van eigen bodem",
@@ -30675,6 +31632,21 @@
     "cats": [
       "pop",
       "jazz"
+    ]
+  },
+  {
+    "title": "Nacht van de Nacht boswachterij Hardenberg",
+    "date": "2026-10-31",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Vechtdal",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/vechtdal/nacht-van-de-nacht-boswachterij-hardenberg",
+    "subtitle": "Laat het donker donker en ontdek hoe mooi de nacht is tijdens de Nacht van de Nacht. Samen met de boswachter wandel je door boswachterij Hardenberg.",
+    "lat": 52.54742,
+    "lon": 6.556337,
+    "cats": [
+      "actief"
     ]
   },
   {
@@ -33557,6 +34529,21 @@
     ]
   },
   {
+    "title": "Roofvogel fietstocht in het Drents-Friese Wold",
+    "date": "2026-11-07",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/roofvogel-fietstocht-in-het-drents-friese-wold",
+    "subtitle": "Maak samen met de gids van Staatsbosbeheer een fietstocht door het Drents-Friese Wold en ontdek dat hier meer roofvogels voorkomen dan je misschien dacht.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "SC Cambuur - PSV",
     "date": "2026-11-07",
     "source": "cambuur",
@@ -34230,6 +35217,21 @@
     "url": "https://www.sc-heerenveen.nl/hoofdelftallen/1e-mannen-elftal/seasons/20262027/sc-heerenveen-feyenoord-vriendenloterij-eredivisie",
     "gender": "heren",
     "sport": "voetbal"
+  },
+  {
+    "title": "Seizoenswandeling Aekingerzand",
+    "date": "2026-11-08",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/seizoenswandeling-aekingerzand",
+    "subtitle": "Wandel mee over de grootste zandverstuiving van Noord-Nederland! Samen met de gids van Staatsbosbeheer loop je door het Drents-Friese Wold waar elk seizoen van zich laat zien.",
+    "lat": 52.936253,
+    "lon": 6.289589,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Stichting Millenniumconcert met Dvořáks Stabat mater",
@@ -47042,6 +48044,21 @@
     "image": "https://www.rotown.nl/wp-content/uploads/2026/06/Tramhaus-kleiner.jpg"
   },
   {
+    "title": "Uilen van het Springendal - Twente",
+    "date": "2026-12-11",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Twente",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/twente/uilen-van-het-springendal",
+    "subtitle": "Ga mee met de boswachter op de uilenexcursie in het Springendal. Dit is het leefgebied van vele soorten uilen. Open al je zintuigen, kijk naar de sterren en wie weet hoor je de mystieke roep van de bosuil.",
+    "lat": 52.441892,
+    "lon": 6.894669,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Van Dik Hout",
     "date": "2026-12-11",
     "source": "spotgroningen.nl",
@@ -48420,6 +49437,21 @@
     "date": "2026-12-14",
     "source": "ahoy",
     "genre": "overig"
+  },
+  {
+    "title": "Vallende sterren boven het Lauwersmeer",
+    "date": "2026-12-14",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Lauwersmeer",
+    "province": "Groningen",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/lauwersmeer/vallende-sterren-boven-het-lauwersmeer",
+    "subtitle": "Beleef een nacht vol vallende sterren op een van de donkerste plekjes van Nederland, Nationaal Park Lauwersmeer. Een bijzondere ervaring voor het hele gezin.",
+    "lat": 53.385056,
+    "lon": 6.235943,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Close-up Concertgebouworkest: All'ungherese",
@@ -51419,6 +52451,21 @@
     "url": "https://neushoorn.nl/programma",
     "category": "pop",
     "cats": []
+  },
+  {
+    "title": "Eindejaarswandeling boswachterij Ommen",
+    "date": "2026-12-29",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Vechtdal",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/vechtdal/eindejaarswandeling-boswachterij-ommen",
+    "subtitle": "Rond de jaarwisseling wandel je bij Ommen in winterse stilte. Met de boswachter ervaar je natuur in winterrust, verbinding en onthaasten.",
+    "lat": 52.494224,
+    "lon": 6.429998,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Familieconcert: De Wonderhoorn (5+)",

@@ -102,6 +102,8 @@ SRC = {
     'eoemmen':             ("E&O Emmen",        '🤾', '#c62828'),
     'ldodk':               ('LDODK',            '🎯', '#f57c00'),
     'dos46':               ("DOS '46",          '🎯', '#1565c0'),
+    # Natuuractiviteiten (overleg.md punt 15, 2026-08-18)
+    'staatsbosbeheer':     ('Staatsbosbeheer', '🌲', '#43a047'),
 }
 
 VENUE_LOC = {
@@ -224,7 +226,12 @@ def classify(title, cats, source=''):
     if _kinderen_pat.search(t): return 'kinderen'
     cat_map = {'toneel':'theater','theater':'theater','cabaret':'cabaret','musical':'musical',
                'klassiek':'klassiek','opera':'klassiek','dans':'dans','ballet':'dans',
-               'familie':'kinderen','kinderen':'kinderen','jazz':'jazz','pop':'pop'}
+               'familie':'kinderen','kinderen':'kinderen','jazz':'jazz','pop':'pop',
+               # 'actief' als betrouwbaar genre-signaal (bv. scrape_staatsbosbeheer.py,
+               # overleg.md punt 15, 2026-08-18) -- titels als "Beleef het
+               # Boomkroonpad" bevatten geen van de titel-keywords hieronder
+               # en zouden anders ten onrechte op 'overig' uitkomen.
+               'actief':'actief'}
     for c in cats:
         # cats=='expositie' is een genre-SIGNAAL van de bron zelf en dus
         # betrouwbaarder dan titel-keywords (zie de les bij SPOT/data-subgenres

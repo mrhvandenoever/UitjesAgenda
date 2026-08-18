@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (60 bronnen, 60 scripts)
+## ✅ Geautomatiseerd (61 bronnen, 61 scripts)
 
 | Bron | Script |
 |---|---|
@@ -83,6 +83,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Kunstpunt Groningen (aggregator) | `scrape_kunstpuntgroningen.py` (2026-08-17, overleg.md punt 13 — dekt in één keer tientallen Groningse musea/galerieën, o.a. Museum Nienoord, Synagoge Groningen, K38, De Stadsgalerie. Server-rendered WordPress, alleen categorie "Exhibition" meegenomen, 2 pagina's. Detailpagina per expositie geeft ook precieze lat/lon + de specifiekste beschikbare link. In `AGGREGATOR_SOURCES` — venue wint bij een botsing, zelfde regel als Uitjes. `SKIP_VENUES` sluit Galerie DSG en Groninger Museum uit — die hebben inmiddels een eigen, preciezere directe scraper. 24 events/run) |
 | Groninger Museum | `scrape_groningermuseum.py` (2026-08-17 — was 2026-08-15 nog "geparkeerd als moeilijk": GraphQL-endpoints gaven 404, Playwright bleef leeg. Bleek achteraf helemaal geen GraphQL nodig te hebben: een plain, publieke JSON-API (`/api/exhibitions`, `/api/activities`, beide met `?type=now\|soon\|past`) — gevonden via een Playwright-netwerkcheck die de onderliggende `fetch()`-call zag. Dekt zowel exposities (met `date`/`date_end`) als losse eenmalige activiteiten (bv. Groninger Museumnacht) — generiek-terugkerende activiteiten ("Ieder weekend") bewust overgeslagen, passen niet in het single-date-model. 9 events/run) |
 | Uitzinnig.nl (aggregator, Drenthe/Groningen/Friesland) | `scrape_uitzinnig.py` (2026-08-17, overleg.md punt 13 — 3 "provincie"-pagina's die in de praktijk overlappen, dus gededupliceerd op URL. Echte start-/einddatum via ISO-meta-tags op de detailpagina (beter dan kunstinzicht.nl, dat bewust niet gebouwd is — zie hieronder). Geeft ook een eerste (deel-)win voor Hunebedcentrum zonder de bot-bescherming te omzeilen. In `AGGREGATOR_SOURCES`. 13 events/run) |
+| Staatsbosbeheer (natuuractiviteiten, Groningen/Drenthe/Friesland/Overijssel) | `scrape_staatsbosbeheer.py` (2026-08-18, overleg.md punt 15 — de listingpagina is een React-app, maar heeft een publieke, schone JSON-API (`/api/activities?perPage[]=N&page[]=N`, gevonden via een netwerkcheck), geen Playwright nodig. 1213 resultaten NL-breed, drie types: `activity` (echte datum + coördinaten, dit scrapen we), `route` (permanent beschikbaar, `Date` altijd null, bewust NIET gebouwd — past niet in het datum-model), `accomodation` (kampeerterreinen, overgeslagen). Genre `'actief'` expliciet via `cats` i.p.v. titel-gok (`gen_uitjes.py`'s `cat_map` uitgebreid). 71 events/run) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
