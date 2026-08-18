@@ -27,6 +27,18 @@ try:
 except FileNotFoundError:
     CITY_COORDS = {}
 
+# Wandelingen/tochten (4e topniveau-modus, 2026-08-18): routes hebben nooit
+# een datum, dus passen niet in het events-schema (UNIQUE(title_norm,date)) --
+# scrape_staatsbosbeheer.py schrijft ze daarom rechtstreeks naar routes.json
+# i.p.v. via events_db.py. Zie overleg.md punt 15 / ARCHITECTURE.md
+# §Wandelingen/tochten.
+ROUTES_JSON = os.path.join(SCRIPT_DIR, 'routes.json')
+try:
+    with open(ROUTES_JSON, encoding='utf-8') as f:
+        routes = json.load(f)
+except FileNotFoundError:
+    routes = []
+
 SRC = {
     'spotgroningen.nl':    ('Spot',            '🔴', '#e53935'),
     'lawei':               ('De Lawei',        '🎶', '#6d4c41'),
@@ -564,6 +576,48 @@ def expo_card_html(e):
 
 expo_html = ''.join(expo_card_html(e) for e in expo_valid)
 
+ROUTE_TYPE_ICONS = {'Wandelen': '\U0001f97e', 'Fietsen': '\U0001f6b4', 'Mountainbiken': '\U0001f6b5'}
+
+def route_len_bucket(km):
+    if km is None: return 'onbekend'
+    if km < 5: return 'kort'
+    if km < 10: return '5-10'
+    if km < 20: return '10-20'
+    return 'lang'
+
+def route_card_html(r):
+    title_html = (f'<a href="{esc(r.get("url",""))}" target="_blank" rel="noopener">{esc(r.get("title",""))}</a>'
+                  if r.get('url') else esc(r.get('title','')))
+    rtype = r.get('route_type') or 'Wandelen'
+    icon = ROUTE_TYPE_ICONS.get(rtype, '\U0001f97e')
+    km = r.get('length_km')
+    len_txt = f'{km:g} km' if km else 'lengte onbekend'
+    # Kleine iconen voor honden/kinderen/toegankelijk -- alleen tonen als van
+    # toepassing, geen 'niet toegestaan'-ruis (dat is de meerderheid, dus
+    # weinig onderscheidend). 'los' telt ook als "honden mogen mee".
+    prop_icons = ''
+    if r.get('dogs') in ('toegestaan', 'los'): prop_icons += ' \U0001f415'
+    if r.get('kids'): prop_icons += ' \U0001f476'
+    if r.get('accessible'): prop_icons += ' \u267f'
+    lat, lon = r.get('lat'), r.get('lon')
+    lat_lon = f'{lat},{lon}' if lat and lon else ''
+    search_txt = esc(fold_diacritics((r.get('title','') + ' ' + (r.get('venue','') or '')).lower()))
+    dogs_ok = 'true' if r.get('dogs') in ('toegestaan', 'los') else 'false'
+    return (f'<div class="route-card" data-latlon="{lat_lon}" data-prov="{esc(r.get("province","Onbekend"))}" '
+            f'data-routetype="{esc(rtype)}" data-routelen="{route_len_bucket(km)}" '
+            f'data-dogs="{dogs_ok}" data-kids="{"true" if r.get("kids") else "false"}" '
+            f'data-accessible="{"true" if r.get("accessible") else "false"}" data-search="{search_txt}">'
+            f'<div class="event-main"><div class="event-title">{title_html}</div>'
+            f'<div class="event-venue">{esc(r.get("venue") or r.get("province","")) }{prop_icons} '
+            f'<span class="dist-badge"></span></div></div>'
+            f'<div class="event-badges">'
+            f'<span class="badge badge-genre g-actief">{icon} {esc(rtype)}</span>'
+            f'<span class="badge">{len_txt}</span>'
+            f'</div></div>')
+
+routes_html = ''.join(route_card_html(r) for r in sorted(routes, key=lambda r: r.get('title','')))
+TOTAL_ROUTES = len(routes)
+
 # Locale-onafhankelijk (was strftime('%B') — Engelse maandnaam op deze Windows-
 # server-locale, zie decisions.md 2026-08-17, Claude Design-review).
 _today = date.today()
@@ -613,8 +667,9 @@ landelijk_json = _json.dumps(sorted(LANDELIJK))
 
 js = f'''
 const TOTAL={total+expo_total};
-const TOTAL_UITJES={total_uitjes}, TOTAL_SPORT={total_sport}, TOTAL_EXPO={expo_total};
+const TOTAL_UITJES={total_uitjes}, TOTAL_SPORT={total_sport}, TOTAL_EXPO={expo_total}, TOTAL_ROUTES={TOTAL_ROUTES};
 let selSrc=new Set(), selGenre=new Set(), selProv=new Set(), maxDist=9999;
+let selRouteType=new Set(), selRouteLen=new Set(), selRouteProps=new Set();
 let currentMode='uitjes', selSport=new Set(), selClub=new Set(), selGender='all';
 let searchQuery='', selWhenFrom=null, selWhenTo=null;
 const SPORT_SRCS=new Set(['fcgroningen','fcemmen','heerenveen','cambuur','fctwente','goahead','peczwolle','donar','landstede','lycurgus','sudosa','friso','grizzlys','flyers','ogcapitals','hurryup','eoemmen','ldodk','dos46']);
@@ -655,7 +710,7 @@ function haversine(lat1,lon1,lat2,lon2){{
 // zie decisions.md 2026-08-17 (Claude Design-review).
 const eventDist=new Map();
 function updateDistances(){{
-  document.querySelectorAll('.event[data-latlon]').forEach(ev=>{{
+  document.querySelectorAll('.event[data-latlon],.route-card[data-latlon]').forEach(ev=>{{
     const ll=ev.dataset.latlon;
     if(!ll)return;
     const [lat,lon]=ll.split(',').map(Number);
@@ -692,6 +747,11 @@ function renderActiveFilters(){{
     selClub.forEach(c=>{{const b=document.querySelector('.btn[data-club="'+c+'"]'); if(b)tokens.push([b.textContent, ()=>b.click()]);}});
     if(selGender!=='all'){{const b=document.querySelector('.btn[data-gender="'+selGender+'"]'); if(b)tokens.push([b.textContent, ()=>document.querySelector('.btn[data-gender="all"]').click()]);}}
   }}
+  if(currentMode==='wandelingen'){{
+    selRouteType.forEach(t=>{{const b=document.querySelector('.btn[data-routetype="'+t+'"]'); if(b)tokens.push([b.textContent, ()=>b.click()]);}});
+    selRouteLen.forEach(l=>{{const b=document.querySelector('.btn[data-routelen="'+l+'"]'); if(b)tokens.push([b.textContent, ()=>b.click()]);}});
+    selRouteProps.forEach(p=>{{const b=document.querySelector('.btn[data-routeprop="'+p+'"]'); if(b)tokens.push([b.textContent, ()=>b.click()]);}});
+  }}
   wrap.innerHTML='';
   if(tokens.length===0){{wrap.classList.add('hidden');return;}}
   wrap.classList.remove('hidden');
@@ -709,6 +769,7 @@ function renderActiveFilters(){{
 }}
 
 function apply(){{
+  if(currentMode==='wandelingen'){{applyRoutes();return;}}
   let v=0;
   document.querySelectorAll('.event').forEach(ev=>{{
     const src=ev.dataset.src, dist=eventDist.get(ev)??9999;
@@ -780,6 +841,90 @@ function apply(){{
   updateFilterCounts();
   syncURL();
 }}
+
+function applyRoutes(){{
+  let v=0;
+  document.querySelectorAll('.route-card').forEach(rc=>{{
+    const dist=eventDist.get(rc)??9999;
+    let ok=(selProv.size===0||selProv.has(rc.dataset.prov))&&dist<=maxDist
+      &&(selRouteType.size===0||selRouteType.has(rc.dataset.routetype))
+      &&(selRouteLen.size===0||selRouteLen.has(rc.dataset.routelen));
+    selRouteProps.forEach(p=>{{
+      if(p==='dogs'&&rc.dataset.dogs!=='true') ok=false;
+      if(p==='kids'&&rc.dataset.kids!=='true') ok=false;
+      if(p==='accessible'&&rc.dataset.accessible!=='true') ok=false;
+    }});
+    if(ok&&searchWords.length){{
+      const hay=rc.dataset.search||'';
+      ok=searchWords.every(w=>hay.includes(w));
+    }}
+    rc.classList.toggle('hidden',!ok);if(ok)v++;
+  }});
+  document.getElementById('stats').textContent=v===TOTAL_ROUTES?'Toont alle '+TOTAL_ROUTES+' wandelingen/tochten':'Toont '+v+' van '+TOTAL_ROUTES+' wandelingen/tochten';
+  const emptyEl=document.getElementById('empty-state');
+  emptyEl.classList.toggle('hidden',v!==0);
+  if(v===0){{
+    emptyEl.innerHTML='';
+    const msg=document.createElement('span');
+    msg.textContent = maxDist<9999
+      ? 'Geen wandelingen/tochten gevonden binnen '+maxDist+' km — probeer een grotere afstand of andere filters. '
+      : 'Geen wandelingen/tochten gevonden met de huidige filters — probeer andere filters. ';
+    emptyEl.appendChild(msg);
+    if(maxDist<9999){{
+      const distBtn=document.createElement('button');
+      distBtn.className='empty-action-btn';
+      distBtn.textContent='Alle afstanden';
+      distBtn.addEventListener('click',()=>document.querySelector('.dist-btn[data-dist="9999"]').click());
+      emptyEl.appendChild(distBtn);
+    }}
+    const clearBtn=document.createElement('button');
+    clearBtn.className='empty-action-btn';
+    clearBtn.textContent='Wis filters';
+    clearBtn.addEventListener('click',clearAllFilters);
+    emptyEl.appendChild(clearBtn);
+  }}
+  document.querySelector('.btn[data-routetype="all"]')?.classList.toggle('active',selRouteType.size===0);
+  document.querySelector('.btn[data-routelen="all"]')?.classList.toggle('active',selRouteLen.size===0);
+  const apb2=document.querySelector('.btn[data-prov="all"]'),apa2=selProv.size===0;
+  apb2.classList.toggle('active',apa2);if(apa2)actBtn(apb2,'#555');else deactBtn(apb2);
+  document.getElementById('dist-label').textContent=maxDist>=9999?'Alle afstanden':'≤ '+maxDist+' km';
+  renderActiveFilters();
+  updateFilterCounts();
+  syncURL();
+}}
+
+document.querySelectorAll('.btn[data-routetype]').forEach(b=>b.addEventListener('click',()=>{{
+  const v=b.dataset.routetype;
+  if(v==='all'){{selRouteType.clear();}}
+  else{{if(selRouteType.has(v))selRouteType.delete(v);else selRouteType.add(v);}}
+  document.querySelectorAll('.btn[data-routetype]:not([data-routetype="all"])').forEach(x=>x.classList.toggle('active',selRouteType.has(x.dataset.routetype)));
+  apply();
+}}));
+document.querySelectorAll('.btn[data-routelen]').forEach(b=>b.addEventListener('click',()=>{{
+  const v=b.dataset.routelen;
+  if(v==='all'){{selRouteLen.clear();}}
+  else{{if(selRouteLen.has(v))selRouteLen.delete(v);else selRouteLen.add(v);}}
+  document.querySelectorAll('.btn[data-routelen]:not([data-routelen="all"])').forEach(x=>x.classList.toggle('active',selRouteLen.has(x.dataset.routelen)));
+  apply();
+}}));
+document.querySelectorAll('.btn[data-routeprop]').forEach(b=>b.addEventListener('click',()=>{{
+  const v=b.dataset.routeprop;
+  if(selRouteProps.has(v)){{selRouteProps.delete(v);b.classList.remove('active');}}
+  else{{selRouteProps.add(v);b.classList.add('active');}}
+  apply();
+}}));
+document.querySelectorAll('.btn[data-rsort]').forEach(b=>b.addEventListener('click',()=>{{
+  document.querySelectorAll('.btn[data-rsort]').forEach(x=>x.classList.toggle('active',x===b));
+  const sort=b.dataset.rsort;
+  const wrap=document.getElementById('routes-wrap');
+  const items=Array.from(wrap.querySelectorAll('.route-card'));
+  items.sort((a,c)=>{{
+    if(sort==='afstand') return (eventDist.get(a)??9999)-(eventDist.get(c)??9999);
+    if(sort==='lengte') return (parseFloat(a.querySelector('.badge:last-child').textContent)||9999)-(parseFloat(c.querySelector('.badge:last-child').textContent)||9999);
+    return a.dataset.search.localeCompare(c.dataset.search);
+  }});
+  items.forEach(it=>wrap.appendChild(it));
+}}));
 
 async function geocode(addr){{
   try{{
@@ -1014,6 +1159,7 @@ function updateFilterCounts(){{
   setCount('tb-src-count',selSrc.size);
   setCount('tb-sport-count',selSport.size);
   setCount('tb-club-count',selClub.size+(selGender!=='all'?1:0));
+  setCount('tb-route-count',selRouteType.size+selRouteLen.size+selRouteProps.size);
 }}
 
 // --- Bron-popover: eigen zoekveld filtert de gegroepeerde chips, verbergt
@@ -1062,6 +1208,9 @@ function clearAllFilters(){{
   document.querySelector('.btn[data-sport="all"]')?.click();
   document.querySelector('.btn[data-club="all"]')?.click();
   document.querySelector('.btn[data-gender="all"]')?.click();
+  document.querySelector('.btn[data-routetype="all"]')?.click();
+  document.querySelector('.btn[data-routelen="all"]')?.click();
+  document.querySelectorAll('.btn[data-routeprop].active').forEach(b=>b.click());
   apply();
 }}
 document.getElementById('clear-filters-btn').addEventListener('click',()=>{{clearAllFilters();closeAllPopovers();}});
@@ -1071,19 +1220,23 @@ function setMode(m){{
   document.getElementById('btn-uitjes').classList.toggle('active',m==='uitjes');
   document.getElementById('btn-sport').classList.toggle('active',m==='sport');
   document.getElementById('btn-exposities').classList.toggle('active',m==='exposities');
+  document.getElementById('btn-wandelingen').classList.toggle('active',m==='wandelingen');
   closeAllPopovers();
   // Welke toolbar-knoppen (en dus welke popovers) zijn relevant per modus --
-  // 'Waar' en 'Sorteren' en het zoekveld blijven in alle 3 modi beschikbaar.
-  document.getElementById('tb-when').style.display=m!=='exposities'?'':'none';
+  // 'Waar' en 'Sorteren' en het zoekveld blijven in alle 4 modi beschikbaar.
+  document.getElementById('tb-when').style.display=(m!=='exposities'&&m!=='wandelingen')?'':'none';
   document.getElementById('tb-genre').style.display=m==='uitjes'?'':'none';
   document.getElementById('tb-src').style.display=m==='uitjes'?'':'none';
   document.getElementById('tb-sport').style.display=m==='sport'?'':'none';
   document.getElementById('tb-club').style.display=m==='sport'?'':'none';
+  document.getElementById('tb-route').style.display=m==='wandelingen'?'':'none';
   document.getElementById('expo-filters').style.display=m==='exposities'?'flex':'none';
   document.getElementById('uitjes-sort').style.display=(m==='uitjes'||m==='sport')?'':'none';
-  document.getElementById('month-nav-wrap').style.display=m==='exposities'?'none':'';
-  document.querySelector('main').style.display=m==='exposities'?'none':'';
+  document.getElementById('route-sort').style.display=m==='wandelingen'?'flex':'none';
+  document.getElementById('month-nav-wrap').style.display=(m==='exposities'||m==='wandelingen')?'none':'';
+  document.querySelector('main').style.display=(m==='exposities'||m==='wandelingen')?'none':'';
   document.getElementById('expo-wrap').style.display=m==='exposities'?'':'none';
+  document.getElementById('routes-wrap').style.display=m==='wandelingen'?'':'none';
   // Filters die in de nieuwe modus geen betekenis hebben vervallen vanzelf;
   // de rest (provincie, afstand, zoekterm) blijft behouden bij modus-wissel
   // -- voorheen werd bij ELKE wissel alles gewist, zie decisions.md 2026-08-17
@@ -1101,6 +1254,12 @@ function setMode(m){{
     document.querySelectorAll('.btn[data-src]:not([data-src="all"]),.btn[data-genre]:not([data-genre="all"])').forEach(x=>x.classList.remove('active'));
     document.querySelector('.btn[data-src="all"]')?.classList.add('active');
     document.querySelector('.btn[data-genre="all"]')?.classList.add('active');
+  }}
+  if(m!=='wandelingen'){{
+    selRouteType.clear();selRouteLen.clear();selRouteProps.clear();
+    document.querySelectorAll('.btn[data-routetype]:not([data-routetype="all"]),.btn[data-routelen]:not([data-routelen="all"]),.btn[data-routeprop]').forEach(x=>x.classList.remove('active'));
+    document.querySelector('.btn[data-routetype="all"]')?.classList.add('active');
+    document.querySelector('.btn[data-routelen="all"]')?.classList.add('active');
   }}
   apply();
 }}
@@ -1224,7 +1383,7 @@ function restoreFromURL(){{
   const local=hasAnyParam?{{}}:loadLocalPrefs();
 
   const mode=p.get('mode')||local.mode;
-  if(mode==='sport'||mode==='exposities') currentMode=mode;
+  if(mode==='sport'||mode==='exposities'||mode==='wandelingen') currentMode=mode;
 
   const prov=p.get('prov'); if(prov) prov.split(',').forEach(x=>selProv.add(x));
   const d=parseInt(p.get('d'),10); if(!isNaN(d)&&d>0) maxDist=d;
@@ -1393,6 +1552,9 @@ body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fo
 #empty-state.hidden{{display:none;}}
 main{{padding:0 16px 32px;max-width:1000px;margin:0 auto;}}
 #expo-wrap{{padding:0 16px 32px;max-width:1000px;margin:0 auto;}}
+#routes-wrap{{padding:0 16px 32px;max-width:1000px;margin:0 auto;}}
+.route-card{{background:var(--card);border-left:3px solid #43a047;border-radius:4px;padding:8px 10px;margin-bottom:6px;content-visibility:auto;contain-intrinsic-size:auto 50px;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;}}
+.route-card.hidden{{display:none;}}
 .month-section{{margin-top:20px;}} .month-section.hidden{{display:none;}}
 .day-group.hidden{{display:none;}}
 .month-header{{font-size:1rem;font-weight:700;color:var(--muted);padding:8px 0 6px;border-bottom:1px solid var(--border);margin-bottom:8px;}}
@@ -1407,7 +1569,8 @@ main{{padding:0 16px 32px;max-width:1000px;margin:0 auto;}}
 .event-venue{{font-size:0.75rem;color:var(--muted);margin-top:2px;}}
 .event-daterange{{font-size:0.75rem;color:#1565c0;font-weight:600;margin-top:2px;}}
 .event.expo-item{{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;}}
-.btn[data-sort].active,.btn[data-when]:not([data-when="all"]).active,.btn[data-usort].active,#src-dist-toggle.active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
+.btn[data-sort].active,.btn[data-when]:not([data-when="all"]).active,.btn[data-usort].active,#src-dist-toggle.active,.btn[data-rsort].active,.btn[data-routetype]:not([data-routetype="all"]).active,.btn[data-routelen]:not([data-routelen="all"]).active,.btn[data-routeprop].active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
+.btn[data-routetype="all"].active,.btn[data-routelen="all"].active{{background:#555;color:#fff;border-color:#555;}}
 .dist-badge{{font-size:0.72rem;color:var(--muted);margin-left:4px;}}
 .event-badges{{display:flex;flex-direction:column;gap:3px;align-items:flex-end;}}
 a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #1565c0;outline-offset:2px;}}
@@ -1430,7 +1593,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   .addr-row label{{margin-bottom:2px;}}
   #addr-input{{width:100%;}}
   .dist-buttons{{width:100%;}}
-  .chip-scroll,.month-nav,.toolbar-buttons{{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);}}
+  .chip-scroll,.month-nav,.toolbar-buttons,.mode-toggle{{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);}}
+  .mode-toggle{{max-width:100%;}}
   .toolbar{{flex-direction:column;align-items:stretch;}}
   #search-input{{width:100%;}}
   .toolbar-buttons{{width:100%;}}
@@ -1445,6 +1609,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
       <button class="mode-btn active" id="btn-uitjes" onclick="setMode('uitjes')">🗓️ Uitjes</button>
       <button class="mode-btn" id="btn-sport" onclick="setMode('sport')">⚽ Sport</button>
       <button class="mode-btn" id="btn-exposities" onclick="setMode('exposities')">🖼️ Exposities</button>
+      <button class="mode-btn" id="btn-wandelingen" onclick="setMode('wandelingen')">🥾 Wandelingen/tochten</button>
     </div>
   </div>
   <div class="meta">Bijgewerkt: {today_str} &nbsp;·&nbsp; {total} events &nbsp;·&nbsp; {expo_total} exposities &nbsp;·&nbsp; {len(active_sources)} bronnen</div>
@@ -1457,6 +1622,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
       <button class="toolbar-btn" id="tb-src" data-popover="popover-src" aria-haspopup="true" aria-expanded="false" aria-controls="popover-src">Bron<span class="tb-count" id="tb-src-count"></span></button>
       <button class="toolbar-btn" id="tb-sport" data-popover="popover-sport" aria-haspopup="true" aria-expanded="false" aria-controls="popover-sport">Sport<span class="tb-count" id="tb-sport-count"></span></button>
       <button class="toolbar-btn" id="tb-club" data-popover="popover-club" aria-haspopup="true" aria-expanded="false" aria-controls="popover-club">Club<span class="tb-count" id="tb-club-count"></span></button>
+      <button class="toolbar-btn" id="tb-route" data-popover="popover-route" aria-haspopup="true" aria-expanded="false" aria-controls="popover-route">Route<span class="tb-count" id="tb-route-count"></span></button>
       <button class="toolbar-btn" id="tb-sort" data-popover="popover-sort" aria-haspopup="true" aria-expanded="false" aria-controls="popover-sort">Sorteren</button>
       <button class="toolbar-btn clear-btn" id="clear-filters-btn">Wis filters</button>
     </div>
@@ -1563,6 +1729,24 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   <button class="btn" data-club="dos46" data-sport-type="korfbal">🎯 DOS '46</button>
 </div>
 
+<div class="popover" id="popover-route" hidden role="group" aria-labelledby="lbl-routetype">
+  <div class="filters-label" id="lbl-routetype">Type</div>
+  <button class="btn active" data-routetype="all">Alle types</button>
+  <button class="btn" data-routetype="Wandelen">🥾 Wandelen</button>
+  <button class="btn" data-routetype="Fietsen">🚴 Fietsen</button>
+  <button class="btn" data-routetype="Mountainbiken">🚵 Mountainbiken</button>
+  <div class="filters-label" id="lbl-routelen">Lengte</div>
+  <button class="btn active" data-routelen="all">Alle lengtes</button>
+  <button class="btn" data-routelen="kort">&lt; 5 km</button>
+  <button class="btn" data-routelen="5-10">5-10 km</button>
+  <button class="btn" data-routelen="10-20">10-20 km</button>
+  <button class="btn" data-routelen="lang">&gt; 20 km</button>
+  <div class="filters-label" id="lbl-routeprop">Kenmerken</div>
+  <button class="btn" data-routeprop="dogs">🐕 Honden toegestaan</button>
+  <button class="btn" data-routeprop="kids">👶 Geschikt voor kinderen</button>
+  <button class="btn" data-routeprop="accessible">♿ Toegankelijk</button>
+</div>
+
 <div class="popover" id="popover-sort" hidden>
   <div class="filters" id="uitjes-sort" role="group" aria-labelledby="lbl-usort" style="border:none;padding:0;">
     <div class="filters-label" id="lbl-usort">Sorteren</div>
@@ -1575,6 +1759,12 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
     <button class="btn" data-sort="end">Einddatum</button>
     <button class="btn" data-sort="alpha">Alfabetisch</button>
   </div>
+  <div class="filters" id="route-sort" style="display:none;border:none;padding:0;" role="group" aria-labelledby="lbl-rsort">
+    <div class="filters-label" id="lbl-rsort">Sorteren (Wandelingen)</div>
+    <button class="btn active" data-rsort="alpha">Alfabetisch</button>
+    <button class="btn" data-rsort="afstand">Afstand</button>
+    <button class="btn" data-rsort="lengte">Lengte</button>
+  </div>
 </div>
 
 <div id="active-filters" class="hidden"></div>
@@ -1583,6 +1773,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
 <div id="empty-state" class="hidden"></div>
 <main>{main_html}</main>
 <div id="expo-wrap" style="display:none;">{expo_html}</div>
+<div id="routes-wrap" style="display:none;">{routes_html}</div>
 <button id="back-to-top" class="hidden" title="Naar boven" aria-label="Naar boven" onclick="window.scrollTo({{top:0,behavior:'smooth'}})">&uarr;</button>
 <script>{js}</script>
 <footer style="margin-top:32px;padding:16px;font-size:0.72rem;color:var(--muted);border-top:1px solid #e0e0e0;line-height:1.6;">

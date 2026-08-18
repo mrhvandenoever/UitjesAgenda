@@ -1840,3 +1840,86 @@ Michiels eigen afweging — alleen vastgelegd als extra input, geen besluit.
 
 **Kaart-hiërarchie/scanbaarheid**: subjectieve designsuggestie, geen
 concrete bug — niet doorgevoerd zonder duidelijkere richting van Michiel.
+
+## 2026-08-19 — "Wandelingen/tochten" gebouwd: 4e topniveau-modus
+
+Michiel koos definitief: "nee, bouw Wandelingen/tochten als knop" — de
+220 Staatsbosbeheer-routes (bewust niet gebouwd op 2026-08-18, zie de
+punt-15-vervolgvraag hierboven) krijgen een eigen tab i.p.v. Uitjes te
+verzwaren of te wachten. Sluit aan bij de externe-review-suggestie van
+gisteren (eigen tab, geen extra categorie tussen de events).
+
+**Datamodel-probleem eerst opgelost**: routes hebben NOOIT een datum
+(`Date` is bij dit content-type altijd `null` in Staatsbosbeheer's API).
+`events_db.py`'s schema (`UNIQUE(title_norm, date)`, `insert_event()` eist
+een niet-lege datum) kan dat schema niet opslaan. In plaats van het
+events-schema te verbouwen voor 1 bron: `scrape_staatsbosbeheer.py`
+schrijft routes voortaan rechtstreeks naar een eigen `routes.json`
+(volledige overschrijving per run, buiten `events_db.py`/SQLite om — geen
+incrementele merge nodig, dit is een vrijwel statische catalogus). Zelfde
+scraper-run haalt dus zowel `activity`- als `route`-items op uit dezelfde
+API-response (geen extra requests nodig).
+
+**Databerijking tijdens het bouwen** (`parse_route()` in
+`scrape_staatsbosbeheer.py`): Staatsbosbeheer's ruwe `Properties`-array
+("Honden toegestaan"/"niet toegestaan"/"los toegestaan", "Voor kinderen",
+"Fysieke beperking") vertaald naar 3 losse, filterbare velden (`dogs`,
+`kids`, `accessible`) i.p.v. de ruwe tekst 1-op-1 door te geven. Routes
+zonder coördinaten worden overgeslagen (nutteloos zonder afstandsfilter/
+kaart-context) — kwam in de praktijk niet voor (0 van 220).
+
+**Architectuur, `gen_uitjes.py`**: route-kaarten krijgen de CSS-klasse
+`.route-card`, expliciet NIET `.event` — zo blijft `apply()`'s hoofdlus
+(itereert over alle ~8000 Uitjes/Sport/Expo-`.event`-elementen bij elke
+filterwijziging) ongemoeid; een aparte `applyRoutes()` (aangeroepen via een
+vroege branch bovenin `apply()`) filtert alleen de 220 route-kaarten.
+`updateDistances()` uitgebreid om ook `.route-card[data-latlon]` mee te
+nemen — 1 herbruikte haversine-functie i.p.v. duplicatie.
+
+**Filters**: Type (Wandelen/Fietsen/Mountainbiken, rechtstreeks van
+`RouteType`), Lengte (kort/5-10/10-20/lang, buckets afgeleid van
+`RouteLength`), Kenmerken (honden/kinderen/toegankelijk, checkbox-achtige
+AND-logica — een gebruiker die zowel "honden" als "kinderen" aanvinkt wil
+routes die aan BEIDE voldoen, niet OR zoals bij genre/bron elders). Waar
+mogelijk bestaande infrastructuur hergebruikt i.p.v. nieuw gebouwd:
+provincie/afstand (dezelfde `selProv`/`maxDist`), sorteren (nieuw 3e blok
+binnen het al bestaande `#popover-sort`, naast `uitjes-sort`/
+`expo-filters`), actieve-filter-samenvatting en filterteller-badges
+(bestaande functies uitgebreid met een `wandelingen`-tak).
+
+**Bewust buiten scope gehouden (MVP), transparant zo vastgelegd**:
+Type/Lengte/Kenmerken worden niet in de URL/localStorage opgeslagen —
+modus + provincie/afstand/zoekterm lopen al mee via de generieke
+`syncURL()`/`restoreFromURL()`, de 3 route-specifieke filters (nog) niet.
+
+**Regressie gevonden en gefixt vóórdat er iets live ging**: de 4e
+mode-knop (langere tekst: "🥾 Wandelingen/tochten") liet `.mode-toggle` op
+390px mobiel overflowen — de hele pagina rekte uit tot 487px virtuele
+breedte omdat `.mode-toggle` geen eigen overflow-behandeling had. Dit is
+toevallig precies de categorie bug die de externe review gisteren claimde
+te zien (en die toen NIET reproduceerde) — deze keer was het een echte,
+nieuw geïntroduceerde regressie. Gefixt door `.mode-toggle` toe te
+voegen aan dezelfde bewezen fade-scroll-CSS-regel die
+`.toolbar-buttons`/`.month-nav`/`.chip-scroll` al hadden (Cluster 4,
+2026-08-18) — hergebruikte, consistente oplossing.
+
+**Geverifieerd, uitgebreid** (lokale `http.server`-preview, JS-niveau):
+- Mode-wissel Uitjes↔Wandelingen↔Sport: juiste containers zichtbaar/
+  verborgen, juiste toolbar-knoppen, stats-tekst correct ("Toont alle 220
+  wandelingen/tochten").
+- Type-filter (Mountainbiken: 8, matcht de brondata), Lengte-filter
+  (Mountainbiken+kort: 1), Kenmerken-filter (honden: 168 = 154 toegestaan +
+  14 los, exact matchend met de eerder getelde brondata).
+- Provincie-filter gedeeld en correct (Friesland: 32, allemaal
+  daadwerkelijk Friesland).
+- Afstandsfilter (25km: 56), zoeken ("hunebed": 3 exact passende titels),
+  sorteren-op-afstand (top-3 dicht bij Annen, klopt geografisch).
+- `dist-badge` correct gevuld, actieve-filter-samenvatting toont route-
+  tokens, `aria-controls` correct op de nieuwe toolbar-knop.
+- Mobiele 390px-regressie gevonden (zie boven) en na de fix opnieuw
+  geverifieerd: geen paginabrede overflow meer, `.mode-toggle` scrollt nu
+  intern net als de rest van de toolbar.
+- Geen console-errors gedurende het hele testtraject.
+
+Zie ARCHITECTURE.md §Wandelingen/tochten voor de volledige technische
+uitwerking en overleg.md punt 15 voor de besluitgeschiedenis.

@@ -285,6 +285,74 @@ inclusief de gescopede DB-opruiming vóór de live-run.
 
 ---
 
+## Wandelingen/tochten (vierde topniveau-modus)
+
+Gebouwd 2026-08-19, n.a.v. overleg.md punt 15 (drenthe.nl "t/m N maand") →
+Staatsbosbeheer als bron gevonden → Michiels twijfel of 220 routes de scope
+van de site moeten vergroten → een externe review pleitte voor een eigen
+tab i.p.v. de routes in Uitjes proppen → Michiel koos daarvoor. Volledige
+besluitgeschiedenis: decisions.md 2026-08-18/2026-08-19.
+
+**Fundamenteel andere databron dan alle andere modi**: routes hebben nooit
+een datum (permanent beschikbaar) en kunnen dus niet door `events_db.py`'s
+schema (`UNIQUE(title_norm, date)`, `insert_event()` eist een datum). In
+plaats van het schema te verbouwen voor één bron, schrijft
+`scrape_staatsbosbeheer.py` routes rechtstreeks naar een eigen
+**`routes.json`** — een platte lijst, volledig overschreven per run (geen
+incrementele merge nodig: dit is een vrijwel statische catalogus, geen
+"nieuwe occurrences over tijd"-stroom zoals events). `gen_uitjes.py` leest
+dit bestand net als `events_categorized.json`, met een lege lijst als
+fallback als het (nog) niet bestaat.
+
+**Losstaand van de bestaande `.event`-machinerie**: route-kaarten krijgen
+de CSS-klasse `.route-card`, NIET `.event`. `apply()`'s hoofdlus
+(`document.querySelectorAll('.event')`, draait bij elke filterwijziging
+over alle ~8000 Uitjes/Sport/Expo-events) raakt routes dus nooit — een
+eigen `applyRoutes()`-functie (aangeroepen via een vroege branch bovenin
+`apply()`: `if(currentMode==='wandelingen'){{applyRoutes();return;}}`)
+filtert alleen de 220 `.route-card`-elementen. Bewuste keuze om de hete pad
+van de hoofdlus niet nodeloos te vergroten voor een modus die toch nooit
+tegelijk met de andere actief is.
+
+`updateDistances()` (haversine-afstand + `.dist-badge`-tekst) is uitgebreid
+naar `'.event[data-latlon],.route-card[data-latlon]'` — 1 herbruikte
+functie i.p.v. een dubbele afstandsberekening.
+
+**Filters, eigen t.o.v. Uitjes/Sport/Exposities**:
+- **Type** (`data-routetype`): Wandelen/Fietsen/Mountainbiken — rechtstreeks
+  van Staatsbosbeheer's `RouteType`-veld.
+- **Lengte** (`data-routelen`): kort (&lt;5km) / 5-10 / 10-20 / lang (&gt;20),
+  buckets afgeleid van `RouteLength` via `route_len_bucket()`.
+- **Kenmerken** (`data-routeprop`, meerdere tegelijk aan te zetten, AND-logica
+  i.p.v. OR): honden toegestaan (dekt zowel "toegestaan" als "los
+  toegestaan"), geschikt voor kinderen, toegankelijk (rolstoel/scootmobiel)
+  — afgeleid van Staatsbosbeheer's `Properties`-array.
+- **Provincie + afstand**: hergebruikt de bestaande `selProv`/`maxDist`-
+  infrastructuur (dezelfde popover, geen duplicatie).
+- **Sorteren**: eigen `route-sort`-blok binnen de bestaande `#popover-sort`
+  (3e kind naast `uitjes-sort`/`expo-filters`, zelfde patroon) — alfabetisch/
+  afstand/lengte, reordert `.route-card`-elementen client-side net als
+  Exposities' sorteerknoppen dat al deden.
+
+**Bewust NIET gebouwd (MVP-scope, transparant zo gelaten)**: Type/Lengte/
+Kenmerken worden niet in de URL/localStorage opgeslagen — een gedeelde link
+onthoudt dus wel de modus + provincie/afstand/zoekterm (die lopen al door
+de generieke `syncURL()`/`restoreFromURL()`), maar niet de fijnere route-
+filters. Uit te breiden als daar behoefte aan blijkt.
+
+**Mobiele regressie gevonden en gefixt vóór het live ging**: de 4e
+mode-knop ("🥾 Wandelingen/tochten", langere tekst dan de andere 3) liet
+`.mode-toggle` op 390px breed overflowen — niet als paginabrede
+horizontale scroll (die claim uit de externe review klopte niet, zie
+decisions.md 2026-08-18), maar deze keer wél echt: `.mode-toggle` had geen
+eigen overflow-behandeling, dus de hele pagina rekte uit tot 487px virtuele
+breedte. Gefixt door `.mode-toggle` toe te voegen aan dezelfde
+fade-scroll-CSS-regel die `.toolbar-buttons`/`.month-nav`/`.chip-scroll` al
+hadden (Cluster 4, 2026-08-18) — consistente hergebruikte oplossing i.p.v.
+iets nieuws verzinnen.
+
+---
+
 ### JavaScript (inline, f-string)
 
 **Let op:** de JS zit in een Python f-string. Alle letterlijke accolades in JS moeten worden verdubbeld: `{{` en `}}`. Vergeet dit → `KeyError` of `ValueError` bij het runnen van `gen_uitjes.py`.
