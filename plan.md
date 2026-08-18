@@ -299,6 +299,13 @@ bijgewerkte status per item.
   via cascade-analyse geverifieerd i.p.v. computed-style; Michiel wordt
   gevraagd de kleuren zelf op de preview te bevestigen. Zie decisions.md
   2026-08-18.
+- [x] **Derde Claude Design-ronde (2026-08-18)**: een blokkerende bug
+  (Wanneer-filter deed niets, `#uitjes-datum`→`#popover-when` gemist bij de
+  cluster-5-rename) + 2 regressies + kleine bugs gevonden en gefixt. Michiel
+  koos daarna "ja, graag" op alle 4 resterende clusters (A: kaart-layout +
+  dag-groepering, B: 44px-chips/typografie/lege-staat-knoppen, C: URL-state
+  compleet + localStorage + zoek-normalisatie, D: mobiele toolbar) — allemaal
+  gebouwd en geverifieerd. overleg.md punt 19 nu volledig afgesloten.
 - [ ] Wacht op Michiels review van de branch/preview-deploy voor mergen naar
   `main`.
 

@@ -6,7 +6,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 EVENTS_JSON = os.path.join(SCRIPT_DIR, 'events_categorized.json')
 HTML_OUT = os.path.join(SCRIPT_DIR, 'index.html')
 
-import json, re as _re, math, unicodedata
+import json, re as _re, math, unicodedata, itertools
 
 def fold_diacritics(s: str) -> str:
     """Haalt accenten/diakrieten weg (bv. 'ü'->'u') voor zoek-matching --
@@ -265,6 +265,7 @@ def classify(title, cats, source=''):
     return 'overig'
 
 NL_DAYS   = ['ma','di','wo','do','vr','za','zo']
+NL_DAYS_LONG = ['Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag','Zondag']
 NL_MONTHS = ['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec']
 NL_MONTHS_LONG = ['Januari','Februari','Maart','April','Mei','Juni',
                   'Juli','Augustus','September','Oktober','November','December']
@@ -272,6 +273,16 @@ NL_MONTHS_LONG = ['Januari','Februari','Maart','April','Mei','Juni',
 def fmt_date(iso):
     try: d=date.fromisoformat(iso); return f"{NL_DAYS[d.weekday()]} {d.day} {NL_MONTHS[d.month-1]}"
     except: return iso
+
+def day_label(iso):
+    """Volledige dag-groepskop, bv. 'Maandag 17 augustus' -- vervangt de
+    herhaalde korte datum per rij (cluster 5-vervolgronde, Claude Design
+    2026-08-18: 'ma 17 aug' stond tien keer onder elkaar)."""
+    try:
+        d = date.fromisoformat(iso)
+        return f"{NL_DAYS_LONG[d.weekday()]} {d.day} {NL_MONTHS_LONG[d.month-1].lower()}"
+    except Exception:
+        return iso
 def fmt_date_range(start_iso, end_iso):
     """Compacte weergave voor meerdaagse niet-expo events, bv. 'vr 21 t/m zo 23 aug'
     (zelfde d_start/d_end-veld als expo_card_html, maar kort formaat i.p.v. de
@@ -427,28 +438,50 @@ def event_html(e):
         else:
             lat_lon = ''
     d_start = e.get('date',''); d_end = e.get('date_end','')
-    date_disp = fmt_date_range(d_start, d_end) if d_end and d_end != d_start else fmt_date(d_start)
+    is_multiday = bool(d_end) and d_end != d_start
     # Vooraf berekende, lowercased zoektekst (titel + venue/stad) als data-
     # attribuut -- voorkomt dat het zoekveld bij elke toetsaanslag 8202x
     # child-elementen moet uitlezen en .toLowerCase() aanroepen. Zie
     # decisions.md 2026-08-17 (Claude Design-review).
     search_txt = esc(fold_diacritics((e.get('title','') + ' ' + (e.get('venue','') or e.get('city','') or '')).lower()))
+    # Kaart-layout herzien (Claude Design-review, 4e ronde, 2026-08-18:
+    # "het grid duwt de badges ~2000px van de titel af, de datum herhaalt
+    # zich nodeloos op elke rij"). Geen aparte datumkolom meer (die info zit
+    # nu in de dag-groepskop, zie main_html hieronder) -- alleen bij een
+    # meerdaags event nog een klein datumbereik-label bij de titel, want de
+    # dag-groepskop alleen zou dan de indruk wekken dat het een eendaags
+    # event is. Genre-badge verhuisd naar direct achter de titel i.p.v. een
+    # eigen kolom. Bron-badge (tekst) weggehaald -- de kaart-linkerrandkleur
+    # is al de bron-indicator, twee keer dezelfde info was overbodig.
+    daterange_html = (f'<span class="event-daterange-inline">{fmt_date_range(d_start, d_end)}</span>'
+                       if is_multiday else '')
     return (f'<div class="event {sk}" data-src="{src}" data-genre="{genre}" '
             f'data-prov="{prov}" data-latlon="{lat_lon}" data-gender="{gender}" '
             f'data-date="{esc(d_start)}" data-dateend="{esc(d_end or d_start)}" '
             f'data-search="{search_txt}">'
-            f'<div class="event-date">{date_disp}</div>'
-            f'<div class="event-main"><div class="event-title">{title_html}</div>'
+            f'<div class="event-main">'
+            f'<div class="event-title">{title_html} '
+            f'<span class="badge badge-genre g-{genre}">{icon} {glabel}</span>{daterange_html}</div>'
             f'<div class="event-venue">{esc(e.get("venue","") or e.get("city",""))} '
-            f'<span class="dist-badge"></span></div></div>'
-            f'<div class="event-badges">'
-            f'<span class="badge badge-genre g-{genre}">{icon} {glabel}</span>'
-            f'<span class="badge badge-src s-{sk}">{esc(SRC.get(src,(src,"",""))[0])}</span>'
-            f'</div></div>')
+            f'<span class="dist-badge"></span></div></div></div>')
+
+def day_groups_html(events):
+    """Groepeert opeenvolgende events met dezelfde datum onder 1 dag-kop
+    i.p.v. de datum op elke rij te herhalen (cluster 5-vervolgronde, zie
+    decisions.md 2026-08-18). `events` is al datum-gesorteerd (afgeleid van
+    events_valid), dus groupby() volstaat zonder opnieuw te sorteren."""
+    out = []
+    for day, day_events in itertools.groupby(events, key=lambda e: e['date']):
+        out.append(
+            f'<div class="day-group"><h3 class="day-header">{day_label(day)}</h3>\n'
+            + ''.join(event_html(e)+'\n' for e in day_events)
+            + '</div>\n'
+        )
+    return ''.join(out)
 
 main_html = ''.join(
     f'<div class="month-section" id="{month_id(m+"-01")}"><h2 class="month-header">{month_label(m+"-01")}</h2>\n'
-    + ''.join(event_html(e)+'\n' for e in by_month[m])
+    + day_groups_html(by_month[m])
     + '</div>\n'
     for m in months_sorted)
 
@@ -669,6 +702,9 @@ function apply(){{
     }}
     ev.classList.toggle('hidden',!ok);if(ok)v++;
   }});
+  document.querySelectorAll('.day-group').forEach(g=>{{
+    g.classList.toggle('hidden',g.querySelectorAll('.event:not(.hidden)').length===0);
+  }});
   document.querySelectorAll('.month-section').forEach(s=>{{
     s.classList.toggle('hidden',s.querySelectorAll('.event:not(.hidden)').length===0);
   }});
@@ -842,19 +878,21 @@ whenFromInput.addEventListener('change',onCustomWhenChange);
 whenToInput.addEventListener('change',onCustomWhenChange);
 
 // --- Sorteren voor Uitjes (datum/afstand) -- herordent kaarten BINNEN elke
-// maand-sectie (i.p.v. de maand-groepering zelf op te heffen zoals bij
-// Exposities' platte lijst -- lager risico, blijft chronologisch navigeerbaar). ---
+// DAG-groep (niet over dag-grenzen heen, sinds de dag-groepering van
+// 2026-08-18 -- een kaart fysiek onder een andere dag-kop verplaatsen zou
+// misleidend zijn, het event is niet echt op die dag). Lager risico dan de
+// maand-groepering zelf op te heffen zoals bij Exposities' platte lijst. ---
 document.querySelectorAll('#uitjes-sort .btn[data-usort]').forEach(b=>{{
   b.addEventListener('click',function(){{
     document.querySelectorAll('#uitjes-sort .btn[data-usort]').forEach(x=>x.classList.toggle('active',x===this));
     const sort=this.dataset.usort;
-    document.querySelectorAll('.month-section').forEach(sec=>{{
-      const items=Array.from(sec.querySelectorAll('.event'));
+    document.querySelectorAll('.day-group').forEach(grp=>{{
+      const items=Array.from(grp.querySelectorAll('.event'));
       items.sort((a,c)=>{{
         if(sort==='afstand') return (eventDist.get(a)??9999)-(eventDist.get(c)??9999);
         return (a.dataset.date||'').localeCompare(c.dataset.date||'');
       }});
-      items.forEach(it=>sec.appendChild(it));
+      items.forEach(it=>grp.appendChild(it));
     }});
   }});
 }});
@@ -1305,17 +1343,21 @@ body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fo
 .empty-action-btn{{margin:8px 4px 0;padding:8px 16px;min-height:44px;border-radius:20px;border:1.5px solid #1565c0;background:#fff;color:#1565c0;cursor:pointer;font-size:0.85rem;font-weight:600;}}
 .empty-action-btn:hover{{background:#e3f2fd;}}
 #empty-state.hidden{{display:none;}}
-main{{padding:0 16px 32px;}}
+main{{padding:0 16px 32px;max-width:1000px;margin:0 auto;}}
 .month-section{{margin-top:20px;}} .month-section.hidden{{display:none;}}
+.day-group.hidden{{display:none;}}
 .month-header{{font-size:1rem;font-weight:700;color:var(--muted);padding:8px 0 6px;border-bottom:1px solid var(--border);margin-bottom:8px;}}
-.event{{background:var(--card);border-left:3px solid #ccc;border-radius:4px;padding:8px 10px;margin-bottom:6px;display:grid;grid-template-columns:70px 1fr auto;gap:8px;align-items:start;content-visibility:auto;contain-intrinsic-size:auto 62px;}}
+.event{{background:var(--card);border-left:3px solid #ccc;border-radius:4px;padding:8px 10px;margin-bottom:6px;content-visibility:auto;contain-intrinsic-size:auto 50px;}}
 .event.hidden{{display:none;}}
-.event-date{{font-size:0.8rem;color:var(--text);font-weight:700;padding-top:2px;}}
+.day-header{{font-size:0.85rem;font-weight:700;color:var(--muted);padding:10px 0 4px;border-bottom:1px solid var(--border);margin:6px 0 6px;}}
+.day-group:first-child .day-header{{margin-top:0;}}
+.event-title{{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}}
 .event-title a{{color:var(--text);text-decoration:none;font-weight:600;font-size:1rem;}}
+.event-daterange-inline{{font-size:0.72rem;color:#1565c0;font-weight:600;white-space:nowrap;}}
 .event-title a:hover{{text-decoration:underline;color:#1565c0;}}
 .event-venue{{font-size:0.75rem;color:var(--muted);margin-top:2px;}}
 .event-daterange{{font-size:0.75rem;color:#1565c0;font-weight:600;margin-top:2px;}}
-.event.expo-item{{grid-template-columns:1fr auto;}}
+.event.expo-item{{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;}}
 .btn[data-sort].active,.btn[data-when]:not([data-when="all"]).active,.btn[data-usort].active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
 .dist-badge{{font-size:0.72rem;color:var(--muted);margin-left:4px;}}
 .event-badges{{display:flex;flex-direction:column;gap:3px;align-items:flex-end;}}
@@ -1335,10 +1377,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
 .filter-token.clear-all{{background:#fce4ec;color:#c62828;border-color:#ef9a9a;cursor:pointer;padding:4px 12px;}}
 
 @media(max-width:600px){{
-  .event:not(.expo-item){{display:block;padding:10px 12px;position:relative;}}
-  .event:not(.expo-item) .event-date{{margin-bottom:3px;padding-top:0;}}
-  .event:not(.expo-item) .badge-src{{display:none;}}
-  .event:not(.expo-item) .event-badges{{position:absolute;top:10px;right:12px;flex-direction:row;}}
   .addr-row{{flex-direction:column;align-items:stretch;}}
   .addr-row label{{margin-bottom:2px;}}
   #addr-input{{width:100%;}}

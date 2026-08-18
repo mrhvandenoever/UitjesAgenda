@@ -1375,3 +1375,95 @@ zoek-normalisatie (diakrieten-folding, meerdere-woorden-AND-split);
 actieknoppen in de lege-staat; mobiele toolbar-herindeling (zoekveld op
 eigen regel, chips naar 44px); typografie (titel/body naar 15-16px,
 `--muted`-contrast naar #6b6b6b).
+
+
+## 2026-08-18 — Vierde ronde: clusters A/B/C/D uit het derde Claude Design-rapport gebouwd
+
+Michiel koos "ja, graag" op alle 4 resterende clusters uit punt 19. Alles op
+dezelfde branch, in volgorde B/C/D (klein/veilig) dan A (grootste).
+
+### Cluster B — kleine fixes
+- Chips in popovers naar 44px (was 36px, alleen de toolbar-knoppen zelf
+  waren al 44px, niet de chips erin).
+- `body` 14px→15px, titel 0.95rem→1rem (16px) — titel is weer duidelijk het
+  sterkste element op de kaart.
+- `--muted` #757575→#6b6b6b (was 4,4:1 op de achtergrondkleur `--bg`
+  #f9f9f9, net onder de 4,5 die kleine tekst nodig heeft voor WCAG AA).
+- Lege-staat-melding krijgt nu directe actieknoppen ("Alle afstanden" /
+  "Wis filters") i.p.v. alleen tekst.
+
+### Cluster C — URL-state compleet, localStorage, zoek-normalisatie
+- `syncURL()`/`restoreFromURL()` volledig herbouwd: `when`/`sport`/`club`/
+  `gender`/`usort`/`esort` + `lat`/`lon` toegevoegd (was alleen
+  `mode`/`prov`/`d`/`q`/`genre`/`src`). Een gedeelde `d=25`-link betekende
+  bij de ontvanger eerder iets anders omdat het middelpunt niet meeging —
+  nu wél, via `lat`/`lon` (bewust NIET een geocode-aanroep op basis van een
+  `addr`-param, dat zou de init-flow async maken; lat/lon zijn al bekende
+  getallen op het moment van opslaan, dus synchroon te herstellen).
+- localStorage voor adres+coördinaten+modus. URL-params winnen altijd van
+  localStorage (een gedeelde link mag niet stilzwijgend overschreven worden
+  door iemands eigen eerder-opgeslagen voorkeur) — dit was in de eerste
+  cluster-2-bouwronde bewust uitgesteld vanwege de async-geocode-zorg; nu
+  omzeild door lat/lon i.p.v. het adres zelf te bewaren.
+- Zoeken: nieuwe `fold_diacritics()` (Python, `unicodedata.normalize`)
+  gebruikt bij het bouwen van `data-search`, en een JS-equivalent
+  (`String.prototype.normalize('NFD')`) op de getypte term — "zummerbuhne"
+  vindt nu "Zummerbühne". Plus meerdere-woorden-AND i.p.v. een letterlijke
+  substring-match ("dorpshuis annen" faalde eerder als de titel-tekst niet
+  toevallig exact die woordvolgorde had).
+
+### Cluster D — mobiele toolbar
+- Zoekveld krijgt op mobiel een eigen volle regel; alleen de knoppen-rij
+  (nieuwe `.toolbar-buttons`-wrapper) scrollt nog horizontaal. Was: het
+  hele `.toolbar`-blok inclusief het 70vw-brede zoekveld deelde één
+  scrollende rij, wat de knoppen grotendeels uit beeld duwde.
+
+### Cluster A — kaart-layout-herstructurering (grootste, laatste)
+Door Claude Design zelf "het grootste visuele probleem" genoemd: op brede
+schermen stond de badge-kolom (`70px 1fr auto`-grid) tot ~2000px van de
+titel af, en de datum herhaalde zich op elke rij ("ma 17 aug" tien keer
+onder elkaar).
+- `main{{max-width:1000px;margin:0 auto}}` — leeslijst i.p.v. een
+  volle-breedte-tabel.
+- Kaart vereenvoudigd: geen aparte datum- of badge-kolom meer. Genre-badge
+  verhuisd naar direct achter de titel (`.event-title{{display:flex}}`).
+  Bron-badge (tekst) volledig weggehaald — de kaart-linkerrandkleur was al
+  de bron-indicator, twee keer dezelfde info was overbodig (Claude Design:
+  "één van de twee is genoeg").
+- Nieuwe dag-groepering: events per maand ook per DAG gegroepeerd
+  (`itertools.groupby` op `e['date']`, de lijst is al datum-gesorteerd dus
+  geen aparte sortering nodig) onder een `<h3 class="day-header">Maandag 17
+  augustus</h3>`-kop — vervangt de datum-per-rij. Voor MEERDAAGSE events
+  (start≠einddatum) blijft een klein inline datumbereik-label naast de
+  titel staan (`vr 21 t/m zo 23 aug`), want de dag-kop alleen zou anders de
+  indruk wekken dat het een eendaags event is; het event verschijnt onder
+  zijn STARTdag, niet onder elke dag die het beslaat.
+- `expo_card_html()` (Exposities) bewust NIET aangeraakt — die had zijn
+  eigen 2-koloms-grid-layout via de (nu vereenvoudigde) basis-`.event`-regel
+  geërfd; expliciet `display:grid` teruggezet op `.event.expo-item` zodat
+  dat niet stilzwijgend meebrak.
+- Sorteren-op-afstand (cluster 2) werkte op `.month-section`-kinderen
+  direct; nu events een laag dieper genest zitten (binnen `.day-group`) is
+  de sorteerlogica verplaatst naar per-dag-groep sorteren i.p.v. kaarten
+  fysiek naar een andere dag te verplaatsen (zou misleidend zijn — een kaart
+  onder een dag-kop waar het event niet is).
+- `apply()`'s hidden-logica uitgebreid: naast lege maand-secties nu ook lege
+  dag-groepen verbergen (anders een dag-kop zonder events eronder na een
+  filter).
+
+**Geverifieerd** via de lokale `http.server`-preview: dag-groepering en
+inline-datumbereik correct in de output, filtering verbergt lege
+dag-groepen correct (243 van 336 bij een Jazz-filter), sorteren-op-afstand
+werkt correct binnen een dag-groep, `main` is echt 1000px gecentreerd,
+Exposities-modus (2-koloms-grid) ongewijzigd functioneel, mobiele
+`.event`-weergave (nu overal gewoon `display:block`, geen aparte
+mobiel-specifieke override meer nodig sinds de kolommen sowieso weg zijn),
+geen console-errors.
+
+**Twee losse schoonheidsfoutjes tijdens Cluster C gevonden en gefixt**
+(cosmetisch, geen functionele impact): een `\u0300-\u036f`-Unicode-escape
+raakte tijdens het patchen gemangeld tot letterlijke combinerende tekens in
+de bron, en een niet-verdubbelde `\s` in een geneste JS-regex-binnen-
+Python-string gaf een `SyntaxWarning` bij het parsen van `gen_uitjes.py`
+(werkte functioneel toch correct, maar opgeschoond voor leesbaarheid en om
+een `python -W error`-check schoon te houden).
