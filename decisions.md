@@ -1575,3 +1575,80 @@ geen build-tooling nodig) blijft tot dan de eenvoudigste en goed genoeg
 onderbouwde keuze. Vastgelegd in `overleg.md` punt 17 en
 `ARCHITECTURE.md` §Deployment/Performance zodat dit niet opnieuw als open
 vraag terugkomt zonder de meting erbij te vermelden.
+
+## 2026-08-18 — Punt 15 (drenthe.nl "t/m N maand"): personapaneel + gecrawlde cijfers
+
+Vervolg op de eerdere sessie over "wat als een wandelroute van 29 sept t/m
+5 jan loopt — gaan we die dan elke dag herhalen?" (zie overleg.md punt 15).
+Twee stappen: eerst een productgesprek, daarna een echte meting die het
+beeld drastisch bijstelde.
+
+### Stap 1 — dag-groepering-inzicht + personapaneel
+
+**Technisch inzicht**: meerdaagse niet-expo events worden getoond onder hun
+**startdatum** (`by_month[e['date'][:7]]`, `day_groups_html()` groepeert op
+`e['date']`, zie `gen_uitjes.py`). Een event met een al-gepasseerde
+startdatum (bv. "loopt sinds september, we zijn nu in november") krijgt dus
+geen dubbele regels, maar wordt wél begraven onder een allang-gepasseerde
+maandsectie die vóór de huidige maand in de navigatie staat — feitelijk
+onvindbaar, ook al is het volgens `event_is_valid()` nog "geldig". Voorgestelde
+fix (nog niet gebouwd): de **sorteer/groepeer-sleutel** voor zulke events
+wordt `max(date, vandaag)` i.p.v. de ruwe `date` — de opgeslagen data blijft
+eerlijk (`fmt_date_range()` toont nog steeds de échte startdatum), alleen de
+weergavepositie schuift naar "vandaag" zolang het event nog loopt.
+
+**Personapaneel geraadpleegd** (natuurliefhebber, UX-designer, iemand met
+weinig tijd die snel iets voor vandaag zoekt, een gezin, een toerist,
+Michiel-als-beheerder) over de bredere vraag: hoort een langlopende
+wandelroute/actie bij "Uitjes" (dag-gegroepeerd, met de `max(date,vandaag)`-
+fix als vangnet), bij een verbreed/hernoemd "Exposities" (al gebouwd:
+geen dag-groepering, `date_end`-bewust altijd-zichtbaar-tot, precies het
+architectuurpatroon dat dit probleem structureel niet heeft), of bij een
+nieuwe 4e topniveau-knop?
+
+**Onderscheidend criterium gevonden**: heeft het een concreet moment/
+dagprogramma (concert, wedstrijd, Noorderzon) → Uitjes, dag-gegroepeerd; kun
+je het op willekeurige dag binnen de periode doen (route, actie,
+tentoonstelling) → Exposities-achtige flat-list, geen dag-groepering nodig
+en dus geen "begraven onder een gepasseerde maand"-risico. Voorlopige
+conclusie: een 4e knop afgeraden (UX-designer-bezwaar: extra cognitieve
+last, plus onduidelijk of er genoeg content is om 'm te vullen); verbreden/
+hernoemen van Exposities leek structureel de nettere fit, maar **beslissing
+uitgesteld tot na een echte telling** — de eerdere "~150 gevallen"-schatting
+uit de sessie van 2026-08-17 was nooit geverifieerd op werkelijke schaal.
+
+### Stap 2 — gecrawlde cijfers stellen het beeld drastisch bij
+
+Live crawl van alle ~45 drenthe.nl-agendapagina's, gededupliceerd op
+detail-URL (i.p.v. losse datumtekst-occurrences, die dubbel tellen per
+sub-locatie/pagina-herhaling — vermoedelijk de bron van de oude "~150"-
+schatting). Resultaat: **9 unieke events**, waarvan er **6 al werden
+weggefilterd** door de bestaande `SKIP_TITLE_WORDS` in `scrape_drenthe.py`
+(tentoonstelling/expositie, puzzelrit, kabouterspoor, rondleiding — precies
+de categorieën "doorlopende activiteit" die de scraper al bewust
+overslaat). **Slechts 3 events raken dit probleem in de praktijk**:
+
+| Event | Einddatum | Dagen vanaf scrape-moment | Aard |
+|---|---|---|---|
+| Drentse Heidedagen | 23 aug 2026 | 5 | gewoon een week-festival, kaart toont toevallig geen startdag |
+| Folly Art Norg | 30 aug 2026 | 12 | idem, ~2-weekse kunstroute-actie |
+| Into Nature: Haunted by Waters | 25 okt 2026 | 68 | écht langlopend (zomer/herfst-lichtroute) |
+
+**Extra bevinding, optie (d) (detailpagina bezoeken voor een echte
+startdatum) blijkt niet haalbaar**: de JSON-LD `Event`-schema op alle 3
+geteste detailpagina's heeft een kapot `startDate`-veld — een tijdstip als
+`14:38:20` of `09:48:34` verraadt dat dit een CMS-"laatst bewerkt"-
+timestamp is, geen echt event-moment ("Into Nature" kreeg zo `19 maart`
+als "startdatum", voor een route die feitelijk in de zomer/herfst loopt).
+Geen bruikbare alternatieve bron gevonden (geen meta-description, geen
+prose-vermelding). Dit is een databug bij drenthe.nl zelf, niet iets wat
+via harder scrapen op te lossen is.
+
+**Herziene conclusie, aan Michiel voorgelegd**: bij een schaal van 3 events
+(2 daarvan kort, 1 echt langlopend) is geen van de zware opties (4e knop,
+Exposities verbreden, detail-page-scraping) de moeite waard. Voorstel:
+Drentse Heidedagen/Folly Art Norg laten zoals ze zijn (kosten niets, staan
+een paar dagen op de verkeerde dag), en "Into Nature" simpelweg aan
+`SKIP_TITLE_WORDS`-achtig gedrag toevoegen i.p.v. een structurele oplossing
+bouwen voor 1 event. **Nog niet gebouwd — wacht op Michiels akkoord**, zie
+overleg.md punt 15.

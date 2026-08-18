@@ -250,8 +250,21 @@ het veld wel opgeslagen/geëxporteerd maar nergens gelezen.
    "21 t/m 23 augustus" werd dus wel herkend maar de einddag meteen
    weggegooid. Nu een `tuple[start_iso, end_iso|None]`, met een aparte
    regex-tak voor het volledige-bereik-geval. De andere, ambigue vorm
-   ("t/m 23 augustus", geen zichtbare startdag — ~150 gevallen op drenthe.nl)
-   is bewust ongewijzigd gelaten, zie overleg.md punt 15.
+   ("t/m 23 augustus", geen zichtbare startdag) is bewust ongewijzigd
+   gelaten, zie overleg.md punt 15. **Let op voor toekomstige scraper-
+   sessies**: het JSON-LD `Event`-schema op drenthe.nl's eigen detailpagina's
+   is GEEN betrouwbare bron voor de echte startdatum in dit soort gevallen —
+   het `startDate`-veld bevat daar een CMS-"laatst bewerkt"-timestamp
+   (bv. `2026-03-19T14:38:20+01:00`, seconden-precisie verraadt het), geen
+   echt event-moment. Geverifieerd 2026-08-18 op 3 detailpagina's, geen
+   bruikbaar alternatief gevonden (geen meta-description/prose-vermelding).
+   Een detail-page-visit-aanpak voor dit specifieke gat lost dus niets op.
+   Bij een echte crawl (2026-08-18) bleek het probleem bovendien veel
+   kleiner dan de oorspronkelijke "~150 gevallen"-schatting: maar 9 unieke
+   events site-breed, waarvan er 6 al wegvielen via `SKIP_TITLE_WORDS` — 3
+   raken dit in de praktijk. Zie decisions.md 2026-08-18 voor de volledige
+   cijfers en het personapaneel-gesprek over de bredere "hoort dit bij
+   Uitjes of Exposities"-vraag.
 2. **Zichtbaarheids-laag**: `event_is_valid()` deed voor niet-expo events
    uitsluitend `d >= TODAY` — `date_end` werd daar helemaal niet gelezen,
    dus zelfs met een correcte `date_end` in de data zou een meerdaags event
