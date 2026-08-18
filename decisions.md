@@ -1467,3 +1467,23 @@ de bron, en een niet-verdubbelde `\s` in een geneste JS-regex-binnen-
 Python-string gaf een `SyntaxWarning` bij het parsen van `gen_uitjes.py`
 (werkte functioneel toch correct, maar opgeschoond voor leesbaarheid en om
 een `python -W error`-check schoon te houden).
+
+## 2026-08-18 — SPOT Groningen: Stadspark-events tonen nu specifieke locatie
+
+Michiel meldde dat "Jubileum Concert Stadspark – Noordpool Orkest & Friends"
+op de site "Spot Groningen" toonde, terwijl de titel zelf al "Stadspark"
+noemt. SPOT tagt buiten-events op het Stadspark (de jaarlijkse zomerreeks)
+zelf niet met een specifiek `data-location`-gebouw (viel terug op `elders`),
+dus onze scraper viel terecht terug op de generieke fallback.
+
+**Fix**: `scrape_spotgroningen.py`'s `parse_block()` gebruikt nu "Stadspark,
+Groningen" als venue zodra `data-location` generiek is EN de titel zelf
+"stadspark" bevat (case-insensitive) — 2 events in de dataset matchten dit
+patroon (1 al verlopen, niet meer op de live pagina om te herscrapen).
+
+**Geen handmatige DB-opschoning nodig ditmaal** — dankzij de eerdere
+structurele `insert_event()`-fix (2026-08-17, veld-voor-veld merge bij een
+same-source-herscrape) kwam de correctie er bij de eerstvolgende live
+scrape gewoon doorheen, precies het scenario waar die fix voor gebouwd is.
+Geverifieerd: DB-rij bijgewerkt, export/generate herdraaid, "Stadspark,
+Groningen" bevestigd in de gegenereerde HTML.

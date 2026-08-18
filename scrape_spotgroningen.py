@@ -130,12 +130,23 @@ def parse_block(block: str) -> dict | None:
         return None
     subtitle = unescape(strip_tags(p_m.group(1))) if p_m else ''
 
+    venue = LOCATIONS.get(loc_m.group(1), 'Spot Groningen')
+    # SPOT tagt buiten-events op het Stadspark (bv. de jaarlijkse
+    # zomerreeks) zelf niet apart in data-location — die vallen terug op de
+    # generieke 'Spot Groningen'. De titel noemt "Stadspark" wel expliciet
+    # (bv. "Jubileum Concert Stadspark – Noordpool Orkest & Friends",
+    # gemeld door Michiel 2026-08-18) — gebruik die als preciezere venue
+    # i.p.v. de generieke fallback, alleen als er nog geen specifiek gebouw
+    # gevonden is.
+    if venue == 'Spot Groningen' and 'stadspark' in title.lower():
+        venue = 'Stadspark, Groningen'
+
     return {
         'title':    title,
         'subtitle': subtitle or None,
         'date':     dt_m.group(1)[:10],
         'time':     dt_m.group(1)[11:16],
-        'venue':    LOCATIONS.get(loc_m.group(1), 'Spot Groningen'),
+        'venue':    venue,
         'url':      url_m.group(1) if url_m else BASE_URL,
         'cats':     cats_for(genres_m.group(1) if genres_m else '',
                               subgenres_m.group(1) if subgenres_m else ''),
