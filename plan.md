@@ -306,8 +306,18 @@ bijgewerkte status per item.
   dag-groepering, B: 44px-chips/typografie/lege-staat-knoppen, C: URL-state
   compleet + localStorage + zoek-normalisatie, D: mobiele toolbar) — allemaal
   gebouwd en geverifieerd. overleg.md punt 19 nu volledig afgesloten.
-- [ ] Wacht op Michiels review van de branch/preview-deploy voor mergen naar
-  `main`.
+- [x] Michiel gaf akkoord ("mag nu mergen") — branch gemerged naar `main`
+  (commit a211104, `git merge --no-ff`) en gepusht. Live deploy geverifieerd
+  via de Browser pane én via Chrome (extensie, na inloggen) op
+  https://uitjesagenda.pages.dev: 1000px-layout, dag-groepering, toolbar,
+  geen console-errors.
+- [x] **"De puntjes"**: de 2 bewust-niet-gebouwde punten uit overleg.md
+  punt 19 alsnog gebouwd — lege venue-regel (`venue_display()`-fallback op
+  het bron-label) en de "alleen bronnen binnen mijn afstand"-toggle in de
+  Bron-popover. Geverifieerd via lokale preview (JS-niveau: display:none-
+  gedrag bij 50km, combinatie met tekstzoek, actieve-knop-kleur,
+  aria-pressed). Zie decisions.md 2026-08-18. Gecommit (9f1996d) en gepusht
+  naar `main`.
 
 ## Zummerbühne toonde verkeerde afstand — OPGELOST 2026-08-17
 Michiel meldde dat de afstand bij Zummerbühne (~20km) niet klopte met Google

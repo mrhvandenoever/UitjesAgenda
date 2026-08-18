@@ -400,11 +400,34 @@ for grp in _group_order:
     src_buttons += f'  <div class="src-group-label">{label_esc}</div>\n'
     for key in _src_by_group[grp]:
         label,emoji,_ = SRC.get(key,(key,'•','#999'))
-        src_buttons += f'  <button class="btn" data-src="{key}" data-src-label="{esc(label.lower())}">{esc(label)}</button>\n'
+        # data-lat/data-lon voor de "alleen binnen mijn afstand"-toggle in de
+        # Bron-popover (overleg.md punt 19) -- alleen zetten bij een
+        # betrouwbaar 1-op-1 puntlocatie; expositie-aggregators zoals
+        # kunstpuntgroningen/uitzinnig hebben geen vaste bron-locatie (hun
+        # lat/lon zit per event, niet per bron) en blijven dus zonder deze
+        # attributen, zodat de toggle ze nooit onterecht verbergt.
+        _loc = VENUE_LOC.get(key)
+        _latlon_attr = f' data-lat="{_loc[0]}" data-lon="{_loc[1]}"' if _loc else ''
+        src_buttons += f'  <button class="btn" data-src="{key}" data-src-label="{esc(label.lower())}"{_latlon_attr}>{esc(label)}</button>\n'
 
 month_nav = '\n'.join(
     f'<a href="#{month_id(m+"-01")}" class="month-link">{month_short(m+"-01")}</a>'
     for m in months_sorted)
+
+def venue_display(e, src):
+    """Locatietekst voor een kaart: venue > city > bron-label als laatste
+    redmiddel. Vult de 'lege venue-rij' op bij bronnen die zelf één vaste
+    locatie zijn (bv. concertgebouw/013/melkweg/ahoy) en dus geen apart
+    venue/city-veld per event vullen -- 1308 events raakten hierdoor eerder
+    zonder locatietekst (overleg.md punt 19, was 'bewust niet gebouwd' --
+    nu alsnog gedaan met deze kleine, veilige fallback). SRC-label is voor
+    die bronnen letterlijk de venue-naam (bv. '013 Tilburg', 'Rotterdam
+    Ahoy')."""
+    v = (e.get('venue') or '').strip()
+    if v: return v
+    c = (e.get('city') or '').strip()
+    if c: return c
+    return SRC.get(src, ('',))[0]
 
 def event_html(e):
     src = e.get('source',''); sk = safe_key(src)
@@ -443,7 +466,7 @@ def event_html(e):
     # attribuut -- voorkomt dat het zoekveld bij elke toetsaanslag 8202x
     # child-elementen moet uitlezen en .toLowerCase() aanroepen. Zie
     # decisions.md 2026-08-17 (Claude Design-review).
-    search_txt = esc(fold_diacritics((e.get('title','') + ' ' + (e.get('venue','') or e.get('city','') or '')).lower()))
+    search_txt = esc(fold_diacritics((e.get('title','') + ' ' + venue_display(e, src)).lower()))
     # Kaart-layout herzien (Claude Design-review, 4e ronde, 2026-08-18:
     # "het grid duwt de badges ~2000px van de titel af, de datum herhaalt
     # zich nodeloos op elke rij"). Geen aparte datumkolom meer (die info zit
@@ -462,7 +485,7 @@ def event_html(e):
             f'<div class="event-main">'
             f'<div class="event-title">{title_html} '
             f'<span class="badge badge-genre g-{genre}">{icon} {glabel}</span>{daterange_html}</div>'
-            f'<div class="event-venue">{esc(e.get("venue","") or e.get("city",""))} '
+            f'<div class="event-venue">{esc(venue_display(e, src))} '
             f'<span class="dist-badge"></span></div></div></div>')
 
 def day_groups_html(events):
@@ -517,14 +540,14 @@ def expo_card_html(e):
         date_txt = f"vanaf {fmt_date_long(d_start)} &middot; t/m {fmt_date_long(d_end)}"
     else:
         date_txt = f"vanaf {fmt_date_long(d_start)} &middot; einddatum onbekend"
-    search_txt = esc(fold_diacritics((e.get('title','') + ' ' + (e.get('venue','') or e.get('city','') or '')).lower()))
+    search_txt = esc(fold_diacritics((e.get('title','') + ' ' + venue_display(e, src)).lower()))
     return (f'<div class="event expo-item {sk}" data-src="{src}" data-genre="expo" '
             f'data-prov="{prov}" data-latlon="{lat_lon}" '
             f'data-date="{esc(d_start)}" data-dateend="{esc(d_end or "9999-99-99")}" '
             f'data-titlekey="{esc(e.get("title","").lower())}" data-search="{search_txt}">'
             f'<div class="event-main"><div class="event-title">{title_html}</div>'
             f'<div class="event-daterange">{date_txt}</div>'
-            f'<div class="event-venue">{esc(e.get("venue","") or e.get("city",""))} '
+            f'<div class="event-venue">{esc(venue_display(e, src))} '
             f'<span class="dist-badge"></span></div></div>'
             f'<div class="event-badges">'
             f'<span class="badge badge-genre g-expo">{icon} {glabel}</span>'
@@ -633,6 +656,7 @@ function updateDistances(){{
     const b=ev.querySelector('.dist-badge');
     if(b)b.textContent='~'+d+'km';
   }});
+  filterSrcList();
 }}
 
 // Bewust GEEN requestAnimationFrame-batching (eerst geprobeerd, zie
@@ -805,14 +829,14 @@ document.querySelectorAll('.dist-btn').forEach(b=>{{
     maxDist=parseInt(this.dataset.dist);
     document.querySelectorAll('.dist-btn').forEach(x=>x.classList.toggle('active',x===this));
     distCustomInput.value='';
-    apply();
+    apply(); filterSrcList();
   }});
 }});
 distCustomInput.addEventListener('change',function(){{
   const n=parseInt(this.value,10);
   maxDist=(this.value.trim()===''||isNaN(n)||n<=0)?9999:n;
   document.querySelectorAll('.dist-btn').forEach(x=>x.classList.remove('active'));
-  apply();
+  apply(); filterSrcList();
 }});
 
 // --- Zoekveld (titel + venue), gedebouncet zodat niet elke toetsaanslag
@@ -985,9 +1009,13 @@ function updateFilterCounts(){{
 }}
 
 // --- Bron-popover: eigen zoekveld filtert de gegroepeerde chips, verbergt
-// een groep-kopje als geen enkele chip erin nog matcht. ---
-document.getElementById('src-search').addEventListener('input',function(){{
-  const q=this.value.trim().toLowerCase();
+// een groep-kopje als geen enkele chip erin nog matcht. Gecombineerd met de
+// "alleen binnen mijn afstand"-toggle (overleg.md punt 19, 2026-08-18) --
+// beide filters werken onafhankelijk op dezelfde lijst, dus 1 gedeelde
+// functie i.p.v. losse handlers die elkaars display:none overschrijven. ---
+let srcDistOnly=false;
+function filterSrcList(){{
+  const q=document.getElementById('src-search').value.trim().toLowerCase();
   const list=document.getElementById('popover-src-list');
   let lastGroupLabel=null, groupVisible=false;
   Array.from(list.children).forEach(el=>{{
@@ -995,12 +1023,23 @@ document.getElementById('src-search').addEventListener('input',function(){{
       if(lastGroupLabel) lastGroupLabel.style.display=groupVisible?'':'none';
       lastGroupLabel=el; groupVisible=false;
     }}else if(el.dataset.srcLabel){{
-      const match=!q||el.dataset.srcLabel.includes(q);
+      const textMatch=!q||el.dataset.srcLabel.includes(q);
+      // Geen lat/lon bekend (bv. expositie-aggregator) -> nooit verbergen,
+      // we kunnen niet bevestigen dat de bron te ver weg is.
+      const distMatch=!srcDistOnly||!el.dataset.lat||haversine(centerLat,centerLon,parseFloat(el.dataset.lat),parseFloat(el.dataset.lon))<=maxDist;
+      const match=textMatch&&distMatch;
       el.style.display=match?'':'none';
       if(match) groupVisible=true;
     }}
   }});
   if(lastGroupLabel) lastGroupLabel.style.display=groupVisible?'':'none';
+}}
+document.getElementById('src-search').addEventListener('input',filterSrcList);
+document.getElementById('src-dist-toggle').addEventListener('click',function(){{
+  srcDistOnly=!srcDistOnly;
+  this.classList.toggle('active',srcDistOnly);
+  this.setAttribute('aria-pressed',srcDistOnly?'true':'false');
+  filterSrcList();
 }});
 
 // --- "Wis filters": 1 centrale functie, hergebruikt door zowel de nieuwe
@@ -1291,6 +1330,7 @@ body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fo
 .popover-daterow{{display:flex;gap:6px;width:100%;}}
 .popover-search{{width:100%;padding:6px 10px;border-radius:20px;border:1.5px solid #ccc;font-size:1rem;margin-bottom:4px;}}
 .popover-search:focus{{outline:none;border-color:#1565c0;}}
+#src-dist-toggle{{width:100%;text-align:left;margin-bottom:4px;}}
 .popover-src-list{{display:flex;flex-wrap:wrap;gap:6px;align-items:center;width:100%;}}
 .src-group-label{{font-size:0.72rem;font-weight:700;color:var(--muted);width:100%;margin:6px 0 0;text-transform:uppercase;letter-spacing:.03em;}}
 .src-group-label:first-child{{margin-top:0;}}
@@ -1359,7 +1399,7 @@ main{{padding:0 16px 32px;max-width:1000px;margin:0 auto;}}
 .event-venue{{font-size:0.75rem;color:var(--muted);margin-top:2px;}}
 .event-daterange{{font-size:0.75rem;color:#1565c0;font-weight:600;margin-top:2px;}}
 .event.expo-item{{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;}}
-.btn[data-sort].active,.btn[data-when]:not([data-when="all"]).active,.btn[data-usort].active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
+.btn[data-sort].active,.btn[data-when]:not([data-when="all"]).active,.btn[data-usort].active,#src-dist-toggle.active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
 .dist-badge{{font-size:0.72rem;color:var(--muted);margin-left:4px;}}
 .event-badges{{display:flex;flex-direction:column;gap:3px;align-items:flex-end;}}
 a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #1565c0;outline-offset:2px;}}
@@ -1470,6 +1510,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
 <div class="popover popover-src" id="popover-src" hidden role="group" aria-labelledby="lbl-bron">
   <div class="filters-label" id="lbl-bron">Bron</div>
   <input type="text" id="src-search" placeholder="Zoek bron…" class="popover-search" aria-label="Zoek bron">
+  <button type="button" class="btn" id="src-dist-toggle" aria-pressed="false">📍 Alleen bronnen binnen mijn afstand</button>
   <div class="popover-src-list" id="popover-src-list">
   {src_buttons}
   </div>

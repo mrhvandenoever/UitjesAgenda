@@ -1487,3 +1487,50 @@ same-source-herscrape) kwam de correctie er bij de eerstvolgende live
 scrape gewoon doorheen, precies het scenario waar die fix voor gebouwd is.
 Geverifieerd: DB-rij bijgewerkt, export/generate herdraaid, "Stadspark,
 Groningen" bevestigd in de gegenereerde HTML.
+
+## 2026-08-18 — "De puntjes": lege venue-rij + Bron-popover afstandstoggle
+
+Na het mergen van `design-review-clusters-1-4` naar `main` vroeg Michiel om
+de twee bewust-niet-gebouwde punten uit overleg.md punt 19 alsnog op te
+pakken.
+
+**1. Lege venue-rij** (was: "datakwaliteit, geen codefix"). Bij nader
+onderzoek bleek het wél netjes met een codefix op te lossen: 1308 events
+(concertgebouw, 013, rotown, paradiso, paard, melkweg, ahoy, effenaar,
+afaslive, dedoelen, gelredome) hebben geen `venue`/`city`-veld gevuld omdat
+die bronnen zelf één vaste locatie zíjn — de scraper hoeft dat dan niet per
+event te herhalen. Nieuwe `venue_display(e, src)`-helper in `gen_uitjes.py`:
+venue > city > `SRC[src]`-label als laatste redmiddel (voor deze bronnen is
+dat label al letterlijk de venue-naam, bv. "013 Tilburg", "Rotterdam Ahoy").
+Toegepast in zowel `event_html()` als `expo_card_html()`, en in de
+`data-search`-tekst zodat zoeken op "Melkweg" ook weer werkt voor die
+events. Geverifieerd: 0 lege venue-rijen meer in de output; "Concertgebouw"
+(499×), "Melkweg" (173×), "013 Tilburg" (128×), "Het Paard" (125×) tonen nu
+correct.
+
+**2. "Alleen bronnen binnen mijn afstand"-toggle** in de Bron-popover. Elke
+bron-knop krijgt nu `data-lat`/`data-lon` (afgeleid uit het al bestaande
+`VENUE_LOC`) zodra de bron een betrouwbaar 1-op-1 puntlocatie heeft.
+Expositie-aggregators zonder vaste bron-locatie (kunstpuntgroningen,
+uitzinnig — hun lat/lon zit per event, niet per bron) blijven bewust zonder
+deze attributen; ze verschijnen toch niet in de (uitjes-)Bron-popover, maar
+de guard (`!el.dataset.lat` → nooit verbergen) voorkomt sowieso dat de
+toggle een bron onterecht wegfiltert wanneer we de afstand niet kennen.
+
+Een nieuwe knop-toggle (`#src-dist-toggle`) in de popover herbergt de
+bestaande `filterSrcList()`-logica (was een anonieme inline listener op
+`#src-search`, nu een gedeelde functie zodat tekstzoek + afstandsfilter
+elkaars `display:none` niet overschrijven). `filterSrcList()` wordt ook
+opnieuw aangeroepen zodra `centerLat`/`centerLon` wijzigt (in
+`updateDistances()`, dus na geocode/geolocatie/URL-restore/localStorage) en
+zodra `maxDist` wijzigt (afstandsknoppen + custom-afstandveld) — anders zou
+de toggle een oude afstand blijven gebruiken.
+
+**Geverifieerd** via de lokale `http.server`-preview (JS-niveau, niet
+screenshot — de headless testbrowser rendert hier geen frames): bij 50km
+vanaf de standaardlocatie (Annen) verdwijnen melkweg/ahoy/013/
+tivolivredenburg (allemaal >50km) en blijven vera/simplon/martiniplaza
+(Groningen, binnen bereik) zichtbaar; toggle uit → alles weer zichtbaar;
+combinatie met tekstzoek ("vera") werkt correct samen met de toggle;
+actieve-knop-kleur (blauw, `#1565c0`) en `aria-pressed` werken; geen
+console-errors op de live preview.

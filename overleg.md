@@ -182,7 +182,9 @@ Werkdocument voor het plan-overleg. Vul aan tijdens het gesprek.
 - ✅ **Mobiele toolbar-herindeling** (Cluster D): zoekveld eigen volle regel, alleen de knoppen scrollen.
 - ✅ **Chips naar 44px** (Cluster B).
 - ✅ **Typografie** (Cluster B): titel/body naar 15-16px, `--muted` naar `#6b6b6b`.
-- **Kleinere, bewust NIET gebouwde punten**: lege venue-regel bij events zonder venue ÉN zonder city — datakwaliteit, geen codefix; provincielijst mist Zeeland/Limburg/Flevoland — bewust, geen bronnen daar, geen actie nodig; een "alleen bronnen binnen mijn afstand"-schakelaar in de Bron-popover — leuk idee voor een volgende ronde, niet meegenomen.
+- ✅ **Lege venue-regel** (2026-08-18, alsnog gebouwd i.p.v. bewust overgeslagen — bleek een nette codefix te hebben): `venue_display()`-helper valt terug op het bron-label (bv. "013 Tilburg") voor de 1308 events van bronnen die zelf één vaste locatie zijn. Zie decisions.md 2026-08-18.
+- ✅ **"Alleen bronnen binnen mijn afstand"-toggle** in de Bron-popover (2026-08-18, gebouwd). Zie decisions.md 2026-08-18.
+- **Bewust NIET gebouwd**: provincielijst mist Zeeland/Limburg/Flevoland — bewust, geen bronnen daar, geen actie nodig.
 
 ### 18. `insert_event()` update-gedrag structureel aanpakken — OPGELOST 2026-08-17
 - Was 4x hetzelfde patroon (forum.nl, Geke Hoogstins, TivoliVredenburg, SPOT Groningen): `insert_event()` update een bestaande same-source-rij nooit, dus verbeterde scraper-data (venue-differentiatie, `date_end`, URL's) kwam nooit door zonder handmatige opschoning.
