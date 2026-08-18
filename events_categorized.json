@@ -494,40 +494,6 @@
     ]
   },
   {
-    "title": "Cafe Paradiso",
-    "date": "2026-08-17",
-    "source": "paradiso",
-    "genre": "overig",
-    "time": "20:30",
-    "venue": "Paradiso, Amsterdam",
-    "url": "https://www.paradiso.nl/nl/programma/cafe-paradiso/2910820"
-  },
-  {
-    "title": "Cheeky Monday: NATTY LOU!",
-    "date": "2026-08-17",
-    "source": "melkweg",
-    "genre": "overig",
-    "venue": "Melkweg, Amsterdam",
-    "url": "https://www.melkweg.nl/nl/agenda/cheeky-monday-17-08-2026/"
-  },
-  {
-    "title": "Drentse Heidedagen | Schaapskudde Hijken",
-    "date": "2026-08-17",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Hijken",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1998244224/drentse-heidedagen-schaapskudde-hijken"
-  },
-  {
-    "title": "Filth",
-    "date": "2026-08-17",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/22763649/filth-17-08-2026"
-  },
-  {
     "title": "Marilyn Expositie",
     "date": "2026-08-17",
     "source": "forum.nl",
@@ -537,40 +503,6 @@
     "url": "https://forum.nl/nl/agenda/marilyn-expositie"
   },
   {
-    "title": "Mei-inoar lêze",
-    "date": "2026-08-17",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Drachten",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/805984191/mei-inoar-leze"
-  },
-  {
-    "title": "MÚR",
-    "date": "2026-08-17",
-    "source": "doornroosje",
-    "genre": "overig",
-    "venue": "Doornroosje, Nijmegen",
-    "url": "https://www.doornroosje.nl/event/mur/"
-  },
-  {
-    "title": "Nachtvaren: beleef De Alde Feanen bij nacht",
-    "date": "2026-08-17",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Earnewâld",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/48592126/nachtvaren-beleef-de-alde-feanen-bij-nacht"
-  },
-  {
-    "title": "Spotlight op Wagner: van Liebestod tot de Ring",
-    "date": "2026-08-17",
-    "source": "concertgebouw",
-    "genre": "Klassiek",
-    "location": "Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/41486304-spotlight-op-wagner-van-liebestod-tot-de-ring"
-  },
-  {
     "title": "Storyworld",
     "date": "2026-08-17",
     "source": "forum.nl",
@@ -578,14 +510,6 @@
     "date_end": "2026-08-30",
     "venue": "Forum Groningen",
     "url": "https://forum.nl/nl/agenda/storyworld"
-  },
-  {
-    "title": "Wilco - + Hovvdy",
-    "date": "2026-08-17",
-    "source": "doornroosje",
-    "genre": "overig",
-    "venue": "Doornroosje, Nijmegen",
-    "url": "https://www.doornroosje.nl/event/wilco/"
   },
   {
     "title": "Alcest",
@@ -10049,10 +9973,10 @@
     "date": "2026-09-13",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "14:30",
+    "time": "20:15",
     "venue": "Stadsschouwburg, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/marcel-hensema-27/",
+    "url": "https://www.spotgroningen.nl/programma/marcel-hensema-28/",
     "subtitle": "De energieke en actuele voorstelling van Marcel Hensema opnieuw naar Groningen!",
     "cats": [
       "theater"
@@ -14375,12 +14299,15 @@
     "image": "https://www.rotown.nl/wp-content/uploads/2026/03/Jesse-Hoefnagels-Photo-Credit-Guus-van-der-Aa-kleiner-scaled.jpg"
   },
   {
-    "title": "Jubileum Concert Stadspark – Noordpool Orkest & Friends",
+    "title": "Jubileum Concert Stadspark Noordpool Orkest & Friends",
     "date": "2026-09-25",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "venue": "Spot Groningen",
+    "time": "20:00",
+    "venue": "Stadspark, Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/jubileum-concert-stadspark-noordpool-orkest-friends/",
+    "subtitle": "met: BERT VISSCHER, TIKTOK TAMMO, TAXI TAXI & INGE VAN CALKAR",
     "category": "concert",
     "cats": [
       "concert"
@@ -16531,11 +16458,14 @@
     "date": "2026-09-30",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:15",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/abonnement-piano-2/",
+    "subtitle": "Geniet met dit abonnement van 's werelds beste pianisten in De Oosterpoort",
     "category": "concert",
     "cats": [
-      "concert"
+      "klassiek"
     ]
   },
   {
@@ -16752,8 +16682,11 @@
     "date": "2026-09-30",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:15",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/proeverij-klassiek/",
+    "subtitle": "Een proeverij voor bezoekers die graag eens wat klassieke concerten willen bezoeken",
     "category": "klassiek",
     "cats": [
       "klassiek"
@@ -18101,8 +18034,11 @@
     "date": "2026-10-03",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:15",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/fabriekstalenten/",
+    "subtitle": "Ontdek nieuw theatertalent met dit abonnement",
     "category": "uitje",
     "cats": [
       "uitje"
@@ -18642,8 +18578,11 @@
     "date": "2026-10-03",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:15",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/theaterproeverij-avontuur/",
+    "subtitle": "Ga op theateravontuur met 5 voorstellingen",
     "category": "uitje",
     "cats": [
       "uitje"
@@ -20016,8 +19955,11 @@
     "date": "2026-10-08",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:15",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/abonnement-kamermuziek-3/",
+    "subtitle": "Geniet met dit abonnement van Kamermuziek i.s.m. GMV in De Oosterpoort",
     "category": "klassiek",
     "cats": [
       "klassiek"
@@ -20272,8 +20214,11 @@
     "date": "2026-10-08",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:15",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/theaterproeverij-ontdekken/",
+    "subtitle": "Ontdek je smaak aan de hand van vijf voorstellingen",
     "category": "uitje",
     "cats": [
       "uitje"
@@ -20537,8 +20482,11 @@
     "date": "2026-10-09",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:30",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/jamie-grey-2/",
+    "subtitle": "Britse singer-songwriter met rauwe emotie en catchy melodieën",
     "category": "uitje",
     "cats": [
       "uitje"
@@ -22005,10 +21953,10 @@
     "date": "2026-10-12",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "15:00",
+    "time": "19:00",
     "venue": "Stadsschouwburg, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/de-proefkeuken-en-de-wc-van-tijd-8/",
+    "url": "https://www.spotgroningen.nl/programma/de-proefkeuken-en-de-wc-van-tijd-8-2/",
     "subtitle": "Pieter & Willem zijn terug met een gloednieuw, nóg gekker en spectaculairder avontuur",
     "cats": [
       "kinderen"
@@ -22293,10 +22241,10 @@
     "date": "2026-10-13",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "11:30",
+    "time": "16:00",
     "venue": "Oosterpoort, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/laqua-05-3/",
+    "url": "https://www.spotgroningen.nl/programma/laqua-05-3-3/",
     "subtitle": "Een warme wereld vol klanken en beweging",
     "cats": [
       "kinderen"
@@ -22711,10 +22659,10 @@
     "date": "2026-10-14",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "10:00",
+    "time": "15:00",
     "venue": "Oosterpoort, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/laqua-05-3-4/",
+    "url": "https://www.spotgroningen.nl/programma/laqua-05-3-5/",
     "subtitle": "Een warme wereld vol klanken en beweging",
     "cats": [
       "kinderen"
@@ -22908,11 +22856,14 @@
     "date": "2026-10-15",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:15",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/abonnement-koren-6/",
+    "subtitle": "Geniet met dit abonnement van 's werelds beste koren in De Oosterpoort",
     "category": "uitje",
     "cats": [
-      "uitje"
+      "klassiek"
     ]
   },
   {
@@ -23862,10 +23813,10 @@
     "date": "2026-10-16",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "11:00",
+    "time": "14:30",
     "venue": "Oosterpoort, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/kluizelaar-2-7-2/",
+    "url": "https://www.spotgroningen.nl/programma/kluizelaar-2-7/",
     "subtitle": "Over alleen zijn en thuis komen",
     "cats": [
       "kinderen"
@@ -28767,11 +28718,14 @@
     "date": "2026-10-27",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:15",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/abonnement-topmusici/",
+    "subtitle": "Geniet met dit abonnement van Nederlandse topmusici in De Oosterpoort",
     "category": "uitje",
     "cats": [
-      "uitje"
+      "klassiek"
     ]
   },
   {
@@ -34175,14 +34129,14 @@
     "url": "https://www.atlastheater.nl/voorstellingen/met-soy-kroon-als-frans-halsema-voor-haar-de-frans-halsema-musical-08-nov/"
   },
   {
-    "title": "Mus & kapitein Kwaadbaard (8+) Sterke Verhalen",
+    "title": "Mus & Kapitein Kwaadbaard (8+) Sterke Verhalen",
     "date": "2026-11-08",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "13:30",
+    "time": "16:00",
     "venue": "Stadsschouwburg, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/mus-kapitein-kwaadbaard-8/",
+    "url": "https://www.spotgroningen.nl/programma/mus-kapitein-kwaadbaard-8-2/",
     "subtitle": "Muzikaal, vindingrijk en spannend",
     "cats": [
       "kinderen"
@@ -38018,11 +37972,14 @@
     "date": "2026-11-19",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:15",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/abonnement-nno/",
+    "subtitle": "Geniet met dit abonnement met concerten van het Noord Nederlands Orkest",
     "category": "uitje",
     "cats": [
-      "uitje"
+      "klassiek"
     ]
   },
   {
@@ -43501,10 +43458,10 @@
     "date": "2026-12-02",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "19:00",
+    "time": "21:30",
     "venue": "Oosterpoort, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/jimmy-carr-laughs-funny/",
+    "url": "https://www.spotgroningen.nl/programma/jimmy-carr-4/",
     "subtitle": "Spervuur van briljante oneliners en korte verhalen",
     "cats": [
       "cabaret"
@@ -45477,10 +45434,10 @@
     "date": "2026-12-06",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "14:30",
+    "time": "20:15",
     "venue": "Stadsschouwburg, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/yentl-de-boer-3/",
+    "url": "https://www.spotgroningen.nl/programma/yentl-de-boer-4/",
     "subtitle": "Winnaars Poelifinario Kleinkunst 2023 met programma vol prachtige, grappige liedjes",
     "cats": [
       "cabaret"
@@ -47206,12 +47163,15 @@
     ]
   },
   {
-    "title": "Anúna – On a Cold Winter's Night",
+    "title": "Anúna On a Cold Winter's Night",
     "date": "2026-12-12",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:30",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/anuna/",
+    "subtitle": "Een warm en sereen klanktapijt van zuivere meerstemmigheid",
     "category": "uitje",
     "cats": [
       "uitje"
@@ -51710,10 +51670,10 @@
     "date": "2027-01-02",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "13:30",
+    "time": "15:30",
     "venue": "Stadsschouwburg, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/buurman-buurman-bouwen-een-feestje-4/",
+    "url": "https://www.spotgroningen.nl/programma/buurman-buurman-bouwen-een-feestje-4-2/",
     "subtitle": "Gereedschap uit de schuur, slingers aan de kant en klussen maar",
     "cats": [
       "kinderen"
@@ -58643,10 +58603,10 @@
     "date": "2027-02-07",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "14:00",
+    "time": "15:30",
     "venue": "Stadsschouwburg, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/om-en-om-en-om-15-3-jaar/",
+    "url": "https://www.spotgroningen.nl/programma/om-en-om-en-om-15-3-jaar-2/",
     "subtitle": "Nog een keer!",
     "cats": [
       "kinderen"
@@ -61526,10 +61486,10 @@
     "date": "2027-02-20",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "14:30",
+    "time": "19:30",
     "venue": "Machinefabriek, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/grondtonen-9-5/",
+    "url": "https://www.spotgroningen.nl/programma/grondtonen-9-6/",
     "subtitle": "Een mystieke familievoorstelling over verloren gaan in het bos",
     "cats": [
       "theater"
@@ -64793,10 +64753,10 @@
     "date": "2027-03-07",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "11:00",
+    "time": "13:00",
     "venue": "Oosterpoort, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/umi-05-2/",
+    "url": "https://www.spotgroningen.nl/programma/umi-05/",
     "subtitle": "Interactieve dans- en muziekervaring voor het allerjongste publiek",
     "cats": [
       "kinderen"
@@ -69230,11 +69190,14 @@
     "date": "2027-04-01",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:15",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/noord-nederlands-orkest-flex-abonnement/",
+    "subtitle": "Geniet met dit vrije keuze abonnement van concerten van het Noord Nederlands Orkest",
     "category": "uitje",
     "cats": [
-      "uitje"
+      "klassiek"
     ]
   },
   {
@@ -71184,7 +71147,9 @@
     "date": "2027-04-10",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:00",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/ilse-delange-6/",
     "category": "uitje",
     "cats": [
@@ -71568,10 +71533,10 @@
     "date": "2027-04-11",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "13:30",
+    "time": "15:30",
     "venue": "Oosterpoort, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/grrr-ik-ben-een-boze-dino-4-2/",
+    "url": "https://www.spotgroningen.nl/programma/grrr-ik-ben-een-boze-dino-4/",
     "subtitle": "Muzikale en vrolijke familievoorstelling",
     "cats": [
       "kinderen"
@@ -76023,10 +75988,10 @@
     "date": "2027-05-12",
     "source": "spotgroningen.nl",
     "genre": "overig",
-    "time": "11:30",
+    "time": "12:45",
     "venue": "Stadsschouwburg, Groningen",
     "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/prentenboekjesfestival-3/",
+    "url": "https://www.spotgroningen.nl/programma/prentenboekjesfestival-2/",
     "subtitle": "Hilarische slapstick",
     "cats": [
       "kinderen"
@@ -79171,11 +79136,14 @@
     "date": "2027-07-31",
     "source": "spotgroningen.nl",
     "genre": "overig",
+    "time": "20:15",
     "venue": "Spot Groningen",
+    "province": "Groningen",
     "url": "https://www.spotgroningen.nl/programma/abonnement-takeroot-presents/",
+    "subtitle": "Vijf concerten voor €70",
     "category": "uitje",
     "cats": [
-      "uitje"
+      "pop"
     ]
   },
   {

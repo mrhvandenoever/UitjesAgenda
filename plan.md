@@ -268,6 +268,47 @@ TivoliVredenburg/SPOT Groningen) zich nog een 5e keer herhaalt. Getest met
 6 scenario's tegen een losstaande test-DB. Zie decisions.md/overleg.md
 punt 18/ARCHITECTURE.md §Cross-source dedup.
 
+## Claude Design-review clusters 1-5 — GEBOUWD op branch 2026-08-17/18
+Michiel liet de volledige punt-17-lijst clusteren en besloot per cluster wat
+te bouwen: uiteindelijk alle 5 clusters, BEHALVE lazy-loading (bewust "nog
+niet, later apart bekijken") — zie overleg.md punt 17 voor de volledige,
+bijgewerkte status per item.
+- [x] Op verzoek van Michiel op een feature-branch gebouwd
+  (`design-review-clusters-1-4`) i.p.v. direct op `main` — wacht op review
+  voor te mergen.
+- [x] Clusters 1-4 + de modus-wissel-filterbehoud-taak (2026-08-17) —
+  **echt in de browser getest** (lokale `http.server`-preview +
+  `javascript_exec`, niet alleen grep).
+- [x] **2 echte bugs gevonden en gefixt tijdens clusters 1-4, alleen te
+  vinden via een live browsertest**: (1) `requestAnimationFrame`-batching van
+  `apply()` bleek stil te vallen in een niet-actief-zichtbaar tabblad
+  (`document.visibilityState==='hidden'`) — teruggedraaid; (2) de nieuwe
+  datumfilter-logica gaf door `.toISOString()`'s UTC-conversie de verkeerde
+  datum terug in de Nederlandse zomertijd (UTC+2) — zou ELKE Nederlandse
+  gebruiker geraakt hebben, gefixt met lokale datumcomponenten. Zie
+  decisions.md 2026-08-17 voor de volledige analyse van beide.
+- [x] **Cluster 5 (2026-08-18)**: filterbalk herbouwd naar compacte toolbar +
+  popovers (bronnen gegroepeerd per provincie, filterteller per knop, 1
+  sticky wrapper — lost meteen ook de sticky-volgorde en mobiele
+  touch-targets op), kleurstrategie omgegooid (bronchips neutraal, kleur
+  alleen nog via de kaart-linkerrand). Lazy-loading bewust overgeslagen.
+- [x] Bij het verifiëren van cluster 5 een methodologische ontdekking
+  gedaan: `getComputedStyle()` op net-zichtbaar-gemaakte popover-elementen
+  geeft in deze test-omgeving bevroren verf-eigenschappen terug (kleur/
+  achtergrond), zelfde onderliggende oorzaak als de rAF-bug. CSS grondig
+  via cascade-analyse geverifieerd i.p.v. computed-style; Michiel wordt
+  gevraagd de kleuren zelf op de preview te bevestigen. Zie decisions.md
+  2026-08-18.
+- [x] **Derde Claude Design-ronde (2026-08-18)**: een blokkerende bug
+  (Wanneer-filter deed niets, `#uitjes-datum`→`#popover-when` gemist bij de
+  cluster-5-rename) + 2 regressies + kleine bugs gevonden en gefixt. Michiel
+  koos daarna "ja, graag" op alle 4 resterende clusters (A: kaart-layout +
+  dag-groepering, B: 44px-chips/typografie/lege-staat-knoppen, C: URL-state
+  compleet + localStorage + zoek-normalisatie, D: mobiele toolbar) — allemaal
+  gebouwd en geverifieerd. overleg.md punt 19 nu volledig afgesloten.
+- [ ] Wacht op Michiels review van de branch/preview-deploy voor mergen naar
+  `main`.
+
 ## Zummerbühne toonde verkeerde afstand — OPGELOST 2026-08-17
 Michiel meldde dat de afstand bij Zummerbühne (~20km) niet klopte met Google
 Maps (35,7km rijdend vanaf huis). Bleek een plaatsnaam-verwarring: er bestaan

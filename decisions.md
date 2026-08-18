@@ -1011,3 +1011,479 @@ eerstvolgende herscrape, zonder dat er eerst weer een handmatige
 stale-rijen-opschoning nodig is zoals bij forum.nl/Geke Hoogstins/
 TivoliVredenburg/SPOT Groningen. Zie ARCHITECTURE.md §Cross-source dedup
 voor de bijgewerkte technische beschrijving.
+
+
+## 2026-08-17 — Claude Design-review clusters 1-4 gebouwd op een feature-branch
+
+Na overleg.md punt 17 (volledige, geclusterde lijst) heeft Michiel per cluster
+besloten wat te bouwen: clusters 1-4 (kleine fixes, nieuwe functionaliteit,
+afstand-UI, mobiele layout) goedgekeurd om nu te bouwen; cluster 5 (filterbalk
+→ toolbar-herbouw, kleurstrategie, lazy-loading-architectuur) bewust NIET nu —
+zie overleg.md voor de motivatie per onderdeel. Op Michiels verzoek dit keer
+op een aparte branch (`design-review-clusters-1-4`) i.p.v. direct op `main`,
+zodat hij het resultaat eerst kan bekijken voor het gemerged wordt.
+
+### Cluster 1 — kleine veilige fixes
+- `line-height:1.45` op body (algemene leesbaarheid; de meeste elementen
+  hebben al een eigen kleinere, met opzet compacte font-size — een blanket
+  16px-bump zou de informatiedichtheid van deze dense-listing-UI onevenredig
+  opblazen, dus bewust NIET gedaan).
+- Contrastfout `#aaa` op wit (~2,3:1, faalt WCAG) in footer + `.dist-badge`
+  gefixt naar `var(--muted)` (~5,4:1, haalt AA).
+- Emoji weg uit de 60 bronchips (badges op de kaarten zelf gebruikten ze al
+  niet) — "ruis, geen informatie" per de review.
+- "Terug naar boven"-knop (verschijnt na 400px scroll, `scrollTo` smooth).
+- Afstanden bijgehouden in een `Map` i.p.v. telkens `dataset.dist`
+  lezen/schrijven (JS-perf).
+- `aria-pressed` via een MutationObserver, bewust GESCOPED tot alleen de
+  filter-containers (`.mode-toggle`,`.filters`) i.p.v. `document.body` — een
+  observer op de hele pagina zou ook bij ELKE `.hidden`-toggle op de 8202
+  event-kaarten meevuren (gebeurt continu tijdens filteren) en zo precies de
+  perf-winst van de Map-gebaseerde `apply()` tenietdoen.
+- `role="group"` + `aria-labelledby` op alle 7 filter-groepen + mode-toggle.
+
+### Cluster 3 — afstand-UI
+- Range-slider + `window.prompt()` vervangen door zichtbare segmented buttons
+  (10/25/50/100/alle) + een inline eigen-km-veld (`type="number"`, 16px
+  font-size — voorkomt dezelfde iOS-zoom-bug als eerder bij `#addr-input`).
+- Adresrij op mobiel een eigen volle regel (`flex-direction:column`) i.p.v.
+  rommelig wrappen tussen label/input/knoppen/afstandsknoppen.
+
+### Cluster 4 — mobiel layout
+- Chip-filtergroepen op mobiel: horizontale scroll met randfade
+  (`mask-image`) i.p.v. wrappen naar 3-4 regels — toegepast via een nieuwe
+  `.chip-scroll`-klasse op de 6 pure-chip-groepen (Sport/Geslacht/Club/
+  Genre/Bron/Sorteren). **Bewust NIET** op de Provincie&afstand-groep: die
+  bevat ook de complexere adresrij (input/knoppen), niet geschikt voor
+  dezelfde scrollstrip als simpele chips.
+- Kaart op mobiel herindeeld: `display:block` i.p.v. de 3-koloms-grid, datum
+  als kleine kicker boven de titel, bron-badge (`.badge-src`) verborgen
+  (genre-badge blijft, nuttige info) — bewust `.event:not(.expo-item)` om de
+  Exposities-kaarten (andere HTML-structuur, geen los datum-element) niet
+  mee te raken.
+
+### Cluster 2 — nieuwe functionaliteit (grootste stuk)
+- **Zoekveld**: debounced (250ms) tekstveld, zoekt op titel+venue via een
+  vooraf-berekend `data-search`-attribuut per kaart (lowercased, gezet in
+  `event_html()`/`expo_card_html()`) — voorkomt dat elke toetsaanslag 8202x
+  child-elementen moet uitlezen en `.toLowerCase()` moet aanroepen. Werkt in
+  alle 3 modi.
+- **Datumfilter**: Vandaag/Dit weekend/Deze week/Deze maand + een eigen
+  van/tot-periode (`<input type="date">`, native picker). Overlapt-logica
+  voor meerdaagse events (`data-dateend`): een event matcht zodra zijn
+  bereik overlapt met het gekozen venster, niet alleen bij een exacte
+  startdatum-match. Alleen zichtbaar/actief in uitjes+sport (niet
+  exposities, per definitie langlopend).
+- **Sorteren voor Uitjes** (datum/afstand): herordent kaarten BINNEN elke
+  maand-sectie i.p.v. de maand-groepering zelf op te heffen zoals bij
+  Exposities' platte lijst — lager risico, blijft chronologisch
+  navigeerbaar.
+- **Actieve-filter-samenvatting**: verwijderbare tokens + "Wis alles".
+  Verwijderen delegeert naar de BESTAANDE klik-handler van de bijbehorende
+  chip (via `.click()`) i.p.v. filterlogica te dupliceren — voorkomt dat de
+  token-rij en de chips zelf uit sync raken.
+- **URL-state**: filters/modus/zoekterm in de query-string
+  (`history.replaceState`, geen `pushState` — anders krijgt elke chip-klik
+  een eigen terug-knop-stap). Adres zelf (async geocode-aanroep) bewust NIET
+  meegenomen — zou de init-flow async maken, scope beperkt gehouden.
+
+### Task: modus-wissel bewaart filters waar mogelijk
+`setMode()` wiste voorheen bij ELKE modus-wissel alle sport- én
+uitjes-specifieke filters. Nu: filters die in de nieuwe modus geen
+betekenis hebben vervallen (bv. genre/bron bij het overschakelen naar
+Sport), de rest (provincie, afstand, zoekterm) blijft behouden — Michiels
+expliciete keuze uit de clustering-vraag.
+
+### Twee echte bugs gevonden tijdens het bouwen, bevestigd met een live browsertest
+
+**1. `requestAnimationFrame`-batching van `apply()` (JS-perf-suggestie uit de
+review) bleek een reële betrouwbaarheidsbug.** Eerst gebouwd zoals
+voorgesteld; een test tegen een lokale `http.server`-preview liet zien dat
+een klik op een filter-chip geen zichtbaar effect meer had. Root cause:
+`document.visibilityState==='hidden'` in de niet-actief-zichtbare
+browser-tab van de testomgeving — browsers stellen `requestAnimationFrame`-
+callbacks dan uit of pauzeren ze helemaal (spec-gedrag, geen bug van de
+testomgeving). Bevestigd door `_applyNow()` direct aan te roepen (werkte
+meteen correct) vs. via `apply()`→`requestAnimationFrame` (bleef hangen).
+Voor een ECHTE gebruiker in een actief tabblad vuurt rAF wel betrouwbaar af
+op ~60fps, maar het risico (tabblad wisselen net na een klik, sommige
+mobiele/in-app-browser-contexten) woog niet op tegen de marginale winst van
+het batchen van één simpele klik-reactie (1 klik = 1 aanroep toch al).
+Teruggedraaid; alleen de Map-gebaseerde afstand-optimalisatie gehouden (die
+heeft dat risico niet, is een pure data-structuur-verbetering).
+
+**2. Tijdzone-bug in de nieuwe datumfilter-logica.** `computeWhenRange()`
+gebruikte aanvankelijk `d.toISOString().slice(0,10)` om een `Date`-object
+naar een ISO-datumstring om te zetten — `.toISOString()` converteert echter
+altijd naar UTC. Met de Nederlandse zomertijd (UTC+2) gaf `new
+Date().setHours(0,0,0,0)` (lokale middernacht) via `.toISOString()` de
+datum van de VORIGE dag terug (bevestigd: 17 augustus lokaal → "2026-08-16"
+in de ISO-string). Dit had ELKE Nederlandse gebruiker geraakt (heel de
+doelgroep van deze site zit in UTC+1/+2). Gefixt door lokale
+datumcomponenten (`getFullYear()`/`getMonth()`/`getDate()`) te gebruiken
+i.p.v. UTC-conversie.
+
+**Les, breder dan deze twee bugs**: beide zijn typisch het soort fout dat
+een grep-gebaseerde verificatie (zoals bij de eerste, kleinere design-fixes
+dit project) NOOIT had gevonden — alleen een echte browsertest met
+daadwerkelijke klik-interacties en tijdzone-gevoelige datumberekeningen
+legde ze bloot. Bij deze grotere, interactievere batch is daarom bewust
+overgestapt van "regenereren + grep" naar "regenereren + een lokale
+`http.server`-preview + browser-`javascript_exec`-tests die de JS
+daadwerkelijk laten draaien".
+
+**Geverifieerd**: alle onderdelen los getest via de lokale preview
+(zoeken, datumfilter incl. tijdzone-check, sorteren, filter-tokens
+verwijderen, URL-state schrijven+herstellen incl. modus, modus-wissel-
+filterbehoud, mobiele layout op 375px-viewport), geen console-errors.
+Gepusht naar `design-review-clusters-1-4` (niet naar `main`) — wacht op
+Michiels review voor mergen.
+
+
+## 2026-08-18 — Claude Design-review cluster 5 gebouwd (toolbar + kleurstrategie)
+
+Vervolg op clusters 1-4. Michiel besloot: cluster 5 wél bouwen, MAAR
+lazy-loading-architectuur (het derde cluster-5-item) niet — die stond al
+vast als "nog niet, later apart bekijken" bij de vorige triage. Blijft op
+dezelfde branch (`design-review-clusters-1-4`), niet gemerged.
+
+### Filterbalk → toolbar + popovers + sticky bar
+- **Eén sticky wrapper** (`.topbar`, `position:sticky;top:0`) voor logo +
+  mode-toggle + meta-regel + toolbar samen — i.p.v. de eerder overwogen
+  gestapelde-sticky-aanpak (header op `top:0`, mode-toggle op
+  `top:<headerhoogte>`) die kwetsbaar zou zijn voor een header die op smalle
+  schermen over twee regels wrapt. Eén wrapper heeft geen offset-berekening
+  nodig, lost het sticky-volgorde-probleem (overleg.md punt 17) definitief op.
+- **Compacte toolbar**: zoekveld + knoppen `Wanneer/Waar/Genre/Bron/Sport/
+  Club/Sorteren` + "Wis filters", i.p.v. 5 altijd-open rijen met ~70 chips.
+  Elke knop opent een popover met de bestaande filter-chips erin — de chips
+  zelf zijn ONGEWIJZIGD (zelfde `data-*`-attributen, zelfde click-handlers),
+  alleen hun presentatie (wel/niet altijd zichtbaar) is anders. Dit hield het
+  risico laag: de onderliggende filterlogica in `apply()` is niet aangeraakt.
+- **Bron-popover**: 48 bronnen nu gegroepeerd per provincie (afgeleid uit
+  `VENUE_LOC`, geen nieuwe data nodig) + een "Landelijk"-groep (de bestaande
+  quick-toggle-knop bleef intact) + een eigen zoekveldje dat de chips én
+  groep-kopjes live filtert.
+- **Filterteller**: elke toolbar-knop toont "(N)" als er N filters actief
+  zijn in die categorie — Claude Design's eigen "filterteller"-voorstel.
+- **Sport/Geslacht samengevoegd** tot één "Sport"-popover (was 2 losse
+  chip-rijen) — geslacht is inhoudelijk een sub-filter van sport-modus.
+- **Sorteren** deelt 1 toolbar-knop/popover tussen Uitjes- en Exposities-
+  sorteeropties (2 losse content-blokken binnenin, getoogd zoals voorheen
+  via bestaande `uitjes-sort`/`expo-filters`-ID's — geen nieuwe logica nodig).
+- **Mobiele touch-targets**: toolbar-knoppen en het zoekveld nu 44px
+  min-height (was ~24px chips) — dit was in de eerste triage bewust NIET los
+  opgepakt omdat losstaand vergroten zonder de balk in te klappen het
+  "wall of chips"-probleem juist zou verergeren; nu vanzelf opgelost omdat
+  de toolbar zelf al compact is.
+
+### Kleurstrategie omgegooid
+`src_css()` gaf voorheen élke bron zijn eigen chip-rand/tekstkleur EN zijn
+eigen actieve-achtergrondkleur EN een gekleurde badge-pill op de kaart — met
+60 bronnen tegelijk geen visuele rust. Nu: bronchips zijn neutraal (gedeelde
+`.btn`-stijl), actief = 1 generieke accentkleur (`#1565c0`, consistent met
+hoe genre/sorteer-chips al werkten) — met een `:not([data-src="all"])`-
+uitzondering zodat de "Alle bronnen"-knop zijn eigen grijze stijl behoudt.
+Per-bron-kleur overleeft alleen nog op de kaart zelf: de 3px linkerrand
+(`.event.{{sk}}{{border-left-color:...}}`) en verder niets. `badge-src`
+(bron-naam op de kaart) is nu platte grijze tekst (`var(--muted)`, geen
+achtergrond/rand meer) i.p.v. een gekleurde pill. Club/sport-chips bewust
+ONGEWIJZIGD gelaten — teamkleuren zijn wél betekenisvolle identiteit
+(shirtkleur-associatie), anders dan de grotendeels arbitraire bron-kleuren.
+
+### Belangrijke methodologische vondst tijdens het verifiëren
+
+Bij het testen van de kleurstrategie via de lokale `http.server`-preview
+bleek `getComputedStyle()` voor **verf-eigenschappen** (`color`,
+`background-color`, `border-color`) op elementen die ZOJUIST van
+`display:none` (via het `hidden`-attribuut op een popover) naar zichtbaar
+zijn gezet, systematisch de OUDE/inactieve waarde terug te geven — ook bij
+een handmatig gezette **inline** style (die normaliter altijd wint,
+ongeacht CSS-cascade). Grondig gediagnosticeerd:
+- Bevestigd met `.matches()` en directe CSS-regel-inspectie dat de juiste
+  regel (hoogste specificiteit, laatste in bronvolgorde, geen
+  `!important`-conflict) wél correct matcht.
+- Bevestigd dat HETZELFDE altijd-zichtbare element (nooit verborgen geweest)
+  wél correct de juiste computed style teruggeeft.
+- Bevestigd dat LAYOUT-eigenschappen (`width`, `padding`, `left`/`top` van
+  een popover) op datzelfde soort net-zichtbaar-gemaakte element WEL correct
+  resolven — alleen verf-eigenschappen zijn bevroren.
+- Dit is dezelfde onderliggende oorzaak als de al eerder gevonden
+  `requestAnimationFrame`-bug (2026-08-17, cluster 1-4): deze testomgeving
+  composeert het tabblad niet (`document.visibilityState==='hidden'`), en
+  layout kan altijd berekend worden (nodig voor scripting), maar
+  verf-resolutie blijkt hier aan een compositor-cyclus gekoppeld die in een
+  niet-gecomposeerd tabblad nooit draait.
+
+**Consequentie**: de kleurstrategie-CSS is grondig geverifieerd via
+cascade-analyse (niet via visuele/computed-style-verificatie, die was voor
+dít specifieke onderdeel niet betrouwbaar beschikbaar in deze omgeving) en
+alle FUNCTIONELE logica (popover open/sluiten, filterteller, "Wis filters",
+URL-state, setMode-toolbar-zichtbaarheid, bron-zoekveld, mobiele
+touch-targets/horizontale-scroll) is wél volledig via de gebruikelijke
+property/attribute-checks geverifieerd. **Michiel: bekijk de kleuren zelf
+even op de preview-deploy (een normaal, wél gecomposeerd tabblad) om de
+laatste visuele stap te bevestigen** — de logica erachter is zo grondig
+mogelijk gecontroleerd zonder dat.
+
+**Geverifieerd**: alle popovers openen/sluiten correct (1 tegelijk, sluiten
+via backdrop/Escape/modus-wissel), filterteller-badges tellen correct,
+"Wis filters" reset alles, bron-zoekveld filtert chips+groepen correct,
+setMode() toont/verbergt de juiste toolbar-knoppen per modus, gedeelde
+Sorteren-popover toont het juiste blok per modus, URL-state blijft werken
+na de herbouw, mobiele toolbar scrollt horizontaal met 44px-knoppen,
+mobiele popovers dokken aan de randen (`left:8px`), geen console-errors.
+
+
+## 2026-08-18 — Popover-sluiten kapot in echte Firefox (gemeld door Michiel, gemist in test)
+
+Direct na het pushen van cluster 5 liet Michiel een screenshot zien van
+echte Firefox: meerdere popovers (Sorteren, Club, Bron) stonden tegelijk
+open, overlappend, onbruikbaar.
+
+**Root cause**: `.popover{{...display:flex;...}}` (mijn eigen CSS-klasse) is
+een AUTEUR-regel. Het `hidden`-HTML-attribuut leunt op een LAGE-specificiteit
+regel in de user-agent-stylesheet (`[hidden]{{display:none}}`). Bij gelijke
+specificiteit wint auteur-CSS van UA-CSS — dus mijn `display:flex` op
+`.popover` overschreef de browser's ingebouwde hidden-gedrag volledig. Een
+"gesloten" popover (`hidden` attribuut wél aanwezig) bleef gewoon zichtbaar.
+
+**Waarom dit niet in de sessie zelf ontdekt werd**: de verificatie tijdens
+het bouwen checkte `popover.hidden` (de JS-property, reflecteert alleen of
+het HTML-attribuut aanwezig is) en `getComputedStyle(...).display` bleek
+destijds NIET gecheckt te zijn voor de default/gesloten staat — alleen voor
+de OPEN staat (na een klik). Screenshots werkten niet in de gebruikte
+test-omgeving (zie de rAF-bug en de kleurstrategie-bevinding eerder deze
+sessie, zelfde niet-composerend-tabblad-beperking), dus een puur-visuele
+controle was ook niet mogelijk geweest. Achteraf bezien had een simpele
+`getComputedStyle(popover).display` check op de STARTSITUATIE (vóór ooit een
+popover te openen) dit meteen gevonden — dat specifieke, makkelijke checkje
+is over het hoofd gezien.
+
+**Fix**: `.popover` (en `.popover-backdrop`) krijgen nu expliciet zelf
+`display:none` als basisregel, met een eigen `:not([hidden])`-uitzondering
+voor de zichtbare staat — leunt niet meer op de UA-stylesheet voor het
+hidden-gedrag, dus geen specificiteitsstrijd meer mogelijk.
+
+**Herverifieerd, dit keer met de juiste check**: `getComputedStyle(el).display`
+voor alle 7 popovers in de default/gesloten staat (allemaal `none`,
+bevestigd) én tijdens het schakelen tussen popovers (openen van Club sluit
+Bron correct, `display` gaat naar `none`/`flex` zoals het hoort) én bij een
+backdrop-klik (alles sluit, `display:none`). Gepusht als vervolgcommit op
+dezelfde branch.
+
+**Les**: bij UI-elementen die op het `hidden`-attribuut leunen, altijd
+expliciet `display:none` als eigen basisregel zetten i.p.v. te vertrouwen
+op de user-agent-stylesheet — met name zodra er ook een class-gebaseerde
+`display`-regel voor hetzelfde element bestaat (die wint dan altijd, ook al
+lijkt `hidden` in de HTML-broncode/JS-property prima aanwezig).
+
+## 2026-08-18 — Sorteren-popover leeg bij Sport-modus (gemeld door Michiel)
+
+Na de popover-fix meldde Michiel dat de Sorteren-popover bij Sport-modus
+leeg bleef. Klopte: `setMode()` toonde het `uitjes-sort`-blok alleen bij
+`m==='uitjes'` en het `expo-filters`-blok alleen bij `m==='exposities'` —
+voor Sport-modus werd dus geen van beide getoond. De onderliggende
+sorteerlogica (op datum/afstand, werkt generiek op `.month-section`-
+kinderen) is niet mode-specifiek en werkt net zo goed voor sportwedstrijden
+als voor uitjes. Fix: `uitjes-sort` toont nu bij zowel `uitjes` als `sport`;
+het label is generiek "Sorteren" geworden (was "Sorteren (Uitjes)").
+Geverifieerd via `getComputedStyle(...).display` in beide modi + een
+functionele sorteer-test op sportwedstrijden (afstand-sortering correct
+oplopend).
+
+
+## 2026-08-18 — Derde Claude Design-ronde (HTML/CSS/JS-analyse, geen live klik-test)
+
+Michiel vroeg Claude Design nogmaals om feedback op de branch-preview. Ditmaal
+kon Claude Design de site niet als screenshot bekijken (cross-origin) en
+deed dus een statische analyse van de opgehaalde HTML/CSS/JS -- vond zo
+precies het soort bug dat mijn eigen (wel-interactieve, maar niet-volledige)
+klik-tests hadden moeten vinden en niet vonden.
+
+**🔴 Blokkerende bug, bevestigd**: het hele "Wanneer"-filter deed niets.
+Bij de cluster-5-toolbar-herbouw is de wrapper-div hernoemd van
+`id="uitjes-datum"` naar `id="popover-when"`, maar 6 JS-referenties (event-
+listeners, de token-render-functie) wezen nog naar de oude id
+`#uitjes-datum` -- die matcht niets meer, dus er werden nul click-handlers
+gebonden op de 5 preset-knoppen. Klikken op Vandaag/Dit weekend/Deze week/
+Deze maand deed zichtbaar niets.
+
+**Waarom mijn eigen verificatie dit miste**: bij het testen van cluster 5
+heb ik wél getest dat de Wanneer-POPOVER open/dicht ging (via `tb-when`),
+maar nooit de knoppen ERIN daadwerkelijk aangeklikt na de HTML-herbouw --
+die test was in cluster 2 wel gedaan, maar niet herhaald na de rename in
+cluster 5. Een grep-achtige statische analyse (zoals Claude Design nu deed)
+vindt zo'n dode-selector-bug feilloos; een interactieve test mist 'm zodra
+je toevallig niet exact het geraakte element aanklikt. Les: na een
+structurele HTML-rename altijd opnieuw ELK element in de nieuwe structuur
+aanklikken, niet aannemen dat een eerdere test (vóór de rename) nog geldt.
+
+**Fix**: alle 6 `#uitjes-datum` → `#popover-when`. Herverifieerd door
+ditmaal ECHT alle 5 preset-knoppen aan te klikken en de resulterende
+`selWhenFrom`/`selWhenTo`/actieve-knop-state te controleren (niet alleen de
+popover open/dicht-status).
+
+**Twee kleinere regressies uit dezelfde herbouw, ook bevestigd en gefixt**:
+- `initAriaPressed()` scande `.mode-toggle,.filters` -- maar de meeste
+  popovers (provincie, genre, bron, sport, club, wanneer) hebben geen
+  `.filters`-klasse meer sinds cluster 5 (alleen de 2 blokken binnen de
+  Sorteren-popover behielden 'm toevallig). Scan uitgebreid met `.popover`.
+- `renderActiveFilters()`'s when-token verscheen niet -- zelfde
+  `#uitjes-datum`-oorzaak, vanzelf mee opgelost.
+
+**Nieuwe, kleinere bugs uit dit rapport, ook bevestigd en gefixt**:
+- "Alle" zag er niet actief uit bij Wanneer en Sorteren, en Datum/Afstand
+  zagen er allebei "uit" uit. Oorzaak: de donkere/blauwe actief-stijlen
+  waren alleen gedefinieerd voor `data-src`/`data-genre`/`data-prov`/
+  `data-sport`/`data-club` -- `data-when` en `data-usort` (nieuw in cluster
+  2, geen bestaand patroon om per ongeluk mee te liften) hadden nooit een
+  eigen regel gekregen. Toegevoegd: `[data-when="all"].active` bij de
+  donkere-groep, `[data-when]:not([data-when="all"]).active` en
+  `[data-usort].active` bij de blauwe-groep.
+- Adresveld en status spraken elkaar tegen: getypte tekst deed niets tot
+  een expliciete Enter/klik op Zoek, terwijl de status eronder het oude
+  punt bleef tonen. `blur`-event toegevoegd naast het al-bestaande Enter-
+  gedrag (Enter werkte al, alleen blur ontbrak).
+- `#dist-label` ("Alle afstanden"/"≤ N km") was nog blauw gestyled uit de
+  tijd dat het klikbaar was (cluster 3 verving dat door segmented buttons,
+  maar de kleur bleef per ongeluk staan) -- nu `var(--muted)`, een puur
+  statuslabel zonder link-uitstraling.
+- Statusregel toonde altijd "Toont X van {{TOTAL}}" met een gecombineerde
+  uitjes+sport+expo-teller, ongeacht de actieve modus -- klopte in
+  Uitjes-modus nooit met "Toont alle" omdat sport/expo ook meetelden in
+  TOTAL. Nu drie aparte per-modus-totalen (`TOTAL_UITJES`/`TOTAL_SPORT`/
+  `TOTAL_EXPO`, serverside berekend) en een passend zelfstandig naamwoord
+  per modus ("uitjes"/"wedstrijden"/"exposities").
+
+**Bug tijdens het bouwen van de blur-fix**: per ongeluk een Python-stijl
+`#`-commentaar getypt i.p.v. JS `//` in een nieuw stuk JS -- dit had een
+echte browser-syntaxfout gegeven (`ast.parse()` valideert alleen de
+PYTHON-kant van het bestand, niet de JS-string-inhoud erin, dus dit soort
+fout wordt nooit door de Python-syntaxcheck gevangen). Gevonden en gefixt
+vóór het regenereren/testen, dit keer bewust een losse `read_console_messages`
+-check gedaan na elke wijziging om dit soort dingen niet nogmaals te missen.
+
+**Nog open, bewust nog niet gebouwd** (grotere/subjectieve voorstellen uit
+hetzelfde rapport, wachten op Michiels prioritering): kaart-layout-
+herstructurering (`main{{max-width:1000px}}`, badges dichter bij de titel,
+dag-groepering i.p.v. datum-herhaling per rij) -- door Claude Design zelf
+als "het grootste visuele probleem" bestempeld; URL-state-uitbreiding
+(when/sport/club/gender/sort + adres/coördinaten i.p.v. alleen een kale
+afstand-getal); localStorage-persistentie (adres, laatste modus);
+zoek-normalisatie (diakrieten-folding, meerdere-woorden-AND-split);
+actieknoppen in de lege-staat; mobiele toolbar-herindeling (zoekveld op
+eigen regel, chips naar 44px); typografie (titel/body naar 15-16px,
+`--muted`-contrast naar #6b6b6b).
+
+
+## 2026-08-18 — Vierde ronde: clusters A/B/C/D uit het derde Claude Design-rapport gebouwd
+
+Michiel koos "ja, graag" op alle 4 resterende clusters uit punt 19. Alles op
+dezelfde branch, in volgorde B/C/D (klein/veilig) dan A (grootste).
+
+### Cluster B — kleine fixes
+- Chips in popovers naar 44px (was 36px, alleen de toolbar-knoppen zelf
+  waren al 44px, niet de chips erin).
+- `body` 14px→15px, titel 0.95rem→1rem (16px) — titel is weer duidelijk het
+  sterkste element op de kaart.
+- `--muted` #757575→#6b6b6b (was 4,4:1 op de achtergrondkleur `--bg`
+  #f9f9f9, net onder de 4,5 die kleine tekst nodig heeft voor WCAG AA).
+- Lege-staat-melding krijgt nu directe actieknoppen ("Alle afstanden" /
+  "Wis filters") i.p.v. alleen tekst.
+
+### Cluster C — URL-state compleet, localStorage, zoek-normalisatie
+- `syncURL()`/`restoreFromURL()` volledig herbouwd: `when`/`sport`/`club`/
+  `gender`/`usort`/`esort` + `lat`/`lon` toegevoegd (was alleen
+  `mode`/`prov`/`d`/`q`/`genre`/`src`). Een gedeelde `d=25`-link betekende
+  bij de ontvanger eerder iets anders omdat het middelpunt niet meeging —
+  nu wél, via `lat`/`lon` (bewust NIET een geocode-aanroep op basis van een
+  `addr`-param, dat zou de init-flow async maken; lat/lon zijn al bekende
+  getallen op het moment van opslaan, dus synchroon te herstellen).
+- localStorage voor adres+coördinaten+modus. URL-params winnen altijd van
+  localStorage (een gedeelde link mag niet stilzwijgend overschreven worden
+  door iemands eigen eerder-opgeslagen voorkeur) — dit was in de eerste
+  cluster-2-bouwronde bewust uitgesteld vanwege de async-geocode-zorg; nu
+  omzeild door lat/lon i.p.v. het adres zelf te bewaren.
+- Zoeken: nieuwe `fold_diacritics()` (Python, `unicodedata.normalize`)
+  gebruikt bij het bouwen van `data-search`, en een JS-equivalent
+  (`String.prototype.normalize('NFD')`) op de getypte term — "zummerbuhne"
+  vindt nu "Zummerbühne". Plus meerdere-woorden-AND i.p.v. een letterlijke
+  substring-match ("dorpshuis annen" faalde eerder als de titel-tekst niet
+  toevallig exact die woordvolgorde had).
+
+### Cluster D — mobiele toolbar
+- Zoekveld krijgt op mobiel een eigen volle regel; alleen de knoppen-rij
+  (nieuwe `.toolbar-buttons`-wrapper) scrollt nog horizontaal. Was: het
+  hele `.toolbar`-blok inclusief het 70vw-brede zoekveld deelde één
+  scrollende rij, wat de knoppen grotendeels uit beeld duwde.
+
+### Cluster A — kaart-layout-herstructurering (grootste, laatste)
+Door Claude Design zelf "het grootste visuele probleem" genoemd: op brede
+schermen stond de badge-kolom (`70px 1fr auto`-grid) tot ~2000px van de
+titel af, en de datum herhaalde zich op elke rij ("ma 17 aug" tien keer
+onder elkaar).
+- `main{{max-width:1000px;margin:0 auto}}` — leeslijst i.p.v. een
+  volle-breedte-tabel.
+- Kaart vereenvoudigd: geen aparte datum- of badge-kolom meer. Genre-badge
+  verhuisd naar direct achter de titel (`.event-title{{display:flex}}`).
+  Bron-badge (tekst) volledig weggehaald — de kaart-linkerrandkleur was al
+  de bron-indicator, twee keer dezelfde info was overbodig (Claude Design:
+  "één van de twee is genoeg").
+- Nieuwe dag-groepering: events per maand ook per DAG gegroepeerd
+  (`itertools.groupby` op `e['date']`, de lijst is al datum-gesorteerd dus
+  geen aparte sortering nodig) onder een `<h3 class="day-header">Maandag 17
+  augustus</h3>`-kop — vervangt de datum-per-rij. Voor MEERDAAGSE events
+  (start≠einddatum) blijft een klein inline datumbereik-label naast de
+  titel staan (`vr 21 t/m zo 23 aug`), want de dag-kop alleen zou anders de
+  indruk wekken dat het een eendaags event is; het event verschijnt onder
+  zijn STARTdag, niet onder elke dag die het beslaat.
+- `expo_card_html()` (Exposities) bewust NIET aangeraakt — die had zijn
+  eigen 2-koloms-grid-layout via de (nu vereenvoudigde) basis-`.event`-regel
+  geërfd; expliciet `display:grid` teruggezet op `.event.expo-item` zodat
+  dat niet stilzwijgend meebrak.
+- Sorteren-op-afstand (cluster 2) werkte op `.month-section`-kinderen
+  direct; nu events een laag dieper genest zitten (binnen `.day-group`) is
+  de sorteerlogica verplaatst naar per-dag-groep sorteren i.p.v. kaarten
+  fysiek naar een andere dag te verplaatsen (zou misleidend zijn — een kaart
+  onder een dag-kop waar het event niet is).
+- `apply()`'s hidden-logica uitgebreid: naast lege maand-secties nu ook lege
+  dag-groepen verbergen (anders een dag-kop zonder events eronder na een
+  filter).
+
+**Geverifieerd** via de lokale `http.server`-preview: dag-groepering en
+inline-datumbereik correct in de output, filtering verbergt lege
+dag-groepen correct (243 van 336 bij een Jazz-filter), sorteren-op-afstand
+werkt correct binnen een dag-groep, `main` is echt 1000px gecentreerd,
+Exposities-modus (2-koloms-grid) ongewijzigd functioneel, mobiele
+`.event`-weergave (nu overal gewoon `display:block`, geen aparte
+mobiel-specifieke override meer nodig sinds de kolommen sowieso weg zijn),
+geen console-errors.
+
+**Twee losse schoonheidsfoutjes tijdens Cluster C gevonden en gefixt**
+(cosmetisch, geen functionele impact): een `\u0300-\u036f`-Unicode-escape
+raakte tijdens het patchen gemangeld tot letterlijke combinerende tekens in
+de bron, en een niet-verdubbelde `\s` in een geneste JS-regex-binnen-
+Python-string gaf een `SyntaxWarning` bij het parsen van `gen_uitjes.py`
+(werkte functioneel toch correct, maar opgeschoond voor leesbaarheid en om
+een `python -W error`-check schoon te houden).
+
+## 2026-08-18 — SPOT Groningen: Stadspark-events tonen nu specifieke locatie
+
+Michiel meldde dat "Jubileum Concert Stadspark – Noordpool Orkest & Friends"
+op de site "Spot Groningen" toonde, terwijl de titel zelf al "Stadspark"
+noemt. SPOT tagt buiten-events op het Stadspark (de jaarlijkse zomerreeks)
+zelf niet met een specifiek `data-location`-gebouw (viel terug op `elders`),
+dus onze scraper viel terecht terug op de generieke fallback.
+
+**Fix**: `scrape_spotgroningen.py`'s `parse_block()` gebruikt nu "Stadspark,
+Groningen" als venue zodra `data-location` generiek is EN de titel zelf
+"stadspark" bevat (case-insensitive) — 2 events in de dataset matchten dit
+patroon (1 al verlopen, niet meer op de live pagina om te herscrapen).
+
+**Geen handmatige DB-opschoning nodig ditmaal** — dankzij de eerdere
+structurele `insert_event()`-fix (2026-08-17, veld-voor-veld merge bij een
+same-source-herscrape) kwam de correctie er bij de eerstvolgende live
+scrape gewoon doorheen, precies het scenario waar die fix voor gebouwd is.
+Geverifieerd: DB-rij bijgewerkt, export/generate herdraaid, "Stadspark,
+Groningen" bevestigd in de gegenereerde HTML.
