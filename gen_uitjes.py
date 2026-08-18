@@ -6,7 +6,13 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 EVENTS_JSON = os.path.join(SCRIPT_DIR, 'events_categorized.json')
 HTML_OUT = os.path.join(SCRIPT_DIR, 'index.html')
 
-import json, re as _re, math
+import json, re as _re, math, unicodedata
+
+def fold_diacritics(s: str) -> str:
+    """Haalt accenten/diakrieten weg (bv. 'ü'->'u') voor zoek-matching --
+    zonder deze fold vond een zoekopdracht 'zummerbuhne' geen 'Zummerbühne'.
+    Zie decisions.md 2026-08-18 (Claude Design-review, 4e ronde)."""
+    return ''.join(c for c in unicodedata.normalize('NFKD', s) if not unicodedata.combining(c))
 from datetime import date
 TODAY = date.today().isoformat()
 from collections import defaultdict
@@ -426,7 +432,7 @@ def event_html(e):
     # attribuut -- voorkomt dat het zoekveld bij elke toetsaanslag 8202x
     # child-elementen moet uitlezen en .toLowerCase() aanroepen. Zie
     # decisions.md 2026-08-17 (Claude Design-review).
-    search_txt = esc((e.get('title','') + ' ' + (e.get('venue','') or e.get('city','') or '')).lower())
+    search_txt = esc(fold_diacritics((e.get('title','') + ' ' + (e.get('venue','') or e.get('city','') or '')).lower()))
     return (f'<div class="event {sk}" data-src="{src}" data-genre="{genre}" '
             f'data-prov="{prov}" data-latlon="{lat_lon}" data-gender="{gender}" '
             f'data-date="{esc(d_start)}" data-dateend="{esc(d_end or d_start)}" '
@@ -478,7 +484,7 @@ def expo_card_html(e):
         date_txt = f"vanaf {fmt_date_long(d_start)} &middot; t/m {fmt_date_long(d_end)}"
     else:
         date_txt = f"vanaf {fmt_date_long(d_start)} &middot; einddatum onbekend"
-    search_txt = esc((e.get('title','') + ' ' + (e.get('venue','') or e.get('city','') or '')).lower())
+    search_txt = esc(fold_diacritics((e.get('title','') + ' ' + (e.get('venue','') or e.get('city','') or '')).lower()))
     return (f'<div class="event expo-item {sk}" data-src="{src}" data-genre="expo" '
             f'data-prov="{prov}" data-latlon="{lat_lon}" '
             f'data-date="{esc(d_start)}" data-dateend="{esc(d_end or "9999-99-99")}" '
@@ -653,8 +659,9 @@ function apply(){{
     }}else{{
       ok=isExpo&&(selProv.size===0||selProv.has(ev.dataset.prov))&&dist<=maxDist;
     }}
-    if(ok&&searchQuery){{
-      ok=(ev.dataset.search||'').includes(searchQuery);
+    if(ok&&searchWords.length){{
+      const hay=ev.dataset.search||'';
+      ok=searchWords.every(w=>hay.includes(w));
     }}
     if(ok&&currentMode!=='exposities'&&(selWhenFrom||selWhenTo)){{
       const evEnd=ev.dataset.dateend||ev.dataset.date;
@@ -671,9 +678,28 @@ function apply(){{
   const emptyEl=document.getElementById('empty-state');
   emptyEl.classList.toggle('hidden',v!==0);
   if(v===0){{
-    emptyEl.textContent = maxDist<9999
-      ? 'Geen events gevonden binnen '+maxDist+' km — probeer een grotere afstand of andere filters.'
-      : 'Geen events gevonden met de huidige filters — probeer andere filters.';
+    // Directe uitweg-knop i.p.v. alleen tekst -- gemeld door Claude Design
+    // 2026-08-18: gebruiker moest zelf terug naar de toolbar om iets te
+    // wijzigen. "Alle afstanden" als eerste, gerichte stap als afstand de
+    // vermoedelijke oorzaak is; anders meteen "Wis filters".
+    emptyEl.innerHTML='';
+    const msg=document.createElement('span');
+    msg.textContent = maxDist<9999
+      ? 'Geen events gevonden binnen '+maxDist+' km — probeer een grotere afstand of andere filters. '
+      : 'Geen events gevonden met de huidige filters — probeer andere filters. ';
+    emptyEl.appendChild(msg);
+    if(maxDist<9999){{
+      const distBtn=document.createElement('button');
+      distBtn.className='empty-action-btn';
+      distBtn.textContent='Alle afstanden';
+      distBtn.addEventListener('click',()=>document.querySelector('.dist-btn[data-dist="9999"]').click());
+      emptyEl.appendChild(distBtn);
+    }}
+    const clearBtn=document.createElement('button');
+    clearBtn.className='empty-action-btn';
+    clearBtn.textContent='Wis filters';
+    clearBtn.addEventListener('click',clearAllFilters);
+    emptyEl.appendChild(clearBtn);
   }}
   if(currentMode==='uitjes'){{
     document.querySelector('.btn[data-src="all"]')?.classList.toggle('active',selSrc.size===0);
@@ -755,12 +781,19 @@ distCustomInput.addEventListener('change',function(){{
 
 // --- Zoekveld (titel + venue), gedebouncet zodat niet elke toetsaanslag
 // meteen 8202 events opnieuw doorloopt -- zie decisions.md 2026-08-17. ---
-let searchDebounce=null;
+// Diakrieten-folding (bv. 'zummerbuhne'->'zummerbuhne', matcht dan tegen de
+// server-side ook al gefolde data-search) + losse woorden voor een AND-match
+// i.p.v. een letterlijke substring -- 'dorpshuis annen' matchte voorheen
+// niet als de titel 'Dorpshuis Annen' as-is stond maar de woordvolgorde in
+// de zoekterm anders was. Zie decisions.md 2026-08-18.
+function foldDiacritics(s){{ return s.normalize('NFD').replace(/[\u0300-\u036f]/g,''); }}
+let searchDebounce=null, searchWords=[];
 document.getElementById('search-input').addEventListener('input',function(){{
   clearTimeout(searchDebounce);
   const val=this.value;
   searchDebounce=setTimeout(()=>{{
-    searchQuery=val.trim().toLowerCase();
+    searchQuery=foldDiacritics(val.trim().toLowerCase());
+    searchWords=searchQuery.split(/\\s+/).filter(Boolean);
     apply();
   }},250);
 }});
@@ -1039,31 +1072,120 @@ document.querySelectorAll('.btn[data-sort]').forEach(b=>b.addEventListener('clic
 // refresh/terug-knop de selectie niet wist en je een link kunt delen.
 // history.replaceState (niet pushState) i.p.v. elke chip-klik een eigen
 // back-button-stap te geven. ---
+const DEFAULT_LAT=53.034, DEFAULT_LON=6.735;
+
+// --- localStorage: adres + laatste modus onthouden tussen bezoeken (was
+// eerder bewust uitgesteld, zie decisions.md 2026-08-17 -- nu gebouwd op
+// Michiels verzoek). URL-params winnen altijd van localStorage: een gedeelde
+// link moet niet stilzwijgend overschreven worden door iemands eigen
+// eerder-opgeslagen voorkeur. ---
+function saveLocalPrefs(){{
+  try{{
+    localStorage.setItem('ua_addr',document.getElementById('addr-input').value);
+    localStorage.setItem('ua_lat',centerLat);
+    localStorage.setItem('ua_lon',centerLon);
+    localStorage.setItem('ua_mode',currentMode);
+  }}catch(e){{}}
+}}
+function loadLocalPrefs(){{
+  try{{
+    return {{
+      addr: localStorage.getItem('ua_addr'),
+      lat: parseFloat(localStorage.getItem('ua_lat')),
+      lon: parseFloat(localStorage.getItem('ua_lon')),
+      mode: localStorage.getItem('ua_mode')
+    }};
+  }}catch(e){{ return {{}}; }}
+}}
+
 function syncURL(){{
   const p=new URLSearchParams();
   if(currentMode!=='uitjes') p.set('mode',currentMode);
   if(selProv.size) p.set('prov',Array.from(selProv).join(','));
   if(maxDist<9999) p.set('d',maxDist);
+  if(Math.abs(centerLat-DEFAULT_LAT)>0.0001||Math.abs(centerLon-DEFAULT_LON)>0.0001){{
+    p.set('lat',centerLat.toFixed(4)); p.set('lon',centerLon.toFixed(4));
+  }}
   if(searchQuery) p.set('q',searchQuery);
+  const whenBtn=document.querySelector('#popover-when .btn[data-when].active');
+  if(whenBtn&&whenBtn.dataset.when!=='all'){{
+    p.set('when',whenBtn.dataset.when);
+  }}else if(selWhenFrom||selWhenTo){{
+    if(selWhenFrom) p.set('from',selWhenFrom);
+    if(selWhenTo) p.set('to',selWhenTo);
+  }}
   if(currentMode==='uitjes'){{
     if(selGenre.size) p.set('genre',Array.from(selGenre).join(','));
     if(selSrc.size) p.set('src',Array.from(selSrc).join(','));
+    const usortBtn=document.querySelector('#uitjes-sort .btn[data-usort].active');
+    if(usortBtn&&usortBtn.dataset.usort!=='datum') p.set('usort',usortBtn.dataset.usort);
+  }}
+  if(currentMode==='sport'){{
+    if(selSport.size) p.set('sport',Array.from(selSport).join(','));
+    if(selClub.size) p.set('club',Array.from(selClub).join(','));
+    if(selGender!=='all') p.set('gender',selGender);
+  }}
+  if(currentMode==='exposities'){{
+    const sortBtn=document.querySelector('#expo-filters .btn[data-sort].active');
+    if(sortBtn&&sortBtn.dataset.sort!=='start') p.set('esort',sortBtn.dataset.sort);
   }}
   const qs=p.toString();
   history.replaceState(null,'',location.pathname+(qs?'?'+qs:''));
+  saveLocalPrefs();
 }}
 function restoreFromURL(){{
   const p=new URLSearchParams(location.search);
-  const mode=p.get('mode');
+  const hasAnyParam=Array.from(p.keys()).length>0;
+  const local=hasAnyParam?{{}}:loadLocalPrefs();
+
+  const mode=p.get('mode')||local.mode;
   if(mode==='sport'||mode==='exposities') currentMode=mode;
+
   const prov=p.get('prov'); if(prov) prov.split(',').forEach(x=>selProv.add(x));
   const d=parseInt(p.get('d'),10); if(!isNaN(d)&&d>0) maxDist=d;
+
+  const lat=parseFloat(p.get('lat')), lon=parseFloat(p.get('lon'));
+  if(!isNaN(lat)&&!isNaN(lon)){{
+    centerLat=lat; centerLon=lon;
+    document.getElementById('addr-status').textContent='📍 uit gedeelde link';
+  }}else if(local.addr&&!isNaN(local.lat)&&!isNaN(local.lon)){{
+    centerLat=local.lat; centerLon=local.lon;
+    document.getElementById('addr-input').value=local.addr;
+    document.getElementById('addr-status').textContent='📍 '+local.addr+' (onthouden)';
+  }}
+
   const q=p.get('q'); if(q){{searchQuery=q; document.getElementById('search-input').value=q;}}
+
+  const when=p.get('when');
+  const from=p.get('from'), to=p.get('to');
+  if(when){{
+    const [wf,wt]=computeWhenRange(when);
+    selWhenFrom=wf; selWhenTo=wt;
+    document.querySelectorAll('#popover-when .btn[data-when]').forEach(x=>x.classList.toggle('active',x.dataset.when===when));
+    whenFromInput.value=wf||''; whenToInput.value=wt||'';
+  }}else if(from||to){{
+    selWhenFrom=from||null; selWhenTo=to||null;
+    whenFromInput.value=from||''; whenToInput.value=to||'';
+  }}
+
   const genre=p.get('genre'); if(genre) genre.split(',').forEach(x=>selGenre.add(x));
   const src=p.get('src'); if(src) src.split(',').forEach(x=>selSrc.add(x));
+  const usort=p.get('usort');
+  if(usort) document.querySelectorAll('#uitjes-sort .btn[data-usort]').forEach(x=>x.classList.toggle('active',x.dataset.usort===usort));
+
+  const sport=p.get('sport'); if(sport) sport.split(',').forEach(x=>selSport.add(x));
+  const club=p.get('club'); if(club) club.split(',').forEach(x=>selClub.add(x));
+  const gender=p.get('gender'); if(gender){{selGender=gender;}}
+
+  const esort=p.get('esort');
+  if(esort) document.querySelectorAll('#expo-filters .btn[data-sort]').forEach(x=>x.classList.toggle('active',x.dataset.sort===esort));
+
   document.querySelectorAll('.btn[data-prov]').forEach(b=>{{if(b.dataset.prov!=='all') b.classList.toggle('active',selProv.has(b.dataset.prov));}});
   document.querySelectorAll('.btn[data-genre]').forEach(b=>{{if(b.dataset.genre!=='all') b.classList.toggle('active',selGenre.has(b.dataset.genre));}});
   document.querySelectorAll('.btn[data-src]').forEach(b=>{{if(b.dataset.src) b.classList.toggle('active',selSrc.has(b.dataset.src));}});
+  document.querySelectorAll('.btn[data-sport]').forEach(b=>{{if(b.dataset.sport!=='all') b.classList.toggle('active',selSport.has(b.dataset.sport));}});
+  document.querySelectorAll('.btn[data-club]').forEach(b=>{{if(b.dataset.club!=='all') b.classList.toggle('active',selClub.has(b.dataset.club));}});
+  document.querySelectorAll('.btn[data-gender]').forEach(b=>{{b.classList.toggle('active',b.dataset.gender===selGender);}});
   if(maxDist<9999){{
     const knownStep=[10,25,50,100].includes(maxDist);
     document.querySelectorAll('.dist-btn').forEach(b=>b.classList.toggle('active',knownStep&&parseInt(b.dataset.dist)===maxDist));
@@ -1088,9 +1210,9 @@ html = f'''<!DOCTYPE html>
 <title>Uitjes Agenda</title>
 <style>
 :root{{{css_vars}
-  --bg:#f9f9f9;--card:#fff;--border:#e0e0e0;--text:#212121;--muted:#757575;}}
+  --bg:#f9f9f9;--card:#fff;--border:#e0e0e0;--text:#212121;--muted:#6b6b6b;}}
 *{{box-sizing:border-box;margin:0;padding:0;}}
-body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.45;}}
+body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.45;}}
 /* Eén sticky wrapper voor topbar+toolbar samen (i.p.v. losse gestapelde
    sticky-elementen met een handmatig berekende top-offset) -- voorkomt het
    fragiele-offset-probleem dat bij de eerste sticky-volgorde-triage werd
@@ -1104,6 +1226,7 @@ body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fo
 .mode-btn{{padding:5px 18px;border-radius:20px;border:2px solid #ccc;background:#fff;cursor:pointer;font-weight:700;font-size:0.88rem;}}
 .mode-btn.active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
 .toolbar{{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px;}}
+.toolbar-buttons{{display:flex;flex-wrap:wrap;gap:6px;align-items:center;flex:1 1 auto;}}
 .toolbar-btn{{padding:8px 14px;min-height:44px;border-radius:20px;border:1.5px solid #ccc;background:#fff;cursor:pointer;font-size:0.85rem;color:#555;white-space:nowrap;display:inline-flex;align-items:center;}}
 .toolbar-btn:hover{{opacity:.85;}}
 .toolbar-btn::after{{content:'▾';margin-left:5px;font-size:0.7em;}}
@@ -1134,7 +1257,7 @@ body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fo
 .src-group-label{{font-size:0.72rem;font-weight:700;color:var(--muted);width:100%;margin:6px 0 0;text-transform:uppercase;letter-spacing:.03em;}}
 .src-group-label:first-child{{margin-top:0;}}
 .filters-label{{font-size:0.75rem;color:var(--muted);width:100%;margin-bottom:2px;}}
-.btn{{padding:6px 12px;min-height:36px;border-radius:20px;border:1.5px solid #ccc;background:#fff;cursor:pointer;font-size:0.78rem;color:#555;transition:all .15s;white-space:nowrap;}}
+.btn{{padding:6px 12px;min-height:44px;border-radius:20px;border:1.5px solid #ccc;background:#fff;cursor:pointer;font-size:0.78rem;color:#555;transition:all .15s;white-space:nowrap;}}
 .btn:hover{{opacity:.8;}}
 .btn[data-src="all"].active,.btn[data-genre="all"].active,.btn[data-prov="all"].active,.btn[data-when="all"].active{{background:#555;color:#fff;border-color:#555;}}
 .btn[data-sport="all"].active,.btn[data-club="all"].active{{background:#555;color:#fff;border-color:#555;}}
@@ -1179,6 +1302,8 @@ body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fo
 .month-link:hover{{background:#e0e0e0;}}
 #stats{{background:#fff;padding:6px 16px;font-size:0.8rem;color:var(--muted);border-bottom:1px solid var(--border);}}
 #empty-state{{margin:24px 16px;padding:20px;background:#fff;border:1px dashed var(--border);border-radius:8px;color:var(--muted);text-align:center;font-size:0.9rem;}}
+.empty-action-btn{{margin:8px 4px 0;padding:8px 16px;min-height:44px;border-radius:20px;border:1.5px solid #1565c0;background:#fff;color:#1565c0;cursor:pointer;font-size:0.85rem;font-weight:600;}}
+.empty-action-btn:hover{{background:#e3f2fd;}}
 #empty-state.hidden{{display:none;}}
 main{{padding:0 16px 32px;}}
 .month-section{{margin-top:20px;}} .month-section.hidden{{display:none;}}
@@ -1186,7 +1311,7 @@ main{{padding:0 16px 32px;}}
 .event{{background:var(--card);border-left:3px solid #ccc;border-radius:4px;padding:8px 10px;margin-bottom:6px;display:grid;grid-template-columns:70px 1fr auto;gap:8px;align-items:start;content-visibility:auto;contain-intrinsic-size:auto 62px;}}
 .event.hidden{{display:none;}}
 .event-date{{font-size:0.8rem;color:var(--text);font-weight:700;padding-top:2px;}}
-.event-title a{{color:var(--text);text-decoration:none;font-weight:600;font-size:0.95rem;}}
+.event-title a{{color:var(--text);text-decoration:none;font-weight:600;font-size:1rem;}}
 .event-title a:hover{{text-decoration:underline;color:#1565c0;}}
 .event-venue{{font-size:0.75rem;color:var(--muted);margin-top:2px;}}
 .event-daterange{{font-size:0.75rem;color:#1565c0;font-weight:600;margin-top:2px;}}
@@ -1218,8 +1343,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   .addr-row label{{margin-bottom:2px;}}
   #addr-input{{width:100%;}}
   .dist-buttons{{width:100%;}}
-  .chip-scroll,.month-nav,.toolbar{{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);}}
-  #search-input{{flex:0 0 auto;width:70vw;}}
+  .chip-scroll,.month-nav,.toolbar-buttons{{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);}}
+  .toolbar{{flex-direction:column;align-items:stretch;}}
+  #search-input{{width:100%;}}
+  .toolbar-buttons{{width:100%;}}
   .popover{{left:8px !important;right:8px;max-width:calc(100vw - 16px);width:calc(100vw - 16px);}}
   .topbar-top{{gap:8px;}}
 }}
@@ -1236,14 +1363,16 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   <div class="meta">Bijgewerkt: {today_str} &nbsp;·&nbsp; {total} events &nbsp;·&nbsp; {expo_total} exposities &nbsp;·&nbsp; {len(active_sources)} bronnen</div>
   <div class="toolbar" id="toolbar">
     <input type="search" id="search-input" placeholder="🔍 Zoek op titel of locatie…" aria-label="Zoek op titel of locatie">
-    <button class="toolbar-btn" id="tb-when" data-popover="popover-when" aria-haspopup="true" aria-expanded="false">Wanneer<span class="tb-count" id="tb-when-count"></span></button>
-    <button class="toolbar-btn" id="tb-where" data-popover="popover-where" aria-haspopup="true" aria-expanded="false">Waar<span class="tb-count" id="tb-where-count"></span></button>
-    <button class="toolbar-btn" id="tb-genre" data-popover="popover-genre" aria-haspopup="true" aria-expanded="false">Genre<span class="tb-count" id="tb-genre-count"></span></button>
-    <button class="toolbar-btn" id="tb-src" data-popover="popover-src" aria-haspopup="true" aria-expanded="false">Bron<span class="tb-count" id="tb-src-count"></span></button>
-    <button class="toolbar-btn" id="tb-sport" data-popover="popover-sport" aria-haspopup="true" aria-expanded="false">Sport<span class="tb-count" id="tb-sport-count"></span></button>
-    <button class="toolbar-btn" id="tb-club" data-popover="popover-club" aria-haspopup="true" aria-expanded="false">Club<span class="tb-count" id="tb-club-count"></span></button>
-    <button class="toolbar-btn" id="tb-sort" data-popover="popover-sort" aria-haspopup="true" aria-expanded="false">Sorteren</button>
-    <button class="toolbar-btn clear-btn" id="clear-filters-btn">Wis filters</button>
+    <div class="toolbar-buttons" id="toolbar-buttons">
+      <button class="toolbar-btn" id="tb-when" data-popover="popover-when" aria-haspopup="true" aria-expanded="false">Wanneer<span class="tb-count" id="tb-when-count"></span></button>
+      <button class="toolbar-btn" id="tb-where" data-popover="popover-where" aria-haspopup="true" aria-expanded="false">Waar<span class="tb-count" id="tb-where-count"></span></button>
+      <button class="toolbar-btn" id="tb-genre" data-popover="popover-genre" aria-haspopup="true" aria-expanded="false">Genre<span class="tb-count" id="tb-genre-count"></span></button>
+      <button class="toolbar-btn" id="tb-src" data-popover="popover-src" aria-haspopup="true" aria-expanded="false">Bron<span class="tb-count" id="tb-src-count"></span></button>
+      <button class="toolbar-btn" id="tb-sport" data-popover="popover-sport" aria-haspopup="true" aria-expanded="false">Sport<span class="tb-count" id="tb-sport-count"></span></button>
+      <button class="toolbar-btn" id="tb-club" data-popover="popover-club" aria-haspopup="true" aria-expanded="false">Club<span class="tb-count" id="tb-club-count"></span></button>
+      <button class="toolbar-btn" id="tb-sort" data-popover="popover-sort" aria-haspopup="true" aria-expanded="false">Sorteren</button>
+      <button class="toolbar-btn clear-btn" id="clear-filters-btn">Wis filters</button>
+    </div>
   </div>
 </div>
 <div class="popover-backdrop" id="popover-backdrop" hidden></div>
