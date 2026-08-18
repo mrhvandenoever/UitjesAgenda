@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (62 bronnen, 62 scripts)
+## ✅ Geautomatiseerd (63 bronnen, 63 scripts)
 
 | Bron | Script |
 |---|---|
@@ -85,6 +85,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Uitzinnig.nl (aggregator, Drenthe/Groningen/Friesland) | `scrape_uitzinnig.py` (2026-08-17, overleg.md punt 13 — 3 "provincie"-pagina's die in de praktijk overlappen, dus gededupliceerd op URL. Echte start-/einddatum via ISO-meta-tags op de detailpagina (beter dan kunstinzicht.nl, dat bewust niet gebouwd is — zie hieronder). Geeft ook een eerste (deel-)win voor Hunebedcentrum zonder de bot-bescherming te omzeilen. In `AGGREGATOR_SOURCES`. 13 events/run) |
 | Staatsbosbeheer (natuuractiviteiten + wandelroutes, Groningen/Drenthe/Friesland/Overijssel) | `scrape_staatsbosbeheer.py` (2026-08-18/19, overleg.md punt 15 — de listingpagina is een React-app, maar heeft een publieke, schone JSON-API (`/api/activities?perPage[]=N&page[]=N`, gevonden via een netwerkcheck), geen Playwright nodig. 1213 resultaten NL-breed, drie types: `activity` → events-DB (echte datum + coördinaten, genre `'actief'` expliciet via `cats`, ~68-71/run), `route` → **`routes.json`** (2026-08-19, geen datum dus buiten de events-DB om — voedt de 4e topniveau-modus "Wandelingen/tochten", zie ARCHITECTURE.md, 220/run), `accomodation` (kampeerterreinen, overgeslagen)) |
 | Into Nature "extra activiteiten" (Roderwolde, Drenthe) | `scrape_intonature.py` (2026-08-18, overleg.md punt 15 — React-app, wél Playwright nodig. Geen per-activiteit HTML-element, alleen een platte H3(dag)/H5(titel, niet altijd aanwezig)/P(vrije tekst)-opeenvolging binnen 1 container — op-volgorde-lopende parser i.p.v. CSS-selectors. Terugkerend laagdrempelig "Boswachters met bakfiets"-inloopmoment bewust overgeslagen (titel-check, want kreeg 1x per ongeluk toch een H5). **Kleine, bewust niet-generieke bron**: 1 tentoonstelling/seizoen, volgend jaar andere URL/titel — dan opnieuw bekijken i.p.v. dit script automatisch te laten meedraaien. 11 events/run) |
+| Akerk (Groningen) | `scrape_akerk.py` (2026-08-19 — React-app, maar publieke JSON-API (`events.json`, gepagineerd) gevonden via netwerkcheck, geen Playwright nodig. `eventTypes`-array als genre-signaal (`EVENTTYPE_CAT_MAP`: Expositie→expositie, Orgelconcert/Koor→klassiek, Festival→festival). Vaste locatie (1 gebouw). 11 events/run) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).

@@ -512,151 +512,19 @@
     "url": "https://forum.nl/nl/agenda/storyworld"
   },
   {
-    "title": "Alcest",
+    "title": "All Cops Are | expositie",
     "date": "2026-08-18",
-    "source": "tivolivredenburg",
+    "source": "akerk",
     "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/41895184/alcest-18-08-2026"
-  },
-  {
-    "title": "Beleef het Boomkroonpad",
-    "date": "2026-08-18",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Hondsrug",
-    "province": "Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/beleef-het-boomkroonpad",
-    "subtitle": "Beleef het bos eens vanuit een ander perspectief en maak een wandeling over het Boomkroonpad. Dit wandelpad leidt je hoog langs de toppen van de bomen.",
-    "lat": 52.949836,
-    "lon": 6.745159,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Bossafari",
-    "date": "2026-08-18",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Appelscha",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3859740204/bossafari-2"
-  },
-  {
-    "title": "Bossafari Drents-Friese Wold",
-    "date": "2026-08-18",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Drents-Friese Wold",
-    "province": "Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/bossafari-drents-friese-wold",
-    "subtitle": "Ga samen met je kinderen mee met de boswachter en ontdek het Drents-Friese Wold met al je zintuigen: ruik, proef, zie en hoor de natuur! Ook leuk voor opa's en oma's.",
-    "lat": 52.953193,
-    "lon": 6.310575,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Brinklopen | Loop 2,5 tot 10 km hard",
-    "date": "2026-08-18",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Diever",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1933582311/brinklopen-loop-2-5-tot-10-km-hard"
-  },
-  {
-    "title": "Celebrating The Beatles met Van Velzen, Van den Bercken en Hein",
-    "date": "2026-08-18",
-    "source": "concertgebouw",
-    "genre": "Klassiek",
-    "location": "Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/42993665-celebrating-the-beatles-met-van-velzen-van-den-bercken-en-hein"
-  },
-  {
-    "title": "DIXI",
-    "date": "2026-08-18",
-    "source": "bostheater",
-    "genre": "overig",
-    "venue": "Bostheater, Diever",
-    "url": "https://bostheater.nl/events/dixi/"
-  },
-  {
-    "title": "Douwe Bob",
-    "date": "2026-08-18",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/22357349/douwe-bob-18-08-2026"
-  },
-  {
-    "title": "Drentse Heidedagen | Schaapskudde Hijken",
-    "date": "2026-08-18",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Hooghalen",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3886404625/drentse-heidedagen-schaapskudde-hijken-1"
-  },
-  {
-    "title": "Drentse Heidedagen | Schaapskudde Ruinen",
-    "date": "2026-08-18",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Ruinen",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3985129227/drentse-heidedagen-schaapskudde-ruinen"
-  },
-  {
-    "title": "Informatieplein Lewenborg",
-    "date": "2026-08-18",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/informatieplein-lewenborg?date=18-08-2026"
-  },
-  {
-    "title": "Joost Oomen",
-    "date": "2026-08-18",
-    "source": "bostheater",
-    "genre": "overig",
-    "venue": "Bostheater, Diever",
-    "url": "https://bostheater.nl/events/joost-oomen-maanlicht-in-etten-leur/"
-  },
-  {
-    "title": "Kamermuziekweek Apollo Ensemble - Cassandra Luckhardt",
-    "date": "2026-08-18",
-    "source": "visitgroningen",
-    "genre": "Festival",
-    "city": "Warffum",
+    "date_end": "2026-09-01",
+    "venue": "Akerk, Groningen",
+    "city": "Groningen",
     "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2754580373/kamermuziekweek-apollo-ensemble",
-    "category": "Muziekfestival"
-  },
-  {
-    "title": "Kinderdoedag Boomkroonpad",
-    "date": "2026-08-18",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Hondsrug",
-    "province": "Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/kinderdoedag-boomkroonpad",
-    "subtitle": "Sluit aan bij de kinderdoemiddag waar er elke keer weer iets nieuws te beleven is! Van nestkastjes timmeren tot aan slangen maken en knutselen uit de natuur.",
-    "lat": 52.949836,
-    "lon": 6.745159,
+    "url": "https://akerk.nl/event/all-cops-are-expositie",
+    "subtitle": "Maakt een uniform je conservatief? Is stevig op je benen staan intimiderend voor een ander? Zijn alle agenten nou schoften, helden of iets daar tussenin? In de expositie All Cops Are die van 18 augustus t/m 1 september is te zien in  de Akerk in Groningen, laat een groep agenten zich tweemaal profileren door toevallige voorbijgangers op straat: eerst in hun eigen kleding, daarna in uniform. Wat zie vind en zie jij?",
     "cats": [
-      "actief"
+      "expositie"
     ]
-  },
-  {
-    "title": "Kings Return: magische samenzang van a-cappellakoningen",
-    "date": "2026-08-18",
-    "source": "concertgebouw",
-    "genre": "Klassiek",
-    "location": "Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/41773094-kings-return-magische-samenzang-van-a-cappellakoningen"
   },
   {
     "title": "MYTH MAKERS – Édua Mária László en Huba Hőnigh",
@@ -667,74 +535,6 @@
     "city": "Heerenveen",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/855789275/myth-makers-edua-maria-laszlo-en-huba-honigh"
-  },
-  {
-    "title": "Signs of the Swarm - + Heavy//Hitter + Tenuem",
-    "date": "2026-08-18",
-    "source": "doornroosje",
-    "genre": "overig",
-    "venue": "Doornroosje, Nijmegen",
-    "url": "https://www.doornroosje.nl/event/signs-of-the-swarm/"
-  },
-  {
-    "title": "Techno Tuesday: Dexon",
-    "date": "2026-08-18",
-    "source": "melkweg",
-    "genre": "overig",
-    "venue": "Melkweg, Amsterdam",
-    "url": "https://www.melkweg.nl/nl/agenda/techno-tuesday-18-08-2026/"
-  },
-  {
-    "title": "UITKIJKERS",
-    "date": "2026-08-18",
-    "source": "bostheater",
-    "genre": "overig",
-    "venue": "Bostheater, Diever",
-    "url": "https://bostheater.nl/events/uitkijkers/"
-  },
-  {
-    "title": "Vaartocht door Nationaal Park De Alde Feanen (10+)",
-    "date": "2026-08-18",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Earnewald",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2859680751/vaartocht-door-nationaal-park-de-alde-feanen-10-14"
-  },
-  {
-    "title": "Van Gogh Boerenmiktocht | Vaartocht Hoogeveen- Noordscheschut",
-    "date": "2026-08-18",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Hoogeveen",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/2329705822/boerenmiktocht-varen-incl-koffie-thee-en-boerenmik-19-75-pp"
-  },
-  {
-    "title": "Vleddermarkt",
-    "date": "2026-08-18",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Vledder",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/506864519/vleddermarkt"
-  },
-  {
-    "title": "Vlindermarkt",
-    "date": "2026-08-18",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Emmen",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1161464233/vlindermarkt"
-  },
-  {
-    "title": "Wilco - a tour with Wilco + Hovvdy",
-    "date": "2026-08-18",
-    "source": "paradiso",
-    "genre": "overig",
-    "venue": "Paradiso, Amsterdam",
-    "url": "https://www.paradiso.nl/nl/programma/wilco-a-tour-with-wilco/2843675"
   },
   {
     "title": "150 jaar Mata Hari - Echo’s van Mata Hari | immersieve lichtinstallatie",
@@ -1011,6 +811,21 @@
     "city": "Leeuwarden (Nl)",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3831513694/orgelconcert-door-reitze-smits"
+  },
+  {
+    "title": "Orgelzomer Groningen | Michael Bennett",
+    "date": "2026-08-19",
+    "source": "akerk",
+    "genre": "overig",
+    "time": "20.00 uur",
+    "venue": "Akerk, Groningen",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://akerk.nl/event/orgelzomer-groningen-michael-bennett",
+    "subtitle": "De Orgelzomer Groningen in de Akerk is een reeks orgelconcerten met organisten uit binnen- en buitenland. Op woensdag 19 augustus staat het tweede concert uit de reeks op de agenda. Deze avond zal Michael Bennett voor je spelen op het Arp Schnitgerorgel.",
+    "cats": [
+      "klassiek"
+    ]
   },
   {
     "title": "Pizzaparty | Park Drentheland",
@@ -3488,6 +3303,21 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1960796111/orgelconcert-door-peter-van-der-zwaag-4"
   },
   {
+    "title": "Orgelzomer Groningen | Geerten van de Wetering",
+    "date": "2026-08-26",
+    "source": "akerk",
+    "genre": "overig",
+    "time": "20.00 uur",
+    "venue": "Akerk, Groningen",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://akerk.nl/event/orgelzomer-groningen-geerten-van-de-wetering",
+    "subtitle": "De Orgelzomer Groningen in de Akerk is een reeks orgelconcerten met organisten uit binnen- en buitenland. Op woensdag 26  augustus zal Geerten van de Wetering voor je spelen op het Arp Schnitgerorgel.",
+    "cats": [
+      "klassiek"
+    ]
+  },
+  {
     "title": "Pop Up: Bûten Oan Tafel",
     "date": "2026-08-26",
     "source": "friesland.nl",
@@ -3997,6 +3827,21 @@
     "city": "Bolsward",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1762159701/beachvolleybal-weekend"
+  },
+  {
+    "title": "Bommen Berend - de Groote Maaltijd",
+    "date": "2026-08-28",
+    "source": "akerk",
+    "genre": "overig",
+    "time": "17.00 -18.30 uur / 19.00 - 20.30 uur",
+    "venue": "Akerk, Groningen",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://akerk.nl/event/bommen-berend-de-groote-maaltijd-2",
+    "subtitle": "Elk jaar vieren we op 28 augustus tijdens Groningens Ontzet dat de stad Groningen in het rampjaar 1672 het beleg door Bernhard von Galen, Bommen Berend, heeft doorstaan. Op deze feestdag worden er verschillende evenementen georganiseerd in de stad. Zo kan iedereen deze dag aanschuiven voor de traditionele Bommen Berend-maaltijd: zuurkool met bommen (gehaktbal). Kom je samen eten in de Akerk?",
+    "cats": [
+      "festival"
+    ]
   },
   {
     "title": "Bommen Berend – Kermis Groningen",
@@ -6047,6 +5892,21 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/549486964/akerk-stephan-van-de-wijgert",
     "category": "Muziek overig"
+  },
+  {
+    "title": "Orgelzomer Groningen | Stephan van de Wijgert",
+    "date": "2026-09-02",
+    "source": "akerk",
+    "genre": "overig",
+    "time": "20.00 uur",
+    "venue": "Akerk, Groningen",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://akerk.nl/event/orgelzomer-groningen-stephan-van-de-wijgert",
+    "subtitle": "De Orgelzomer Groningen in de Akerk is een reeks orgelconcerten met organisten uit binnen- en buitenland. Op woensdag 2 september zal Geerten van de Wetering voor je spelen op het Arp Schnitgerorgel.",
+    "cats": [
+      "klassiek"
+    ]
   },
   {
     "title": "Prosecco Night: F*ck de Familie",
@@ -8569,6 +8429,21 @@
     "category": "Muziek overig"
   },
   {
+    "title": "Orgelzomer Groningen | Leonore Lub",
+    "date": "2026-09-09",
+    "source": "akerk",
+    "genre": "overig",
+    "time": "20.00 uur",
+    "venue": "Akerk, Groningen",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://akerk.nl/event/orgelzomer-groningen-leonore-lub",
+    "subtitle": "De Orgelzomer Groningen in de Akerk is een reeks orgelconcerten met organisten uit binnen- en buitenland. Op woensdag 9 september sluit Leonore Lub de orgelconcert reeks af in de Akerk.",
+    "cats": [
+      "klassiek"
+    ]
+  },
+  {
     "title": "Proeflessenweek",
     "date": "2026-09-09",
     "source": "usva",
@@ -9924,6 +9799,21 @@
     "url": "https://podiumzuidhaege.nl/a/open-monumentendag/"
   },
   {
+    "title": "Open Monumentendag - Herbestemd Erfgoed",
+    "date": "2026-09-12",
+    "source": "akerk",
+    "genre": "overig",
+    "time": "10.00 - 16.00 uur",
+    "venue": "Akerk, Groningen",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://akerk.nl/event/open-monumentendag-2",
+    "subtitle": "Natuurlijk is de Akerk open tijdens Open Monumentendag. De ideale dag om de kerk te bewonderen en naar muziek te komen luisteren. Maak kennis met de Akerk als cultuurkerk.",
+    "cats": [
+      "festival"
+    ]
+  },
+  {
     "title": "Open Monumentendag 2026 in Beetsterzwaag: Veerkrachtig Erfgoed",
     "date": "2026-09-12",
     "source": "friesland.nl",
@@ -10605,6 +10495,21 @@
     "time": "20:30",
     "venue": "Paradiso, Amsterdam",
     "url": "https://www.paradiso.nl/nl/programma/lambros/2916639"
+  },
+  {
+    "title": "Langs de oevers van de Elbe | Toonkunstkoor Bekker",
+    "date": "2026-09-13",
+    "source": "akerk",
+    "genre": "overig",
+    "time": "15.15 uur",
+    "venue": "Akerk, Groningen",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://akerk.nl/event/langs-de-oevers-van-de-elbe",
+    "subtitle": "Langs de oevers van de Elbe is een concert vol contrasten: van volksmuzikale wortels tot romantische pracht. Toonkunstkoor Bekker brengt op zondag 13 september in de Akerk werken van Bartók, Brahms en Janáček ten gehore.",
+    "cats": [
+      "klassiek"
+    ]
   },
   {
     "title": "Lekker Lemmer",
@@ -13586,14 +13491,19 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1955474160/tickled-pink"
   },
   {
-    "title": "Tunder en Buxtehude",
+    "title": "Tunder en Buxtehude - Peter Westerbrink",
     "date": "2026-09-20",
-    "source": "visitgroningen",
-    "genre": "Muziek",
+    "source": "akerk",
+    "genre": "overig",
+    "time": "15.30 uur",
+    "venue": "Akerk, Groningen",
     "city": "Groningen",
     "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2597517703/tunder-en-buxtehude",
-    "category": "Muziek overig"
+    "url": "https://akerk.nl/event/lübecker-orgeldynastie-tunder-en-buxtehude",
+    "subtitle": "In 2025 sloegen de twee grote middeleeuwse kerken in Groningen de handen ineen met een serie van vier orgelconcerten rond het thema ‘Geïnspireerd door Bach’. Dit initiatief bleek een schot in de roos en krijgt daarom dit jaar navolging in een wederom vierdelige serie met prachtige vrije en koraalgebonden werken van Franz Tunder (1614-1667) en schoonzoon Dieterich Buxtehude (1637-1707).",
+    "cats": [
+      "klassiek"
+    ]
   },
   {
     "title": "Verhalen maken onder leiding van curator Nathalie Hartjes, in het kader van het werk van Pia Lindman.",
@@ -15343,6 +15253,21 @@
     "time": "20:00",
     "venue": "Martiniplaza, Groningen",
     "url": "https://www.theater.nl/we-will-rock-you-musical-2025-2026#2026-09-25T20-00"
+  },
+  {
+    "title": "Wijnfestival Groningen",
+    "date": "2026-09-25",
+    "source": "akerk",
+    "genre": "overig",
+    "date_end": "2026-09-27",
+    "venue": "Akerk, Groningen",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://akerk.nl/event/wijnfestival-groningen-2",
+    "subtitle": "Op 25, 26 en 27 september 2026 wordt het Wijnfestival Groningen voor de 10e keer in de Akerk gehouden! Een geweldig wijnweekend met natuurlijk fantastische wijnen, smakelijke hapjes en, vooral, heel veel gezelligheid. En dit jubileumjaar maken we het extra speciaal!",
+    "cats": [
+      "festival"
+    ]
   },
   {
     "title": "15 Years of Gabber Syndrome",
@@ -43042,6 +42967,21 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3399826197/vrienden-voor-het-leven-2026",
     "category": "Theater overig"
+  },
+  {
+    "title": "Whiskey Festival Groningen",
+    "date": "2026-11-27",
+    "source": "akerk",
+    "genre": "overig",
+    "date_end": "2026-11-29",
+    "venue": "Akerk, Groningen",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://akerk.nl/event/whiskey-festival-groningen",
+    "subtitle": "Op 27 en 28 november vindt Whisky Festival Groningen plaats in de Akerk. Ben je whiskyliefhebber of geïnteresseerd in whisky, dan is een bezoek aan dit festival zeker een aanrader! Of je nu net begint met ontdekken of al jarenlang liefhebber bent: hier, in een prachtige ambiance, proef je iets nieuws.",
+    "cats": [
+      "festival"
+    ]
   },
   {
     "title": "William Janz",

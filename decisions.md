@@ -1923,3 +1923,38 @@ voegen aan dezelfde bewezen fade-scroll-CSS-regel die
 
 Zie ARCHITECTURE.md §Wandelingen/tochten voor de volledige technische
 uitwerking en overleg.md punt 15 voor de besluitgeschiedenis.
+
+## 2026-08-19 — Akerk (Groningen) gebouwd: schone JSON-API, 11 events
+
+Michiel wees op akerk.nl (kerkgebouw/evenementenlocatie Groningen) met een
+concreet voorbeeld (`/event/all-cops-are-expositie`). De agenda-pagina is
+een client-rendered app, maar een netwerkcheck (Browser pane) legde meteen
+een publieke JSON-API bloot: `akerk.nl/events.json` (gepagineerd via
+`meta.pagination.links.next`) — geen Playwright nodig, dezelfde soort
+vondst als bij Groninger Museum/Staatsbosbeheer. 11 events over 2 pagina's.
+
+**Genre-signaal**: elk event heeft een `eventTypes`-array van de bron zelf
+(bv. `["Orgelconcert","Arp Schnitgerorgel"]`, `["Expositie"]`,
+`["Festival","Diner"]`) — vertaald naar `cats` via een kleine
+`EVENTTYPE_CAT_MAP` (Expositie→expositie, Orgelconcert/Koor→klassiek,
+Festival→festival) i.p.v. `classify()`'s titel-keyword-gok. Nodig: titels
+als "Orgelzomer Groningen | Michael Bennett" bevatten geen van de
+bestaande klassiek-keywords en zouden anders op 'overig' uitkomen.
+
+**De expositie ("All Cops Are") routeerde vanzelf correct naar
+Exposities-modus** — `cats=['expositie']` triggert `classify()`'s al
+bestaande `if c=='expositie': return 'expo'`-tak, geen extra code nodig.
+Meteen een mooie validatie dat dat mechanisme generiek werkt voor een
+compleet nieuwe bron.
+
+**Vaste locatie**: 1 gebouw (Akerkhof 2, Groningen), dus `venue`/`city`/
+`province` hardcoded i.p.v. per event afgeleid; `city='Groningen'` laat de
+bestaande `CITY_COORDS`-lookup de coördinaten invullen, geen aparte
+`VENUE_LOC`-entry nodig.
+
+**Geverifieerd**: dry-run (11 events, juiste cats/datums, meerdaagse dingen
+zoals Wijnfestival/Whiskey Festival correct met `date_end`), `insert_event()`
+(11 nieuw), regeneratie, lokale preview: de expositie zit correct in
+expo-item, de 10 gewone events tonen met bron-badge "Akerk" en de juiste
+genres, geen console-errors. Zie SCRAPERS.md voor de bijgewerkte
+bronnentelling (63).

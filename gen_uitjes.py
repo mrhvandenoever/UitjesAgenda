@@ -117,6 +117,7 @@ SRC = {
     # Natuuractiviteiten (overleg.md punt 15, 2026-08-18)
     'staatsbosbeheer':     ('Staatsbosbeheer', '🌲', '#43a047'),
     'intonature':          ('Into Nature',     '🎨', '#00838f'),
+    'akerk':                ('Akerk',            '⛪', '#5d4037'),
 }
 
 VENUE_LOC = {
