@@ -784,6 +784,35 @@ vaste plek, geen Cowork-afhankelijkheid meer. Zie `decisions.md` en
 
 ---
 
+### Performance (page-weight) — gemeten, geen lazy-loading nodig (2026-08-18)
+
+`index.html` is **één static bestand van ~5,1MB ongecomprimeerd** (8193+
+events, alles inline: HTML/CSS/JS, geen aparte assets). Dat rauwe getal
+klinkt groot, maar zegt weinig over echte laadtijd — gemeten op de live
+site via de Performance/Resource Timing API:
+
+| Metric | Gemeten | HTTP Archive-mediaan (ref.) |
+|---|---|---|
+| `transferSize` (echt over de lijn) | **~444KB** | ~2,2–2,7MB |
+| Aantal requests | **1** | 70–100+ |
+| DOMContentLoaded | **~600ms** | 1–3s |
+
+Verklaring: Cloudflare Pages serveert `text/html` standaard brotli/gzip-
+gecomprimeerd, en doordat alles inline staat (geen losse CSS/JS/font/
+afbeelding-bestanden) is er precies 1 HTTP-request nodig — geen
+DNS/TLS-wachtrij per extra asset zoals bij de meeste sites.
+
+**Conclusie**: lazy-loading (alleen eerstvolgende ~60 dagen server-side
+renderen, rest per maand als JSON nabijladen) is **bewust niet gebouwd** —
+niet omdat het te veel werk is, maar omdat de meting laat zien dat het geen
+reëel performanceprobleem oplost. Blijft een optie voor een moment dat de
+dataset fors groeit (bv. 5-10x meer bronnen) en dit opnieuw gemeten wordt;
+tot dan is de huidige aanpak (één static bestand, `content-visibility:auto`
+voor de render-kant) bewust de eenvoudigste optie. Volledige meting en
+onderbouwing: zie `decisions.md` 2026-08-18 en `overleg.md` punt 17.
+
+---
+
 ### build.py
 
 `build.py` staat in de repo maar wordt **niet** door Cloudflare aangeroepen.  

@@ -1534,3 +1534,44 @@ tivolivredenburg (allemaal >50km) en blijven vera/simplon/martiniplaza
 combinatie met tekstzoek ("vera") werkt correct samen met de toggle;
 actieve-knop-kleur (blauw, `#1565c0`) en `aria-pressed` werken; geen
 console-errors op de live preview.
+
+## 2026-08-18 — Lazy-loading definitief niet nodig: gemeten, niet aangenomen
+
+Michiel vroeg, na afronding van alle Claude Design-punten: "ik wil
+lazy-loading eigenlijk niet oppakken, omdat ik de site best snel vind. 5,5mb
+vind ik ook wel meevallen. Wijk ik dan erg af van standaarden/normaal?" —
+een eerlijk antwoord vroeg om een echte meting i.p.v. een educated guess,
+dus die is gedaan op de live productiesite (`uitjesagenda.pages.dev`) via
+`performance.getEntriesByType('navigation')[0]` in de browserconsole:
+
+| Metric | Gemeten waarde |
+|---|---|
+| `decodedBodySize` (ongecomprimeerde HTML) | ~5.103.925 bytes (~5,1MB) |
+| `transferSize` (echt over de lijn) | **454.452 bytes (~444KB)** |
+| `encodedBodySize` | 454.152 bytes |
+| Aantal netwerk-requests (`resourceCount`) | **0** extra (1 totaal: de HTML zelf) |
+| `domContentLoadedEventEnd` | ~601ms |
+| `loadEventEnd` | ~652ms |
+| DOM-nodes | 58.444 |
+
+**Interpretatie**: de eerder door Claude Design gerapporteerde "5,5MB" was
+de **ongecomprimeerde** bestandsgrootte — geen representatieve
+performance-metric. Cloudflare Pages serveert `text/html` standaard
+brotli/gzip-gecomprimeerd, dus het werkelijke transportgewicht is ~444KB,
+in exact 1 request (geen losse CSS/JS/font/afbeelding-bestanden, want
+alles staat al inline in `gen_uitjes.py`'s output). Ter referentie: de
+HTTP Archive "State of the Web"-mediaan voor een gewone website ligt rond
+2,2–2,7MB transferred over 70–100+ requests — deze site zit daar ruim
+onder qua bytes én requests, en laadt in ~0,6s tot interactief.
+
+**Besluit**: lazy-loading-architectuur (alleen eerstvolgende ~60 dagen
+server-side renderen, rest per maand als JSON nabijladen — het idee dat
+Claude Design in de derde reviewronde opperde, zie 2026-08-17) blijft
+**bewust niet gebouwd**. Niet als openstaand actiepunt, maar als bewust
+geparkeerde optie: pas relevant als de dataset fors groeit (bv. 5-10x meer
+bronnen/events) en de meting dan anders uitpakt. De huidige architectuur
+(één static HTML-bestand, `content-visibility:auto` voor de render-kant,
+geen build-tooling nodig) blijft tot dan de eenvoudigste en goed genoeg
+onderbouwde keuze. Vastgelegd in `overleg.md` punt 17 en
+`ARCHITECTURE.md` §Deployment/Performance zodat dit niet opnieuw als open
+vraag terugkomt zonder de meting erbij te vermelden.
