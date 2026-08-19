@@ -1958,3 +1958,32 @@ zoals Wijnfestival/Whiskey Festival correct met `date_end`), `insert_event()`
 expo-item, de 10 gewone events tonen met bron-badge "Akerk" en de juiste
 genres, geen console-errors. Zie SCRAPERS.md voor de bijgewerkte
 bronnentelling (63).
+
+## 2026-08-19 — Backend-keuze: Supabase, scope zo klein mogelijk gehouden
+
+Vervolg op punt 20 (overleg.md): Michiel koos Supabase, met de expliciete
+eis "alles zoveel mogelijk statisch houden en alleen wat nodig is
+wegregelen via Supabase". Vastgelegd principe voor de rest van dit traject:
+
+- **Ongewijzigd**: scraping, `events_categorized.json`, `gen_uitjes.py`,
+  de hele event-data-pijplijn, en de deploy-flow (`git push` → Cloudflare
+  Pages draait `gen_uitjes.py` → statisch bestand live). Geen Cloudflare
+  Worker/Function ertussen — dat zou een extra bewegend onderdeel zijn
+  terwijl Supabase's client-library specifiek is gemaakt om rechtstreeks
+  vanuit de browser aan te spreken (beveiliging via database-regels, niet
+  via een tussenliggende server).
+- **Nieuw, en de ENIGE nieuwe backend-oppervlakte**: Supabase Auth
+  (inloggen/registreren, kant-en-klaar) + 1 tabel `favorites` (`user_id`,
+  `term`, `added_at`) met row-level security (iedereen ziet/wijzigt alleen
+  eigen rijen, afgedwongen door de database). Klein nieuw stukje client-JS
+  in `index.html` dat inlogstatus bijhoudt en favorieten uit die tabel
+  leest/schrijft i.p.v. uit `localStorage`.
+- **Blokkerend op Michiel**: een Supabase-account/project aanmaken kan niet
+  door Claude gedaan worden (vereist Michiels eigen e-mail/inlog). Gevraagd:
+  Project-URL + de publieke `anon`-API-key (bewust veilig om in client-code
+  te zetten — Supabase's eigen ontwerp, beveiliging zit in RLS-regels, niet
+  in het geheimhouden van deze sleutel). De aparte `service_role`-sleutel
+  (wél geheim, admin-rechten) is nergens voor nodig aan de client-kant.
+- **Nog te bouwen zodra de sleutels er zijn**: tabel-schema + RLS-policy's,
+  login/registratie-UI, favorieten-CRUD tegen Supabase i.p.v. localStorage.
+  Wacht op Michiel — nog niet gestart.
