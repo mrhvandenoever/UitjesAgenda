@@ -30,7 +30,9 @@ archief, niet hernummerd of verwijderd.
   - UI: een simpele naam-zoekfunctie/autocomplete over alle titels, of een echte "favorieten"-lijst die lokaal (browser) wordt opgeslagen?
   - Notificatie erbij (bv. "nieuw optreden toegevoegd voor favoriet X"), of alleen een filter/overzicht?
   - Sport past hier natuurlijk al goed bij (club-filter bestaat al) — dit zou het generaliseren naar willekeurige artiesten/gezelschappen ook buiten sport.
-- Nog niet technisch uitgewerkt — richting staat vast, ontwerp (matching, UI, opslag) nog te doen.
+- **Aanvulling Michiel (2026-08-19)**: een "favoriet" hoeft geen exacte naam/act te zijn — ook een deel van een naam of een onderwerp moet kunnen. Letterlijk voorbeeld: "Spinvis" (artiestnaam), maar ook iets als "anime" als onderwerp dat alle anime-muziek-gerelateerde activiteiten zou moeten vangen, over allerlei verschillende titels heen.
+  - **Verandert de aard van de eerdere matching-vraag**: een exacte-identiteit-matcher (zoals bij de cross-source-dedup) is voor een vrij-tekst/onderwerp-achtige "favoriet" niet eens het juiste model — dit is inhoudelijk gewoon een **opgeslagen zoekopdracht**, geen identiteitsherkenning. Kan dus grotendeels hergebruiken wat er al staat: dezelfde substring-zoekinfrastructuur als het bestaande zoekveld (`searchWords`, `data-search`-attribuut, diakrieten-folding) — alleen dan een naam/trefwoord die de gebruiker bewaart (lokaal, `localStorage`, zelfde patroon als adres/modus nu al onthouden wordt) i.p.v. steeds opnieuw intypen, met eventueel een sterretje/badge op matchende events. Maakt de "hoe herken je dezelfde act"-vraag hierboven minder een blokkade: voor een letterlijke naam ("Spinvis") wil je toch al gewoon substring-matching, geen slimme identiteitsherkenning.
+- Nog niet technisch uitgewerkt — richting staat vast, ontwerp (matching/opslag als "bewaarde zoekopdracht" i.p.v. identiteitsmatch, UI) nog te doen.
 
 ### 11. Admin-scherm — RICHTING BEPAALD 2026-08-15
 - Michiel wilde in totaal 3 nieuwe knoppen naast Uitjes/Sport: **Exposities** (punt 10, gebouwd), **Favorieten** (punt 9, zie daar — nog niet gebouwd) en **Admin**.
