@@ -283,6 +283,23 @@ consistentie met `expo_card_html()` (nog niet door JS gebruikt, wel
 beschikbaar). Zie decisions.md 2026-08-17 voor de volledige uitwerking,
 inclusief de gescopede DB-opruiming vóór de live-run.
 
+**"Nu lopend"-sectie (2026-08-21)**: een meerdaags event blijft
+server-side gegroepeerd onder zijn STARTdag (`day_groups_html()` groepeert
+op de ruwe `date`) — zodra die dag gepasseerd is (bv. de site is een paar
+dagen geleden gebouwd), oogt de bovenkant van de lijst verouderd, ook al
+loopt het event zelf nog gewoon door. Client-side JS-functie
+`moveOngoingEventsToTop()` (draait 1x bij page-load) verplaatst zulke
+events naar een apart, altijd-bovenaan-staand kopje "🔴 Nu lopend"
+(`#nu-lopend-wrap`, kreeg server-side al de class `.day-group` zodat de
+bestaande leeg-verbergen-logica in `apply()` er automatisch op meewerkt —
+geen aparte zichtbaarheidscode nodig). Gebruikt lokale datumcomponenten
+(niet `.toISOString()`, zelfde UTC/zomertijd-valkuil als
+`computeWhenRange()`) om tegen de ECHTE datum van de bezoeker te
+controleren, niet tegen de (noodzakelijk incidentele) build-datum — dit
+moest sowieso client-side, een dagelijkse build zou het probleem niet
+wegnemen. Events die inmiddels ook al écht voorbij zijn (build-staleness)
+worden verwijderd i.p.v. verstopt. Zie decisions.md 2026-08-21.
+
 ---
 
 ## Wandelingen/tochten (vierde topniveau-modus)

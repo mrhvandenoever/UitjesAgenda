@@ -1641,14 +1641,45 @@ function restoreFromURL(){{
   }}
 }}
 
+// --- "Nu lopend": een meerdaags Uitjes/Sport-event blijft anders onder
+// zijn (inmiddels gepasseerde) startdag-groep hangen -- de bovenkant van
+// de lijst oogt dan verouderd, ook al loopt het event zelf nog gewoon
+// door (gemeld door Michiel, 2026-08-20/21, zie decisions.md). Bewust
+// CLIENT-SIDE i.p.v. bij het genereren: "vandaag" verandert continu
+// tussen scrape-runs door (build draait maar 3x/week), dus dit moet
+// elke paginabezoek opnieuw tegen de ECHTE datum van de bezoeker gechecked
+// worden, niet tegen de datum waarop de statische pagina toevallig
+// gegenereerd is. Reuse van de bestaande .day-group-machinerie
+// (leeg-verbergen in apply() werkt hierdoor vanzelf mee, geen aparte
+// zichtbaarheidslogica nodig) -- #nu-lopend-wrap kreeg daarom al
+// server-side de class "day-group".
+function localISODate(d){{
+  // Bewust GEEN d.toISOString() -- converteert naar UTC en schuift in de
+  // Nederlandse zomertijd soms een dag door, zelfde bug als eerder
+  // gevonden in computeWhenRange() (2026-08-18).
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}}
+function moveOngoingEventsToTop(){{
+  const todayISO=localISODate(new Date());
+  const wrap=document.getElementById('nu-lopend-wrap');
+  document.querySelectorAll('main .event[data-dateend]').forEach(ev=>{{
+    const start=ev.dataset.date, end=ev.dataset.dateend;
+    if(!end||end===start) return;  // eendaags event, niets te verplaatsen
+    if(end<todayISO){{ ev.remove(); return; }}  // build-staleness: al echt voorbij, hoort er niet meer te staan
+    if(start<todayISO) wrap.appendChild(ev);    // al begonnen, nog lopend -> naar boven
+  }});
+}}
+
 // Init: URL-state herstellen (indien aanwezig) vóór de eerste render, dan
-// afstanden vanuit standaard centrum (Annen), en de mode-filtering toepassen
-// (bugfix 2026-08-15: zonder de setMode-aanroep bleven bv. sportwedstrijden
+// afstanden vanuit standaard centrum (Annen), lopende meerdaagse events
+// naar boven verplaatsen, en de mode-filtering toepassen (bugfix
+// 2026-08-15: zonder de setMode-aanroep bleven bv. sportwedstrijden
 // zichtbaar tussen de Uitjes tot de gebruiker voor het eerst een filter
 // aanklikte). setMode(currentMode) i.p.v. hardcoded 'uitjes' zodat een
 // herstelde modus uit de URL niet meteen weer overschreven wordt.
 restoreFromURL();
 updateDistances();
+moveOngoingEventsToTop();
 setMode(currentMode);
 '''
 
@@ -1991,7 +2022,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
 <div class="month-nav" id="month-nav-wrap">{month_nav}</div>
 <div id="stats">Toont alle {total_uitjes} uitjes</div>
 <div id="empty-state" class="hidden"></div>
-<main>{main_html}</main>
+<main><div class="day-group hidden" id="nu-lopend-wrap"><h3 class="day-header">\U0001f534 Nu lopend</h3></div>{main_html}</main>
 <div id="expo-wrap" style="display:none;">{expo_html}</div>
 <div id="routes-wrap" style="display:none;">{routes_html}</div>
 <div id="favorites-wrap" style="display:none;"></div>

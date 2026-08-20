@@ -2089,3 +2089,66 @@ allemaal via de Supabase MCP (nu wél verbonden) uitgezocht/opgelost:
   automatisch `relrowsecurity=true`. Enige overgebleven advisor-punt:
   "Leaked Password Protection Disabled" — een Auth-dashboardinstelling,
   geen database-wijziging, aan Michiel om zelf aan te zetten.
+
+## 2026-08-21 — "Nu lopend": meerdaagse events niet meer onder hun gepasseerde startdag verstopt
+
+Michiel meldde dat "18 augustus" nog bovenaan de lijst stond (site laatst
+gebouwd 20 augustus, bezoek op 21 augustus). Bleek geen databug — het
+waren meerdaagse events (bv. "MYTH MAKERS", t/m 23 aug) die nog gewoon
+geldig zijn, maar onder hun (inmiddels gepasseerde) STARTdag-groep bleven
+hangen, waardoor de bovenkant van de lijst verouderd oogde.
+
+**Waarom dit sowieso zou blijven gebeuren, los van bouwfrequentie**: de
+dag-groepering (`day_groups_html()`) groepeert op de ruwe `date` (start),
+en dat gebeurt SERVER-SIDE bij het genereren. Zelfs met een dagelijkse
+build zou een meerdaags event zijn eerste dag altijd "gisteren" worden
+zodra je 'm een dag later bekijkt. Dit moest dus sowieso CLIENT-SIDE
+opgelost worden, tegen de echte datum van de bezoeker op het moment van
+bekijken — niet tegen de (noodzakelijkerwijs incidentele) build-datum.
+
+**Oplossing, na een korte iteratie met Michiel**: eerst voorgesteld om het
+event simpelweg te verplaatsen naar de "vandaag"-dag-groep; Michiel stelde
+in plaats daarvan een apart, herkenbaar kopje voor — **"🔴 Nu lopend"**,
+losstaand bovenaan, in plaats van vermengd met eendaagse events-van-vandaag.
+Duidelijker: communiceert "dit is al bezig" i.p.v. te suggereren dat het
+event specifiek vandaag plaatsvindt.
+
+**Implementatie, met slimme hergebruik van bestaande machinerie**:
+- `#nu-lopend-wrap` kreeg server-side al de class `.day-group` (net als
+  een gewone dag-kop) — daardoor werkt de al bestaande leeg-verbergen-
+  logica in `apply()` (`g.querySelectorAll('.event:not(.hidden)').
+  length===0`) er automatisch op mee. Geen aparte zichtbaarheids-code
+  nodig voor het kopje zelf.
+- `moveOngoingEventsToTop()` (nieuwe JS-functie, draait 1x bij page-load,
+  vóór `setMode()`): berekent `todayISO` via **lokale** datumcomponenten
+  (`getFullYear()`/`getMonth()`/`getDate()`), bewust GEEN `toISOString()`
+  — dat converteert naar UTC en schuift in de Nederlandse zomertijd soms
+  een dag door, exact dezelfde bug als eerder gevonden in
+  `computeWhenRange()` (2026-08-18). Voor elk meerdaags event
+  (`data-dateend !== data-date`): als het al is afgelopen (`dateend <
+  todayISO`, puur build-staleness) wordt het node **verwijderd** (niet
+  alleen `.hidden` gezet — dat zou bij de volgende filterwijziging door
+  `apply()`'s eigen `ok`-berekening weer overschreven kunnen worden, een
+  `remove()` is onomkeerbaar-veilig); als het al begonnen maar nog niet
+  afgelopen is (`date < todayISO <= dateend`) wordt het node verplaatst
+  naar `#nu-lopend-wrap`.
+- Het verplaatsen gebeurt door de bestaande DOM-node te herpositioneren
+  (`appendChild`), niet te klonen — daardoor blijft alle bestaande
+  filter-/hidden-logica (`apply()`, genre/bron/afstand/zoeken) er zonder
+  enige aanpassing gewoon op werken, want het is letterlijk hetzelfde
+  element, alleen ergens anders in de DOM.
+- Scope: alleen `<main> .event[data-dateend]` — expo-items (`#expo-wrap`)
+  en routes (`.route-card`, geen `.event`-klasse) worden hierdoor
+  vanzelf niet geraakt, precies goed: Exposities groepeert toch al niet
+  per dag (heeft dit "verstopt onder een gepasseerde datum"-probleem
+  sowieso niet) en Wandelingen/tochten heeft geen datums.
+
+**Geverifieerd** (lokale preview, echte systeemdatum 21 augustus, site
+gegenereerd op 20 augustus — dus met een reëel 1-dag-verschil): 7 events
+correct verplaatst naar "Nu lopend" (bv. een event dat startte op 20
+augustus, nu "gisteren" vanuit de bezoeker gezien), de oorspronkelijke
+dag-groepen (18/19/20 aug) daardoor leeg en automatisch verborgen, de
+eerste zichtbare normale dag-groep is nu terecht "Vrijdag 21 augustus"
+(geen gat meer), eendaagse events op/na vandaag blijven gewoon op hun
+eigen plek staan, filters (getest: genre=theater) werken ongewijzigd door
+op de verplaatste events, geen console-errors.
