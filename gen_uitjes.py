@@ -13,8 +13,36 @@ def fold_diacritics(s: str) -> str:
     zonder deze fold vond een zoekopdracht 'zummerbuhne' geen 'Zummerbühne'.
     Zie decisions.md 2026-08-18 (Claude Design-review, 4e ronde)."""
     return ''.join(c for c in unicodedata.normalize('NFKD', s) if not unicodedata.combining(c))
-from datetime import date
-TODAY = date.today().isoformat()
+from datetime import date, datetime, timedelta, timezone
+
+def _netherlands_today():
+    """Nederlandse lokale datum (CET/CEST), ongeacht de tijdzone van de
+    machine die dit script uitvoert. Bewust GEEN zoneinfo: Cloudflare's
+    build-omgeving heeft mogelijk geen systeem-tzdata beschikbaar, en dit
+    voorkomt sowieso een afhankelijkheid buiten de Python-stdlib
+    (requirements.txt is leeg, zie ARCHITECTURE.md). EU-zomertijdregel is
+    wettelijk vastgelegd (anders dan in de VS niet onderhevig aan
+    politieke wijziging): CEST (UTC+2) vanaf de laatste zondag van maart
+    01:00 UTC, CET (UTC+1) vanaf de laatste zondag van oktober 01:00 UTC.
+
+    Gevonden 2026-08-21: Cloudflare's build-server draait kennelijk in
+    UTC -- 's avonds tussen 22:00-00:00 Nederlandse tijd (nog "gisteren"
+    in UTC) liep TODAY daardoor een dag achter, met een site die events
+    te vroeg als "voorbij" behandelde. Zie decisions.md 2026-08-21.
+    """
+    utc_now = datetime.now(timezone.utc).replace(tzinfo=None)
+    def last_sunday(year, month):
+        d = date(year, month, 31)  # maart en oktober hebben allebei 31 dagen
+        while d.weekday() != 6:  # 6 = zondag
+            d -= timedelta(days=1)
+        return d
+    year = utc_now.year
+    dst_start = datetime.combine(last_sunday(year, 3), datetime.min.time()) + timedelta(hours=1)
+    dst_end = datetime.combine(last_sunday(year, 10), datetime.min.time()) + timedelta(hours=1)
+    offset_hours = 2 if dst_start <= utc_now < dst_end else 1
+    return (utc_now + timedelta(hours=offset_hours)).date()
+
+TODAY = _netherlands_today().isoformat()
 from collections import defaultdict
 
 with open(EVENTS_JSON, encoding="utf-8") as f:

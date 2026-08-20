@@ -2152,3 +2152,41 @@ eerste zichtbare normale dag-groep is nu terecht "Vrijdag 21 augustus"
 (geen gat meer), eendaagse events op/na vandaag blijven gewoon op hun
 eigen plek staan, filters (getest: genre=theater) werken ongewijzigd door
 op de verplaatste events, geen console-errors.
+
+## 2026-08-21 — Bijvangst: TODAY liep een dag achter door Cloudflare's UTC-build-server
+
+Bij het live verifiëren van de "Nu lopend"-fix hierboven viel iets op: de
+live site toonde "Bijgewerkt: 20 Augustus" terwijl de lokaal gecommitte
+`index.html` al "21 Augustus" had — dezelfde code, andere uitkomst.
+
+**Oorzaak**: `TODAY = date.today().isoformat()` gebruikt de tijdzone van
+de machine die `gen_uitjes.py` uitvoert. Cloudflare Pages draait
+`gen_uitjes.py` opnieuw op ZIJN EIGEN build-server bij elke push (zie
+ARCHITECTURE.md §Deployment) — die server draait kennelijk in UTC. Rond
+01:14 Nederlandse tijd (nog 's zomers, CEST = UTC+2) was het op Cloudflare
+dus pas 23:14 UTC, nog "20 augustus". Elke keer dat een build in het
+venster 22:00–00:00 Nederlandse tijd landt, zou de site daardoor 1 dag
+achterlopen: events van "vandaag" zouden dan nog als "morgen" behandeld
+worden (nog niet zichtbaar) totdat de volgende build daadwerkelijk over
+Nederlandse middernacht heen is.
+
+**Fix — bewust GEEN `zoneinfo`**: `zoneinfo.ZoneInfo('Europe/Amsterdam')`
+zou de nette, korte oplossing zijn geweest, maar leunt op een systeem-
+tzdata-database die op Cloudflare's (mogelijk minimale) build-image niet
+per se aanwezig is — en dat zou een stille aanname zijn die precies het
+soort "werkt-op-mijn-machine"-risico herhaalt dat deze bug al veroorzaakte.
+In plaats daarvan een kleine, zelfstandige `_netherlands_today()`-functie:
+rekent vanaf UTC met de EU-zomertijdregel (CEST vanaf de laatste zondag
+van maart 01:00 UTC, CET vanaf de laatste zondag van oktober 01:00 UTC) —
+een wettelijk vastgelegde regel (anders dan de VS niet onderhevig aan
+politieke wijziging), dus stabiel voor de komende jaren zonder onderhoud.
+Blijft zo binnen de bestaande stdlib-only-eis (`requirements.txt` is leeg,
+zie ARCHITECTURE.md).
+
+**Geverifieerd**: 4 losse testgevallen tegen de DST-grens (incl. het
+exacte scenario van vanavond: 20 aug 23:19 UTC → correct 21 aug NL-lokaal;
+winter-geval 15 jan 23:30 UTC → correct 16 jan; en de omschakelmomenten
+zelf net vóór/na 01:00 UTC op de laatste zondag van maart). Regeneratie
+lokaal: meta-regel toont nu correct "21 Augustus 2026", "Nu lopend"-fix
+hierboven ongewijzigd blijven werken (7 events, geen regressie), geen
+console-errors.

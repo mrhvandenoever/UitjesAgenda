@@ -817,6 +817,16 @@ De scraping en deduplicatie vinden altijd lokaal op de PC plaats.
 
 `requirements.txt` is leeg — Cloudflare gebruikt Python stdlib.
 
+**Let op — Cloudflare's build-server draait in UTC** (gevonden 2026-08-21):
+`gen_uitjes.py`'s `TODAY` (bepaalt welke events nog "geldig" zijn) gebruikt
+daarom bewust een eigen `_netherlands_today()`-helper i.p.v. kaal
+`date.today()` — die laatste zou tussen 22:00-00:00 Nederlandse tijd nog
+"gisteren" teruggeven op Cloudflare's server, met een site die 1 dag
+achterloopt tot de volgende build. Zie decisions.md 2026-08-21 voor de
+volledige uitwerking (bewust geen `zoneinfo`, want geen garantie op
+systeem-tzdata op een minimale build-image — een handgeschreven EU-
+zomertijdregel in plaats daarvan, wettelijk vastgelegd en dus stabiel).
+
 ---
 
 ### Wekelijkse refresh (Windows Taakplanner-taak)
