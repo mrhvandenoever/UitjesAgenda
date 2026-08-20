@@ -2056,3 +2056,36 @@ Supabase MCP):
   dit zelf te proberen met zijn eigen e-mailadres.
 
 Zie overleg.md punt 9/20 voor de volledige besluitgeschiedenis.
+
+## 2026-08-20 — Nasleep: redirect-bug, e-mail-rate-limit, security-advisor opgeruimd
+
+Drie kleine dingen die bij Michiels eerste eigen test naar boven kwamen,
+allemaal via de Supabase MCP (nu wél verbonden) uitgezocht/opgelost:
+
+- **Bevestigingsmail-redirect ging naar `localhost:3000`**: Supabase's
+  Auth "Site URL" stond nog op de project-default. Geen codewijziging —
+  Michiel moest dit zelf aanpassen in Authentication → URL Configuration
+  (Site URL → `https://uitjesagenda.pages.dev`, plus die URL + `/**` aan
+  Redirect URLs toegevoegd). Het account van de eerdere testregistratie
+  was overigens al gewoon bevestigd — geen nieuwe registratie nodig, alleen
+  opnieuw inloggen.
+- **E-mail-rate-limit (2/uur) van de ingebouwde Supabase-mailer**: geraakt
+  door herhaalde test-signups (deels mijn eigen eerdere test). Bleek niet
+  zelf op te hogen zonder eerst custom SMTP of een Send Email Hook te
+  configureren (Supabase blokkeert dat expliciet in de UI) — niet nu
+  gedaan, alleen genoteerd als toekomstige stap zodra er meer dan
+  incidenteel gebruik komt.
+- **Security-advisor, `rls_auto_enable()`-waarschuwingen definitief
+  opgelost via de Supabase MCP** (`apply_migration`): eerste poging
+  (`revoke execute ... from anon, authenticated`) bleek een no-op — de
+  functie had EXECUTE nog gewoon aan `PUBLIC` staan (Postgres-default bij
+  het aanmaken van een functie), en `anon`/`authenticated` erven daar
+  automatisch van, los van een expliciete revoke op alleen die twee rollen.
+  Tweede poging (`revoke execute ... from public`) loste het wél op —
+  bevestigd via `information_schema.routine_privileges` (alleen
+  `postgres`/`service_role` behouden EXECUTE) en opnieuw via
+  `get_advisors` (beide WARN's weg). **Geverifieerd dat de auto-RLS-trigger
+  zelf niet stuk is**: een tijdelijke test-tabel kreeg nog steeds
+  automatisch `relrowsecurity=true`. Enige overgebleven advisor-punt:
+  "Leaked Password Protection Disabled" — een Auth-dashboardinstelling,
+  geen database-wijziging, aan Michiel om zelf aan te zetten.
