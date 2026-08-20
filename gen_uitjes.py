@@ -770,6 +770,7 @@ function renderActiveFilters(){{
 }}
 
 function apply(){{
+  if(currentMode==='favorieten'){{return;}}
   if(currentMode==='wandelingen'){{applyRoutes();return;}}
   let v=0;
   document.querySelectorAll('.event').forEach(ev=>{{
@@ -1012,6 +1013,204 @@ document.getElementById('search-input').addEventListener('input',function(){{
   }},250);
 }});
 
+// ============================================================
+// Favorieten (5e topniveau-modus, 2026-08-19): bewaarde zoektermen,
+// cross-device via Supabase (Auth + 1 "favorites"-tabel met row-level
+// security) i.p.v. localStorage -- Michiel wilde expliciet cross-device
+// sync en op termijn een breder account-systeem, zie overleg.md punt 20.
+//
+// Bewust LAZY geladen: de Supabase-library wordt pas ingevoegd bij de
+// EERSTE klik op de Favorieten-knop (loadSupabaseLib()), niet standaard
+// in <head>. Anders zou elke bezoeker -- ook wie Favorieten nooit gebruikt
+// -- voortaan een externe library moeten downloaden, wat rechtstreeks
+// ingaat tegen de net gemeten en bewust bewaakte "444KB/1 request"-
+// lichtheid van de rest van de site (zie overleg.md punt 17,
+// lazy-loading-meting 2026-08-18).
+//
+// "Favoriet" is hier een bewaarde ZOEKOPDRACHT (vrije tekst/onderwerp,
+// bv. "Spinvis" of "anime"), geen identiteitsmatch op een specifieke act
+// -- hergebruikt daarom gewoon dezelfde substring/AND-woord-matching als
+// het bestaande zoekveld (foldDiacritics() + data-search-attributen),
+// i.p.v. een apart matching-systeem te bouwen. Zie overleg.md punt 9.
+// ============================================================
+const SUPABASE_URL='https://ojstbhiklmehshxpgzyb.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_oXm3wPnNLrb22ypYcqgPww_z9bTdmFv';
+let sbClient=null, sbSession=null;
+
+function loadSupabaseLib(cb){{
+  if(sbClient){{cb();return;}}
+  const wrap=document.getElementById('favorites-wrap');
+  wrap.innerHTML='<p>Laden\u2026</p>';
+  const s=document.createElement('script');
+  s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+  s.onload=()=>{{
+    sbClient=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+    sbClient.auth.getSession().then(({{data}})=>{{
+      sbSession=data.session;
+      sbClient.auth.onAuthStateChange((_event,session)=>{{
+        sbSession=session;
+        if(currentMode==='favorieten') renderFavoritesWrap();
+      }});
+      cb();
+    }});
+  }};
+  s.onerror=()=>{{ wrap.innerHTML='<p>Kon Favorieten niet laden (netwerkfout) \u2014 probeer het later opnieuw.</p>'; }};
+  document.head.appendChild(s);
+}}
+
+// Matcht dezelfde manier als het hoofd-zoekveld: alle woorden van de term
+// moeten (los van diakrieten) in data-search voorkomen, over Uitjes/Sport/
+// Exposities/Wandelingen-kaarten heen (querySelectorAll ziet ze allemaal,
+// ongeacht welke modus nu actief/zichtbaar is).
+function matchingCards(term){{
+  const words=foldDiacritics(term.trim().toLowerCase()).split(/\\s+/).filter(Boolean);
+  if(!words.length) return [];
+  return [...document.querySelectorAll('.event,.route-card')].filter(el=>{{
+    const hay=el.dataset.search||'';
+    return words.every(w=>hay.includes(w));
+  }});
+}}
+
+function buildAuthForm(){{
+  const box=document.createElement('div');
+  box.className='auth-box';
+  box.innerHTML=
+    '<div class="filters-label">Inloggen voor je favorieten</div>'+
+    '<input type="email" id="auth-email" placeholder="e-mailadres" autocomplete="email">'+
+    '<input type="password" id="auth-password" placeholder="wachtwoord" autocomplete="current-password">'+
+    '<div class="auth-buttons">'+
+    '<button class="empty-action-btn" id="auth-login-btn">Inloggen</button>'+
+    '<button class="icon-btn" id="auth-signup-btn">Nieuw account</button>'+
+    '</div><div id="auth-status"></div>';
+  const email=()=>box.querySelector('#auth-email').value.trim();
+  const pass=()=>box.querySelector('#auth-password').value;
+  const status=box.querySelector('#auth-status');
+  box.querySelector('#auth-login-btn').addEventListener('click',async()=>{{
+    status.textContent='Bezig\u2026';
+    const {{error}}=await sbClient.auth.signInWithPassword({{email:email(),password:pass()}});
+    status.textContent=error?('\u274c '+error.message):'';
+    if(!error){{ sbSession=(await sbClient.auth.getSession()).data.session; renderFavoritesWrap(); }}
+  }});
+  box.querySelector('#auth-signup-btn').addEventListener('click',async()=>{{
+    status.textContent='Bezig\u2026';
+    const {{error}}=await sbClient.auth.signUp({{email:email(),password:pass()}});
+    status.textContent=error?('\u274c '+error.message):'\u2705 Account aangemaakt \u2014 check je e-mail om te bevestigen, log daarna in.';
+  }});
+  return box;
+}}
+
+function renderFavoritesWrap(){{
+  const wrap=document.getElementById('favorites-wrap');
+  wrap.innerHTML='';
+  if(!sbSession){{ wrap.appendChild(buildAuthForm()); return; }}
+
+  const bar=document.createElement('div');
+  bar.className='fav-topbar';
+  const who=document.createElement('span');
+  who.textContent='Ingelogd als '+sbSession.user.email;
+  const logoutBtn=document.createElement('button');
+  logoutBtn.className='icon-btn';
+  logoutBtn.textContent='Uitloggen';
+  logoutBtn.addEventListener('click',async()=>{{ await sbClient.auth.signOut(); sbSession=null; renderFavoritesWrap(); }});
+  bar.appendChild(who); bar.appendChild(logoutBtn);
+  wrap.appendChild(bar);
+
+  const addBtn=document.createElement('button');
+  addBtn.className='empty-action-btn';
+  addBtn.textContent='+ Favoriet toevoegen';
+  addBtn.addEventListener('click',()=>showAddRow());
+  wrap.appendChild(addBtn);
+
+  const list=document.createElement('div');
+  list.id='favorites-list';
+  wrap.appendChild(list);
+  refreshFavoritesList();
+}}
+
+function showAddRow(){{
+  if(document.getElementById('fav-add-row')) return;
+  const row=document.createElement('div');
+  row.className='favorite-row';
+  row.id='fav-add-row';
+  row.innerHTML='<div class="favorite-header">'+
+    '<input type="text" id="fav-add-input" placeholder="naam, act of onderwerp\u2026" style="flex:1;">'+
+    '<button class="icon-btn" id="fav-add-confirm">Bewaar</button>'+
+    '<button class="icon-btn" id="fav-add-cancel">Annuleer</button></div>';
+  document.getElementById('favorites-list').prepend(row);
+  const input=row.querySelector('#fav-add-input');
+  input.focus();
+  row.querySelector('#fav-add-cancel').addEventListener('click',()=>row.remove());
+  row.querySelector('#fav-add-confirm').addEventListener('click',async()=>{{
+    const term=input.value.trim();
+    if(!term) return;
+    await sbClient.from('favorites').insert({{term,user_id:sbSession.user.id}});
+    refreshFavoritesList();
+  }});
+  input.addEventListener('keydown',e=>{{ if(e.key==='Enter') row.querySelector('#fav-add-confirm').click(); }});
+}}
+
+async function refreshFavoritesList(){{
+  const list=document.getElementById('favorites-list');
+  if(!list) return;
+  list.innerHTML='<p>Laden\u2026</p>';
+  const {{data,error}}=await sbClient.from('favorites').select('*').order('added_at');
+  if(error){{ list.innerHTML='<p>\u274c Kon favorieten niet laden: '+error.message+'</p>'; return; }}
+  list.innerHTML='';
+  if(!data.length){{ list.innerHTML='<p>Nog geen favorieten \u2014 klik hierboven op "+ Favoriet toevoegen".</p>'; return; }}
+  data.forEach(fav=>list.appendChild(renderFavoriteRow(fav)));
+}}
+
+function renderFavoriteRow(fav){{
+  const row=document.createElement('div');
+  row.className='favorite-row';
+  const matches=matchingCards(fav.term);
+  const header=document.createElement('div');
+  header.className='favorite-header';
+  header.innerHTML='<span class="fav-date">'+(fav.added_at||'')+'</span>'+
+    '<span class="fav-term">'+fav.term.replace(/</g,'&lt;')+'</span>'+
+    '<span class="fav-count">'+matches.length+' treffer'+(matches.length===1?'':'s')+'</span>'+
+    '<span class="fav-chevron">\u25b8</span>';
+  const editBtn=document.createElement('button');
+  editBtn.className='icon-btn'; editBtn.textContent='\u270f\ufe0f';
+  editBtn.title='Wijzig';
+  editBtn.addEventListener('click',e=>{{ e.stopPropagation(); startEditRow(row,fav); }});
+  const delBtn=document.createElement('button');
+  delBtn.className='icon-btn'; delBtn.textContent='\U0001f5d1\ufe0f';
+  delBtn.title='Verwijder';
+  delBtn.addEventListener('click',async e=>{{
+    e.stopPropagation();
+    await sbClient.from('favorites').delete().eq('id',fav.id);
+    refreshFavoritesList();
+  }});
+  header.appendChild(editBtn); header.appendChild(delBtn);
+  const body=document.createElement('div');
+  body.className='favorite-body';
+  matches.forEach(el=>{{ const clone=el.cloneNode(true); clone.classList.remove('hidden'); body.appendChild(clone); }});
+  if(!matches.length){{ body.innerHTML='<p class="fav-empty">Nog geen huidige treffers voor deze term.</p>'; }}
+  header.addEventListener('click',()=>{{
+    row.classList.toggle('expanded');
+    header.querySelector('.fav-chevron').textContent=row.classList.contains('expanded')?'\u25be':'\u25b8';
+  }});
+  row.appendChild(header); row.appendChild(body);
+  return row;
+}}
+
+function startEditRow(row,fav){{
+  const header=row.querySelector('.favorite-header');
+  header.innerHTML='<input type="text" class="fav-edit-input" value="'+fav.term.replace(/"/g,'&quot;')+'" style="flex:1;">'+
+    '<button class="icon-btn fav-edit-save">Opslaan</button><button class="icon-btn fav-edit-cancel">Annuleer</button>';
+  const input=header.querySelector('.fav-edit-input');
+  input.focus(); input.select();
+  header.querySelector('.fav-edit-cancel').addEventListener('click',e=>{{ e.stopPropagation(); refreshFavoritesList(); }});
+  header.querySelector('.fav-edit-save').addEventListener('click',async e=>{{
+    e.stopPropagation();
+    const newTerm=input.value.trim();
+    if(newTerm) await sbClient.from('favorites').update({{term:newTerm}}).eq('id',fav.id);
+    refreshFavoritesList();
+  }});
+}}
+
+
 // --- Datumfilter (Vandaag/Dit weekend/Deze week/Deze maand/eigen periode) ---
 function computeWhenRange(preset){{
   const now=new Date(); now.setHours(0,0,0,0);
@@ -1222,6 +1421,7 @@ function setMode(m){{
   document.getElementById('btn-sport').classList.toggle('active',m==='sport');
   document.getElementById('btn-exposities').classList.toggle('active',m==='exposities');
   document.getElementById('btn-wandelingen').classList.toggle('active',m==='wandelingen');
+  document.getElementById('btn-favorieten').classList.toggle('active',m==='favorieten');
   closeAllPopovers();
   // Welke toolbar-knoppen (en dus welke popovers) zijn relevant per modus --
   // 'Waar' en 'Sorteren' en het zoekveld blijven in alle 4 modi beschikbaar.
@@ -1234,10 +1434,13 @@ function setMode(m){{
   document.getElementById('expo-filters').style.display=m==='exposities'?'flex':'none';
   document.getElementById('uitjes-sort').style.display=(m==='uitjes'||m==='sport')?'':'none';
   document.getElementById('route-sort').style.display=m==='wandelingen'?'flex':'none';
-  document.getElementById('month-nav-wrap').style.display=(m==='exposities'||m==='wandelingen')?'none':'';
-  document.querySelector('main').style.display=(m==='exposities'||m==='wandelingen')?'none':'';
+  document.getElementById('month-nav-wrap').style.display=(m==='exposities'||m==='wandelingen'||m==='favorieten')?'none':'';
+  document.querySelector('main').style.display=(m==='exposities'||m==='wandelingen'||m==='favorieten')?'none':'';
   document.getElementById('expo-wrap').style.display=m==='exposities'?'':'none';
   document.getElementById('routes-wrap').style.display=m==='wandelingen'?'':'none';
+  document.getElementById('favorites-wrap').style.display=m==='favorieten'?'':'none';
+  document.getElementById('toolbar').style.display=m==='favorieten'?'none':'';
+  if(m==='favorieten') loadSupabaseLib(renderFavoritesWrap);
   // Filters die in de nieuwe modus geen betekenis hebben vervallen vanzelf;
   // de rest (provincie, afstand, zoekterm) blijft behouden bij modus-wissel
   // -- voorheen werd bij ELKE wissel alles gewist, zie decisions.md 2026-08-17
@@ -1554,6 +1757,21 @@ body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fo
 main{{padding:0 16px 32px;max-width:1000px;margin:0 auto;}}
 #expo-wrap{{padding:0 16px 32px;max-width:1000px;margin:0 auto;}}
 #routes-wrap{{padding:0 16px 32px;max-width:1000px;margin:0 auto;}}
+#favorites-wrap{{padding:0 16px 32px;max-width:700px;margin:0 auto;}}
+.auth-box{{background:var(--card);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px;max-width:320px;}}
+.auth-box input{{padding:8px 10px;border-radius:20px;border:1.5px solid #ccc;font-size:0.9rem;}}
+.auth-buttons{{display:flex;gap:8px;}}
+#auth-status{{font-size:0.8rem;color:var(--muted);min-height:1.2em;}}
+.fav-topbar{{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:0.85rem;color:var(--muted);}}
+.favorite-row{{background:var(--card);border-left:3px solid #f9a825;border-radius:4px;padding:8px 10px;margin-bottom:6px;}}
+.favorite-header{{display:flex;align-items:center;gap:8px;cursor:pointer;min-height:44px;}}
+.fav-date{{font-size:0.72rem;color:var(--muted);white-space:nowrap;}}
+.fav-term{{flex:1;font-weight:600;}}
+.fav-count{{font-size:0.75rem;color:var(--muted);white-space:nowrap;}}
+.fav-chevron{{color:var(--muted);}}
+.favorite-body{{display:none;margin-top:8px;border-top:1px solid var(--border);padding-top:8px;}}
+.favorite-row.expanded .favorite-body{{display:block;}}
+.fav-empty{{font-size:0.85rem;color:var(--muted);}}
 .route-card{{background:var(--card);border-left:3px solid #43a047;border-radius:4px;padding:8px 10px;margin-bottom:6px;content-visibility:auto;contain-intrinsic-size:auto 50px;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;}}
 .route-card.hidden{{display:none;}}
 .month-section{{margin-top:20px;}} .month-section.hidden{{display:none;}}
@@ -1611,6 +1829,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
       <button class="mode-btn" id="btn-sport" onclick="setMode('sport')">⚽ Sport</button>
       <button class="mode-btn" id="btn-exposities" onclick="setMode('exposities')">🖼️ Exposities</button>
       <button class="mode-btn" id="btn-wandelingen" onclick="setMode('wandelingen')">🥾 Wandelingen/tochten</button>
+      <button class="mode-btn" id="btn-favorieten" onclick="setMode('favorieten')">⭐ Favorieten</button>
     </div>
   </div>
   <div class="meta">Bijgewerkt: {today_str} &nbsp;·&nbsp; {total} events &nbsp;·&nbsp; {expo_total} exposities &nbsp;·&nbsp; {len(active_sources)} bronnen</div>
@@ -1775,6 +1994,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
 <main>{main_html}</main>
 <div id="expo-wrap" style="display:none;">{expo_html}</div>
 <div id="routes-wrap" style="display:none;">{routes_html}</div>
+<div id="favorites-wrap" style="display:none;"></div>
 <button id="back-to-top" class="hidden" title="Naar boven" aria-label="Naar boven" onclick="window.scrollTo({{top:0,behavior:'smooth'}})">&uarr;</button>
 <script>{js}</script>
 <footer style="margin-top:32px;padding:16px;font-size:0.72rem;color:var(--muted);border-top:1px solid #e0e0e0;line-height:1.6;">
