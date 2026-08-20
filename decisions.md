@@ -1987,3 +1987,72 @@ wegregelen via Supabase". Vastgelegd principe voor de rest van dit traject:
 - **Nog te bouwen zodra de sleutels er zijn**: tabel-schema + RLS-policy's,
   login/registratie-UI, favorieten-CRUD tegen Supabase i.p.v. localStorage.
   Wacht op Michiel — nog niet gestart.
+
+## 2026-08-20 — Favorieten gebouwd: 5e topniveau-modus, Supabase-backend live
+
+Michiel deelde de Supabase Project-URL + publieke `anon`-key, koos e-mail+
+wachtwoord als inlogmethode (simpelst, OAuth kan later), en gaf de SQL
+(tabel `favorites` + 4 RLS-policy's) zelf uit in de SQL Editor. Onderweg
+ook de Supabase MCP-server + `supabase/agent-skills` toegevoegd (project-
+config, zie `.mcp.json`/`.agents`/`.claude/skills`) — pas na een sessie-
+vernieuwing bruikbaar geworden, niet nodig geweest voor de bouw zelf.
+
+**Architectuur, strak gehouden aan Michiels eis** ("alles zoveel mogelijk
+statisch, alleen wat nodig is via Supabase"):
+- Scraping/`gen_uitjes.py`/de deploy-flow: **volledig ongewijzigd**.
+- Geen Cloudflare Worker/Function ertussen — de statische pagina praat
+  rechtstreeks met Supabase vanuit de browser (client-library, beveiliging
+  via database-regels).
+- **Supabase-library lazy geladen**: pas een `<script>`-tag ingevoegd bij
+  de EERSTE klik op ⭐ Favorieten (`loadSupabaseLib()`), niet standaard in
+  `<head>`. Zonder deze afweging zou elke bezoeker — ook wie Favorieten
+  nooit gebruikt — voortaan een externe library moeten downloaden, wat
+  rechtstreeks tegen de bewaakte "444KB/1 request"-lichtheid ingaat
+  (overleg.md punt 17, lazy-loading-meting 2026-08-18). Dit is dus de
+  eerste keer dat de site meer dan 1 request kan doen — maar alleen voor
+  wie er expliciet voor kiest.
+
+**"Favoriet" = bewaarde zoekopdracht, geen identiteitsmatch** (overleg.md
+punt 9): `matchingCards(term)` hergebruikt exact dezelfde
+`foldDiacritics()` + AND-woord-matching tegen `data-search`-attributen als
+het hoofd-zoekveld, over `.event`- én `.route-card`-elementen heen (dus
+ook Wandelingen/tochten meegenomen), ongeacht welke modus net actief was.
+
+**UI**: per favoriet een uitklapbare rij (`.favorite-row`) — datum
+toegevoegd, term, live hit-count, wijzig-/verwijderknop (inline bewerken,
+bewust geen `window.prompt()` — de site stapte daar al eerder vanaf, zie
+Cluster 3), aanklikken vouwt open en toont de matchende kaarten (gekloonde
+DOM-nodes van de bestaande kaarten, `.hidden`-klasse expliciet verwijderd
+zodat een kaart die in haar eigen modus net gefilterd was toch getoond
+wordt binnen de favoriet). "+ Favoriet toevoegen"-knop bovenaan.
+
+**Modus-integratie**: `setMode('favorieten')` verbergt de hele toolbar
+(geen van de bestaande datum/genre/bron-filters is relevant voor dit
+scherm) en alle overige content-containers, toont `#favorites-wrap`.
+`apply()` kreeg een vroege branch (`if(currentMode==='favorieten'){{return;}}`)
+zodat de bestaande 8000+-events-filterlus niet nutteloos blijft draaien.
+
+**Geverifieerd tegen het echte Supabase-project** (lokale preview +
+Supabase MCP):
+- Lazy-load laadt de library pas bij klik, geen console-errors.
+- Login-formulier rendert correct als niet ingelogd.
+- Registratie-flow slaagt end-to-end (test-account aangemaakt, ongeldig
+  testadres `@example.com` correct geweigerd met een nette foutmelding
+  i.p.v. een onbehandelde crash).
+- RLS bevestigd: een niet-ingelogde sessie krijgt een lege lijst terug
+  (geen foutmelding) — de beveiliging werkt zoals bedoeld.
+- Tabel-schema geverifieerd via de Supabase MCP (`list_tables`): RLS aan,
+  juiste kolommen (`id`/`user_id`/`term`/`added_at`), juiste foreign key
+  naar `auth.users`.
+- `get_advisors` (security): 2 lichte, niet-blokkerende WARN's — "Leaked
+  Password Protection" staat uit (aanrader om zelf aan te zetten via
+  Authentication-instellingen, geen codewijziging nodig) en een interne
+  Supabase-systeemfunctie (`rls_auto_enable`, hoort bij de "automatic
+  RLS"-optie) is breder aanroepbaar dan strikt nodig — raakt geen
+  gebruikersdata, laag risico.
+- **Nog niet automatisch getest**: de volledige ingelogde CRUD-flow
+  (favoriet toevoegen/wijzigen/verwijderen/uitklappen) — vereist
+  e-mailbevestiging die Claude niet kan voltooien. Aan Michiel gevraagd
+  dit zelf te proberen met zijn eigen e-mailadres.
+
+Zie overleg.md punt 9/20 voor de volledige besluitgeschiedenis.
