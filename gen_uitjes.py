@@ -15,9 +15,9 @@ def fold_diacritics(s: str) -> str:
     return ''.join(c for c in unicodedata.normalize('NFKD', s) if not unicodedata.combining(c))
 from datetime import date, datetime, timedelta, timezone
 
-def _netherlands_today():
-    """Nederlandse lokale datum (CET/CEST), ongeacht de tijdzone van de
-    machine die dit script uitvoert. Bewust GEEN zoneinfo: Cloudflare's
+def _netherlands_now():
+    """Nederlandse lokale datum+tijd (CET/CEST), ongeacht de tijdzone van
+    de machine die dit script uitvoert. Bewust GEEN zoneinfo: Cloudflare's
     build-omgeving heeft mogelijk geen systeem-tzdata beschikbaar, en dit
     voorkomt sowieso een afhankelijkheid buiten de Python-stdlib
     (requirements.txt is leeg, zie ARCHITECTURE.md). EU-zomertijdregel is
@@ -28,7 +28,12 @@ def _netherlands_today():
     Gevonden 2026-08-21: Cloudflare's build-server draait kennelijk in
     UTC -- 's avonds tussen 22:00-00:00 Nederlandse tijd (nog "gisteren"
     in UTC) liep TODAY daardoor een dag achter, met een site die events
-    te vroeg als "voorbij" behandelde. Zie decisions.md 2026-08-21.
+    te vroeg als "voorbij" behandelde. Zie decisions.md 2026-08-21. Geeft
+    een volledige datetime terug (niet alleen een datum) zodat zowel TODAY
+    (filtering) als de "Bijgewerkt"-tijd (weergave, Michiels verzoek
+    2026-08-21) uit dezelfde, al-gecorrigeerde bron komen -- voorkomt dat
+    dezelfde tijdzone-bug een 2e keer losstaand voor de weergave-kant
+    geintroduceerd wordt.
     """
     utc_now = datetime.now(timezone.utc).replace(tzinfo=None)
     def last_sunday(year, month):
@@ -40,9 +45,10 @@ def _netherlands_today():
     dst_start = datetime.combine(last_sunday(year, 3), datetime.min.time()) + timedelta(hours=1)
     dst_end = datetime.combine(last_sunday(year, 10), datetime.min.time()) + timedelta(hours=1)
     offset_hours = 2 if dst_start <= utc_now < dst_end else 1
-    return (utc_now + timedelta(hours=offset_hours)).date()
+    return utc_now + timedelta(hours=offset_hours)
 
-TODAY = _netherlands_today().isoformat()
+NOW = _netherlands_now()
+TODAY = NOW.date().isoformat()
 from collections import defaultdict
 
 with open(EVENTS_JSON, encoding="utf-8") as f:
@@ -649,8 +655,11 @@ TOTAL_ROUTES = len(routes)
 
 # Locale-onafhankelijk (was strftime('%B') — Engelse maandnaam op deze Windows-
 # server-locale, zie decisions.md 2026-08-17, Claude Design-review).
-_today = date.today()
-today_str = f"{_today.day} {NL_MONTHS_LONG[_today.month-1]} {_today.year}"
+# Gebruikt NOW (NL-lokale tijd, zie _netherlands_now() hierboven) i.p.v.
+# een losse date.today()-aanroep -- die laatste had exact dezelfde
+# tijdzone-bug als TODAY, alleen dan voor de weergave i.p.v. de filtering.
+_today = NOW.date()
+today_str = f"{_today.day} {NL_MONTHS_LONG[_today.month-1]} {_today.year}, {NOW.hour:02d}:{NOW.minute:02d}"
 
 provs = ['Groningen','Drenthe','Friesland','Overijssel','Utrecht','Noord-Holland','Zuid-Holland','Noord-Brabant','Gelderland']
 prov_colors = {

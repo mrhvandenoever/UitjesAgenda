@@ -2190,3 +2190,27 @@ zelf net vóór/na 01:00 UTC op de laatste zondag van maart). Regeneratie
 lokaal: meta-regel toont nu correct "21 Augustus 2026", "Nu lopend"-fix
 hierboven ongewijzigd blijven werken (7 events, geen regressie), geen
 console-errors.
+
+## 2026-08-21 — "Bijgewerkt"-regel toont nu ook de tijd
+
+Michiel, na het live bevestigen van de tijdzone-fix: "moeten we ook even
+een tijd noteren bij Bijgewerkt?" — logische vervolgvraag na de
+UTC-bug hierboven, geeft meteen meer inzicht bij een volgend twijfelgeval.
+
+**Bijvangst tijdens het bouwen**: de "Bijgewerkt"-regel bleek een EIGEN,
+losstaande `_today = date.today()`-aanroep te hebben (los van `TODAY`) —
+dus exact dezelfde tijdzone-bug van hierboven, alleen dan voor de
+weergave-tekst i.p.v. de filtering. Die zou zonder ingrijpen gewoon
+opnieuw zijn opgetreden zodra hier een tijd aan toegevoegd werd.
+
+**Fix**: `_netherlands_today()` omgedoopt naar `_netherlands_now()` en
+aangepast om een volledige datetime terug te geven i.p.v. alleen een
+datum. Zowel `TODAY` (`NOW.date().isoformat()`) als de "Bijgewerkt"-tekst
+(`today_str`, nu met `, UU:MM` erbij) putten uit dezelfde `NOW`-variabele
+— één correcte bron voor beide, in plaats van de tijdzone-logica een 2e
+keer los te herhalen (en daarmee het risico op een 2e, identieke bug).
+
+**Geverifieerd**: lokale generatie toont "21 Augustus 2026, 19:53",
+klopt exact met de systeemklok op dat moment (`date`-commando in bash gaf
+hetzelfde tijdstip). Lokale preview: meta-regel rendert correct, geen
+console-errors.
