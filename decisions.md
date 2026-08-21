@@ -2304,3 +2304,94 @@ Universiteitsmuseum).
 **Geverifieerd**: lokale generatie, beide events zichtbaar in de
 Exposities-modus, geen console-errors. Punt 13 is hiermee volledig
 afgerond — geen open restjes meer.
+
+## 2026-08-22 — Punt 5 (nationale sportteams): venue-aanpak i.p.v. bond-scraper
+
+Michiel's oorspronkelijke idee (punt 5): nationale selecties (bv. Oranje
+Dames volleybal) toevoegen, aanleiding een oefenwedstrijd in Martiniplaza.
+**Eerste onderzoek** (volleybal.nl/Nevobo's officiële programma-pagina)
+liep dood: geen API/JSON-LD, een handmatig geschreven HTML-tabel met
+uitsluitend officiële toernooien (VNL/EK) in het buitenland — de
+concrete aanleiding (de Martiniplaza-wedstrijd zelf) stond er niet eens
+op. Voorstel "geen scraper bouwen, handmatige route" — Michiel dacht
+door: "afgelopen jaren is er maar een handjevol sporthallen waar dit
+plaatsvindt: rotterdam, apeldoorn, doetinchem, groningen.. kom jij nog
+meer tegen?" — een venue-gerichte aanpak i.p.v. bond-gericht.
+
+**Research (websearch) leverde 2 extra hallen op**: naast Rotterdam/
+Apeldoorn/Doetinchem/Groningen ook **Sportcentrum Arcus (Wijchen)**
+("thuisbasis voor Oranje" in volleybal/handbal/basketbal, 30.000+
+bezoekers sinds 2011) en **Landstede Sportcentrum (Zwolle)** (recent nog
+Oranje Dames-Duitsland, aug. 2025).
+
+**Feasibility per hal gecheckt (niet aangenomen)**:
+- Rotterdam Ahoy — al gedekt (`scrape_ahoy.py`, Ticketmaster).
+- Sportcentrum Arcus, Wijchen — **skip**: geen agenda-pagina, alleen een
+  nieuwsblog zonder events.
+- SaZa Topsporthal, Doetinchem — **skip**: domein wijst nu naar
+  "Sport-ID" (regionaal sportbedrijf-platform) met alleen lokale
+  cursussen/bootcamps; Oranje-wedstrijden komen hier niet in voor
+  (bevestigd door de agenda handmatig door te lopen).
+- Omnisport Apeldoorn — **gebouwd**, zie hieronder.
+- Landstede Sportcentrum, Zwolle — **gebouwd**, zie hieronder.
+- Martiniplaza, Groningen — al gedekt via `scrape_martiniplaza.py`
+  (theater.nl), maar die bleek het Martiniplaza-volleybalweekend zelf te
+  MISSEN (theater.nl is een pure theater-aggregator). Martiniplaza's
+  eigen site (`martiniplaza.nl/nl/agenda`) heeft wél een "Sport"-
+  categorie — **aanvullende scraper gebouwd**, zie hieronder.
+
+**`scrape_omnisport.py`**: server-rendered, `data-events-per-page="-1"`
+(alles in 1 page-load). Datumformaat heeft altijd een jaartal, in 3
+varianten (1 dag / bereik-zelfde-maand / bereik-2-maanden). 12 events/run.
+
+**`scrape_landstedesportcentrum.py`**: server-rendered "highlights"-
+widget (geen paginering, geen volledig archief — gewoon wat er staat).
+Zit in een glide-carousel die events 3x herhaalt in de DOM — gedupliceerd
+op URL. Geen jaartal in de datumtekst, huidig-jaar-aannemen-en-doorrollen
+(patroon van scrape_drenthe.py). **Bijvangst tijdens het bouwen**: 2 van
+de 3 gevonden events waren "Landstede Hammers"-thuiswedstrijden — díe
+komen al preciezer binnen via het bestaande `scrape_landstede.py`
+(officiële BNXT League-API). Dit is een STRUCTURELE overlap (elke
+thuiswedstrijd van dezelfde club raakt deze venue-agenda ook, niet een
+toevallige eenmalige titel-botsing) — expliciet met een `SKIP_TITLE_WORDS`-
+filter opgelost i.p.v. op de generieke cross-source-dedup te vertrouwen
+(zelfde soort pragmatische fix als eerder bij Kunstpunt/Uitzinnig, punt
+13). Netto 1 event/run (NK Tafeltennis 2026).
+
+**`scrape_martiniplaza_sport.py`**: bewust een NIEUWE, aparte scraper
+i.p.v. de bestaande `scrape_martiniplaza.py` omgooien naar de eigen site
+— die geeft via theater.nl's JSON-LD nette ISO-datums+tijden, wat een
+rebuild naar de eigen site (geen jaartal, geen tijd in de datumtekst) zou
+laten regresseren. Twee scrapers naast elkaar, zelfde VENUE, aparte
+SOURCE-sleutel (`martiniplaza_sport`); cross-source-dedup vangt eventuele
+overlap. Gebruikt martiniplaza.nl's eigen `?category=sport`-serverfilter
+(gevonden via het `<select name="category">`-element) + het AJAX-
+paginatie-endpoint (`/nl/mvc/event/partial?...&guid=...`, gevonden via de
+pagina's eigen `loadData()`-JS) — de `guid` bleek een vast contentblok-id
+te zijn (geen sessie/cookies nodig), dus hardcodebaar zoals elders ook
+gebeurt met Ticketmaster-venue-id's. 2 events/run.
+
+**Architectuurbeslissing: nieuwe genre-bucket 'sport'**. De 3 venues
+mixen sport- en niet-sportcontent (Omnisport: wielerclinics náást een
+botenbeurs en een Qmusic-feest) — passen dus niet in het bestaande
+`SPORT_SRCS`/`SPORT_CLUBS`-mechanisme (dat verwacht 1 sport per bron,
+gebouwd voor club-thuiswedstrijden met een eigen "team A - team B"-kaart-
+weergave + gender-filter, en routeert volledig naar de aparte "Sport"-
+topniveau-modus). Een `'genre': 'sport'`-sleutel in het event-dict bleek
+bovendien überhaupt niet te bestaan als input voor `classify()` — die
+kijkt alleen naar `cats`/titel-keywords/bron, een los `genre`-veld werd
+stilzwijgend genegeerd. Gekozen voor het bestaande, beproefde patroon
+(zelfde als `cats=['expositie']`/`cats=['actief']`): `'sport':'sport'`
+toegevoegd aan `classify()`'s `cat_map`, plus `GENRE_ICONS`/`GENRE_LABELS`
+(🏆 Sport), een nieuwe filterknop in `#popover-genre`, en CSS voor
+`.g-sport`/`.btn[data-genre="sport"]`. Dit is een filter-genre BINNEN
+Uitjes-modus, los van de bestaande "Sport"-topniveau-modus (die blijft
+gereserveerd voor club-thuiswedstrijden) — zo blijven "NK Tafeltennis"/
+"UCI Para Cycling Championships"/toekomstige Oranje-interlands vindbaar
+zonder de team-match-georiënteerde Sport-modus te vervuilen met
+losse evenementen.
+
+**Geverifieerd**: lokale generatie, 🏆 Sport-filter toont exact de 11
+verwachte sportevents (geen "Qmusic"/"Gelderse Dag"), Bron-popover toont
+alle 3 nieuwe bronnen met correcte lat/lon (afstandsfilter/-sortering),
+geen console-errors.

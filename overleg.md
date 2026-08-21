@@ -12,12 +12,6 @@ archief, niet hernummerd of verwijderd.
 
 ## Open vragen / te bespreken
 
-### 5. Nationale sportteams toevoegen
-- Idee van Michiel: naast clubs ook de nationale selecties meenemen (bv. Oranje Dames volleybal — https://www.volleybal.nl/volleybal/oranje-dames/programma). Concreet aanleiding: ze oefenen komend weekend in Groningen (Martiniplaza).
-- Te bepalen: alleen wedstrijden die daadwerkelijk in Noord-Nederland/landelijke podia gespeeld worden (zoals dit Martiniplaza-voorbeeld), of alle interlands/toernooien ongeacht locatie? Dat laatste past minder bij de regionale insteek van de tool.
-- Welke bonden/sporten: alleen volleybal, of ook handbal/korfbal/basketbal/hockey nationale teams als ze in de regio spelen?
-- Nevobo (volleybal) gebruikt dezelfde API-structuur als de clubteams (api.nevobo.nl RSS) — waarschijnlijk ook bruikbaar voor het nationale team, even checken.
-
 ### 6. Landelijke uitbreiding
 - Ambitie: de tool op termijn landelijk maken (nu vooral Noord-Nederland + een aantal landelijke podia).
 - Nader te bepalen: schaal (hoeveel bronnen/pagina's erbij), of de huidige scraper-architectuur dat aankan, prioritering t.o.v. de andere open items.
@@ -73,6 +67,14 @@ archief, niet hernummerd of verwijderd.
 
 Volledige technische onderbouwing per besluit staat in `decisions.md`; hier
 alleen de samenvatting + het besluit zelf, voor snel terugzoeken op nummer.
+
+### 5. Nationale sportteams toevoegen — venue-aanpak GEBOUWD 2026-08-22
+- Idee van Michiel: naast clubs ook de nationale selecties meenemen (bv. Oranje Dames volleybal). Concrete aanleiding: een oefenwedstrijd in Martiniplaza.
+- **De bond-gerichte route bleek doodlopend**: volleybal.nl/Nevobo's officiële programma-pagina is geen API/JSON-LD maar een handmatig geschreven HTML-tabel met uitsluitend officiële toernooien (VNL/EK) in het buitenland — de concrete aanleiding zelf stond er niet eens op.
+- **Michiel dacht door naar een venue-aanpak**: "afgelopen jaren is er maar een handjevol sporthallen waar dit plaatsvindt: rotterdam, apeldoorn, doetinchem, groningen.. kom jij nog meer tegen?" — i.p.v. de bonden volgen, de vaste speelhallen volgen (hele agenda, niet gefilterd op sport-bond).
+- **Onderzoek + feasibility-check per hal** (websearch + handmatig site-bezoek, geen aannames): Rotterdam Ahoy (al gedekt via Ticketmaster), Apeldoorn/Zwolle (bouwbaar, ✅ gebouwd), Doetinchem/Wijchen (geen bruikbare agenda-bron, skip), Martiniplaza (al gedekt maar bleek het eigen volleybalweekend te missen — aanvullende scraper gebouwd).
+- **Gebouwd**: `scrape_omnisport.py` (Omnisport Apeldoorn, 12 events/run), `scrape_landstedesportcentrum.py` (Zwolle, 1 event/run — "Landstede Hammers"-wedstrijden bewust gefilterd, komen al preciezer binnen via `scrape_landstede.py`), `scrape_martiniplaza_sport.py` (aanvulling op de bestaande theater.nl-scraper, dekt nu ook de "Sport"-categorie op martiniplaza.nl's eigen site, 2 events/run).
+- **Architectuurbijvangst**: nieuwe genre-bucket `'sport'` toegevoegd aan Uitjes-modus (los van de bestaande "Sport"-topniveau-modus, die gereserveerd blijft voor club-thuiswedstrijden) — deze venue-bronnen mixen sport- en niet-sportcontent en pasten niet in het bestaande `SPORT_SRCS`-mechanisme. Zie decisions.md 2026-08-22 voor de volledige technische uitwerking.
 
 ### 1. Waar draait de wekelijkse refresh voortaan? — OPGELOST 2026-08-15
 - **Besluit**: structureel op deze laptop (`C:\dev\uitjesagenda`), niet de andere pc.

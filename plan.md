@@ -439,5 +439,39 @@ hier alleen de samenvatting van wat er gebeurd is.
   "Masterminds" (geen datum) en "Puin Hoop: herdruk van de jaren '80"
   (alleen einddatum, geen start — gepresenteerd door GRID Grafisch
   Museum) bewust overgeslagen. Toegevoegd aan `SRC`, geverifieerd
-  lokaal. Punt 13 is nu volledig afgerond op de scope-vraag na. Nog te
-  doen: committen + pushen + live verifiëren.
+  lokaal. Punt 13 is nu volledig afgerond op de scope-vraag na.
+- [x] Gecommit, gepusht (`fd8e601`), live geverifieerd — beide events
+  klopten.
+
+## Sessie 2026-08-22 — Punt 5: nationale sportteams, venue-aanpak
+
+- [x] **Punt 5 opgepakt**: bond-gerichte route (volleybal.nl/Nevobo)
+  bleek doodlopend — handmatige HTML-tabel, geen API, alleen
+  buitenlandse toernooien, de concrete aanleiding (Martiniplaza-
+  oefenwedstrijd) stond er niet eens op.
+- [x] **Michiel stelde een venue-aanpak voor**: "afgelopen jaren maar
+  een handjevol sporthallen... rotterdam, apeldoorn, doetinchem,
+  groningen.. kom jij nog meer tegen?" — websearch leverde 2 extra op
+  (Sportcentrum Arcus/Wijchen, Landstede Sportcentrum/Zwolle).
+  Feasibility per hal gecheckt: Ahoy (al gedekt), Apeldoorn/Zwolle
+  (bouwbaar), Doetinchem/Wijchen (geen bruikbare agenda-bron, skip),
+  Martiniplaza (al gedekt maar miste het eigen volleybalweekend).
+- [x] **3 scrapers gebouwd**: `scrape_omnisport.py` (12 events/run),
+  `scrape_landstedesportcentrum.py` (1 event/run — "Landstede Hammers"
+  bewust gefilterd, duplicaat van `scrape_landstede.py`),
+  `scrape_martiniplaza_sport.py` (aanvulling op de bestaande
+  theater.nl-scraper, dekt nu ook de "Sport"-categorie op
+  martiniplaza.nl's eigen site, 2 events/run).
+- [x] **Architectuurwijziging**: nieuwe genre-bucket `'sport'`
+  toegevoegd aan Uitjes-modus (`cat_map`, `GENRE_ICONS`/`GENRE_LABELS`,
+  filterknop, CSS) — los van de bestaande topniveau-"Sport"-modus
+  (`SPORT_SRCS`, blijft voor club-thuiswedstrijden). Bijvangst: een los
+  `'genre'`-veld in het event-dict bleek al die tijd genegeerd te
+  worden door `classify()` — alleen `cats` werkt.
+- [x] Gecommit, gepusht, live geverifieerd. Docs bijgewerkt: SCRAPERS.md
+  (69 bronnen), decisions.md, overleg.md (punt 5 naar archief), plan.md,
+  ARCHITECTURE.md.
+- [ ] **Nog open, geen van alle urgent** (zie overleg.md): punt 6
+  (landelijke uitbreiding), punt 11 (Admin-scherm, richting bepaald,
+  niet gebouwd), punt 13's scope-vraag (alleen Groningen stad vs.
+  gerichter Drenthe/Friesland-musea apart zoeken).

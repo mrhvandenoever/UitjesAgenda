@@ -156,6 +156,10 @@ SRC = {
     'debuitenplaats':      ('De Buitenplaats', '🖼️', '#6d4c41'),
     'princessehof':        ('Princessehof',    '🏺', '#8d6e63'),
     'universiteitsmuseum': ('Universiteitsmuseum', '🔬', '#455a64'),
+    # Sporthallen voor nationale-team-oefeninterlands (overleg.md punt 5, 2026-08-22)
+    'omnisport':            ('Omnisport Apeldoorn', '🚴', '#0d47a1'),
+    'landstedesportcentrum': ('Landstede Sportcentrum', '🏐', '#f9a825'),
+    'martiniplaza_sport':   ('Martiniplaza', '🏟️', '#558b2f'),
 }
 
 VENUE_LOC = {
@@ -220,6 +224,9 @@ VENUE_LOC = {
     'peczwolle':           (52.4854, 6.0746, 'Overijssel'),
     'donar':               (53.2265, 6.5683, 'Groningen'),
     'landstede':           (52.5024, 6.0968, 'Overijssel'),
+    'omnisport':           (52.2214, 5.9897, 'Gelderland'),
+    'landstedesportcentrum': (52.5024, 6.0968, 'Overijssel'),
+    'martiniplaza_sport':  (53.2218, 6.5792, 'Groningen'),
     'lycurgus':            (53.2265, 6.5300, 'Groningen'),
     'sudosa':              (52.9875, 6.5575, 'Drenthe'),
     'friso':               (53.0350, 5.6600, 'Friesland'),
@@ -256,11 +263,11 @@ SPORT_LABELS = {
 }
 
 GENRE_ICONS = {'festival':'🎉','theater':'🎭','cabaret':'🎪','musical':'🎼','klassiek':'🎻','pop':'🎸',
-               'jazz':'🎷','dans':'💃','expo':'🖼️','actief':'🥾','kinderen':'🎈','overig':'•'}
+               'jazz':'🎷','dans':'💃','expo':'🖼️','actief':'🥾','sport':'🏆','kinderen':'🎈','overig':'•'}
 GENRE_LABELS = {'festival':'Festival / Evenement','theater':'Theater / Toneel','cabaret':'Cabaret / Comedy','musical':'Musical',
                 'klassiek':'Klassiek / Opera','pop':'Pop / Rock','jazz':'Jazz / Blues',
                 'dans':'Dans / Ballet','expo':'Expo / Kunst','actief':'Actief / Natuur',
-                'kinderen':'Kinderen / Familie','overig':'Overig'}
+                'sport':'Sport','kinderen':'Kinderen / Familie','overig':'Overig'}
 
 THEATER_VENUES= {'lawei','atlastheater','denieuwekolk.nl','vanberesteyn','theaterroden','geertteis',
                  'grandtheatregroningen','martiniplaza','dorpshuisannen','podiumnienoordleek',
@@ -283,7 +290,15 @@ def classify(title, cats, source=''):
                # overleg.md punt 15, 2026-08-18) -- titels als "Beleef het
                # Boomkroonpad" bevatten geen van de titel-keywords hieronder
                # en zouden anders ten onrechte op 'overig' uitkomen.
-               'actief':'actief'}
+               'actief':'actief',
+               # 'sport' als genre-signaal (overleg.md punt 5, 2026-08-22) --
+               # voor gemengde-inhoud sporthal-venues (Omnisport/Landstede
+               # Sportcentrum/Martiniplaza-sport) die bewust NIET in
+               # SPORT_SRCS zitten: dat mechanisme verwacht 1 sport per bron
+               # (team-thuiswedstrijden), terwijl deze bronnen sport-EN-
+               # andere content mixen (bv. Omnisport: wielerclinics naast
+               # een botenbeurs en een Qmusic-feest).
+               'sport':'sport'}
     for c in cats:
         # cats=='expositie' is een genre-SIGNAAL van de bron zelf en dus
         # betrouwbaarder dan titel-keywords (zie de les bij SPOT/data-subgenres
@@ -1798,13 +1813,15 @@ body{{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);fo
 .btn[data-genre="dans"].active{{background:#bf360c;color:#fff;border-color:#bf360c;}}
 .btn[data-genre="expo"].active{{background:#1b5e20;color:#fff;border-color:#1b5e20;}}
 .btn[data-genre="actief"].active{{background:#006064;color:#fff;border-color:#006064;}}
+.btn[data-genre="sport"].active{{background:#1565c0;color:#fff;border-color:#1565c0;}}
 .btn[data-genre="kinderen"].active{{background:#f57f17;color:#fff;border-color:#f57f17;}}
 .btn[data-genre="overig"].active{{background:#555;color:#fff;border-color:#555;}}
 .g-theater{{background:#fce4ec;color:#880e4f;}} .g-cabaret{{background:#fff3e0;color:#e65100;}}
 .g-musical{{background:#f3e5f5;color:#6a1b9a;}} .g-klassiek{{background:#e8eaf6;color:#283593;}}
 .g-pop{{background:#fce4ec;color:#c62828;}} .g-jazz{{background:#e0f2f1;color:#004d40;}}
 .g-dans{{background:#fdf3e7;color:#bf360c;}} .g-expo{{background:#e8f5e9;color:#1b5e20;}}
-.g-actief{{background:#e0f7fa;color:#006064;}} .g-kinderen{{background:#fff8e1;color:#f57f17;}}
+.g-actief{{background:#e0f7fa;color:#006064;}} .g-sport{{background:#e3f2fd;color:#1565c0;}}
+.g-kinderen{{background:#fff8e1;color:#f57f17;}}
 .g-overig{{background:#f5f5f5;color:#555;}}
 .addr-row{{display:flex;align-items:center;gap:6px;flex-wrap:wrap;width:100%;}}
 .addr-row label{{font-size:0.78rem;color:var(--muted);white-space:nowrap;}}
@@ -1969,6 +1986,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   <button class="btn" data-genre="jazz">🎷 Jazz / Blues</button>
   <button class="btn" data-genre="dans">💃 Dans</button>
   <button class="btn" data-genre="actief">🥾 Actief</button>
+  <button class="btn" data-genre="sport">🏆 Sport</button>
   <button class="btn" data-genre="kinderen">🎈 Kinderen</button>
   <button class="btn" data-genre="overig">• Overig</button>
 </div>

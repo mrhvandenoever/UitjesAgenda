@@ -95,10 +95,12 @@ Kleur per sporttype (voetbal, basketbal, etc.) voor de knopstatus.
 
 **Sport-events slaan `classify()` volledig over** — `event_html()` checkt eerst `src in SPORT_SRCS` en gebruikt dan direct het `sport`-veld uit de JSON (via `SPORT_ICONS`/`SPORT_LABELS`). Reden: titels als "FC Twente - PEC Zwolle" matchen geen enkel keyword en vielen voorheen terug op `overig`.
 
+**Let op — twee losstaande "sport"-mechanismen**: `SPORT_SRCS`/`SPORT_CLUBS` (hierboven) is voor bronnen die uitsluitend 1 sport/club leveren met een home/away-wedstrijdstructuur (eigen kaart-weergave + gender-filter, routeert naar de aparte topniveau-"Sport"-modus). Het genre `cats=['sport']` (toegevoegd 2026-08-22, overleg.md punt 5) is daarentegen voor bronnen die sport- én niet-sportcontent mixen (bv. `scrape_omnisport.py`: wielerclinics náást een botenbeurs) — díe blijven in Uitjes-modus en krijgen gewoon een normale 🏆-genre-badge, net als `actief`/`expositie`. Een los `'genre': 'sport'`-veld in het event-dict doet NIETS (zie hieronder) — het `cats`-veld is de enige werkende route.
+
 Voor niet-sport-events, volgorde van prioriteit:
 
 1. **Kinderen-check** (regex) — altijd eerst, overschrijft alles
-2. **`cats`-veld** uit JSON (als aanwezig en herkenbaar — `cat_map` bevat o.a. `theater`, `cabaret`, `musical`, `klassiek`, `opera`, `dans`, `kinderen`, `jazz`, `pop`)
+2. **`cats`-veld** uit JSON (als aanwezig en herkenbaar — `cat_map` bevat o.a. `theater`, `cabaret`, `musical`, `klassiek`, `opera`, `dans`, `kinderen`, `jazz`, `pop`, `actief`, `expositie`, `sport`)
 3. **Expo-venues** (groningermuseum, drentsmuseum, hunebedcentrum) → `expo`
 4. **Titelkeywords** — **jazz/blues eerst**, dán klassiek, musical, cabaret, dans, expo, theater, festival, pop, actief
 5. **Venue-fallback** — music_venues → `pop`, theater_venues → `theater`, anders → `overig`
