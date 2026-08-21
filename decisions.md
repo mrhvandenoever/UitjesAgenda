@@ -2266,3 +2266,41 @@ Exposities-modus — geen nieuwe code nodig in `classify()`.
 
 **Geverifieerd**: lokale generatie (8180 events), alle 4 nieuwe events
 zichtbaar via data-search-check in de Browser pane, geen console-errors.
+
+## 2026-08-21 — Punt 13 afgerond: Universiteitsmuseum Groningen
+
+Michiel ("ja, graag") na het voorstel om ook het laatste restje van punt
+13 op te pakken.
+
+**Correctie op de eerdere (2026-08-17) inschatting**: toen genoteerd als
+"Playwright nodig" — bleek te gaan over het verkeerde domein.
+`universiteitsmuseum.nl` redirect't naar **UMU (Universiteitsmuseum
+Utrecht)**, niet Groningen. Het Groningse museum draait op
+`rug.nl/museum/` (de standaard RUG-website-CMS) en is volledig
+server-rendered — dus toch gewoon `urllib`, geen Playwright nodig.
+
+**scrape_universiteitsmuseum.py**: listingpagina linkt naar
+`/museum/exhibitions/<jaar>/<slug>` (permanente zalen zitten onder
+`/permanent/`, bewust uitgesloten — geen loopperiode per definitie).
+Datumformaat: "D maand [JJJJ] t/m D maand JJJJ", startjaartal soms
+weggelaten (zelfde patroon als dmdebuitenplaats.nl — jaartal van de
+einddatum aangehouden). 2 van de 4 gevonden pagina's bewust
+overgeslagen, zelfde "geen datum verzinnen"-principe als punt 15:
+- "Masterminds. De Geschiedenis van de Groningse Universiteit" — geen
+  enkel datumpatroon in de tekst (permanent-achtig, ondanks dat de
+  listingpagina 'm tussen de wisselende exposities toont).
+- "Puin Hoop: herdruk van de jaren '80" — alleen "T/m 17 januari 2027",
+  geen zichtbare startdatum. Toevallig gepresenteerd door **GRID
+  Grafisch Museum** (dezelfde partij die punt 13 al eerder als
+  "gesloten/skip" beoordeelde) — bevestigt dat GRID op zijn minst nog
+  ergens actief is, maar verandert niets aan de skip-beslissing hier:
+  geen startdatum zichtbaar, dus overgeslagen.
+
+2 events/run: "De verloren diamant" (2026-07-10 t/m 2027-01-10), "Van
+Proef tot Publiek: 225 jaar Koninklijk Natuurkundig Genootschap in
+Groningen" (2026-04-10 t/m 2026-11-08). Toegevoegd aan `SRC` (🔬
+Universiteitsmuseum).
+
+**Geverifieerd**: lokale generatie, beide events zichtbaar in de
+Exposities-modus, geen console-errors. Punt 13 is hiermee volledig
+afgerond — geen open restjes meer.

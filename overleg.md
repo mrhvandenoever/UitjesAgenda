@@ -30,7 +30,7 @@ archief, niet hernummerd of verwijderd.
 - Nog niets van dit gebouwd — dit is de vastgelegde richting uit een brainstormsessie, technische uitwerking volgt in een latere sessie.
 - **Kruisverwijzing (2026-08-20)**: er is inmiddels wél een backend/account-systeem (Supabase, zie punt 20 in het archief) — gebouwd voor Favorieten, niet voor Admin. Zou Admin in de toekomst kunnen hergebruiken (bv. een echt ingelogde beheerdersweergave i.p.v. puur lokaal), maar dat is nog niet besloten — alleen de mogelijkheid genoteerd.
 
-### 13. Exposities verder uitbreiden: rest-vragen — De Buitenplaats/Princessehof GEBOUWD 2026-08-21, 1 punt nog open
+### 13. Exposities verder uitbreiden: rest-vragen — kern GEBOUWD 2026-08-21, alleen scope-vraag nog open
 - Michiel's idee: nu Exposities werkt, meer bronnen toevoegen dan de huidige 5 (groningermuseum, gekehoogstins.nl, en de 3 die toevallig via andere bronnen meekwamen). Genoemd: "Scheepvaartmuseum Groningen" en kunstgalerieën in het algemeen ("zijn er vast veel van").
 - **Onderzoek gedaan (websearch, 2026-08-17) — een paar dingen gevonden die de keuze beïnvloeden:**
   - Het "Noordelijk Scheepvaartmuseum" heet niet meer zo: het is aan het transformeren naar **Museum aan de A** (breder museum over de stad/provincie, niet meer puur maritiem) en is **dicht tot minstens medio 2027** (verbouwing). Nu bouwen zou dus niets opleveren — pas relevant zodra het heropent. ([museumaandea.nl](https://museumaandea.nl/over-ons), [igogroningen.nl](https://www.igogroningen.nl/wat-te-doen/kunst-cultuur/noordelijk-scheepvaartmuseum-naar-museum-aan-de-a/))
@@ -50,11 +50,10 @@ archief, niet hernummerd of verwijderd.
   - **GRID Grafisch Museum**: skip — blijkt (tijdelijk?) gesloten, geen actuele expositie-info vindbaar.
   - **Kunstkrant.nl**: skip — te veel overlap met Kunstpunt Groningen/Uitzinnig, die dekken het grootste deel al.
   - **Kunstherberg Zweeloo** (Michiels suggestie): skip — al grotendeels gedekt via bestaande bronnen.
-  - **Universiteitsmuseum Groningen**: echt, maar vereist Playwright (geen JSON-API) en is klein — laag-prioriteit, **bewust nog niet gebouwd**, blijft het enige nog openstaande deel van dit punt.
   - **Museum De Buitenplaats (Eelde)** en **Keramiekmuseum Princessehof (Leeuwarden)** — allebei ✅ **GEBOUWD** (`scrape_debuitenplaats.py`, `scrape_princessehof.py`). Zie decisions.md 2026-08-21 voor de volledige technische uitwerking. Exposities-totaal +4 (1 van De Buitenplaats, 3 van Princessehof).
+  - **Universiteitsmuseum Groningen** — Michiel "ja, graag" op het vervolgvoorstel: ✅ **GEBOUWD** (`scrape_universiteitsmuseum.py`). Eerdere inschatting "Playwright nodig" bleek een verwarring met het verkeerde domein (universiteitsmuseum.nl → UMU Utrecht) — het Groningse museum draait op rug.nl, server-rendered, geen Playwright nodig. 2 events/run. Zie decisions.md 2026-08-21.
 - **Nog echt open voor een eventuele volgende ronde:**
   - Scope: alleen Groningen stad (waar Kunstpunt vooral zit, al kwam Museum Belvédère in Friesland ook voorbij), of gerichter Drenthe/Friesland-musea en -galerieën apart zoeken (sluit aan bij punt 6)?
-  - Universiteitsmuseum Groningen: laag-prioriteit, nog niet gebouwd (zie hierboven) — pas oppakken na Michiels akkoord.
   - Museum aan de A (voorheen Scheepvaartmuseum): laag-prioriteit, pas relevant zodra het heropent (nu dicht tot medio 2027, zie hierboven) — geen actie nu nodig, alleen een toekomstige trigger.
 
 ### 15. drenthe.nl "t/m N maand" zonder zichtbare startdag — heronderzocht 2026-08-18, klein gebleken

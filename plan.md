@@ -427,5 +427,17 @@ hier alleen de samenvatting van wat er gebeurd is.
   datum-formuleringen in 1 regex gevangen. 3 events/run.
 - [x] Beide toegevoegd aan `SRC` in gen_uitjes.py, geverifieerd lokaal
   (8180 events, geen console-errors), SCRAPERS.md/decisions.md/
-  overleg.md bijgewerkt. Nog te doen: committen + pushen + live
-  verifiëren.
+  overleg.md bijgewerkt.
+- [x] Gecommit, gepusht (`ce33691`), live geverifieerd op
+  uitjesagenda.pages.dev — alle 4 events klopten.
+- [x] **Michiel "ja, graag" op Universiteitsmuseum Groningen** (het
+  laatste restje van punt 13) — `scrape_universiteitsmuseum.py`
+  gebouwd. Eerdere inschatting "Playwright nodig" bleek een
+  domeinverwarring (universiteitsmuseum.nl → UMU Utrecht i.p.v. het
+  Groningse museum op rug.nl) — bleek server-rendered, geen Playwright
+  nodig. 2 events/run ("De verloren diamant", "Van Proef tot Publiek").
+  "Masterminds" (geen datum) en "Puin Hoop: herdruk van de jaren '80"
+  (alleen einddatum, geen start — gepresenteerd door GRID Grafisch
+  Museum) bewust overgeslagen. Toegevoegd aan `SRC`, geverifieerd
+  lokaal. Punt 13 is nu volledig afgerond op de scope-vraag na. Nog te
+  doen: committen + pushen + live verifiëren.

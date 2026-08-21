@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (65 bronnen, 65 scripts)
+## ✅ Geautomatiseerd (66 bronnen, 66 scripts)
 
 | Bron | Script |
 |---|---|
@@ -88,6 +88,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Akerk (Groningen) | `scrape_akerk.py` (2026-08-19 — React-app, maar publieke JSON-API (`events.json`, gepagineerd) gevonden via netwerkcheck, geen Playwright nodig. `eventTypes`-array als genre-signaal (`EVENTTYPE_CAT_MAP`: Expositie→expositie, Orgelconcert/Koor→klassiek, Festival→festival). Vaste locatie (1 gebouw). 11 events/run) |
 | Drents Museum De Buitenplaats (Eelde) | `scrape_debuitenplaats.py` (2026-08-21, overleg.md punt 13 — geen Playwright nodig, server-rendered: listingpagina linkt naar per-expositie-pagina's met een `<meta name="description">` die het datumbereik in vrije tekst noemt. Alleen het volledige "Van X t/m Y"-patroon meegenomen; permanente attracties (Museumtuin, Nijsinghhuis, geen datum) en einddatum-zonder-start-gevallen ("Beauty of the Beast") bewust overgeslagen — geen startdatum verzinnen, zelfde principe als punt 15. 1 event/run) |
 | Keramiekmuseum Princessehof (Leeuwarden) | `scrape_princessehof.py` (2026-08-21, overleg.md punt 13 — Nuxt.js/Vue-app, wél Playwright nodig (geen JSON-API gevonden, content client-side gehydrateerd). Listingpagina heeft 3 tabs ("Nu in het museum"/"Verwacht"/"Geweest") die client-side wisselen welke links zichtbaar zijn — scraper klikt ook op "Verwacht" om die exposities niet te missen. Datumtekst staat niet altijd in hetzelfde `<article>`-element en de bron gebruikt zowel "D maand JJJJ t/m D maand JJJJ" als "van D maand JJJJ tot en met D maand JJJJ" — beide varianten in 1 regex. Permanente presentaties ("Van Oost en West") en pagina's zonder datumpatroon ("Gouden Vrienden", "Josiah Wedgwood") bewust overgeslagen. 3 events/run) |
+| Universiteitsmuseum Groningen (rug.nl) | `scrape_universiteitsmuseum.py` (2026-08-21, overleg.md punt 13 — eerder (2026-08-17) verkeerd ingeschat als "Playwright nodig", dat gold voor het verkeerde domein (universiteitsmuseum.nl redirect't naar UMU Utrecht). Draait op rug.nl (standaard RUG-CMS), volledig server-rendered, geen Playwright nodig. "Masterminds" (permanent, geen datum) en "Puin Hoop: herdruk van de jaren '80" (alleen "T/m"-einddatum, geen zichtbare start — mede door GRID Grafisch Museum, dezelfde skip-reden als bij punt 13's eerdere GRID-verdict) bewust overgeslagen. 2 events/run) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).

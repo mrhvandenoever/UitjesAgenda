@@ -155,6 +155,7 @@ SRC = {
     # Kleine expositievenues (overleg.md punt 13, 2026-08-21)
     'debuitenplaats':      ('De Buitenplaats', '🖼️', '#6d4c41'),
     'princessehof':        ('Princessehof',    '🏺', '#8d6e63'),
+    'universiteitsmuseum': ('Universiteitsmuseum', '🔬', '#455a64'),
 }
 
 VENUE_LOC = {
