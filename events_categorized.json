@@ -106,6 +106,20 @@
     ]
   },
   {
+    "title": "Sustainable Ceramics #2",
+    "date": "2025-11-22",
+    "source": "princessehof",
+    "genre": "overig",
+    "date_end": "2026-10-25",
+    "venue": "Keramiekmuseum Princessehof, Leeuwarden",
+    "city": "Leeuwarden",
+    "province": "Friesland",
+    "url": "https://princessehof.nl/te-zien-en-te-doen/tentoonstellingen/sustainable-ceramics-2",
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
     "title": "Ode to Stadspark",
     "date": "2026-02-15",
     "source": "kunstpuntgroningen",
@@ -328,6 +342,20 @@
     ]
   },
   {
+    "title": "Van Achterberghprijs 2026: StudioZAND",
+    "date": "2026-07-04",
+    "source": "princessehof",
+    "genre": "overig",
+    "date_end": "2027-01-10",
+    "venue": "Keramiekmuseum Princessehof, Leeuwarden",
+    "city": "Leeuwarden",
+    "province": "Friesland",
+    "url": "https://princessehof.nl/te-zien-en-te-doen/tentoonstellingen/van-achterberghprijs-2026-studiozand",
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
     "title": "WINDOW EXHIBITION: ' I am grateful (?!) by Nasma Al Shutfa",
     "date": "2026-07-11",
     "source": "kunstpuntgroningen",
@@ -433,6 +461,20 @@
     "url": "https://www.kunstpuntgroningen.nl/en/agenda/mimesis-in-k38/",
     "lat": 53.14062,
     "lon": 6.43208,
+    "cats": [
+      "expositie"
+    ]
+  },
+  {
+    "title": "Into Nature: Haunted by Waters",
+    "date": "2026-08-01",
+    "source": "debuitenplaats",
+    "genre": "overig",
+    "date_end": "2026-10-25",
+    "venue": "Drents Museum De Buitenplaats, Eelde",
+    "city": "Eelde",
+    "province": "Drenthe",
+    "url": "https://dmdebuitenplaats.nl/tentoonstellingen/into-nature-haunted-by-waters",
     "cats": [
       "expositie"
     ]
@@ -547,22 +589,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1238032208/150-jaar-mata-hari-kunstinstallatie"
   },
   {
-    "title": "AfroDanceNederland Summer Workshops 2026 - Beginners & Intermediate/Advanced",
-    "date": "2026-08-19",
-    "source": "visitgroningen",
-    "genre": "Muziek",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/691855343/afrodancenederland-summer-workshops-2026-beginners-intermediate-advanced",
-    "category": "Urban / streetdance"
-  },
-  {
-    "title": "BATTLESNAKE",
-    "date": "2026-08-19",
-    "source": "013",
-    "genre": "overig"
-  },
-  {
     "title": "Bajes Buitenbios",
     "date": "2026-08-19",
     "source": "friesland.nl",
@@ -573,278 +599,6 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2018340934/bajes-buitenbios"
   },
   {
-    "title": "Beethoven 7 en Mahler bij het Ukrainian Freedom Orchestra",
-    "date": "2026-08-19",
-    "source": "concertgebouw",
-    "genre": "Klassiek",
-    "location": "Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/41486305-beethoven-7-en-mahler-bij-het-ukrainian-freedom-orchestra"
-  },
-  {
-    "title": "Bossafari Sallandse Heuvelrug",
-    "date": "2026-08-19",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Salland",
-    "province": "Overijssel",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/bossafari-sallandse-heuvelrug",
-    "subtitle": "Ga op avontuur in het bos tijdens de bossafari van Staatsbosbeheer en ervaar spelenderwijs de natuur op de Sallandse Heuvelrug. Een gezellig en leerzaam uitje voor kinderen en (groot)ouders.",
-    "lat": 52.365946,
-    "lon": 6.443639,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Code S.T.O.R.M. - Hondsrug",
-    "date": "2026-08-19",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Hondsrug",
-    "province": "Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/code-storm-hondsrug",
-    "subtitle": "De natuur is in gevaar! Een grote storm zal alles verwoesten en jij kan helpen deze te stoppen. Voltooi alle opdrachten in het bos en kom zo achter de code om de weermachine te activeren die de storm tegenhoudt.",
-    "lat": 52.949836,
-    "lon": 6.745159,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Connecting Threads",
-    "date": "2026-08-19",
-    "source": "podiumzuidhaege",
-    "genre": "overig",
-    "time": "19:30",
-    "venue": "Podium Zuidhaege, Assen",
-    "url": "https://podiumzuidhaege.nl/a/opening-expositie-connecting-threads/"
-  },
-  {
-    "title": "Cursus junior boswachter Lauwersmeer",
-    "date": "2026-08-19",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Lauwersmeer",
-    "province": "Groningen",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/lauwersmeer/cursus-junior-boswachter-lauwersmeer",
-    "subtitle": "Zijn jouw kinderen benieuwd naar het werk van de boswachter? Kom dan naar Nationaal Park Lauwersmeer en meld ze aan voor de junior boswachtercursus. In elk seizoen is er van alles te ontdekken in de natuur!",
-    "lat": 53.385056,
-    "lon": 6.235943,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "De Graanrepubliek",
-    "date": "2026-08-19",
-    "source": "zummerbuhne",
-    "genre": "overig",
-    "venue": "Zummerbühne (Oostwold)",
-    "city": "Oostwold",
-    "url": "https://www.zummerbuhne.nl/ticketverkoop",
-    "category": "Muziektheater / Outdoor",
-    "lat": 53.208276,
-    "lon": 7.041508,
-    "cats": [
-      "toneel",
-      "muziek"
-    ]
-  },
-  {
-    "title": "De Jukebox",
-    "date": "2026-08-19",
-    "source": "doornroosje",
-    "genre": "overig",
-    "venue": "Doornroosje, Nijmegen",
-    "url": "https://www.doornroosje.nl/event/de-jukebox-14/"
-  },
-  {
-    "title": "De nieuwe wereld van Fuse",
-    "date": "2026-08-19",
-    "source": "concertgebouw",
-    "genre": "Klassiek",
-    "location": "Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/42204616-de-nieuwe-wereld-van-fuse"
-  },
-  {
-    "title": "Drentse Heidedagen | Schaapskudde Doldersummerveld",
-    "date": "2026-08-19",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Doldersum",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1039397359/drentse-heidedagen-schaapskudde-doldersummerveld"
-  },
-  {
-    "title": "Drentse Heidedagen | Schaapskudde Lhee",
-    "date": "2026-08-19",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Dwingeloo",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1269435641/drentse-heidedagen-schaapskudde-lhee"
-  },
-  {
-    "title": "Drentse Heidedagen | Schaapskudde Lhee, Achter ’t Zaand",
-    "date": "2026-08-19",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Dwingeloo",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1466076298/drentse-heidedagen-schaapskooi-achter-t-zaand"
-  },
-  {
-    "title": "Escape route in het bos: Raadsels van Raaf",
-    "date": "2026-08-19",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Drents-Friese Wold",
-    "province": "Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/escape-route-raadsels-van-raaf",
-    "subtitle": "Ontdek de escape route Raadsels van Raaf. Een spannende game waarbij je codes kraakt in het bos en zo het mysterie van Victor Raaf oplost. Een unieke buitenactiviteit van Staatsbosbeheer in het Drents Friese Wold voor kinderen en volwassenen.",
-    "lat": 52.953193,
-    "lon": 6.310575,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Festraite",
-    "date": "2026-08-19",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Schoonoord",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/694773715/festraite"
-  },
-  {
-    "title": "G4 - MARIZ MUSIC + TANGEX + UNITY + TJENSES",
-    "date": "2026-08-19",
-    "source": "doornroosje",
-    "genre": "overig",
-    "venue": "Doornroosje, Nijmegen",
-    "url": "https://www.doornroosje.nl/event/g4-4/"
-  },
-  {
-    "title": "Horsegirl - + From 2",
-    "date": "2026-08-19",
-    "source": "doornroosje",
-    "genre": "overig",
-    "venue": "Doornroosje, Nijmegen",
-    "url": "https://www.doornroosje.nl/event/horsegirl/"
-  },
-  {
-    "title": "Informatieplein Haren",
-    "date": "2026-08-19",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/informatieplein-haren?date=19-08-2026"
-  },
-  {
-    "title": "Informatieplein Ten Boer",
-    "date": "2026-08-19",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/informatieplein-ten-boer?date=19-08-2026"
-  },
-  {
-    "title": "Inloopavonden FootGolf bij Golfpark Exloo",
-    "date": "2026-08-19",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Exloo",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/2176271127/inloopavond-footgolf-bij-golfpark-exloo"
-  },
-  {
-    "title": "Jett Rebel",
-    "date": "2026-08-19",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/72089270/jett-rebel-19-08-2026"
-  },
-  {
-    "title": "Lorena + The Tide",
-    "date": "2026-08-19",
-    "source": "paradiso",
-    "genre": "overig",
-    "time": "21:00",
-    "venue": "Paradiso, Amsterdam",
-    "url": "https://www.paradiso.nl/nl/programma/lorena-the-tide/2908649"
-  },
-  {
-    "title": "Maakplaats: Kennismaking met 3D-printen (9-14 jaar)",
-    "date": "2026-08-19",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Sneek",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3395709917/maakplaats-kennismaking-met-3d-printen-9-14-jaar"
-  },
-  {
-    "title": "Openluchtspel Havelte speelt 'Piepers en parels', een blijspel in verstaanbaar Drents",
-    "date": "2026-08-19",
-    "source": "drenthe.nl",
-    "genre": "Theater",
-    "city": "Havelte",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1859539476/openluchtspel-havelte-speelt-piepers-en-parels-een-blijspel-in-verstaanbaar-drents"
-  },
-  {
-    "title": "Orgelconcert door Andrzej Szadejko",
-    "date": "2026-08-19",
-    "source": "visitgroningen",
-    "genre": "Muziek",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3469664344/akerk-andrzej-szadejko",
-    "category": "Muziek overig"
-  },
-  {
-    "title": "Orgelconcert door Reitze Smits",
-    "date": "2026-08-19",
-    "source": "friesland.nl",
-    "genre": "Muziek",
-    "city": "Leeuwarden (Nl)",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3831513694/orgelconcert-door-reitze-smits"
-  },
-  {
-    "title": "Orgelzomer Groningen | Michael Bennett",
-    "date": "2026-08-19",
-    "source": "akerk",
-    "genre": "overig",
-    "time": "20.00 uur",
-    "venue": "Akerk, Groningen",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://akerk.nl/event/orgelzomer-groningen-michael-bennett",
-    "subtitle": "De Orgelzomer Groningen in de Akerk is een reeks orgelconcerten met organisten uit binnen- en buitenland. Op woensdag 19 augustus staat het tweede concert uit de reeks op de agenda. Deze avond zal Michael Bennett voor je spelen op het Arp Schnitgerorgel.",
-    "cats": [
-      "klassiek"
-    ]
-  },
-  {
-    "title": "Pizzaparty | Park Drentheland",
-    "date": "2026-08-19",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Zorgvlied",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/147602353/pizzaparty-park-drentheland"
-  },
-  {
-    "title": "Podcast: St. Paul's Boutique",
-    "date": "2026-08-19",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/64041784/podcast-st-pauls-boutique-19-08-2026"
-  },
-  {
     "title": "Pop-Up restaurant DYO",
     "date": "2026-08-19",
     "source": "friesland.nl",
@@ -853,14 +607,6 @@
     "city": "Workum",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1170163956/pop-up-restaurant-dyo"
-  },
-  {
-    "title": "Rooftop Cinema",
-    "date": "2026-08-19",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/rooftop-cinema?date=19-08-2026"
   },
   {
     "title": "Soon in Tschumi: Tschumi Inside",
@@ -877,199 +623,6 @@
     "cats": [
       "expositie"
     ]
-  },
-  {
-    "title": "Spelletjesavond",
-    "date": "2026-08-19",
-    "source": "rotown",
-    "genre": "overig",
-    "time": "19:00",
-    "venue": "Rotown, Rotterdam",
-    "url": "https://www.rotown.nl/agenda/spelletjesavond-69-1/"
-  },
-  {
-    "title": "Spelletjesavond - Woensdag 19 augustus 2026 - Rotown, Rotterdam",
-    "date": "2026-08-19",
-    "source": "rotown",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://www.rotown.nl/agenda/spelletjesavond-69/",
-    "image": "https://www.rotown.nl/wp-content/uploads/2026/06/unnamed-file-17.jpg"
-  },
-  {
-    "title": "Stenen Zoeken & Stenen Determineren",
-    "date": "2026-08-19",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Borger",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1066631141/stenen-zoeken-en-stenen-determineren"
-  },
-  {
-    "title": "Theatervoorstelling De Inspecteur",
-    "date": "2026-08-19",
-    "source": "visitgroningen",
-    "genre": "Festival",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/896845920/theatervoorstelling-de-inspecteur",
-    "category": "Theaterfestival"
-  },
-  {
-    "title": "Tuin thee proeverij",
-    "date": "2026-08-19",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Tzum",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1700106289/tuin-thee-proeverij"
-  },
-  {
-    "title": "Vaartocht naar de sterrenwacht - Weerribben",
-    "date": "2026-08-19",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Weerribben",
-    "province": "Overijssel",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/weerribben/vaartocht-naar-de-sterrenwacht-weerribben",
-    "subtitle": "Wil je de rust van de Weerribben ervaren als alle andere recreanten naar huis zijn? Vaar dan 's avonds in de fluisterboot mee met de boswachter van Staatsbosbeheer. Bij de sterrenwacht bekijk je de sterrenhemel door de sterrenkijker.",
-    "lat": 52.806841,
-    "lon": 5.927587,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Vakantiemarkt met vlomarkt Schoonoord",
-    "date": "2026-08-19",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Schoonoord",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/203762630/vakantiemarkt-met-vlomarkt-schoonoord"
-  },
-  {
-    "title": "Wad bij Nacht Regina Andrea",
-    "date": "2026-08-19",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Harlingen",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/272034579/wad-bij-nacht-regina-andrea"
-  },
-  {
-    "title": "Wonsdag thoes in Örvelt",
-    "date": "2026-08-19",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Orvelte",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/814390752/wonsdag-thoes-in-orvelt"
-  },
-  {
-    "title": "Zomeravondexcursie over de Hondsrug",
-    "date": "2026-08-19",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Hondsrug",
-    "province": "Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/zomeravondwandeling-boomkroonpad",
-    "subtitle": "Beleef de overgang van dag naar nacht tijdens de zomervondwandeling bij het Boomkroonpad. De gids laat je de mooiste plekjes van de Hondsrug zien.",
-    "lat": 52.949836,
-    "lon": 6.745159,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Zomermarkt in Workum",
-    "date": "2026-08-19",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Workum",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4233214183/zomermarkt-3"
-  },
-  {
-    "title": "Zomerpret bij het Woudagemaal",
-    "date": "2026-08-19",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Lemmer",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2316688109/zomerpret-bij-het-woudagemaal"
-  },
-  {
-    "title": "Altın Gün",
-    "date": "2026-08-20",
-    "source": "concertgebouw",
-    "genre": "Klassiek",
-    "location": "Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/45846376-altin-gun"
-  },
-  {
-    "title": "Antiek- en curiosamarkt",
-    "date": "2026-08-20",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Leeuwarden",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2435765619/antiek-en-curiosamarkt-1"
-  },
-  {
-    "title": "Arthur Verocai",
-    "date": "2026-08-20",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/35408611/arthur-verocai-20-08-2026"
-  },
-  {
-    "title": "Avondwandeling over het Aekingerzand",
-    "date": "2026-08-20",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Drents-Friese Wold",
-    "province": "Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/avondwandeling-over-het-aekingerzand",
-    "subtitle": "Beleef deze zomer de schemer op het Aekingerzand; een uniek stuifzandgebied waar bijzondere planten en dieren leven. De gids vertelt je er alles over. Geniet van de weidsheid en de stilte van deze unieke \"woestijn\".",
-    "lat": 52.936253,
-    "lon": 6.289589,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Boerenmarkt Woudsend",
-    "date": "2026-08-20",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Woudsend",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/586204796/boerenmarkt-woudsend"
-  },
-  {
-    "title": "Boswachtersspreekuur - Drents-Friese Wold",
-    "date": "2026-08-20",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Drents-Friese Wold",
-    "province": "Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/ontmoet-de-boswachter-drents-friese-wold",
-    "subtitle": "Kom naar het boswachterslab in Buitencentrum Drents-Friese Wold en stel al je vragen over de natuur aan een echte boswachter!",
-    "lat": 52.953193,
-    "lon": 6.310575,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Chopins meeslepende pianomuziek door prijswinnaar Eric Lu",
-    "date": "2026-08-20",
-    "source": "concertgebouw",
-    "genre": "Klassiek",
-    "location": "Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/41486306-chopins-meeslepende-pianomuziek-door-prijswinnaar-eric-lu"
   },
   {
     "title": "Colored In Love",
@@ -1114,102 +667,6 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1612445837/diep-lux-in-de-buurt"
   },
   {
-    "title": "De Graanrepubliek",
-    "date": "2026-08-20",
-    "source": "zummerbuhne",
-    "genre": "overig",
-    "venue": "Zummerbühne (Oostwold)",
-    "city": "Oostwold",
-    "url": "https://www.zummerbuhne.nl/ticketverkoop",
-    "category": "Muziektheater / Outdoor",
-    "lat": 53.208276,
-    "lon": 7.041508,
-    "cats": [
-      "toneel",
-      "muziek"
-    ]
-  },
-  {
-    "title": "Deaf Republic Dead Centre & Zoë McWhinney, naar het boek van Ilya Kaminsky",
-    "date": "2026-08-20",
-    "source": "spotgroningen.nl",
-    "genre": "overig",
-    "time": "20:00",
-    "venue": "Stadsschouwburg, Groningen",
-    "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/deaf-republic/",
-    "subtitle": "Epische, moderne fabel over oorlog, menselijkheid en collectief verzet",
-    "cats": []
-  },
-  {
-    "title": "Dove Ellis",
-    "date": "2026-08-20",
-    "source": "paradiso",
-    "genre": "overig"
-  },
-  {
-    "title": "EMBED: EMERGING DIGITAL ARTS - Shiavash Naghshbandi - Lock-On Protocol",
-    "date": "2026-08-20",
-    "source": "grandtheatregroningen",
-    "genre": "overig",
-    "venue": "Grand Theatre, Groningen",
-    "url": "https://www.noorderzon.nl/programma/embed-emerging-digital-arts"
-  },
-  {
-    "title": "FC Twente - FK Qarabag",
-    "date": "2026-08-20",
-    "source": "fctwente",
-    "genre": "sport",
-    "venue": "De Grolsch Veste, Enschede",
-    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401909620",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
-    "title": "Gratis Juridisch Spreekuur",
-    "date": "2026-08-20",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Drachten",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/368872526/gratis-juridisch-spreekuur"
-  },
-  {
-    "title": "Informatieplein Beijum",
-    "date": "2026-08-20",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/informatieplein-beijum?date=20-08-2026"
-  },
-  {
-    "title": "Informatieplein Selwerd",
-    "date": "2026-08-20",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/informatieplein-selwerd?date=20-08-2026"
-  },
-  {
-    "title": "Kamermuziekweek Apollo Ensemble - Uddo Demandt",
-    "date": "2026-08-20",
-    "source": "visitgroningen",
-    "genre": "Festival",
-    "city": "Warffum",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/881889796/kamermuziekweek-apollo-ensemble-1",
-    "category": "Muziekfestival"
-  },
-  {
-    "title": "Magische ZomerAvond",
-    "date": "2026-08-20",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Schoonoord",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1051319968/magische-zomeravond"
-  },
-  {
     "title": "Muziektheater Koelonie | Frederiksoord",
     "date": "2026-08-20",
     "source": "drenthe.nl",
@@ -1218,19 +675,6 @@
     "city": "Frederiksoord",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2760812077/muziektheater-koelonie-frederiksoord"
-  },
-  {
-    "title": "No Dutch Required",
-    "date": "2026-08-20",
-    "source": "grandtheatregroningen",
-    "genre": "overig",
-    "venue": "Grand Theatre Groningen",
-    "url": "https://www.grandtheatregroningen.nl/nl/programma",
-    "category": "Theater / Festival",
-    "cats": [
-      "toneel",
-      "festival"
-    ]
   },
   {
     "title": "Noorderzon Festival",
@@ -1242,192 +686,6 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2098729973/noorderzon",
     "category": "Cultureel festival"
-  },
-  {
-    "title": "Noorderzon: VAP, Vusi Mdoyi & Phala Ookeditse Phala - Izithukuthuku: The Tattered Soul of the Worker",
-    "date": "2026-08-20",
-    "source": "grandtheatregroningen",
-    "genre": "overig",
-    "venue": "Grand Theatre, Groningen",
-    "url": "https://www.noorderzon.nl/programma/izithukuthuku-the-tattered-soul-of-the-worker"
-  },
-  {
-    "title": "Ontmoet de Boswachter",
-    "date": "2026-08-20",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Appelscha",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1033607807/ontmoet-de-boswachter-1"
-  },
-  {
-    "title": "Opa en Oma dagen | Smalspoormuseum",
-    "date": "2026-08-20",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Erica",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3454994782/opa-en-oma-dagen-smalspoormuseum"
-  },
-  {
-    "title": "Orgelconcert door Martin Mans",
-    "date": "2026-08-20",
-    "source": "friesland.nl",
-    "genre": "Muziek",
-    "city": "Easterein",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/237457521/orgelconcert-door-martin-mans-2"
-  },
-  {
-    "title": "Podcast: Dutch Jazz",
-    "date": "2026-08-20",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/20736660/podcast-dutch-jazz-20-08-2026"
-  },
-  {
-    "title": "Rabo Open Stage: Blue Bird Collective",
-    "date": "2026-08-20",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/15091168/rabo-open-stage-blue-bird-collective-20-08-2026"
-  },
-  {
-    "title": "Rondritten met paard en wagen",
-    "date": "2026-08-20",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Sneek",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/973673406/rondritten-met-paard-en-wagen-1"
-  },
-  {
-    "title": "Schemerwandeling Sallandse Heuvelrug",
-    "date": "2026-08-20",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Salland",
-    "province": "Overijssel",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/schemerwandeling-sallandse-heuvelrug",
-    "subtitle": "Wandel bij het vallen van de avond mee met de gids van Staatsbosbeheer over de Sallandse Heuvelrug. De zon gaat onder, de natuur komt tot rust. Nachtdieren ontwaken en laten zich misschien nog wel horen of zien!",
-    "lat": 52.365946,
-    "lon": 6.443639,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Sparks",
-    "date": "2026-08-20",
-    "source": "doornroosje",
-    "genre": "overig",
-    "venue": "Doornroosje, Nijmegen",
-    "url": "https://www.doornroosje.nl/event/sparks/"
-  },
-  {
-    "title": "Talks Events/Fashion Repair",
-    "date": "2026-08-20",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/talks-events/fashion-repair?date=20-08-2026"
-  },
-  {
-    "title": "Talks Events/Zomertalks",
-    "date": "2026-08-20",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/talks-events/zomertalks?date=20-08-2026"
-  },
-  {
-    "title": "Vaartocht door Nationaal Park De Alde Feanen (10+)",
-    "date": "2026-08-20",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Earnewald",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3715396473/vaartocht-door-nationaal-park-de-alde-feanen-10-15"
-  },
-  {
-    "title": "Varen door de Weerribben",
-    "date": "2026-08-20",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Weerribben",
-    "province": "Overijssel",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/weerribben/varen-door-de-weerribben",
-    "subtitle": "Vaar mee met de gids van Staatsbosbeheer en vaar door de watergangen van de Weerribben. Onderweg geniet je van de stilte van dit uitgestrekte, waterrijke gebied.",
-    "lat": 52.806841,
-    "lon": 5.927587,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Voorleeshalfuurtje",
-    "date": "2026-08-20",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/voorleeshalfuurtje?date=20-08-2026"
-  },
-  {
-    "title": "WIES en Hiigo",
-    "date": "2026-08-20",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/75251947/wies-en-hiigo-20-08-2026"
-  },
-  {
-    "title": "WOLFMOTHER",
-    "date": "2026-08-20",
-    "source": "hedon",
-    "genre": "overig",
-    "venue": "Hedon",
-    "city": "Zwolle",
-    "url": "https://hedon-zwolle.nl/programma/32855",
-    "image": "https://hedon-zwolle.nl/media/Wolfmother-2024.webp",
-    "price": "37.5",
-    "subtitle": "LEGENDARISCHE AUSTRALISCHE ROCKBAND",
-    "genres": [
-      "Rock"
-    ]
-  },
-  {
-    "title": "Waterdiertjes van de Weerribben",
-    "date": "2026-08-20",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Weerribben",
-    "province": "Overijssel",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/weerribben/waterdiertjes-van-de-weerribben",
-    "subtitle": "Gewapend met schepnet en zoekkaart stappen de kinderen bij de gids op de boot, op zoek naar waterdiertjes van de Weerribben.",
-    "lat": 52.806841,
-    "lon": 5.927587,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Wednesday - + Fantasy Of A Broken Heart",
-    "date": "2026-08-20",
-    "source": "doornroosje",
-    "genre": "overig",
-    "venue": "Doornroosje, Nijmegen",
-    "url": "https://www.doornroosje.nl/event/wednesday/"
-  },
-  {
-    "title": "Zomerarrangement op donderdagmiddag in Sloten",
-    "date": "2026-08-20",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Sloten",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1606264123/zomerarrangement-op-donderdagmiddag"
   },
   {
     "title": "After Sun: Hitjesgolf",
@@ -21972,6 +21230,20 @@
     "genre": "Klassiek",
     "location": "Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/41701217-jonge-nederlanders-thijs-willers"
+  },
+  {
+    "title": "Koffie?",
+    "date": "2026-10-10",
+    "source": "princessehof",
+    "genre": "overig",
+    "date_end": "2027-08-29",
+    "venue": "Keramiekmuseum Princessehof, Leeuwarden",
+    "city": "Leeuwarden",
+    "province": "Friesland",
+    "url": "https://princessehof.nl/te-zien-en-te-doen/tentoonstellingen/koffie",
+    "cats": [
+      "expositie"
+    ]
   },
   {
     "title": "Lustrumfestival",

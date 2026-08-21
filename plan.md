@@ -402,9 +402,30 @@ hier alleen de samenvatting van wat er gebeurd is.
   punt 9's kleinere restvraag (waar precies de "+"-toevoegknop t.o.v. het
   hoofd-zoekveld, nu al opgelost door 'm in de Favorieten-modus zelf te
   zetten — dit puntje is dus feitelijk ook afgerond), punt 11 (Admin-
-  scherm, richting bepaald, niet gebouwd), punt 13 (Exposities verder
-  uitbreiden — GRID Grafisch Museum/Universiteitsmuseum Groningen nog niet
-  gecheckt), Staatsbosbeheer's 220 `route`-items (Wandelingen/tochten
+  scherm, richting bepaald, niet gebouwd), punt 13's laatste restje
+  (Universiteitsmuseum Groningen — laag-prioriteit, vereist Playwright,
+  nog niet gebouwd), Staatsbosbeheer's 220 `route`-items (Wandelingen/tochten
   dekt inmiddels wel de content, maar Michiel had oorspronkelijk ook nog
   over een bredere "instellingen"-uitbreiding van het account-systeem
   nagedacht, zie overleg.md punt 20 in het archief).
+
+## Sessie 2026-08-21 (vervolg) — Punt 13: 2 nieuwe expositievenues
+
+- [x] **Punt 13 verder onderzocht** ("kleine venues zoeken", Michiels
+  verzoek): GRID Grafisch Museum (gesloten, skip), Kunstkrant.nl (te veel
+  overlap, skip), Kunstherberg Zweeloo (al gedekt, skip), Universiteits-
+  museum Groningen (echt maar Playwright-nodig, laag-prioriteit, nog niet
+  gebouwd — enige nog openstaande deel van punt 13).
+- [x] **`scrape_debuitenplaats.py` gebouwd** — Drents Museum De
+  Buitenplaats (Eelde), server-rendered, geen Playwright nodig. 1
+  event/run. "Geen datum verzinnen"-principe toegepast (permanente
+  attracties + einddatum-zonder-start overgeslagen).
+- [x] **`scrape_princessehof.py` gebouwd** — Keramiekmuseum Princessehof
+  (Leeuwarden), Nuxt.js/Vue-app, wél Playwright nodig. Client-side
+  tab-klik ("Verwacht") nodig om alle exposities te vinden; datumtekst
+  verspreid over meerdere `<article>`-elementen; 2 verschillende
+  datum-formuleringen in 1 regex gevangen. 3 events/run.
+- [x] Beide toegevoegd aan `SRC` in gen_uitjes.py, geverifieerd lokaal
+  (8180 events, geen console-errors), SCRAPERS.md/decisions.md/
+  overleg.md bijgewerkt. Nog te doen: committen + pushen + live
+  verifiëren.

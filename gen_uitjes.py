@@ -152,6 +152,9 @@ SRC = {
     'staatsbosbeheer':     ('Staatsbosbeheer', '🌲', '#43a047'),
     'intonature':          ('Into Nature',     '🎨', '#00838f'),
     'akerk':                ('Akerk',            '⛪', '#5d4037'),
+    # Kleine expositievenues (overleg.md punt 13, 2026-08-21)
+    'debuitenplaats':      ('De Buitenplaats', '🖼️', '#6d4c41'),
+    'princessehof':        ('Princessehof',    '🏺', '#8d6e63'),
 }
 
 VENUE_LOC = {

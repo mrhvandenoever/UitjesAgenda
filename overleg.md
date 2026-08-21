@@ -30,7 +30,7 @@ archief, niet hernummerd of verwijderd.
 - Nog niets van dit gebouwd — dit is de vastgelegde richting uit een brainstormsessie, technische uitwerking volgt in een latere sessie.
 - **Kruisverwijzing (2026-08-20)**: er is inmiddels wél een backend/account-systeem (Supabase, zie punt 20 in het archief) — gebouwd voor Favorieten, niet voor Admin. Zou Admin in de toekomst kunnen hergebruiken (bv. een echt ingelogde beheerdersweergave i.p.v. puur lokaal), maar dat is nog niet besloten — alleen de mogelijkheid genoteerd.
 
-### 13. Exposities verder uitbreiden: rest-vragen — Kunstpunt/Uitzinnig GEBOUWD 2026-08-17, deels nog open
+### 13. Exposities verder uitbreiden: rest-vragen — De Buitenplaats/Princessehof GEBOUWD 2026-08-21, 1 punt nog open
 - Michiel's idee: nu Exposities werkt, meer bronnen toevoegen dan de huidige 5 (groningermuseum, gekehoogstins.nl, en de 3 die toevallig via andere bronnen meekwamen). Genoemd: "Scheepvaartmuseum Groningen" en kunstgalerieën in het algemeen ("zijn er vast veel van").
 - **Onderzoek gedaan (websearch, 2026-08-17) — een paar dingen gevonden die de keuze beïnvloeden:**
   - Het "Noordelijk Scheepvaartmuseum" heet niet meer zo: het is aan het transformeren naar **Museum aan de A** (breder museum over de stad/provincie, niet meer puur maritiem) en is **dicht tot minstens medio 2027** (verbouwing). Nu bouwen zou dus niets opleveren — pas relevant zodra het heropent. ([museumaandea.nl](https://museumaandea.nl/over-ons), [igogroningen.nl](https://www.igogroningen.nl/wat-te-doen/kunst-cultuur/noordelijk-scheepvaartmuseum-naar-museum-aan-de-a/))
@@ -46,9 +46,15 @@ archief, niet hernummerd of verwijderd.
   - Appingedam/Hoogezand: deels al onbedoeld gedekt — Kunstpunt Groningen's bereik bleek al breder dan de stad (K38/Roden, Kunstruimte De Smederij bij Sappemeer/Hoogezand zaten er al in). Appingedam heeft een eigen galerie (De Kunsthof) die soms al via Kunstpunt meekomt.
   - Assen/Veendam/Grootegast/Leeuwarden/Emmen: geen aggregator gevonden met die naam, wel losse galerieën per plaats (CAMPIS/Assen, Galerie Zichtlijn/Grootegast, H47 & SPOONK ART/Leeuwarden, DIEP Emmen).
   - **kunstinzicht.nl technisch verkend (2026-08-17) — bewust NIET gebouwd**: server-rendered en regex-baar, maar minder waardevol dan gehoopt. Structuur is nationwide, georganiseerd per PLAATS (niet per provincie) via `/kunst-agenda/<plaats>/index.html` — geen brede Drenthe/Friesland-pagina. Omvang per plaats gecheckt: Assen (2), Emmen (2), Leeuwarden (2), Hoogezand (1), Veendam/Appingedam/Grootegast (0). De "groningen"-pagina (leek eerst veelbelovend) had maar 6 items — wel uniek t.o.v. Kunstpunt (Martini Ziekenhuis, Franse kunstmarkt, Galerie Kakelbont Paterswolde), maar klein. **Datamodel-probleem**: toont alleen een einddatum ("t/m DD-MM-YYYY"), nooit een startdatum, zelfs niet op de detailpagina ("Nu te zien" + einddatum) — zou de scrape-datum als benadering vereisen, wat het "vanaf"-label misleidend zou maken voor al langer lopende exposities. Bouw-/onderhoudsinspanning (tientallen losse plaats-pagina's voor een handjevol resultaten) staat niet in verhouding tot de opbrengst. Michiel akkoord: niet bouwen. **Deze deelvraag is dus afgehandeld.**
+- **2026-08-21 — Michiel: "punt 13! En ook straks kleine venues zoeken daarvoor"** — gericht op kleine eenmans-/eengebouw-venues i.p.v. nog meer aggregators. Onderzocht:
+  - **GRID Grafisch Museum**: skip — blijkt (tijdelijk?) gesloten, geen actuele expositie-info vindbaar.
+  - **Kunstkrant.nl**: skip — te veel overlap met Kunstpunt Groningen/Uitzinnig, die dekken het grootste deel al.
+  - **Kunstherberg Zweeloo** (Michiels suggestie): skip — al grotendeels gedekt via bestaande bronnen.
+  - **Universiteitsmuseum Groningen**: echt, maar vereist Playwright (geen JSON-API) en is klein — laag-prioriteit, **bewust nog niet gebouwd**, blijft het enige nog openstaande deel van dit punt.
+  - **Museum De Buitenplaats (Eelde)** en **Keramiekmuseum Princessehof (Leeuwarden)** — allebei ✅ **GEBOUWD** (`scrape_debuitenplaats.py`, `scrape_princessehof.py`). Zie decisions.md 2026-08-21 voor de volledige technische uitwerking. Exposities-totaal +4 (1 van De Buitenplaats, 3 van Princessehof).
 - **Nog echt open voor een eventuele volgende ronde:**
   - Scope: alleen Groningen stad (waar Kunstpunt vooral zit, al kwam Museum Belvédère in Friesland ook voorbij), of gerichter Drenthe/Friesland-musea en -galerieën apart zoeken (sluit aan bij punt 6)?
-  - GRID Grafisch Museum/Universiteitsmuseum Groningen: nog niet gecheckt of Kunstpunt die ook dekt of dat een aparte scraper nodig is.
+  - Universiteitsmuseum Groningen: laag-prioriteit, nog niet gebouwd (zie hierboven) — pas oppakken na Michiels akkoord.
   - Museum aan de A (voorheen Scheepvaartmuseum): laag-prioriteit, pas relevant zodra het heropent (nu dicht tot medio 2027, zie hierboven) — geen actie nu nodig, alleen een toekomstige trigger.
 
 ### 15. drenthe.nl "t/m N maand" zonder zichtbare startdag — heronderzocht 2026-08-18, klein gebleken

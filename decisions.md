@@ -2214,3 +2214,55 @@ keer los te herhalen (en daarmee het risico op een 2e, identieke bug).
 klopt exact met de systeemklok op dat moment (`date`-commando in bash gaf
 hetzelfde tijdstip). Lokale preview: meta-regel rendert correct, geen
 console-errors.
+
+## 2026-08-21 — Punt 13: kleine expositievenues onderzocht, 2 nieuwe bronnen
+
+Michiel: "punt 13! En ook straks kleine venues zoeken daarvoor" —
+Exposities verder uitbreiden, specifiek gericht op kleine
+eenmans-/eengebouw-venues i.p.v. nog meer aggregators.
+
+**Onderzocht, verdict per venue** (overleg.md punt 13 bijgewerkt):
+- **GRID Grafisch Museum (Groningen)** — skip: blijkt (tijdelijk?)
+  gesloten, geen actuele expositie-info te vinden.
+- **Universiteitsmuseum Groningen** — echt, maar site vereist Playwright
+  (geen JSON-API gevonden) en is qua omvang klein. Lagere prioriteit,
+  bewust NIET gebouwd deze sessie — Michiels "ja" dekte alleen de 2
+  hieronder genoemde venues, geen aanname om dit er toch bij te pakken.
+- **Kunstkrant.nl** — skip: te veel overlap met al gedekte bronnen
+  (Kunstpunt Groningen/Uitzinnig dekken het grootste deel al).
+- **Kunstherberg Zweeloo** — skip: al grotendeels gedekt via bestaande
+  bronnen.
+- **Museum De Buitenplaats (Eelde)** en **Keramiekmuseum Princessehof
+  (Leeuwarden)** — allebei gebouwd, zie hieronder.
+
+**scrape_debuitenplaats.py**: server-rendered, geen Playwright nodig.
+Alleen het volledige "Van X t/m Y"-patroon meegenomen — permanente
+attracties (Museumtuin, Nijsinghhuis) en het einddatum-zonder-start-geval
+"Beauty of the Beast" bewust overgeslagen, zelfde "geen datum verzinnen"-
+principe als punt 15 (drenthe.nl). 1 event/run (Into Nature: Haunted by
+Waters).
+
+**scrape_princessehof.py**: Nuxt.js/Vue-app, client-side gehydrateerd,
+geen JSON-API gevonden — hier wél Playwright nodig, in tegenstelling tot
+de meeste andere musea dit seizoen. Twee kinken tijdens het bouwen:
+1. De listingpagina toont bij page-load alleen het "Nu in het
+   museum"-tabblad; "Verwacht" (met o.a. "Koffie?") zit achter een
+   client-side tab-klik — scraper klikt nu ook expliciet op "Verwacht".
+2. De datumtekst staat niet altijd in hetzelfde `<article>`-element
+   (bij Sustainable Ceramics #2 in `article.titletext`, niet in
+   `article.intro`) — alle `<article>`-teksten worden nu samengevoegd
+   vóór het zoeken naar het datumpatroon. De bron gebruikt bovendien 2
+   verschillende formuleringen voor hetzelfde soort datumbereik ("D
+   maand JJJJ t/m D maand JJJJ" vs "van D maand JJJJ tot en met D maand
+   JJJJ") — beide in 1 regex gevangen.
+Permanente presentaties ("Van Oost en West") en pagina's zonder
+datumpatroon ("Gouden Vrienden", "Josiah Wedgwood") bewust overgeslagen.
+3 events/run (Sustainable Ceramics #2, Van Achterberghprijs 2026:
+StudioZAND, Koffie?).
+
+Beide venues toegevoegd aan `SRC` in gen_uitjes.py (🖼️ De Buitenplaats,
+🏺 Princessehof), routeren via `cats=['expositie']` automatisch naar
+Exposities-modus — geen nieuwe code nodig in `classify()`.
+
+**Geverifieerd**: lokale generatie (8180 events), alle 4 nieuwe events
+zichtbaar via data-search-check in de Browser pane, geen console-errors.
