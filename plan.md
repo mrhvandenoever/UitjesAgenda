@@ -329,3 +329,82 @@ expliciete lat/lon/city, en `VENUE_LOC['zummerbuhne']`'s fallback in
 `gen_uitjes.py` (bleek ook de verkeerde provincie te hebben: Drenthe i.p.v.
 Groningen). Resterend verschil (~27km hemelsbreed vs 35,7km rijdend) is
 inherent aan de haversine-methode, geen bug. Zie decisions.md 2026-08-17.
+
+## Sessie 2026-08-18/19/20/21 — design-review-clusters-1-4 gemerged, 3 nieuwe bronnen, 2 nieuwe topniveau-modi, Supabase-backend
+Lange, meerdaagse sessie. Volledige technische uitwerking per item staat in
+decisions.md (elk met eigen datum-kop) en overleg.md (punt 9/15/17/19/20) —
+hier alleen de samenvatting van wat er gebeurd is.
+
+- [x] **Branch gemerged naar `main`** (commit a211104) na Michiels
+  "mag nu mergen" — live deploy geverifieerd via Browser pane + Chrome.
+- [x] **"De puntjes"**: lege-venue-rij-fix (`venue_display()`) + Bron-
+  popover afstandstoggle, beide live (commit a98b462).
+- [x] **Lazy-loading-vraag beantwoord met een echte meting** i.p.v.
+  aanname: `transferSize` ~444KB/1 request/~600ms — ruim onder de HTTP
+  Archive-mediaan. Besluit: geen lazy-loading bouwen, blijft een
+  toekomstoptie. Vastgelegd in decisions.md/ARCHITECTURE.md §Deployment.
+- [x] **overleg.md volledig herstructureerd**: alle afgeronde punten naar
+  een archief-sectie, punt-nummers bewust ongewijzigd (talloze code-
+  comments/decisions.md-verwijzingen zijn nummer-gebaseerd).
+- [x] **Punt 15 (drenthe.nl "t/m N maand") heronderzocht**: personapaneel-
+  gesprek over "hoort dit bij Uitjes of Exposities", daarna een echte crawl
+  i.p.v. de oude schatting — bleek van "~150 gevallen" naar 9 unieke events
+  te gaan, waarvan 6 al gefilterd door bestaande `SKIP_TITLE_WORDS`.
+  Optie (d) (detailpagina voor een echte startdatum) bleek niet haalbaar:
+  drenthe.nl's JSON-LD `startDate`-veld is kapot (CMS-"laatst bewerkt"-
+  timestamp, geen echt event-moment).
+- [x] **3 nieuwe bronnen gebouwd**:
+  - `scrape_staatsbosbeheer.py` — 71 natuuractiviteiten (schone JSON-API,
+    genre `actief` expliciet via `cats`).
+  - `scrape_intonature.py` — 11 events (Playwright, op-volgorde-lopende
+    parser over een platte H3/H5/P-structuur, geen per-activiteit element).
+  - `scrape_akerk.py` — 11 events (schone JSON-API, `eventTypes`-array als
+    genre-signaal, expositie routeert vanzelf naar Exposities-modus).
+- [x] **Externe review (niet Claude Design) nagelopen**: 8 punten, elk apart
+  geverifieerd i.p.v. overgenomen. 1 echte fix (`aria-controls` ontbrak),
+  1 cijfer-klopt-conclusie-niet (593.000px paginahoogte reëel, maar geen
+  laadtijd-probleem dankzij `content-visibility`), 4 niet gereproduceerd
+  (mobiele toolbar-overflow, Genre-paneel-bug, actieve-filter-chips
+  bestonden al, lege linktekst). 4e-tab-suggestie voor wandelroutes als
+  input doorgezet naar Michiels eigen open vraag (punt 15).
+- [x] **"Wandelingen/tochten" — 4e topniveau-modus** (2026-08-19): 220
+  Staatsbosbeheer-routes, eigen filters (type/lengte/kenmerken), eigen
+  `routes.json` buiten de events-DB om (routes hebben nooit een datum).
+  Mobiele regressie (4e mode-knop liet `.mode-toggle` overflowen) gevonden
+  en gefixt vóór het live ging.
+- [x] **"Favorieten" — 5e topniveau-modus, Supabase-backend** (2026-08-20):
+  bewaarde zoektermen (geen identiteitsmatch, gewoon vrije tekst/
+  onderwerp), cross-device via Supabase (Auth + `favorites`-tabel met RLS)
+  i.p.v. localStorage — Michiels expliciete eis "alles zoveel mogelijk
+  statisch, alleen wat nodig via Supabase". Library lazy geladen (pas bij
+  klik op Favorieten). Onderweg: redirect-bug (Site URL nog op
+  `localhost:3000`), e-mail-rate-limit uitgelegd, 2 security-advisor-
+  waarschuwingen (`rls_auto_enable`-functie te breed aanroepbaar) opgelost
+  via de nieuw gekoppelde Supabase MCP. **Volledig bevestigd door Michiel**
+  zelf (eigen account, favoriet toegevoegd/uitgeklapt, lege-staat getest).
+- [x] **"Nu lopend"-sectie** (2026-08-21): meerdaagse events die al
+  begonnen zijn bleven onder hun gepasseerde startdag-groep hangen — nieuw
+  kopje bovenaan (Michiels voorstel) verplaatst ze client-side naar een
+  eigen, altijd-actuele sectie. Hergebruikt de bestaande
+  `.day-group`-leeg-verbergen-logica, geen aparte zichtbaarheidscode nodig.
+- [x] **Bijvangst: TODAY liep een dag achter op Cloudflare's build-server**
+  (2026-08-21) — `date.today()` gebruikte de tijdzone van de build-machine;
+  Cloudflare draait kennelijk in UTC, dus tussen 22:00-00:00 Nederlandse
+  tijd liep de site een dag achter. Gefixt met een handgeschreven
+  EU-zomertijdregel (bewust geen `zoneinfo`, geen garantie op systeem-
+  tzdata op de build-image) — stdlib-only, geen nieuwe dependency.
+- [x] **Supabase MCP-server + `supabase/agent-skills` toegevoegd**
+  (project-scoped, `.mcp.json`/`.agents`/`.claude/skills`) — gebruikt voor
+  het database-permissiewerk hierboven.
+- [ ] **Nog open, geen van alle urgent** (zie overleg.md): punt 5
+  (nationale sportteams — suggesties al gegeven: volleybal bevestigd
+  regionaal, korfbal/handbal kansrijk), punt 6 (landelijke uitbreiding),
+  punt 9's kleinere restvraag (waar precies de "+"-toevoegknop t.o.v. het
+  hoofd-zoekveld, nu al opgelost door 'm in de Favorieten-modus zelf te
+  zetten — dit puntje is dus feitelijk ook afgerond), punt 11 (Admin-
+  scherm, richting bepaald, niet gebouwd), punt 13 (Exposities verder
+  uitbreiden — GRID Grafisch Museum/Universiteitsmuseum Groningen nog niet
+  gecheckt), Staatsbosbeheer's 220 `route`-items (Wandelingen/tochten
+  dekt inmiddels wel de content, maar Michiel had oorspronkelijk ook nog
+  over een bredere "instellingen"-uitbreiding van het account-systeem
+  nagedacht, zie overleg.md punt 20 in het archief).

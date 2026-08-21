@@ -19,11 +19,12 @@
 | `gen_uitjes.py` | Python generator. Leest JSON, schrijft index.html. |
 | `events_db.py` | SQLite-laag: import/export/dedup. Zie ook §Cross-source dedup. |
 | `events_categorized.json` | Brondata — alle events. Single source of truth. |
+| `routes.json` | Wandelroutes van Staatsbosbeheer (2026-08-19) — buiten `events_categorized.json`/de events-DB om, want routes hebben nooit een datum. Zie §Wandelingen/tochten. |
 | `scraping_recipes.json` | Per-bron scrape-instructies (render_type, code, agenda_url). |
 | `index.html` | Gegenereerde output. **Nooit handmatig aanpassen.** |
 | `requirements.txt` | `playwright` (sinds 2026-08-15, alleen voor lokale headless-browser-scrapers) — verder leeg, de rest is pure Python stdlib. Cloudflare-build gebruikt dit bestand niet (roept alleen `gen_uitjes.py` aan, stdlib-only). |
 | `secrets_local.py` + `secrets.local.json` | API-keys (bv. Ticketmaster) — `secrets.local.json` staat in `.gitignore`, nooit committen. Zie §API-keys hieronder. |
-| `scrape_<bron>.py` | Eén los scraper-script per bron/venue (zie §Scrapers-conventie). 56 scripts op dit moment — zie `SCRAPERS.md` voor de volledige, actuele lijst per bron (dit bestand houdt bewust geen kopie van die lijst bij, om drift te voorkomen). |
+| `scrape_<bron>.py` | Eén los scraper-script per bron/venue (zie §Scrapers-conventie). 63 scripts op dit moment — zie `SCRAPERS.md` voor de volledige, actuele lijst per bron (dit bestand houdt bewust geen kopie van die lijst bij, om drift te voorkomen). |
 | `run_weekly_refresh.py` | Draait alle `scrape_*.py`-bestanden parallel in twee pools (plain-HTTP/Playwright), daarna export + generate. Zie §Wekelijkse refresh en §Parallelle scrapers. |
 | `page_cache.py` | Change-detection: hash-cache in `events.db` om parse/insert-werk over te slaan als een bron ongewijzigd is. Zie §Change-detection. |
 | `ssl_fix.py` | Workaround voor `ssl.VERIFY_X509_STRICT` (Python 3.13+), side-effect-import via `page_cache.py` — dus geen aparte import per scraper nodig. Zie decisions.md 2026-08-15. |
@@ -32,6 +33,7 @@
 | `SCRAPERS.md` | Status per bron: geautomatiseerd / kan zonder AI (recipe klaar) / AI-Chrome nodig / nog niet geprobeerd. |
 | `CLAUDE.md` | Werkwijze voor Claude in deze repo (wanneer welk .md-bestand lezen/bijwerken). |
 | `onboarding.md` / `overleg.md` / `plan.md` / `decisions.md` | Voor beheerders: resp. hoe-neem-ik-dit-over, open discussiepunten, to-do, genomen beslissingen. |
+| `.mcp.json` / `.agents`, `.claude/skills` | Project-scoped Supabase MCP-server + `supabase/agent-skills` (2026-08-20), gebruikt voor het Favorieten-backend-werk (§Wandelingen/tochten-sectie hierna heeft geen backend nodig, alleen Favorieten). Geen geheimen in deze bestanden. |
 
 ---
 
