@@ -2395,3 +2395,49 @@ losse evenementen.
 verwachte sportevents (geen "Qmusic"/"Gelderse Dag"), Bron-popover toont
 alle 3 nieuwe bronnen met correcte lat/lon (afstandsfilter/-sortering),
 geen console-errors.
+
+## 2026-08-22 — Volledige `run_weekly_refresh.py`-run: 2 bevindingen
+
+Michiel: "moeten we niet even een run doen?" — na alle scrapers deze
+sessie los getest te hebben, de eerste keer dat de VOLLEDIGE pipeline
+(alle 69 scrapers, parallel, zelf-herstellend) in één keer draait sinds
+de nieuwe bronnen erbij kwamen. 68/69 scrapers OK, 2 bevindingen:
+
+**Bug gevonden en gefixt: `scrape_staatsbosbeheer.py` werd onterecht
+gequarantained.** De live-modus van dit script printte nooit een
+`✓ Klaar:`-regel (alleen `✓ Activiteiten:`/`✓ Routes:`) — `run_weekly_
+refresh.py`'s succes-detectie (`SUCCESS_MARKERS = ('✓ Klaar:', 'Dry-
+run:')`) matchte dus NOOIT in live modus, ondanks dat het script prima
+werkte (65 activiteiten, 220 routes, geen crash). Dit bleef tot nu toe
+onopgemerkt omdat losse `--dry-run`-tests wél een `Dry-run:`-regel
+printen (dat pad is ongemoeid) — pas een run via de ECHTE
+`run_weekly_refresh.py`-detectielogica onthulde het. Zonder deze fix zou
+dit script bij ELKE toekomstige wekelijkse run (incl. de geplande ma/wo/
+za 04:00-taak) hernoemd zijn naar `fix_staatsbosbeheer.py` en dus uit de
+`scrape_*.py`-glob gevallen zijn — zowel de natuuractiviteiten als alle
+220 Wandelingen/tochten-routes waren dan stilletjes gestopt met
+bijwerken. Fix: 1 samenvattende `✓ Klaar: N gevonden, N nieuw in DB`-
+regel toegevoegd aan het eind van het live-pad. Geverifieerd: losse
+live-run toont nu de regel, bestand teruggezet van `fix_` naar
+`scrape_staatsbosbeheer.py`.
+
+**Gevonden, nog niet gefixt: `scrape_groningermuseum.py` geeft 0
+resultaten (2x HTTP 404).** Beide bekende endpoints (`/api/exhibitions`,
+`/api/activities`) zijn verdwenen — het Groninger Museum heeft de site
+kennelijk herbouwd (nu Next.js met Turbopack-chunks, `/tentoonstellingen`
+bestaat niet meer en redirect naar de homepage). Wel goed nieuws bij
+kort onderzoek: er is een nieuwe `/programma`-pagina die zowel
+tentoonstellingen als activiteiten toont, MET duidelijke datumbereiken
+("19 sep 2026 - 9 mei 2027"), en gewoon server-rendered is (plain
+`urllib` bevestigd, content zit direct in de HTML, geen API-call nodig).
+Dus fixbaar zonder Playwright, maar wel een echte regex-herbouw (nieuwe
+HTML-structuur) — niet in deze sessie opgepakt, Michiel nog niet
+gevraagd of dit nu of later moet. Overigens gedeeltelijk cushioned:
+Kunstpunt Groningen (aggregator, punt 13) dekt Groninger Museum al
+gedeeltelijk mee, dus dit is geen totale black-out.
+
+**Geen andere problemen**: overige 67 scrapers liepen zonder fouten,
+inclusief alle 6 dit-sessie-toegevoegde scrapers (debuitenplaats,
+princessehof, universiteitsmuseum, omnisport, landstedesportcentrum,
+martiniplaza_sport) — allemaal correct "ongewijzigd sinds vorige run,
+geskipt" (change-detection werkt zoals bedoeld, geen dubbele inserts).

@@ -474,4 +474,25 @@ hier alleen de samenvatting van wat er gebeurd is.
 - [ ] **Nog open, geen van alle urgent** (zie overleg.md): punt 6
   (landelijke uitbreiding), punt 11 (Admin-scherm, richting bepaald,
   niet gebouwd), punt 13's scope-vraag (alleen Groningen stad vs.
-  gerichter Drenthe/Friesland-musea apart zoeken).
+  gerichter Drenthe/Friesland-musea apart zoeken), punt 21
+  (scrape_groningermuseum.py geeft 0 resultaten, site herbouwd —
+  fixbaar, nog niet opgepakt).
+
+## Sessie 2026-08-22 (vervolg) — Volledige run_weekly_refresh.py-run
+
+- [x] **Michiel: "moeten we niet even een run doen?"** — eerste keer
+  de VOLLEDIGE pipeline (69 scrapers) in één keer gedraaid sinds alle
+  dit-sessie-toegevoegde scrapers erbij kwamen. 68/69 OK.
+- [x] **Bug gevonden en gefixt**: `scrape_staatsbosbeheer.py` printte
+  in live-modus nooit een `✓ Klaar:`-regel, waardoor `run_weekly_
+  refresh.py`'s succes-detectie het bij ELKE toekomstige run onterecht
+  als harde fout zou zien en quarantainen (incl. de geplande ma/wo/za
+  04:00-taak) — zowel natuuractiviteiten als alle 220 Wandelingen/
+  tochten-routes waren dan stilletjes gestopt met bijwerken. Fix: 1
+  samenvattende regel toegevoegd. Zie decisions.md 2026-08-22.
+- [x] **Nieuw gevonden, niet urgent**: `scrape_groningermuseum.py`
+  geeft 0 resultaten — site herbouwd (Next.js), oude API-endpoints
+  404. Wel fixbaar (nieuwe `/programma`-pagina, server-rendered), niet
+  in deze sessie opgepakt — genoteerd als overleg.md punt 21.
+  Gedeeltelijk cushioned door Kunstpunt Groningen-aggregator.
+- [x] Fix + verse data van de volledige run gecommit + gepusht.

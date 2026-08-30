@@ -249,6 +249,13 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
         json.dump(all_routes, f, ensure_ascii=False, indent=2)
     print(f"✓ Routes: {routes_found} weggeschreven naar {os.path.basename(ROUTES_JSON)}")
 
+    # Samenvattende regel nodig voor run_weekly_refresh.py's succes-detectie
+    # (SUCCESS_MARKERS = ('✓ Klaar:', 'Dry-run:')) -- zonder deze regel
+    # matcht de live-modus van dit script NOOIT en wordt het bij elke
+    # wekelijkse run onterecht als "harde fout" gequarantained. Zie
+    # decisions.md 2026-08-22.
+    print(f"✓ Klaar: {found} gevonden, {added} nieuw in DB ({routes_found} routes ook verwerkt)")
+
     return found, added
 
 

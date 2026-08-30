@@ -12,6 +12,12 @@ archief, niet hernummerd of verwijderd.
 
 ## Open vragen / te bespreken
 
+### 21. scrape_groningermuseum.py geeft 0 resultaten — site herbouwd
+- Gevonden 2026-08-22 tijdens een volledige `run_weekly_refresh.py`-run (Michiel: "moeten we niet even een run doen?"): beide bekende API-endpoints (`/api/exhibitions`, `/api/activities`) geven nu HTTP 404. Het Groninger Museum heeft de site herbouwd (nu Next.js/Turbopack, `/tentoonstellingen` bestaat niet meer, redirect naar de homepage).
+- **Wel fixbaar**: er is een nieuwe `/programma`-pagina met tentoonstellingen + activiteiten, duidelijke datumbereiken, server-rendered (plain `urllib` bevestigd, geen Playwright nodig) — vereist alleen een regex-herbouw voor de nieuwe HTML-structuur.
+- **Niet urgent, gedeeltelijk cushioned**: Kunstpunt Groningen (aggregator, punt 13) dekt Groninger Museum al deels mee, dus dit is geen totale black-out — wel minder precies dan de directe scraper.
+- Nog te bepalen: nu oppakken of later? Zie decisions.md 2026-08-22 voor de volledige technische bevinding.
+
 ### 6. Landelijke uitbreiding
 - Ambitie: de tool op termijn landelijk maken (nu vooral Noord-Nederland + een aantal landelijke podia).
 - Nader te bepalen: schaal (hoeveel bronnen/pagina's erbij), of de huidige scraper-architectuur dat aankan, prioritering t.o.v. de andere open items.
