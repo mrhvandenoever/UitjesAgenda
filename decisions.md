@@ -2441,3 +2441,43 @@ inclusief alle 6 dit-sessie-toegevoegde scrapers (debuitenplaats,
 princessehof, universiteitsmuseum, omnisport, landstedesportcentrum,
 martiniplaza_sport) — allemaal correct "ongewijzigd sinds vorige run,
 geskipt" (change-detection werkt zoals bedoeld, geen dubbele inserts).
+
+## 2026-09-02 — Geplande taak stond op Disabled: site draaide niet automatisch bij
+
+Michiel: "even syncen?" gevolgd door "hebben we dat nog niet
+geautomatiseerd?" — logische vraag, want overleg.md punt 1 (OPGELOST
+2026-08-15) documenteert al een werkende Windows Taakplanner-taak
+(ma/wo/za 04:00).
+
+**Diagnose**: `Get-ScheduledTaskInfo` toonde `LastTaskResult: 1` voor de
+meest recente triggermoment. `refresh_log.txt` (het eigen logbestand van
+`weekly_refresh.ps1`, wordt als allereerste statement geschreven) bleek
+volledig te ontbreken op schijf — een sterk signaal dat het script zijn
+eigen code nooit bereikte, dus geen fout IN de scraper-logica. Een
+handmatige trigger (`Start-ScheduledTask`) reproduceerde het direct:
+binnen enkele seconden weer `LastTaskResult: 1`, nog steeds geen
+logbestand — te snel voor een echte scraper-run (die duurt minuten).
+
+**Root cause gevonden via `schtasks /query /v`**: `Scheduled Task
+State: Disabled` — de taak stond simpelweg uitgeschakeld (`Next Run
+Time: N/A`). Oorzaak onbekend (niet uit deze sessie te herleiden of het
+bewust of onbedoeld gebeurde). Dit verklaart alles: geen scraper-bug,
+geen script-bug, gewoon een uitgeschakelde taak — de site is
+vermoedelijk een onbekende periode niet automatisch bijgewerkt.
+
+**Poging om het Task Scheduler-operationele logboek in te schakelen
+(voor toekomstige diagnose) mislukte** (`wevtutil set-log ... /enabled:
+true` → "Toegang geweigerd", vereist admin-rechten die deze sessie niet
+heeft) — niet verder geforceerd, geen kritieke blokkade.
+
+**Michiel expliciet gevraagd** (niet zelf aangenomen, staande
+automatisering die onbeheerd commit+pusht) of de taak weer aan mocht —
+akkoord gekregen ("Ja, weer inschakelen"). `Enable-ScheduledTask`
+uitgevoerd, geverifieerd: `Scheduled Task State: Enabled`, eerstvolgende
+run zaterdag 5 sept 04:00.
+
+**Aanbeveling voor een volgende sessie**: overweeg periodiek (bv. bij elk
+begin van een sessie) kort `Get-ScheduledTaskInfo` te checken, zodat een
+uitgeschakelde/vastgelopen taak niet wekenlang onopgemerkt blijft —
+`refresh_log.txt` alleen is onvoldoende omdat een `Disabled`-taak dat
+bestand nooit aanraakt.

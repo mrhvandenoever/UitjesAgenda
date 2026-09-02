@@ -85,6 +85,7 @@ alleen de samenvatting + het besluit zelf, voor snel terugzoeken op nummer.
 ### 1. Waar draait de wekelijkse refresh voortaan? — OPGELOST 2026-08-15
 - **Besluit**: structureel op deze laptop (`C:\dev\uitjesagenda`), niet de andere pc.
 - Windows Taakplanner-taak "uitjes-agenda-refresh" opnieuw ingesteld: **ma/wo/za 04:00** (was maandag 08:04), draait `weekly_refresh.ps1`, `LogonType S4U` (draait ongeacht inlogstatus, geen wachtwoord opgeslagen). Zie `decisions.md` en ARCHITECTURE.md §Wekelijkse refresh.
+- **2026-09-02 — bijvangst**: de taak bleek op enig moment op `Disabled` te staan (oorzaak onbekend) — de site draaide dus een tijd niet meer automatisch bij, los van scraper-logica. Ontdekt tijdens het diagnosticeren van `LastTaskResult: 1`. Weer op `Enabled` gezet na Michiels akkoord. Zie decisions.md 2026-09-02.
 
 ### 2. Slimmer scrapen (efficiëntie) — hash-caching + parallelle requests GEBOUWD 2026-08-16
 - Huidige situatie: elke scraper haalt bij elke run alle pagina's opnieuw op (bv. drenthe.nl: 34+ pagina's, duurde >3 min).

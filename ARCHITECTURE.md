@@ -865,6 +865,29 @@ Taak bekijken/aanpassen:
 Get-ScheduledTask -TaskName "uitjes-agenda-refresh" | Get-ScheduledTaskInfo
 ```
 
+**Diagnose-notitie (gevonden 2026-09-02)**: de taak bleek op enig moment
+op `Disabled` te staan (oorzaak onbekend) — de site draaide daardoor een
+onbekende periode niet automatisch bij, zonder dat er ergens een
+foutmelding zichtbaar was (`refresh_log.txt` wordt namelijk pas
+geschreven zodra `weekly_refresh.ps1`'s eigen code start; een
+`Disabled`-taak start dat proces nooit, dus blijft het logbestand
+volledig afwezig — geen "foutieve" laatste run, gewoon stilte). Signalen
+om op te letten bij twijfel:
+- `(Get-ScheduledTaskInfo -TaskName "uitjes-agenda-refresh").LastTaskResult`
+  — `0` is OK, een ander getal (bv. `1`) wijst op een probleem.
+- `schtasks /query /tn "uitjes-agenda-refresh" /v /fo list` — geeft
+  expliciet `Scheduled Task State: Enabled`/`Disabled` en
+  `Next Run Time` (`N/A` bij een uitgeschakelde taak), duidelijker dan
+  `Get-ScheduledTask`'s eigen `State`-veld (dat toont "Ready" voor een
+  uitgeschakelde taak net zo goed als voor een klaarstaande).
+- Ontbrekend `refresh_log.txt` ná een verwachte run-tijd is zelf al een
+  signaal dat het probleem vóór `weekly_refresh.ps1`'s eigen logica zit
+  (taak niet gestart/uitgeschakeld), niet in de scraper-logica erna.
+`wevtutil set-log "Microsoft-Windows-TaskScheduler/Operational"
+/enabled:true` geeft toekomstige Taakplanner-runs een doorzoekbaar
+gebeurtenissenlogboek, maar vereist een **verhoogde** PowerShell (niet
+gelukt vanuit een niet-elevated sessie op 2026-09-02).
+
 `run_weekly_refresh.py` globt zelf alle `scrape_*.py`-bestanden en draait ze
 één voor één — **geen handmatige lijst meer om bij te houden** (was tot
 2026-08-14 wel zo, liep binnen twee sessies drie kwart achter: 31 scrapers
