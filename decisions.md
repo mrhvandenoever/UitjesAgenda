@@ -2481,3 +2481,39 @@ begin van een sessie) kort `Get-ScheduledTaskInfo` te checken, zodat een
 uitgeschakelde/vastgelopen taak niet wekenlang onopgemerkt blijft —
 `refresh_log.txt` alleen is onvoldoende omdat een `Disabled`-taak dat
 bestand nooit aanraakt.
+
+## 2026-09-02 — Schema verruimd van ma/wo/za naar dagelijks
+
+Michiel, direct na het heractiveren van de taak: "ok mag wel naar
+dagelijks."
+
+**Poging vanuit deze sessie mislukte**: `Set-ScheduledTask -Trigger
+...` gaf `Toegang geweigerd` — zelfde beperking als bij de S4U-principal
+destijds (ARCHITECTURE.md): trigger-wijzigingen op deze taak vereisen
+een **verhoogde** (Administrator) PowerShell, niet beschikbaar vanuit
+deze sessie. De taak zelf bleef ongewijzigd (nog steeds enabled, ma/wo/
+za) — geen halve/kapotte staat door de mislukte poging, alleen geen
+wijziging.
+
+**Michiel draaide het gegeven commando zelf** vanuit een elevated
+PowerShell:
+```powershell
+$trigger = New-ScheduledTaskTrigger -Daily -At 4:00AM
+Set-ScheduledTask -TaskName "uitjes-agenda-refresh" -Trigger $trigger
+```
+**Geverifieerd**: `schtasks /query /tn "uitjes-agenda-refresh" /v`
+toont `Schedule Type: Daily`, `Start Time: 04:00:00`, `Days: Every 1
+day(s)`, eerstvolgende run 3 sept 2026 04:00. `weekly_refresh.ps1`'s
+eigen docstring-commentaar bijgewerkt (was "ma/wo/za 04:00").
+
+**Zijdelings**: Michiel vroeg ook of de nieuwe sporthal-scrapers
+(Omnisport/Landstede Sportcentrum/Martiniplaza-sport, zie
+2026-08-22-punt hierboven) ook andere bonden dan volleybal vangen
+("handbal, ijshockey, korfbal, etc?"). Bevestigd: ja, die 3 scrapers
+filteren niet op sport/bond — ze pakken alles wat op de eigen agenda
+van de hal staat, dus elke nationale-team-sport die daar ooit gepland
+wordt komt automatisch mee. Los daarvan bestaan handbal/ijshockey/
+korfbal al langer als CLUB-competities in de aparte topniveau-Sport-
+modus (`scrape_handbal.py`, `scrape_grizzlys.py`/`scrape_flyers.py`/
+`scrape_ogcapitals.py`, `scrape_ldodk.py`/`scrape_dos46.py`) — dat was
+al zo vóór deze sessie, geen wijziging.

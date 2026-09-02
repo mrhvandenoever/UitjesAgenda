@@ -835,7 +835,7 @@ zomertijdregel in plaats daarvan, wettelijk vastgelegd en dus stabiel).
 
 ### Wekelijkse refresh (Windows Taakplanner-taak)
 
-Elke **ma/wo/za om 04:00** draait Windows Taakplanner-taak "uitjes-agenda-refresh"
+Elke **dag om 04:00** draait Windows Taakplanner-taak "uitjes-agenda-refresh"
 op `C:\dev\uitjesagenda` (deze laptop, `mrhva`). De taak roept
 `weekly_refresh.ps1` aan, die:
 

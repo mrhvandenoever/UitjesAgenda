@@ -2,7 +2,8 @@
 #
 # Draait run_weekly_refresh.py (scrapers + export + gen_uitjes.py) en pusht
 # het resultaat naar GitHub, als er iets veranderd is. Geen AI/Claude bij
-# betrokken — puur script, bedoeld om via Taakplanner te draaien (ma/wo/za 04:00).
+# betrokken — puur script, bedoeld om via Taakplanner te draaien (dagelijks 04:00,
+# was ma/wo/za tot 2026-09-02, zie decisions.md).
 #
 # Logt naar refresh_log.txt in dezelfde map (append), zodat een gemiste of
 # mislukte run achteraf te checken is.
