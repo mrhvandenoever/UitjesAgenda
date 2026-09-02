@@ -3932,6 +3932,17 @@
     "url": "https://www.paradiso.nl/nl/programma/jaguar-sun/2867117"
   },
   {
+    "title": "LDODK/Rinsma Modeplein 1 - Mid-Fryslân/ReduRisk 1",
+    "date": "2026-09-08",
+    "source": "ldodk",
+    "genre": "sport",
+    "time": "20:30",
+    "venue": "Sportpark Kortezwaag, Gorredijk",
+    "url": "https://www.ldodk.nl/teams/ldodk-1/?tab=programma",
+    "gender": "gemengd",
+    "sport": "korfbal"
+  },
+  {
     "title": "Marilyn Expositie",
     "date": "2026-09-08",
     "source": "forum.nl",
@@ -9606,6 +9617,17 @@
     "url": "https://www.doornroosje.nl/event/kunstnacht-6/"
   },
   {
+    "title": "LDODK/Rinsma Modeplein 1 - WKS/European Aerosols 1",
+    "date": "2026-09-19",
+    "source": "ldodk",
+    "genre": "sport",
+    "time": "16:00",
+    "venue": "Sportpark Kortezwaag, Gorredijk",
+    "url": "https://www.ldodk.nl/teams/ldodk-1/?tab=programma",
+    "gender": "gemengd",
+    "sport": "korfbal"
+  },
+  {
     "title": "Let it Happen! DJ St. Paul's Indie Euphoria",
     "date": "2026-09-19",
     "source": "rotown",
@@ -13589,6 +13611,17 @@
     "url": "https://www.paradiso.nl/nl/programma/nouvelle-vague/2889197"
   },
   {
+    "title": "OG Capitals Leeuwarden - GIJS Marne Groningen",
+    "date": "2026-09-26",
+    "source": "ogcapitals",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Elfstedenhal Leeuwarden",
+    "url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Oktoberfest",
     "date": "2026-09-26",
     "source": "drenthe.nl",
@@ -14239,6 +14272,17 @@
     "genre": "overig",
     "venue": "Doornroosje, Nijmegen",
     "url": "https://www.doornroosje.nl/event/fluisteraars/"
+  },
+  {
+    "title": "GIJS Marne Groningen - Hijs Hokij Den Haag",
+    "date": "2026-09-27",
+    "source": "grizzlys",
+    "genre": "sport",
+    "time": "18:15",
+    "venue": "Sportcentrum Kardinge Groningen",
+    "url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Henk Dillerop over Moord en ander ongemak in Leeuwarden",
@@ -17116,6 +17160,17 @@
     "category": "Jeugdtheater"
   },
   {
+    "title": "Jumbo Flyers Heerenveen - Red Eagles 's-Hertogenbosch",
+    "date": "2026-10-03",
+    "source": "flyers",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Thialf Heerenveen",
+    "url": "https://www.unisflyers.nl/wedstrijden/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Kennen Jullie Deze NOG",
     "date": "2026-10-03",
     "source": "paard",
@@ -17147,6 +17202,17 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3542662915/klup-kaviaar-2",
     "category": "Dance"
+  },
+  {
+    "title": "LDODK/Rinsma Modeplein 1 - Heerenveen 1",
+    "date": "2026-10-03",
+    "source": "ldodk",
+    "genre": "sport",
+    "time": "17:00",
+    "venue": "Sportpark Kortezwaag, Gorredijk",
+    "url": "https://www.ldodk.nl/teams/ldodk-1/?tab=programma",
+    "gender": "gemengd",
+    "sport": "korfbal"
   },
   {
     "title": "Lera Lynn",
@@ -20607,6 +20673,17 @@
     "url": "https://neushoorn.nl/programma"
   },
   {
+    "title": "GIJS Marne Groningen - Tilburg Trappers",
+    "date": "2026-10-10",
+    "source": "grizzlys",
+    "genre": "sport",
+    "time": "20:30",
+    "venue": "Sportcentrum Kardinge Groningen",
+    "url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Go Ahead Eagles - Sparta Rotterdam",
     "date": "2026-10-10",
     "source": "goahead",
@@ -20756,6 +20833,17 @@
     "url": "https://www.concertgebouw.nl/concerten/41701217-jonge-nederlanders-thijs-willers"
   },
   {
+    "title": "Jumbo Flyers Heerenveen - Solify Smoke Eaters Geleen",
+    "date": "2026-10-10",
+    "source": "flyers",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Thialf Heerenveen",
+    "url": "https://www.unisflyers.nl/wedstrijden/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Koffie?",
     "date": "2026-10-10",
     "source": "princessehof",
@@ -20859,6 +20947,17 @@
     "location": "Rotterdam",
     "url": "https://www.rotown.nl/agenda/nobu-1/",
     "image": "https://www.rotown.nl/wp-content/uploads/2026/04/Nobu-FB.jpg"
+  },
+  {
+    "title": "OG Capitals Leeuwarden - Amsterdam Tigers",
+    "date": "2026-10-10",
+    "source": "ogcapitals",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Elfstedenhal Leeuwarden",
+    "url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "ON&ON: HVMZA, Susan Right, DEMS",
@@ -27631,6 +27730,17 @@
     "category": "Concert"
   },
   {
+    "title": "OG Capitals Leeuwarden - Utrecht Dragons",
+    "date": "2026-10-23",
+    "source": "ogcapitals",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Elfstedenhal Leeuwarden",
+    "url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Ochtendwandeling Sallandse Heuvelrug",
     "date": "2026-10-23",
     "source": "staatsbosbeheer",
@@ -28245,6 +28355,17 @@
     "genre": "overig",
     "venue": "Podium Zuidhaege, Assen",
     "url": "https://podiumzuidhaege.nl/a/jeugdcircus-bombari-bombari-productions/"
+  },
+  {
+    "title": "Jumbo Flyers Heerenveen - OG Capitals Leeuwarden",
+    "date": "2026-10-24",
+    "source": "flyers",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Thialf Heerenveen",
+    "url": "https://www.unisflyers.nl/wedstrijden/",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "La Tempête met Bach, Mendelssohn & Brahms",
@@ -31123,6 +31244,17 @@
     "url": "https://www.doornroosje.nl/event/nobu/"
   },
   {
+    "title": "OG Capitals Leeuwarden - Santino Eindhoven Kemphanen",
+    "date": "2026-10-30",
+    "source": "ogcapitals",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Elfstedenhal Leeuwarden",
+    "url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Oneindige klankmogelijkheden door fagottist Bram van Sambeek",
     "date": "2026-10-30",
     "source": "friesland.nl",
@@ -31550,6 +31682,17 @@
     "city": "Gieterveen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/773114231/gerard-compagnie-met-hun-programma-gord-jesse"
+  },
+  {
+    "title": "GIJS Marne Groningen - Amsterdam Tigers",
+    "date": "2026-10-31",
+    "source": "grizzlys",
+    "genre": "sport",
+    "time": "20:30",
+    "venue": "Sportcentrum Kardinge Groningen",
+    "url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Geonne Hartman",
@@ -32479,6 +32622,17 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2302512953/juf-braaksel-de-musical",
     "category": "Theater overig"
+  },
+  {
+    "title": "Jumbo Flyers Heerenveen - Nijmegen Devils",
+    "date": "2026-11-01",
+    "source": "flyers",
+    "genre": "sport",
+    "time": "20:30",
+    "venue": "Thialf Heerenveen",
+    "url": "https://www.unisflyers.nl/wedstrijden/",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Klassieke Vrienden Tim Nobel ontvangt Duo Sonore",
@@ -34759,6 +34913,17 @@
     "venue": "Het Paard, Den Haag",
     "province": "Zuid-Holland",
     "url": "https://denhaag.com/nl/agenda/fischer-z"
+  },
+  {
+    "title": "GIJS Marne Groningen - Jumbo Flyers Heerenveen",
+    "date": "2026-11-07",
+    "source": "grizzlys",
+    "genre": "sport",
+    "time": "20:30",
+    "venue": "Sportcentrum Kardinge Groningen",
+    "url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Hokjesdenker",
@@ -38074,6 +38239,17 @@
     "url": "https://www.concertgebouw.nl/concerten/45743709-handels-agrippina-met-magdalena-kozena-julia-lezhneva"
   },
   {
+    "title": "Jumbo Flyers Heerenveen - Utrecht Dragons",
+    "date": "2026-11-14",
+    "source": "flyers",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Thialf Heerenveen",
+    "url": "https://www.unisflyers.nl/wedstrijden/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Kanine",
     "date": "2026-11-14",
     "source": "melkweg",
@@ -38181,6 +38357,17 @@
     "genre": "overig",
     "venue": "TivoliVredenburg, Utrecht",
     "url": "https://www.tivolivredenburg.nl/agenda/79776244/noord-nederlands-orkest-speelt-filmmuziek-14-11-2026"
+  },
+  {
+    "title": "OG Capitals Leeuwarden - Sweetlake Panters Zoetermeer",
+    "date": "2026-11-14",
+    "source": "ogcapitals",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Elfstedenhal Leeuwarden",
+    "url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Olli Mustonen en leden van Amsterdam Sinfonietta in Elgars Pianokwintet",
@@ -41334,6 +41521,17 @@
     "url": "https://www.013.nl/programma/122573/fun-n-folk"
   },
   {
+    "title": "GIJS Marne Groningen - Nijmegen Devils",
+    "date": "2026-11-21",
+    "source": "grizzlys",
+    "genre": "sport",
+    "time": "20:30",
+    "venue": "Sportcentrum Kardinge Groningen",
+    "url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "GRN Festival",
     "date": "2026-11-21",
     "source": "kielzog",
@@ -41532,6 +41730,17 @@
     "genres": []
   },
   {
+    "title": "Jumbo Flyers Heerenveen - Amsterdam Tigers",
+    "date": "2026-11-21",
+    "source": "flyers",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Thialf Heerenveen",
+    "url": "https://www.unisflyers.nl/wedstrijden/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "KCOV Amsterdam zingt Brahms’ troostrijke meesterwerk Ein deutsches Requiem",
     "date": "2026-11-21",
     "source": "concertgebouw",
@@ -41683,6 +41892,17 @@
     "city": "Gorredijk",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1631288374/numidia-in-de-skans-gorredijk"
+  },
+  {
+    "title": "OG Capitals Leeuwarden - Red Eagles 's-Hertogenbosch",
+    "date": "2026-11-21",
+    "source": "ogcapitals",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Elfstedenhal Leeuwarden",
+    "url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Oliver Wakeman Eldest Son Of Rick Wakeman – An Evening Of Yes And Originals",
@@ -45019,6 +45239,17 @@
     "url": "https://www.tivolivredenburg.nl/agenda/64770306/ensemble-pygmalion-raphael-pichon-29-11-2026"
   },
   {
+    "title": "GIJS Marne Groningen - Red Eagles 's-Hertogenbosch",
+    "date": "2026-11-29",
+    "source": "grizzlys",
+    "genre": "sport",
+    "time": "18:15",
+    "venue": "Sportcentrum Kardinge Groningen",
+    "url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Gallowstreet",
     "date": "2026-11-29",
     "source": "paard",
@@ -47327,6 +47558,17 @@
     ]
   },
   {
+    "title": "Jumbo Flyers Heerenveen - Santino Eindhoven Kemphanen",
+    "date": "2026-12-05",
+    "source": "flyers",
+    "genre": "sport",
+    "time": "20:30",
+    "venue": "Thialf Heerenveen",
+    "url": "https://www.unisflyers.nl/wedstrijden/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Kingfishr",
     "date": "2026-12-05",
     "source": "spotgroningen.nl",
@@ -47389,6 +47631,17 @@
     "cats": [
       "theater"
     ]
+  },
+  {
+    "title": "OG Capitals Leeuwarden - Hijs Hokij Den Haag",
+    "date": "2026-12-05",
+    "source": "ogcapitals",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Elfstedenhal Leeuwarden",
+    "url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Oosting/E&O HS1 - Dynamico HS1",
@@ -49941,6 +50194,17 @@
     "sport": "volleybal"
   },
   {
+    "title": "GIJS Marne Groningen - OG Capitals Leeuwarden",
+    "date": "2026-12-12",
+    "source": "grizzlys",
+    "genre": "sport",
+    "time": "20:30",
+    "venue": "Sportcentrum Kardinge Groningen",
+    "url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Gallowstreet",
     "date": "2026-12-12",
     "source": "doornroosje",
@@ -50054,6 +50318,17 @@
     "genre": "overig",
     "venue": "Vera, Groningen",
     "url": "https://www.vera-groningen.nl/?post_type=events&p=153202&lang=nl"
+  },
+  {
+    "title": "Jumbo Flyers Heerenveen - Tilburg Trappers",
+    "date": "2026-12-12",
+    "source": "flyers",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Thialf Heerenveen",
+    "url": "https://www.unisflyers.nl/wedstrijden/",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Kerstconcert met Jan Vayne in Groningen",
@@ -50868,6 +51143,17 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "OG Capitals Leeuwarden - Jumbo Flyers Heerenveen",
+    "date": "2026-12-13",
+    "source": "ogcapitals",
+    "genre": "sport",
+    "time": "16:00",
+    "venue": "Elfstedenhal Leeuwarden",
+    "url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Opera- en kamermuziekzanger IGOR POPOV met 'CHIAROSCURO'",
@@ -52717,6 +53003,17 @@
     ]
   },
   {
+    "title": "GIJS Marne Groningen - Utrecht Dragons",
+    "date": "2026-12-19",
+    "source": "grizzlys",
+    "genre": "sport",
+    "time": "20:30",
+    "venue": "Sportcentrum Kardinge Groningen",
+    "url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Gary Moore Tribute Memorial Tour \"Walking by myself\"",
     "date": "2026-12-19",
     "source": "neushoorn",
@@ -53216,6 +53513,17 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/860592911/juf-roos-2-16-00-uur-1",
     "category": "Jeugdtheater"
+  },
+  {
+    "title": "Jumbo Flyers Heerenveen - Dordrecht Lions",
+    "date": "2026-12-20",
+    "source": "flyers",
+    "genre": "sport",
+    "time": "15:30",
+    "venue": "Thialf Heerenveen",
+    "url": "https://www.unisflyers.nl/wedstrijden/",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Kaaskop & van Vleuten",
@@ -55358,6 +55666,17 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2832469389/noord-nederlands-orkest-17"
   },
   {
+    "title": "OG Capitals Leeuwarden - Dordrecht Lions",
+    "date": "2027-01-08",
+    "source": "ogcapitals",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Elfstedenhal Leeuwarden",
+    "url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Popfabryk — Pup-Up Noord - Performance Festival",
     "date": "2027-01-08",
     "source": "lawei",
@@ -55575,6 +55894,17 @@
     "type": "Keuken Kampioen Divisie",
     "lat": 52.7693,
     "lon": 6.8891
+  },
+  {
+    "title": "GIJS Marne Groningen - Sweetlake Panters Zoetermeer",
+    "date": "2027-01-09",
+    "source": "grizzlys",
+    "genre": "sport",
+    "time": "20:30",
+    "venue": "Sportcentrum Kardinge Groningen",
+    "url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Harm Edens - DE TOESTAND IN DE WERELD VOLGENS HARM EDENS",
@@ -58322,6 +58652,17 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/224253461/film-in-theater-hofpoort-1"
   },
   {
+    "title": "GIJS Marne Groningen - Dordrecht Lions",
+    "date": "2027-01-23",
+    "source": "grizzlys",
+    "genre": "sport",
+    "time": "20:30",
+    "venue": "Sportcentrum Kardinge Groningen",
+    "url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Go Ahead Eagles - SC Cambuur Leeuwarden",
     "date": "2027-01-23",
     "source": "goahead",
@@ -58403,6 +58744,17 @@
     "city": "Assen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3365937115/noord-nederlands-orkest-sjostakovitsj-celloconcert-1-met-truls-mork"
+  },
+  {
+    "title": "OG Capitals Leeuwarden - Solify Smoke Eaters Geleen",
+    "date": "2027-01-23",
+    "source": "ogcapitals",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Elfstedenhal Leeuwarden",
+    "url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Paskal Jakobsen",
@@ -59903,6 +60255,17 @@
     "url": "https://www.spotgroningen.nl/programma/julien-clerc-2/",
     "subtitle": "Franse chansonnier met iconisch repertoire",
     "cats": []
+  },
+  {
+    "title": "Jumbo Flyers Heerenveen - GIJS Marne Groningen",
+    "date": "2027-01-30",
+    "source": "flyers",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Thialf Heerenveen",
+    "url": "https://www.unisflyers.nl/wedstrijden/",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "KleuterSinfonietta: StuiterStokken (4 en 5 jaar)",
@@ -61550,6 +61913,17 @@
     "cats": []
   },
   {
+    "title": "GIJS Marne Groningen - Santino Eindhoven Kemphanen",
+    "date": "2027-02-06",
+    "source": "grizzlys",
+    "genre": "sport",
+    "time": "20:30",
+    "venue": "Sportcentrum Kardinge Groningen",
+    "url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Grof Geschud - Vieren",
     "date": "2027-02-06",
     "source": "drenthe.nl",
@@ -61637,6 +62011,17 @@
     "city": "Hoogeveen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1180675580/novastar-theatertour"
+  },
+  {
+    "title": "OG Capitals Leeuwarden - Tilburg Trappers",
+    "date": "2027-02-06",
+    "source": "ogcapitals",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Elfstedenhal Leeuwarden",
+    "url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Paraview 2027",
@@ -63362,6 +63747,17 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/520817877/janice-blok",
     "category": "Theater overig"
+  },
+  {
+    "title": "Jumbo Flyers Heerenveen - Sweetlake Panters Zoetermeer",
+    "date": "2027-02-13",
+    "source": "flyers",
+    "genre": "sport",
+    "time": "20:00",
+    "venue": "Thialf Heerenveen",
+    "url": "https://www.unisflyers.nl/wedstrijden/",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Knuffelrock Live - Deel 1",
@@ -65604,6 +66000,17 @@
     ]
   },
   {
+    "title": "GIJS Marne Groningen - Solify Smoke Eaters Geleen",
+    "date": "2027-02-21",
+    "source": "grizzlys",
+    "genre": "sport",
+    "time": "18:15",
+    "venue": "Sportcentrum Kardinge Groningen",
+    "url": "https://gijsgroningen.nl/gijs-eredivisie/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Grondtonen (9+) Het Houten Huis",
     "date": "2027-02-21",
     "source": "spotgroningen.nl",
@@ -65630,6 +66037,17 @@
     ]
   },
   {
+    "title": "Jumbo Flyers Heerenveen - Hijs Hokij Den Haag",
+    "date": "2027-02-21",
+    "source": "flyers",
+    "genre": "sport",
+    "time": "15:30",
+    "venue": "Thialf Heerenveen",
+    "url": "https://www.unisflyers.nl/wedstrijden/",
+    "gender": "heren",
+    "sport": "ijshockey"
+  },
+  {
     "title": "Kamerorkest v/h Noorden & Marco Danesi - Dromen, gebeden en rubberlaarzen",
     "date": "2027-02-21",
     "source": "atlastheater",
@@ -65645,6 +66063,17 @@
     "genre": "overig",
     "venue": "TivoliVredenburg, Utrecht",
     "url": "https://www.tivolivredenburg.nl/agenda/57991234/manou-gallo-lucas-van-merwijk-21-02-2027"
+  },
+  {
+    "title": "OG Capitals Leeuwarden - Nijmegen Devils",
+    "date": "2027-02-21",
+    "source": "ogcapitals",
+    "genre": "sport",
+    "time": "16:00",
+    "venue": "Elfstedenhal Leeuwarden",
+    "url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
+    "gender": "heren",
+    "sport": "ijshockey"
   },
   {
     "title": "Only Joling - The Final Countdown",

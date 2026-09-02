@@ -2563,3 +2563,72 @@ dit scenario.
 
 **Geverifieerd**: lokale generatie, geen console-errors, 0 duplicaten
 meer voor cambuur/friso in de geëxporteerde JSON.
+
+## 2026-09-02 — 4 geparkeerde sportclubs alsnog gebouwd (ijshockey ×3, korfbal ×1)
+
+Michiel, na het directe "waarom praat je er om heen? staan alle
+wedstrijden erin van basketbal? volleybal? ijshockey? handbal? korfbal?":
+bleek IJshockey (Grizzlys/Flyers/OG Capitals) en Korfbal (LDODK/DOS'46)
+0 wedstrijden te hebben — geen van de 5 scrapers bestond ooit, allemaal
+al weken/maanden geparkeerd (SCRAPERS.md). Michiel: "ja, graag, in de
+andere scrapers hebben we ook mogelijkheden gebruikt. chrome staat ook
+open met jou als extensie erin. mag je ook gebruiken." — expliciete
+toestemming om de Chrome-extensie in te zetten voor onderzoek.
+
+**GIJS Marne Groningen (Grizzlys)**: seizoen 2026-2027 bleek inmiddels
+gepubliceerd (was "nog 2025-2026" op 2026-08-15). gijsgroningen.nl zelf
+client-rendered, maar Chrome MCP-netwerkverkeer legde een PUBLIEKE
+JSONP-API van derde partij **hockeydata.net** bloot — een compleet
+Eredivisie-schema in 1 call (`divisionId=22086`), met een apiKey die
+gewoon in de publiek uitgeleverde frontend-JS staat (geen login, geen
+secret — zelfde categorie als de Sportlink-key bij scrape_handbal.py).
+`callback=`-param weglaten geeft platte JSON i.p.v. JSONP.
+
+**Bijvangst**: die ENE hockeydata.net-call dekt alle 13 Eredivisie-clubs
+tegelijk, dus ook **Jumbo Flyers Heerenveen** en **OG Capitals
+Leeuwarden** direct opgelost — hun eigen sites (unisflyers.nl,
+capitalsleeuwarden.com met de bekende redirect-loop) hoefden niet meer
+bezocht te worden. Bewust 3 losse scraper-bestanden (scrape_grizzlys.py/
+scrape_flyers.py/scrape_ogcapitals.py) i.p.v. een gedeelde helper, zelfde
+conventie als scrape_lycurgus.py/scrape_friso.py (Nevobo). 12 events/run
+elk.
+
+**LDODK (korfbal)**: programma bleek gepubliceerd op ldodk.nl (was "seizoen
+start pas 6-8 nov 2026" op 2026-08-10). Geen zichtbare API-call in het
+netwerkverkeer — de wedstrijddata zit al server-side ingebakken in de
+Nuxt-payload (`<script id="__NUXT_DATA__">`), een "devalue"-geserialiseerde
+PLATTE array: elk element is óf een letterlijke waarde, óf een object/
+lijst waarvan de waarden weer INDEXES zijn naar andere array-elementen
+(graaf-serialisatie i.p.v. geneste JSON — hetzelfde formaat als
+SvelteKit/Nuxt payloads in het algemeen gebruiken). Gebouwd via een
+kleine recursieve resolver (`_resolve_devalue()` in scrape_ldodk.py) die
+eerst het hele element-0 ("root") oplost en dan structureel zoekt naar de
+eerste lijst met records die een `thuisteam`-veld hebben (de Nuxt-fetch-
+cache-sleutel zelf, bv. `"WukI77niGN"`, is auto-gegenereerd en niet
+voorspelbaar, dus niet als vaste sleutel gebruikt). Plain `urllib`
+volstaat — geen Playwright nodig, de payload staat al in de ruwe
+server-rendered HTML. Slechts ~6 wedstrijden per keer zichtbaar (geen
+breder venster gevonden zoals handbal.nl's `aantaldagen`-param) — geen
+probleem gezien de dagelijkse refresh (schuift vanzelf mee). 3 events/run.
+
+**DOS'46 (korfbal) blijft geblokkeerd** — herchecked, maar bleek nu een
+STERKERE blokkade te hebben dan eerder genoteerd: mijn.korfbal.nl's
+programma-route (`/clubs/details/NCX09J8/programma`) geeft nu een
+`sso-login=silent-callback&error=login_required`-redirect — een
+expliciete inlogmuur (was eerder "laadt leeg", nu een bevestigde
+login-eis). DOS'46's eigen website linkt zelf ook naar exact deze
+geblokkeerde URL, geen alternatieve bron gevonden (in tegenstelling tot
+LDODK, dat wél een eigen Korfbal-League-teampagina buiten mijn.korfbal.nl
+om heeft). Geen poging gedaan om in te loggen — buiten scope.
+
+**Architectuur-consistentie**: alle 4 events krijgen `genre='sport'` via
+het bestaande `SPORT_CLUBS`-mechanisme (niet via het nieuwere
+`cats=['sport']`-genre-signaal van 2026-08-22 — dat is specifiek voor
+gemengde-inhoud VENUE-bronnen, deze 4 zijn juist wél 1-sport-per-bron
+club-thuiswedstrijden en horen dus in `SPORT_SRCS`/de bestaande
+topniveau-Sport-modus, wat ze al waren via de bestaande `SPORT_CLUBS`-
+dict-vermelding).
+
+**Geverifieerd**: lokale generatie (8513 events), alle 39 nieuwe events
+zichtbaar met correcte `data-genre="sport"`/`data-gender`/`data-prov`/
+`data-latlon`-attributen, geen console-errors op een schone tab-reload.

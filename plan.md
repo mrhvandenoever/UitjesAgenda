@@ -496,3 +496,30 @@ hier alleen de samenvatting van wat er gebeurd is.
   in deze sessie opgepakt — genoteerd als overleg.md punt 21.
   Gedeeltelijk cushioned door Kunstpunt Groningen-aggregator.
 - [x] Fix + verse data van de volledige run gecommit + gepusht.
+
+## Sessie 2026-09-02 (vervolg) — Refresh-schema + dubbele wedstrijden + 4 sportbronnen
+
+- [x] **Refresh-schema naar dagelijks**: Michiel "ok mag wel naar
+  dagelijks" — trigger-wijziging vereiste een verhoogde PowerShell,
+  Michiel heeft het commando zelf gedraaid. Geverifieerd: Daily 04:00.
+- [x] **Structurele dubbele wedstrijden gevonden + gefixt**: Cambuur
+  (17 rijen) en Friso (7 rijen) hadden allebei hun hele seizoen dubbel
+  staan door een verweesde titel-rij van vóór een ooit gewijzigde
+  `CLUB`/`CLUB_NAME`-constante. 24 rijen verwijderd uit events.db,
+  breder gecontroleerd (geen ander systematisch geval gevonden).
+- [x] **4 geparkeerde sportclubs alsnog gebouwd** (na Michiels directe
+  vraag "staan alle wedstrijden erin van basketbal/volleybal/
+  ijshockey/handbal/korfbal?" — bleken 5 scrapers nooit gebouwd):
+  - `scrape_grizzlys.py`/`scrape_flyers.py`/`scrape_ogcapitals.py`
+    (ijshockey) — allemaal via één publieke JSONP-API van derde partij
+    hockeydata.net, gevonden via Chrome MCP-netwerkverkeer (Michiel gaf
+    hier expliciet toestemming voor: "chrome staat ook open met jou als
+    extensie erin. mag je ook gebruiken"). 12 events/run elk.
+  - `scrape_ldodk.py` (korfbal) — data zit ingebakken in een Nuxt
+    `__NUXT_DATA__`-devalue-payload, een kleine recursieve resolver
+    gebouwd om dat te decoderen. 3 events/run.
+  - **DOS'46 (korfbal) blijft geblokkeerd** — nu een bevestigde
+    SSO-inlogmuur op mijn.korfbal.nl, geen alternatieve bron gevonden.
+- [x] Alles geverifieerd lokaal (8513 events, 39 nieuwe, geen
+  console-errors), gecommit en gepusht. SCRAPERS.md (73 bronnen),
+  decisions.md, scraping_recipes.json bijgewerkt.

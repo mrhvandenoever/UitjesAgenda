@@ -616,12 +616,12 @@
   },
   "grizzlys": {
     "display_name": "GIJS Groningen",
-    "agenda_url": "https://gijsgroningen.nl/gijs-eredivisie/",
-    "render_type": "client_js",
-    "scrape_code": "",
-    "notes": "Naam: GIJS Groningen (ijshockey), niet 'Grizzly's'. Herchecked 2026-08-10: https://gijsgroningen.nl/gijs-eredivisie/ laadt (200 OK) maar toont nog content voor seizoen 2025-2026 ('tickets & seizoenskaarten 2025 - 2026') — 2026-2027-schema nog niet live. Client-rendered (Shift4Shop-achtige builder), vereist waarschijnlijk Chrome MCP zodra data er wel staat.",
+    "agenda_url": "https://api.hockeydata.net/data/ebel/Schedule?apiKey=ae650348443c267e3af31d21fe5533fa&lang=en&referer=gijsgroningen.nl&divisionId=22086&widgetOptions=%7B%22semantic%22%3Atrue%2C%22noScorers%22%3Atrue%7D",
+    "render_type": "static",
+    "scrape_code": "zie scrape_grizzlys.py -- publieke JSONP-API hockeydata.net (callback= weglaten geeft platte JSON), homeTeamLongName filteren op \"GIJS Marne Groningen\"",
+    "notes": "OPGELOST 2026-09-02. Seizoen 2026-2027 bleek gepubliceerd. gijsgroningen.nl zelf client-rendered (Shift4Shop), maar via Chrome MCP-netwerkverkeer een publieke JSONP-API van derde partij hockeydata.net gevonden -- 1 Eredivisie-schema-call (divisionId=22086) dekt alle 13 clubs incl. GIJS/Flyers/OG Capitals. apiKey staat in de publieke frontend-JS.",
     "sample_event_url": "",
-    "last_verified": "2026-08-10"
+    "last_verified": "2026-09-02"
   },
   "hurryup": {
     "display_name": "Hurry-Up",
@@ -717,21 +717,21 @@
   },
   "flyers": {
     "display_name": "UNIS Flyers",
-    "agenda_url": "https://www.unisflyers.nl/wedstrijden/",
-    "render_type": "unresolved",
-    "scrape_code": "",
-    "notes": "PERIODIEK CHECKEN. Herchecked 2026-08-10: https://www.unisflyers.nl/wedstrijden/ laadt (200 OK, 67KB) maar geen herkenbare wedstrijddata in de HTML — schema 2026-2027 lijkt nog niet gepubliceerd. Gelijktijdig checken met ijshockey.nl/competities/2026-2027.",
+    "agenda_url": "https://api.hockeydata.net/data/ebel/Schedule?apiKey=ae650348443c267e3af31d21fe5533fa&lang=en&referer=gijsgroningen.nl&divisionId=22086&widgetOptions=%7B%22semantic%22%3Atrue%2C%22noScorers%22%3Atrue%7D",
+    "render_type": "static",
+    "scrape_code": "zie scrape_flyers.py -- zelfde hockeydata.net-bron als grizzlys, homeTeamLongName=\"Jumbo Flyers Heerenveen\"",
+    "notes": "OPGELOST 2026-09-02 via de hockeydata.net-vondst bij scrape_grizzlys.py -- unisflyers.nl zelf hoefde niet meer bezocht te worden.",
     "sample_event_url": "",
-    "last_verified": "2026-08-10"
+    "last_verified": "2026-09-02"
   },
   "ogcapitals": {
     "display_name": "OG Capitals",
-    "agenda_url": "https://www.capitalsleeuwarden.com/wedstrijdschema",
-    "render_type": "unresolved",
-    "scrape_code": "",
-    "notes": "PERIODIEK CHECKEN. Herchecked 2026-08-10: https://www.capitalsleeuwarden.com/wedstrijdschema geeft een redirect-loop (HTTP 302 in oneindige lus) — mogelijk cookie/bot-check. Nog niet gelukt te bereiken zonder browser. Chrome MCP proberen zodra tijd is.",
+    "agenda_url": "https://api.hockeydata.net/data/ebel/Schedule?apiKey=ae650348443c267e3af31d21fe5533fa&lang=en&referer=gijsgroningen.nl&divisionId=22086&widgetOptions=%7B%22semantic%22%3Atrue%2C%22noScorers%22%3Atrue%7D",
+    "render_type": "static",
+    "scrape_code": "zie scrape_ogcapitals.py -- zelfde hockeydata.net-bron als grizzlys, homeTeamLongName=\"OG Capitals Leeuwarden\"",
+    "notes": "OPGELOST 2026-09-02 via de hockeydata.net-vondst bij scrape_grizzlys.py -- de eerder gerapporteerde redirect-loop op capitalsleeuwarden.com is irrelevant geworden, die site hoeft niet meer bezocht te worden.",
     "sample_event_url": "",
-    "last_verified": "2026-08-10"
+    "last_verified": "2026-09-02"
   },
   "eoemmen": {
     "display_name": "E&O Emmen",
@@ -744,21 +744,21 @@
   },
   "ldodk": {
     "display_name": "LDODK",
-    "agenda_url": "https://www.ldodk.nl/korfbal-league/",
-    "render_type": "unresolved",
-    "scrape_code": "",
-    "notes": "Herchecked 2026-08-10, incl. specifieke team-URL van Michiel: https://www.ldodk.nl/teams/ldodk-1/?tab=programma . Site is een Nuxt.js-app (server-rendered): programma-data zou embedded staan in een <script id=\"__NUXT_DATA__\"> blok (devalue-formaat, geen JSON.parse) i.p.v. een losse API-call (geen enkele api.*-request gezien in netwerkverkeer). Nu nog leeg: site zelf zegt 'Er is op dit moment geen programma bekend.', en de officiele competitie-organisatie league.korfbal.nl/programma/ bevestigt expliciet: 'Het programma voor de Korfbal League 2026-2027 wordt binnenkort bekend. Het seizoen start in het weekend van 6, 7 en 8 november [2026].' Dus geen scraper-probleem, gewoon nog niet gepubliceerd — pas na begin november opnieuw proberen. Zodra data er is: __NUXT_DATA__ parsen (devalue-decoder) of alternatief checken of er dan alsnog een API-call verschijnt.",
+    "agenda_url": "https://www.ldodk.nl/teams/ldodk-1/?tab=programma",
+    "render_type": "static",
+    "scrape_code": "zie scrape_ldodk.py -- geen API-call, data zit ingebakken in het server-rendered <script id=\"__NUXT_DATA__\">-blok (devalue-formaat: platte array, elementen zijn ofwel letterlijke waarden ofwel index-verwijzingen naar andere elementen). _resolve_devalue() lost dit recursief op, plain urllib volstaat.",
+    "notes": "OPGELOST 2026-09-02. Programma bleek gepubliceerd (was \"seizoen start pas 6-8 nov 2026\" op 2026-08-10). Slechts ~6 wedstrijden per keer zichtbaar, geen breder venster gevonden -- geen probleem gezien de dagelijkse refresh.",
     "sample_event_url": "",
-    "last_verified": "2026-08-10"
+    "last_verified": "2026-09-02"
   },
   "dos46": {
     "display_name": "DOS '46",
     "agenda_url": "https://mijn.korfbal.nl/clubs/details/NCX09J8/programma",
     "render_type": "unresolved",
     "scrape_code": "",
-    "notes": "Herchecked 2026-08-10. mijn.korfbal.nl draait op het 'Dotlab'-platform (portal ontwikkeld door dotlab.net), een Angular-app — geen jQuery/DataTables zoals bij handbal.nl, dus die aanpak is hier niet direct herbruikbaar. Datumfilter (Datum vanaf/tot + Filter-knop) geprobeerd met een heel seizoen (2026-08-10 t/m 2027-08-09): nog altijd 0 rijen, zelfs geen 'geen resultaten'-tabel — echt leeg, geen scraper-probleem. Regio: DOS'46 speelt in de reguliere KNKV-competitie (niet de Korfbal League zoals ldodk). Zodra er wel data is: opnieuw met browser her-inspecteren welke API dotlab.net aanroept (nog niet gevonden — geen zichtbare API-call in netwerkverkeer bij dit bezoek).",
+    "notes": "Herchecked 2026-09-02: STERKERE blokkade dan eerder. mijn.korfbal.nl/clubs/details/NCX09J8/programma geeft nu een sso-login=silent-callback&error=login_required-redirect (expliciete inlogmuur, was eerder 'laadt leeg zonder resultaten'). DOS'46's eigen website (dos46.nl) linkt zelf ook naar exact deze geblokkeerde URL -- geen alternatieve bron gevonden (in tegenstelling tot LDODK, dat een eigen Korfbal League-teampagina buiten mijn.korfbal.nl om heeft). Geen poging gedaan in te loggen -- buiten scope.",
     "sample_event_url": "",
-    "last_verified": "2026-08-10"
+    "last_verified": "2026-09-02"
   },
   "landstede": {
     "display_name": "Landstede Hammers",

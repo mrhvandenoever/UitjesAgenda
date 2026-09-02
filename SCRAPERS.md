@@ -20,7 +20,7 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | ❌ Geblokkeerd | Bekend probleem (404, DNS-fout, site geeft geen data) — zie notitie in `scraping_recipes.json` |
 | ❓ Onbekend | Nog nooit geprobeerd |
 
-## ✅ Geautomatiseerd (69 bronnen, 69 scripts)
+## ✅ Geautomatiseerd (73 bronnen, 73 scripts)
 
 | Bron | Script |
 |---|---|
@@ -92,11 +92,15 @@ Laatst samengesteld: 2026-08-13, bijgewerkt 2026-08-15.
 | Omnisport Apeldoorn | `scrape_omnisport.py` (2026-08-22, overleg.md punt 5 — i.p.v. een scraper voor de nationale sportbonden zelf (bleek geen bruikbare bron te hebben) wordt de VENUE gevolgd: vaste VNL-volleybal-speelstad, hele agenda meegenomen. Server-rendered, `data-events-per-page="-1"` (alle events in 1 page-load, geen paginering). Datumformaat heeft altijd een jaartal, in 3 varianten (1 dag / bereik binnen 1 maand / bereik over 2 maanden). Alleen "Sport evenement"/"Training" krijgt het nieuwe `cats=['sport']`-signaal — overige categorieën (Publieksevenement, Vakbeurs) blijven `overig`. 12 events/run) |
 | Landstede Sportcentrum (Zwolle) | `scrape_landstedesportcentrum.py` (2026-08-22, overleg.md punt 5 — zelfde achtergrond als Omnisport. Server-rendered "highlights"-widget (geen volledig archief, geen paginering), events staan 3x herhaald in de DOM (glide-carousel-loop) — gededupliceerd op URL. Geen jaartal in de datumtekst, huidig-jaar-aannemen-en-doorrollen (zelfde patroon als scrape_drenthe.py). "Landstede Hammers"-wedstrijden bewust overgeslagen: die komen al preciezer binnen via `scrape_landstede.py` (officiële BNXT League-API) — structurele overlap, expliciet gefilterd i.p.v. op cross-source-dedup vertrouwen. 1 event/run) |
 | Martiniplaza (Groningen), categorie Sport | `scrape_martiniplaza_sport.py` (2026-08-22, overleg.md punt 5 — aanvulling op de bestaande `scrape_martiniplaza.py` (theater.nl), die sport-events categorisch mist: het TeamNL Volleybal XL Weekend (aug 2026) stond wél op martiniplaza.nl's eigen agenda maar niet op theater.nl. Bewust een aparte scraper i.p.v. de bestaande omgooien (theater.nl geeft nette ISO-datums+tijden via JSON-LD, regressierisico bij vervangen). Gebruikt martiniplaza.nl's eigen `?category=sport`-serverfilter + het AJAX-paginatie-endpoint (`/nl/mvc/event/partial`, werkt zonder sessie/cookies). Geen jaartal in de datumtekst. 2 events/run) |
+| GIJS Marne Groningen (ijshockey) | `scrape_grizzlys.py` (2026-09-02 — stond geparkeerd, seizoen 2026-2027 bleek inmiddels gepubliceerd. gijsgroningen.nl zelf client-rendered, maar via Chrome MCP-netwerkverkeer een PUBLIEKE JSONP-API van derde partij "hockeydata.net" gevonden — 1 Eredivisie-schema-call dekt alle 13 clubs incl. GIJS, Flyers én OG Capitals (zie die 2 hieronder, bewust 3 losse kopieën i.p.v. een gedeelde helper). apiKey staat gewoon in de publieke frontend-JS. 12 events/run) |
+| Jumbo Flyers Heerenveen (ijshockey) | `scrape_flyers.py` (2026-09-02 — zelfde hockeydata.net-bron als scrape_grizzlys.py, zie die docstring. Stond geparkeerd als "schema nog niet gepubliceerd" — unisflyers.nl zelf hoefde niet eens bezocht te worden. 12 events/run) |
+| OG Capitals Leeuwarden (ijshockey) | `scrape_ogcapitals.py` (2026-09-02 — zelfde hockeydata.net-bron als scrape_grizzlys.py, zie die docstring. Stond geparkeerd als "redirect-loop op capitalsleeuwarden.com" — irrelevant geworden, die site hoeft niet meer bezocht te worden. 12 events/run) |
+| LDODK (korfbal, Korfbal League) | `scrape_ldodk.py` (2026-09-02 — stond geparkeerd ("seizoen start pas 6-8 nov 2026"), programma bleek inmiddels gepubliceerd op ldodk.nl (Nuxt.js/Storyblok). Geen aparte API-call — data zit al ingebakken in de server-rendered `__NUXT_DATA__`-payload, een "devalue"-geserialiseerde platte array (elk element is een letterlijke waarde óf een index-verwijzing naar een ander element) — een kleine recursieve resolver (`_resolve_devalue()`) lost dit op, geen Playwright nodig. Slechts ~6 wedstrijden per keer zichtbaar (geen breder venster gevonden), geen probleem gezien de dagelijkse refresh. 3 events/run) |
 
 Plus `scrape_naarzuidlaren.py` (lokale Zuidlaren-evenementen, geen eigen SRC-badge)
 en `scrape_handmatig.py` (zie ✋ hieronder).
 
-## 🌐 AI/Chrome nodig — geparkeerd als "moeilijk" (6 bronnen)
+## 🌐 AI/Chrome nodig — geparkeerd als "moeilijk" (5 bronnen)
 
 Michiel, 2026-08-15: "parkeren we deze even als moeilijk, pakken we stuk
 voor stuk op als we zin hebben" — geen actieve vervolgstap gepland, dit is
@@ -114,7 +118,7 @@ Playwright-netwerkcheck blootlegde. **Drents Museum draait op dezelfde Craft
 CMS** — waarschijnlijk een vergelijkbare `/api/exhibitions`-achtige endpoint,
 nog niet apart herchecked, maar een sterke kandidaat om ook op te lossen.
 
-OntdekPoort en Hunebedcentrum zijn hier bewust anders dan de andere 4:
+OntdekPoort en Hunebedcentrum zijn hier bewust anders dan de andere 3:
 échte bot-bescherming (403), een principiële grens (nooit omzeild), geen
 "nog niet gelukt".
 
@@ -125,7 +129,6 @@ OntdekPoort en Hunebedcentrum zijn hier bewust anders dan de andere 4:
 | Zummerbühne | ~25 events | Ticketwidget in iframe, geen data in ruwe HTML. Met Playwright de iframe geïdentificeerd: een widget van platform "Slinger" — bleek bij nader onderzoek een **ride-share/carpool-widget** te zijn (rides/routebeschrijving), niet de ticketverkoop zelf. Doodlopend spoor, geen Ticketmaster-match ook. |
 | OntdekPoort | ~216 events | Bot-bescherming — zelfs de homepage geeft 403, niet op te lossen met alleen headers (2026-08-13, herbevestigd 2026-08-15) |
 | Hunebedcentrum | onbekend | Bot-bescherming, 403 (2026-08-13, herbevestigd 2026-08-15) |
-| GIJS Groningen (ijshockey) | — | site toont nog seizoen 2025-2026 (herchecked 2026-08-15, nog steeds oud), herchecken zodra nieuw seizoen live is |
 
 ## 🔧 Kan zonder AI — structureel lastig te automatiseren (0 bronnen)
 
@@ -133,13 +136,11 @@ Leeg sinds 2026-08-17 — Geke Hoogstins (de laatste in deze categorie) is
 opgelost zodra de Exposities-modus doorlopende exposities kon representeren,
 zie de ✅-sectie hierboven.
 
-## ❌ Geblokkeerd (3 bronnen)
+## ❌ Geblokkeerd (1 bron)
 
 | Bron | Probleem |
 |---|---|
-| Unis Flyers (ijshockey) | Schema 2026-2027 nog niet gepubliceerd |
-| OG Capitals (ijshockey) | Redirect-loop, niet bereikbaar zonder browser |
-| LDODK (korfbal) | Competitie zelf zegt: seizoen start pas 6-8 nov 2026 |
+| DOS'46 (korfbal) | mijn.korfbal.nl vereist nu een SSO-login voor de programma-pagina (herchecked 2026-09-02 — was eerder "laadt leeg", nu een sterkere blokkade: expliciete login-muur). Club-website linkt zelf ook naar dezelfde geblokkeerde URL, geen alternatieve bron gevonden. |
 
 ### Donar — OPGELOST 2026-08-15
 Drie eerder onderzochte routes liepen allemaal dood (donar.nl zelf: Next.js
@@ -200,6 +201,5 @@ gewoon Playwright.
 Be-Wonder (~1 event) + de vaste jaarevenementen in `scrape_handmatig.py`
 (Bommen Berend, Zuidlaarder Paardenmarkt, Muzieknacht Zuidlaren).
 
-## DOS'46 (korfbal) — niet in bovenstaande telling
-
-❌ geblokkeerd (mijn.korfbal.nl laadt leeg, geen data om te scrapen).
+DOS'46 (korfbal) staat inmiddels in de `## ❌ Geblokkeerd`-sectie hierboven
+(niet meegeteld in de 73 geautomatiseerde bronnen).
