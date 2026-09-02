@@ -753,10 +753,10 @@
   },
   "dos46": {
     "display_name": "DOS '46",
-    "agenda_url": "https://mijn.korfbal.nl/clubs/details/NCX09J8/programma",
+    "agenda_url": "https://league.korfbal.nl/programma/",
     "render_type": "unresolved",
     "scrape_code": "",
-    "notes": "Herchecked 2026-09-02: STERKERE blokkade dan eerder. mijn.korfbal.nl/clubs/details/NCX09J8/programma geeft nu een sso-login=silent-callback&error=login_required-redirect (expliciete inlogmuur, was eerder 'laadt leeg zonder resultaten'). DOS'46's eigen website (dos46.nl) linkt zelf ook naar exact deze geblokkeerde URL -- geen alternatieve bron gevonden (in tegenstelling tot LDODK, dat een eigen Korfbal League-teampagina buiten mijn.korfbal.nl om heeft). Geen poging gedaan in te loggen -- buiten scope.",
+    "notes": "Herchecked 2026-09-02: STERKERE blokkade dan eerder. mijn.korfbal.nl/clubs/details/NCX09J8/programma geeft nu een sso-login=silent-callback&error=login_required-redirect (expliciete inlogmuur, was eerder 'laadt leeg zonder resultaten'). DOS'46's eigen website (dos46.nl) linkt zelf ook naar exact deze geblokkeerde URL -- geen alternatieve bron gevonden (in tegenstelling tot LDODK, dat een eigen Korfbal League-teampagina buiten mijn.korfbal.nl om heeft). Geen poging gedaan in te loggen -- buiten scope. -- 2026-09-02 (Michiels tip): league.korfbal.nl/programma/ is een BETERE kandidaat dan mijn.korfbal.nl/clubs/details/NCX09J8 -- geen SSO-blokkade (de sso-login=silent-callback-redirect gebeurt hier ook op de achtergrond, maar blokkeert de pagina-inhoud niet), maar nu nog leeg: pagina zegt zelf \"Het programma voor de Korfbal League 2026-2027 wordt binnenkort bekend. Het seizoen start in het weekend van 6, 7 en 8 november.\" WordPress-site (wp/wp-admin/admin-ajax.php POST-call voor de wedstrijdenlijst, nog niet inhoudelijk onderzocht). Herchecken kort voor/na 6-8 nov 2026.",
     "sample_event_url": "",
     "last_verified": "2026-09-02"
   },

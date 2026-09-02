@@ -12,6 +12,10 @@ archief, niet hernummerd of verwijderd.
 
 ## Open vragen / te bespreken
 
+### 22. DOS'46 (korfbal) — toekomstige trigger, herchecken rond 6-8 nov 2026
+- Blijft geblokkeerd op mijn.korfbal.nl (SSO-inlogmuur). Michiels tip (2026-09-02): `league.korfbal.nl/programma/` is een betere kandidaat — geen blokkade, maar nu nog leeg omdat de Korfbal League 2026-2027 pas start in het weekend van 6-8 november en het programma "binnenkort bekend" wordt gemaakt.
+- Geen actie nu nodig — herchecken zodra dat programma gepubliceerd is (rond/na 6-8 nov 2026). Zie scraping_recipes.json voor de technische notities (WordPress-site, `wp-admin/admin-ajax.php`-call nog niet inhoudelijk onderzocht).
+
 ### 21. scrape_groningermuseum.py geeft 0 resultaten — site herbouwd
 - Gevonden 2026-08-22 tijdens een volledige `run_weekly_refresh.py`-run (Michiel: "moeten we niet even een run doen?"): beide bekende API-endpoints (`/api/exhibitions`, `/api/activities`) geven nu HTTP 404. Het Groninger Museum heeft de site herbouwd (nu Next.js/Turbopack, `/tentoonstellingen` bestaat niet meer, redirect naar de homepage).
 - **Wel fixbaar**: er is een nieuwe `/programma`-pagina met tentoonstellingen + activiteiten, duidelijke datumbereiken, server-rendered (plain `urllib` bevestigd, geen Playwright nodig) — vereist alleen een regex-herbouw voor de nieuwe HTML-structuur.

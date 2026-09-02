@@ -140,7 +140,7 @@ zie de ✅-sectie hierboven.
 
 | Bron | Probleem |
 |---|---|
-| DOS'46 (korfbal) | mijn.korfbal.nl vereist nu een SSO-login voor de programma-pagina (herchecked 2026-09-02 — was eerder "laadt leeg", nu een sterkere blokkade: expliciete login-muur). Club-website linkt zelf ook naar dezelfde geblokkeerde URL, geen alternatieve bron gevonden. |
+| DOS'46 (korfbal) | mijn.korfbal.nl vereist nu een SSO-login voor de club-programma-pagina (herchecked 2026-09-02 — was eerder "laadt leeg", nu een sterkere blokkade). **Betere kandidaat gevonden** (Michiels tip): `league.korfbal.nl/programma/` heeft géén blokkade, maar is nu leeg — de Korfbal League zelf zegt het seizoen 2026-2027-programma "wordt binnenkort bekend", start 6-8 nov 2026. Herchecken rond die datum. |
 
 ### Donar — OPGELOST 2026-08-15
 Drie eerder onderzochte routes liepen allemaal dood (donar.nl zelf: Next.js
