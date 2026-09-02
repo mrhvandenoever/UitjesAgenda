@@ -2517,3 +2517,49 @@ korfbal al langer als CLUB-competities in de aparte topniveau-Sport-
 modus (`scrape_handbal.py`, `scrape_grizzlys.py`/`scrape_flyers.py`/
 `scrape_ogcapitals.py`, `scrape_ldodk.py`/`scrape_dos46.py`) — dat was
 al zo vóór deze sessie, geen wijziging.
+
+## 2026-09-02 — Structurele dubbele wedstrijden gevonden: Cambuur + Friso
+
+Michiel: "staan de wedstrijden van de eredivisieclubs er al in?" —
+bevestigd (alle 7 voetbalclubs hadden actuele wedstrijden), maar bij het
+tonen van de eerste paar Cambuur-events viel een dubbeltje op: "SC
+Cambuur - FC Twente" én "SC Cambuur Leeuwarden - FC Twente" op exact
+dezelfde dag.
+
+**Root cause**: `scrape_cambuur.py`'s huidige `CLUB`-constante is `'SC
+Cambuur Leeuwarden'` (bevestigd via een verse dry-run: alle 14
+aankomende wedstrijden gebruiken die volledige naam). De kortere "SC
+Cambuur - X"-rijen in de DB zijn dus VERWEESDE restjes van vóórdat die
+constante ooit werd aangepast (waarschijnlijk om exact de ESPN-teamnaam
+te matchen). Events_db.py's `UNIQUE(title_norm, date)`-sleutel ziet een
+titelwijziging als een compleet nieuw event, niet als een update van het
+bestaande — dus de oude rij bleef voor altijd naast de nieuwe staan.
+
+**Zelfde patroon, omgekeerd, bij Friso**: huidige `CLUB_NAME = 'Friso'`
+(kort), maar 7 verweesde "Friso Sneek - X"-rijen (lang) stonden er nog
+naast — hier is ooit de ANDERE kant op hernoemd (van lang naar kort).
+
+**Breder gecontroleerd** (fuzzy-titel-vergelijking op alle
+bron+datum-combinaties in de hele dataset, niet alleen sportclubs): 98
+verdachte paren gevonden, maar op Cambuur/Friso na allemaal legitiem
+verschillende events (bv. Forum Groningen's "Informatieplein Haren" vs
+"...Ten Boer" — verschillende locaties, geen duplicaten). Geen ander
+systematisch geval zoals bij Cambuur/Friso gevonden.
+
+**Fix**: 17 verweesde Cambuur-rijen (titel zonder "Leeuwarden") en 7
+verweesde Friso-rijen (titel mét "Sneek") rechtstreeks uit `events.db`
+verwijderd (query op het exacte patroon, geen aannames — eerst geteld/
+gecontroleerd vóór verwijderen). Herexport + regeneratie: 8474 events
+(was 8623), 0 resterende duplicaten bij Cambuur/Friso.
+
+**Geen structurele codewijziging nodig** — dit was eenmalige opgehoopte
+data-vervuiling van vóór een titelwijziging, geen actief terugkerende
+bug (de `CLUB`/`CLUB_NAME`-constanten veranderen niet vanzelf bij elke
+run). Wel een algemene makkelijk-te-onthouden les: als een scraper's
+titel-format ooit wijzigt, controleer even op verweesde oud-titel-rijen
+via `SELECT title, date FROM events WHERE source='<bron>'`
+handmatig doorlopen — `UNIQUE(title_norm, date)` beschermt niet tegen
+dit scenario.
+
+**Geverifieerd**: lokale generatie, geen console-errors, 0 duplicaten
+meer voor cambuur/friso in de geëxporteerde JSON.
