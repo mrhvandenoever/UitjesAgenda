@@ -2632,3 +2632,46 @@ dict-vermelding).
 **Geverifieerd**: lokale generatie (8513 events), alle 39 nieuwe events
 zichtbaar met correcte `data-genre="sport"`/`data-gender`/`data-prov`/
 `data-latlon`-attributen, geen console-errors op een schone tab-reload.
+
+## 2026-09-08 — Site-review op verzoek: 2 bugs gevonden en gefixt
+
+Michiel: "je mag gebruik maken van google chrome; bekijk de site eens:
+zie je nog verbeteringen?" — eerste keer de live site bekeken met de
+Chrome-extensie (i.p.v. de sandbox Browser-pane), incl. een mobiele
+weergave-check.
+
+**Bug 1 — zoekveld enorm hoog op mobiel**: `#search-input`'s desktop-CSS-
+regel is `flex:1 1 220px` (bedoeld als startbreedte in de horizontale
+`.toolbar`-flexbox). Op mobiel wisselt `.toolbar` naar
+`flex-direction:column` — in een column-flexbox geldt de flex-basis voor
+de HOOGTE, niet de breedte. Resultaat: het zoekveld werd 220px hoog
+i.p.v. een normale regel-hoogte (bevestigd via `getComputedStyle`).
+Fix: `flex:1 1 auto;height:44px;` toegevoegd aan de bestaande mobiele
+media-query-regel voor `#search-input`.
+
+**Bug 2 — "baby" als los keyword classificeerde artiestennamen/titels
+fout als 'Kinderen / Familie'**: zelfde soort fout als de "strip"→
+"Striptease"-bug van 2026-08-15. De comedy-solo **"Baby Reindeer"**
+(Thijs van de Meeberg, gebaseerd op de Netflix-hit — geen kindershow)
+stond in minstens 8 titel-varianten fout geclassificeerd, plus "Baby
+Keem", "Baby Lasagna", "My Baby" (artiestennamen). Alleen "Babyconcert
+(0 t/m 18 maanden)" was de enige bevestigde ECHTE match. Fix: `baby`
+vervangen door specifiekere patronen (`babyconcert|babyzwemmen|
+babymassage|voor baby.?s`) die de echte match wel raken maar
+artiestennamen niet meer.
+
+**Zijdelings gevonden (niet gefixt, buiten scope van deze taak)**: de
+geplande dagelijkse refresh-taak faalt sinds de overstap naar dagelijks
+draaien wederom (`LastTaskResult: 1`, geen `refresh_log.txt` — zelfde
+signatuur als de eerdere "Disabled"-bug, nu met een andere oorzaak: de
+taak IS enabled, vuurt op tijd, maar het PowerShell-proces start
+kennelijk nooit). Twee reparatiepogingen gedaan (S4U-principal
+opnieuw toegepast, handmatig getriggerd) — geen van beide hielp. Michiel
+gevraagd om Taakplanners eigen geschiedenis in te schakelen (vereist
+elevatie) voor de exacte Windows-foutcode — nog niet opgelost, wordt
+elders opgevolgd.
+
+**Geverifieerd**: lokale generatie op mobiel viewport (375×812) toont
+het zoekveld nu op normale hoogte, "Baby Reindeer" toont "Theater/
+Overig" i.p.v. "Kinderen", "Babyconcert" blijft correct "Kinderen",
+geen console-errors.

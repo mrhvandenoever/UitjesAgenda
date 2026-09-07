@@ -277,7 +277,8 @@ EXPO_VENUES   = {'groningermuseum','drentsmuseum','hunebedcentrum','gekehoogstin
 _kinderen_pat = _re.compile(
     r'kinderen|kindershow|kindertheat|kindervoor|kinderdag|'
     r'familie|familieshow|familievoor|voor kinderen|voor de kids|'
-    r'peuter|kleuter|baby|basisschool|juf roos|juf braaksel|woezel|'
+    r'peuter|kleuter|babyconcert|babyzwemmen|babymassage|voor baby.?s|'
+    r'basisschool|juf roos|juf braaksel|woezel|'
     r'mees kees|vos & haas|\(\d\+\)', _re.I)
 
 def classify(title, cats, source=''):
@@ -1904,7 +1905,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid #156
   .chip-scroll,.month-nav,.toolbar-buttons,.mode-toggle{{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 12px,black calc(100% - 12px),transparent);}}
   .mode-toggle{{max-width:100%;}}
   .toolbar{{flex-direction:column;align-items:stretch;}}
-  #search-input{{width:100%;}}
+  #search-input{{width:100%;flex:1 1 auto;height:44px;}}
   .toolbar-buttons{{width:100%;}}
   .popover{{left:8px !important;right:8px;max-width:calc(100vw - 16px);width:calc(100vw - 16px);}}
   .topbar-top{{gap:8px;}}
