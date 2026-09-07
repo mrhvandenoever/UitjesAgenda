@@ -523,3 +523,33 @@ hier alleen de samenvatting van wat er gebeurd is.
 - [x] Alles geverifieerd lokaal (8513 events, 39 nieuwe, geen
   console-errors), gecommit en gepusht. SCRAPERS.md (73 bronnen),
   decisions.md, scraping_recipes.json bijgewerkt.
+
+## Sessie 2026-09-08 — Site-review + refresh-taak eindelijk écht gefixt
+
+- [x] **Michiel: "bekijk de site eens: zie je nog verbeteringen?"** —
+  eerste review met de Chrome-extensie (i.p.v. de sandbox Browser-pane),
+  incl. mobiele weergave. 2 bugs gevonden en gefixt:
+  - Zoekveld werd 220px hoog op mobiel (flexbox-breedte werd hoogte in
+    een column-layout).
+  - "baby" als los keyword classificeerde de comedy-solo "Baby
+    Reindeer" (8+ titelvarianten) en artiestennamen ("Baby Keem", "Baby
+    Lasagna") fout als "Kinderen/Familie".
+- [x] **Refresh-taak: eindelijk de echte oorzaak gevonden** (na eerdere
+  sessies met alleen symptoombestrijding — Disabled-fix, dagelijks
+  schema). Michiel bleef doorvragen (Taakplanner-screenshots, daarna het
+  taak-commando letterlijk zelf gedraaid) tot de kern boven kwam:
+  1. **Ontbrekende UTF-8-BOM** in `weekly_refresh.ps1` — Windows
+     PowerShell 5.1 leest niet-BOM `.ps1`-bestanden met de verkeerde
+     codepage, wat de UTF-8-tekens ("—") corrumpeerde tot een
+     parse-fout. Bestand herschreven met BOM.
+  2. **Race-conditie**: na de BOM-fix crashte een run alsnog, doordat
+     meerdere gelijktijdige pogingen (Michiels test + een orphaned
+     proces + mijn eigen test) om dezelfde bestanden botsten — 26
+     scrapers raakten onterecht gequarantained. Alle hersteld, en een
+     lock-mechanisme (`.refresh.lock`) toegevoegd aan
+     `run_weekly_refresh.py` om dit voortaan te voorkomen.
+  3. Eén schone, ongestoorde volledige run gedaan: 72/73 OK (1
+     bevestigd-transiënte timeout, hersteld en herdraaid).
+- [x] Geverifieerd (DB-integriteit, lokale generatie, lock functioneel
+  getest), gecommit en gepusht. decisions.md, ARCHITECTURE.md
+  bijgewerkt met de volledige diagnose voor toekomstige sessies.

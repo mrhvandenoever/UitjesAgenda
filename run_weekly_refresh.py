@@ -46,6 +46,20 @@ Parallel draaien (Niveau A, overleg.md punt 2 / decisions.md 2026-08-16):
   - SQLite-schrijven is veilig gemaakt voor gelijktijdige processen via
     WAL-mode + busy_timeout in events_db.py's get_conn() — zonder die fix
     zou dit "database is locked"-fouten kunnen geven.
+
+Lock-bestand tegen gelijktijdige runs (gevonden 2026-09-08, decisions.md):
+  - Twee runs van dit script tegelijk (bv. een handmatige poging naast een
+    nog lopende/orphaned eerdere run) concurreren om dezelfde
+    os.rename()-doelen bij een "harde fout" -- de tweede rename-poging op
+    een al hernoemd bestand crasht met een onafgevangen FileNotFoundError.
+    Bovendien verdubbelt de netwerk/CPU-belasting, wat scrapers die alleen
+    prima zouden lopen alsnog laat timeouten. Gevolg: tientallen scrapers
+    onterecht gequarantained in één klap.
+  - `.refresh.lock` (dit bestand, niet in git) voorkomt dit: een tweede
+    run stopt meteen met een duidelijke melding i.p.v. te botsen. Een lock
+    ouder dan `LOCK_STALE_SECONDS` wordt als vastgelopen beschouwd en
+    genegeerd (zelf-herstellend, geen PID-checks nodig die per OS
+    verschillen).
 """
 
 import argparse
@@ -54,6 +68,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -61,6 +76,30 @@ PYTHON = sys.executable
 SUCCESS_MARKERS = ('✓ Klaar:', 'Dry-run:')
 DEFAULT_MAX_PLAIN = 8
 DEFAULT_MAX_PLAYWRIGHT = 3
+LOCK_FILE = os.path.join(SCRIPT_DIR, '.refresh.lock')
+LOCK_STALE_SECONDS = 30 * 60  # een volledige run duurt normaal enkele minuten, nooit 30
+
+
+def acquire_lock() -> bool:
+    """True = lock verkregen, verder gaan. False = een andere run is al
+    bezig, dit proces moet meteen stoppen."""
+    if os.path.exists(LOCK_FILE):
+        age = time.time() - os.path.getmtime(LOCK_FILE)
+        if age < LOCK_STALE_SECONDS:
+            print(f"Al een run bezig (lock is {int(age)}s oud) -- gestopt om races te voorkomen.")
+            print(f"Vastgelopen oude run? Verwijder dan handmatig: {LOCK_FILE}")
+            return False
+        print(f"Verouderde lock gevonden ({int(age)}s oud, > {LOCK_STALE_SECONDS}s) -- overschreven.")
+    with open(LOCK_FILE, 'w', encoding='utf-8') as f:
+        f.write(str(os.getpid()))
+    return True
+
+
+def release_lock():
+    try:
+        os.remove(LOCK_FILE)
+    except OSError:
+        pass
 
 
 def find_scrapers() -> list[str]:
@@ -172,4 +211,14 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    # --dry-run wijzigt niets op schijf (geen rename/DB-writes), dus geen
+    # lock nodig -- alleen de echte run beschermen.
+    if '--dry-run' in sys.argv:
+        main()
+    elif acquire_lock():
+        try:
+            main()
+        finally:
+            release_lock()
+    else:
+        sys.exit(1)

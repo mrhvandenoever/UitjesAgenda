@@ -2660,18 +2660,87 @@ vervangen door specifiekere patronen (`babyconcert|babyzwemmen|
 babymassage|voor baby.?s`) die de echte match wel raken maar
 artiestennamen niet meer.
 
-**Zijdelings gevonden (niet gefixt, buiten scope van deze taak)**: de
-geplande dagelijkse refresh-taak faalt sinds de overstap naar dagelijks
-draaien wederom (`LastTaskResult: 1`, geen `refresh_log.txt` — zelfde
-signatuur als de eerdere "Disabled"-bug, nu met een andere oorzaak: de
-taak IS enabled, vuurt op tijd, maar het PowerShell-proces start
-kennelijk nooit). Twee reparatiepogingen gedaan (S4U-principal
-opnieuw toegepast, handmatig getriggerd) — geen van beide hielp. Michiel
-gevraagd om Taakplanners eigen geschiedenis in te schakelen (vereist
-elevatie) voor de exacte Windows-foutcode — nog niet opgelost, wordt
-elders opgevolgd.
+**Zijdelings gevonden**: de geplande dagelijkse refresh-taak faalde
+sinds de overstap naar dagelijks draaien wederom (`LastTaskResult: 1`,
+geen `refresh_log.txt`). Root cause + fix: zie de uitgebreide entry
+hieronder (2026-09-08 — "Refresh-taak echte oorzaak").
 
 **Geverifieerd**: lokale generatie op mobiel viewport (375×812) toont
 het zoekveld nu op normale hoogte, "Baby Reindeer" toont "Theater/
 Overig" i.p.v. "Kinderen", "Babyconcert" blijft correct "Kinderen",
 geen console-errors.
+
+## 2026-09-08 — Refresh-taak echte oorzaak: ontbrekende BOM + race-conditie
+
+Vervolg op de vorige entry — Michiel bleef doorvragen (screenshots van
+Taakplanner, daarna het letterlijke commando handmatig gedraaid) totdat
+de echte oorzaak boven tafel kwam, in twee lagen.
+
+**Laag 1 — ontbrekende UTF-8 BOM in `weekly_refresh.ps1`.** Taakplanners
+eigen Geschiedenis-tab (ingeschakeld door Michiel) toonde geen fout-
+event: "Task Started" → "Action started" → "Action completed" → "Task
+completed", allemaal Info-niveau, binnen **1 seconde** — te snel voor een
+echte scraper-run. Michiel draaide het exacte taak-commando handmatig
+(`powershell.exe -NoProfile -ExecutionPolicy Bypass -File
+weekly_refresh.ps1`) en kreeg een letterlijke parse-fout: "The string is
+missing the terminator" / "Missing closing '}'". Het bestand zelf was
+syntactisch correct (geen onbalans in quotes/accolades) — het probleem
+was de ONTBREKENDE BOM: het bestand bevat UTF-8-tekens (de "—"-tekens in
+de comments), en **Windows PowerShell 5.1** (`powershell.exe`, anders
+dan `pwsh.exe`/PowerShell 7) leest een `.ps1` zonder BOM met de
+Windows-ANSI-codepage i.p.v. UTF-8 — de multibyte UTF-8-tekens werden
+daardoor verkeerd geïnterpreteerd en gaven een cascaderende parse-fout.
+Fix: bestand herschreven met een UTF-8-BOM (`encoding='utf-8-sig'`).
+Bevestigd: `[System.Management.Automation.Language.Parser]::ParseFile()`
+gaf geen fouten meer (al draait mijn eigen PowerShell-tool op pwsh 7.6.5,
+dat dit probleem sowieso niet had — Michiel moest de echte
+Windows-PowerShell-omgeving zelf testen om te bevestigen).
+
+**Les**: elk `.ps1`-bestand met niet-ASCII-tekens (accenten, em-dashes,
+"—") moet met een UTF-8-BOM opgeslagen worden zolang dit via de
+klassieke `powershell.exe` gedraaid wordt (wat de Taakplanner-taak
+gebruikt). Puur-ASCII `.ps1`-bestanden hebben dit probleem niet.
+
+**Laag 2 — race-conditie tussen gelijktijdige runs, ontdekt tijdens het
+verifiëren van laag 1.** Na de BOM-fix startte Michiels handmatige poging
+daadwerkelijk (`=== Start weekly refresh ===` in het log), maar crashte
+alsnog binnen 3 seconden met een Python-traceback — veel te snel om
+scrapers gedraaid te hebben. Onderzoek wees uit: **19, en later nog eens
+7 extra scrapers** (26 in totaal) waren zonder geldige reden hernoemd
+naar `fix_*.py`. Root cause: meerdere Python-processen (Michiels eigen
+poging + een orphaned proces van een eerdere, niet volledig afgesloten
+poging + mijn eigen losse test) draaiden **tegelijkertijd** hun eigen
+`run_weekly_refresh.py`. Twee gevolgen:
+1. Verdubbelde netwerk/CPU-belasting gaf spurious timeouts bij scrapers
+   die alleen prima zouden lopen.
+2. Twee processen die onafhankelijk van elkaar besluiten dat hetzelfde
+   bestand "hard gefaald" is, proberen het allebei te hernoemen naar
+   `fix_X.py` — de TWEEDE `os.rename()`-poging op een al hernoemd
+   bestand gooit een onafgevangen `FileNotFoundError`, wat het hele
+   proces laat crashen (precies het geziene Python-traceback).
+
+**Fix (structureel, niet alleen opgeruimd)**: alle 26 valse quarantaines
+hersteld (na individuele dry-run-verificatie dat ze écht werken) en een
+lock-mechanisme toegevoegd aan `run_weekly_refresh.py`: `.refresh.lock`
+(niet in git, bevat het PID + wordt via `mtime` op leeftijd gecheckt).
+Een tweede run terwijl de lock jonger is dan `LOCK_STALE_SECONDS` (30
+min — een normale run duurt hooguit enkele minuten) stopt meteen met een
+duidelijke melding i.p.v. te botsen; een oudere lock wordt als
+vastgelopen beschouwd en genegeerd (zelf-herstellend, geen
+PID-liveness-check nodig die per OS verschilt). `--dry-run` slaat de lock
+bewust over (wijzigt niets op schijf, dus geen race mogelijk). Getest:
+een verse lock blokkeert een tweede run correct, een verouderde lock
+wordt correct genegeerd en overschreven.
+
+**Vervolgens één schone, ongestoorde volledige run gedaan** (met de
+nieuwe lock): 72/73 scrapers OK, 1 terecht-tijdelijke `Page.goto`-timeout
+bij `scrape_vera.py` (bevestigd transient via een directe herhaling,
+handmatig hersteld en opnieuw gedraaid) en 2 momentane 0-resultaten
+(`scrape_paradiso.py`, ook transient, herbevestigd en herdraaid;
+`scrape_groningermuseum.py` blijft het al bekende, apart gedocumenteerde
+punt 21 — site herbouwd).
+
+**Geverifieerd**: 73/73 scrapers weer op hun eigen naam, `events.db`
+`PRAGMA integrity_check` → `ok`, lokale generatie zonder console-errors,
+lock-mechanisme functioneel getest (verse lock blokkeert, oude lock
+wordt genegeerd).

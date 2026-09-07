@@ -1,4 +1,4 @@
-# weekly_refresh.ps1 — wrapper voor de geplande Windows-taak "uitjes-agenda-refresh"
+﻿# weekly_refresh.ps1 — wrapper voor de geplande Windows-taak "uitjes-agenda-refresh"
 #
 # Draait run_weekly_refresh.py (scrapers + export + gen_uitjes.py) en pusht
 # het resultaat naar GitHub, als er iets veranderd is. Geen AI/Claude bij

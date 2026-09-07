@@ -888,6 +888,32 @@ om op te letten bij twijfel:
 gebeurtenissenlogboek, maar vereist een **verhoogde** PowerShell (niet
 gelukt vanuit een niet-elevated sessie op 2026-09-02).
 
+**Vervolg (2026-09-08) — de echte oorzaak van bovenstaande**: een
+ontbrekende UTF-8-BOM in `weekly_refresh.ps1`. Windows PowerShell 5.1
+(`powershell.exe`, het programma dat de Taakplanner-taak aanroept —
+anders dan `pwsh.exe`/PowerShell 7) leest een `.ps1`-bestand zonder BOM
+met de Windows-ANSI-codepage i.p.v. UTF-8. Dit bestand bevat UTF-8-tekens
+("—" in de comments), die daardoor verkeerd geïnterpreteerd werden en een
+cascaderende parse-fout gaven ("missing terminator"/"missing closing
+'}'") — het script crashte dus al bij het INLEZEN, nog vóór er ook maar
+1 regel code uitgevoerd werd (vandaar geen `refresh_log.txt`, en Taak-
+planners eigen Geschiedenis-tab toont dit niet als fout: het proces
+start en stopt gewoon, alleen met exitcode 1). **Elk `.ps1`-bestand met
+niet-ASCII-tekens moet een UTF-8-BOM hebben** zolang het via de klassieke
+`powershell.exe` gedraaid wordt — puur-ASCII `.ps1`-bestanden hebben dit
+probleem niet. Zie decisions.md 2026-09-08 voor de volledige diagnose.
+
+**Lock-mechanisme tegen gelijktijdige runs** (`run_weekly_refresh.py`,
+gevonden n.a.v. hetzelfde incident): twee runs tegelijk (bv. een
+handmatige poging naast een nog lopende/orphaned eerdere run) concur-
+reren om dezelfde `os.rename()`-doelen bij een "harde fout" — de tweede
+rename-poging op een al hernoemd bestand crasht met een onafgevangen
+`FileNotFoundError`, en de verdubbelde netwerk/CPU-belasting geeft
+bovendien spurious timeouts bij scrapers die alleen prima zouden lopen.
+`.refresh.lock` (niet in git, PID + mtime-leeftijdscheck, self-healing
+na `LOCK_STALE_SECONDS`) voorkomt dit voortaan — `--dry-run` slaat de
+lock bewust over (wijzigt niets op schijf, dus geen race mogelijk).
+
 `run_weekly_refresh.py` globt zelf alle `scrape_*.py`-bestanden en draait ze
 één voor één — **geen handmatige lijst meer om bij te houden** (was tot
 2026-08-14 wel zo, liep binnen twee sessies drie kwart achter: 31 scrapers
