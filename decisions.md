@@ -2744,3 +2744,87 @@ punt 21 — site herbouwd).
 `PRAGMA integrity_check` → `ok`, lokale generatie zonder console-errors,
 lock-mechanisme functioneel getest (verse lock blokkeert, oude lock
 wordt genegeerd).
+
+**Correctie, later diezelfde nacht**: de volgende geplande 04:00-run
+faalde ALSNOG (`LastTaskResult: 1`), ondanks de BOM-fix — zie de
+vervolg-entry hieronder voor de echte, uiteindelijke oorzaak. De
+BOM-fix en het lock-mechanisme hierboven waren beide reële, op zichzelf
+staande bugs (en blijven gefixt/nuttig), maar waren niet de kern van
+waarom de taak steeds faalde.
+
+## 2026-09-08 (vervolg) — de daadwerkelijke, uiteindelijke oorzaak: UnicodeEncodeError
+
+Michiel liet niet los ("het is nu 7:53" → zelf `Get-ScheduledTaskInfo`
+gecheckt op mijn verzoek → weer `LastTaskResult: 1`, ditmaal WEL een
+`refresh_log.txt` dankzij de BOM-fix, maar nog steeds afgekapt tot
+"Traceback (most recent call last):"). Michiel draaide op mijn verzoek
+`python run_weekly_refresh.py` rechtstreeks (buiten de .ps1-wrapper om)
+en plakte de VOLLEDIGE, ongekapte Python-traceback — dat gaf de echte
+kern in één keer bloot, voor ALLE 53 op dat moment nog actieve scrapers
+tegelijk (0/53 OK):
+
+```
+UnicodeEncodeError: 'charmap' codec can't encode character '✓'
+in position 0: character maps to <undefined>
+```
+— geraakt op `events_db.py`'s `init_db()`, die `print(f"✓ DB klaar: ...")`
+aanroept. Elke scraper importeert `events_db` en roept dit als eerste
+aan, dus deze crash trof letterlijk alles.
+
+**Root cause**: `run_weekly_refresh.py` draait elke scraper als
+subprocess met `capture_output=True` — dat maakt van de subprocess'
+stdout een OS-PIPE, geen echte console. Windows Python valt zonder
+`PYTHONUTF8`/`PYTHONIOENCODING` terug op `locale.getpreferredencoding()`
+(de systeem-ANSI-codepage, meestal cp1252) voor tekst-I/O zodra stdout
+GEEN levende console is — dit gebeurt ONGEACHT of de aanroepende console
+zelf wél UTF-8 gebruikt (bv. Windows Terminal/PowerShell 7, die
+standaard codepage 65001 hebben). De `encoding='utf-8'`-parameter die al
+op de `subprocess.run()`-aanroep stond, regelt alleen hoe de OUDER de
+teruggekregen bytes decodeert — heeft geen enkele invloed op hoe het
+KIND-proces zijn eigen tekst encodeert vóórdat het die bytes wegschrijft.
+
+**Waarom dit zo lang onopgemerkt bleef**: elke keer dat IK deze sessie
+een scraper of de volledige pipeline verifieerde, deed ik dat via de
+Bash-tool met `PYTHONIOENCODING=utf-8` ervoor (een gewoonte uit eerdere
+encoding-issues deze sessie) — dat maskeerde het probleem volledig
+zonder dat ik besefte dat dit een noodzakelijke workaround was in plaats
+van een neutrale gewoonte. Losse aanroepen zonder `capture_output`
+(zoals `events_db.py export`/`gen_uitjes.py` aan het eind van
+`run_weekly_refresh.py`, die stdout gewoon overerven van een echte
+console) hadden dit probleem niet — vandaar dat die twee stappen in
+Michiels eigen PowerShell-run wél slaagden terwijl alle 53 scrapers
+ervoor faalden, wat in eerste instantie verwarrend leek.
+
+**Fix, op 3 plekken, structureel** (niet via een omgevingsvariabele die
+ergens anders ingesteld moet worden — te fragiel, moet overal correct
+blijven staan):
+- `events_db.py` (geïmporteerd door elke scraper): `sys.stdout`/
+  `sys.stderr` expliciet `reconfigure(encoding='utf-8', errors='replace')`
+  bij module-import. Dit alleen al lost het al op voor elke scraper,
+  ongeacht hoe die wordt aangeroepen (rechtstreeks of via de orchestrator).
+- `run_weekly_refresh.py`: dezelfde `reconfigure()` voor zijn EIGEN
+  stdout (print't zelf ook al-gedecodeerde "✓"-tekens door, en draait
+  zelf ook via een pipe onder `weekly_refresh.ps1`'s `2>&1 | Tee-Object`)
+  + `env={**os.environ, 'PYTHONIOENCODING': 'utf-8'}` expliciet meegegeven
+  aan elke subprocess-aanroep (scrapers én de export/generate-stap) als
+  extra verdedigingslaag.
+- `gen_uitjes.py`: dezelfde `reconfigure()`, voor de volledigheid (draait
+  ook als subprocess vanuit de orchestrator).
+
+**Geverifieerd, zonder de eigen `PYTHONIOENCODING`-gewoonte** (bewust
+`env -u PYTHONIOENCODING` gebruikt om de fix niet per ongeluk te
+verbergen): een losse scraper als piped subprocess print het ✓-teken nu
+correct terug (`checkmark aanwezig: True`) en geeft `returncode: 0`. Een
+volledige, schone `run_weekly_refresh.py`-run zonder de env-variabele:
+**73/73 scrapers OK** — geen enkele valse quarantaine meer. Alleen het
+al-bekende `scrape_groningermuseum.py` (punt 21, site herbouwd) gaf 0
+resultaten, exact zoals verwacht. `PRAGMA integrity_check` → `ok`,
+lokale generatie zonder console-errors.
+
+**Les voor volgende sessies**: bij het diagnosticeren van een
+scraper/taak-probleem op dit project, NOOIT blindelings
+`PYTHONIOENCODING=utf-8` vooraf laten staan zonder je te realiseren dat
+dat een probleem kan maskeren dat in de daadwerkelijke (geplande-taak-)
+omgeving wél optreedt — verifieer waar mogelijk ook eens `env -u
+PYTHONIOENCODING` om zeker te zijn dat een fix niet toevallig alleen in
+de eigen testomgeving werkt.

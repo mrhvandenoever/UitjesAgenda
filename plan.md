@@ -553,3 +553,25 @@ hier alleen de samenvatting van wat er gebeurd is.
 - [x] Geverifieerd (DB-integriteit, lokale generatie, lock functioneel
   getest), gecommit en gepusht. decisions.md, ARCHITECTURE.md
   bijgewerkt met de volledige diagnose voor toekomstige sessies.
+- [x] **Correctie diezelfde nacht — de ECHTE, uiteindelijke oorzaak**:
+  de 04:00-taak faalde alsnog na de BOM-fix. Michiel bleef doorvragen
+  ("het is nu 7:53", zelf de taak gecheckt, daarna `run_weekly_refresh.py`
+  rechtstreeks gedraaid) tot de volledige, ongekapte Python-traceback
+  zichtbaar werd: een `UnicodeEncodeError` op het "✓"-teken, bij ELKE
+  scraper (0/53 OK op dat moment). Root cause: scrapers draaien als
+  subprocess met `capture_output=True` (een pipe, geen echte console) —
+  Windows Python valt dan terug op de systeem-ANSI-codepage voor
+  tekst-I/O, ongeacht of de aanroeper zelf UTF-8 gebruikt. Dit had de
+  hele tijd elke poging laten crashen; de BOM-fix en het lock-mechanisme
+  waren beide echte, blijvend-nuttige fixes, maar niet de kern.
+  Bleef onopgemerkt omdat mijn eigen testsessies altijd met
+  `PYTHONIOENCODING=utf-8` draaiden (een gewoonte, niet doorzien als
+  noodzakelijke workaround).
+  Fix op 3 plekken (`events_db.py`/`run_weekly_refresh.py`/
+  `gen_uitjes.py`): `sys.stdout`/`sys.stderr` expliciet naar UTF-8
+  reconfigureren + `PYTHONIOENCODING` expliciet meegeven aan elke
+  subprocess. Geverifieerd MET `env -u PYTHONIOENCODING` (dus zonder de
+  maskerende gewoonte): **73/73 scrapers OK**, alleen het al-bekende
+  Groninger Museum (punt 21) gaf 0 resultaten zoals verwacht.
+  Gecommit en gepusht, decisions.md/ARCHITECTURE.md gecorrigeerd met de
+  volledige, definitieve diagnose.

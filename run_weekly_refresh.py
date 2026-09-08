@@ -71,6 +71,17 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+# Zelfde reden als events_db.py: dit script draait zelf ook vaak via een
+# pipe (weekly_refresh.ps1's "2>&1 | Tee-Object"), en print de al-
+# gedecodeerde "✓"-tekens van scrapers door -- zonder dit crasht ook DIT
+# proces met een UnicodeEncodeError zodra het onder een niet-UTF-8-
+# console draait. Zie decisions.md 2026-09-08.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding='utf-8', errors='replace')
+    except (AttributeError, ValueError):
+        pass
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PYTHON = sys.executable
 SUCCESS_MARKERS = ('✓ Klaar:', 'Dry-run:')
@@ -122,10 +133,22 @@ def is_playwright_scraper(script: str) -> bool:
 def run_one(script: str, dry_run: bool) -> tuple[bool, str]:
     """Retourneert (ok, output). ok=False betekent harde fout."""
     args = [PYTHON, script] + (['--dry-run'] if dry_run else [])
+    # PYTHONIOENCODING expliciet meegeven: capture_output=True maakt van
+    # de subprocess' stdout een pipe i.p.v. een echte console, waardoor
+    # Python's eigen stdout-encoding op Windows terugvalt op de
+    # systeem-ANSI-codepage (cp1252) i.p.v. UTF-8 -- gaf een
+    # UnicodeEncodeError bij elke scraper die "✓" print. De
+    # encoding='utf-8'-parameter hieronder regelt alleen hoe DIT proces
+    # de teruggekregen bytes decodeert, niet hoe het kind-proces zelf
+    # zijn eigen output encodeert. Zie ook events_db.py's eigen
+    # stdout.reconfigure() -- dit is de tweede laag verdediging voor
+    # scrapers die niet via deze functie draaien. Zie decisions.md
+    # 2026-09-08.
+    env = {**os.environ, 'PYTHONIOENCODING': 'utf-8'}
     try:
         result = subprocess.run(
             args, cwd=SCRIPT_DIR, capture_output=True, text=True,
-            timeout=600, encoding='utf-8', errors='replace'
+            timeout=600, encoding='utf-8', errors='replace', env=env
         )
     except subprocess.TimeoutExpired:
         return False, '  FOUT: timeout na 600s'
@@ -204,10 +227,11 @@ def main():
             print(f"  {s}")
 
     if not args.no_generate:
+        env = {**os.environ, 'PYTHONIOENCODING': 'utf-8'}
         print(f"\n=== events_db.py export ===")
-        subprocess.run([PYTHON, 'events_db.py', 'export'], cwd=SCRIPT_DIR)
+        subprocess.run([PYTHON, 'events_db.py', 'export'], cwd=SCRIPT_DIR, env=env)
         print(f"\n=== gen_uitjes.py ===")
-        subprocess.run([PYTHON, 'gen_uitjes.py'], cwd=SCRIPT_DIR)
+        subprocess.run([PYTHON, 'gen_uitjes.py'], cwd=SCRIPT_DIR, env=env)
 
 
 if __name__ == '__main__':

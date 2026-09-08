@@ -19,6 +19,23 @@ import collections
 import itertools
 from datetime import datetime
 
+# BUG (gevonden 2026-09-08, decisions.md): elke scraper importeert deze
+# module en print via haar functies o.a. het teken "✓" -- wanneer een
+# scraper als SUBPROCESS met capture_output=True draait (zoals
+# run_weekly_refresh.py doet), is stdout een pipe i.p.v. een echte
+# console, en valt Python's stdout-encoding op Windows dan terug op de
+# systeem-ANSI-codepage (cp1252) i.p.v. UTF-8, ongeacht of de aanroeper
+# zelf een UTF-8-console gebruikt. Dat gaf een UnicodeEncodeError bij
+# ELKE scraper, elke keer als de taak zonder PYTHONIOENCODING=utf-8
+# draaide (o.a. de geplande Windows-taak) -- de daadwerkelijke oorzaak
+# van de dagenlange "refresh-taak faalt"-episode. Hier afgedwongen zodat
+# het werkt ongeacht hoe/waarmee een scraper wordt aangeroepen.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding='utf-8', errors='replace')
+    except (AttributeError, ValueError):
+        pass
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH    = os.path.join(SCRIPT_DIR, 'events.db')
 JSON_PATH  = os.path.join(SCRIPT_DIR, 'events_categorized.json')

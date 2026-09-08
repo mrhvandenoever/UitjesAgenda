@@ -721,6 +721,21 @@
     "image": "https://www.afaslive.nl/files/Agenda/2026/september/_1200x630_crop_center-center_none/baby-keem.jpg"
   },
   {
+    "title": "Beleef het Boomkroonpad",
+    "date": "2026-09-08",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Hondsrug",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/beleef-het-boomkroonpad",
+    "subtitle": "Beleef het bos eens vanuit een ander perspectief en maak een wandeling over het Boomkroonpad. Dit wandelpad leidt je hoog langs de toppen van de bomen.",
+    "lat": 52.949836,
+    "lon": 6.745159,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Brânwacht lêst foar in Bibliotheek Makkum",
     "date": "2026-09-08",
     "source": "friesland.nl",
@@ -20243,6 +20258,15 @@
     "url": "https://www.tivolivredenburg.nl/agenda/75827519/asco-symphony-of-caos-11-10-2026"
   },
   {
+    "title": "Adje",
+    "date": "2026-10-11",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/adje/2859840"
+  },
+  {
     "title": "Bill Callahan + support: Nathan Bowles",
     "date": "2026-10-11",
     "source": "spotgroningen.nl",
@@ -20791,6 +20815,15 @@
     "cats": [
       "actief"
     ]
+  },
+  {
+    "title": "WU LYF",
+    "date": "2026-10-11",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/wu-lyf/2885451"
   },
   {
     "title": "Workshop fotografie Drents-Friese Wold",
@@ -43961,6 +43994,15 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Comedy Tunes Comedy Night",
+    "date": "2026-11-27",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Hoogeveen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/4225292900/comedy-tunes-comedy-night"
   },
   {
     "title": "Concert BOUNCE Bon Jovi Tributeband",

@@ -914,6 +914,25 @@ bovendien spurious timeouts bij scrapers die alleen prima zouden lopen.
 na `LOCK_STALE_SECONDS`) voorkomt dit voortaan — `--dry-run` slaat de
 lock bewust over (wijzigt niets op schijf, dus geen race mogelijk).
 
+**De daadwerkelijke, uiteindelijke oorzaak (2026-09-08, vervolg)**: ook ná
+de BOM-fix bleef de taak falen. Root cause: een `UnicodeEncodeError` op
+het "✓"-teken in `events_db.py`'s `init_db()` (aangeroepen door élke
+scraper als eerste). `run_weekly_refresh.py` draait scrapers als
+subprocess met `capture_output=True`, wat van hun stdout een OS-pipe
+maakt i.p.v. een echte console — Windows Python valt zonder
+`PYTHONUTF8`/`PYTHONIOENCODING` dan terug op de systeem-ANSI-codepage
+voor tekst-I/O, ONGEACHT of de aanroepende console zelf UTF-8 gebruikt.
+De `encoding='utf-8'` op de `subprocess.run()`-aanroep regelt alleen hoe
+de OUDER de teruggekregen bytes decodeert, niet hoe het KIND zijn eigen
+tekst encodeert. Fix op 3 plekken: `events_db.py`/`run_weekly_refresh.py`/
+`gen_uitjes.py` reconfigureren nu expliciet hun eigen `sys.stdout`/
+`sys.stderr` naar UTF-8 bij import/start, en `run_weekly_refresh.py`
+geeft bovendien `PYTHONIOENCODING=utf-8` expliciet mee aan elke
+subprocess-aanroep als extra laag. Geverifieerd met `env -u
+PYTHONIOENCODING` (dus zonder de omgevingsvariabele die het probleem
+eerder toevallig maskeerde tijdens ontwikkelsessies): 73/73 scrapers OK.
+Zie decisions.md 2026-09-08 (tweede entry) voor de volledige diagnose.
+
 `run_weekly_refresh.py` globt zelf alle `scrape_*.py`-bestanden en draait ze
 één voor één — **geen handmatige lijst meer om bij te houden** (was tot
 2026-08-14 wel zo, liep binnen twee sessies drie kwart achter: 31 scrapers

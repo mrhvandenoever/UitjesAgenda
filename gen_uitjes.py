@@ -2,6 +2,11 @@
 # Gebruik: python gen_uitjes.py
 # Output: uitjes_agenda.html (naast dit script)
 import os, sys
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding='utf-8', errors='replace')
+    except (AttributeError, ValueError):
+        pass
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 EVENTS_JSON = os.path.join(SCRIPT_DIR, 'events_categorized.json')
 HTML_OUT = os.path.join(SCRIPT_DIR, 'index.html')
