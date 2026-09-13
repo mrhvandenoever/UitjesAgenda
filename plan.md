@@ -576,4 +576,3 @@ hier alleen de samenvatting van wat er gebeurd is.
   Gecommit en gepusht, decisions.md/ARCHITECTURE.md gecorrigeerd met de
   volledige, definitieve diagnose.
 
-<!-- test-regel voor push-fix-verificatie, wordt hierna weer verwijderd -->

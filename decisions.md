@@ -2875,6 +2875,13 @@ logbestand).
 gebruik `$LASTEXITCODE`, nooit een kale try/catch, om een native
 commando's echte resultaat te bepalen.
 
-**Nog te verifiëren**: deze fix is nog niet door een echte geplande
-04:00-run heen getest (net geschreven) — de volgende ochtend-check moet
-bevestigen dat `LastTaskResult: 0` wordt i.p.v. `1`.
+**Geverifieerd, zonder op de volgende 04:00-run te hoeven wachten**: het
+commit+push-blok apart getest met een echte, kleine wijziging (een
+testregel toegevoegd aan `plan.md`, gecommit + gepusht via exact dezelfde
+`$ErrorActionPreference='Continue'`+`$LASTEXITCODE`-aanpak, daarna
+opgeruimd). Dezelfde stderr-tekst die eerder de valse fout veroorzaakte
+("To https://github.com/...", "e76abc8..92e3747  main -> main") werd nu
+correct als normale logregel behandeld — geen exceptie, `$LASTEXITCODE
+= 0`, script rapporteert terecht succes. De volgende écht geplande
+04:00-run is nu puur ter bevestiging, geen onzekerheid meer over de
+fix zelf.
