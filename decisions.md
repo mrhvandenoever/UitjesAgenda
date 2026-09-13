@@ -2828,3 +2828,53 @@ dat een probleem kan maskeren dat in de daadwerkelijke (geplande-taak-)
 omgeving wél optreedt — verifieer waar mogelijk ook eens `env -u
 PYTHONIOENCODING` om zeker te zijn dat een fix niet toevallig alleen in
 de eigen testomgeving werkt.
+
+## 2026-09-13 — De scraper-fix werkt (5/5 nachten OK!), maar git push meldde ten onrechte een fout
+
+Michiel, 5 dagen later: "lopen de runs?" `git log` toonde 5 opeenvolgende
+"auto refresh"-commits (2026-09-09 t/m 2026-09-13) — de UnicodeEncodeError-
+fix van 2026-09-08 werkt dus volledig, elke nacht **alle scrapers OK**
+(69/69 vandaag, na de eerdere 73→69 doordat een paar bronnen inmiddels
+zijn samengevoegd/opgeruimd). Maar `Get-ScheduledTaskInfo` toonde nog
+steeds `LastTaskResult: 1`, tegenstrijdig met de succesvolle commits.
+
+**Diagnose**: `refresh_log.txt` liet zien dat de hele scrape+export+
+generate+commit-cyclus perfect slaagde, en dat `git push` daarna
+"FOUT tijdens git push: To https://github.com/mrhvandenoever/
+UitjesAgenda.git" logde. Maar `git fetch` + `git log origin/main`
+bevestigden: de commit stond WEL degelijk op GitHub. De push zelf
+slaagde dus gewoon — het script meldde alleen ten onrechte een fout.
+
+**Root cause, weer een PowerShell-stderr-valkuil** (derde in de rij deze
+maand, na de BOM- en `2>&1`-gerelateerde bugs): `git push` schrijft zijn
+normale voortgangsregel ("To https://...", branch-tracking-info) naar
+**stderr** — standaardgedrag voor git, geen foutindicatie. `git push
+2>&1 | ForEach-Object { Log $_ }` onder `$ErrorActionPreference = 'Stop'`
+laat zo'n routinematige stderr-regel PowerShell alsnog als terminating
+exception behandelen, ook al is de exitcode van git 0. Vijf nachten lang
+kwam de commit dus telkens gewoon aan, maar rapporteerde het script
+steeds een valse "FOUT tijdens git push".
+
+**Fix**: `$ErrorActionPreference` lokaal op `'Continue'` gezet rond
+alleen de `git push`-regel (dus stderr-tekst stroomt gewoon als data
+door de pipeline i.p.v. een exceptie te triggeren), en de ECHTE
+succes/faal-status afgelezen via `$LASTEXITCODE` (git's eigen exitcode)
+in plaats van op een exception te vertrouwen. Dat is ook de correcte,
+algemene manier om native commando's met stderr-output onder
+`$ErrorActionPreference = 'Stop'` te callen — niet git-specifiek.
+Bijkomend: `Add-Content` in `Log()` kreeg expliciet `-Encoding utf8`
+(een aparte, kleinere bijvangst: `refresh_log.txt` bevatte losse
+mojibake-tekens door inconsistente encoding tussen verschillende
+PowerShell-aanroepen — cosmetisch, geen functionele impact, want de
+`SUCCESS_MARKERS`-detectie werkt op de Python-kant, niet op dit
+logbestand).
+
+**Les**: elk `git`-commando (`push`/`pull`/`fetch`/`clone`) dat via
+`2>&1` gemerged wordt in een PowerShell-script met
+`$ErrorActionPreference = 'Stop'`, loopt tegen precies dit risico aan —
+gebruik `$LASTEXITCODE`, nooit een kale try/catch, om een native
+commando's echte resultaat te bepalen.
+
+**Nog te verifiëren**: deze fix is nog niet door een echte geplande
+04:00-run heen getest (net geschreven) — de volgende ochtend-check moet
+bevestigen dat `LastTaskResult: 0` wordt i.p.v. `1`.
