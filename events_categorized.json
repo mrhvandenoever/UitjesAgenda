@@ -24107,6 +24107,14 @@
     "url": "https://www.doornroosje.nl/event/okonski-evita-polidoro/"
   },
   {
+    "title": "Olá Brazil! Halloween",
+    "date": "2026-10-31",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/ola-brazil-31-10-2026/"
+  },
+  {
     "title": "Only The Poets",
     "date": "2026-10-31",
     "source": "melkweg",
@@ -26727,7 +26735,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151209&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151209&lang=en"
   },
   {
     "title": "Concert door ‘Het Klaagkoor’ in de serie ‘Vrijdagmiddag-concerten'",
@@ -31542,6 +31550,16 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Requiem Fauré",
+    "date": "2026-11-14",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Ten Boer",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1465844357/requiem-faure",
+    "category": "Concert"
   },
   {
     "title": "Rijck",
@@ -45559,6 +45577,24 @@
     ]
   },
   {
+    "title": "Kerstconcert ‘Peace is possible’",
+    "date": "2026-12-13",
+    "source": "drenthe.nl",
+    "genre": "Muziek",
+    "city": "Assen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3721312574/kerstconcert-peace-is-possible"
+  },
+  {
+    "title": "Kerstmarkt Assekolke",
+    "date": "2026-12-13",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Drouwenermond",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1501009188/kerstmarkt-assekolke"
+  },
+  {
     "title": "Kerstrondje Ruinerwold",
     "date": "2026-12-13",
     "source": "drenthe.nl",
@@ -45575,6 +45611,15 @@
     "city": "Ruinerwold",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1323251014/kerstrondje"
+  },
+  {
+    "title": "Kleintje Kerstmarkt",
+    "date": "2026-12-13",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Spijkerboor",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3188600925/kleintje-kerstmarkt"
   },
   {
     "title": "Ladysmith Black Mambazo",
@@ -45776,6 +45821,15 @@
     "city": "Emmen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1981361097/robin-hood-4-het-kleine-theater-garage-tdi"
+  },
+  {
+    "title": "Rondje Cultuur",
+    "date": "2026-12-13",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Dwingeloo",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/4191959211/rondje-cultuur-2"
   },
   {
     "title": "Sfeervol Kerstconcert door Nederlands Kamerorkest",
@@ -50981,6 +51035,16 @@
     "url": "https://www.vera-groningen.nl/?post_type=events&p=154372&lang=en"
   },
   {
+    "title": "Hackberry (GRN) + Perfect Storm (GRN) + A Liquid Landscape (GRN)",
+    "date": "2027-01-09",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3430187427/hackberry-grn-perfect-storm-grn-a-liquid-landscape-grn",
+    "category": "Concert"
+  },
+  {
     "title": "Harm Edens - DE TOESTAND IN DE WERELD VOLGENS HARM EDENS",
     "date": "2027-01-09",
     "source": "koornbeurs",
@@ -53298,7 +53362,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153040&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153040&lang=en"
   },
   {
     "title": "J. Bernardt (BEL) + support",
@@ -54887,7 +54951,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154380&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154380&lang=en"
   },
   {
     "title": "David Ramirez",
@@ -55556,7 +55620,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153203&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153203&lang=en"
   },
   {
     "title": "State Power (NL) + Minus Youth (GER)",
@@ -58307,7 +58371,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=152860&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=152860&lang=en"
   },
   {
     "title": "NAFT (BEL) + support",
@@ -59353,7 +59417,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=152264&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=152264&lang=en"
   },
   {
     "title": "Primitive Ring (USA) + Whippets (USA)",
@@ -59511,6 +59575,16 @@
     "location": "Amsterdam",
     "venue": "Concertgebouw, Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/43353327-arsenii-moon-speelt-chopin-en-ravel"
+  },
+  {
+    "title": "Bazart",
+    "date": "2027-02-13",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2451070127/bazart",
+    "category": "Muziek overig"
   },
   {
     "title": "Brassband De Bazuin Oenkerk — Valentijnsconcert",
@@ -60646,6 +60720,16 @@
     "url": "https://www.tivolivredenburg.nl/agenda/72850883/jesper-lindell-the-brunnsvik-sounds-17-02-2027"
   },
   {
+    "title": "Josh Ritter - An Evening with Josh Ritter (Solo)",
+    "date": "2027-02-17",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/175539097/josh-ritter-an-evening-with-josh-ritter-solo",
+    "category": "Muziek overig"
+  },
+  {
     "title": "MONO",
     "date": "2027-02-17",
     "source": "tivolivredenburg",
@@ -61715,7 +61799,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154379&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154379&lang=en"
   },
   {
     "title": "Hurry-Up DS1 - Bouwbedrijf Gebr. Meijer/Wijhe'92 DS1",
@@ -63151,7 +63235,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154026&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154026&lang=en"
   },
   {
     "title": "Dana Winner",
@@ -63743,6 +63827,16 @@
     "genre": "overig",
     "venue": "Effenaar, Eindhoven",
     "url": "https://www.effenaar.nl/agenda/vrij-gezellig"
+  },
+  {
+    "title": "Wende - Er Is Nog Tijd",
+    "date": "2027-02-27",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1594692810/wende-er-is-nog-tijd",
+    "category": "Muziek overig"
   },
   {
     "title": "Amble",
@@ -64720,6 +64814,16 @@
     ]
   },
   {
+    "title": "Personal Trainer",
+    "date": "2027-03-05",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3276493813/personal-trainer",
+    "category": "Muziek overig"
+  },
+  {
     "title": "Remy Evers - Graag gedaan (try-out)",
     "date": "2027-03-05",
     "source": "lawei",
@@ -64746,7 +64850,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153946&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153946&lang=en"
   },
   {
     "title": "Roosbeef (NL) + support",
@@ -66890,7 +66994,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153081&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153081&lang=en"
   },
   {
     "title": "Heideroosjes (NL) + Tim Vantol (NL)",
@@ -67783,6 +67887,16 @@
     "url": "https://www.ticketmaster.nl/event/teddy-swims-the-ugly-tour-tickets/612924200?language=en-us"
   },
   {
+    "title": "The Clarks - feat. Rinus Gerritsen & Cesar Zuiderwijk",
+    "date": "2027-03-17",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2967940994/the-clarks-feat-rinus-gerritsen-cesar-zuiderwijk",
+    "category": "Muziek overig"
+  },
+  {
     "title": "The Haunted Youth",
     "date": "2027-03-17",
     "source": "doornroosje",
@@ -67974,6 +68088,16 @@
     "city": "Hoogeveen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2389170127/nick-schilder-the-singer-songwriter-show"
+  },
+  {
+    "title": "Orange Skyline",
+    "date": "2027-03-18",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/527650907/orange-skyline-3",
+    "category": "Muziek overig"
   },
   {
     "title": "Pokey Lafarge",
@@ -70053,7 +70177,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153947&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153947&lang=en"
   },
   {
     "title": "Hannah Mae",
@@ -70085,6 +70209,14 @@
     "cats": [
       "cabaret"
     ]
+  },
+  {
+    "title": "Job Dutchtuber & Billy The Kit",
+    "date": "2027-03-27",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/job-dutchtuber-billy-the-kit-27-03-2027/"
   },
   {
     "title": "Laus Steenbeeke e.a. - MIST",
@@ -73067,6 +73199,16 @@
     "url": "https://www.atlastheater.nl/voorstellingen/wat-als-nasrdin-dchar-09-apr/"
   },
   {
+    "title": "Chef'Special",
+    "date": "2027-04-10",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2165818872/chef-special-4",
+    "category": "Muziek overig"
+  },
+  {
     "title": "Concertgebouworkest Essentials: Beethovens Pianoconcert nr. 2",
     "date": "2027-04-10",
     "source": "concertgebouw",
@@ -73207,6 +73349,16 @@
     "location": "Amsterdam",
     "venue": "Concertgebouw, Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/43714221-janines-beethoven-alle-vioolsonates-met-denis-kozhukhin-deel-1"
+  },
+  {
+    "title": "Jim Gardner",
+    "date": "2027-04-10",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1514275407/jim-gardner",
+    "category": "Muziek overig"
   },
   {
     "title": "KleuterSinfonietta: StuiterStokken (4 en 5 jaar)",
@@ -73530,6 +73682,16 @@
     "city": "Assen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2771962466/brucified-tribute-to-bruce-springsteen-working-on-a-dream"
+  },
+  {
+    "title": "Chef'Special",
+    "date": "2027-04-11",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1904798113/chef-special-5",
+    "category": "Muziek overig"
   },
   {
     "title": "Clean Pete's Klassieke Revue 2027",
@@ -74063,7 +74225,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153826&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153826&lang=en"
   },
   {
     "title": "Clean Pete Klassieke Revue met Thomas Beijer",
@@ -76362,6 +76524,16 @@
     "sport": "basketbal"
   },
   {
+    "title": "Donar Groningen –  Okapi Aalst 2027",
+    "date": "2027-04-24",
+    "source": "visitgroningen",
+    "genre": "Theater",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1124021756/donar-groningen-okapi-aalst-2027",
+    "category": "Theater overig"
+  },
+  {
     "title": "FC Twente - N.E.C.",
     "date": "2027-04-24",
     "source": "fctwente",
@@ -76501,7 +76673,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154037&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154037&lang=en"
   },
   {
     "title": "Moss (NL) + support",
@@ -77752,6 +77924,16 @@
     ]
   },
   {
+    "title": "Vos en Haas samen in het bos (3+)",
+    "date": "2027-05-02",
+    "source": "visitgroningen",
+    "genre": "Theater",
+    "city": "Veendam",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/732981303/vos-en-haas",
+    "category": "Toneel"
+  },
+  {
     "title": "Weg Ermee (5-12jr) Wir War",
     "date": "2027-05-02",
     "source": "spotgroningen.nl",
@@ -78256,6 +78438,16 @@
     "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401875767",
     "gender": "heren",
     "sport": "voetbal"
+  },
+  {
+    "title": "First Time Flyers",
+    "date": "2027-05-08",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/646955187/first-time-flyers",
+    "category": "Muziek overig"
   },
   {
     "title": "Frank Boeijen",
@@ -80823,6 +81015,15 @@
     "category": "Muziekfestival"
   },
   {
+    "title": "Het Hooge Woord",
+    "date": "2027-05-27",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Hoogeveen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3598456794/het-hooge-woord-6"
+  },
+  {
     "title": "Het Nationale Theater Big Pharma",
     "date": "2027-05-27",
     "source": "spotgroningen.nl",
@@ -81714,6 +81915,16 @@
     "url": "https://www.atlastheater.nl/voorstellingen/vooruit-nog-een-keertje-dan-titus-fien-de-revue-4plus-05-jun-1/"
   },
   {
+    "title": "Alexis Ffrench",
+    "date": "2027-06-06",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2804389617/alexis-ffrench",
+    "category": "Muziek overig"
+  },
+  {
     "title": "Anouk - met het Metropole Orkest",
     "date": "2027-06-06",
     "source": "ziggodome",
@@ -81918,6 +82129,16 @@
     "time": "19:15",
     "venue": "Rotterdam Ahoy, Rotterdam",
     "url": "https://www.ticketmaster.nl/event/tame-impala-deadbeat-tour-tickets/482904264?language=en-us"
+  },
+  {
+    "title": "The Musical Box - “And Then There Was Phil”",
+    "date": "2027-06-09",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/759509721/the-musical-box-and-then-there-was-phil",
+    "category": "Muziek overig"
   },
   {
     "title": "Viggo Waas, Eddie B. Wahr en Kees van der Vooren - Eigenlijk",
@@ -82179,6 +82400,16 @@
     "location": "Amsterdam",
     "venue": "Concertgebouw, Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45901518-concertgebouworkest-en-karina-canellakis-met-sjostakovitsj-symfonie-nr.-5"
+  },
+  {
+    "title": "Man in the Mirror – A tribute to Michael Jackson",
+    "date": "2027-06-16",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1765137938/man-in-the-mirror-a-tribute-to-michael-jackson",
+    "category": "Muziektheater"
   },
   {
     "title": "Concertgebouworkest en Karina Canellakis met Sjostakovitsj' Symfonie nr. 5",
@@ -82882,6 +83113,16 @@
     "cats": [
       "cabaret"
     ]
+  },
+  {
+    "title": "Edwin Spieard",
+    "date": "2027-09-16",
+    "source": "visitgroningen",
+    "genre": "Theater",
+    "city": "Stadskanaal",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/491881159/edwin-spieard-3",
+    "category": "Theater overig"
   },
   {
     "title": "Van der Laan & Woe Dinsdagmiddag",
