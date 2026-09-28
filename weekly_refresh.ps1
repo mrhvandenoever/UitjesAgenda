@@ -12,9 +12,30 @@ $ErrorActionPreference = 'Stop'
 Set-Location -Path $PSScriptRoot
 
 $logFile = Join-Path $PSScriptRoot 'refresh_log.txt'
+
+# BUG (gevonden 2026-09-28, decisions.md): "Kan geen toegang krijgen tot het
+# bestand ... omdat het wordt gebruikt door een ander proces" -- een kortstondig
+# Windows-bestandsvergrendelingsconflict op refresh_log.txt zelf (vermoedelijk
+# een antivirus/OneDrive/indexeringsscan die het bestand precies op dat moment
+# even vasthield, niet per se dit script tegen zichzelf). Add-Content faalt dan
+# met $ErrorActionPreference='Stop', wat de HELE run laat crashen -- puur om een
+# logregel, niet om de daadwerkelijke scrape/commit/push-inhoud. Fix: retry met
+# korte pauze; als het na 5 pogingen nog niet lukt, ga door zonder te crashen
+# (een gemiste logregel is nooit erger dan de hele nachtelijke run verliezen).
 function Log($msg) {
     $line = "[{0:yyyy-MM-dd HH:mm:ss}] {1}" -f (Get-Date), $msg
-    Add-Content -Path $logFile -Value $line -Encoding utf8
+    for ($i = 0; $i -lt 5; $i++) {
+        try {
+            Add-Content -Path $logFile -Value $line -Encoding utf8 -ErrorAction Stop
+            break
+        } catch {
+            if ($i -eq 4) {
+                Write-Output "WAARSCHUWING: kon niet naar $logFile schrijven na 5 pogingen: $_"
+            } else {
+                Start-Sleep -Milliseconds 200
+            }
+        }
+    }
     Write-Output $line
 }
 
