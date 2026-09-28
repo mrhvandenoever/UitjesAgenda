@@ -2885,3 +2885,65 @@ correct als normale logregel behandeld — geen exceptie, `$LASTEXITCODE
 = 0`, script rapporteert terecht succes. De volgende écht geplande
 04:00-run is nu puur ter bevestiging, geen onzekerheid meer over de
 fix zelf.
+
+## 2026-09-27/28 — GitHub-token vervangen + vierde infra-bug: bestandsvergrendeling
+
+Michiel kreeg een nieuwe fine-grained GitHub PAT en vroeg waar die moest
+komen — nooit in de chat geplakt (CLAUDE.md-regel), maar in Windows
+Credential Manager onder de entry `git:https://github.com` (Windows-
+referenties beheren → Windows-referenties). Direct getest doordat een
+toevallige handmatige `run_weekly_refresh.py`-run (ter verificatie van
+de eerdere fixes) meteen ook pushte met de nieuwe token — geslaagd.
+
+**Bijvangst tijdens het testen**: bij het tussentijds handmatig
+her-triggeren van de taak sloot Michiel het cmd-venster vlak vóór het
+script zijn eigen laatste logregel kon schrijven — de push was al
+gelukt (bevestigd via `git log origin/main`), alleen het venster
+afsluiten onderbrak het proces net te vroeg voor een schone `LastResult:
+0`. Geen echte bug, maar wel de reden om voortaan `Start-Process
+-WindowStyle Hidden` te gebruiken bij handmatige verificatie-runs, zodat
+niemand per ongeluk het venster kan sluiten.
+
+**Vierde, nieuwe infra-bug gevonden (2026-09-28)**: de daaropvolgende
+ÉCHTE, onbemande 04:00-run faalde alsnog — dit keer met "Kan geen
+toegang krijgen tot het bestand refresh_log.txt omdat het wordt gebruikt
+door een ander proces" (een Windows-bestandsvergrendelingsconflict op
+het logbestand zelf, vermoedelijk een antivirus/OneDrive/indexerings-
+scan die het bestand op precies dat moment even vasthield — niet het
+script tegen zichzelf, gezien er geen `.refresh.lock` aanwezig was en
+géén ander `run_weekly_refresh.py`-proces liep). `Add-Content` faalde
+met `$ErrorActionPreference='Stop'`, wat de HELE run liet crashen om
+niet meer dan een gemiste logregel.
+
+**Fix**: `Log()` kreeg een retry-lus (5 pogingen, 200ms pauze) rond
+`Add-Content` — als het na 5 pogingen nog steeds niet lukt, gaat het
+script gewoon door (een gemiste logregel is nooit erger dan de hele
+nachtelijke run verliezen). Meteen ook de BOM opnieuw expliciet
+toegepast na het herschrijven (**tweede keer dat dit bijna vergeten
+werd** — de Write-tool schrijft standaard zonder BOM, dus dit is een
+terugkerend aandachtspunt bij elke toekomstige bewerking van dit
+bestand).
+
+**Bijvangst, apart, niet gefixt**: 2 orphaned Python-processen
+(PID 7864/12908, aangemaakt 25/26 sept, vermoedelijk restanten van een
+eerdere sessie) konden niet gestopt worden vanuit deze niet-verhoogde
+sessie ("Toegang geweigerd") — vermoedelijk draaien ze onder een andere
+sessiecontext. Niet onderzocht of ze daadwerkelijk de bestandsvergren-
+deling veroorzaakten (waarschijnlijk niet, aangezien meerdere handmatige
+runs op 27 sept wél foutloos naar hetzelfde logbestand schreven) — te
+Michiels beoordeling of dit via Taakbeheer/een Administrator-sessie
+opgeruimd moet worden.
+
+**Geverifieerd**: parse-check + een volledige, verborgen (`-WindowStyle
+Hidden`, dus onmogelijk per ongeluk te sluiten) test-run door de ECHTE
+Windows PowerShell 5.1 — 69/69 scrapers OK, commit `bc53f8c` gemaakt en
+succesvol gepusht naar `origin/main` (bevestigd via `git log
+origin/main`), volledige nette afsluiting ("Gepusht naar origin/main.",
+"Einde weekly refresh").
+
+**Kleine, losstaande cosmetische bijvangst**: `refresh_log.txt` bevat
+sinds vóór de `-Encoding utf8`-fix een mix van encodings (oudere regels
+geven een `UnicodeDecodeError` bij UTF-8-inlezen) — puur cosmetisch,
+geen functionele impact (de `SUCCESS_MARKERS`-detectie gebeurt aan de
+Python-kant, niet op dit logbestand). Optioneel op te lossen door het
+logbestand een keer leeg te maken zodat het weer schoon opbouwt.

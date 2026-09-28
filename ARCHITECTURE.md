@@ -933,6 +933,22 @@ PYTHONIOENCODING` (dus zonder de omgevingsvariabele die het probleem
 eerder toevallig maskeerde tijdens ontwikkelsessies): 73/73 scrapers OK.
 Zie decisions.md 2026-09-08 (tweede entry) voor de volledige diagnose.
 
+**Vijfde en zesde infra-bug (2026-09-13/27/28)**: `git push` schrijft
+zijn normale voortgangsregel naar stderr (geen fout) — onder
+`$ErrorActionPreference='Stop'` liet een `2>&1`-merge dit alsnog als
+terminating exception behandelen, ook al slaagde de push écht (bevestigd
+via `git log origin/main`). Fix: `$ErrorActionPreference` lokaal op
+`'Continue'` rond de `git push`-regel, status aflezen via
+`$LASTEXITCODE` i.p.v. een exception. Daarna faalde een run nogmaals,
+dit keer op een kortstondig Windows-bestandsvergrendelingsconflict op
+`refresh_log.txt` zelf ("wordt gebruikt door een ander proces") — `Log()`
+kreeg een retry-lus (5x, 200ms pauze) zodat een gemiste logregel nooit
+meer de hele run laat crashen. **Let op bij elke toekomstige bewerking
+van `weekly_refresh.ps1`**: de Write-tool schrijft standaard zonder
+BOM — na een herschrijving altijd controleren/herstellen (`raw[:3] ==
+b'\xef\xbb\xbf'`), dit is al 2x per ongeluk vergeten. Zie decisions.md
+2026-09-13 en 2026-09-27/28 voor de volledige diagnoses.
+
 `run_weekly_refresh.py` globt zelf alle `scrape_*.py`-bestanden en draait ze
 één voor één — **geen handmatige lijst meer om bij te houden** (was tot
 2026-08-14 wel zo, liep binnen twee sessies drie kwart achter: 31 scrapers
