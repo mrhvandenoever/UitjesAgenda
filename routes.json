@@ -84,6 +84,20 @@
     "subtitle": "Deze route loopt in de richting van het militair oefenterrein in het Lauwersmeergebied. Onderweg kom je langs een vogelhut, een rietzuivering en orchideeënveldjes."
   },
   {
+    "title": "Boswachterspad Kollumeroord - Lauwersmeer",
+    "url": "https://www.staatsbosbeheer.nl/routes/lauwersmeer/boswachterspad-kollumeroord",
+    "venue": "Lauwersmeer",
+    "province": "Groningen",
+    "lat": 53.321406,
+    "lon": 6.229599,
+    "route_type": "Wandelen",
+    "length_km": 10.0,
+    "dogs": "niet-toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Laat je omringen door honderden vogels, ruigtes, rietvlaktes en meer natuurschoon tijdens een wandeling over het boswachterspad rond het Lauwersmeer. In de zomer is het pad het best begaanbaar."
+  },
+  {
     "title": "Wandelroute Vogelroute - Lauwersmeer",
     "url": "https://www.staatsbosbeheer.nl/routes/lauwersmeer/wandelroute-vogelroute",
     "venue": "Lauwersmeer",
@@ -110,20 +124,6 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Beleef de nacht en bekijk de sterren op deze nog écht donkere plek. Maar ook overdag is het een leuke route om te lopen dankzij QR-codes met meer informatie over het Dark Sky Park."
-  },
-  {
-    "title": "Boswachterspad Kollumeroord - Lauwersmeer",
-    "url": "https://www.staatsbosbeheer.nl/routes/lauwersmeer/boswachterspad-kollumeroord",
-    "venue": "Lauwersmeer",
-    "province": "Groningen",
-    "lat": 53.321406,
-    "lon": 6.229599,
-    "route_type": "Wandelen",
-    "length_km": 10.0,
-    "dogs": "niet-toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Laat je omringen door honderden vogels, ruigtes, rietvlaktes en meer natuurschoon tijdens een wandeling over het boswachterspad rond het Lauwersmeer. In de zomer is het pad het best begaanbaar."
   },
   {
     "title": "Wandelroute Natuurpad - Lauwersmeer",
@@ -182,20 +182,6 @@
     "subtitle": "Wandel door het Ballastplaatbos in het Lauwersmeergebied. Onderweg kom je onder andere langs een oeverzwaluwwand en geniet je van het uitzicht vanaf de uitkijktoren."
   },
   {
-    "title": "Wandelroute Planetenpad - Lauwersmeer",
-    "url": "https://www.staatsbosbeheer.nl/routes/lauwersmeer/wandelroute-planetenpad",
-    "venue": "Lauwersmeer",
-    "province": "Groningen",
-    "lat": 53.385056,
-    "lon": 6.235943,
-    "route_type": "Wandelen",
-    "length_km": 5.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandelroute in het Lauwersmeer waarbij je van alles te weten komt over ons zonnestelsel."
-  },
-  {
     "title": "Mountainbikeroute Lauwersmeer",
     "url": "https://www.staatsbosbeheer.nl/routes/lauwersmeer/mountainbikeroute-lauwersmeer",
     "venue": "Lauwersmeer",
@@ -210,6 +196,20 @@
     "subtitle": "Mountainbikeroute in het noordwestelijke deel van Nationaal Park Lauwersmeer, in de bossen rondom Lauwersoog."
   },
   {
+    "title": "Wandelroute Planetenpad - Lauwersmeer",
+    "url": "https://www.staatsbosbeheer.nl/routes/lauwersmeer/wandelroute-planetenpad",
+    "venue": "Lauwersmeer",
+    "province": "Groningen",
+    "lat": 53.385056,
+    "lon": 6.235943,
+    "route_type": "Wandelen",
+    "length_km": 5.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandelroute in het Lauwersmeer waarbij je van alles te weten komt over ons zonnestelsel."
+  },
+  {
     "title": "Wandelroute Kabouter Steendamsterbos - Duurswold",
     "url": "https://www.staatsbosbeheer.nl/routes/duurswold/wandelroute-kabouter-steendamsterbos",
     "venue": "Duurswold",
@@ -222,20 +222,6 @@
     "kids": true,
     "accessible": false,
     "subtitle": "Kom naar het kabouterpad in het Steendamsterbos. Daar staan maar liefst veertig verschillende kaboutertypetjes. Onderweg is er van alles te zien! Verschillende soorten bomen en planten, maar ook dieren."
-  },
-  {
-    "title": "Wandelroute Laarzenpad Rottige Meente",
-    "url": "https://www.staatsbosbeheer.nl/routes/sudeast-fryslan/wandelroute-laarzenpad-rottige-meente",
-    "venue": "Súdeast-Fryslân",
-    "province": "Friesland",
-    "lat": 52.843281,
-    "lon": 5.910223,
-    "route_type": "Wandelen",
-    "length_km": 2.9,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Korte wandeling langs moerasbos en petgaten in Rottige Meente."
   },
   {
     "title": "Poëzieroute Wijnjeterperschar",
@@ -264,6 +250,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Struin over ongeplaveid pad en wandel langs moerasplanten en de purperreiger op dit boswachterspad in de Rottige Meente. Een pittige wandeling door onontdekt Fries natuurgebied."
+  },
+  {
+    "title": "Wandelroute Laarzenpad Rottige Meente",
+    "url": "https://www.staatsbosbeheer.nl/routes/sudeast-fryslan/wandelroute-laarzenpad-rottige-meente",
+    "venue": "Súdeast-Fryslân",
+    "province": "Friesland",
+    "lat": 52.843281,
+    "lon": 5.910223,
+    "route_type": "Wandelen",
+    "length_km": 2.9,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Korte wandeling langs moerasbos en petgaten in Rottige Meente."
   },
   {
     "title": "Landgoedwandeling Oranjewoud",
@@ -322,6 +322,20 @@
     "subtitle": "Wandelroute door de koninklijke bossen van landgoed Oranjewoud. De plaats waar natuur, cultuur en geschiedenis samenkomen."
   },
   {
+    "title": "Wandelroute Boswandeling Spier - Dwingelderveld",
+    "url": "https://www.staatsbosbeheer.nl/routes/dwingelderveld/wandelroute-boswandeling-spier",
+    "venue": "Dwingelderveld",
+    "province": "Drenthe",
+    "lat": 52.81873,
+    "lon": 6.458137,
+    "route_type": "Wandelen",
+    "length_km": 5.5,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandeling door een bos dat vanaf 1925 is aangeplant in Dwingelderveld, in de richting van het Witteveen. Hier is vroeger nog turf gestoken."
+  },
+  {
     "title": "Wandelroute Telescoop - Dwingelderveld",
     "url": "https://www.staatsbosbeheer.nl/routes/dwingelderveld/wandelroute-telescoop",
     "venue": "Dwingelderveld",
@@ -350,18 +364,18 @@
     "subtitle": "Deze wandeling gaat via fraaie vennen naar het Holtveen. Hier krijgt het hoogveen in Dwingelderveld weer een kans."
   },
   {
-    "title": "Wandelroute Boswandeling Spier - Dwingelderveld",
-    "url": "https://www.staatsbosbeheer.nl/routes/dwingelderveld/wandelroute-boswandeling-spier",
+    "title": "Wandelroute Lheederzand geel - Dwingelderveld",
+    "url": "https://www.staatsbosbeheer.nl/routes/dwingelderveld/wandelroute-lheederzand-geel",
     "venue": "Dwingelderveld",
     "province": "Drenthe",
-    "lat": 52.81873,
-    "lon": 6.458137,
+    "lat": 52.824021,
+    "lon": 6.417634,
     "route_type": "Wandelen",
-    "length_km": 5.5,
+    "length_km": 5.0,
     "dogs": "toegestaan",
     "kids": false,
     "accessible": false,
-    "subtitle": "Wandeling door een bos dat vanaf 1925 is aangeplant in Dwingelderveld, in de richting van het Witteveen. Hier is vroeger nog turf gestoken."
+    "subtitle": "Wandeling door het Lheederzand in Dwingelderveld, een voormalig stuifzand dat vanaf 1907 is beplant."
   },
   {
     "title": "Wandelroute familiepad-  Dwingelderveld",
@@ -376,20 +390,6 @@
     "kids": false,
     "accessible": true,
     "subtitle": "Het familiepad in het Dwingelderveld is goed toegankelijk voor rolstoelen. Dat geldt ook voor de picknickbanken onderweg."
-  },
-  {
-    "title": "Wandelroute Lheederzand geel - Dwingelderveld",
-    "url": "https://www.staatsbosbeheer.nl/routes/dwingelderveld/wandelroute-lheederzand-geel",
-    "venue": "Dwingelderveld",
-    "province": "Drenthe",
-    "lat": 52.824021,
-    "lon": 6.417634,
-    "route_type": "Wandelen",
-    "length_km": 5.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandeling door het Lheederzand in Dwingelderveld, een voormalig stuifzand dat vanaf 1907 is beplant."
   },
   {
     "title": "Wandelroute Lheederzand rood - Dwingelderveld",
@@ -434,20 +434,6 @@
     "subtitle": "Een wandeling langs vennetjes en het Koelevaartsveen, een voormalig veengebied in Dwingelderveld. Hier krijgt hoogveen weer een kans."
   },
   {
-    "title": "Wandelroute De Acht van Amen - Drentsche Aa",
-    "url": "https://www.staatsbosbeheer.nl/routes/drentsche-aa/wandelroute-acht-van-amen",
-    "venue": "Drentsche Aa",
-    "province": "Drenthe",
-    "lat": 52.942257,
-    "lon": 6.613249,
-    "route_type": "Wandelen",
-    "length_km": 5.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandelroute De Acht van Amen leidt je door bos en beemd, in 2 lussen van elk ongeveer drie kwartier tot een uur wandelen."
-  },
-  {
     "title": "Wandelroute Anlooërdiep - Drentsche Aa",
     "url": "https://www.staatsbosbeheer.nl/routes/drentsche-aa/wandelroute-anlooer-diep",
     "venue": "Drentsche Aa",
@@ -460,6 +446,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Waan je in de middeleeuwen, de tijd dat dit cultuurlandschap ontstond. Gevarieerde wandelroute in de Drentsche Aa langs beek en houtwallen. Deze wandeling is in te korten tot 7 km."
+  },
+  {
+    "title": "Wandelroute De Acht van Amen - Drentsche Aa",
+    "url": "https://www.staatsbosbeheer.nl/routes/drentsche-aa/wandelroute-acht-van-amen",
+    "venue": "Drentsche Aa",
+    "province": "Drenthe",
+    "lat": 52.942257,
+    "lon": 6.613249,
+    "route_type": "Wandelen",
+    "length_km": 5.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandelroute De Acht van Amen leidt je door bos en beemd, in 2 lussen van elk ongeveer drie kwartier tot een uur wandelen."
   },
   {
     "title": "Wandelroute Evertsbos - Drentsche Aa",
@@ -490,20 +490,6 @@
     "subtitle": "Wandelroute van 8 kilometer langs het Deurzerdiep bij Assen, met slingerende beekjes, natte hooilanden en bijzondere bloemen."
   },
   {
-    "title": "Wandelroute Appelbergen - Drentsche Aa",
-    "url": "https://www.staatsbosbeheer.nl/routes/drentsche-aa/wandelroute-appelbergen",
-    "venue": "Drentsche Aa",
-    "province": "Drenthe",
-    "lat": 53.136739,
-    "lon": 6.639559,
-    "route_type": "Wandelen",
-    "length_km": 3.5,
-    "dogs": "los",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Deze mooie wandeling in de Drentsche Aa voert door het bos en langs de vennen."
-  },
-  {
     "title": "Boswachterspad Ballooërveld - Drentsche Aa",
     "url": "https://www.staatsbosbeheer.nl/routes/drentsche-aa/boswachterspad-ballooerveld",
     "venue": "Drentsche Aa",
@@ -516,6 +502,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Wandelroute van 9 kilometer over het Ballooërveld in de Drentsche Aa, langs paarse heide, de historische Galgenberg en eeuwenoude karrensporen."
+  },
+  {
+    "title": "Wandelroute Appelbergen - Drentsche Aa",
+    "url": "https://www.staatsbosbeheer.nl/routes/drentsche-aa/wandelroute-appelbergen",
+    "venue": "Drentsche Aa",
+    "province": "Drenthe",
+    "lat": 53.136739,
+    "lon": 6.639559,
+    "route_type": "Wandelen",
+    "length_km": 3.5,
+    "dogs": "los",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Deze mooie wandeling in de Drentsche Aa voert door het bos en langs de vennen."
   },
   {
     "title": "Boswachterspad Rolderrug - Drentsche Aa",
@@ -532,20 +532,6 @@
     "subtitle": "Wandelroute van 21 kilometer door Nationaal Park Drentsche Aa, langs heidevelden, hunebedden, grafheuvels en oude karrensporen."
   },
   {
-    "title": "Boswachterspad Oudemolense Diep - Drentsche Aa",
-    "url": "https://www.staatsbosbeheer.nl/routes/drentsche-aa/boswachterspad-oudemolense-diep",
-    "venue": "Drentsche Aa",
-    "province": "Drenthe",
-    "lat": 53.05083,
-    "lon": 6.643843,
-    "route_type": "Wandelen",
-    "length_km": 7.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandelroute van 7 kilometer langs het Oudemolense Diep bij Tynaarlo, met slingerende beekjes, heide, bos en de kleurrijke weidebeekjuffer."
-  },
-  {
     "title": "Wandelroute Ballooërveld - Drentsche Aa",
     "url": "https://www.staatsbosbeheer.nl/routes/drentsche-aa/wandelroute-ballooerveld",
     "venue": "Drentsche Aa",
@@ -558,6 +544,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Wandelroute Ballooërveld voert je door een van de oudste en meest karakteristieke heidelandschappen van Drenthe. Al wandelend ontdek je wat dit gebied zo bijzonder maakt."
+  },
+  {
+    "title": "Boswachterspad Oudemolense Diep - Drentsche Aa",
+    "url": "https://www.staatsbosbeheer.nl/routes/drentsche-aa/boswachterspad-oudemolense-diep",
+    "venue": "Drentsche Aa",
+    "province": "Drenthe",
+    "lat": 53.05083,
+    "lon": 6.643843,
+    "route_type": "Wandelen",
+    "length_km": 7.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandelroute van 7 kilometer langs het Oudemolense Diep bij Tynaarlo, met slingerende beekjes, heide, bos en de kleurrijke weidebeekjuffer."
   },
   {
     "title": "Wandelroute Geelbroek - Drentsche Aa",
@@ -700,20 +700,6 @@
     "subtitle": "Deze wandeling door bos en duin begint met een flinke klim. Onderweg geniet je van een riant uitzicht over de Vlielander duinen en landschappen vol cultuurhistorie."
   },
   {
-    "title": "Familiepad Ruinen",
-    "url": "https://www.staatsbosbeheer.nl/routes/ruinen/wandelroute-familiepad-ruinen",
-    "venue": "Ruinen",
-    "province": "Drenthe",
-    "lat": 52.730342,
-    "lon": 6.388876,
-    "route_type": "Wandelen",
-    "length_km": 2.1,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": true,
-    "subtitle": "Korte wandeling door boswachterij Ruinen, over uitgestrekte heidevelden en 'woeste gronden'."
-  },
-  {
     "title": "Wandelroute Ruinen blauw",
     "url": "https://www.staatsbosbeheer.nl/routes/ruinen/wandelroute-ruinen-blauw",
     "venue": "Ruinen",
@@ -726,6 +712,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Wandeling in boswachterij Ruinen, over uitgestrekte heidevelden en 'woeste gronden'."
+  },
+  {
+    "title": "Familiepad Ruinen",
+    "url": "https://www.staatsbosbeheer.nl/routes/ruinen/wandelroute-familiepad-ruinen",
+    "venue": "Ruinen",
+    "province": "Drenthe",
+    "lat": 52.730342,
+    "lon": 6.388876,
+    "route_type": "Wandelen",
+    "length_km": 2.1,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": true,
+    "subtitle": "Korte wandeling door boswachterij Ruinen, over uitgestrekte heidevelden en 'woeste gronden'."
   },
   {
     "title": "Wandelroute Gijsselterplassen - Ruinen",
@@ -756,20 +756,6 @@
     "subtitle": "Korte wandeling door boswachterij Ruinen, over uitgestrekte heidevelden en 'woeste gronden'."
   },
   {
-    "title": "Wandelroute Natuurpad - Ruinen",
-    "url": "https://www.staatsbosbeheer.nl/routes/ruinen/wandelroute-natuurpad-ruinen",
-    "venue": "Ruinen",
-    "province": "Drenthe",
-    "lat": 52.728829,
-    "lon": 6.38965,
-    "route_type": "Wandelen",
-    "length_km": 5.7,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandeling in boswachterij Ruinen, over uitgestrekte heidevelden en 'woeste gronden'."
-  },
-  {
     "title": "Wandelroute Ruinen oranje",
     "url": "https://www.staatsbosbeheer.nl/routes/ruinen/wandelroute-ruinen-oranje",
     "venue": "Ruinen",
@@ -778,6 +764,20 @@
     "lon": 6.360063,
     "route_type": "Wandelen",
     "length_km": 4.3,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandeling in boswachterij Ruinen, over uitgestrekte heidevelden en 'woeste gronden'."
+  },
+  {
+    "title": "Wandelroute Natuurpad - Ruinen",
+    "url": "https://www.staatsbosbeheer.nl/routes/ruinen/wandelroute-natuurpad-ruinen",
+    "venue": "Ruinen",
+    "province": "Drenthe",
+    "lat": 52.728829,
+    "lon": 6.38965,
+    "route_type": "Wandelen",
+    "length_km": 5.7,
     "dogs": "toegestaan",
     "kids": false,
     "accessible": false,
@@ -798,20 +798,6 @@
     "subtitle": "Wandeling in boswachterij Ruinen, over uitgestrekte heidevelden en 'woeste gronden'."
   },
   {
-    "title": "Fietsroute polder2polder Noard-Frsylân Friesland",
-    "url": "https://www.staatsbosbeheer.nl/routes/noard-fryslan/fietsroute-polder2polder",
-    "venue": "Noard-Fryslân",
-    "province": "Friesland",
-    "lat": 53.168125,
-    "lon": 5.829001,
-    "route_type": "Fietsen",
-    "length_km": 43.0,
-    "dogs": "niet-toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Een fietsroute door het polderlandschap ten zuiden van Leeuwarden. Ontdek de sporen van de Middelzee en bewonder de weidevogels en rijkdom aan planten in de Hempensermeerpolder en de Leonserpolder."
-  },
-  {
     "title": "Wandelroute Houtwiel - Noard-Fryslân",
     "url": "https://www.staatsbosbeheer.nl/routes/noard-fryslan/wandelroute-houtwiel",
     "venue": "Noard-Fryslân",
@@ -826,18 +812,18 @@
     "subtitle": "Wandeling door moerasgebied Houtwiel in Noard-Fryslân, door een deel van het moeras en langs een uitzichtheuvel, vanwaar je een fraai uitzicht hebt over het gebied."
   },
   {
-    "title": "Wandelroute Blokslootpolder - Sneekermeer",
-    "url": "https://www.staatsbosbeheer.nl/routes/sudwest-fryslan/wandelroute-blokslootpolder",
-    "venue": "Súdwest-Fryslân",
+    "title": "Fietsroute polder2polder Noard-Frsylân Friesland",
+    "url": "https://www.staatsbosbeheer.nl/routes/noard-fryslan/fietsroute-polder2polder",
+    "venue": "Noard-Fryslân",
     "province": "Friesland",
-    "lat": 52.996526,
-    "lon": 5.746905,
-    "route_type": "Wandelen",
-    "length_km": 4.3,
+    "lat": 53.168125,
+    "lon": 5.829001,
+    "route_type": "Fietsen",
+    "length_km": 43.0,
     "dogs": "niet-toegestaan",
     "kids": false,
     "accessible": false,
-    "subtitle": "Wandelroute door de Blokslootpolder, langs de Langstaartenpoel, de Gudsekop en de Goëngarijpsterpoelen bij het Sneekermeer."
+    "subtitle": "Een fietsroute door het polderlandschap ten zuiden van Leeuwarden. Ontdek de sporen van de Middelzee en bewonder de weidevogels en rijkdom aan planten in de Hempensermeerpolder en de Leonserpolder."
   },
   {
     "title": "Luisterwandeling kamp Wyldemerck - Súdwest-Fryslân",
@@ -852,6 +838,20 @@
     "kids": false,
     "accessible": true,
     "subtitle": "Beleef de geschiedenis van kamp Wyldemerck. Scan de QR-codes en luister naar persoonlijke verhalen van oud-bewoners."
+  },
+  {
+    "title": "Wandelroute Blokslootpolder - Sneekermeer",
+    "url": "https://www.staatsbosbeheer.nl/routes/sudwest-fryslan/wandelroute-blokslootpolder",
+    "venue": "Súdwest-Fryslân",
+    "province": "Friesland",
+    "lat": 52.996526,
+    "lon": 5.746905,
+    "route_type": "Wandelen",
+    "length_km": 4.3,
+    "dogs": "niet-toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandelroute door de Blokslootpolder, langs de Langstaartenpoel, de Gudsekop en de Goëngarijpsterpoelen bij het Sneekermeer."
   },
   {
     "title": "Wandelroute Elfbergen - Gaasterland",
@@ -1064,20 +1064,6 @@
     "subtitle": "Wandelroute Ae's Woudbloem Scald Ae voert je door een relatief jong natuurgebied met een rijke historie en vormt een gevarieerd landschap van graslanden, struwelen, plassen, moeras en drogere zandkoppen."
   },
   {
-    "title": "Wandelroute Tetjehorn - 't Roegwold",
-    "url": "https://www.staatsbosbeheer.nl/routes/roegwold/wandelroute-tetjehorn",
-    "venue": "'t Roegwold",
-    "province": "Groningen",
-    "lat": 53.28156,
-    "lon": 6.812642,
-    "route_type": "Wandelen",
-    "length_km": 4.5,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Volg het wandelpad langs uitkijktoren “Biesterwied” en geniet, omringd door vele soorten vogels, van het uitzicht over het Schildmeer aan de ene kant en het grootse, ruige rietmoeras van Groningen aan de andere kant."
-  },
-  {
     "title": "Fietsroute 't Roegwold",
     "url": "https://www.staatsbosbeheer.nl/routes/roegwold/fietsroute-roegwold",
     "venue": "'t Roegwold",
@@ -1134,6 +1120,20 @@
     "subtitle": "Mensinge is Drenthe in een notendop. Je vindt hier alle elementen van het klassieke Drentse landschap bij elkaar."
   },
   {
+    "title": "Wandelroute Tetjehorn - 't Roegwold",
+    "url": "https://www.staatsbosbeheer.nl/routes/roegwold/wandelroute-tetjehorn",
+    "venue": "'t Roegwold",
+    "province": "Groningen",
+    "lat": 53.28156,
+    "lon": 6.812642,
+    "route_type": "Wandelen",
+    "length_km": 4.5,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Volg het wandelpad langs uitkijktoren “Biesterwied” en geniet, omringd door vele soorten vogels, van het uitzicht over het Schildmeer aan de ene kant en het grootse, ruige rietmoeras van Groningen aan de andere kant."
+  },
+  {
     "title": "Wandelroute Veentjesroute - Kop van Drenthe",
     "url": "https://www.staatsbosbeheer.nl/routes/kop-van-drenthe/wandelroute-veentjesroute",
     "venue": "Kop van Drenthe",
@@ -1176,20 +1176,6 @@
     "subtitle": "De scootmobielroute loopt over onverharde paden door het Sterrebos, waarschijnlijk het oudste bosgedeelte van landgoed Mensinge in Roden, in de Kop van Drenthe."
   },
   {
-    "title": "Boswachterspad Erfgoedroute - Kop van Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/routes/kop-van-drenthe/boswachterspad-erfgoedroute",
-    "venue": "Kop van Drenthe",
-    "province": "Drenthe",
-    "lat": 53.081128,
-    "lon": 6.503902,
-    "route_type": "Wandelen",
-    "length_km": 15.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Dit boswachterspad voert langs alle typisch Drentse landschappen zoals heide, beekdal en bos. Maar echt fascinerend zijn de overblijfselen uit een ver verleden die hier te zien zijn."
-  },
-  {
     "title": "Wandelroute Noordsche Veld - Kop van Drenthe",
     "url": "https://www.staatsbosbeheer.nl/routes/kop-van-drenthe/wandelroute-noordsche-veld",
     "venue": "Kop van Drenthe",
@@ -1218,6 +1204,20 @@
     "subtitle": null
   },
   {
+    "title": "Boswachterspad Erfgoedroute - Kop van Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/routes/kop-van-drenthe/boswachterspad-erfgoedroute",
+    "venue": "Kop van Drenthe",
+    "province": "Drenthe",
+    "lat": 53.081128,
+    "lon": 6.503902,
+    "route_type": "Wandelen",
+    "length_km": 15.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Dit boswachterspad voert langs alle typisch Drentse landschappen zoals heide, beekdal en bos. Maar echt fascinerend zijn de overblijfselen uit een ver verleden die hier te zien zijn."
+  },
+  {
     "title": "Wandelroute Wolvenspoor - Hart van Drenthe",
     "url": "https://www.staatsbosbeheer.nl/routes/hart-van-drenthe/wandelroute-wolvenspoor",
     "venue": "Hart van Drenthe",
@@ -1232,20 +1232,6 @@
     "subtitle": "Treed bij Schoonloo in het spoor van de wolf op het Wolvenspoor, een avontuurlijke route dwars door het Hart van Drenthe."
   },
   {
-    "title": "Wandelroute Melkwegpad-Bospad - Hart van Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/routes/hart-van-drenthe/wandelroute-melkwegpad",
-    "venue": "Hart van Drenthe",
-    "province": "Drenthe",
-    "lat": 52.9209,
-    "lon": 6.569483,
-    "route_type": "Wandelen",
-    "length_km": 5.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": true,
-    "subtitle": "Dit familiepad gaat langs het voormalige kamp Westerbork, het Hingsteveen en de radiosterrenwacht. Deze wandeling door het Hart van Drenthe is toegankelijk met rolstoel en rollator."
-  },
-  {
     "title": "Speurtocht Groote Zand - Hart van Drenthe",
     "url": "https://www.staatsbosbeheer.nl/routes/hart-van-drenthe/wandelroute-groote-zand",
     "venue": "Hart van Drenthe",
@@ -1258,6 +1244,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Tijdens deze speurtocht bekijk je de bossen en het Groote Zand door de ogen van boswachter Bo. Er zijn leuke opdrachten en je ontdekt hoeveel jij al weet over de planten en dieren die er leven."
+  },
+  {
+    "title": "Wandelroute Melkwegpad-Bospad - Hart van Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/routes/hart-van-drenthe/wandelroute-melkwegpad",
+    "venue": "Hart van Drenthe",
+    "province": "Drenthe",
+    "lat": 52.9209,
+    "lon": 6.569483,
+    "route_type": "Wandelen",
+    "length_km": 5.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": true,
+    "subtitle": "Dit familiepad gaat langs het voormalige kamp Westerbork, het Hingsteveen en de radiosterrenwacht. Deze wandeling door het Hart van Drenthe is toegankelijk met rolstoel en rollator."
   },
   {
     "title": "Wandelroute Wijde Blik",
@@ -1302,20 +1302,6 @@
     "subtitle": "Ontdek Hogeland via het familiepad, een verhard pad dat toegankelijk is voor onder meer rollators, scootmobiels en kinderwagens."
   },
   {
-    "title": "Boswachterspad Roosduinen en Landweerdijk - Ameland",
-    "url": "https://www.staatsbosbeheer.nl/routes/ameland/boswachterspad-roosduinen",
-    "venue": "Ameland",
-    "province": "Friesland",
-    "lat": 53.446566,
-    "lon": 5.704375,
-    "route_type": "Wandelen",
-    "length_km": 7.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Beleef Ameland tijdens een wandeling over het boswachterspad door het grootste binnenduingebied van de Waddeneilanden. Speur naar bergeenden, de bruine kiekendief, tapuiten en geniet van het weidse uitzicht over het duinlandschap."
-  },
-  {
     "title": "Wandelroute Hollumerbos-Westerstrand - Ameland",
     "url": "https://www.staatsbosbeheer.nl/routes/ameland/wandelroute-hollumerbos-westerstrand",
     "venue": "Ameland",
@@ -1328,6 +1314,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Een Amelandse wandeling met 2 gezichten; de beschutting van het Hollumerbos en langs het soms woeste Westerstrand."
+  },
+  {
+    "title": "Boswachterspad Roosduinen en Landweerdijk - Ameland",
+    "url": "https://www.staatsbosbeheer.nl/routes/ameland/boswachterspad-roosduinen",
+    "venue": "Ameland",
+    "province": "Friesland",
+    "lat": 53.446566,
+    "lon": 5.704375,
+    "route_type": "Wandelen",
+    "length_km": 7.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Beleef Ameland tijdens een wandeling over het boswachterspad door het grootste binnenduingebied van de Waddeneilanden. Speur naar bergeenden, de bruine kiekendief, tapuiten en geniet van het weidse uitzicht over het duinlandschap."
   },
   {
     "title": "Wandelroute Hagedoornveld - Ameland",
@@ -1414,20 +1414,6 @@
     "subtitle": "Wandeling door het Vechtdal waarbij het typische landschap centraal staat."
   },
   {
-    "title": "Boswachterspad Arriër-Esch - Vechtdal",
-    "url": "https://www.staatsbosbeheer.nl/routes/vechtdal/boswachterspad-arrier-esch",
-    "venue": "Vechtdal",
-    "province": "Overijssel",
-    "lat": 52.542104,
-    "lon": 6.482598,
-    "route_type": "Wandelen",
-    "length_km": 9.4,
-    "dogs": "niet-toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Zie sporen uit het verleden tijdens een wandeling over het boswachterspad in Arriër-Esch. Ontdek de zandverstuivingen, oude schapenboet en spot de weidevogels."
-  },
-  {
     "title": "Mountainbikeroute Hardenberg - Vechtdal",
     "url": "https://www.staatsbosbeheer.nl/routes/vechtdal/mountainbikeroute-hardenberg",
     "venue": "Vechtdal",
@@ -1440,6 +1426,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Mountainbikeroute door boswachterij Hardenberg in het Vechtdal, over brede zanderige boswegen, afgewisseld met lange stukken deels verharde singletrack."
+  },
+  {
+    "title": "Boswachterspad Arriër-Esch - Vechtdal",
+    "url": "https://www.staatsbosbeheer.nl/routes/vechtdal/boswachterspad-arrier-esch",
+    "venue": "Vechtdal",
+    "province": "Overijssel",
+    "lat": 52.542104,
+    "lon": 6.482598,
+    "route_type": "Wandelen",
+    "length_km": 9.4,
+    "dogs": "niet-toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Zie sporen uit het verleden tijdens een wandeling over het boswachterspad in Arriër-Esch. Ontdek de zandverstuivingen, oude schapenboet en spot de weidevogels."
   },
   {
     "title": "Wandelroute Bosontwikkeling - Vechtdal",
@@ -1722,20 +1722,6 @@
     "subtitle": "Wandeling door Doezumermieden en over de zandrug van de Peebos in Westerkwartier, deels door polder Kaleweg. Start is bij Theetuin Blotevoetenhof."
   },
   {
-    "title": "Wandelroute Trimunt - Westerkwartier",
-    "url": "https://www.staatsbosbeheer.nl/routes/westerkwartier/wandelroute-trimunt-heideroute",
-    "venue": "Westerkwartier",
-    "province": "Groningen",
-    "lat": 53.138691,
-    "lon": 6.208241,
-    "route_type": "Wandelen",
-    "length_km": 6.0,
-    "dogs": "niet-toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandeling langs de laatste heidevelden van het Westerkwartier. Met aansluiting op route Jilt Dijksheide. In het losloopgebied (let op de borden!) mogen de honden los."
-  },
-  {
     "title": "Boswachterspad Doezumerstruun - Westerkwartier",
     "url": "https://www.staatsbosbeheer.nl/routes/westerkwartier/boswachterspad-doezumerstruun",
     "venue": "Westerkwartier",
@@ -1748,6 +1734,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Bezoek het boswachterspad in het Westerkwartier in Groningen en wandel langs petgaten, vroegere legakkers en door moerasbos. Bewonder in de zomerzon de zeldzame groene glazenmaker."
+  },
+  {
+    "title": "Wandelroute Trimunt - Westerkwartier",
+    "url": "https://www.staatsbosbeheer.nl/routes/westerkwartier/wandelroute-trimunt-heideroute",
+    "venue": "Westerkwartier",
+    "province": "Groningen",
+    "lat": 53.138691,
+    "lon": 6.208241,
+    "route_type": "Wandelen",
+    "length_km": 6.0,
+    "dogs": "niet-toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandeling langs de laatste heidevelden van het Westerkwartier. Met aansluiting op route Jilt Dijksheide. In het losloopgebied (let op de borden!) mogen de honden los."
   },
   {
     "title": "Wandelroute Witte Nonnenpad - Westerkwartier",
@@ -1862,20 +1862,6 @@
     "subtitle": "Gevarieerde vogelrijke wandelroute door het Drents-Friese Wold, met heuvels en dalen. Honden mogen hier los."
   },
   {
-    "title": "Wandelroute Lange Poel Drents-Friese Wold",
-    "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/wandelroute-lange-poel",
-    "venue": "Drents-Friese Wold",
-    "province": "Drenthe",
-    "lat": 52.923313,
-    "lon": 6.254558,
-    "route_type": "Wandelen",
-    "length_km": 7.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Een gevarieerde wandeling in het Drents-Friese Wold die loopt door jong bos en langs de Lange poel."
-  },
-  {
     "title": "Wandelroute Bosbergpad Drents-Friese Wold",
     "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/wandelroute-bosbergpad",
     "venue": "Drents-Friese Wold",
@@ -1888,6 +1874,20 @@
     "kids": false,
     "accessible": true,
     "subtitle": "Gevarieerde wandelroute door het Drents-Friese Wold, met onderweg natuurweetjes over dit gebied. Honden mogen hier los (zie borden). Geschikt voor rolstoelen. Volg de infopaneeltjes."
+  },
+  {
+    "title": "Wandelroute Lange Poel Drents-Friese Wold",
+    "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/wandelroute-lange-poel",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "lat": 52.923313,
+    "lon": 6.254558,
+    "route_type": "Wandelen",
+    "length_km": 7.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Een gevarieerde wandeling in het Drents-Friese Wold die loopt door jong bos en langs de Lange poel."
   },
   {
     "title": "Wandelroute Westeres Drents-Friese Wold",
@@ -2016,20 +2016,6 @@
     "subtitle": "Wandelroute in het Drents-Friese Wold langs Apemeer, over heide en door naaldbos."
   },
   {
-    "title": "Wandelroute Aekingerpad - Drents-Friese Wold",
-    "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/wandelroute-aekingerpad",
-    "venue": "Drents-Friese Wold",
-    "province": "Drenthe",
-    "lat": 52.936253,
-    "lon": 6.289589,
-    "route_type": "Wandelen",
-    "length_km": 2.0,
-    "dogs": "los",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Korte wandelroute door jong bos in het Drents-Friese Wold, langs een ven en spartelvijver waar honden los mogen zwemmen. Op een groot deel van de route mogen honden los."
-  },
-  {
     "title": "Wandelroute Natte neuzenroute Drents-Friese Wold",
     "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/wandelroute-natte-neuzenroute",
     "venue": "Drents-Friese Wold",
@@ -2044,18 +2030,18 @@
     "subtitle": "Een wandelroute in het Drents-Friese Wold speciaal voor honden en hun baasjes. Op een groot deel van deze route mogen honden los."
   },
   {
-    "title": "Mountainbikeroute Diever Hoogersmilde - Drents-Friese Wold",
-    "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/mountainbikeroute-diever-hoogersmilde",
+    "title": "Wandelroute Aekingerpad - Drents-Friese Wold",
+    "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/wandelroute-aekingerpad",
     "venue": "Drents-Friese Wold",
     "province": "Drenthe",
-    "lat": 52.908295,
-    "lon": 6.373147,
-    "route_type": "Mountainbiken",
-    "length_km": 23.0,
-    "dogs": "niet-toegestaan",
+    "lat": 52.936253,
+    "lon": 6.289589,
+    "route_type": "Wandelen",
+    "length_km": 2.0,
+    "dogs": "los",
     "kids": false,
     "accessible": false,
-    "subtitle": "Deze mountainbikeroute door Drent-Friese Wold gaat vooral over singletracks, met verrassend veel hoogteverschillen. Tip: te combineren met MTB-route Appelscha."
+    "subtitle": "Korte wandelroute door jong bos in het Drents-Friese Wold, langs een ven en spartelvijver waar honden los mogen zwemmen. Op een groot deel van de route mogen honden los."
   },
   {
     "title": "Wandelroute Belevingspad Drents-Friese Wold",
@@ -2072,18 +2058,18 @@
     "subtitle": "Een route met 10 leuke doedingen door het Drents-Friese Wold. Tip: erg leuk voor kinderen!"
   },
   {
-    "title": "Wandelroute Terwisscha - Drents-Friese Wold",
-    "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/wandelroute-terwisscha",
+    "title": "Mountainbikeroute Diever Hoogersmilde - Drents-Friese Wold",
+    "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/mountainbikeroute-diever-hoogersmilde",
     "venue": "Drents-Friese Wold",
     "province": "Drenthe",
-    "lat": 52.953193,
-    "lon": 6.310575,
-    "route_type": "Wandelen",
-    "length_km": 5.0,
-    "dogs": "toegestaan",
+    "lat": 52.908295,
+    "lon": 6.373147,
+    "route_type": "Mountainbiken",
+    "length_km": 23.0,
+    "dogs": "niet-toegestaan",
     "kids": false,
     "accessible": false,
-    "subtitle": "Deze wandelroute leidt door heidebos en droge heide van het Drents-Friese Wold. Let op: van 1 maart tot 1 september niet toegankelijk voor honden. Dit staat aangegeven op de borden."
+    "subtitle": "Deze mountainbikeroute door Drent-Friese Wold gaat vooral over singletracks, met verrassend veel hoogteverschillen. Tip: te combineren met MTB-route Appelscha."
   },
   {
     "title": "Wandelroute Kale Duinen Drents-Friese Wold",
@@ -2098,6 +2084,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Een wandeling door het stuifzandgebied in het Drents-Friese Wold waar heideschapen lopen. Niet geschikt voor wandel- en kinderwagens."
+  },
+  {
+    "title": "Wandelroute Terwisscha - Drents-Friese Wold",
+    "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/wandelroute-terwisscha",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "route_type": "Wandelen",
+    "length_km": 5.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Deze wandelroute leidt door heidebos en droge heide van het Drents-Friese Wold. Let op: van 1 maart tot 1 september niet toegankelijk voor honden. Dit staat aangegeven op de borden."
   },
   {
     "title": "Boswachterspad Olde Smildeger - Drents-Friese Wold",
@@ -2156,20 +2156,6 @@
     "subtitle": "Een kort ommetje vanaf het Buitencentrum in het Drents-Friese Wold. Deze wandelroute is geschikt voor rolstoelgebruikers, doven en slechtzienden."
   },
   {
-    "title": "Mountainbikeroute Appelscha-Bosberg - Drents-Friese Wold",
-    "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/mountainbikeroute-appelscha-bosberg",
-    "venue": "Drents-Friese Wold",
-    "province": "Drenthe",
-    "lat": 52.941146,
-    "lon": 6.331019,
-    "route_type": "Mountainbiken",
-    "length_km": 4.4,
-    "dogs": "niet-toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Afwisselende mountainbikeroute door het Drents-Friese Wold. Het is een korte maar uitdagende route waarvoor een goede warming-up een vereiste is."
-  },
-  {
     "title": "Wandelroute Bultingerveld Drents-Friese Wold",
     "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/wandelroute-bultingerveld",
     "venue": "Drents-Friese Wold",
@@ -2184,18 +2170,18 @@
     "subtitle": "Deze wandelroute in Drents-Friese Wold loopt rond de recreatieplas, door jonge bossen met veel boomsoorten. Op een deel van de route mogen honden los."
   },
   {
-    "title": "Wandelroute Boom tot bos Emmerdennen - Zuidoost Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/routes/zuidoost-drenthe/wandelroute-boom-tot-bos-emmerdennen",
-    "venue": "Zuidoost-Drenthe",
+    "title": "Mountainbikeroute Appelscha-Bosberg - Drents-Friese Wold",
+    "url": "https://www.staatsbosbeheer.nl/routes/drents-friese-wold/mountainbikeroute-appelscha-bosberg",
+    "venue": "Drents-Friese Wold",
     "province": "Drenthe",
-    "lat": 52.792361,
-    "lon": 6.908487,
-    "route_type": "Wandelen",
-    "length_km": 6.7,
-    "dogs": "toegestaan",
+    "lat": 52.941146,
+    "lon": 6.331019,
+    "route_type": "Mountainbiken",
+    "length_km": 4.4,
+    "dogs": "niet-toegestaan",
     "kids": false,
     "accessible": false,
-    "subtitle": "Wandelroute langs de mooiste plekjes in de Emmerdennen; een van de oudste, multifunctionele bossen in Zuidoost-Drenthe."
+    "subtitle": "Afwisselende mountainbikeroute door het Drents-Friese Wold. Het is een korte maar uitdagende route waarvoor een goede warming-up een vereiste is."
   },
   {
     "title": "Wandelroute Archeologie Sleenerzand - Zuidoost-Drenthe",
@@ -2212,18 +2198,18 @@
     "subtitle": "Wandeling langs sporen uit het verleden in het Sleenerzand."
   },
   {
-    "title": "Wandelroute Mieren Sleenerzand - Zuidoost-Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/routes/zuidoost-drenthe/wandelroute-mieren",
+    "title": "Wandelroute Boom tot bos Emmerdennen - Zuidoost Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/routes/zuidoost-drenthe/wandelroute-boom-tot-bos-emmerdennen",
     "venue": "Zuidoost-Drenthe",
     "province": "Drenthe",
-    "lat": 52.826012,
-    "lon": 6.747075,
+    "lat": 52.792361,
+    "lon": 6.908487,
     "route_type": "Wandelen",
-    "length_km": 5.2,
+    "length_km": 6.7,
     "dogs": "toegestaan",
     "kids": false,
     "accessible": false,
-    "subtitle": "Wandeling door boswachterij Sleenerzand in Zuidoost-Drenthe"
+    "subtitle": "Wandelroute langs de mooiste plekjes in de Emmerdennen; een van de oudste, multifunctionele bossen in Zuidoost-Drenthe."
   },
   {
     "title": "Wandelroute Jeneverbesroute Sleenerzand - Zuidoost-Drenthe",
@@ -2238,6 +2224,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Wandeling door het Sleenerzand in Zuidoost-Drenthe. De hond mag aangelijnd mee."
+  },
+  {
+    "title": "Wandelroute Mieren Sleenerzand - Zuidoost-Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/routes/zuidoost-drenthe/wandelroute-mieren",
+    "venue": "Zuidoost-Drenthe",
+    "province": "Drenthe",
+    "lat": 52.826012,
+    "lon": 6.747075,
+    "route_type": "Wandelen",
+    "length_km": 5.2,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandeling door boswachterij Sleenerzand in Zuidoost-Drenthe"
   },
   {
     "title": "Wandelroute Vosseven Sleenerzand - Zuidoost-Drenthe",
@@ -2366,20 +2366,6 @@
     "subtitle": "Deze wandelroute over de Sallandse Heuvelrug gaat over heide en door bos. Onderweg kom je onder andere langs eeuwenoude eikenbomen en jeneverbessen."
   },
   {
-    "title": "Wandelroute Rietslenkwandeling",
-    "url": "https://www.staatsbosbeheer.nl/routes/salland/wandelroute-rietslenkwandeling",
-    "venue": "Salland",
-    "province": "Overijssel",
-    "lat": 52.365946,
-    "lon": 6.443639,
-    "route_type": "Wandelen",
-    "length_km": 6.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandelroute over de Sallandse Heuvelrug. Tijdens de Rietslenkwandeling loop je door bos, over de heide, door slenken en kun je genieten van uitzichtpunten."
-  },
-  {
     "title": "Boswachterspad Koningsbelt - Salland",
     "url": "https://www.staatsbosbeheer.nl/routes/salland/boswachterspad-koningsbelt",
     "venue": "Salland",
@@ -2392,6 +2378,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Wandeling over de heide van de Sallandse Heuvelrug en langs het hoogste punt in de omgeving, de Grote Koningsbelt."
+  },
+  {
+    "title": "Wandelroute Rietslenkwandeling",
+    "url": "https://www.staatsbosbeheer.nl/routes/salland/wandelroute-rietslenkwandeling",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "route_type": "Wandelen",
+    "length_km": 6.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandelroute over de Sallandse Heuvelrug. Tijdens de Rietslenkwandeling loop je door bos, over de heide, door slenken en kun je genieten van uitzichtpunten."
   },
   {
     "title": "Wandelroute Twilhaarwandeling - Salland",
@@ -2590,20 +2590,6 @@
     "subtitle": "Wandeling door boswachterij Odoorn op de Hondsrug."
   },
   {
-    "title": "Wandelroute Zevenheuveltjes - Hondsrug",
-    "url": "https://www.staatsbosbeheer.nl/routes/hondsrug/wandelroute-zevenheuveltjes",
-    "venue": "Hondsrug",
-    "province": "Drenthe",
-    "lat": 52.891506,
-    "lon": 6.845552,
-    "route_type": "Wandelen",
-    "length_km": 5.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": null
-  },
-  {
     "title": "Wandelroute mammoet - Hondsrug",
     "url": "https://www.staatsbosbeheer.nl/routes/hondsrug/wandelroute-mammoet",
     "venue": "Hondsrug",
@@ -2618,18 +2604,18 @@
     "subtitle": "Wandelroute door het oeroude landschap van het Buinerveld, waar de Drentse Aa ontspringt. Met prachtig bos, uitgestrekte heide en idyllische vennen."
   },
   {
-    "title": "Wandelroute Beleef het bos - Hondsrug",
-    "url": "https://www.staatsbosbeheer.nl/routes/hondsrug/wandelroute-beleef-het-bos",
+    "title": "Wandelroute Zevenheuveltjes - Hondsrug",
+    "url": "https://www.staatsbosbeheer.nl/routes/hondsrug/wandelroute-zevenheuveltjes",
     "venue": "Hondsrug",
     "province": "Drenthe",
-    "lat": 52.949836,
-    "lon": 6.745159,
+    "lat": 52.891506,
+    "lon": 6.845552,
     "route_type": "Wandelen",
     "length_km": 5.0,
     "dogs": "toegestaan",
     "kids": false,
     "accessible": false,
-    "subtitle": "Wandeling door boswachterij Gieten-Borger op de Hondsrug, over bos en de veelzijdige functies daarvan. Tip: bij het startpunt is folder verkrijgbaar."
+    "subtitle": null
   },
   {
     "title": "Mountainbikeroute Exloo - Hondsrug",
@@ -2646,6 +2632,20 @@
     "subtitle": "MTB-route door boswachterij Exloo op de Hondsrug. Langs de route liggen vele grafheuvels. Dit zijn beschermde archeologische monumenten, dus behandel ze met respect."
   },
   {
+    "title": "Wandelroute Beleef het bos - Hondsrug",
+    "url": "https://www.staatsbosbeheer.nl/routes/hondsrug/wandelroute-beleef-het-bos",
+    "venue": "Hondsrug",
+    "province": "Drenthe",
+    "lat": 52.949836,
+    "lon": 6.745159,
+    "route_type": "Wandelen",
+    "length_km": 5.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandeling door boswachterij Gieten-Borger op de Hondsrug, over bos en de veelzijdige functies daarvan. Tip: bij het startpunt is folder verkrijgbaar."
+  },
+  {
     "title": "Boswachterspad Oer 't Veld - Orvelte",
     "url": "https://www.staatsbosbeheer.nl/routes/orvelte/boswachterspad-oer-t-veld",
     "venue": "Orvelte",
@@ -2660,20 +2660,6 @@
     "subtitle": "Boswachterspad door het dorp Orvelte, dat model staat voor het Drentse esdorp anno 1900. De wandeling door de omgeving laat ook het landschap uit die tijd zien."
   },
   {
-    "title": "Wandelroute Oorlogroute Holtingerveld - Zuidwest-Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/routes/zuidwest-drenthe/wandelroute-oorlogroute-holtingerveld",
-    "venue": "Zuidwest-Drenthe",
-    "province": "Drenthe",
-    "lat": 52.783519,
-    "lon": 6.223416,
-    "route_type": "Wandelen",
-    "length_km": 8.6,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandelroute langs hangars, bomkraters, de vliegstrip van de Grote Startbaan en over diverse rolbanen uit de Tweede Wereldoorlog."
-  },
-  {
     "title": "Wandelroute Hunebedroute Holtingerveld - Zuidwest-Drenthe",
     "url": "https://www.staatsbosbeheer.nl/routes/zuidwest-drenthe/wandelroute-hunebedroute-holtingerveld",
     "venue": "Zuidwest-Drenthe",
@@ -2686,6 +2672,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Korte wandeling naar een uitzichtplatform en twee hunebedden. Onderweg kom je langs bomkraters, grafheuvels en het aardkundig monument."
+  },
+  {
+    "title": "Wandelroute Oorlogroute Holtingerveld - Zuidwest-Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/routes/zuidwest-drenthe/wandelroute-oorlogroute-holtingerveld",
+    "venue": "Zuidwest-Drenthe",
+    "province": "Drenthe",
+    "lat": 52.783519,
+    "lon": 6.223416,
+    "route_type": "Wandelen",
+    "length_km": 8.6,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandelroute langs hangars, bomkraters, de vliegstrip van de Grote Startbaan en over diverse rolbanen uit de Tweede Wereldoorlog."
   },
   {
     "title": "Wandelroute IJsroute Holtingerveld - Zuidwest-Drenthe",
@@ -2730,20 +2730,6 @@
     "subtitle": "Wandelroute door bos, langs vennen en heide in Westerwolde. Wie weet kom je oog in oog te staan met een grazende koe. De hond mag los. Behalve in het begrazingsgebied, een stuk van 200 meter."
   },
   {
-    "title": "Wandelroute Siberiëroute - Twente",
-    "url": "https://www.staatsbosbeheer.nl/routes/twente/wandelroute-haaksbergerveen-siberieroute",
-    "venue": "Twente",
-    "province": "Overijssel",
-    "lat": 52.121543,
-    "lon": 6.790826,
-    "route_type": "Wandelen",
-    "length_km": 4.5,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "De Siberiëroute door het Haaksbergerveen in Twente is een afwisselende route over zandruggen met heide en over dammen en vlonders dwars dor het hoogveen. Het typerende veenmos is hier goed te zien."
-  },
-  {
     "title": "Wandelroute Renneboom - Westerwolde",
     "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/wandelroute-renneboomroute",
     "venue": "Westerwolde",
@@ -2756,34 +2742,6 @@
     "kids": false,
     "accessible": false,
     "subtitle": null
-  },
-  {
-    "title": "Wandelroute Heideroute - Twente",
-    "url": "https://www.staatsbosbeheer.nl/routes/twente/wandelroute-engbertsdijksvenen-heideroute",
-    "venue": "Twente",
-    "province": "Overijssel",
-    "lat": 52.493489,
-    "lon": 6.665676,
-    "route_type": "Wandelen",
-    "length_km": 4.6,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "De heideroute door Twente voert langs waterplassen, over de zandkop of ‘haar’ met prachtige heidevegetatie en langs de hoogveenkern. Uitkijkpunt De Pluus biedt een mooi uitzicht over uitgestrekt hoogveen."
-  },
-  {
-    "title": "Wandelroute Bronnenroute - Twente",
-    "url": "https://www.staatsbosbeheer.nl/routes/twente/wandelroute-springendal-bronnenroute",
-    "venue": "Twente",
-    "province": "Overijssel",
-    "lat": 52.439559,
-    "lon": 6.872245,
-    "route_type": "Wandelen",
-    "length_km": 4.7,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Op de Bronnenroute ontdek je de idyllische kant van het Springendal in Twente: kronkelpaden, vlonderpaden en beukenlanen langs kabbelende beken, heldere bronvijvers, akkers en hooilanden."
   },
   {
     "title": "Wandelroute Tussen Ruiten en Molen Aa - Westerwolde",
@@ -2800,6 +2758,160 @@
     "subtitle": "Wandelroute door een van de oudste bossen van Groningen in Westerwolde. Onder de bomen groeien bosanemoon, lelietje van dalen en Salomonskruid. De hond mag aangelijnd mee."
   },
   {
+    "title": "Wandelroute Ter Borg - Westerwolde",
+    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/wandelroute-ter-borg",
+    "venue": "Westerwolde",
+    "province": "Groningen",
+    "lat": 52.940748,
+    "lon": 7.127264,
+    "route_type": "Wandelen",
+    "length_km": 5.0,
+    "dogs": "niet-toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandeling langs Ter Borg in Westerwolde, het grootste heideterrein van Groningen."
+  },
+  {
+    "title": "Wandelroute Sellingerbossen en Ter Borg - Westerwolde",
+    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/wandelroute-sellingerbossen-en-ter-borg",
+    "venue": "Westerwolde",
+    "province": "Groningen",
+    "lat": 52.947948,
+    "lon": 7.136359,
+    "route_type": "Wandelen",
+    "length_km": 8.0,
+    "dogs": "niet-toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandeling door de bossen rond Sellingen en langs Ter Borg, het grootste heideterrein van Groningen, in Westerwolde. Misschien kom je een schotse hooglander tegen!"
+  },
+  {
+    "title": "Wandelroute Essenpad - Westerwolde",
+    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/wandelroute-essenpad",
+    "venue": "Westerwolde",
+    "province": "Groningen",
+    "lat": 53.045778,
+    "lon": 7.074972,
+    "route_type": "Wandelen",
+    "length_km": 2.7,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Informatieve route over de Westeresch bij Veele. Het kunstwerk en de informatiepalen, die ook een insectenhotel zijn, vertellen het verhaal van de es en het natuurinclusieve landbouwproject ESsentie. Volg de paaltjes met de QR-code."
+  },
+  {
+    "title": "Wandelroute Kanunnikenpad - Westerwolde",
+    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/wandelroute-kanunnikenpad",
+    "venue": "Westerwolde",
+    "province": "Groningen",
+    "lat": 52.876148,
+    "lon": 7.075768,
+    "route_type": "Wandelen",
+    "length_km": 4.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandeling door de bossen rond het klooster Ter Apel in Westerwolde. De route is genoemd naar de voormalige bewoners van het klooster: de kanunniken. De hond mag aangelijnd mee."
+  },
+  {
+    "title": "Boswachterspad Ter Apelerbossen - Westerwolde",
+    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/boswachterspad-ter-apelerbossen",
+    "venue": "Westerwolde",
+    "province": "Groningen",
+    "lat": 52.876366,
+    "lon": 7.07548,
+    "route_type": "Wandelen",
+    "length_km": 12.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Ontdek de kleine ijsvogel in het voorjaar en zie de zeldzame steenbraam in bloei tijdens een wandeling over het boswachterspad in Ter Apel."
+  },
+  {
+    "title": "Boswachterspad Ruiten Aa - Westerwolde",
+    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/boswachterspad-ruiten-aa",
+    "venue": "Westerwolde",
+    "province": "Groningen",
+    "lat": 52.947948,
+    "lon": 7.136359,
+    "route_type": "Wandelen",
+    "length_km": 10.0,
+    "dogs": "niet-toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandel over het boswachterspad in Sellingen en ontdek het kleinste theater van Nederland, weidebeekjuffers, de Ruiten Aa en het grootste heideterrein van Groningen."
+  },
+  {
+    "title": "Wandelroute Ter Wupping - Westerwolde",
+    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/wandelroute-ter-wupping",
+    "venue": "Westerwolde",
+    "province": "Groningen",
+    "lat": 53.039517,
+    "lon": 7.054396,
+    "route_type": "Wandelen",
+    "length_km": 7.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandelroute van 7 kilometer door het afwisselende landschap van essen en beekdalen in Westerwolde. De hond mag aangelijnd mee."
+  },
+  {
+    "title": "Boswachterspad Holle Beetse Vennekampen - Westerwolde",
+    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/boswachterspad-holle-beetse-vennekamp",
+    "venue": "Westerwolde",
+    "province": "Groningen",
+    "lat": 52.947948,
+    "lon": 7.136359,
+    "route_type": "Wandelen",
+    "length_km": 8.0,
+    "dogs": "niet-toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Van een toevallige ontmoeting met een ree tot een blik op de bewoners van het riet, tijdens deze wandeling in Westerwolde kun je vele verassingen op je pad vinden. Ontdek het boswachterspad in het najaar en zie hoe de bomen het gebied verschillende kleuren geeft."
+  },
+  {
+    "title": "Boswachterspad Ter Wupping - Westerwolde",
+    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/boswachterspad-ter-wupping",
+    "venue": "Westerwolde",
+    "province": "Groningen",
+    "lat": 53.039684,
+    "lon": 7.054343,
+    "route_type": "Wandelen",
+    "length_km": 9.0,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Wandelroute van 9 km in Ter Wupping. Beklim de uitkijktoren en kijk uit over het beekdal van de Mussel Aa en de oude essen."
+  },
+  {
+    "title": "Wandelroute Siberiëroute - Twente",
+    "url": "https://www.staatsbosbeheer.nl/routes/twente/wandelroute-haaksbergerveen-siberieroute",
+    "venue": "Twente",
+    "province": "Overijssel",
+    "lat": 52.121543,
+    "lon": 6.790826,
+    "route_type": "Wandelen",
+    "length_km": 4.5,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "De Siberiëroute door het Haaksbergerveen in Twente is een afwisselende route over zandruggen met heide en over dammen en vlonders dwars dor het hoogveen. Het typerende veenmos is hier goed te zien."
+  },
+  {
+    "title": "Wandelroute Heideroute - Twente",
+    "url": "https://www.staatsbosbeheer.nl/routes/twente/wandelroute-engbertsdijksvenen-heideroute",
+    "venue": "Twente",
+    "province": "Overijssel",
+    "lat": 52.493489,
+    "lon": 6.665676,
+    "route_type": "Wandelen",
+    "length_km": 4.6,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "De heideroute door Twente voert langs waterplassen, over de zandkop of ‘haar’ met prachtige heidevegetatie en langs de hoogveenkern. Uitkijkpunt De Pluus biedt een mooi uitzicht over uitgestrekt hoogveen."
+  },
+  {
     "title": "Wandelroute Sprengenroute - Twente",
     "url": "https://www.staatsbosbeheer.nl/routes/twente/wandelroute-springendal-sprengenroute",
     "venue": "Twente",
@@ -2812,6 +2924,20 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Deze gevarieerde wandelroute door Twente leidt door bos, langs akkers, grafheuvels en het urnenveld aan de Uelserdijk, waar jeneverbessen statig uitsteken boven de heide."
+  },
+  {
+    "title": "Wandelroute Bronnenroute - Twente",
+    "url": "https://www.staatsbosbeheer.nl/routes/twente/wandelroute-springendal-bronnenroute",
+    "venue": "Twente",
+    "province": "Overijssel",
+    "lat": 52.439559,
+    "lon": 6.872245,
+    "route_type": "Wandelen",
+    "length_km": 4.7,
+    "dogs": "toegestaan",
+    "kids": false,
+    "accessible": false,
+    "subtitle": "Op de Bronnenroute ontdek je de idyllische kant van het Springendal in Twente: kronkelpaden, vlonderpaden en beukenlanen langs kabbelende beken, heldere bronvijvers, akkers en hooilanden."
   },
   {
     "title": "Wandelroute Leidijkroute - Twente",
@@ -2828,20 +2954,6 @@
     "subtitle": "De Leidijkroute loopt door de zuidpunt van de Engbertsdijksvenen in Twente, langs veenputten en waterwegen. Aan de deze route ligt ook het vogelkijkscherm het ’t Krik-eantie."
   },
   {
-    "title": "Wandelroute Ter Borg - Westerwolde",
-    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/wandelroute-ter-borg",
-    "venue": "Westerwolde",
-    "province": "Groningen",
-    "lat": 52.940748,
-    "lon": 7.127264,
-    "route_type": "Wandelen",
-    "length_km": 5.0,
-    "dogs": "niet-toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandeling langs Ter Borg in Westerwolde, het grootste heideterrein van Groningen."
-  },
-  {
     "title": "Wandelroute Armenveenroute - Twente",
     "url": "https://www.staatsbosbeheer.nl/routes/twente/wandelroute-haaksbergerveen-armenveenroute",
     "venue": "Twente",
@@ -2854,20 +2966,6 @@
     "kids": false,
     "accessible": false,
     "subtitle": "De Armenveenroute is een korte wandeling door het Haaksbergerveen in Twente, afwisselend door veenbos en over dammen door het hoogveen met uitzicht op de vele veenplassen."
-  },
-  {
-    "title": "Wandelroute Sellingerbossen en Ter Borg - Westerwolde",
-    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/wandelroute-sellingerbossen-en-ter-borg",
-    "venue": "Westerwolde",
-    "province": "Groningen",
-    "lat": 52.947948,
-    "lon": 7.136359,
-    "route_type": "Wandelen",
-    "length_km": 8.0,
-    "dogs": "niet-toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandeling door de bossen rond Sellingen en langs Ter Borg, het grootste heideterrein van Groningen, in Westerwolde. Misschien kom je een schotse hooglander tegen!"
   },
   {
     "title": "Wandelroute IVN Natuurroute - Twente",
@@ -2898,20 +2996,6 @@
     "subtitle": "Wandelroute door het Haaksbergerveen in Twente, een hoogveengebied van ruim 600 hectare. Onderweg wandel je door drassig hoogveen en weidse heidevelden, afgewisseld door bosjes en graslanden."
   },
   {
-    "title": "Wandelroute Essenpad - Westerwolde",
-    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/wandelroute-essenpad",
-    "venue": "Westerwolde",
-    "province": "Groningen",
-    "lat": 53.045778,
-    "lon": 7.074972,
-    "route_type": "Wandelen",
-    "length_km": 2.7,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Informatieve route over de Westeresch bij Veele. Het kunstwerk en de informatiepalen, die ook een insectenhotel zijn, vertellen het verhaal van de es en het natuurinclusieve landbouwproject ESsentie. Volg de paaltjes met de QR-code."
-  },
-  {
     "title": "Wandelroute Streujenroute - Twente",
     "url": "https://www.staatsbosbeheer.nl/routes/twente/wandelroute-engbertsdijksvenen-streujensroute",
     "venue": "Twente",
@@ -2938,20 +3022,6 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Freek van ’n Ekkelpad is een klein ommetje door de noordpunt van de Engbertsdijksvenen in Twente. Met uitzicht op de Friese Koelen, een mooie waterplas met vele watervogels."
-  },
-  {
-    "title": "Wandelroute Kanunnikenpad - Westerwolde",
-    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/wandelroute-kanunnikenpad",
-    "venue": "Westerwolde",
-    "province": "Groningen",
-    "lat": 52.876148,
-    "lon": 7.075768,
-    "route_type": "Wandelen",
-    "length_km": 4.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandeling door de bossen rond het klooster Ter Apel in Westerwolde. De route is genoemd naar de voormalige bewoners van het klooster: de kanunniken. De hond mag aangelijnd mee."
   },
   {
     "title": "Wandelroute Heideroute Springendal - Twente",
@@ -2982,20 +3052,6 @@
     "subtitle": "De Dinkelroute door het Lutterzand is een prachtige korte route langs de steile oevers van het riviertje de Dinkel in Twente, het domein van de ijsvogel en grote gele kwikstaart."
   },
   {
-    "title": "Boswachterspad Ter Apelerbossen - Westerwolde",
-    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/boswachterspad-ter-apelerbossen",
-    "venue": "Westerwolde",
-    "province": "Groningen",
-    "lat": 52.876366,
-    "lon": 7.07548,
-    "route_type": "Wandelen",
-    "length_km": 12.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Ontdek de kleine ijsvogel in het voorjaar en zie de zeldzame steenbraam in bloei tijdens een wandeling over het boswachterspad in Ter Apel."
-  },
-  {
     "title": "Wandelroute Stuifzandroute - Twente",
     "url": "https://www.staatsbosbeheer.nl/routes/twente/wandelroute-lutterzand-stuifzandroute",
     "venue": "Twente",
@@ -3022,61 +3078,5 @@
     "kids": false,
     "accessible": false,
     "subtitle": "Beleef Twente tijdens een wandeling over het boswachterspad in het Springendal. Wandel door heidevelden, langs beekjes en spot zandhagedissen en het vliegend hert."
-  },
-  {
-    "title": "Boswachterspad Ruiten Aa - Westerwolde",
-    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/boswachterspad-ruiten-aa",
-    "venue": "Westerwolde",
-    "province": "Groningen",
-    "lat": 52.947948,
-    "lon": 7.136359,
-    "route_type": "Wandelen",
-    "length_km": 10.0,
-    "dogs": "niet-toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandel over het boswachterspad in Sellingen en ontdek het kleinste theater van Nederland, weidebeekjuffers, de Ruiten Aa en het grootste heideterrein van Groningen."
-  },
-  {
-    "title": "Boswachterspad Holle Beetse Vennekampen - Westerwolde",
-    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/boswachterspad-holle-beetse-vennekamp",
-    "venue": "Westerwolde",
-    "province": "Groningen",
-    "lat": 52.947948,
-    "lon": 7.136359,
-    "route_type": "Wandelen",
-    "length_km": 8.0,
-    "dogs": "niet-toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Van een toevallige ontmoeting met een ree tot een blik op de bewoners van het riet, tijdens deze wandeling in Westerwolde kun je vele verassingen op je pad vinden. Ontdek het boswachterspad in het najaar en zie hoe de bomen het gebied verschillende kleuren geeft."
-  },
-  {
-    "title": "Wandelroute Ter Wupping - Westerwolde",
-    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/wandelroute-ter-wupping",
-    "venue": "Westerwolde",
-    "province": "Groningen",
-    "lat": 53.039517,
-    "lon": 7.054396,
-    "route_type": "Wandelen",
-    "length_km": 7.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandelroute van 7 kilometer door het afwisselende landschap van essen en beekdalen in Westerwolde. De hond mag aangelijnd mee."
-  },
-  {
-    "title": "Boswachterspad Ter Wupping - Westerwolde",
-    "url": "https://www.staatsbosbeheer.nl/routes/westerwolde/boswachterspad-ter-wupping",
-    "venue": "Westerwolde",
-    "province": "Groningen",
-    "lat": 53.039684,
-    "lon": 7.054343,
-    "route_type": "Wandelen",
-    "length_km": 9.0,
-    "dogs": "toegestaan",
-    "kids": false,
-    "accessible": false,
-    "subtitle": "Wandelroute van 9 km in Ter Wupping. Beklim de uitkijktoren en kijk uit over het beekdal van de Mussel Aa en de oude essen."
   }
 ]
