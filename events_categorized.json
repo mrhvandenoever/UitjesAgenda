@@ -1120,26 +1120,54 @@
     "url": "https://forum.nl/nl/agenda/storyworld"
   },
   {
-    "title": "Amsterdamse Popprijs Halve Finales",
+    "title": "Cinekid Lab",
     "date": "2026-10-12",
-    "source": "paradiso",
+    "source": "forum.nl",
     "genre": "overig",
-    "time": "19:30",
-    "venue": "Paradiso, Amsterdam",
-    "url": "https://www.paradiso.nl/nl/programma/amsterdamse-popprijs-halve-finales/2935123"
+    "date_end": "2026-10-16",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/cinekid-lab"
   },
   {
-    "title": "Beach Clean up IJsselmeer (10+)",
+    "title": "Gaasterlandse Natuurweek",
     "date": "2026-10-12",
     "source": "friesland.nl",
     "genre": "overig",
-    "city": "Warns",
+    "date_end": "2026-10-18",
+    "city": "Oudemirdum",
     "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2141847194/beach-clean-up-ijsselmeer-10"
+    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2727408446/beleef-buiten-tijdens-de-gaasterlandse-natuurweek"
+  },
+  {
+    "title": "Het Clubhuis",
+    "date": "2026-10-12",
+    "source": "forum.nl",
+    "genre": "overig",
+    "date_end": "2026-10-16",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/het-clubhuis"
+  },
+  {
+    "title": "Marilyn Expositie",
+    "date": "2026-10-12",
+    "source": "forum.nl",
+    "genre": "overig",
+    "date_end": "2026-10-25",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/marilyn-expositie"
+  },
+  {
+    "title": "Storyworld",
+    "date": "2026-10-12",
+    "source": "forum.nl",
+    "genre": "overig",
+    "date_end": "2026-10-25",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/storyworld"
   },
   {
     "title": "Beleef het Boomkroonpad",
-    "date": "2026-10-12",
+    "date": "2026-10-13",
     "source": "staatsbosbeheer",
     "genre": "overig",
     "venue": "Hondsrug",
@@ -1153,31 +1181,8 @@
     ]
   },
   {
-    "title": "Bosbaden op de Sallandse Heuvelrug",
-    "date": "2026-10-12",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Salland",
-    "province": "Overijssel",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/bosbaden-in-salland",
-    "subtitle": "Bosbaden in Salland is een rustige, zintuiglijke natuurervaring waarbij je vertraagt, diep ontspant en volledig opgaat in het bos. Onder begeleiding ontdek je hoe buiten zijn je lichaam en geest tot rust brengt",
-    "lat": 52.365946,
-    "lon": 6.443639,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Cheeky Monday: YAMATAI x STUPID x TRANSPARENT",
-    "date": "2026-10-12",
-    "source": "melkweg",
-    "genre": "overig",
-    "venue": "Melkweg, Amsterdam",
-    "url": "https://www.melkweg.nl/nl/agenda/cheeky-monday-12-10-2026/"
-  },
-  {
     "title": "Cinekid Lab",
-    "date": "2026-10-12",
+    "date": "2026-10-13",
     "source": "forum.nl",
     "genre": "overig",
     "date_end": "2026-10-16",
@@ -1185,8 +1190,17 @@
     "url": "https://forum.nl/nl/agenda/cinekid-lab"
   },
   {
+    "title": "Cochemea",
+    "date": "2026-10-13",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/cochemea/2904440"
+  },
+  {
     "title": "Code S.T.O.R.M. - Sallandse Heuvelrug",
-    "date": "2026-10-12",
+    "date": "2026-10-13",
     "source": "staatsbosbeheer",
     "genre": "overig",
     "venue": "Salland",
@@ -1198,322 +1212,6 @@
     "cats": [
       "actief"
     ]
-  },
-  {
-    "title": "David Duchovny",
-    "date": "2026-10-12",
-    "source": "melkweg",
-    "genre": "overig",
-    "venue": "Melkweg, Amsterdam",
-    "url": "https://www.melkweg.nl/nl/agenda/david-duchovny-12-10-2026/"
-  },
-  {
-    "title": "De Proefkeuken en de WC van tijd (8+) Pieter Hulst en Willem Voogd",
-    "date": "2026-10-12",
-    "source": "spotgroningen.nl",
-    "genre": "overig",
-    "time": "19:00",
-    "venue": "Stadsschouwburg, Groningen",
-    "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/de-proefkeuken-en-de-wc-van-tijd-8-2/",
-    "subtitle": "Pieter & Willem zijn terug met een gloednieuw, nóg gekker en spectaculairder avontuur",
-    "cats": [
-      "kinderen"
-    ]
-  },
-  {
-    "title": "Dobrawa Czocher",
-    "date": "2026-10-12",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/27635598/dobrawa-czocher-12-10-2026"
-  },
-  {
-    "title": "Doe Museum",
-    "date": "2026-10-12",
-    "source": "kielzog",
-    "genre": "overig",
-    "venue": "Kielzog, Winschoten",
-    "url": "https://www.kielzog.nl/evenementen/doe-museum-3?instance=yesplan-2433593857-1787739504",
-    "subtitle": "bij Kielzog Hoofdstraat"
-  },
-  {
-    "title": "Dominique Fils-Aimé",
-    "date": "2026-10-12",
-    "source": "melkweg",
-    "genre": "overig",
-    "venue": "Melkweg, Amsterdam",
-    "url": "https://www.melkweg.nl/nl/agenda/dominique-fils-aime-12-10-2026/"
-  },
-  {
-    "title": "Dwingelermarkt | Najaar 2026",
-    "date": "2026-10-12",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Dwingeloo",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/2007208381/dwingelermarkt-najaar-2026"
-  },
-  {
-    "title": "Fat Freddy's Drop",
-    "date": "2026-10-12",
-    "source": "paradiso",
-    "genre": "overig",
-    "venue": "Paradiso, Amsterdam",
-    "url": "https://www.paradiso.nl/nl/programma/fat-freddys-drop/2654360"
-  },
-  {
-    "title": "Fat Freddy's Drop + DJ Logg Cabin",
-    "date": "2026-10-12",
-    "source": "paradiso",
-    "genre": "overig",
-    "venue": "Paradiso, Amsterdam",
-    "url": "https://www.paradiso.nl/nl/programma/fat-freddys-drop/2654360"
-  },
-  {
-    "title": "Froukje - albumrelease show",
-    "date": "2026-10-12",
-    "source": "melkweg",
-    "genre": "overig",
-    "venue": "Melkweg, Amsterdam",
-    "url": "https://www.melkweg.nl/nl/agenda/froukje-12-10-2026/"
-  },
-  {
-    "title": "Gaasterlandse Natuurweek",
-    "date": "2026-10-12",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "date_end": "2026-10-18",
-    "city": "Oudemirdum",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/2727408446/beleef-buiten-tijdens-de-gaasterlandse-natuurweek"
-  },
-  {
-    "title": "Gavin DeGraw",
-    "date": "2026-10-12",
-    "source": "013",
-    "genre": "overig",
-    "time": "20:00",
-    "venue": "013, Tilburg",
-    "url": "https://www.013.nl/programma/127709/gavin-degraw"
-  },
-  {
-    "title": "HONNE",
-    "date": "2026-10-12",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/66059458/honne-12-10-2026"
-  },
-  {
-    "title": "Herfts Kindertheater- en Filmfestival",
-    "date": "2026-10-12",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "time": "10:00",
-    "venue": "Koornbeurs, Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047832/Titel/10364112"
-  },
-  {
-    "title": "Het Clubhuis",
-    "date": "2026-10-12",
-    "source": "forum.nl",
-    "genre": "overig",
-    "date_end": "2026-10-16",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/het-clubhuis"
-  },
-  {
-    "title": "Het avontuur van Pieter Konijn (4+)",
-    "date": "2026-10-12",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "venue": "Theater De Tamboer",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3367386480/het-avontuur-van-pieter-konijn-4",
-    "category": "familie",
-    "cats": [
-      "familie"
-    ]
-  },
-  {
-    "title": "Intouchables in Concert",
-    "date": "2026-10-12",
-    "source": "concertgebouw",
-    "genre": "overig",
-    "location": "Amsterdam",
-    "venue": "Concertgebouw, Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/45855941-intouchables-in-concert"
-  },
-  {
-    "title": "J. Cole: The Fall-Off Tour",
-    "date": "2026-10-12",
-    "source": "ziggodome",
-    "genre": "overig",
-    "time": "20:00",
-    "venue": "Ziggo Dome, Amsterdam",
-    "url": "https://www.ticketmaster.nl/event/j-cole-the-fall-off-tour-tickets/1895818770?language=en-us"
-  },
-  {
-    "title": "Jasmine Myra",
-    "date": "2026-10-12",
-    "source": "paard",
-    "genre": "overig",
-    "time": "20:00",
-    "location": "Den Haag",
-    "venue": "Het Paard, Den Haag",
-    "province": "Zuid-Holland",
-    "url": "https://denhaag.com/nl/agenda/jasmine-myra"
-  },
-  {
-    "title": "Khalid",
-    "date": "2026-10-12",
-    "source": "afaslive",
-    "genre": "overig",
-    "location": "Amsterdam",
-    "venue": "AFAS Live, Amsterdam",
-    "url": "https://www.afaslive.nl/agenda/khalid",
-    "image": "https://www.afaslive.nl/files/Agenda/2026/Oktober/_1200x630_crop_center-center_none/Khalid.jpg"
-  },
-  {
-    "title": "Kleintje Koffie",
-    "date": "2026-10-12",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/kleintje-koffie?date=12-10-2026"
-  },
-  {
-    "title": "Marilyn Expositie",
-    "date": "2026-10-12",
-    "source": "forum.nl",
-    "genre": "overig",
-    "date_end": "2026-10-25",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/marilyn-expositie"
-  },
-  {
-    "title": "Matt Hansen",
-    "date": "2026-10-12",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/15260174/matt-hansen-12-10-2026"
-  },
-  {
-    "title": "Michael Foster, Leila Bordreuil and Chris Corsano trio - Infinite Hiss presents",
-    "date": "2026-10-12",
-    "source": "dedoelen",
-    "genre": "overig",
-    "time": "20:15",
-    "venue": "Eduard Flipse Zaal (zitplaatsen met vrije stoelkeuze), Rotterdam",
-    "url": "https://www.dedoelen.nl/nl/agenda/michael-foster-leila-bordreuil-and-chris-corsano-trio-tq92"
-  },
-  {
-    "title": "Minions & Monsters (NL)",
-    "date": "2026-10-12",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "time": "14:00",
-    "venue": "Koornbeurs, Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10049874/Titel/10383613"
-  },
-  {
-    "title": "Newsnight -",
-    "date": "2026-10-12",
-    "source": "grandtheatregroningen",
-    "genre": "overig",
-    "venue": "Grand Theatre, Groningen",
-    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/newsnight-okt-2026"
-  },
-  {
-    "title": "Paw Patrol: De Dinofilm",
-    "date": "2026-10-12",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "time": "10:00",
-    "venue": "Koornbeurs, Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10049873/Titel/10383612"
-  },
-  {
-    "title": "Pete Murray - 12 oktober 2026 - LantarenVenster, Rotterdam",
-    "date": "2026-10-12",
-    "source": "rotown",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://www.rotown.nl/agenda/pete-murray-1/",
-    "image": "https://www.rotown.nl/wp-content/uploads/2026/03/Pete-Murray-Photo-Credit-Ian-Laidlaw_kl.jpg"
-  },
-  {
-    "title": "RUEL - 12 oktober 2026 - Annabel, Rotterdam",
-    "date": "2026-10-12",
-    "source": "rotown",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://www.rotown.nl/agenda/ruel/",
-    "image": "https://www.rotown.nl/wp-content/uploads/2026/04/RUEL-Photo-Credit-Maria-Alvarez_kl.jpg"
-  },
-  {
-    "title": "Slieker Popcornfestival: Kikker & Vriendjes (3+)",
-    "date": "2026-10-12",
-    "source": "friesland.nl",
-    "genre": "Festival",
-    "city": "Leeuwarden",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1593360305/slieker-popcornfestival-kikker-vriendjes-3"
-  },
-  {
-    "title": "Storyworld",
-    "date": "2026-10-12",
-    "source": "forum.nl",
-    "genre": "overig",
-    "date_end": "2026-10-25",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/storyworld"
-  },
-  {
-    "title": "Tenebrae - Hemelse koorzang uit de Engelse renaissance",
-    "date": "2026-10-12",
-    "source": "dedoelen",
-    "genre": "overig",
-    "time": "20:15",
-    "venue": "Jurriaanse Zaal, Rotterdam",
-    "url": "https://www.dedoelen.nl/nl/agenda/tenebrae-r1xn"
-  },
-  {
-    "title": "Tenebrae - Playlist voor de Tudors",
-    "date": "2026-10-12",
-    "source": "dedoelen",
-    "genre": "overig",
-    "time": "20:15",
-    "venue": "Jurriaanse Zaal, Rotterdam",
-    "url": "https://www.dedoelen.nl/nl/agenda/tenebrae-r1xn"
-  },
-  {
-    "title": "The Invite",
-    "date": "2026-10-12",
-    "source": "theaterroden",
-    "genre": "overig",
-    "time": "20:00",
-    "venue": "Winsinghhof, Roden",
-    "url": "https://theaterroden.nl/the-invite"
-  },
-  {
-    "title": "Workshop Drone Vliegen",
-    "date": "2026-10-12",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/workshop-drone-vliegen?date=12-10-2026"
-  },
-  {
-    "title": "Cochemea",
-    "date": "2026-10-13",
-    "source": "paradiso",
-    "genre": "overig",
-    "time": "20:30",
-    "venue": "Paradiso, Amsterdam",
-    "url": "https://www.paradiso.nl/nl/programma/cochemea/2904440"
   },
   {
     "title": "Coming Out Day: ontmoet, ontdek én maak een button",
@@ -1651,6 +1349,15 @@
     "genre": "overig",
     "venue": "Grand Theatre, Groningen",
     "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/hanneke-van-der-paardt-bang"
+  },
+  {
+    "title": "Het Clubhuis",
+    "date": "2026-10-13",
+    "source": "forum.nl",
+    "genre": "overig",
+    "date_end": "2026-10-16",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/het-clubhuis"
   },
   {
     "title": "Informatieplein Lewenborg",
@@ -1792,6 +1499,15 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3079818096/makerlab-maak-een-voederhuisje-voor-vogels-8"
   },
   {
+    "title": "Marilyn Expositie",
+    "date": "2026-10-13",
+    "source": "forum.nl",
+    "genre": "overig",
+    "date_end": "2026-10-20",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/marilyn-expositie"
+  },
+  {
     "title": "Martin Fröst & Roland Pöntinen",
     "date": "2026-10-13",
     "source": "tivolivredenburg",
@@ -1926,7 +1642,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154389&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154389&lang=en"
   },
   {
     "title": "Slieker Popcornfestival: Dolfje Weerwolfje (6+)",
@@ -1949,6 +1665,15 @@
     "cats": [
       "theater"
     ]
+  },
+  {
+    "title": "Storyworld",
+    "date": "2026-10-13",
+    "source": "forum.nl",
+    "genre": "overig",
+    "date_end": "2026-10-20",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/storyworld"
   },
   {
     "title": "Techno Tuesday: Ramsey Neville",
@@ -3144,6 +2869,15 @@
     "url": "https://www.doornroosje.nl/event/ida/"
   },
   {
+    "title": "In gesprek met experts | Groeten uit Wilhelminaoord",
+    "date": "2026-10-15",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Wilhelminaoord",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/2595837299/in-gesprek-met-experts-groeten-uit-wilhelminaoord"
+  },
+  {
     "title": "Informatieplein Beijum",
     "date": "2026-10-15",
     "source": "forum.nl",
@@ -3625,7 +3359,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153756&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153756&lang=en"
   },
   {
     "title": "TŌ YŌ (JPN) + Combo Qazam (NL)",
@@ -4074,7 +3808,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=152075&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=152075&lang=en"
   },
   {
     "title": "De Vier Jaargetijden van Vivaldi",
@@ -4488,6 +4222,16 @@
     "url": "https://www.tivolivredenburg.nl/agenda/60046308/lunchconcert-klassiek-16-10-2026"
   },
   {
+    "title": "Mega Indoor Springkussen Festival",
+    "date": "2026-10-16",
+    "source": "visitgroningen",
+    "genre": "Festival",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3935609718/mega-indoor-springkussen-festival-3",
+    "category": "Theaterfestival"
+  },
+  {
     "title": "Mr. Jones & Just In Case - From Here To Las Vegas",
     "date": "2026-10-16",
     "source": "visitgroningen",
@@ -4796,6 +4540,15 @@
     "city": "Orvelte",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3179996211/verhalen-festival-orvelte-1"
+  },
+  {
+    "title": "Vinyl Sessions: DJ Klapsalon - in Studio Blendd",
+    "date": "2026-10-16",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Studio Blendd @ de Doelen, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/vinyl-sessions-dj-klapsalon-lys7"
   },
   {
     "title": "Voorstelling Buren in Bibliotheek Bolsward",
@@ -5130,6 +4883,20 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/564299831/hybrid-festival-2026",
     "category": "Concert"
+  },
+  {
+    "title": "Chaos",
+    "date": "2026-10-17",
+    "source": "uitzinnig",
+    "genre": "overig",
+    "date_end": "2027-05-09",
+    "venue": "Drents Museum",
+    "city": "Assen",
+    "province": "Onbekend",
+    "url": "https://www.uitzinnig.nl/agenda/tentoonstelling/68330-angkor-het-mysterie-van-cambodja.aspx",
+    "cats": [
+      "expositie"
+    ]
   },
   {
     "title": "Children Who Chase Lost Voices (2011)",
@@ -5931,7 +5698,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154337&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154337&lang=en"
   },
   {
     "title": "Stuurbaard Bakkebaard",
@@ -6239,7 +6006,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=150856&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=150856&lang=en"
   },
   {
     "title": "Wounded (NL)",
@@ -7443,7 +7210,7 @@
     "date": "2026-10-19",
     "source": "forum.nl",
     "genre": "overig",
-    "date_end": "2026-10-21",
+    "date_end": "2026-10-20",
     "venue": "Forum Groningen",
     "url": "https://forum.nl/nl/agenda/het-clubhuis"
   },
@@ -7528,7 +7295,7 @@
     "date": "2026-10-19",
     "source": "forum.nl",
     "genre": "overig",
-    "date_end": "2026-10-22",
+    "date_end": "2026-10-21",
     "venue": "Forum Groningen",
     "url": "https://forum.nl/nl/agenda/taalhuis"
   },
@@ -7538,7 +7305,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151673&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151673&lang=en"
   },
   {
     "title": "The Lemonheads (USA) + Whipster (GRN)",
@@ -7620,7 +7387,7 @@
     "genre": "overig",
     "date_end": "2026-10-21",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/ai-begrijpen-en-gebruiken"
+    "url": "https://forum.nl/nl/agenda/ai-begrijpen-en-gebruiken?date=20-10-2026"
   },
   {
     "title": "And So I Watch You From Afar + Caspian - + otay:onii",
@@ -7785,7 +7552,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154390&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154390&lang=en"
   },
   {
     "title": "Lieve Hemel",
@@ -7809,6 +7576,14 @@
   },
   {
     "title": "Mind Enterprises",
+    "date": "2026-10-20",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/mind-enterprises/"
+  },
+  {
+    "title": "Mind Enterprises - + Tutti Crew",
     "date": "2026-10-20",
     "source": "doornroosje",
     "genre": "overig",
@@ -8638,7 +8413,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153536&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153536&lang=en"
   },
   {
     "title": "Delivery (AUS) + The Heavenly Bodes (UK)",
@@ -8749,6 +8524,15 @@
     "genre": "overig",
     "venue": "Effenaar, Eindhoven",
     "url": "https://www.effenaar.nl/agenda/flowers-dead-sewing-club"
+  },
+  {
+    "title": "Food La Route | Smul in 4 restaurants",
+    "date": "2026-10-22",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Meppel",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1213914863/food-la-route-smul-in-4-restaurants"
   },
   {
     "title": "Fred Delfgaauw",
@@ -8996,6 +8780,16 @@
     "url": "https://www.spotgroningen.nl/programma/micha-2/",
     "subtitle": "Nieuw talent verovert Nederland na The Headliner",
     "cats": []
+  },
+  {
+    "title": "MICHA - + support: Muriel",
+    "date": "2026-10-22",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1918867707/micha",
+    "category": "Muziek overig"
   },
   {
     "title": "Mina Nader",
@@ -9498,6 +9292,16 @@
     "cats": []
   },
   {
+    "title": "Dotan - + support: Bertie Newman",
+    "date": "2026-10-23",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1728021010/dotan-2",
+    "category": "Muziek overig"
+  },
+  {
     "title": "Familiegeheimen",
     "date": "2026-10-23",
     "source": "visitgroningen",
@@ -9930,7 +9734,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153671&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153671&lang=en"
   },
   {
     "title": "T.H.O.P. 15: Taxi Lotta // De Kloe // Tekno Hunks in Raveyard",
@@ -10327,7 +10131,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154647&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154647&lang=en"
   },
   {
     "title": "Caron (NL)",
@@ -10715,7 +10519,7 @@
     "genre": "Muziek",
     "city": "Zuidwolde",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/683370329/leon-moorman-live"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/881536088/leon-moorman-live-1"
   },
   {
     "title": "Lizz Wright - soul, gospel en tijdloze jazz",
@@ -11338,7 +11142,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151200&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151200&lang=en"
   },
   {
     "title": "Verknipt ADE Saturday",
@@ -11638,6 +11442,16 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3526419222/drumfeest-sla-je-slag-okterber-kindermaand"
   },
   {
+    "title": "Een Uurtje Eeuwigheid Allerzielenconcert door Amor Cantandi",
+    "date": "2026-10-25",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/342104580/een-uurtje-eeuwigheid-allerzielenconcert-door-amor-cantandi",
+    "category": "Klassieke muziek"
+  },
+  {
     "title": "Elephant Parade",
     "date": "2026-10-25",
     "source": "friesland.nl",
@@ -11828,6 +11642,15 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/4241963694/kindertheaterfestival-2026-1"
   },
   {
+    "title": "Klassiek & meer | Bragi en Kwartet Dolce",
+    "date": "2026-10-25",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Anloo",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3825740238/klassiek-meer-bragi-en-kwartet-dolce"
+  },
+  {
     "title": "Koopzondag Hoogeveen | Binnenstad",
     "date": "2026-10-25",
     "source": "drenthe.nl",
@@ -11844,6 +11667,15 @@
     "location": "Amsterdam",
     "venue": "Concertgebouw, Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/37473491-koperblazers-van-het-concertgebouworkest-spelen-tsjaikovskis-notenkraker"
+  },
+  {
+    "title": "Labby's pompoenverkoop",
+    "date": "2026-10-25",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Dwingeloo",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1063120505/labby-s-pompoenverkoop"
   },
   {
     "title": "Landstede Hammers - Brussels Basketball",
@@ -12203,7 +12035,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154330&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154330&lang=en"
   },
   {
     "title": "Verknipt ADE Special",
@@ -12881,7 +12713,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154391&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154391&lang=en"
   },
   {
     "title": "Trumps Amerika: chaos en gevaar? met Laila Frank, Anna van Zoest en Bob Deen",
@@ -13038,6 +12870,14 @@
     "url": "https://www.doornroosje.nl/event/fat-dog-2/"
   },
   {
+    "title": "Fat Dog - + lttl mort",
+    "date": "2026-10-28",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/fat-dog-2/"
+  },
+  {
     "title": "Fatal Flowers",
     "date": "2026-10-28",
     "source": "hedon",
@@ -13168,6 +13008,15 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/107503898/martini-grey",
     "category": "Jazz"
+  },
+  {
+    "title": "Meezingavond smartlappenkoor Heerlijk Leed in Rue de la Gare",
+    "date": "2026-10-28",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Emmen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3988678117/meezingavond-smartlappenkoor-heerlijk-leed-in-rue-de-la-gare"
   },
   {
     "title": "NKK NOW Zanggroepen",
@@ -13875,7 +13724,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=150560&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=150560&lang=en"
   },
   {
     "title": "Walter Trout",
@@ -14150,6 +13999,16 @@
     "cats": []
   },
   {
+    "title": "Flaire - Support: Djeezie & IDA",
+    "date": "2026-10-30",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1715324341/flaire-1",
+    "category": "Muziek overig"
+  },
+  {
     "title": "Flat Earth Society: The Coltrane Mutations",
     "date": "2026-10-30",
     "source": "concertgebouw",
@@ -14358,7 +14217,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151519&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151519&lang=en"
   },
   {
     "title": "LC LATE - FRIDAY NIGHT",
@@ -14516,6 +14375,15 @@
     "city": "Stiens",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3418385711/oneindige-klankmogelijkheden-door-fagottist-bram-van-sambeek"
+  },
+  {
+    "title": "Oude herinneringen ophalen met Andries Middelbos",
+    "date": "2026-10-30",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Appelscha",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1549594468/oude-herinneringen-ophalen-met-andries-middelbos"
   },
   {
     "title": "Parasol",
@@ -14723,7 +14591,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154134&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154134&lang=en"
   },
   {
     "title": "Welcome to the Guilty Pleasure Dome",
@@ -15071,6 +14939,16 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/2361099831/gimme-shelter-een-avond-vol-roling-stones-bij-fredgie-s"
   },
   {
+    "title": "HUIS.ORLANDO - Every Brilliant Thing",
+    "date": "2026-10-31",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/226437957/huis-orlando-every-brilliant-thing",
+    "category": "Muziek overig"
+  },
+  {
     "title": "Halloween Dungeons & Dragons",
     "date": "2026-10-31",
     "source": "friesland.nl",
@@ -15361,7 +15239,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=152556&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=152556&lang=en"
   },
   {
     "title": "Los Pirañas (COL)",
@@ -15642,7 +15520,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154197&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154197&lang=en"
   },
   {
     "title": "Requiem van Howells - Kamerkoor Aurora",
@@ -15823,7 +15701,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154548&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154548&lang=en"
   },
   {
     "title": "The Etters (NL) + Human Toys (FR)",
@@ -16087,7 +15965,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151279&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151279&lang=en"
   },
   {
     "title": "Angine De Poitrine (CAN)",
@@ -16213,6 +16091,16 @@
     ]
   },
   {
+    "title": "Cantatedienst",
+    "date": "2026-11-01",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/4061596864/cantatedienst-20",
+    "category": "Muziek overig"
+  },
+  {
     "title": "Cardinals - Zondag 1 november 2026 - LantarenVenster, Rotterdam",
     "date": "2026-11-01",
     "source": "rotown",
@@ -16229,6 +16117,15 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4225031473/cha-chi-versaci"
+  },
+  {
+    "title": "DRP MTB Assen Herfsttocht",
+    "date": "2026-11-01",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Assen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3152331363/drp-mtb-assen-herfsttocht"
   },
   {
     "title": "Danko Jones",
@@ -16982,6 +16879,14 @@
     ]
   },
   {
+    "title": "Newsnight - Pieter Omtzigt: Voor wie bouwt het Noorden tienduizenden huizen?",
+    "date": "2026-11-02",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/newsnight-nov-2026"
+  },
+  {
     "title": "Open Europa? | Grip op de grenzen",
     "date": "2026-11-02",
     "source": "tivolivredenburg",
@@ -17511,7 +17416,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=152263&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=152263&lang=nl"
   },
   {
     "title": "Hippotraktor (BEL) + OLTAS (NL)",
@@ -18502,7 +18407,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151209&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151209&lang=en"
   },
   {
     "title": "Concert door ‘Het Klaagkoor’ in de serie ‘Vrijdagmiddag-concerten'",
@@ -18970,7 +18875,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151534&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151534&lang=nl"
   },
   {
     "title": "Temples (UK) + PAUW (NL)",
@@ -19449,7 +19354,7 @@
     "genre": "Theater",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3279347194/kado-theatershow"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1405730923/kado-theatershow-1"
   },
   {
     "title": "Karin Bloemen en band - Renaissance 2.0",
@@ -19771,6 +19676,14 @@
     "url": "https://denhaag.com/nl/agenda/stonewall-festival"
   },
   {
+    "title": "Sing Street (2016)",
+    "date": "2026-11-07",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/sing-street-2016-07-11-2026/"
+  },
+  {
     "title": "Single meet Single",
     "date": "2026-11-07",
     "source": "friesland.nl",
@@ -19890,7 +19803,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153264&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153264&lang=nl"
   },
   {
     "title": "Theatershow - KADO",
@@ -20087,7 +20000,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "Rotown, Rotterdam",
-    "url": "https://www.rotown.nl/agenda/crafternoon-10/"
+    "url": "https://www.rotown.nl/agenda/crafternoon-10-1/"
   },
   {
     "title": "De Nog Grotere Slijmmusical (6+)",
@@ -20245,6 +20158,14 @@
   },
   {
     "title": "Fischer-Z",
+    "date": "2026-11-08",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/fischer-z/"
+  },
+  {
+    "title": "Fischer-Z - + Chloe Leigh",
     "date": "2026-11-08",
     "source": "doornroosje",
     "genre": "overig",
@@ -20730,6 +20651,15 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/961288880/theater-terra-1",
     "category": "Jeugdtheater"
+  },
+  {
+    "title": "Van Granada tot Parijs",
+    "date": "2026-11-08",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Eext",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3040823889/van-granada-tot-parijs"
   },
   {
     "title": "Vertelcafe Assen met Muzikale vertellingen",
@@ -21700,7 +21630,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=152600&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=152600&lang=nl"
   },
   {
     "title": "Skimer (On)zichtbaar",
@@ -22038,6 +21968,14 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/223515220/workshop-winterster"
   },
   {
+    "title": "Manchester by the Sea (2016)",
+    "date": "2026-11-12",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/manchester-by-the-sea-2016-12-11-2026/"
+  },
+  {
     "title": "Martijn Crins - HÈ FIJN",
     "date": "2026-11-12",
     "source": "koornbeurs",
@@ -22264,7 +22202,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153215&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153215&lang=nl"
   },
   {
     "title": "Syb van der Ploeg en Maarten Peters - The Best of Simon & Garfunkel",
@@ -22447,6 +22385,24 @@
     "genre": "overig",
     "venue": "Doornroosje, Nijmegen",
     "url": "https://www.doornroosje.nl/event/bettie-serveert-4/"
+  },
+  {
+    "title": "Big Sleep",
+    "date": "2026-11-13",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "22:00",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/big-sleep/2895340"
+  },
+  {
+    "title": "Bombino",
+    "date": "2026-11-13",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/bombino/2867107"
   },
   {
     "title": "Bökkers",
@@ -22867,7 +22823,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153185&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153185&lang=nl"
   },
   {
     "title": "ON&ON: Locklead e.a.",
@@ -23020,7 +22976,15 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/striptease-van-de-dood-david-linszen-13-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262266"
+  },
+  {
+    "title": "Suzan & Freek",
+    "date": "2026-11-13",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/suzan-freek/2942224"
   },
   {
     "title": "TAP FACTORY",
@@ -23084,6 +23048,15 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3965337473/tim-akkerman"
   },
   {
+    "title": "Tina Dico",
+    "date": "2026-11-13",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/tina-dico/2752660"
+  },
+  {
     "title": "Tusky",
     "date": "2026-11-13",
     "source": "effenaar",
@@ -23107,6 +23080,15 @@
     "city": "Oldeholtwolde",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1737024083/wereldpremiere-sultan-van-bercoop"
+  },
+  {
+    "title": "Yndling",
+    "date": "2026-11-13",
+    "source": "paradiso",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/yndling/2917627"
   },
   {
     "title": "2 Recht 2 Averecht",
@@ -23133,7 +23115,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/50-jaar-margreet-dolman-paul-haenen-14-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262270"
   },
   {
     "title": "500 Miles",
@@ -23357,7 +23339,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153339&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153339&lang=nl"
   },
   {
     "title": "De Meiden van Toen - Naar de Getver",
@@ -23631,12 +23613,28 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1074918377/klaas-van-der-eerden-imperfect"
   },
   {
+    "title": "Kneecap (2024)",
+    "date": "2026-11-14",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/kneecap-2024-14-11-2026/"
+  },
+  {
     "title": "Loïs Lane",
     "date": "2026-11-14",
     "source": "tivolivredenburg",
     "genre": "overig",
     "venue": "TivoliVredenburg, Utrecht",
     "url": "https://www.tivolivredenburg.nl/agenda/82304376/lois-lane-14-11-2026"
+  },
+  {
+    "title": "Lucky Fonz III + Michiel Balcaen",
+    "date": "2026-11-14",
+    "source": "paradiso",
+    "genre": "overig",
+    "venue": "Paradiso, Amsterdam",
+    "url": "https://www.paradiso.nl/nl/programma/lucky-fonz-iii/2747841"
   },
   {
     "title": "Luminosity pres. Factor B - Theatre of The Mind",
@@ -24468,6 +24466,15 @@
     "url": "https://www.tivolivredenburg.nl/agenda/95834034/hoornconcerten-van-mozart-en-strauss-15-11-2026"
   },
   {
+    "title": "Huiskamerconcert | Ferdi Bijker",
+    "date": "2026-11-15",
+    "source": "drenthe.nl",
+    "genre": "Muziek",
+    "city": "Nieuw Amsterdam",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/4245887119/huiskamerconcert-ferdi-bijker"
+  },
+  {
     "title": "Huiskamerfestival Zuidwolde",
     "date": "2026-11-15",
     "source": "drenthe.nl",
@@ -24552,7 +24559,7 @@
     "genre": "overig",
     "time": "13:30",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/juf-braaksel-de-musical-6plus-15-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262273"
   },
   {
     "title": "Kakek, Opa & Ik",
@@ -24562,6 +24569,15 @@
     "city": "Leeuwarden",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1198066668/kakek-opa-ik"
+  },
+  {
+    "title": "Keltisch",
+    "date": "2026-11-15",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Veenhuizen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3594406732/keltisch"
   },
   {
     "title": "KleuterSinfonietta: StuiterStokken (4 en 5 jaar)",
@@ -25501,6 +25517,15 @@
     "url": "https://www.013.nl/programma/152166/de-jukebox"
   },
   {
+    "title": "Dungeons & Dragons",
+    "date": "2026-11-18",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Diever",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3511914325/dungeons-dragons"
+  },
+  {
     "title": "Eloise",
     "date": "2026-11-18",
     "source": "melkweg",
@@ -25523,7 +25548,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=149705&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=149705&lang=nl"
   },
   {
     "title": "Froukje",
@@ -26055,7 +26080,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153856&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153856&lang=nl"
   },
   {
     "title": "LAWN (GRN/FRL) + MOMSNAME (NL)",
@@ -26228,7 +26253,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/tosca-met-francis-van-broekhuizen-19-nov/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262275",
     "category": "klassiek",
     "cats": [
       "klassiek"
@@ -26408,7 +26433,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151746&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151746&lang=nl"
   },
   {
     "title": "Adult DVD (UK) + Smudged (NL)",
@@ -26602,6 +26627,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Fiesta Macumba",
+    "date": "2026-11-20",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/fiesta-macumba-20-11-2026/"
   },
   {
     "title": "Flemming",
@@ -26985,7 +27018,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/rekhalzen-yentl-en-de-boer-20-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262279"
   },
   {
     "title": "Richard Groenendijk Gelukkig heb je mij nog (try-out)",
@@ -27408,7 +27441,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/de-theatershow-huis-van-broederliefde-21-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262288"
   },
   {
     "title": "Desire",
@@ -27435,7 +27468,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "De Grote Kerk, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/dianto-reed-quintet-dna-21-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=270529"
   },
   {
     "title": "Dilana Smith",
@@ -27884,7 +27917,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151754&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151754&lang=nl"
   },
   {
     "title": "Leenalchi (KOR)",
@@ -28054,7 +28087,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/op-scherp-jasper-van-der-veen-21-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262283"
   },
   {
     "title": "Pan (8+)",
@@ -28177,6 +28210,14 @@
     "genre": "overig",
     "venue": "Simplon, Groningen",
     "url": "https://simplon.nl/events/technorth-november-2026/"
+  },
+  {
+    "title": "The Commitments (1991)",
+    "date": "2026-11-21",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/the-commitments-1991-21-11-2026/"
   },
   {
     "title": "The Horse Company",
@@ -28526,7 +28567,7 @@
     "genre": "overig",
     "time": "19:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/de-nog-grotere-slijmmusical-6plus-22-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262294"
   },
   {
     "title": "Delany",
@@ -29413,7 +29454,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151751&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151751&lang=nl"
   },
   {
     "title": "SLIFT (FRA) + Yoo Doo Right (CAN)",
@@ -29544,7 +29585,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/de-baas-lisa-ostermann-25-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262300"
   },
   {
     "title": "De Grote Vriendelijke Pakjesavond",
@@ -29660,7 +29701,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153197&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153197&lang=nl"
   },
   {
     "title": "Matthias Goerne zingt Winterreise",
@@ -29952,7 +29993,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/creedence-gold-ccr-by-the-fortunate-sons-26-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262308"
   },
   {
     "title": "C’est Qui?",
@@ -30244,7 +30285,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/rare-leeftijd-ricky-koole-26-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262303"
   },
   {
     "title": "Ricky Koole - Rare Leeftijd",
@@ -30318,7 +30359,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154194&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154194&lang=nl"
   },
   {
     "title": "The Music of Hans Zimmer, Alan Silvestri & John Williams",
@@ -30950,7 +30991,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=148324&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=148324&lang=nl"
   },
   {
     "title": "Shantel & Bucovina Club Soundsystem",
@@ -31057,6 +31098,14 @@
     ]
   },
   {
+    "title": "This Is Spinal Tap  (1984)",
+    "date": "2026-11-27",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/this-is-spinal-tap-1984-27-11-2026/"
+  },
+  {
     "title": "Tim Kroezen - 550",
     "date": "2026-11-27",
     "source": "drenthe.nl",
@@ -31117,7 +31166,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/vandaag-herman-van-veen-27-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262311"
   },
   {
     "title": "Vrienden Voor Het Leven 2026",
@@ -31562,7 +31611,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=150999&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=150999&lang=nl"
   },
   {
     "title": "Kaat Van Stralen (BEL) + Camilo Donoso (BEL)",
@@ -31787,7 +31836,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/rhobijn-40-jaar-rowwen-heze-28-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262569"
   },
   {
     "title": "Rijck",
@@ -31822,7 +31871,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151824&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151824&lang=nl"
   },
   {
     "title": "Subquake",
@@ -32047,6 +32096,15 @@
     "url": "https://www.effenaar.nl/agenda/bezerkus-bingo-2"
   },
   {
+    "title": "Bobby’s Gin Movember Benefiet",
+    "date": "2026-11-29",
+    "source": "rotown",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Rotown, Rotterdam",
+    "url": "https://www.rotown.nl/agenda/bobbys-gin-movember-benefiet/"
+  },
+  {
     "title": "Boerenblond | Middagshow",
     "date": "2026-11-29",
     "source": "drenthe.nl",
@@ -32054,6 +32112,21 @@
     "city": "Hoogeveen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/1235513371/boerenblond-middagshow"
+  },
+  {
+    "title": "Bosbaden op de Sallandse Heuvelrug",
+    "date": "2026-11-29",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/bosbaden-in-salland",
+    "subtitle": "Bosbaden in Salland is een rustige, zintuiglijke natuurervaring waarbij je vertraagt, diep ontspant en volledig opgaat in het bos. Onder begeleiding ontdek je hoe buiten zijn je lichaam en geest tot rust brengt",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Cellist Nitzan: Dancing between the holy and the profane",
@@ -32087,6 +32160,16 @@
     "url": "https://www.013.nl/programma/138201/coilguns"
   },
   {
+    "title": "Concert Harry Niehof",
+    "date": "2026-11-29",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Ter Apel",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2806250036/concert-harry-niehof-1",
+    "category": "Muziek overig"
+  },
+  {
     "title": "Concert Politie Orkest Noord Nederland",
     "date": "2026-11-29",
     "source": "denieuwekolk.nl",
@@ -32097,16 +32180,6 @@
     "cats": [
       "concert"
     ]
-  },
-  {
-    "title": "Concert: Harry Niehof",
-    "date": "2026-11-29",
-    "source": "visitgroningen",
-    "genre": "Muziek",
-    "city": "Ter Apel",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1553330415/concert-harry-niehof",
-    "category": "Concert"
   },
   {
     "title": "Davina Michelle",
@@ -32513,7 +32586,7 @@
     "genre": "overig",
     "time": "13:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/sintshow-emmen-29-nov/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=275906",
     "category": "theater",
     "cats": [
       "theater"
@@ -33262,6 +33335,14 @@
     "url": "https://www.tivolivredenburg.nl/agenda/76803118/nkk-now-zanggroepen-9-18-jaar-02-12-2026"
   },
   {
+    "title": "Nia Archives",
+    "date": "2026-12-02",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/nia-archives-02-12-2026/"
+  },
+  {
     "title": "No Man's Land",
     "date": "2026-12-02",
     "source": "tivolivredenburg",
@@ -33701,7 +33782,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/nno-noordpool-orkest-radiohead-a-jazz-symphony-03-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262570"
   },
   {
     "title": "Nederlands Blazers Ensemble & Duda Paiva Company Adem van het woud",
@@ -33949,7 +34030,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153759&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153759&lang=nl"
   },
   {
     "title": "Årabrot (NOR) + support",
@@ -34324,7 +34405,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153341&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153341&lang=nl"
   },
   {
     "title": "Life in the Fast Lane - The Dutch Eagles",
@@ -34333,7 +34414,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/life-in-the-fast-lane-the-dutch-eagles-04-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261559"
   },
   {
     "title": "Lunchconcert klassiek",
@@ -34410,7 +34491,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/no-kidding-julika-marijn-04-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261573"
   },
   {
     "title": "Noord Nederlands Orkest & Noordpool Orkest Radiohead, A Jazz Symphony",
@@ -35089,7 +35170,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/anne-wil-blankers-en-hans-croiset-liefdesbrieven-06-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=266684"
   },
   {
     "title": "Blondshell",
@@ -35562,7 +35643,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=152566&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=152566&lang=nl"
   },
   {
     "title": "Gurriers (IRE) + Enola Gay (UK)",
@@ -36097,7 +36178,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/lemming-merijn-scholten-09-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262680"
   },
   {
     "title": "Le Caravansérail",
@@ -37309,7 +37390,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/paul-de-leeuw-annick-boer-ea-we-zijn-toch-familie-11-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261581"
   },
   {
     "title": "Sons of the Culture Clash",
@@ -37902,7 +37983,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/joep-in-atlas-12-dec/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=279602",
     "category": "theater",
     "cats": [
       "theater"
@@ -38450,7 +38531,7 @@
     "genre": "overig",
     "time": "15:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/alles-is-comedy-najib-roue-13-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=260874"
   },
   {
     "title": "Big Mill Band",
@@ -38703,7 +38784,7 @@
     "genre": "overig",
     "time": "15:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/het-kleine-theater-garage-tdi-robin-hood-4plus-13-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261584"
   },
   {
     "title": "Hiqpy",
@@ -38757,6 +38838,15 @@
     "province": "Groningen",
     "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2301097828/jan-van-duikeren-marcel-veenendaal-dear-son",
     "category": "Muziek overig"
+  },
+  {
+    "title": "Jason Staal",
+    "date": "2026-12-13",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Eext",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3258481351/jason-staal"
   },
   {
     "title": "Julian Sas Miles & Memories Tour",
@@ -39671,7 +39761,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/on-a-cold-winters-night-anuna-16-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261578"
   },
   {
     "title": "Queen Must Go On",
@@ -39989,7 +40079,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/mannen-komen-van-mars-vrouwen-van-venus-huub-stapel-17-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261588"
   },
   {
     "title": "Muiters (Thijs Kemperink & Erwin Nyhoff)",
@@ -40176,6 +40266,15 @@
     ]
   },
   {
+    "title": "40UP: BIG BANG edition",
+    "date": "2026-12-18",
+    "source": "neushoorn",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "Neushoorn, Leeuwarden",
+    "url": "https://neushoorn.nl/programma"
+  },
+  {
     "title": "AVROTROS Kerstconcert: Mozarts Krönungsmesse",
     "date": "2026-12-18",
     "source": "tivolivredenburg",
@@ -40334,7 +40433,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/en-verbied-de-vogels-om-te-fluiten-ayoub-18-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267205"
   },
   {
     "title": "Esther de Musical",
@@ -40659,7 +40758,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/simone-kleinsma-brigitte-heitzer-ea-vlieg-met-me-mee-18-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261600"
   },
   {
     "title": "Syb van der Ploeg",
@@ -41303,7 +41402,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/simone-kleinsma-brigitte-heitzer-ea-vlieg-met-me-mee-19-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261603"
   },
   {
     "title": "State Power",
@@ -41884,7 +41983,7 @@
     "genre": "overig",
     "time": "14:30",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/simone-kleinsma-brigitte-heitzer-ea-vlieg-met-me-mee-20-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261608"
   },
   {
     "title": "The Hobknobs - zondag 20 december 2026 - V11, Rotterdam",
@@ -42050,7 +42149,7 @@
     "genre": "overig",
     "time": "19:30",
     "venue": "De Grote Kerk, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/kampen-boys-choir-festival-of-lessons-and-carols-21-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=270530"
   },
   {
     "title": "Nu is het nog rustig (8+) Theater Artemis, hetpaleis en Het Zuidelijk Toneel",
@@ -42099,7 +42198,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/time-jumper-reprise-waylon-21-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262240"
   },
   {
     "title": "Waylon - Time Jumper - REPRISE",
@@ -42275,7 +42374,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/rudolphs-kerstfeest-22-dec/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261592",
     "category": "uitje",
     "cats": [
       "uitje"
@@ -42330,7 +42429,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/christmas-special-bouke-rocks-elvis-23-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261613"
   },
   {
     "title": "Clean Pete's Kerstshow",
@@ -42568,7 +42667,7 @@
     "genre": "Theater",
     "city": "Groningen",
     "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/238712661/marcel-hensema-mijn-vrede-1",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2536711919/marcel-hensema-mijn-vrede",
     "category": "Toneel"
   },
   {
@@ -43020,7 +43119,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/charkiv-city-ballet-de-notenkraker-28-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261617"
   },
   {
     "title": "De Lawei Producties - De nachtegaal van Drachten",
@@ -43102,7 +43201,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/beroemdste-detective-in-nieuw-mysterie-sherlock-holmes-29-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261696"
   },
   {
     "title": "Black Bottle Riot",
@@ -43290,7 +43389,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/beroemdste-detective-in-nieuw-mysterie-sherlock-holmes-30-dec/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261688"
   },
   {
     "title": "De Jukebox",
@@ -43394,6 +43493,16 @@
     "genre": "overig",
     "venue": "Effenaar, Eindhoven",
     "url": "https://www.effenaar.nl/agenda/effenaar-oud-nieuw-2026"
+  },
+  {
+    "title": "Grand Night Out & New",
+    "date": "2026-12-31",
+    "source": "visitgroningen",
+    "genre": "Theater",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2218573752/grand-night-out-new-1",
+    "category": "Dans overig"
   },
   {
     "title": "Jubileumroute 'Tijdreis over De Rakken'",
@@ -43527,7 +43636,7 @@
     "genre": "overig",
     "time": "19:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/de-romantische-familiemusical-sneeuwwitje-4plus-02-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=250088"
   },
   {
     "title": "Frysk Jeugd Orkest",
@@ -43595,7 +43704,7 @@
     "genre": "overig",
     "time": "14:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/de-romantische-familiemusical-sneeuwwitje-4plus-03-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=250089"
   },
   {
     "title": "Een Weens Nieuwjaarsconcert",
@@ -44315,7 +44424,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/50-years-of-rumours-the-cosmic-carnival-09-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=250146"
   },
   {
     "title": "70's Unplugged  Rumours",
@@ -44761,7 +44870,7 @@
     "genre": "overig",
     "time": "15:00",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/het-kleine-theater-lady-en-de-vage-hond-4plus-10-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267220"
   },
   {
     "title": "Imminence",
@@ -45011,7 +45120,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/bert-visscher-en-martin-van-waardenburg-the-sunshine-boys-try-out-14-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261725"
   },
   {
     "title": "Boeing Boeing",
@@ -45209,7 +45318,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/bert-visscher-en-martin-van-waardenburg-the-sunshine-boys-try-out-15-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262746"
   },
   {
     "title": "Blauwe Vinkjes Poeha",
@@ -45481,7 +45590,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-songs-and-stories-of-the-dubliners-the-dubliners-experience-15-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262745"
   },
   {
     "title": "The Sunshine Boys | TRY OUT Bert Visscher en Martin van Waardenburg",
@@ -45716,7 +45825,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/johnny-cash-on-the-road-again-def-americans-16-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262747"
   },
   {
     "title": "Julian Sas",
@@ -45825,7 +45934,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/nieuwjaarsconcert-noord-nederlands-orkest-16-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267221"
   },
   {
     "title": "Noord Nederlands Orkest - Nieuwjaarsconcert",
@@ -46114,7 +46223,7 @@
     "genre": "overig",
     "time": "13:30",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/efteling-vertelt-baron-1898-6plus-17-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267223"
   },
   {
     "title": "Go Ahead Eagles - AZ",
@@ -46663,7 +46772,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/met-vugts-laumans-en-gerritsma-de-misdaadpodcast-live-20-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262755"
   },
   {
     "title": "Met gesloten deuren - Mini Theater Friesland",
@@ -46726,6 +46835,14 @@
     "location": "Amsterdam",
     "venue": "Concertgebouw, Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/45913701-zing-cirkel-concertgebouw"
+  },
+  {
+    "title": "Ayra Starr",
+    "date": "2027-01-21",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/ayra-starr-21-01-2027/"
   },
   {
     "title": "Beth & Flo",
@@ -46935,7 +47052,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/running-in-the-family-ii-tangarine-21-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262748"
   },
   {
     "title": "Tafel van Vijf — Mata Hari returns (14+)",
@@ -47498,7 +47615,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/breken-de-tent-af-arie-silvester-23-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262749"
   },
   {
     "title": "Bywater Call",
@@ -47515,7 +47632,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "De Grote Kerk, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/carel-kraayenhof-marietta-petkova-de-hand-van-de-beer-23-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=270532"
   },
   {
     "title": "Cultürd presents: D-Double",
@@ -47527,13 +47644,13 @@
     "url": "https://neushoorn.nl/programma"
   },
   {
-    "title": "De Hand van De Beer | Carel Kraayenhof & Marietta Petkova",
+    "title": "De Hand van de Beer | Carel Kraayenhof & Marietta Petkova",
     "date": "2027-01-23",
     "source": "drenthe.nl",
     "genre": "overig",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/543860222/de-hand-van-de-beer-carel-kraayenhof-marietta-petkova-1"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3373284226/de-hand-van-de-beer-carel-kraayenhof-marietta-petkova"
   },
   {
     "title": "De Swing Reunion Party",
@@ -47878,7 +47995,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-masters-of-magic-met-hans-klok-the-illusionists-23-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267230"
   },
   {
     "title": "The Masters of Magic met Hans Klok - The Illusionists - Magic seats",
@@ -47887,7 +48004,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-masters-of-magic-met-hans-klok-the-illusionists-magic-seats-23-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267825"
   },
   {
     "title": "Tribute to TOTO",
@@ -48177,7 +48294,7 @@
     "genre": "overig",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1824821872/the-illusionists-the-masters-of-magic-met-hans-klok-2"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/4070574035/the-illusionists-the-masters-of-magic-met-hans-klok-1"
   },
   {
     "title": "The Masters of Magic met Hans Klok - The Illusionists",
@@ -48186,7 +48303,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-masters-of-magic-met-hans-klok-the-illusionists-24-jan-1/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267232"
   },
   {
     "title": "The Masters of Magic met Hans Klok - The Illusionists - Magic seats",
@@ -48195,7 +48312,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-masters-of-magic-met-hans-klok-the-illusionists-magic-seats-24-jan-1/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267828"
   },
   {
     "title": "The Ocean",
@@ -48776,6 +48893,14 @@
     ]
   },
   {
+    "title": "DJ Habibeats",
+    "date": "2027-01-28",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/dj-habibeats-28-01-2027/"
+  },
+  {
     "title": "De Vrienden van Amstel LIVE",
     "date": "2027-01-28",
     "source": "ahoy",
@@ -48849,7 +48974,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/legendary-albums-live-beach-boys-best-28-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262750"
   },
   {
     "title": "Misker/E&O DS1 - Aqqo Bookings/DSVD DS1",
@@ -49265,7 +49390,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/theaterweekend-muziek-29-jan/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=269106"
   },
   {
     "title": "Toonkunstkoor Bekker en NNO Verdi's Requiem",
@@ -49641,7 +49766,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/theaterweekend-cabaret-30-jan/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=269107",
     "category": "cabaret",
     "cats": [
       "cabaret"
@@ -49654,7 +49779,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/theaterweekend-dans-30-jan/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=269111",
     "category": "dans",
     "cats": [
       "dans"
@@ -49989,8 +50114,8 @@
     "genre": "Theater",
     "city": "Winschoten",
     "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/511683568/theaterweekend-3",
-    "category": "Jeugdtheater"
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2783831458/theaterweekend-4",
+    "category": "Toneel"
   },
   {
     "title": "Two Door Cinema Club",
@@ -50716,7 +50841,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/met-heimwee-roxeanne-hazes-04-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262751"
   },
   {
     "title": "Avond van de balletmuziek",
@@ -50828,7 +50953,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/de-boessels-van-baartman-ii-try-out-nathalie-baartman-05-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262753"
   },
   {
     "title": "Dirty Honey",
@@ -51046,7 +51171,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/part-16-back-to-the-country-05-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262752"
   },
   {
     "title": "Pianist Albert Cano Smit met hoogtepunten van Bach en Fauré",
@@ -51185,7 +51310,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/a-tribute-to-the-queen-of-disco-donnas-hot-stuff-06-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=259244"
   },
   {
     "title": "ABN AMRO Open 2027 – Qualifications",
@@ -52053,7 +52178,7 @@
     "genre": "overig",
     "time": "15:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/pieter-hulst-willem-voogd-de-proefkeuken-en-de-wc-van-tijd-8plus-07-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267233"
   },
   {
     "title": "Pip & Pelle - Wintershow! (4+)",
@@ -52348,7 +52473,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/boeing-boeing-10-feb/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262754",
     "category": "theater",
     "cats": [
       "theater"
@@ -52495,6 +52620,14 @@
     "location": "Amsterdam",
     "venue": "Concertgebouw, Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/37331024-viano-quartet-speelt-dvorak-en-mendelssohn"
+  },
+  {
+    "title": "WArd/waRD - Facing Transitions",
+    "date": "2027-02-10",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/ward-ward-facing-transitions"
   },
   {
     "title": "storm: DeRonde/Deroo — Please don’t make love to me, I’m exhausted",
@@ -52841,7 +52974,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/bruto-boban-braspenning-12-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262756"
   },
   {
     "title": "Bert Visscher & Martin van Waardenberg — The Sunshine Boys",
@@ -52883,7 +53016,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/buddy-vedder-shelley-bos-al-het-blauw-van-de-hemel-12-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262449"
   },
   {
     "title": "Café del Mundo - GuitaRevolution",
@@ -53409,7 +53542,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/happy-days-the-wieners-13-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262760"
   },
   {
     "title": "JOHN SUMMIT – EUROPE CTRL ESCAPE ARENA TOUR",
@@ -53475,7 +53608,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/live-deel-1-knuffelrock-13-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262759"
   },
   {
     "title": "Martijn Koning",
@@ -53773,7 +53906,7 @@
     "genre": "overig",
     "time": "16:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/aladdin-de-musical-4plus-14-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267235"
   },
   {
     "title": "Amorphis",
@@ -54401,7 +54534,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/dinsdagmiddag-van-der-laan-woe-17-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262761"
   },
   {
     "title": "Gavin Reijnders Jazzebelle",
@@ -54842,7 +54975,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/bee-gees-fame-familiy-tragedy-bee-gees-by-maincourse-19-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262762"
   },
   {
     "title": "Bullet For My Valentine",
@@ -55268,7 +55401,7 @@
     "genre": "overig",
     "time": "21:00",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/100-nederlandstalige-show-daredevils-zing-nederlands-met-me-20-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=242433"
   },
   {
     "title": "ABBA Fever",
@@ -55631,6 +55764,14 @@
     "sport": "basketbal"
   },
   {
+    "title": "Liever Lesbies",
+    "date": "2027-02-20",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/liever-lesbies-20-02-2027/"
+  },
+  {
     "title": "Luc Hoogenstein - Stadssafari",
     "date": "2027-02-20",
     "source": "lawei",
@@ -55649,7 +55790,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/masterminds-michael-pilarczyk-20-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262763"
   },
   {
     "title": "Michael Pilarczyk - MasterMinds",
@@ -55966,7 +56107,7 @@
     "genre": "overig",
     "time": "15:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/de-musical-zonder-billen-4plus-21-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267237"
   },
   {
     "title": "Dromen, gebeden en rubberlaarzen | Marco Danesi & Strijkkwartet uit Kamerorkest v/h Noorden",
@@ -55975,7 +56116,7 @@
     "genre": "overig",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3110335556/dromen-gebeden-en-rubberlaarzen-marco-danesi-strijkkwartet-uit-kamerorkest-v-h-noorden-1"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1504650771/dromen-gebeden-en-rubberlaarzen-marco-danesi-strijkkwartet-uit-kamerorkest-v-h-noorden"
   },
   {
     "title": "Dvořáks Symfonie nr. 8 & Chaussons Poème door Arabella Steinbacher",
@@ -56030,7 +56171,7 @@
     "genre": "overig",
     "time": "15:00",
     "venue": "De Grote Kerk, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/izhar-elias-fernando-cordas-dos-amigos-21-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=270536"
   },
   {
     "title": "JM Teaterwurk Hulde",
@@ -56946,7 +57087,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/a-j-plat-kunt-proatn-drenthe-plat-26-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267202"
   },
   {
     "title": "Amble",
@@ -57054,6 +57195,14 @@
     "url": "https://www.melkweg.nl/nl/agenda/emeli-sande-26-02-2027/"
   },
   {
+    "title": "Eosine",
+    "date": "2027-02-26",
+    "source": "doornroosje",
+    "genre": "overig",
+    "venue": "Doornroosje, Nijmegen",
+    "url": "https://www.doornroosje.nl/event/eosine/"
+  },
+  {
     "title": "Familieconcert: Sofie en het wonder van Fez (6+)",
     "date": "2027-02-26",
     "source": "concertgebouw",
@@ -57111,7 +57260,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/hier-bokkers-26-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261615"
   },
   {
     "title": "Jan Beuving - Dekpunt",
@@ -57626,7 +57775,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-songs-the-stories-the-legacy-the-sound-of-springsteen-27-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262765"
   },
   {
     "title": "The Sound Of Springsteen - The Songs. The Stories. The Legacy.",
@@ -57838,7 +57987,7 @@
     "genre": "overig",
     "time": "14:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/missie-maan-andre-kuipers-space-academy-8plus-28-feb/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267238"
   },
   {
     "title": "No Name - The Music Remains",
@@ -58040,7 +58189,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/ik-weet-het-eigenlijk-niet-reprise-fred-van-leer-02-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=259097"
   },
   {
     "title": "Mike Lindup Trio",
@@ -58789,7 +58938,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/scheepers-op-zn-scherpst-rob-scheepers-05-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262766"
   },
   {
     "title": "The Bluebettes - Come Together",
@@ -58816,7 +58965,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/tonight-will-be-fine-leonard-cohen-tribute-band-05-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267240"
   },
   {
     "title": "Vrije Keuze Abonnement Stel zelf je ideale klassieke abonnement samen",
@@ -58865,7 +59014,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/barokopera-amsterdam-indian-queens-from-abya-yala-06-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267244"
   },
   {
     "title": "Beethoven! Belcea Quartet speelt alle strijkkwartetten (deel 1)",
@@ -59337,7 +59486,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/thunder-from-down-under-06-mrt/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262767",
     "category": "concert",
     "cats": [
       "concert"
@@ -59695,7 +59844,7 @@
     "genre": "overig",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/2175377183/maya-show-1-samen-picknicken-1"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/4138643337/maya-show-1-samen-picknicken"
   },
   {
     "title": "Moonspell",
@@ -59750,7 +59899,7 @@
     "genre": "overig",
     "time": "16:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/samen-picknicken-maya-show-1plus-07-mrt-1/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261594"
   },
   {
     "title": "The Doors Rising (UK)",
@@ -59835,7 +59984,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/de-vrouwenhart-show-janneke-wittekoek-08-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261597"
   },
   {
     "title": "Hedon Academy: Releaseplanningen En Muziek Uitbrengen In Eigen Beheer",
@@ -60032,7 +60181,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/20-jaar-onmeunig-druk-20-jaar-miss-montreal-10-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=281507"
   },
   {
     "title": "Beethoven! Belcea Quartet speelt alle strijkkwartetten (deel 4)",
@@ -60304,6 +60453,15 @@
     ]
   },
   {
+    "title": "Eosine",
+    "date": "2027-03-11",
+    "source": "rotown",
+    "genre": "overig",
+    "time": "20:30",
+    "venue": "Rotown, Rotterdam",
+    "url": "https://www.rotown.nl/agenda/eosine/"
+  },
+  {
     "title": "Erwin Nyhoff & The Prodigal Sons",
     "date": "2027-03-11",
     "source": "hedon",
@@ -60464,7 +60622,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/wagyu-rundfunk-11-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=261607"
   },
   {
     "title": "Wende",
@@ -60481,7 +60639,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/35-jaor-op-pad-mooi-wark-monsters-van-de-rock-n-roll-12-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=298770"
   },
   {
     "title": "A tribute to George Michael - Feedom Forever",
@@ -60521,7 +60679,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/beethoven-5-noord-nederlands-orkest-12-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267544"
   },
   {
     "title": "Beethoven! Belcea Quartet speelt alle strijkkwartetten (deel 5)",
@@ -60892,7 +61050,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/bluefinger-volume-2-bertolf-13-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262263"
   },
   {
     "title": "Bombus",
@@ -60950,7 +61108,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/de-nieuwe-romantische-comedy-huisgenoten-13-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262265"
   },
   {
     "title": "Een avondje blues, swing en boogie door Ed Bakers Boogie Machine",
@@ -61384,7 +61542,7 @@
     "genre": "overig",
     "time": "15:30",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/bouwen-een-feestje-buurman-en-buurman-4plus-14-mrt-1/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262269"
   },
   {
     "title": "Buurman en Buurman | 4+ Bouwen een feestje",
@@ -61393,7 +61551,7 @@
     "genre": "Festival",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1777330224/buurman-en-buurman-4-bouwen-een-feestje-1"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/991822679/buurman-en-buurman-4-bouwen-een-feestje"
   },
   {
     "title": "Concertgebouworkest & Klaus Mäkelä: Beethovens Missa solemnis",
@@ -61878,7 +62036,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/maris-wat-eten-we-vandaag-17-mrt/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262272",
     "category": "uitje",
     "cats": [
       "uitje"
@@ -62114,7 +62272,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/jandino-20-jaar-jandino-de-grote-jubileumshow-18-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262274"
   },
   {
     "title": "Jandino – DE GROTE JUBILEUMSHOW JANDINO 20 JAAR",
@@ -62503,7 +62661,7 @@
     "genre": "overig",
     "time": "19:30",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/nederlands-kamerorkest-bachs-matthaeus-passion-19-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262278"
   },
   {
     "title": "Nick Schilder The Singer Songwriter Show – 2e editie",
@@ -63210,7 +63368,7 @@
     "genre": "overig",
     "time": "14:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/camping-in-nood-t-aol-volk-21-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=298846"
   },
   {
     "title": "De Kleine Zeemeermin (2+)",
@@ -63294,7 +63452,7 @@
     "genre": "overig",
     "time": "15:00",
     "venue": "De Grote Kerk, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/kamerorkest-vh-noorden-marco-danesi-dromen-gebeden-en-rubberlaarzen-21-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=270533"
   },
   {
     "title": "Koka Kola Rivier (9+) De Toneelmakerij",
@@ -63714,7 +63872,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/appeltje-eitje-nienke-plas-25-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262285"
   },
   {
     "title": "BLUAI",
@@ -64011,7 +64169,7 @@
     "genre": "overig",
     "time": "21:00",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/het-foutste-feest-op-goede-vrijdag-voute-vrijdag-18plus-26-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262289"
   },
   {
     "title": "Jandino- DE GROTE JUIBLEUMSHOW - Jandino 20 jaar",
@@ -64359,7 +64517,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153947&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153947&lang=en"
   },
   {
     "title": "Hannah Mae",
@@ -64775,7 +64933,7 @@
     "genre": "overig",
     "time": "13:30",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/vos-haas-samen-in-het-bos-29-mrt/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=269138"
   },
   {
     "title": "Vos & Haas… met vrienden | 3+",
@@ -65270,7 +65428,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154766&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154766&lang=en"
   },
   {
     "title": "Zeke (USA) + support",
@@ -65592,7 +65750,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/stefan-de-walle-achraf-koutet-ea-het-uur-van-de-waarheid-02-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262302"
   },
   {
     "title": "Sven Ratzke",
@@ -66083,7 +66241,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/overprikkeld-martijn-koning-03-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262305"
   },
   {
     "title": "Politie Warnsveld",
@@ -66176,7 +66334,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-singer-songwriter-show-nick-schilder-03-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262309"
   },
   {
     "title": "Voltage",
@@ -66811,7 +66969,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-bodyguard-de-musical-07-apr/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262186",
     "category": "musical",
     "cats": [
       "theater",
@@ -67106,7 +67264,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-bodyguard-de-musical-08-apr/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262188",
     "category": "musical",
     "cats": [
       "theater",
@@ -67449,7 +67607,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-bodyguard-de-musical-09-apr/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262189",
     "category": "musical",
     "cats": [
       "theater",
@@ -67506,7 +67664,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/wat-als-nasrdin-dchar-09-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262472"
   },
   {
     "title": "Chef'Special",
@@ -67632,7 +67790,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "De Grote Kerk, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/isabelle-van-keulen-ulrike-payer-on-tour-10-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=270537"
   },
   {
     "title": "Italiaans vuur met Alon Sariel en Combattimento",
@@ -67686,7 +67844,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/lach-maar-om-mij-luuk-weggemans-10-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262473"
   },
   {
     "title": "Luuk Weggemans - Lach maar om mij",
@@ -67901,7 +68059,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-bodyguard-de-musical-10-apr-1/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262191",
     "category": "musical",
     "cats": [
       "theater",
@@ -68232,7 +68390,7 @@
     "genre": "overig",
     "time": "15:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-bodyguard-de-musical-11-apr/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262192",
     "category": "musical",
     "cats": [
       "theater",
@@ -68570,7 +68728,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153826&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153826&lang=en"
   },
   {
     "title": "Clean Pete Klassieke Revue met Thomas Beijer",
@@ -68792,7 +68950,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-irish-road-trip-anneke-van-giersbergen-15-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262474"
   },
   {
     "title": "The Montvales",
@@ -68904,7 +69062,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/gelukkig-heb-je-mij-nog-richard-groenendijk-16-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=259937"
   },
   {
     "title": "Hooverphonic feat. Noémie Wolfs 30 Year Anniversary",
@@ -68980,7 +69138,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/later-word-ik-7-meester-mark-16-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262479"
   },
   {
     "title": "Lunchconcert klassiek",
@@ -69101,6 +69259,14 @@
     "genre": "overig",
     "venue": "TivoliVredenburg, Utrecht",
     "url": "https://www.tivolivredenburg.nl/agenda/28265107/radio-filharmonisch-orkest-rachmaninov-2-16-04-2027"
+  },
+  {
+    "title": "Raving Charlie",
+    "date": "2027-04-16",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/raving-charlie-16-04-2027/"
   },
   {
     "title": "Richard Groenendijk - Gelukkig heb je mij nog",
@@ -69241,7 +69407,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/because-of-you-niels-geusebroek-17-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262481"
   },
   {
     "title": "Bökkers - Hier!",
@@ -69630,7 +69796,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/zoek-dekking-de-verleiders-17-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262482"
   },
   {
     "title": "Barok op zondagmiddag: Helsinki Baroque Orchestra met klavecimbelconcerten van Bach",
@@ -69798,6 +69964,15 @@
     "genre": "overig",
     "venue": "Effenaar, Eindhoven",
     "url": "https://www.effenaar.nl/agenda/high-fade"
+  },
+  {
+    "title": "Hoogeveense Cascaderun",
+    "date": "2027-04-18",
+    "source": "drenthe.nl",
+    "genre": "Sport",
+    "city": "Hoogeveen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/2097248372/hoogeveense-cascaderun"
   },
   {
     "title": "JoepTube",
@@ -70188,7 +70363,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/roel-van-velzen-ruben-hein-ea-music-wonders-of-the-beatles-21-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262483"
   },
   {
     "title": "Sammy Rae & The Friends",
@@ -70473,7 +70648,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/ruim-kasper-van-der-laan-22-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262484"
   },
   {
     "title": "Selma Visscher — Trekvogel",
@@ -70817,7 +70992,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/tot-het-uiterste-gedreven-thijs-kemperink-23-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262485"
   },
   {
     "title": "Yentl en de Boer De dagen",
@@ -71078,7 +71253,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154037&lang=nl"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154037&lang=en"
   },
   {
     "title": "Moss (NL) + support",
@@ -71097,7 +71272,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/naar-het-boek-van-saskia-noort-de-verbouwing-24-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262486"
   },
   {
     "title": "New Wave - All Stars",
@@ -71271,7 +71446,7 @@
     "genre": "overig",
     "time": "19:30",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/cirque-acrobatique-amilia-25-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262487"
   },
   {
     "title": "Close-up Concertgebouworkest: Andante cantabile",
@@ -71436,7 +71611,7 @@
     "genre": "overig",
     "time": "16:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/ernst-en-bobbie-hebben-geen-idee-3plus-28-apr-1/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262497"
   },
   {
     "title": "Esther van der Voort - Mama is Boos",
@@ -71589,7 +71764,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/imperfect-klaas-van-der-eerden-29-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262488"
   },
   {
     "title": "Josua Peter",
@@ -71902,7 +72077,7 @@
     "genre": "overig",
     "time": "15:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/theater-terra-pippi-en-de-piraten-6plus-30-apr/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262489"
   },
   {
     "title": "Van Bach tot Händel met het Concertgebouworkest",
@@ -72073,6 +72248,14 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/337172010/het-uur-van-de-waarheid"
   },
   {
+    "title": "Hey Desi",
+    "date": "2027-05-01",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/hey-desi-01-05-2027/"
+  },
+  {
     "title": "Jaski & Groenteman De musical zonder billen (4+)",
     "date": "2027-05-01",
     "source": "ontdekpoort",
@@ -72103,7 +72286,7 @@
     "genre": "overig",
     "time": "15:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/kikker-is-kikker-3plus-01-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262490"
   },
   {
     "title": "Kraak & Smaak",
@@ -72214,7 +72397,7 @@
     "genre": "overig",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3731643651/de-zoete-zusjes-3-lossen-het-op"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1197804729/de-zoete-zusjes-3-lossen-het-op-1"
   },
   {
     "title": "De musical zonder billen (4+) - Jaski & Groenteman",
@@ -72269,7 +72452,7 @@
     "genre": "overig",
     "time": "16:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/lossen-het-op-de-zoete-zusjes-3plus-02-mei-1/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262492"
   },
   {
     "title": "Luwten",
@@ -72520,7 +72703,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/recht-uit-het-hart-marco-schuitmaker-06-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262498"
   },
   {
     "title": "Rundfunk Wagyu",
@@ -72617,7 +72800,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/de-klassieker-in-het-theater-van-hanegem-versus-swart-07-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262834"
   },
   {
     "title": "FC Emmen - Jong FC Utrecht",
@@ -72667,7 +72850,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/mama-is-boos-esther-van-der-voort-07-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=262500"
   },
   {
     "title": "Mell VF",
@@ -72802,7 +72985,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/brothers-reprise-ashton-brothers-08-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263797"
   },
   {
     "title": "Bram van Sambeek & Animato Kwartet: feest voor fagot en strijkkwartet",
@@ -73244,7 +73427,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/silent-gestures-another-kind-of-blue-09-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263798"
   },
   {
     "title": "Skerryvore",
@@ -73666,7 +73849,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/jelka-van-houten-sanne-wallis-de-vries-lift-13-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263799"
   },
   {
     "title": "LIFT - Jelka van Houten & Sanne Wallis de Vries",
@@ -74016,7 +74199,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/slechtste-liedjes-van-de-straat-roel-c-verburg-14-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263800"
   },
   {
     "title": "Talco",
@@ -74061,7 +74244,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/the-story-of-floyd-later-works-pink-project-the-band-14-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263801"
   },
   {
     "title": "Vitesse - Heracles Almelo",
@@ -74147,7 +74330,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/dolly-dots-de-musical-15-mei/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263802",
     "category": "musical",
     "cats": [
       "musical"
@@ -74359,7 +74542,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/dolly-dots-de-musical-16-mei/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263803",
     "category": "musical",
     "cats": [
       "musical"
@@ -74501,7 +74684,7 @@
     "genre": "overig",
     "time": "15:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/dolly-dots-de-musical-17-mei/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263804",
     "category": "musical",
     "cats": [
       "musical"
@@ -74682,7 +74865,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/boney-m-1976-2026-daddy-cool-turns-50-20-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263805"
   },
   {
     "title": "Brand New Musicals: Dionne Verwey - Kapsalon de musical",
@@ -74820,7 +75003,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/20-jaar-3js-3js-21-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263807"
   },
   {
     "title": "3JS - 20 jaar 3JS",
@@ -74846,7 +75029,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/als-ik-jou-was-david-van-rosmalen-21-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263806"
   },
   {
     "title": "Ashton Brothers",
@@ -75014,7 +75197,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/bouke-rocks-elvis-22-mei/",
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263808",
     "category": "concert",
     "cats": [
       "concert"
@@ -75668,7 +75851,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/lachen-schieten-brullen-ratatatata-28-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263809"
   },
   {
     "title": "Lunchconcert klassiek",
@@ -75862,7 +76045,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/lachen-schieten-brullen-ratatatata-29-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263810"
   },
   {
     "title": "MARINIERSKAPEL - Concert in de Trije",
@@ -75919,7 +76102,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/sentationele-solo-naar-de-netflixhit-baby-reindeer-29-mei/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263811"
   },
   {
     "title": "Tetzlaff Quartett speelt Mendelssohn en Schubert",
@@ -75971,7 +76154,7 @@
     "genre": "overig",
     "time": "16:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/bing-is-jarig-1plus-30-mei-1/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=263813"
   },
   {
     "title": "Brahms' Derde en Elgars Vioolconcert met Nikolaj Szeps-Znaider",
@@ -76339,7 +76522,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/rocky-mountain-high-a-tribute-to-john-denver-04-jun/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=265334"
   },
   {
     "title": "The Kik Hertaalt The Beatles (1962-1966)",
@@ -76388,7 +76571,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/legende-van-de-witte-slang-nhung-dam-05-jun/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=265343"
   },
   {
     "title": "Nhung Dam - Legende van de witte slang",
@@ -76460,7 +76643,7 @@
     "genre": "overig",
     "time": "16:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/vooruit-nog-een-keertje-dan-titus-fien-de-revue-4plus-05-jun-1/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=220925"
   },
   {
     "title": "Alexis Ffrench",
@@ -76858,7 +77041,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/vallicht-romijn-conen-11-jun/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267248"
   },
   {
     "title": "Bettie Serveert",
@@ -76920,7 +77103,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/tunnelvisie-jay-francis-12-jun/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=265345"
   },
   {
     "title": "Composer in residence: Carlos Simon en zijn Gardner Suite",
@@ -77003,7 +77186,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/finale-atlas-on-stage-17-jun/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=291395"
   },
   {
     "title": "Hayley Williams",
@@ -77068,7 +77251,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/lieve-marianne-peter-heerschop-19-jun/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=267548"
   },
   {
     "title": "Peter Heerschop - Lieve Marianne",
@@ -77161,7 +77344,7 @@
     "genre": "Festival",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3034255413/over-een-kleine-mol-2-prentenboekjesfestival-1"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3285983395/over-een-kleine-mol-2-prentenboekjesfestival"
   },
   {
     "title": "Prentenboekjesfestival - De Gruffalo | 3+",
@@ -77170,7 +77353,7 @@
     "genre": "overig",
     "time": "13:00",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/prentenboekjesfestival-de-gruffalo-3plus-20-jun/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=270245"
   },
   {
     "title": "Prentenboekjesfestival - Over een kleine mol... | 2+",
@@ -77179,7 +77362,7 @@
     "genre": "overig",
     "time": "16:15",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/prentenboekjesfestival-over-een-kleine-mol-2plus-20-jun-1/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=270278"
   },
   {
     "title": "Salsa - dansmiddag",
@@ -78422,7 +78605,7 @@
     "genre": "Muziek",
     "city": "Groningen",
     "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2209792908/masterpiece-festival-stravinsky-le-sacre-du-printemps",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1615307200/masterpiece-moessorgski-schilderijen-van-een-tentoonstelling-1",
     "category": "Klassieke muziek"
   },
   {
@@ -78504,7 +78687,7 @@
     "genre": "overig",
     "time": "20:30",
     "venue": "DVHN Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/vleugels-gerrie-smits-05-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=292428"
   },
   {
     "title": "Bettie Serveert (NL) + The Monroes (NL)",
@@ -78607,7 +78790,7 @@
     "genre": "overig",
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
-    "url": "https://www.atlastheater.nl/voorstellingen/buddy-vedder-shelley-bos-al-het-blauw-van-de-hemel-reprise-26-nov/"
+    "url": "https://www.atlastheater.nl/voorstellingen/voorstelling?perfId=292164"
   },
   {
     "title": "Kovacs (Nieuwe datum)",
