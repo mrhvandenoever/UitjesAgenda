@@ -12,7 +12,8 @@ archief, niet hernummerd of verwijderd.
 
 ## Open vragen / te bespreken
 
-### 23. Live site staat stil op 9 september — Cloudflare Pages deployt niet meer (ACTIE MICHIEL)
+### 23. Live site stond stil op 9 september — OPGELOST 2026-10-18 (Cloudflare↔GitHub-koppeling hersteld)
+- **Opgelost**: Michiel herstelde de Git-koppeling in Cloudflare; een lege commit (`11365cf`) triggerde een deploy (check-run success) en de live site toont weer "Bijgewerkt: 18 Oktober 2026". Hieronder de diagnose voor de geschiedenis. Als dit ooit terugkomt: eerst de Deployments-tab van het Pages-project bekijken (banner "disconnected from your Git account") — het Pages-project staat in het Cloudflare-account van chielemans@hotmail.com, NIET in het account van leadfinder-hoekstra.
 - **Gevonden 2026-10-18** (Michiel: "laatst bijgewerkt op 9 september, staat er", incl. screenshot). Geen cache-probleem: een `no-store`/cache-busted fetch van https://uitjesagenda.pages.dev geeft ook gewoon "Bijgewerkt: 9 September 2026, 04:02" terug.
 - **Alles aan onze kant werkt**: de nachtelijke taak draait (`LastTaskResult: 0`), scrapet, commit én pusht — GitHub `origin/main` heeft de commit van 18 okt 04:03 met de juiste "Bijgewerkt"-tekst. Alleen 15 okt ontbreekt (PC vermoedelijk uit/slapend; `StartWhenAvailable` staat al aan, dus geen actie nodig).
 - **Breuklijn exact vastgesteld via de GitHub check-runs**: laatste commit mét een "Cloudflare Pages — success"-check is `b515d0e` (9 sept 04:01); ELKE commit daarna (10 sept t/m 18 okt, ook mijn handmatige docs-commits van 13 en 28 sept) heeft géén Cloudflare-check meer. Dus geen falende build (dat zou een rode check geven) maar Cloudflare wórdt niet meer getriggerd door pushes. Oorzaak ligt dus buiten de repo: Cloudflare ↔ GitHub-koppeling (GitHub-app geschorst/ingetrokken/repo-toegang aangepast, Git-integratie losgekoppeld, of automatische deployments uitgezet in het Pages-project).

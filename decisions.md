@@ -2947,3 +2947,9 @@ geven een `UnicodeDecodeError` bij UTF-8-inlezen) — puur cosmetisch,
 geen functionele impact (de `SUCCESS_MARKERS`-detectie gebeurt aan de
 Python-kant, niet op dit logbestand). Optioneel op te lossen door het
 logbestand een keer leeg te maken zodat het weer schoon opbouwt.
+
+
+## 2026-10-18 — Live site 5 weken stil: Cloudflare Pages-koppeling met GitHub was verbroken
+- Symptoom: site toonde 'Bijgewerkt: 9 September'. Geen cache-issue en niet de nachtelijke taak (die committe en pushte dagelijks correct). Oorzaak: Pages-project `uitjesagenda` meldde 'disconnected from your Git account'; sinds `b515d0e` (9 sept) geen deploy meer, geen Cloudflare check-run op latere commits.
+- Fix: Michiel herstelde de koppeling in Cloudflare/GitHub; lege commit `11365cf` triggerde de deploy; live geverifieerd. Het project staat in het Cloudflare-account chielemans@hotmail.com.
+- Les: een draaiende refresh + commits op GitHub bewijst niet dat de live site bijgewerkt wordt. Controleer bij twijfel het Cloudflare check-run op de laatste commit (`gh api repos/mrhvandenoever/UitjesAgenda/commits/<sha>/check-runs`).
