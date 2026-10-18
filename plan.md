@@ -576,3 +576,10 @@ hier alleen de samenvatting van wat er gebeurd is.
   Gecommit en gepusht, decisions.md/ARCHITECTURE.md gecorrigeerd met de
   volledige, definitieve diagnose.
 
+
+## Sessie 2026-10-18 — Live site stond 5 weken stil (Cloudflare-koppeling, niet onze code)
+
+- [x] Michiel meldde: live site toont "Bijgewerkt: 9 September". Onderzocht: niet de browsercache (no-store fetch geeft hetzelfde), niet de nachtelijke taak (die draait, `LastTaskResult: 0`, `origin/main` heeft dagelijks verse commits tot en met 18 okt).
+- [x] Via de GitHub check-runs-API de exacte breuklijn gevonden: laatste commit met "Cloudflare Pages — success" is `b515d0e` (9 sept 04:01); alle commits daarna (ook handmatige) hebben geen Cloudflare-check. Cloudflare wordt dus niet meer getriggerd — de GitHub↔Cloudflare-koppeling is rond 9/10 sept gebroken.
+- [ ] **ACTIE MICHIEL**: Cloudflare-dashboard / GitHub-app-installatie controleren, zie overleg.md punt 23 (checklist). Ik kon het dashboard niet inzien (Chrome-extensie niet bereikbaar).
+- [x] Bijvangst: 15 okt heeft geen nachtelijke run (PC vermoedelijk uit); `StartWhenAvailable` staat al aan — geen actie.
