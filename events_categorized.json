@@ -1190,6 +1190,17 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3179996211/verhalen-festival-orvelte-1"
   },
   {
+    "title": "Zuidlaardermarkt – feestweek met kermis, paardenmarkt & warenmarkt",
+    "date": "2026-10-16",
+    "source": "drenthe.nl",
+    "genre": "festival",
+    "date_end": "2026-10-21",
+    "location": "Brink / centrum Zuidlaren",
+    "city": "Zuidlaren",
+    "province": "Drenthe",
+    "url": "https://www.evenementenzuidlaardermarkt.nl"
+  },
+  {
     "title": "Agricola Narco Geneticus",
     "date": "2026-10-17",
     "source": "uitzinnig",
@@ -1939,6 +1950,17 @@
     "city": "Frederiksoord",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/115304969/kolonistendag-2026"
+  },
+  {
+    "title": "Koopzondag met straattheater Zuidlaren",
+    "date": "2026-10-18",
+    "source": "drenthe.nl",
+    "genre": "festival",
+    "time": "13:00",
+    "location": "Stationsweg / De Millystraat, Zuidlaren",
+    "city": "Zuidlaren",
+    "province": "Drenthe",
+    "url": "https://www.tynaarlo.nl/zuidlaardermarkt/programma"
   },
   {
     "title": "Lake Street Dive",
@@ -2752,6 +2774,28 @@
     "url": "https://www.concertgebouw.nl/concerten/45884894-moving-talent-pianist-gabriel-crist-zet-mozart-in-een-nieuw-licht"
   },
   {
+    "title": "Ouderenmiddag Zuidlaardermarkt",
+    "date": "2026-10-19",
+    "source": "drenthe.nl",
+    "genre": "festival",
+    "time": "13:00",
+    "location": "Brinkhotel Zuidlaren",
+    "city": "Zuidlaren",
+    "province": "Drenthe",
+    "url": "https://www.tynaarlo.nl/zuidlaardermarkt/programma"
+  },
+  {
+    "title": "Prikkelarme middag op de kermis Zuidlaren",
+    "date": "2026-10-19",
+    "source": "drenthe.nl",
+    "genre": "festival",
+    "time": "13:00",
+    "location": "Kermis Zuidlaren",
+    "city": "Zuidlaren",
+    "province": "Drenthe",
+    "url": "https://www.tynaarlo.nl/zuidlaardermarkt/programma"
+  },
+  {
     "title": "Slayyyter WOR$T GIRL IN THE WORLD TOUR + Kalika",
     "date": "2026-10-19",
     "source": "paradiso",
@@ -3201,15 +3245,6 @@
     "url": "https://www.tivolivredenburg.nl/agenda/53579129/wolvennest-bedsore-20-10-2026"
   },
   {
-    "title": "Zuidlaarder Paardenmarkt",
-    "date": "2026-10-20",
-    "source": "drenthe.nl",
-    "genre": "festival",
-    "city": "Zuidlaren",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl"
-  },
-  {
     "title": "Zuidlaardermarkt",
     "date": "2026-10-20",
     "source": "drenthe.nl",
@@ -3488,6 +3523,17 @@
     "genre": "overig",
     "venue": "TivoliVredenburg, Utrecht",
     "url": "https://www.tivolivredenburg.nl/agenda/72850352/julian-j3po-pollack-trio-21-10-2026"
+  },
+  {
+    "title": "Kindermiddag Zuidlaardermarkt-kermis",
+    "date": "2026-10-21",
+    "source": "drenthe.nl",
+    "genre": "festival",
+    "time": "13:00",
+    "location": "Op en rond de kermis, Zuidlaren",
+    "city": "Zuidlaren",
+    "province": "Drenthe",
+    "url": "https://www.tynaarlo.nl/zuidlaardermarkt/programma"
   },
   {
     "title": "Kleintje Koffie",

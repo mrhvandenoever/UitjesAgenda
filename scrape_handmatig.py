@@ -49,32 +49,49 @@ def build_events(year: int) -> list[dict]:
 
     # ── ZUIDLAREN (gemeente Tynaarlo, Drenthe) ────────────────────────────────
 
-    # Zuidlaarder Paardenmarkt — 3e dinsdag van oktober
+    # Zuidlaardermarkt-feestweek — meerdaags: kermis opent de vrijdag voor de
+    # paardenmarkt (3e dinsdag van oktober) en loopt t/m de woensdag erna
+    # (bevestigd 2026-10-18 via evenementenzuidlaardermarkt.nl: opening vr 16 okt,
+    # koopzondag/straattheater, ouderenmiddag, paardenmarkt + warenmarkt di 20 okt,
+    # kindermiddag wo 21 okt). Eén event met date_end i.p.v. losse eendagsrijen,
+    # zodat het onder "Nu lopend" valt zolang de feestweek loopt.
     pm_date = nth_weekday(year, 10, 3, 1)   # 3e dinsdag (weekday=1)
     events.append({
-        'title':    'Zuidlaarder Paardenmarkt',
-        'date':     pm_date.isoformat(),
+        'title':    'Zuidlaardermarkt – feestweek met kermis, paardenmarkt & warenmarkt',
+        'date':     (pm_date - timedelta(days=4)).isoformat(),   # vrijdag ervoor
+        'date_end': (pm_date + timedelta(days=1)).isoformat(),   # woensdag erna
         'city':     'Zuidlaren',
         'province': 'Drenthe',
+        'location': 'Brink / centrum Zuidlaren',
         'genre':    'festival',
         'source':   'drenthe.nl',
-        'url':      'https://www.drenthe.nl',
-        'note':     '3e dinsdag oktober; een van grootste paardenmarkten van Europa',
+        'url':      'https://www.evenementenzuidlaardermarkt.nl',
+        'note':     "3e dinsdag oktober = paardenmarkt (Europa's grootste); kermis vr t/m wo",
     })
 
-    # Kermis Zuidlaren opening — vrijdag voor de paardenmarkt
-    # pm_date is dinsdag (weekday=1), vrijdag ervoor is -4 dagen
-    kermis_zuidlaren = pm_date - timedelta(days=4)
-    events.append({
-        'title':    'Kermis Zuidlaren (opening)',
-        'date':     kermis_zuidlaren.isoformat(),
-        'city':     'Zuidlaren',
-        'province': 'Drenthe',
-        'genre':    'festival',
-        'source':   'drenthe.nl',
-        'url':      'https://www.drenthe.nl',
-        'note':     'Kermis opent de vrijdag voor de Paardenmarkt',
-    })
+    # Losse onderdelen van het feestweek-programma (tynaarlo.nl/zuidlaardermarkt/programma,
+    # 2026-10-18). Alleen de nog-niet-voorbije dagen komen door het filter in scrape().
+    # Het feestweek-event hierboven dekt kermis/livemuziek/paardenmarkt; dit zijn de
+    # aparte, los vindbare activiteiten. (Loop, kinderrommelmarkt en vuurwerk vallen op
+    # za 17 okt, dus voor 2026 al voorbij.)
+    for dag_offset, titel, tijd, plek in [
+        (-2, 'Koopzondag met straattheater Zuidlaren', '13:00', 'Stationsweg / De Millystraat, Zuidlaren'),
+        (-1, 'Prikkelarme middag op de kermis Zuidlaren', '13:00', 'Kermis Zuidlaren'),
+        (-1, 'Ouderenmiddag Zuidlaardermarkt', '13:00', 'Brinkhotel Zuidlaren'),
+        (+1, 'Kindermiddag Zuidlaardermarkt-kermis', '13:00', 'Op en rond de kermis, Zuidlaren'),
+    ]:
+        events.append({
+            'title':    titel,
+            'date':     (pm_date + timedelta(days=dag_offset)).isoformat(),
+            'time':     tijd,
+            'city':     'Zuidlaren',
+            'province': 'Drenthe',
+            'location': plek,
+            'genre':    'festival',
+            'source':   'drenthe.nl',
+            'url':      'https://www.tynaarlo.nl/zuidlaardermarkt/programma',
+            'note':     'Onderdeel Zuidlaardermarkt-feestweek',
+        })
 
     # Muzieknacht Zuidlaren — los evenement in juli (bevestigd via naarzuidlaren.nl + Facebook)
     # Datum: elk jaar in juli, exacte dag via naarzuidlaren.nl te scrapen
@@ -122,8 +139,8 @@ def scrape(dry_run: bool = False) -> tuple[int, int]:
 
     found = added = 0
     for e in events:
-        if e['date'] < today:
-            continue  # verleden; sla over
+        if (e.get('date_end') or e['date']) < today:
+            continue  # verleden (einddatum voorbij); sla over
         found += 1
         if dry_run:
             print(f"  [{e['date']}] {e['genre']:10s} {e['title']} ({e['city']}, {e['province']})")
