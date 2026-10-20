@@ -2959,3 +2959,9 @@ logbestand een keer leeg te maken zodat het weer schoon opbouwt.
 - Fix: in `scrape_handmatig.py` vervangen door 1 meerdaags event 'Zuidlaardermarkt – feestweek met kermis, paardenmarkt & warenmarkt' (vr voor t/m wo na de 3e dinsdag van oktober, `date_end` gezet) + 4 losse programma-onderdelen (koopzondag/straattheater, prikkelarme middag, ouderenmiddag, kindermiddag), alles afgeleid van `nth_weekday(year,10,3,1)` zodat het volgend jaar vanzelf meegaat. De 2 oude losse rijen uit events.db verwijderd.
 - **Bijvangst/bug in dezelfde scraper**: `scrape()` sloeg alles over met startdatum < vandaag, waardoor elk reeds-lopend meerdaags handmatig event wegviel. Nu: filter op `date_end` (valt terug op `date`).
 - Let op: de drenthe.nl-scraper levert nog steeds zijn eigen eendaagse 'Zuidlaardermarkt' (20 okt) — bewust gelaten, andere titel dan de feestweek, geen exacte dubbele.
+
+## 2026-10-20 — Hoe `git push` van de nachtelijke taak authenticeert (GitHub-vervalmail was een vals alarm)
+- GitHub mailde dat fine-grained PAT 'UitjesAgenda' binnen 1 dag verloopt. Onderzocht (alleen voorvoegsel/lengte getoond, nooit het token zelf): `git credential fill` voor github.com levert een **`gho_`-OAuth-token** (40 tekens, Git Credential Manager-item `git:https://github.com`), NIET het fine-grained PAT. Het PAT staat op 'last used within 4 months' en is dus niet in gebruik voor de refresh.
+- Gevolg: het verlopen van dat PAT raakt de dagelijkse push niet. Ik had eerst ten onrechte geadviseerd het PAT te vervangen in Credential Manager; dat is niet nodig en is (gelukkig) ook niet gebeurd — het opgeslagen token is nog steeds `gho_`. Testpush `608ab8e` slaagde.
+- Michiel regenereerde het PAT toch (nu zonder vervaldatum). Verwijderen kan als het nergens anders gebruikt wordt — zijn keuze.
+- Als push ooit faalt met een auth-fout: opnieuw inloggen via de browser-prompt van Git Credential Manager. (Regel blijft: nooit een token in de chat plakken.)
