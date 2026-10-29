@@ -633,16 +633,6 @@
     ]
   },
   {
-    "title": "Maak je eigen sierspeld - Oktober Kindermaand",
-    "date": "2026-10-13",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "date_end": "2026-10-28",
-    "city": "Leeuwarden",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/4037180516/maak-je-eigen-sierspeld-oktober-kindermaand"
-  },
-  {
     "title": "Angkor - Het mysterie van Cambodja",
     "date": "2026-10-17",
     "source": "uitzinnig",
@@ -731,24 +721,6 @@
     ]
   },
   {
-    "title": "Hoe Brandveilig Is Jouw Studentenkamer",
-    "date": "2026-10-27",
-    "source": "forum.nl",
-    "genre": "overig",
-    "date_end": "2026-10-28",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/hoe-brandveilig-is-jouw-studentenkamer"
-  },
-  {
-    "title": "Kleintje Koffie",
-    "date": "2026-10-27",
-    "source": "forum.nl",
-    "genre": "overig",
-    "date_end": "2026-10-28",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/kleintje-koffie"
-  },
-  {
     "title": "Storyworld",
     "date": "2026-10-27",
     "source": "forum.nl",
@@ -765,192 +737,6 @@
     "date_end": "2026-10-29",
     "venue": "Forum Groningen",
     "url": "https://forum.nl/nl/agenda/taalhuis"
-  },
-  {
-    "title": "Afslag Gewist",
-    "date": "2026-10-28",
-    "source": "posthuistheater",
-    "genre": "overig",
-    "time": "20:15",
-    "venue": "Posthuis Theater, Heerenveen",
-    "url": "https://www.posthuistheater.nl/agenda/",
-    "category": "theater",
-    "cats": [
-      "uitje"
-    ]
-  },
-  {
-    "title": "Amsterdam Sinfonietta & Abel Selaocoe",
-    "date": "2026-10-28",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/87903699/amsterdam-sinfonietta-abel-selaocoe-28-10-2026"
-  },
-  {
-    "title": "Anas Younes - On Anger & Fatigue",
-    "date": "2026-10-28",
-    "source": "grandtheatregroningen",
-    "genre": "overig",
-    "venue": "Grand Theatre, Groningen",
-    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/anas-younes-on-anger-fatigue"
-  },
-  {
-    "title": "Arlo Parks",
-    "date": "2026-10-28",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/13549941/arlo-parks-28-10-2026"
-  },
-  {
-    "title": "Beast In Black",
-    "date": "2026-10-28",
-    "source": "013",
-    "genre": "overig",
-    "time": "19:15",
-    "venue": "013, Tilburg",
-    "url": "https://www.013.nl/programma/120461/beast-in-black"
-  },
-  {
-    "title": "BeeGees by Maincourse Bee Gees. Fame, Family & Tragedy!",
-    "date": "2026-10-28",
-    "source": "ontdekpoort",
-    "genre": "overig",
-    "venue": "OntdekPoort (Sneek/Bolwerk)",
-    "url": "https://ontdekpoort.nl/programma/2875/beegees-by-maincourse/",
-    "category": "theater",
-    "cats": [
-      "uitje"
-    ]
-  },
-  {
-    "title": "Bel Cobain",
-    "date": "2026-10-28",
-    "source": "paradiso",
-    "genre": "overig",
-    "time": "19:30",
-    "venue": "Paradiso, Amsterdam",
-    "url": "https://www.paradiso.nl/nl/programma/bel-cobain/2885192"
-  },
-  {
-    "title": "Beleef het Boomkroonpad",
-    "date": "2026-10-28",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Hondsrug",
-    "province": "Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/beleef-het-boomkroonpad",
-    "subtitle": "Beleef het bos eens vanuit een ander perspectief en maak een wandeling over het Boomkroonpad. Dit wandelpad leidt je hoog langs de toppen van de bomen.",
-    "lat": 52.949836,
-    "lon": 6.745159,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Caravan Palace",
-    "date": "2026-10-28",
-    "source": "spotgroningen.nl",
-    "genre": "overig",
-    "time": "20:00",
-    "venue": "Oosterpoort, Groningen",
-    "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/caravan-palace/",
-    "subtitle": "Mixt moderne elektronische muziek met jazz en de vibe van de jaren twintig",
-    "cats": []
-  },
-  {
-    "title": "Charlie Jeer",
-    "date": "2026-10-28",
-    "source": "melkweg",
-    "genre": "overig",
-    "venue": "Melkweg, Amsterdam",
-    "url": "https://www.melkweg.nl/nl/agenda/charlie-jeer-28-10-2026/"
-  },
-  {
-    "title": "Code S.T.O.R.M. - Sallandse Heuvelrug",
-    "date": "2026-10-28",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Salland",
-    "province": "Overijssel",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/code-storm-sallandse-heuvelrug",
-    "subtitle": "De natuur is in gevaar! Een grote storm zal alles verwoesten en jij kan helpen deze te stoppen. Voltooi alle opdrachten in het bos en kom zo achter de code om de weermachine te activeren die de storm tegenhoudt.",
-    "lat": 52.365946,
-    "lon": 6.443639,
-    "cats": [
-      "actief"
-    ]
-  },
-  {
-    "title": "Culture (ft. Kenyatta Hill) & Cedric Myton from the Congos",
-    "date": "2026-10-28",
-    "source": "dedoelen",
-    "genre": "overig",
-    "time": "20:30",
-    "venue": "Jurriaanse Zaal, Rotterdam",
-    "url": "https://www.dedoelen.nl/nl/agenda/culture-ft-kenyatta-hill-cedric-myton-from-the-congos-qfbb"
-  },
-  {
-    "title": "De Jukebox",
-    "date": "2026-10-28",
-    "source": "013",
-    "genre": "overig",
-    "time": "14:30",
-    "venue": "013, Tilburg",
-    "url": "https://www.013.nl/programma/152161/de-jukebox"
-  },
-  {
-    "title": "Drachten maakt 't",
-    "date": "2026-10-28",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Drachten",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1578522216/drachten-maakt-t-1"
-  },
-  {
-    "title": "Een avond gewijd aan de schoonheid van tijd",
-    "date": "2026-10-28",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Havelte",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/537368783/een-avond-gewijd-aan-de-schoonheid-van-tijd"
-  },
-  {
-    "title": "Eliades Ochoa",
-    "date": "2026-10-28",
-    "source": "paard",
-    "genre": "Pop / Rock",
-    "location": "Den Haag",
-    "province": "Zuid-Holland",
-    "url": "https://www.paard.nl/en/event/eliades-ochoa-6/"
-  },
-  {
-    "title": "Eliades Ochoa – ¡Como Nunca!",
-    "date": "2026-10-28",
-    "source": "paard",
-    "genre": "overig",
-    "time": "20:30",
-    "venue": "Het Paard, Den Haag",
-    "url": "https://denhaag.com/nl/agenda/eliades-ochoa-como-nunca"
-  },
-  {
-    "title": "Escape route in het bos: Raadsels van Raaf",
-    "date": "2026-10-28",
-    "source": "staatsbosbeheer",
-    "genre": "overig",
-    "venue": "Drents-Friese Wold",
-    "province": "Drenthe",
-    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/escape-route-raadsels-van-raaf",
-    "subtitle": "Ontdek de escape route Raadsels van Raaf. Een spannende game waarbij je codes kraakt in het bos en zo het mysterie van Victor Raaf oplost. Een unieke buitenactiviteit van Staatsbosbeheer in het Drents Friese Wold voor kinderen en volwassenen.",
-    "lat": 52.953193,
-    "lon": 6.310575,
-    "cats": [
-      "actief"
-    ]
   },
   {
     "title": "Exhibition 'Contrasts'",
@@ -967,335 +753,6 @@
     ]
   },
   {
-    "title": "Fat Dog",
-    "date": "2026-10-28",
-    "source": "doornroosje",
-    "genre": "overig",
-    "venue": "Doornroosje, Nijmegen",
-    "url": "https://www.doornroosje.nl/event/fat-dog-2/"
-  },
-  {
-    "title": "Fat Dog - + lttl mort",
-    "date": "2026-10-28",
-    "source": "doornroosje",
-    "genre": "overig",
-    "venue": "Doornroosje, Nijmegen",
-    "url": "https://www.doornroosje.nl/event/fat-dog-2/"
-  },
-  {
-    "title": "Fatal Flowers",
-    "date": "2026-10-28",
-    "source": "hedon",
-    "genre": "overig",
-    "time": "19:30",
-    "venue": "Hedon - Grote Zaal, Zwolle",
-    "url": "https://shop.tickets.cm.com/3f0a8445-011b-0fc7-99f4-80cba22de847"
-  },
-  {
-    "title": "Frazey Ford - 28 oktober 2026 - Annabel, Rotterdam",
-    "date": "2026-10-28",
-    "source": "rotown",
-    "genre": "Muziek",
-    "location": "Rotterdam",
-    "url": "https://www.rotown.nl/agenda/frazey-ford/",
-    "image": "https://www.rotown.nl/wp-content/uploads/2026/03/Frazey-Ford-Photo-Credit-Anna-Linqvist_kl.jpg"
-  },
-  {
-    "title": "Geoff Tate's Operation: Mindcrime",
-    "date": "2026-10-28",
-    "source": "013",
-    "genre": "overig",
-    "time": "20:00",
-    "venue": "013, Tilburg",
-    "url": "https://www.013.nl/programma/124342/geoff-tates-operation-mindcrime"
-  },
-  {
-    "title": "Glenn Jones (USA) + Liam Grant (USA)",
-    "date": "2026-10-28",
-    "source": "visitgroningen",
-    "genre": "Muziek",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/297374030/glenn-jones-usa-liam-grant-usa",
-    "category": "Concert"
-  },
-  {
-    "title": "Gratis Lunchconcert: Nederlandse Fluit Academie",
-    "date": "2026-10-28",
-    "source": "concertgebouw",
-    "genre": "overig",
-    "venue": "Concertgebouw, Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/46012123-gratis-lunchconcert-nederlandse-fluit-academie"
-  },
-  {
-    "title": "Histoires Parallèles",
-    "date": "2026-10-28",
-    "source": "koornbeurs",
-    "genre": "overig",
-    "time": "15:00",
-    "venue": "Koornbeurs, Franeker",
-    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10049826/Titel/10383016"
-  },
-  {
-    "title": "Hoe Brandveilig Is Jouw Studentenkamer",
-    "date": "2026-10-28",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/hoe-brandveilig-is-jouw-studentenkamer?date=28-10-2026"
-  },
-  {
-    "title": "Hoe Lees Ik Een Film",
-    "date": "2026-10-28",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/hoe-lees-ik-een-film?date=28-10-2026"
-  },
-  {
-    "title": "Informatieplein Haren",
-    "date": "2026-10-28",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/informatieplein-haren?date=28-10-2026"
-  },
-  {
-    "title": "Informatieplein Ten Boer",
-    "date": "2026-10-28",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/informatieplein-ten-boer?date=28-10-2026"
-  },
-  {
-    "title": "Jon Allen & the Luna Kings",
-    "date": "2026-10-28",
-    "source": "melkweg",
-    "genre": "overig",
-    "venue": "Melkweg, Amsterdam",
-    "url": "https://www.melkweg.nl/nl/agenda/jon-allen-the-luna-kings-28-10-2026/"
-  },
-  {
-    "title": "Judith Nab - Terwijl we sliepen",
-    "date": "2026-10-28",
-    "source": "lawei",
-    "genre": "overig",
-    "venue": "De Lawei",
-    "url": "https://www.lawei.nl/agenda/judith-nab-hhnf",
-    "category": "uitje",
-    "cats": [
-      "uitje"
-    ]
-  },
-  {
-    "title": "Kabeaushé",
-    "date": "2026-10-28",
-    "source": "rotown",
-    "genre": "overig",
-    "time": "20:30",
-    "venue": "Rotown, Rotterdam",
-    "url": "https://www.rotown.nl/agenda/kabeaushe/"
-  },
-  {
-    "title": "Kiiōtō Feat. Lou Rhodes of Lamb",
-    "date": "2026-10-28",
-    "source": "paard",
-    "genre": "overig",
-    "time": "20:00",
-    "venue": "Het Paard, Den Haag",
-    "url": "https://denhaag.com/nl/agenda/kiioto-feat-lou-rhodes-of-lamb"
-  },
-  {
-    "title": "Klaus Mäkela dirigeert Mahler 7 bij het Concertgebouworkest",
-    "date": "2026-10-28",
-    "source": "concertgebouw",
-    "genre": "overig",
-    "location": "Amsterdam",
-    "venue": "Concertgebouw, Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/45881816-klaus-makela-dirigeert-mahler-7-bij-het-concertgebouworkest"
-  },
-  {
-    "title": "Kleintje Koffie",
-    "date": "2026-10-28",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/kleintje-koffie?date=28-10-2026"
-  },
-  {
-    "title": "Kristin Hersh",
-    "date": "2026-10-28",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/86255092/kristin-hersh-28-10-2026"
-  },
-  {
-    "title": "Lisa Ostermann De Baas (reprise)",
-    "date": "2026-10-28",
-    "source": "spotgroningen.nl",
-    "genre": "overig",
-    "time": "20:15",
-    "venue": "Stadsschouwburg, Groningen",
-    "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/lisa-ostermann-5/",
-    "subtitle": "\"Ontzettend grappig\"- ★★★★★ Trouw",
-    "cats": [
-      "cabaret"
-    ]
-  },
-  {
-    "title": "MakerLab: Maak je eigen Sint-Maartenlampion (6+)",
-    "date": "2026-10-28",
-    "source": "friesland.nl",
-    "genre": "overig",
-    "city": "Drachten",
-    "province": "Friesland",
-    "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3461280724/makerlab-maak-je-eigen-sint-maartenlampion-6"
-  },
-  {
-    "title": "Martini Grey",
-    "date": "2026-10-28",
-    "source": "visitgroningen",
-    "genre": "Muziek",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/508985921/martini-grey-1",
-    "category": "Jazz"
-  },
-  {
-    "title": "Meezingavond smartlappenkoor Heerlijk Leed in Rue de la Gare",
-    "date": "2026-10-28",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Emmen",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3988678117/meezingavond-smartlappenkoor-heerlijk-leed-in-rue-de-la-gare"
-  },
-  {
-    "title": "NKK NOW Zanggroepen",
-    "date": "2026-10-28",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/39915334/nkk-now-zanggroepen-28-10-2026"
-  },
-  {
-    "title": "NKK NOW Zanggroepen (9-18 jaar)",
-    "date": "2026-10-28",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/39915334/nkk-now-zanggroepen-9-18-jaar-28-10-2026"
-  },
-  {
-    "title": "Nederlandse Bachvereniging Allerzielen",
-    "date": "2026-10-28",
-    "source": "spotgroningen.nl",
-    "genre": "overig",
-    "time": "20:00",
-    "venue": "Oosterpoort, Groningen",
-    "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/nederlandse-bachvereniging-19/",
-    "subtitle": "Troostrijke muziek rond Allerzielen",
-    "cats": [
-      "klassiek"
-    ]
-  },
-  {
-    "title": "Noah Guthrie",
-    "date": "2026-10-28",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/53712184/noah-guthrie-28-10-2026"
-  },
-  {
-    "title": "PEC Zwolle - TOP Oss",
-    "date": "2026-10-28",
-    "source": "peczwolle",
-    "genre": "sport",
-    "venue": "MAC3PARK Stadion, Zwolle",
-    "url": "https://www.espn.nl/voetbal/wedstrijd/_/gameId/401925176",
-    "gender": "heren",
-    "sport": "voetbal"
-  },
-  {
-    "title": "Plien & Bianca - Harrekidee! (reprise)",
-    "date": "2026-10-28",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "venue": "Theater De Tamboer",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1996747465/plien-bianca-harrekidee-reprise",
-    "category": "uitje",
-    "cats": [
-      "uitje"
-    ]
-  },
-  {
-    "title": "Prize Collect + Coparck",
-    "date": "2026-10-28",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/97950637/prize-collect-coparck-28-10-2026"
-  },
-  {
-    "title": "Pynarello: Pulcinella",
-    "date": "2026-10-28",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/27260298/pynarello-pulcinella-28-10-2026"
-  },
-  {
-    "title": "Quatuor Arod speelt Bartók, Carlos Simon en Fanny Mendelssohn",
-    "date": "2026-10-28",
-    "source": "concertgebouw",
-    "genre": "overig",
-    "location": "Amsterdam",
-    "venue": "Concertgebouw, Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/37331019-quatuor-arod-speelt-bartok-carlos-simon-en-fanny-mendelssohn"
-  },
-  {
-    "title": "Rob Lamberti - A Celebration of GEORGE MICHAEL",
-    "date": "2026-10-28",
-    "source": "visitgroningen",
-    "genre": "Muziek",
-    "city": "Groningen",
-    "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/900440158/rob-lamberti-a-celebration-of-george-michael",
-    "category": "Muziektheater"
-  },
-  {
-    "title": "Ryan Beatty - Arms Over Armor Tour",
-    "date": "2026-10-28",
-    "source": "paradiso",
-    "genre": "overig",
-    "time": "19:30",
-    "venue": "Paradiso, Amsterdam",
-    "url": "https://www.paradiso.nl/nl/programma/ryan-beatty-arms-over-armor-tour/2892924"
-  },
-  {
-    "title": "Stevie Wonder",
-    "date": "2026-10-28",
-    "source": "ziggodome",
-    "genre": "overig",
-    "time": "20:00",
-    "venue": "Ziggo Dome, Amsterdam",
-    "url": "https://www.ticketmaster.nl/event/stevie-wonder-tickets/1396808246?language=en-us"
-  },
-  {
-    "title": "Stevie Wonder: Songs In The Key of Life Performances",
-    "date": "2026-10-28",
-    "source": "ziggodome",
-    "genre": "overig",
-    "time": "20:00",
-    "venue": "Ziggo Dome, Amsterdam",
-    "url": "https://www.ticketmaster.nl/event/stevie-wonder-songs-in-the-key-of-life-performances-tickets/1396808246?language=en-us"
-  },
-  {
     "title": "Storyworld",
     "date": "2026-10-28",
     "source": "forum.nl",
@@ -1305,18 +762,6 @@
     "url": "https://forum.nl/nl/agenda/storyworld"
   },
   {
-    "title": "Stu Larsen + support: Tim Hart",
-    "date": "2026-10-28",
-    "source": "spotgroningen.nl",
-    "genre": "overig",
-    "time": "20:00",
-    "venue": "Lutherse Kerk, Groningen",
-    "province": "Groningen",
-    "url": "https://www.spotgroningen.nl/programma/stu-larsen-3/",
-    "subtitle": "Australische singer-songwriter en moderne troubadour",
-    "cats": []
-  },
-  {
     "title": "Taalhuis",
     "date": "2026-10-28",
     "source": "forum.nl",
@@ -1324,97 +769,6 @@
     "date_end": "2026-10-29",
     "venue": "Forum Groningen",
     "url": "https://forum.nl/nl/agenda/taalhuis"
-  },
-  {
-    "title": "The Meltdown",
-    "date": "2026-10-28",
-    "source": "tivolivredenburg",
-    "genre": "overig",
-    "venue": "TivoliVredenburg, Utrecht",
-    "url": "https://www.tivolivredenburg.nl/agenda/83747984/the-meltdown-28-10-2026"
-  },
-  {
-    "title": "Theater Rotterdam: Nastaran Razawi Khorasani - Heartbeats",
-    "date": "2026-10-28",
-    "source": "lawei",
-    "genre": "overig",
-    "venue": "De Lawei",
-    "url": "https://www.lawei.nl/agenda/theater-rotterdam-nastaran-razawi-khorasani-bbrg",
-    "category": "theater",
-    "cats": [
-      "theater"
-    ]
-  },
-  {
-    "title": "Tryater - Fierder nei it Noarden",
-    "date": "2026-10-28",
-    "source": "lawei",
-    "genre": "overig",
-    "venue": "De Lawei",
-    "url": "https://www.lawei.nl/agenda/tryater-558t",
-    "category": "uitje",
-    "cats": [
-      "uitje"
-    ]
-  },
-  {
-    "title": "Vergeet me niet | Meppel",
-    "date": "2026-10-28",
-    "source": "drenthe.nl",
-    "genre": "overig",
-    "city": "Meppel",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/4162736796/vergeet-me-niet-meppel"
-  },
-  {
-    "title": "Walter Trout",
-    "date": "2026-10-28",
-    "source": "melkweg",
-    "genre": "overig",
-    "venue": "Melkweg, Amsterdam",
-    "url": "https://www.melkweg.nl/nl/agenda/walter-trout-28-10-2026/"
-  },
-  {
-    "title": "Werkplaats Sunnemeerten",
-    "date": "2026-10-28",
-    "source": "forum.nl",
-    "genre": "overig",
-    "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/werkplaats-sunnemeerten?date=28-10-2026"
-  },
-  {
-    "title": "Westside Cowboy - + Wyatt",
-    "date": "2026-10-28",
-    "source": "doornroosje",
-    "genre": "overig",
-    "venue": "Doornroosje, Nijmegen",
-    "url": "https://www.doornroosje.nl/event/westside-cowboy/"
-  },
-  {
-    "title": "Zing-Cirkel Concertgebouw",
-    "date": "2026-10-28",
-    "source": "concertgebouw",
-    "genre": "overig",
-    "location": "Amsterdam",
-    "venue": "Concertgebouw, Amsterdam",
-    "url": "https://www.concertgebouw.nl/concerten/45913707-zing-cirkel-concertgebouw"
-  },
-  {
-    "title": "d'Oalse Folklaidjes -Nedersaksische muziekavond met Silvia Fledderus",
-    "date": "2026-10-28",
-    "source": "drenthe.nl",
-    "genre": "Muziek",
-    "city": "Borger",
-    "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3063787116/d-oalse-folklaidjes-nedersaksische-muziekavond-met-silvia-fledderus"
-  },
-  {
-    "title": "Şatellites",
-    "date": "2026-10-28",
-    "source": "doornroosje",
-    "genre": "overig",
-    "venue": "Doornroosje, Nijmegen",
-    "url": "https://www.doornroosje.nl/event/satellites/"
   },
   {
     "title": "25 jaar Academie Concertgebouworkest",
@@ -1501,6 +855,21 @@
     "category": "Toneel"
   },
   {
+    "title": "Beleef het Boomkroonpad",
+    "date": "2026-10-29",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Hondsrug",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/hondsrug/beleef-het-boomkroonpad",
+    "subtitle": "Beleef het bos eens vanuit een ander perspectief en maak een wandeling over het Boomkroonpad. Dit wandelpad leidt je hoog langs de toppen van de bomen.",
+    "lat": 52.949836,
+    "lon": 6.745159,
+    "cats": [
+      "actief"
+    ]
+  },
+  {
     "title": "Boaz",
     "date": "2026-10-29",
     "source": "hedon",
@@ -1526,6 +895,21 @@
     "time": "20:30",
     "venue": "Paradiso, Amsterdam",
     "url": "https://www.paradiso.nl/nl/programma/cat-power/2741096"
+  },
+  {
+    "title": "Code S.T.O.R.M. - Sallandse Heuvelrug",
+    "date": "2026-10-29",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Salland",
+    "province": "Overijssel",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/salland/code-storm-sallandse-heuvelrug",
+    "subtitle": "De natuur is in gevaar! Een grote storm zal alles verwoesten en jij kan helpen deze te stoppen. Voltooi alle opdrachten in het bos en kom zo achter de code om de weermachine te activeren die de storm tegenhoudt.",
+    "lat": 52.365946,
+    "lon": 6.443639,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "Cola",
@@ -1626,6 +1010,21 @@
     "time": "20:00",
     "venue": "013, Tilburg",
     "url": "https://www.013.nl/programma/128268/elmer"
+  },
+  {
+    "title": "Escape route in het bos: Raadsels van Raaf",
+    "date": "2026-10-29",
+    "source": "staatsbosbeheer",
+    "genre": "overig",
+    "venue": "Drents-Friese Wold",
+    "province": "Drenthe",
+    "url": "https://www.staatsbosbeheer.nl/activiteiten/drents-friese-wold/escape-route-raadsels-van-raaf",
+    "subtitle": "Ontdek de escape route Raadsels van Raaf. Een spannende game waarbij je codes kraakt in het bos en zo het mysterie van Victor Raaf oplost. Een unieke buitenactiviteit van Staatsbosbeheer in het Drents Friese Wold voor kinderen en volwassenen.",
+    "lat": 52.953193,
+    "lon": 6.310575,
+    "cats": [
+      "actief"
+    ]
   },
   {
     "title": "FC Groningen - FC Emmen",
@@ -1850,6 +1249,15 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/451073193/romeo-en-julia-shakespeare-theater"
   },
   {
+    "title": "Storyworld",
+    "date": "2026-10-29",
+    "source": "forum.nl",
+    "genre": "overig",
+    "date_end": "2026-11-01",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/storyworld"
+  },
+  {
     "title": "Stu Larsen",
     "date": "2026-10-29",
     "source": "tivolivredenburg",
@@ -1873,6 +1281,14 @@
     "city": "Assen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3539037032/symposium-bloedlijnen-en-geheimen"
+  },
+  {
+    "title": "Taalhuis",
+    "date": "2026-10-29",
+    "source": "forum.nl",
+    "genre": "overig",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/taalhuis?date=29-10-2026"
   },
   {
     "title": "Talks Events/Fashion Repair",
@@ -1975,7 +1391,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=150560&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=150560&lang=nl"
   },
   {
     "title": "Ulrika Spacek (UK) + Mood Bored (NL)",
@@ -2011,6 +1427,15 @@
     "cats": [
       "actief"
     ]
+  },
+  {
+    "title": "Vergeet me niet | Meppel",
+    "date": "2026-10-29",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Meppel",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/4162736796/vergeet-me-niet-meppel"
   },
   {
     "title": "Walter Trout",
@@ -2534,7 +1959,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151519&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151519&lang=nl"
   },
   {
     "title": "LC LATE - FRIDAY NIGHT",
@@ -2967,7 +2392,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154134&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154134&lang=nl"
   },
   {
     "title": "Welcome to the Guilty Pleasure Dome",
@@ -3687,7 +3112,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=152556&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=152556&lang=nl"
   },
   {
     "title": "Los Pirañas (COL)",
@@ -4000,7 +3425,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154197&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154197&lang=nl"
   },
   {
     "title": "Requiem van Howells - Kamerkoor Aurora",
@@ -4209,7 +3634,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154548&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154548&lang=nl"
   },
   {
     "title": "The Etters (NL) + Human Toys (FR)",
@@ -4360,6 +3785,15 @@
     "city": "Workum",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/185346609/laurens-de-groot-hun-1"
+  },
+  {
+    "title": "WALvis - Vertelvoorstelling (2 t/m 7 jaar)",
+    "date": "2026-10-31",
+    "source": "drenthe.nl",
+    "genre": "Theater",
+    "city": "Assen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1070670707/walvis-vertelvoorstelling-2-t-m-7-jaar"
   },
   {
     "title": "WTF Halloween - Pythius + DJ Flight + Tantron b2b Tantron b2b Tantron b2b Tantron b2b Tantron + Tanukichi + Koarse + Click b2b Ju Letta",
@@ -4516,7 +3950,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151279&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151279&lang=nl"
   },
   {
     "title": "Angine De Poitrine (CAN)",
@@ -6188,7 +5622,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154871&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154871&lang=nl"
   },
   {
     "title": "Plien & Bianca Harrekidee! (reprise)",
@@ -6558,7 +5992,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=152263&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=152263&lang=nl"
   },
   {
     "title": "Hippotraktor (BEL) + OLTAS (NL)",
@@ -7430,7 +6864,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154976&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154976&lang=nl"
   },
   {
     "title": "Pyrex (USA) + Traumatizer (NL)",
@@ -7687,7 +7121,7 @@
     "genre": "overig",
     "date_end": "2026-11-07",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/artist-as-a-change-agent"
+    "url": "https://forum.nl/nl/agenda/artist-as-a-change-agent?date=06-11-2026"
   },
   {
     "title": "Ascension",
@@ -7743,6 +7177,22 @@
     "url": "https://www.vera-groningen.nl/?post_type=events&p=151209&lang=nl"
   },
   {
+    "title": "Bezoek Het Loket Duurzaam Groningen",
+    "date": "2026-11-06",
+    "source": "forum.nl",
+    "genre": "overig",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/bezoek-het-loket-duurzaam-groningen?date=06-11-2026"
+  },
+  {
+    "title": "Boekpresentatie Graphic Novel Stad 050",
+    "date": "2026-11-06",
+    "source": "forum.nl",
+    "genre": "overig",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/boekpresentatie-graphic-novel-stad-050?date=06-11-2026"
+  },
+  {
     "title": "Concert door ‘Het Klaagkoor’ in de serie ‘Vrijdagmiddag-concerten'",
     "date": "2026-11-06",
     "source": "friesland.nl",
@@ -7784,13 +7234,21 @@
     "url": "https://forum.nl/nl/agenda/cursussen/grondwerk-hoe-maak-je-samen-de-juiste-beslissingen?date=06-11-2026"
   },
   {
+    "title": "Cursussen/Open Studio Maak Muziek Kunst",
+    "date": "2026-11-06",
+    "source": "forum.nl",
+    "genre": "overig",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/cursussen/open-studio-maak-muziek-kunst?date=06-11-2026"
+  },
+  {
     "title": "Cursussen/Rugzak En Regels",
     "date": "2026-11-06",
     "source": "forum.nl",
     "genre": "overig",
     "date_end": "2026-11-07",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/cursussen/rugzak-en-regels"
+    "url": "https://forum.nl/nl/agenda/cursussen/rugzak-en-regels?date=06-11-2026"
   },
   {
     "title": "Cursussen/Sterk Hoogkerk",
@@ -7868,13 +7326,21 @@
     "url": "https://forum.nl/nl/agenda/en-vele-anderen?date=06-11-2026"
   },
   {
+    "title": "En Vele Anderen Wandelende Duinen",
+    "date": "2026-11-06",
+    "source": "forum.nl",
+    "genre": "overig",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/en-vele-anderen-wandelende-duinen?date=06-11-2026"
+  },
+  {
     "title": "Expositie/Groeten Uit Het Groningen Van Straks De Nieuwe Held",
     "date": "2026-11-06",
     "source": "forum.nl",
     "genre": "overig",
     "date_end": "2026-11-07",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/expositie/groeten-uit-het-groningen-van-straks-de-nieuwe-held"
+    "url": "https://forum.nl/nl/agenda/expositie/groeten-uit-het-groningen-van-straks-de-nieuwe-held?date=06-11-2026"
   },
   {
     "title": "Expositie/Groeten Uit Het Groningen Van Straks De Suikerzijde",
@@ -7883,7 +7349,7 @@
     "genre": "overig",
     "date_end": "2026-11-07",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/expositie/groeten-uit-het-groningen-van-straks-de-suikerzijde"
+    "url": "https://forum.nl/nl/agenda/expositie/groeten-uit-het-groningen-van-straks-de-suikerzijde?date=06-11-2026"
   },
   {
     "title": "Expositie/Groeten Uit Het Groningen Van Straks Meerstad",
@@ -7892,7 +7358,7 @@
     "genre": "overig",
     "date_end": "2026-11-07",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/expositie/groeten-uit-het-groningen-van-straks-meerstad"
+    "url": "https://forum.nl/nl/agenda/expositie/groeten-uit-het-groningen-van-straks-meerstad?date=06-11-2026"
   },
   {
     "title": "Expositie/Groeten Uit Het Groningen Van Straks Stadshavens",
@@ -7901,7 +7367,7 @@
     "genre": "overig",
     "date_end": "2026-11-07",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/expositie/groeten-uit-het-groningen-van-straks-stadshavens"
+    "url": "https://forum.nl/nl/agenda/expositie/groeten-uit-het-groningen-van-straks-stadshavens?date=06-11-2026"
   },
   {
     "title": "Expositie/Het Stationsgebied Van Morgen",
@@ -7910,7 +7376,7 @@
     "genre": "overig",
     "date_end": "2026-11-07",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/expositie/het-stationsgebied-van-morgen"
+    "url": "https://forum.nl/nl/agenda/expositie/het-stationsgebied-van-morgen?date=06-11-2026"
   },
   {
     "title": "Expositie/Minder Huis Meer Thuis Kunnen We Wonen Opnieuw Uitvinden",
@@ -7920,6 +7386,14 @@
     "date_end": "2026-11-07",
     "venue": "Forum Groningen",
     "url": "https://forum.nl/nl/agenda/expositie/minder-huis-meer-thuis-kunnen-we-wonen-opnieuw-uitvinden?date=06-11-2026"
+  },
+  {
+    "title": "Expositie/Noorderpoort Spel Op Het Plein",
+    "date": "2026-11-06",
+    "source": "forum.nl",
+    "genre": "overig",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/expositie/noorderpoort-spel-op-het-plein?date=06-11-2026"
   },
   {
     "title": "Feestavond voor Assense Mantelzorgers",
@@ -7954,6 +7428,14 @@
     "time": "20:00",
     "venue": "013, Tilburg",
     "url": "https://www.013.nl/programma/131408/flemming"
+  },
+  {
+    "title": "Floris Alkemade Hoe Maak Je Als Regio Een Schaalsprong",
+    "date": "2026-11-06",
+    "source": "forum.nl",
+    "genre": "overig",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/floris-alkemade-hoe-maak-je-als-regio-een-schaalsprong?date=06-11-2026"
   },
   {
     "title": "Garage Nation",
@@ -8444,6 +7926,14 @@
     "url": "https://forum.nl/nl/agenda/talks-events/bruno-doedens-als-bomen-gaan-bewegen?date=06-11-2026"
   },
   {
+    "title": "Talks Events/De Pissebed",
+    "date": "2026-11-06",
+    "source": "forum.nl",
+    "genre": "overig",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/talks-events/de-pissebed?date=06-11-2026"
+  },
+  {
     "title": "Talks Events/De Waardevolle Stad Een Imaginaire Routekaart",
     "date": "2026-11-06",
     "source": "forum.nl",
@@ -8466,7 +7956,7 @@
     "genre": "overig",
     "date_end": "2026-11-07",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/talks-events/groen-chill-vlonder"
+    "url": "https://forum.nl/nl/agenda/talks-events/groen-chill-vlonder?date=06-11-2026"
   },
   {
     "title": "Talks Events/Ground Up Bouwen Met De Grond Onder Onze Voeten",
@@ -8507,7 +7997,7 @@
     "genre": "overig",
     "date_end": "2026-11-07",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/talks-events/lets-build-bridges-not-walls"
+    "url": "https://forum.nl/nl/agenda/talks-events/lets-build-bridges-not-walls?date=06-11-2026"
   },
   {
     "title": "Talks Events/Lets Show",
@@ -8617,7 +8107,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=151534&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=151534&lang=nl"
   },
   {
     "title": "Temples (UK) + PAUW (NL)",
@@ -8664,6 +8154,14 @@
     "time": "20:00",
     "venue": "Grote Zaal, Emmen",
     "url": "https://www.atlastheater.nl/voorstellingen/theatertour-krezip-06-nov/"
+  },
+  {
+    "title": "Toekomst Mobiliteit",
+    "date": "2026-11-06",
+    "source": "forum.nl",
+    "genre": "overig",
+    "venue": "Forum Groningen",
+    "url": "https://forum.nl/nl/agenda/toekomst-mobiliteit?date=06-11-2026"
   },
   {
     "title": "U2 The Music",
@@ -8716,7 +8214,7 @@
     "genre": "overig",
     "date_end": "2026-11-07",
     "venue": "Forum Groningen",
-    "url": "https://forum.nl/nl/agenda/wat-wil-jij-plein"
+    "url": "https://forum.nl/nl/agenda/wat-wil-jij-plein?date=06-11-2026"
   },
   {
     "title": "Zer00's Heroes",
@@ -8791,6 +8289,16 @@
     "city": "Emmen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/617541885/alain-clark-date-night"
+  },
+  {
+    "title": "Als daar muziek voor is",
+    "date": "2026-11-07",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Haren",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2223510052/als-daar-muziek-voor-is",
+    "category": "Klassieke muziek"
   },
   {
     "title": "André Hazes",
@@ -8888,7 +8396,17 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=155064&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=155064&lang=nl"
+  },
+  {
+    "title": "Club VERA: Adrenalina // aka Kos // Daddy Long Dick",
+    "date": "2026-11-07",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1743672864/club-vera-5",
+    "category": "Dance"
   },
   {
     "title": "Concert Peter & de wolf",
@@ -9053,6 +8571,15 @@
     "url": "https://www.dedoelen.nl/nl/agenda/dvorak-serenade-voor-strijkers-zh8t"
   },
   {
+    "title": "Dvořák Serenade voor Strijkers - Sinfonia Rotterdam & Duo Mantar",
+    "date": "2026-11-07",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "19:30",
+    "venue": "Jurriaanse Zaal, Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/dvorak-serenade-voor-strijkers-zh8t"
+  },
+  {
     "title": "Eemsmond Big Band (nog 1 plaats beschikbaar!) - met Lou Prince",
     "date": "2026-11-07",
     "source": "visitgroningen",
@@ -9064,6 +8591,16 @@
   },
   {
     "title": "Eemsmond Big Band (nog 2 losse plaatsen!) - met Lou Prince",
+    "date": "2026-11-07",
+    "source": "visitgroningen",
+    "genre": "Theater",
+    "city": "Delfzijl",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1790969606/eemsmond-big-band-met-lou-prince",
+    "category": "Theatervoorstelling"
+  },
+  {
+    "title": "Eemsmond Big Band - met Bart Brandjes",
     "date": "2026-11-07",
     "source": "visitgroningen",
     "genre": "Theater",
@@ -9443,7 +8980,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154867&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154867&lang=nl"
   },
   {
     "title": "Nagusame (GRN)",
@@ -9948,7 +9485,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153264&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153264&lang=nl"
   },
   {
     "title": "The Homesick (NL) + Rhizocorp (UK)",
@@ -11502,7 +11039,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=154880&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=154880&lang=nl"
   },
   {
     "title": "Ontmoet Lex Paleaux",
@@ -11571,6 +11108,15 @@
     "genre": "overig",
     "venue": "Doornroosje, Nijmegen",
     "url": "https://www.doornroosje.nl/event/sharp-pins/"
+  },
+  {
+    "title": "Takuya Kuroda",
+    "date": "2026-11-10",
+    "source": "paard",
+    "genre": "overig",
+    "time": "20:20",
+    "venue": "Het Paard, Den Haag",
+    "url": "https://denhaag.com/nl/agenda/takuya-kuroda"
   },
   {
     "title": "Tangarine Running in the Family II",
@@ -12019,7 +11565,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=152600&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=152600&lang=nl"
   },
   {
     "title": "Skimer (On)zichtbaar",
@@ -12041,6 +11587,14 @@
     "time": "12:30",
     "venue": "Jurriaanse Zaal, Rotterdam",
     "url": "https://www.dedoelen.nl/nl/agenda/talent-break-yj8m"
+  },
+  {
+    "title": "The Old Oak",
+    "date": "2026-11-11",
+    "source": "denieuwekolk.nl",
+    "genre": "overig",
+    "venue": "De Nieuwe Kolk, Assen",
+    "url": "https://denieuwekolk.nl/bios/agenda/the-old-oak"
   },
   {
     "title": "Trio Bier",
@@ -12600,7 +12154,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153215&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153215&lang=nl"
   },
   {
     "title": "Syb van der Ploeg en Maarten Peters - The Best of Simon & Garfunkel",
@@ -13266,7 +12820,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153185&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153185&lang=nl"
   },
   {
     "title": "ON&ON: Locklead e.a.",
@@ -13375,6 +12929,16 @@
     "cats": [
       "concert"
     ]
+  },
+  {
+    "title": "Rijck + Louis Pedro",
+    "date": "2026-11-13",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/161686216/rijck",
+    "category": "Concert"
   },
   {
     "title": "Roberto Jacketti & The Scooters + DJ René CD I Save The Day",
@@ -13510,6 +13074,15 @@
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3965337473/tim-akkerman"
   },
   {
+    "title": "Tim Akkerman  & The Ivy League",
+    "date": "2026-11-13",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Hoogeveen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3965337473/tim-akkerman"
+  },
+  {
     "title": "Tina Dico",
     "date": "2026-11-13",
     "source": "paradiso",
@@ -13560,6 +13133,15 @@
     "time": "19:30",
     "venue": "Paradiso, Amsterdam",
     "url": "https://www.paradiso.nl/nl/programma/yndling/2917627"
+  },
+  {
+    "title": "uitverkocht | Hello Darkness presents - Gothiqa, Teardrinker & Camy Huot",
+    "date": "2026-11-13",
+    "source": "dedoelen",
+    "genre": "overig",
+    "time": "19:45",
+    "venue": "Eduard Flipse Zaal (zitplaatsen met vrije stoelkeuze), Rotterdam",
+    "url": "https://www.dedoelen.nl/nl/agenda/hello-darkness-presents-r15m"
   },
   {
     "title": "2 Recht 2 Averecht",
@@ -13829,7 +13411,7 @@
     "source": "vera",
     "genre": "overig",
     "venue": "Vera, Groningen",
-    "url": "https://www.vera-groningen.nl/?post_type=events&p=153339&lang=en"
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=153339&lang=nl"
   },
   {
     "title": "De Meiden van Toen - Naar de Getver",
@@ -14052,7 +13634,7 @@
     "date_end": "2026-11-21",
     "city": "Groningen",
     "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1088139126/jonge-harten-festival-4",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1048433402/jonge-harten-festival-5",
     "category": "Theaterfestival"
   },
   {
@@ -14812,7 +14394,7 @@
     "genre": "overig",
     "city": "Coevorden",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/334729338/cafe-paragraaf-4"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1247243732/cafe-paragraaf-3"
   },
   {
     "title": "Cats - musical 2026/2027",
@@ -17351,6 +16933,16 @@
     "genre": "overig"
   },
   {
+    "title": "De Kerstsfeerdagen",
+    "date": "2026-11-20",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "date_end": "2026-11-22",
+    "city": "Oosterhesselen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3100418882/de-kerstsfeerdagen"
+  },
+  {
     "title": "Delany",
     "date": "2026-11-20",
     "source": "simplon",
@@ -18263,13 +17855,13 @@
     ]
   },
   {
-    "title": "DNA, Dianto Reed Quintet",
+    "title": "DNA Dianto Reed Quintet",
     "date": "2026-11-21",
     "source": "drenthe.nl",
     "genre": "overig",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/656300718/dna-dianto-reed-quintet"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3372810443/dna-dianto-reed-quintet-1"
   },
   {
     "title": "Dave Helwig | Fredgie's",
@@ -18762,6 +18354,16 @@
     ]
   },
   {
+    "title": "Klup Kaviaar",
+    "date": "2026-11-21",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2809430848/klup-kaviaar-3",
+    "category": "Dance"
+  },
+  {
     "title": "LEGENDS of ROCK Tribute Festival XL | De Bonte Wever",
     "date": "2026-11-21",
     "source": "drenthe.nl",
@@ -19056,6 +18658,14 @@
     "city": "Meppel",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/648111893/punch-judy-kindertheater"
+  },
+  {
+    "title": "Push It",
+    "date": "2026-11-21",
+    "source": "vera",
+    "genre": "overig",
+    "venue": "Vera, Groningen",
+    "url": "https://www.vera-groningen.nl/?post_type=events&p=155066&lang=nl"
   },
   {
     "title": "Pyxls",
@@ -19745,7 +19355,7 @@
     "source": "kielzog",
     "genre": "overig",
     "venue": "Kielzog, Winschoten",
-    "url": "https://www.kielzog.nl/evenementen/juf-roos-4",
+    "url": "https://www.kielzog.nl/evenementen/juf-roos-3",
     "subtitle": "Juf Roos gaat op vakantie",
     "category": "familie",
     "cats": [
@@ -23483,6 +23093,15 @@
     "time": "11:00",
     "venue": "Grote Zaal, Rotterdam",
     "url": "https://www.dedoelen.nl/nl/agenda/a-celtic-winter-4ztr"
+  },
+  {
+    "title": "Adventsconcert",
+    "date": "2026-11-29",
+    "source": "drenthe.nl",
+    "genre": "Muziek",
+    "city": "Vledder",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3366344653/adventsconcert"
   },
   {
     "title": "BENR",
@@ -30341,6 +29960,15 @@
     ]
   },
   {
+    "title": "reuzenkerstmarkt Ellert en Brammert",
+    "date": "2026-12-12",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Schoonoord",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/2576430162/reuzenkerstmarkt-ellert-en-brammert"
+  },
+  {
     "title": "Alle kinderen stinken (6+) Patrick Duijtshoff en Judith van den Berg",
     "date": "2026-12-13",
     "source": "spotgroningen.nl",
@@ -31080,6 +30708,15 @@
     "city": "Gorredijk",
     "province": "Friesland",
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/1991047276/zingend-van-advent-naar-kerstmis-door-cantores-gregoriana-1"
+  },
+  {
+    "title": "reuzenkerstmarkt Ellert en Brammert",
+    "date": "2026-12-13",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Schoonoord",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/2006930814/reuzenkerstmarkt-ellert-en-brammert-1"
   },
   {
     "title": "sc Heerenveen - Go Ahead Eagles",
@@ -33226,6 +32863,15 @@
     ]
   },
   {
+    "title": "Kerstdorp Orvelte",
+    "date": "2026-12-19",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Orvelte",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3330138111/kerstdorp-orvelte-1"
+  },
+  {
     "title": "Kerstklassiekers door Tim Burton",
     "date": "2026-12-19",
     "source": "visitgroningen",
@@ -34141,6 +33787,15 @@
     "url": "https://www.tivolivredenburg.nl/agenda/85575578/yuri-honing-acoustic-quartet-20-12-2026"
   },
   {
+    "title": "kerstdorp Orvelte",
+    "date": "2026-12-20",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Orvelte",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/2797229594/kerstdorp-orvelte-2"
+  },
+  {
     "title": "A Festival of Nine Lessons and Carols Kampen Boys Choir",
     "date": "2026-12-21",
     "source": "drenthe.nl",
@@ -34793,7 +34448,7 @@
     "genre": "Theater",
     "city": "Groningen",
     "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/238712661/marcel-hensema-mijn-vrede-1",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2536711919/marcel-hensema-mijn-vrede",
     "category": "Toneel"
   },
   {
@@ -37128,6 +36783,15 @@
     "location": "Amsterdam",
     "venue": "Concertgebouw, Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/41271742-grote-pianisten-mitsuko-uchida-speelt-schubert"
+  },
+  {
+    "title": "Het Rob de Nijs Songbook",
+    "date": "2027-01-10",
+    "source": "koornbeurs",
+    "genre": "overig",
+    "time": "15:00",
+    "venue": "Koornbeurs, Franeker",
+    "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10048777/Titel/10372072"
   },
   {
     "title": "Het kleine Theater - Lady en de Vage Hond | 4+",
@@ -42536,6 +42200,16 @@
     ]
   },
   {
+    "title": "Steve Wynn",
+    "date": "2027-01-31",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2082555127/steve-wynn",
+    "category": "Muziek overig"
+  },
+  {
     "title": "The Mary Wallopers",
     "date": "2027-01-31",
     "source": "doornroosje",
@@ -42559,8 +42233,8 @@
     "genre": "Theater",
     "city": "Winschoten",
     "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2783831458/theaterweekend-4",
-    "category": "Toneel"
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/511683568/theaterweekend-3",
+    "category": "Jeugdtheater"
   },
   {
     "title": "Two Door Cinema Club",
@@ -42746,6 +42420,14 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Ahilan Radnamohan - All Day I Dream About Soccer (ADIDAS)",
+    "date": "2027-02-03",
+    "source": "grandtheatregroningen",
+    "genre": "overig",
+    "venue": "Grand Theatre, Groningen",
+    "url": "https://www.grandtheatregroningen.nl/nl/programma/archief/ahilan-radnamohan-adidas"
   },
   {
     "title": "Alex Ploeg Niks Persoonlijks (try-out)",
@@ -43445,6 +43127,14 @@
     "cats": [
       "theater"
     ]
+  },
+  {
+    "title": "Dusky",
+    "date": "2027-02-05",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/dusky-05-02-2027/"
   },
   {
     "title": "Elder",
@@ -45584,6 +45274,14 @@
     "cats": [
       "concert"
     ]
+  },
+  {
+    "title": "Fat Dog",
+    "date": "2027-02-12",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/fat-dog-12-02-2027/"
   },
   {
     "title": "Floor Jansen",
@@ -48704,7 +48402,7 @@
     "genre": "overig",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/3110335556/dromen-gebeden-en-rubberlaarzen-marco-danesi-strijkkwartet-uit-kamerorkest-v-h-noorden-1"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/1504650771/dromen-gebeden-en-rubberlaarzen-marco-danesi-strijkkwartet-uit-kamerorkest-v-h-noorden"
   },
   {
     "title": "Dvořáks Symfonie nr. 8 & Chaussons Poème door Arabella Steinbacher",
@@ -52682,7 +52380,7 @@
     "genre": "overig",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/4138643337/maya-show-1-samen-picknicken"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/2175377183/maya-show-1-samen-picknicken-1"
   },
   {
     "title": "Moonspell",
@@ -55144,6 +54842,15 @@
     "url": "https://www.doornroosje.nl/event/dressed-like-boys-2/"
   },
   {
+    "title": "Edwin Evers Band",
+    "date": "2027-03-18",
+    "source": "013",
+    "genre": "overig",
+    "time": "20:00",
+    "venue": "013, Tilburg",
+    "url": "https://www.013.nl/programma/162032/edwin-evers-band"
+  },
+  {
     "title": "Fieke Opdam",
     "date": "2027-03-18",
     "source": "kielzog",
@@ -55409,6 +55116,14 @@
       "muziek",
       "show"
     ]
+  },
+  {
+    "title": "Edwin Evers Band",
+    "date": "2027-03-19",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/edwin-evers-band-19-03-2027/"
   },
   {
     "title": "Extince",
@@ -57096,6 +56811,15 @@
     "url": "https://www.theaterdekoornbeurs.nl/voorstelling/10047845/Titel/10364132"
   },
   {
+    "title": "Comedy Tunes Comedy Night",
+    "date": "2027-03-26",
+    "source": "drenthe.nl",
+    "genre": "overig",
+    "city": "Hoogeveen",
+    "province": "Drenthe",
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3202975856/comedy-tunes-comedy-night-1"
+  },
+  {
     "title": "De Matthäus Passion Uitgelegd",
     "date": "2027-03-26",
     "source": "vanberesteyn",
@@ -57860,6 +57584,14 @@
     "genre": "overig"
   },
   {
+    "title": "The Skatalites",
+    "date": "2027-03-28",
+    "source": "effenaar",
+    "genre": "overig",
+    "venue": "Effenaar, Eindhoven",
+    "url": "https://www.effenaar.nl/agenda/skatalites"
+  },
+  {
     "title": "Villagers of Ioannina City",
     "date": "2027-03-28",
     "source": "neushoorn",
@@ -58253,6 +57985,16 @@
     "genre": "overig",
     "venue": "Concertgebouw, Amsterdam",
     "url": "https://www.concertgebouw.nl/concerten/46013600-doppler-beethoven-mahler-met-sinfonia-rotterdam"
+  },
+  {
+    "title": "Edwin Evers Band - Classics Tour - Part II",
+    "date": "2027-04-01",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/187069537/edwin-evers-band-classics-tour-part-ii",
+    "category": "Muziek overig"
   },
   {
     "title": "Flaire",
@@ -58865,6 +58607,14 @@
     ]
   },
   {
+    "title": "80's Anders",
+    "date": "2027-04-03",
+    "source": "effenaar",
+    "genre": "overig",
+    "venue": "Effenaar, Eindhoven",
+    "url": "https://www.effenaar.nl/agenda/80s-anders-11"
+  },
+  {
     "title": "Ashton Brothers - BROTHERS",
     "date": "2027-04-03",
     "source": "koornbeurs",
@@ -59220,6 +58970,14 @@
     "city": "Emmen",
     "province": "Drenthe",
     "url": "https://www.drenthe.nl/evenementen-activiteiten/3910807782/martijn-koning-overprikkeld"
+  },
+  {
+    "title": "Mistress of Jersey + Curtis + 80's Anders",
+    "date": "2027-04-03",
+    "source": "effenaar",
+    "genre": "overig",
+    "venue": "Effenaar, Eindhoven",
+    "url": "https://www.effenaar.nl/agenda/mistress-jersey-curtis-80s-anders"
   },
   {
     "title": "Mus & kapitein Kwaadbaard en De 5 slangen (8+)",
@@ -60506,6 +60264,16 @@
     "cats": [
       "uitje"
     ]
+  },
+  {
+    "title": "Marike Jager",
+    "date": "2027-04-09",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/2452563419/marike-jager",
+    "category": "Muziek overig"
   },
   {
     "title": "Martijn Koning Overprikkeld",
@@ -62114,6 +61882,15 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/453063727/compagnie-tiuri"
   },
   {
+    "title": "Edwin Evers Band",
+    "date": "2027-04-16",
+    "source": "hedon",
+    "genre": "overig",
+    "time": "18:30",
+    "venue": "Hedon - Grote Zaal, Zwolle",
+    "url": "https://shop.tickets.cm.com/ec869cbf-49ff-dd38-e59f-cca136d7ebbb"
+  },
+  {
     "title": "Freek de Jonge",
     "date": "2027-04-16",
     "source": "visitgroningen",
@@ -62537,6 +62314,15 @@
     "url": "https://www.friesland.nl/nl/plannen/evenementen/agenda/3019411439/dolle-mina"
   },
   {
+    "title": "Edwin Evers Band",
+    "date": "2027-04-17",
+    "source": "hedon",
+    "genre": "overig",
+    "time": "18:30",
+    "venue": "Hedon - Grote Zaal, Zwolle",
+    "url": "https://shop.tickets.cm.com/771d65b6-7e7e-827b-a0d6-51fe81369aee"
+  },
+  {
     "title": "Eeftink & Neimeijer  Niets menselijks is ons vreemd (try-out)",
     "date": "2027-04-17",
     "source": "drenthe.nl",
@@ -62561,6 +62347,16 @@
     "genre": "overig",
     "venue": "TivoliVredenburg, Utrecht",
     "url": "https://www.tivolivredenburg.nl/agenda/20220918/game-music-17-04-2027"
+  },
+  {
+    "title": "Garth.",
+    "date": "2027-04-17",
+    "source": "visitgroningen",
+    "genre": "Muziek",
+    "city": "Groningen",
+    "province": "Groningen",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/3978194887/garth",
+    "category": "Pop en Rock"
   },
   {
     "title": "Govert de Roos - Van Hazes tot Playboy",
@@ -63905,6 +63701,14 @@
     "cats": [
       "theater"
     ]
+  },
+  {
+    "title": "Edwin Evers Band",
+    "date": "2027-04-23",
+    "source": "effenaar",
+    "genre": "overig",
+    "venue": "Effenaar, Eindhoven",
+    "url": "https://www.effenaar.nl/agenda/edwin-evers-band-classics-part2"
   },
   {
     "title": "Esther Groenenberg en Nynke de Jong De Contributie",
@@ -65573,7 +65377,7 @@
     "genre": "overig",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/1197804729/de-zoete-zusjes-3-lossen-het-op-1"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3731643651/de-zoete-zusjes-3-lossen-het-op"
   },
   {
     "title": "De musical zonder billen (4+) - Jaski & Groenteman",
@@ -68109,6 +67913,14 @@
     "url": "https://www.concertgebouw.nl/concerten/43714225-piano-nights-de-mooiste-pianomuziek-van-alle-tijden"
   },
   {
+    "title": "Spin Doctors",
+    "date": "2027-05-19",
+    "source": "melkweg",
+    "genre": "overig",
+    "venue": "Melkweg, Amsterdam",
+    "url": "https://www.melkweg.nl/nl/agenda/spin-doctors-19-05-2027/"
+  },
+  {
     "title": "Teuntje Post, Pip Lucas, Kiki Loonstra e.a. - Dolly Dots de musical",
     "date": "2027-05-19",
     "source": "lawei",
@@ -69983,7 +69795,7 @@
     "genre": "overig",
     "city": "Emmen",
     "province": "Drenthe",
-    "url": "https://www.drenthe.nl/evenementen-activiteiten/587844029/titus-fien-de-revue-4-vooruit-nog-een-keertje-dan-1"
+    "url": "https://www.drenthe.nl/evenementen-activiteiten/3120601095/titus-fien-de-revue-4-vooruit-nog-een-keertje-dan"
   },
   {
     "title": "Toneelgroep Maastricht – De Erfenis",
@@ -70536,7 +70348,7 @@
     "genre": "Muziek",
     "city": "Groningen",
     "province": "Groningen",
-    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/1765137938/man-in-the-mirror-a-tribute-to-michael-jackson",
+    "url": "https://www.visitgroningen.nl/nl/doen/uitgaan/996266446/man-in-the-mirror-a-tribute-to-michael-jackson-1",
     "category": "Muziektheater"
   },
   {
